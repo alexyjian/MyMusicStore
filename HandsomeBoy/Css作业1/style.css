@@ -10,22 +10,22 @@
 
 @font-face {
     font-family: LTCH;
-    src: url(font/LTCH.TTF);
+    src: url(CSS1/font/LTCH.TTF);
 }
 
 @font-face {
     font-family: ONYX;
-    src: url(font/ONYX.TTF);
+    src: url(CSS1/font/ONYX.TTF);
 }
 
 @font-face {
     font-family: ROCK;
-    src: url(font/ROCK.TTF);
+    src: url(CSS1/font/ROCK.TTF);
 }
 
 @font-face {
     font-family: TCCM____;
-    src: url(font/TCCM____.TTF);
+    src: url(CSS1/font/TCCM____.TTF);
 }
 
 h2 .three0 {
@@ -51,10 +51,12 @@ h2 .three1 {
 
 .two0 i {
     font-size: 25px;
+    font-family: ROCK;
 }
 
 .two1 {
     font-size: 40px;
+    font-family: ROCK;
 }
 
 .four0 {
