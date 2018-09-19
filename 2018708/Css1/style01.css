@@ -1,0 +1,6 @@
+@font-face{font-family:BOOM; src: url(font/BOOMBOX.TTF)}
+h2.a{
+    font-family: BOOM;
+    font-size: 60px;
+
+}
