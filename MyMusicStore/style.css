@@ -1,0 +1,44 @@
+@font-face{font-family:Boom;src:url(font/BOOMBOX.TTF)}
+@font-face{font-family:Fz;src:url(font/FZJZJW.TTF)}
+@font-face{font-family:Ltch;src:url(font/LTCH.TTF)}
+@font-face{font-family:QNYX;src:url(font/ONYX.TTF)}
+@font-face{font-family:Rock;src:url(font/ROCK.TTF)}
+@font-face{font-family:Tccm;src:url(font/TCCM____.TTF)}
+p .no{
+    font-family:QNYX;
+    font-size: 50px;
+}
+p .butt{
+    font-size: 45px;
+    font-family:Ltch;
+    color: rgb(76, 147,114);
+    
+}
+p .in{
+    font-style:italic;
+    font-size: 25px;
+    font-family:Rock;
+}
+p .th{
+    font-family:Rock;
+    font-size: 35px;
+}
+h2 .s{
+    font-family: Boom;
+    font-size: 60px;
+}
+h2 .c{
+    font-family: Tccm;
+    font-size: 50px;
+    color: rgb(225, 0, 90);
+}
+.qc{
+    font-size: 35px;
+}
+p .by{
+    font-size: 35px;
+    color: rgb(225, 0, 90);
+}
+p{
+    font-size: 11px;
+}
