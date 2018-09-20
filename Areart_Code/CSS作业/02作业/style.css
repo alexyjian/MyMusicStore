@@ -1,0 +1,32 @@
+hr{
+    
+    background-color: rgb(94,45,0);
+    height: 4px;
+    width: 800px;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+    color:  rgb(94,45,0);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+p{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+a:link,a:visited{
+    color:rgb(94,45,0);
+}
+a:hover{
+    color: red;
+    
+}
+strong{
+    color: red;
+}
+#str{
+    color:rgb(94,45,0); 
+}
