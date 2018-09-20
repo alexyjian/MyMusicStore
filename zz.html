@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta content=always name=referrer>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">  
+    <title>css元素hover時控制另一个元素的显示隐藏</title>  
+    <style type="text/css">
+        .container{width:400px;height:200px;border:2px solid #ff0000;}
+        .cu_toolbar{background-color:#8bb907;height:100px;width:100px;display:none;}
+        .container:hover .cu_toolbar{display:block;}
+    </style>
 </head>
 <body>
-    asdsasaasdsadasadsddda
+    <div class="container">
+        <div class="cu_toolbar">            
+        </div>
+    </div>   
 </body>
 </html>
