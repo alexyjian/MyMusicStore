@@ -3,11 +3,15 @@
     width: 800px;
     margin:0 auto;
 }
+.box h1{
+    text-align: center;
+}
 .head  p a {
     width: 180px;
     margin:10px 5px;
     display: block;
     text-align: center;
+    text-decoration: none;
 }
 a,a:link{
     color:rgb(94,45,0);
