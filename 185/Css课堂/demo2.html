@@ -5,9 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        /* 子代选择器*/
+        h1>strong{
+            color:violet;
+        }
+        /* 临近兄弟选择器*/
+        h1+h2{
+            color:turquoise;
+        }
+        /* 唯一一个元素 */
+        li:only-child{
+            color: aqua;
+        }
+        /* 第一个开头元素*/
+        li:first-child{
+            color:yellow;
+        }
+        /*最后一个元素*/
+        li:last-child{
+            color:tomato;
+        }
+        /* 正数第二个 */
+        li:nth-child(2){
+            color:tan;
+        }
+        /* 倒数第三个 */
+        li:nth-last-child(3){
+            color: blueviolet;
+        }
+        /* 奇数元素 */
+        p:nth-of-type(odd){
+            color:teal;
+        }
+        /*偶数元素 */
+        p:net-of-type(even){
+            color:skyblue;
+        }
+    </style>
 </head>
 <body>
-    <h1>那个<strong>这个</strong>没有<strong>对</strong></h1>
-    <h2>棒棒的<i><strong>感冒</strong></i>咳嗽</h2>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 </body>
 </html>
