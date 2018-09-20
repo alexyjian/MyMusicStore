@@ -1,0 +1,65 @@
+a:link,a:visited{
+    color: brown;
+    text-decoration: none;
+}
+a:hover{
+    color: aqua;
+    font-weight: bolder;
+}
+a:active{
+    color: blueviolet;
+    font-weight: bolder;
+
+}
+hr{
+    height: 2px;
+    background: rgb(223, 109, 16);
+}
+h2{
+    text-align: center;
+    
+    
+}
+.a{
+    text-align: center;
+}
+div{
+    text-align: center;
+    margin: 0 auto;
+}
+a{
+    margin-left: 20px;
+    font-size: 18px;
+}
+.one{
+    text-align: center;
+   
+}
+p::before{
+    content: url(11.png)
+}
+.men div {
+    display: none;
+}
+.men a:hover+div, .men div:hover {
+    display: block;
+}
+
+.men1 div {
+    display: none;
+}
+.men1 a:hover+div, .men div:hover {
+    display: block;
+}
+.men2 div {
+    display: none;
+}
+.men2 a:hover+div, .men div:hover {
+    display: block;
+}
+.men3 div {
+    display: none;
+}
+.men3 a:hover+div, .men div:hover {
+    display: block;
+}
