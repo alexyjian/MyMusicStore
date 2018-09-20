@@ -1,0 +1,52 @@
+/* 选择器，伪类 */
+
+.headline {
+    text-align: center;
+}
+
+.one a {
+    text-align: center;
+    margin-left: 20px;
+    color: #5E2D00;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.one {
+    text-align: center;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: #5E2D00;
+}
+footer{font-family:"黑体"; font-size: 21px; line-height: 10px;color:  #333333;}
+
+.one a:hover {
+    color: #FF0033;
+}
+
+
+.a strong{
+    color: #FF0033;
+}
+.b>font
+{
+    color:#C1A993;
+}
+.b{
+    color: #5E2D00;
+}
+.d{
+    color:#C1A993;
+}
+nav{
+    text-align: center;
+}
+footer{
+    text-align: center;
+}
+footer p:before
+{
+   content: url(Images/11.png);
+}
+
