@@ -1,0 +1,33 @@
+/* 选择器，伪类 */
+:root{
+    text-align: center;
+}
+
+hr{  
+    background-color: rgb(94,45,0);
+    height: 2px;
+    width: 60%;
+}
+a:link,:visited{
+    color:  rgb(94,45,0);
+    text-decoration: none;
+}
+p::before{
+    background: url(11.png) no-repeat;
+    content: url(11.png);
+}
+img{
+
+}
+.p1 strong{
+    color: red;
+}
+.p2{
+    color: rgb(189,167, 160);
+}
+.p2 strong{
+    color:  rgb(94,45,0);
+}
+.p4{
+    color: rgb(189,167, 160);
+}
