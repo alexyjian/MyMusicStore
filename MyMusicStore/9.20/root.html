@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>aaaa</title>
+    <style>
+        /*:root 伪类 匹配文档树的根源树*/
+    :root{
+        color:blue;
+    }
+    h2{
+        color:brown;
+    }
+    body *:not(h3){/*除了 h3 都应用*/
+        color:black;
+    }
+    /*分别为该标签的 第一个  中间一个 最后一个*/
+    li:only-child{}
+    li:first-child{}
+    li:last-child{}
+
+    li:nth-child(2)/*正数第x个应用样式*/{color: violet;}
+    li:nth-last-child(2)/*倒数第x个应用样式*/{color: sandybrown}
+     
+    
+    </style>
+
+</head>
+<body>
+    <h2>我真的好想好想好想打代码</h2>
+    <h2>我真的好想好想好想打黎涛</h2>
+    <h2>我真的好想好想好想打代码</h2>
+    <h2>我真的好想好想好想打代码</h2>
+    <h3>有点搞头</h3>
+    <UL>
+        <li>小老弟你怎么回事？</li>
+        <li>小老弟我怎么回事？</li>
+        <li>小老弟他怎么回事？</li>
+        <li>小老弟她怎么回事？</li>
+        <li>小老弟它怎么回事？</li>
+    </UL>
+</body>
+</html>
