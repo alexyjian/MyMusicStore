@@ -1,0 +1,49 @@
+/* 选择器，伪类 */
+h2.a {
+    text-align: center;
+    color: red;
+}
+
+hr {
+    height: 5px;
+    border: none;
+    border-top: 1px solid grey;
+}
+
+li {
+    list-style: none;
+    display: inline;
+    line-height: 40px;
+    padding: 30px;
+    font-family: '微软雅黑';
+    font-size: 20px;
+    color: sienna;
+
+}
+
+img{
+    margin: 0 auto;
+    }
+ p:before{
+   
+        content: url(Images/11.png);
+    
+ }
+ strong.a{
+     color: red;
+ }
+ strong.b{
+    color: sienna;
+}
+p.a{
+
+}
+p.b{
+   color: darkgray;
+}
+p.c{
+    
+}
+p.d{
+    color: darkgray;
+}
