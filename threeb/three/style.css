@@ -7,10 +7,10 @@ h2 .a{
 }
 
 
-.TitleOne  .a{
+.TitleOne   .a{
     font-family:ONYX;
     color: black;
-    font: size 48px;
+    font: size 100px;
 }
 .TitleOne  .b{
     font-family:TCM;
