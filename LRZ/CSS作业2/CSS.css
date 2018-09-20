@@ -1,0 +1,6 @@
+h2.a{
+    text-align: center;
+}
+p:before{
+    content: url(tup/11.png);
+}
