@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>静夜思</title>
+    <style>
+        /* 选择P标签中属性ID值为one开头的元素 */
+        p[id^=one]{
+            color: red;
+        }
+        /* 选择P标签中属性ID值为two结尾的元素 */
+        p[id$=two]{
+            color: forestgreen;
+        }
+        /* 选择P标签中属性ID值为包含a的元素 */
+        p[id*=a]{
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p id="daagnaeb">李白</p>
+    <p id="one">床前明月光，</p>
+    <p id="two">疑是地上霜。</p>
+    <p id="one1">举头望明月，</p>
+    <p id="two1">低头思故乡。</p>
+</body>
+</html>
