@@ -29,9 +29,7 @@ a:hover{
     justify-content: center;
     align-items: center;
 }
-.box p::after{
 
-}
 .body{
     width: 688px;
     margin: 0 auto;
