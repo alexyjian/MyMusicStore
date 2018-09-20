@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       /* 选择P标签中属性id值为one开头的元素*/
+        p[ id^=one]{
+            color: brown;
+        }
+ /* 选择P标签中属性id值为one结尾的元素*/
+         p[ id$=one]{
+            color:aqua;
+        }
+         /* 选择P标签中属性id值为包含a的元素的元素*/
+        p[ id*=a]{
+            color:blueviolet;
+        }
+
+        </style>
+</head>
+
+<body>
+       <p id="one"> 那片云</p>
+   　　<p id="11two">  充满了</p>
+     　<p id="one1">　活力与激情</p>
+       <p id="two1"> 情思涌 </p>
+       <p id="ajdna"> 灵魂的生命 </p>
+</body>
+</html>
