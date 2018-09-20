@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body *:not(h2){ /*选择器中主要用于选取某个元素之外的所有元素。*/
+            color:chartreuse;
+        }
+
+        li:only-child  /*选择器匹配属于其父元素的唯一子元素的每个元素。*/
+        {
+            color: blue;
+        }
+
+        li:first-child /*选择器用于选取属于其父元素的首个子元素的指定选择器*/
+        {
+            color:cyan;
+        }
+
+        li:last-child /*选择器匹配属于其父元素的最后一个子元素的每个元素。*/
+        {
+            color:deeppink;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>今天你努力了吗</h2>
+    <p>生活就应该不断去提高</p>
+    <p>学习使我快乐？</p>
+   
+     电影列表
+     <ul>
+     <li>前任3</li>
+     <li>最美好的青春</li>
+     <li>秘果</li>
+     </ul> 
+     动画片
+     <ul>
+            <li>熊出没</li>
+            <li>蜡笔小新</li>
+            <li>大头儿子小头爸爸</li>
+     </ul>
+</body>
+</html>
