@@ -1,13 +1,44 @@
 /* 选择器，伪类 */
+*{
+    list-style: none;
+    outline: none;
+}
+body{
+    text-align: center;
+    font-family: "微软雅黑";
+}
 h2.a {
     text-align: center;
     color: red;
 }
 
 hr {
-    height: 5px;
-    border: none;
-    border-top: 1px solid grey;
+  width: 800px;
+  background-color: #5e2d00;
+  height: 3px;
+}
+a{
+    color: #5e2d00;
+    font-size: 22px;
+    text-indent: 1em;
+    display: inline-block;
+}
+a:link,a:visited{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    color: red;
+}
+a:nth-child(1)
+{
+    text-indent: 0;
+}
+dl{
+    display: none;
+}
+:target{
+    display: block;
 }
 
 li {
@@ -24,26 +55,30 @@ li {
 img{
     margin: 0 auto;
     }
- p:before{
+ dd:before{
    
         content: url(Images/11.png);
     
  }
- strong.a{
-     color: red;
- }
- strong.b{
-    color: sienna;
+dd:nth-child(odd)
+{
+    color: #bda793;
 }
-p.a{
-
+dd
+{
+    line-height: 40px;
+    font-size: 22px;
+    color: #333;
 }
-p.b{
-   color: darkgray;
+dd:nth-child(2) em
+{
+color: red;
+font-weight: bold;
+font-style: normal;
 }
-p.c{
-    
-}
-p.d{
-    color: darkgray;
+dd:nth-child(3) em
+{
+    color: #5e2d00;
+    font-weight: bold;
+font-style: normal;
 }
