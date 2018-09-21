@@ -1,3 +1,49 @@
+*{/*删除浏览器默认样式*/
+    list-style:none;
+    outline:none;
+}
+body   
+ {
+    font-family:"微软雅黑";
+    text-align:Center;
+}
 h1 {text-align:center;}
 a{color:#83613F;}
 a{color:#83613F;}
+
+a:link,a:visited{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration:underline;
+    color:red;
+}
+dl{
+    display: none;
+}
+:target
+{
+    display: block;
+}
+ p:nth-of-type(even){
+        color:thistle;
+    } 
+p::before{
+    content: url(images/11.png);
+}
+p:nth-of-type(odd) strong
+{
+color: red;
+}
+p:nth-of-type(even) strong{
+    color: rgb(94, 45, 59);
+} 
+a:active{text-decoration:underline;}
+.head nav{
+    border-top:3px solid  rgb(94, 45, 59);
+    border-bottom: 3px  rgb(94, 45, 59);
+    padding:10px 5px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
