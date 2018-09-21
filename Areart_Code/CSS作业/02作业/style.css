@@ -1,7 +1,7 @@
 hr{
     
     background-color: rgb(94,45,0);
-    height: 4px;
+    height: 2px;
     width: 800px;
 }
 a{
@@ -29,4 +29,8 @@ strong{
 }
 #str{
     color:rgb(94,45,0); 
+}
+div{
+    height: 550px;
+    overflow: hidden;
 }
