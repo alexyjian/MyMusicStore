@@ -1,11 +1,3 @@
 /* 选择器，伪类 */
-a:link,a:visited{color: #8B4513;text-decoration: none;font-size: 15px;}
-  
-a:hover{color: red;font-weight: bolder;}
-
-a:active{color: #800000(30, 0, 139);font-weight: bolder;}
-p:nth-of-type(odd){color: #e9967a; }
-p:nth-of-type(even){color: black; }
-p>strong{color:red;}
 
 
