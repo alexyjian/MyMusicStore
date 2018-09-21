@@ -28,6 +28,8 @@ a:nth-child(1){
     text-indent: 0;
 }
 dl{
+    width: 900px;
+    margin:auto;
     display: none;
 }
 :target{
@@ -40,6 +42,8 @@ dd:nth-child(odd){
     color: #bda793;
 }
 dd{
+    text-align: left;
+    text-indent: 70px;
     line-height: 40px;
     font-size: 22px;
     color: #333;
