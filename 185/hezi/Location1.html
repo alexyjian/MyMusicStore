@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>盒子模式</title>
     <style>
         .box{
-            border: 8px solid red;
-            padding:30px;
+            width:200px;
+            height: 80px;
+            border: 15px solid red;
+            padding:30px 100px 10px;
             background-color:#ccc;
+            margin:1cm 4cm 10cm 5cm;
+        }
+        .box1{
+            width:200px;
+            height: 80px;
+            border: 8px solid blue;
+        }
+        .box2{
+            width:200px;
+            height: 80px;
+            border: 8px solid green;
+            padding: 20px;
         }
     </style>
 </head>
@@ -17,5 +31,7 @@
     <p class="box">
         手机表示html元素
     </p>
+    <p class="box1">盒子的宽度和高度</p>
+    <p class="box2">盒子的高度和宽度</p>
 </body>
 </html>
