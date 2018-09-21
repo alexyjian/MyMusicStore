@@ -4,14 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>盒子模式</title>
     <style>
             /*border 简写属性在一个声明设置所有的边框属性*/
             .box{
+                width: 200px;
+                height: 80;
                 border:10px solid red;
                 padding: 15px 36px 89px 33;/*padding 内边距*/ 
                 background-color:lightpink;
                 margin: 1cm 4cm 10cm  5cm ；/*margin 简写属性在一个声明中设置所有外边距属性*/ /*上右下左*/
+            }
+            .box1{
+                width :200px;
+                height: 80px;
+                border: 8px solid blue;
+                border-style: dashed dotted;/*border 简写属性在一个声明设置所有的边框属性*/
+            }
+            .box2{
+                width :200px;
+                height: 80px;
+                border: 8px solid greenyellow;
+                 padding: 20px;
+                 border-style: dotted dotted solid dashed;/*边框的样式*/
             }
         </style>
 </head>
@@ -20,5 +35,7 @@
                 <p class="box"> 
                   学习使我快乐
                 </p>
+                <p class="box1">盒子的高度和宽度 </p>
+                <p class="box2">盒子的高度和宽度 </p>
             </body>
 </html>
