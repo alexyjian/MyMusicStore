@@ -1,3 +1,13 @@
 /* 选择器，伪类 */
-
-
+body{font-family: "微软雅黑";text-align:center;}
+hr{width:800px;background-color:#5e2d00;height: 2px; }
+a{color: #5e2d00;font-size: 22px;text-indent: 1em;display: inline-block;}
+a:link,a:visited{text-decoration: none;}
+a:hover{text-decoration:underline;color: red;}
+a:nth-child(1){text-indent:0;}
+dl{display: none;font-size: 23px;align:center;}
+:target{display: block;}
+dd:nth-of-type(odd){color:black;}
+dd:nth-of-type(even){color:#bda793;}
+dd>strong{color: red;}
+dd>b{color:#5e2d00;}
