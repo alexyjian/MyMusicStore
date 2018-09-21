@@ -34,6 +34,12 @@ dl {
     display: block;
 }
 
+dd {
+    line-height: 40px;
+    text-align: left;
+    text-indent: 20%;
+}
+
 dd::before {
     content: url(img/11.png);
 }
@@ -43,7 +49,7 @@ dd::before {
 }
 
 #two>strong {
-    color: rgb(94,45,0); 
+    color: #5e2d00; 
 }
 
 dd:nth-of-type(even) {
