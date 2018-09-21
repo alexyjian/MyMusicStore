@@ -1,6 +1,66 @@
-h2.a{
+*{/*删除浏览器默认的样式*/
+    list-style: none;
+    outline:none;
+}
+
+body{
+    font-family: "微软雅黑";
     text-align: center;
 }
-p:before{
+
+hr{
+   width: 800px;
+   background-color: #5e2d00;
+   height: 2px;
+}
+
+a{
+    color: #5e2d00;
+    font-size: 22px;
+    text-indent: 1em;
+    display:inline-block;
+}
+a:link,a:visited{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    color:red;
+}
+a:nth-child(1){
+    text-indent: 0;
+}
+
+dl{
+    display: none;
+}
+
+:target{
+    display:block;
+}
+
+dd:before{
     content: url(tup/11.png);
+}
+
+dd:nth-child(2) a{
+    color:#DC143C;
+    font-weight: bold;
+    font-style: normal;
+}
+
+dd:nth-of-type(even)
+{
+    color:#BC8F8F;
+}
+
+dd:nth-child(3) a{
+    color:#5e2d00;
+    font-weight: bold;
+    font-style: normal;
+}
+
+dd{
+    line-height: 40px;
+    font-size: 22px;
 }
