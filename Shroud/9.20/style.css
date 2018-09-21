@@ -11,16 +11,20 @@
     margin:10px 5px;
     display: block;
     text-align: center;
-    text-decoration: none;
+    
 }
-a,a:link{
+a{
+    text-decoration: none;
     color:rgb(94,45,0);
 }
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
 a:hover{
     color:rgb(255,0,51);
     text-decoration: underline;
     font-weight: bolder;
 }
+a:active {text-decoration:underline;}
 .head p{
     border-top:3px solid rgb(94,45,0);
     border-bottom:3px solid rgb(94,45,0);
