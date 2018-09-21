@@ -1,5 +1,11 @@
 * {
+    list-style: none;
+    outline: none;
+}
+
+body {
     text-align: center;
+    font-family: "微软雅黑";
 }
 
 hr {
@@ -20,12 +26,16 @@ a:hover {
     text-decoration: underline;
 }
 
-p:nth-child(odd) {
-    color:rgb(51,51,51);
+dl {
+    display: none;
 }
 
-p:nth-child(even) {
-    color:rgb(203,167,147);
+:target {
+    display: block;
+}
+
+dd::before {
+    content: url(img/11.png);
 }
 
 #one>strong {
@@ -33,5 +43,9 @@ p:nth-child(even) {
 }
 
 #two>strong {
-    color: rgb(94,45,0);
+    color: rgb(94,45,0); 
+}
+
+dd:nth-of-type(even) {
+    color: #bda793;
 }
