@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>啊啊啊啊</title>
+<style>
+*{/*删除默认的游览器的样式*/
+    list-style: none;
+    outline: none;
+}
+body{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    margin: 13px;
+    color: rgb(94, 45, 0);
+    display:inline-block;
+}
+hr{
+   height:3px;
+   background-color:rgb(94, 45, 0);
+   width:600px;
+}
+dd:before{
+    content:url('img/11.png');
+}
+#red{color: red;}
+#zong{color: saddlebrown;}
+dd:nth-of-type(even){
+    color: grey;
+}
+img{
+    width:550px;
+}
+
+a:hover{
+    text-decoration:underline;
+    color: red;
+}
+
+dl{
+    display: none;
+}
+:target{
+    display: block;
+}
+
+
+.none{
+    display: none;
+}
+.ll{display: none;}
+
+</style>
+</head>
+<body>
+    <h3>网页设计软件列表（点击查看）</h3>
+    <hr>
+    <nav>
+        <a href="#PS">Photoshop</a>
+        <a href="#illustrator">illustrator软件</a>
+        <a href="#DW">Dreamweaver软件</a>
+        <a href="#Fw">Fireworks软件</a>
+    </nav>
+    <hr>
+    <dl id='PS'>
+        <dt>
+            <img src="img/1.jpg">
+        </dt>
+            <dd>Photoshop一款好到违反广告法的<strong id="red">超S级设计神奇</strong>!给画面来电动感吧。</dd>
+            <dd>Photoshop处理以<strong id="zong">像素构成的图像</strong>，可以有效地进行图片编辑调整工作。</dd>
+            <dd>Photoshop有很多功能，在图像、图形、文字、出版等各方面都有涉及。</dd>
+            <dd>在制作建筑效果图包括许三位场景时，常常需要在Photoshop进行调整。</dd>
+    </dl>
+    <dl id='illustrator'>
+        <dt>
+        <img src="img/2.jpg">
+        </dt>
+        <dd>Illustrator是一种应用于出版、多媒体和在线图像的<strong id="red">标志矢量插图</strong>的软件。</dd>
+        <dd>Illustrator广泛应用于<strong id="zong">印刷出版、海报书籍、</strong>专业插画、多媒体图像处理。</dd>
+        <dd>Illustrator可以为线稿提供较高的精度和控制，简单到复杂项目都能生产。</dd>
+        <dd>根据不完全统计全球大约有37%的界面设计师在使用Illustrator进行设计。</dd>
+    </dl>
+    <dl id='DW'>
+        <dt>
+            <img src="img/3.jpg">
+        </dt>   
+        <dd>Dreamweaver是第一套针对<strong id="red">专业网页设计师</strong>特别发展的网页开发工具。</dd>
+        <dd>利用它可以轻易地制作<strong id="zong">跨越平台和跨越游览器</strong>限制的充满动感的网页。</dd>
+        <dd>Dreamweaver自MX版本开始，使用了Opera的排版引擎作为网页预览。</dd>
+        <dd>Dreamweaver可以在AdobeCreativeSuite4的不同组件之间切换工作。</dd>
+    </dl>
+    <dl id='Fw'>
+        <dt>
+
+    <p>
+        <img src="img/66.jpg">
+    </p>
+    <p id='PS' class="none">
+            <img src="img/1.jpg">
+        
+            <p class="ll">Photoshop一款好到违反广告法的<strong id="red">超S级设计神奇</strong>!给画面来电动感吧。</p>
+            <p class="ll">Photoshop处理以<strong id="zong">像素构成的图像</strong>，可以有效地进行图片编辑调整工作。</p>
+            <p class="ll">Photoshop有很多功能，在图像、图形、文字、出版等各方面都有涉及。</p>
+            <p class="ll">在制作建筑效果图包括许三位场景时，常常需要在Photoshop进行调整。</p>
+    </p>
+    <p id='illustrator'class="none">
+        <img src="img/2.jpg">
+    
+        <p class="ll">Illustrator是一种应用于出版、多媒体和在线图像的<strong id="red">标志矢量插图</strong>的软件。</p>
+        <p class="ll">Illustrator广泛应用于<strong id="zong">印刷出版、海报书籍、</strong>专业插画、多媒体图像处理。</p>
+        <p class="ll">Illustrator可以为线稿提供较高的精度和控制，简单到复杂项目都能生产。</p>
+        <p class="ll">根据不完全统计全球大约有37%的界面设计师在使用Illustrator进行设计。</p>
+    </p>
+    <p id='DW' class="none">
+            <img src="img/3.jpg">
+            
+            <p class="ll">Dreamweaver是第一套针对<strong id="red">专业网页设计师</strong>特别发展的网页开发工具。</p>
+            <p class="ll">利用它可以轻易地制作<strong id="zong">跨越平台和跨越游览器</strong>限制的充满动感的网页。</p>
+            <p class="ll">Dreamweaver自MX版本开始，使用了Opera的排版引擎作为网页预览。</p>
+            <p class="ll">Dreamweaver可以在AdobeCreativeSuite4的不同组件之间切换工作。</p>
+    </p>
+    <p id='Fw'class="none">
+
+            <img src="img/4.jpg">
+        </dt>   
+        <dd>Fireworks是Adobe推出的一款<strong id="red">网页作图软件</strong>，可以加速Web设计开发。</dd>
+        <dd>Fireworks是一款创建优化<strong id="zong">Web图像</strong>和快速构建网站与Web界面的工具。</dd>
+        <dd>Fireworks可以创建和编辑矢量图像与位图图像，并导入PS和AI文件中。</dd>
+        <dd>Fireworks采用与PS类似的层图层结构来管理原型，更易组织Web爷们。</dd>
+    </dl>      
+</body>
+</html>
