@@ -8,7 +8,7 @@
     text-align: center;
 }
 hr {
-    width: 80%;
+    width: 800px;
     background-color: #5e2d00;
     height: 3px;
 }
@@ -16,6 +16,7 @@ a {
     color: #5e2d00;
     font-size: 22px;
     text-indent: 1em;
+    display: inline-block;
 }
 a:link,a:visited{
     text-decoration: none;
