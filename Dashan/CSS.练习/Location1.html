@@ -6,16 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>盒子模式</title>
     <style>
-    .box{border: 15px solid red;
-        padding: 30px;/*内边距*/
+    .box
+    {
+        width: 200px;
+        height: 80px;
+        border: 15px solid red;
+        padding: 30px 100px 10px ;/*内边距*/
         background-color: #ccc;
         margin:1cm 4cm 10cm 5cm;
+    }
+
+    .box1
+    {
+        width:200px;
+        height: 80px;
+        border: 8px solid blue;
+        border-style: dotted 
+    }
+    .box2
+    {
+        width:200px;
+        height:80px;
+        border:8px solid green;
+        padding:20px;
+        border-style: dashed double solid dotted;
     }
     </style>
 </head>
 <body>
     <p class="box">
         手机表示html元素。安全保障！
+    </p>
+    <p class="box1">
+        盒子的宽度和高度。
+    </p>
+    <p class="box2">
+        盒子的宽度和高度。
     </p>
 </body>
 </html>
