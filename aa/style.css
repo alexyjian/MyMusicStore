@@ -1,38 +1,59 @@
-@font-face{font-family:BOOM;src:url(font/BOOMBOX.TTF)}
-@font-face{font-family: ONYX; src:url(font/ONYX.TTF)}
-@font-face{font-family: ROCK; src:url(font/ROCK.TTF)}
-@font-face{font-family: LTCH; src:url(font/LTCH.TTF)}
-h2 .a{
-    font-family: BOOM;
-    font-size: 80px;
+*{
+    list-style: none;
+    outline: none;
 }
-h2 .b{
-    font-family: BOOM;
-    font-size: 60px;
-    color:deeppink;
+body{
+font-family: "微软雅黑";
+text-align: center;
 }
-.TitleOne .a{
-font-family: ONYX;
-color:black;
-font-size: 48px;
+
+hr{
+    width:800px;
+    color:#5e2d00;
+    height:3px;
 }
-.TitleOne .b{
-    font-family: TCM;
-    color:#4c9372;
-    font-size: 48px;
+a{
+    color:#5e2d00;
+    font-size: 22px;
+    text-indent: 1em;
+    display: inline-block;
 }
-.date .b{
-    font-family: ROCK;
-    font-size: 40px;
+a:link,a:visited{
+    text-decoration: none;
 }
-.date .a{
-    font-size: 23px;
+a:hover{
+    text-decoration: underline;
+    color: red;
 }
-.day{
-    font-family: "微软雅黑";
-    font-size: 45px;
+a:nth-child(1){
+    text-indent: 0;
 }
-.day .b{
-    color:deeppink;
-    font-size: 45px;
+dl{
+    display: none;
+}
+:target{
+    display: block;
+}
+
+dd::before{
+    content: url(Images/11.png);
+}
+
+dd:nth-child(odd){
+    color: #bda793
+}
+dd{
+    line-height: 40px;
+    font-size: 22px;
+    color: #333;
+}
+dd:nth-child(2) em{
+    color: red;
+    font-weight: bold;
+    font-style: normal;
+}
+dd:nth-child(3) em{
+    color:#5e2d00;
+    font-weight: bold;
+    font-style: normal;
 }
