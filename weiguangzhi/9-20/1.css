@@ -21,6 +21,7 @@ ul,li{
     left: 0px;
     display: none;
 }
-.nav-btn:hover .nav-box{
+.nav-btn:click .nav-box
+{
     display: block;
 }
