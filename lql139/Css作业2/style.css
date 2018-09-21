@@ -6,18 +6,16 @@
 hr{  
     background-color: rgb(94,45,0);
     height: 2px;
-    width: 60%;
+    width: 70%;
 }
 a:link,:visited{
     color:  rgb(94,45,0);
     text-decoration: none;
 }
-p::before{
+
+dd::before{
     background: url(11.png) no-repeat;
     content: url(11.png);
-}
-img{
-
 }
 .p1 strong{
     color: red;
@@ -31,3 +29,17 @@ img{
 .p4{
     color: rgb(189,167, 160);
 }
+:target{
+    display: block;
+}
+dl{
+    display: none;
+}
+a:hover{ 
+    color: red;
+ }
+ dd{
+     margin: 5px 0 0 0px;
+ }
+
+
