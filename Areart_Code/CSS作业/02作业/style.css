@@ -1,8 +1,10 @@
-hr{
-    
+hr{    
     background-color: rgb(94,45,0);
     height: 2px;
     width: 800px;
+}
+body{
+    text-align: center;
 }
 a{
     text-decoration: none;
@@ -21,8 +23,8 @@ a:link,a:visited{
     color:rgb(94,45,0);
 }
 a:hover{
-    color: red;
-    
+    color: red;  
+    text-decoration: underline;  
 }
 strong{
     color: red;
@@ -31,6 +33,9 @@ strong{
     color:rgb(94,45,0); 
 }
 div{
-    height: 550px;
+    height: 500px;
     overflow: hidden;
+}
+dd:nth-of-type(even){
+    color: rgb(158, 143, 129)
 }
