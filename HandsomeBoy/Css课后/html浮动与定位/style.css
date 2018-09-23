@@ -1,0 +1,46 @@
+#header {
+    display: block;
+    width: 1200px;
+    height: 0px;
+    margin: 0 auto;
+    position: relative;
+}
+/*————logoBar————*/
+.logoBar {
+    width: 380px;
+    height: 130px;
+    background-color: #103A83;
+    text-align: center;
+    display: table-cell;
+    opacity: 0.9;
+    float: left;
+}
+
+
+.logoBar a img {
+    position: absolute;
+    left: 27px;
+    top: 18px;
+
+}
+
+/*————logoBar————*/
+.toplinks{
+ 
+   list-style-type: none;
+}
+.toplinks li{
+    float: left;
+    display: inline-block;
+    text-indent: 1em;
+    line-height: 50px;
+    background-color: #7EA3C5;
+    opacity: 0.6;
+}
+
+/*————nav————*/
+.nav{
+   clear: both;
+ 
+}
+
