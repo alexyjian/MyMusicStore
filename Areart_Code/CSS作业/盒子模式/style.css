@@ -1,0 +1,95 @@
+*{
+ 
+}
+ul{    
+   width: 300px;
+   padding:0;
+   margin: 0;
+}
+li{
+    background: rgb(105, 96, 96);
+    border-top-style:solid;
+    border-top-color: #ffffff;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    list-style: none;
+    padding:0;
+    margin: 0;
+}
+.top{
+    width: 300px;
+    height: 220px;
+    background-color: #ffffff;
+    padding:0;
+    margin: 0;
+}
+.bg{
+    margin: 0 auto;
+    width: 300px;
+    border-radius: 10%;
+    padding:0;
+    margin: 0;    
+    overflow: hidden;
+}
+img{
+    margin-right: 10px;
+    margin-left: -20px;
+    padding:0;
+    margin: 0;
+}
+#yinyue{
+   float:top;
+   margin-left: 20px;
+   
+}
+#wenzi{
+    float: top;
+    margin-left: 10px;
+    
+}
+.level_1{
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+    position: relative;
+    top: 150rpx;
+    border-radius: 50%;
+    padding: 1.5%;
+    width: 50%;
+    height: 50%;
+  }  
+  .level_2{
+    width: 50%;
+    height: 50%;
+    background-color: #262628;
+    border-radius: 50%;
+    padding: 1.5%;
+    background: linear-gradient(#101012, #272729, #101012);
+  }
+  
+  .level_3{
+    width:50%;
+    height:50%;
+    border:1px solid #131315;
+    border-radius:50%;
+    
+    padding:1%;
+  }
+  
+  .level_4{
+    height: 92%;
+    width: 50%;
+    border-radius: 50%;
+    border: 5px solid #0b0708;
+  }
+  
+  .level_5{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+  }
+  ww{padding:0px 8px;border-radius:50%;
+}
+  
