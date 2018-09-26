@@ -5,17 +5,31 @@
     background-image: linear-gradient(#ffffff 50%,#504d59 80%);
     background: black;  
     border-radius: 50%;
-    padding: 50px 0 0 30px;
-    padding-top: 20px; /*上边距*/
+    padding: 30px 0 0 20px;
+    padding-top: 60px; /*上边距*/
     box-sizing: border-box;  /*锁定盒子的大小*/
 }
 li:before{
     content:url(images/yinfu.png);
 }
-   .top{
-    padding: 20px 10px 10px 15px;
+
+.top{
+    width: 300px;
+    height: 300px;   
+    padding: 40px 15px 15px 40px;
     background: white;
-    padding-top: 25px;
+    padding-top:20px;
     margin: 0 auto;
     box-sizing: border-box;
+    border-radius: 20px;
+    
 } 
+.li{
+    width: 100px;
+    height: 100px;
+    padding: 0px 0px 0px 0px;
+    background: white;
+    padding-top:30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
