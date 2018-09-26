@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<title>音乐排行榜</title>
+<!-- <link rel="stylesheet" type="text/css" href="style05.css"> -->
+<style type="text/css">
+/*重置浏览器的默认样式*/
+*{
+	margin:0;
+	padding: 0;
+	list-style: none;
+	outline: none;
+}
+/*整体控制歌曲排行版模块*/
+.bg{
+	width:600px; 
+	height:550px; 
+	background-image:repeating-radial-gradient(circle at 50% 50%,#ff0080,#000 1%);
+	margin:50px auto; 
+	padding:40px;  
+	border-radius:50%;
+	padding-top:50px;
+	border:10px solid #ccc;
+	}
+/*歌曲排名部分*/	
+ul{
+	width:372px; 
+	height:530px; 
+	background:#fff; 
+	border-radius:30px; 
+	box-shadow:15px 15px 12px #000; 
+	margin:0 auto;}
+li{
+	width:372px; 
+	height:55px; 
+	background:#504d58 url(images/yinfu.png) no-repeat 70px 20px; 
+	margin-bottom:2px;
+	font-size:18px; 
+	color:#c7d6c7; 
+	line-height:55px; 
+	text-align:center; 
+	font-family:"微软雅黑";
+	}
+/*需要单独控制的列表项*/		
+ul .tp{
+	width:372px; 
+	height:247px;
+	background:#008000; 
+	background-image:url(images/yinyue.jpg),url(images/wenzi.jpg);
+	background-repeat:no-repeat;
+	background-position:87px 16px,99px 192px;
+	border-radius:30px 30px 0 0;
+	}
+ul .yj{border-radius:0 0 30px 30px;}
+</style>
+</head>
+<body>
+<div class="bg">
+	<ul>
+    	<li class="tp"></li>
+        <li>雪国远方</li>
+        <li>红蜻蜓</li>
+        <li>蓝色降落伞</li>
+        <li>你看你看月亮的脸</li>
+        <li class="yj">再活五百年</li>
+    </ul>
+</div>
+</body>
+</html>
