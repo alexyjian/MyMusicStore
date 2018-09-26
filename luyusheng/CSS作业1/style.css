@@ -9,14 +9,13 @@
 @font-face{font-family: ROCK;src: url(font/ROCK.TTF)}
 @font-face{font-family: LTCH;src: url(font/LTCH.TTF)}
 @font-face{font-family: jianzhi;src: url(font/FZJZJW.TTF)}
-
 h2 .a{
     font-family: BOOM;
     font-size: 80px;
 }
 h2 .b{
       font-family: LTCH;
-      color:#e1005a;
+      color:#D52B6F;
       font-size: 50px;
 }
 .TitleOne .a{
@@ -34,7 +33,6 @@ h2 .b{
     font-family: ROCK;
     font-size: 24px;
     font-weight: bold;
-    font-style: oblique;
     color: #333;
 }
 
@@ -46,20 +44,20 @@ h2 .b{
 }
 
 .Titlethree {
-    font-family: "微软雅黑";
-    font-size: 36px;
+     font-family: "微软雅黑";
+     font-size: 36px;
 }
 
 .Titlethree strong{
-    color: #e1005a;
+      color: #e1005a;
 }
 
 .Titlefour {
-    width: 500px;
-    font-family: "微软雅黑";
-    font-size:14px;
-    color:#747474;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+        width: 500px;
+        font-family: "微软雅黑";
+        font-size: 14px;
+        color: #747474;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 }
