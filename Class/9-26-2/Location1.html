@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音乐排行榜</title>
+    <style>
+    .div1,.div2,.list {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .div1 {
+        background-color: rgb(204,204,204);
+        height: 575px;
+        width: 575px;
+        border-radius: 50%;
+    }
+
+    .div2 {
+        background-color: black;
+        height: 550px;
+        width: 550px;
+        border-radius: 50%;
+    }
+
+    .list {
+        height: 450px;
+        width: 300px;
+        margin: 0px auto;
+        border-radius: 20px;
+        text-align: center;
+        overflow: hidden;
+        background-color: #fff;
+        margin-top: 50px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0px;
+    }
+
+    li {
+        background-color: rgb(80,77,88);
+        margin-top: 1px;
+        height: 44px;
+        line-height: 44px;
+        color: rgb(214,214,214);
+    }
+    
+    li::before {
+        content: url(images/yinfu.png);
+        margin-right: 20px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="div1" >
+        <div class="div2" >
+            <div class="list" >
+                <img src="images/yinyue.jpg" /><br />
+                <img src="images/wenzi.jpg" />
+                <ul>
+                    <li>vnessa—constance</li>
+                    <li>dogffedrd—seeirtit</li>
+                    <li>dsieirif—constance</li>
+                    <li>wytuu—qeyounted</li>
+                    <li>qurested—conoted</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
