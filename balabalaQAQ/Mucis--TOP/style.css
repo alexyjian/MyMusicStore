@@ -1,0 +1,46 @@
+body{
+    margin: 0 auto;
+    text-align: center;
+}
+.bg{
+    width: 700px;
+    height: 700px;
+    border: 10px solid #ccc;
+    background: black;
+    border-radius: 50%;
+    margin: auto;
+    background:repeating-radial-gradient(circle at 50% 50%  ,#333,#000 1% )
+}
+.box{
+    box-shadow: 15px 15px 12px #000;
+    margin: auto;
+    height: 530px;
+    width: 400px;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    margin-top:70px;
+ }
+.top{  
+    height:200px;
+    width: 400px;
+    padding-top:25px ;
+    padding-bottom: 25px;
+}
+li:before{
+    content: url('img/yinfu.png');
+    padding-right: 20px; 
+}
+li{
+    background-color: gray;
+    height: 50px;
+    line-height: 50px;
+    width: 400px;
+    margin-top: 4px ;
+    list-style: none;
+    font-size: 18px;
+}
+ul{ 
+    padding: 0px;
+}
