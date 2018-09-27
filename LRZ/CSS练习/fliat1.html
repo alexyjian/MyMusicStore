@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素的浮动</title>
+    <style>
+    .main{
+        background-color: #ccc;
+        border: 1px dashed #999
+    }
+
+     .div1,
+     .div2,
+     .div3 {
+        height: 50px;
+        line-height: 50px;
+        background: yellow;
+        border: 1px solid red;
+        margin: 15px;
+        padding: 0px 10px;
+        float: left;
+    }
+
+    .div_clear{
+        clear: both;
+    }
+
+    .div_out{
+        height: 50px;
+        line-height: 50px;
+        background: pink;
+        border: 1px solid black;
+        margin: 15px;
+        padding: 0px 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="mian">
+        <div class="div1">
+            1111
+        </div>
+        <div class="div2">
+            2222
+        </div>
+        <div class="div3">
+            3333
+        </div> 
+        <div class="div3">
+                3333
+        </div>
+        <div class="div3">
+                    3333
+        </div>
+    </div>
+    <div class="div_clear">
+    <p>啊哈哈哈哈哈哈哈啊哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+    <div class="div_out">浮动外的盒子～</div>
+    </div>
+</body>
+</html>
