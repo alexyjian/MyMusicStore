@@ -22,10 +22,7 @@ li {
     margin: auto;
     width: 580px;
     height: 580px;
-    background-image: repeating-radial-gradient( #121212, #2e2e2e 2%,  #121212 2%);
-    background-color: #121212;
-   
-
+    background-image: repeating-radial-gradient( #121212, #2e2e2e 1%,  #121212 1%);
 }
 
 .box .main .content img {
