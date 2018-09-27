@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用after清除浮动</title>
+    <style>
+            .mains2
+            {
+              background: rgb(216, 212, 224);
+              border: 1px dashed #999;
+              color:black;
+            }
+           .mains2:after
+           {
+               display: block;
+               clear: both;
+               content: "";/*空*/
+           }
+
+            .div1,div2,div3
+            { 
+                height: 50px;
+                line-height: 50xp;
+                background: rgb(117, 190, 187);
+                border: 1px solid rgb(128, 191, 207);
+                margin: 15px;
+                padding: 0px 10px;
+                float: left;/*向左浮动*/
+            }
+            </style>
+</head>
+<body>
+        <div class="mains2">
+                <div class="div1">香梨</div>
+                <div class="div1">苹果</div>
+                <div class="div1">荔枝</div>
+                <div class="div1">香梨</div>
+                <div class="div1">苹果</div>
+                <div class="div1">荔枝</div>
+                <div class="div1">香梨</div>
+                <div class="div1">苹果</div>
+                <p>盒子内</p>
+        </div>
+        <p>盒子外  柳州职业技术学院是柳州市人民政府举办的一所全日制普通高等学校，坐落在中国西南工业重镇广西柳州市。学校始建于1972年，1998年五校(广西冶金工业职工大学、柳州市职工大学、柳州工业职工大学、柳州教育学院、柳州市机电职工大学)合并升格为柳州职业技术学院，校名沿用至今。</p>
+</body>
+</html>
