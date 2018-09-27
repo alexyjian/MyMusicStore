@@ -3,12 +3,22 @@
 * {
     margin: 0;
     padding: 0;
+    /* 列表没有点点 */
+    list-style: none;
 }
 
 
 /* 唱片样式 */
 
-.bg {}
+.bg {
+    width: 600px;
+    height: 550px;
+    margin: 50px auto;
+    border-radius: 50%;
+    border: 10px solid #ccc;
+    padding: 40px;
+    padding-top: 50px;
+}
 
 
 /* 排名列表样式 */
