@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>清除浮动</title>
+    <style>
+        .fater {
+            background: #ccc;
+            border: 1px dashed;
+            /*清除浮动，div.fater外的元素不再浮动*/
+            overflow: hidden;
+        }
+
+        .div1,
+        .div2,
+        .div3 {
+            height: 50px;
+            line-height: 50px;
+            background: yellow;
+            border: 1px solid red;
+            margin: 15px;
+            padding: 0px 10px;
+            float: left;
+        }
+
+        .div_clear {
+            clear: both;
+        }
+
+        .div_out {
+            background: green;
+            height: 50px;
+            line-height: 50px;
+
+            border: 1px solid red;
+            margin: 15px;
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fater">
+        <div class="div1">1</div>
+        <div class="div2">2</div>
+        <div class="div3">3</div>
+        <p>盒子内的文字盒子内的文字盒子内的文字盒子内的文字盒子内的文字盒子内的文字盒子内的文字盒子内的文字盒子内的文字</p>
+    <div>
+        <p>盒子外的文字盒子外的文字盒子外的文字盒子外的文字盒子外的文字盒子外的文字盒子外的文字盒子外的文字盒子外的文字盒子外的文字盒子外的文字</p>
+</body>
+
+</html>
