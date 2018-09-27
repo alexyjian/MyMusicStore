@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>音乐排行榜</title>
     <style>
-    .div1,.list {
+    .div1,ul {
         margin: auto;
         position: absolute;
         top: 0;
@@ -16,57 +16,54 @@
     }
 
     .div1 {
-        background-color: black;
         height: 550px;
         width: 550px;
         border: 15px solid rgb(204,204,204);
         border-radius: 50%; 
-    }
-
-    .list {
-        height: 450px;
-        width: 300px;
-        margin: 0px auto;
-        border-radius: 20px;
-        text-align: center;
-        overflow: hidden;
-        background-color: #fff;
-        margin-top: 50px;
+        background: repeating-radial-gradient(#333 ,black 1%);
     }
 
     ul {
         list-style: none;
         padding: 0px;
+        height: 450px;
+        width: 300px;
+        border-radius: 20px;
+        text-align: center;
+        background-color: #fff;
+        margin-top: 50px;
     }
 
-    li {
-        background-color: rgb(80,77,88);
+    ul li {
         margin-top: 1px;
         height: 44px;
+        width: 300px;
         line-height: 44px;
         color: rgb(214,214,214);
+        background: rgb(80,77,88) url(images/yinfu.png) no-repeat 40px 16px;
     }
-    
-    li::before {
-        content: url(images/yinfu.png);
-        margin-right: 20px;
+
+    .top {
+        margin-top: 20px;
+    }
+
+    .bottom {
+        border-radius: 0px 0px 20px 20px;
     }
 
     </style>
 </head>
 <body>
     <div class="div1" >
-        <div class="list" >
+        <ul>
             <img src="images/yinyue.jpg" /><br />
             <img src="images/wenzi.jpg" />
-            <ul>
-                <li>vnessa—constance</li>
-                <li>dogffedrd—seeirtit</li>
-                <li>dsieirif—constance</li>
-                <li>wytuu—qeyounted</li>
-                <li>qurested—conoted</li>
-            </ul>
-        </div>
+            <li  class="top">vnessa—constance</li>
+            <li>dogffedrd—seeirtit</li>
+            <li>dsieirif—constance</li>
+            <li>wytuu—qeyounted</li>
+            <li class="bottom" >qurested—conoted</li>
+        </ul>
     </div>
 </body>
 </html>
