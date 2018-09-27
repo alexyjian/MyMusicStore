@@ -40,9 +40,3 @@ a:active
 .one p{
     text-align: left;
 }
-p::after
-    {
-        
-
-    content: url(' src="C:\Users\Administrator\Desktop\9-19\MyMusicStore\Practise\Css作业2\1.jpg")
-    }
