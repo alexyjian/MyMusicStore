@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素的浮动</title>
+    <style>
+     .main{
+         background:#ccc;
+         border: 1px dashed #999
+     }
+     .main:after{
+         display: block;
+         clear: both;
+         content: "";
+     }
+
+     .main{
+         margin: 10px auto;
+         widows: 300px;
+         height: 300px;
+         padding: 10px;
+         background: #ccc;
+         border: 1px solid #000
+     }
+
+     .div1,.div2,.div3{
+         height: 50px;
+         line-height: 50px;
+         background: yellow;
+         border: 1px solid red;
+         margin: 15px;
+         padding: 0px 10px;
+         /* 定义div1 div2 div3 左浮动 */
+         float: left;
+     }
+    </style>
+</head>
+<body>
+    <div class="main">
+            <div class="div1">
+                div1
+            </div>
+            <div class="div2">
+                div2
+            </div>
+            <div class="div3">
+                div3
+            </div>
+
+        </div>
+        <p>外文字啦啦啦啦啦啦啦外文字啦啦啦啦啦啦啦外文字啦啦啦啦啦啦啦外文字啦啦啦啦啦啦啦外文字啦啦啦啦啦啦啦外文字啦啦啦啦啦啦啦外文字啦啦啦啦啦啦啦外文字啦啦啦啦啦啦啦外文字啦啦啦啦啦啦啦</p> 
+</body>
+</html>
