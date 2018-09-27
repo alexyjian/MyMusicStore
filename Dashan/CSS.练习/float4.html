@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位</title>
+    <style>
+    * /*全局，重置浏览器样式*/
+    {
+       margin: 0px;
+       padding: 0px;
+       font-size: 18px;
+    }
+    .father
+    {
+        margin: 10px auto;
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        background: gainsboro;
+        border: 1px solid black;
+    }
+
+     .child1,
+     .child2,
+     .child3
+            { 
+                width: 100px;
+                height: 50px;
+                line-height: 50xp;
+                background: rgb(117, 190, 187);
+                border: 1px solid rgb(128, 191, 207);
+                margin: 10px 0px;
+                text-align: center;
+               
+            }
+    .child2        
+    {
+       
+        position: relative; /*相对定位*/
+        left: 150px;
+        top: 100px;
+    }
+    .child3        
+    {
+        
+        position: absolute;/*绝对定位*/
+        left: 150px;
+        top: 200px;
+    }
+
+            
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="child1">one1</div>
+        <div class="child2">one2</div>
+        <div class="child3">one3</div>
+    </div>
+</body>
+</html>
