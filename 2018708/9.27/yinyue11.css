@@ -1,3 +1,4 @@
+ /* 全局样式，重置浏览器的样式*/
 *{
     margin:0;
     padding: 0;
@@ -8,7 +9,7 @@
 .bg{
     width:600px; 
     height:550px; 
-    background-image:repeating-radial-gradient(circle at 50% 50%,#000,#000 1%);
+    background-image:repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);
     margin:50px auto; 
     padding:40px;  
     border-radius:50%;
