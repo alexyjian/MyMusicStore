@@ -22,8 +22,10 @@ li {
     margin: auto;
     width: 580px;
     height: 580px;
-    border: 1px solid #aaa;
+    background-image: repeating-radial-gradient( #121212, #2e2e2e 2%,  #121212 2%);
     background-color: #121212;
+   
+
 }
 
 .box .main .content img {
@@ -53,7 +55,7 @@ li {
 .box .main .content ul {
     width: 100%;
     height: 100%;
-    
+
 }
 
 .box .main .content ul li {
@@ -63,10 +65,11 @@ li {
     line-height: 46px;
     margin-top: 2px;
     background-color: #504d59;
-    color:#d6d4ce;
+    color: #d6d4ce;
     text-align: center;
 }
-.box .main .content ul li::before{
+
+.box .main .content ul li::before {
     position: absolute;
     content: url(images/yinfu.png);
     margin-left: -30px;
