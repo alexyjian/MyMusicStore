@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+body{
+    font-size: 12px;
+    font-family: "宋体";
+
+}
+
+a{
+    text-decoration: none;
+    color: #666
+}
+em{
+    font-size: normal;
+}
+/*end全局*/
+/*第一个大盒子*/
+.box1{}
+
+.name{}
+
+.pic{}
+
+ul{}
+
+ul li{}
+
+ul li:first-child{}
+
+ul li a{}
+
+/*end第一个大盒子*/
+
+/*第二个大盒子*/
+.box2{}
+
+.tit{}
+
+.tit a{}
+
+.tit a span{}
+
+.price{}
+
+.price span{}
