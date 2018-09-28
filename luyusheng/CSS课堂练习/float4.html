@@ -23,7 +23,8 @@
 
         .child1,
         .child2,
-        .child3{
+        .child3,
+        .child4,.child5{
             width: 100px;
             height: 50px;
             line-height: 50px;
@@ -45,6 +46,18 @@
             left: 150px;
             top: 100px;
         }
+
+        .child4{
+            position:static;
+            left: 150px;
+            top: 100px;
+        }
+
+        .child5{
+            position: fixed;
+            left: 30px;
+            top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +67,10 @@
             <div class="child2">div2</div>
        
             <div class="child3">div3</div>
+
+            <div class="child4">div4</div>
+       
+            <div class="child5">div5</div>
          </div>
    </body>
 </html>
