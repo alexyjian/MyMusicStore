@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+}
+
+div{
+    width: 580px;
+    height: 200px;
+    margin: 50px auto;
+    position: relative;
+}
+
+a{
+    float: left;
+    width: 25px;
+    height: 100px;
+    line-height: 100px; /* 内行高*/
+    background: #333;
+    opacity: 0.7;  /*透明度 */
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* 默认为隐藏 */
+}
+
+/* :hover 鼠标移到链接上 */
+div:hover a{  
+    /* 悬停显示 */
+    display: block;
+}
+
+.left{
+    position: absolute;
+    left: -12px;
+    top: 50px;
+}
+.right{
+    position: absolute;
+    right: -12px;
+    top: 50px;
+}
+
+ul{
+    width: 120px;
+    height: 20px;
+    background: #333;
+    opacity: 0.5;
+    border-radius: 8px;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    text-align: center;
+}
+
+li{
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    display:inline-block;
+    border-radius: 50%;
+
+}
+.playing{
+    width: 12px;
+    background: darkturquoise;
+    border-radius: 5px;
+}
