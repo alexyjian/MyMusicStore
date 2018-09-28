@@ -22,7 +22,9 @@
     }
     .child1,
     .child2,
-    .child3{
+    .child3,
+    .child4,
+    .child5{
         width: 100px;
         height: 50px;
         line-height: 50px;
@@ -31,15 +33,30 @@
         margin: 10px 0px;
         text-align: center;
     }
+    .child1{
+        position: fixed;
+        top: 30px;
+        left: 5px;
+    }
     .child2{
-        position: relative;
+        position: relative;/*绝对定位*/
         left: 150px;
         top: 100px;
     }
     .child3{
-        position: absolute;
+        position: absolute;/*相对定位*/
         left: 150px;
         top: 100px;
+    }
+    .child4{
+        position: static;
+        left: 150px;
+        top: 100px;
+    }
+    .child5{
+        position: fixed;/*固定定位*/
+        top: 30px;
+        right: 5px;
     }
     </style>
 </head>
@@ -48,6 +65,8 @@
             <div class="child1">1</div>
             <div class="child2">2</div>
             <div class="child3">3</div>
+            <div class="child4">4</div>
+            <div class="child5">5</div>
           
         <div>
            
