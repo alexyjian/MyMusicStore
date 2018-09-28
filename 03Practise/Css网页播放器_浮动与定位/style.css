@@ -12,20 +12,31 @@ a{
 }
 
 div{
+<<<<<<< HEAD
     width: 500px;
     height: 200px;
+=======
+    width:580px;
+    height:200px;
+>>>>>>> 2c07091575f2dea238dbf0ac1aefc913a3253f05
     margin: 50px auto;
     position: relative;
 }
 
 a{
     float: left;
+<<<<<<< HEAD
     width: 25px;
     height: 100px;
+=======
+    width:25px;
+    height:100px;
+>>>>>>> 2c07091575f2dea238dbf0ac1aefc913a3253f05
     line-height: 100px;
     background: #333;
     opacity: 0.7;
     text-align: center;
+<<<<<<< HEAD
     border-radius: 5px;
     cursor: pointer;
     /* 默认为隐藏 */
@@ -33,29 +44,57 @@ a{
 }
 /* 悬停显示 */
 div:hover a{
+=======
+    border-radius:5px;
+    cursor: pointer;
+    /* 默认为隐藏 */
+    display: none;  
+}
+
+div:hover a{
+    /* 悬停显示 */
+>>>>>>> 2c07091575f2dea238dbf0ac1aefc913a3253f05
     display: block;
 }
 
 .left{
     position: absolute;
+<<<<<<< HEAD
     left: -12px;
     top: 50px;
+=======
+    left:-12px;
+    top:50px;
+>>>>>>> 2c07091575f2dea238dbf0ac1aefc913a3253f05
 }
 
 .right{
     position: absolute;
+<<<<<<< HEAD
     right: -93px;
     top: 50px;
 }
 
 ul{
     width: 110px;
+=======
+    right:-12px;
+    top:50px;
+}
+
+ul{
+    width:110px;
+>>>>>>> 2c07091575f2dea238dbf0ac1aefc913a3253f05
     height: 20px;
     background: #333;
     opacity: 0.5;
     border-radius: 8px;
     position: absolute;
+<<<<<<< HEAD
     right: 30px;
+=======
+    right:30px;
+>>>>>>> 2c07091575f2dea238dbf0ac1aefc913a3253f05
     bottom: 20px;
     text-align: center;
 }
@@ -69,7 +108,13 @@ li{
 }
 
 .playing{
+<<<<<<< HEAD
 width: 12px;
 background: darkcyan;
 border-radius: 5px;
+=======
+    width: 12px;
+    background: darkcyan;
+    border-radius: 5px;
+>>>>>>> 2c07091575f2dea238dbf0ac1aefc913a3253f05
 }
