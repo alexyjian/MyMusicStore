@@ -19,6 +19,7 @@ a {
 
 em {
     font-style: normal;
+    font-weight: bold;
 }
 
 .tuan{
@@ -54,7 +55,7 @@ ul {
     width: 120px;
     height: 20px;
     position: absolute;
-    right:-70px;
+    right:-85px;
     bottom: 10px;
 }
 
@@ -82,22 +83,55 @@ ul li a {
 
 /* 第二个大盒子 */
 
-.box02 {}
+.box02 {
+    height: 90px;
+    margin-top: 15px;
+}
 
-.tit {}
+.tit {
+    height: 50px;
+    line-height: 20px;
+    font-size: 15px;
+}
 
-.tit a {}
+.tit a {
+    color:#000
+}
 
-.tit a span {}
+.tit a span 
+{
+    color:#000000;
+    font-weight: bold;
+}
 
-.price {}
+.price {
+    width: 200px;
+    height: 30px;
+    float: left;
+}
 
-.price span {}
+.price span {
+    font-size: 24px;
+    color: rgb(255, 145, 0)
+}
 
 /* 第二个大盒子下面 */
 
-.btn {}
+.btn {
+    width: 90px;
+    height: 35px;
+    background: orange;
+    border: 1px solid rgb(255, 145, 0);
+    border-radius:5px;
+    float:right;
+}
 
-.btn strong {}
+.btn strong {
+    font-size: 18px;
+    line-height: 35px;
+    color:white;
+    display: block;
+    text-align: center;
+}
 
 /* end第二个大盒子 */
