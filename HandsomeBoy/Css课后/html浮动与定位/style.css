@@ -1,0 +1,78 @@
+#header {
+    display: block;
+    margin: 0 auto;
+    width: 1200px;
+    height: 0px;
+    position: relative;
+}
+
+
+/*————logoBar————*/
+
+.logoBar {
+    width: 380px;
+    height: 130px;
+    background-color: #103A83;
+    text-align: center;
+    opacity: 0.9;
+    float: left;
+}
+
+.logoBar a img {
+    position: absolute;
+    left: 27px;
+    top: 18px;
+}
+
+
+/*————logoBar————*/
+
+.toplinks {
+    background-color: #7EA3C5;
+    list-style-type: none;
+    display: block;
+}
+
+.toplinks li {
+    display: inline-block;
+    text-indent: 1em;
+    line-height: 50px;
+    opacity: 0.6;
+}
+
+
+/*————nav————*/
+
+.nav ul {
+    width: 820px;
+    height: 80px;
+    float: right;
+    _display: inline;
+}
+
+.nav ul li {
+    float: left;
+    width: 102px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    background: url(../img/icons.png) 73px -66px no-repeat;
+}
+
+.nav h3 {
+    display: block;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    text-indent: 1em;
+}
+
+.nav {
+    width: 70%;
+    background: #395FB4;
+    height: 100px;
+    position: absolute;
+}
