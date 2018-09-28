@@ -8,11 +8,13 @@ a {
     text-decoration: none;
 
 }
+
 .box01{
     position: relative;
     height:220px;
     margin-bottom: 6px;
 }
+
 .box01 a {
     color: #666;
 }
@@ -34,6 +36,7 @@ a {
     position: absolute;
     left: 82px;
 }
+
 .box01 ul {
     position: absolute;
     width: 136px;
@@ -55,13 +58,16 @@ a {
 .box01 ul li:first-child {
     background-color: #fefc00;
 }
+
 .box02{
     position: relative;
     font-size: 14px;
 }
+
 .box02 a{
     color: #000;
 }
+
 .box02 .btn{
     position: absolute;
     width: 90px;
@@ -76,16 +82,20 @@ a {
     right: 0px;
     bottom: -8px;
 }
+
 .box02 .tit{
     margin-bottom: 6px;
 }
+
 .box02 .tit span{
     font-weight: bold;
 }
+
 .box02 .price span{
     font-size: 20px;
     color: #fe8e3e;
 }
+
 .tuan .box02 .price em{
     font-weight: bold;
     font-size: 10px;
