@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>清除浮动</title>
+    <style>
+        .father {
+            background: #ccc;
+            border: 1px dashed #999;
+            /* 清除浮动，div.father外的元素不再浮动 */
+            overflow: hidden;
+        }
+
+        .div1,
+        .div2,
+        .div3 {
+            height: 50px;
+            line-height: 50px;
+            background: yellow;
+            border: 1px solid red;
+            margin: 15px;
+            padding: 0px 10px;
+            /* 定义div1 div2 div3左浮动 */
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="div1">
+            div1
+        </div>
+        <div class="div2">
+            div2
+        </div>
+        <div class="div3">
+            div3
+        </div>
+        <div class="div1">
+            div1
+        </div>
+        <div class="div2">
+            div2
+        </div>
+        <div class="div3">
+            div3
+        </div>
+        <div class="div1">
+            div1
+        </div>
+        <div class="div2">
+            div2
+        </div>
+        <div class="div3">
+            div3
+        </div>
+        <div class="div1">
+            div1
+        </div>
+        <div class="div2">
+            div2
+        </div>
+        <div class="div3">
+            div3
+        </div>
+        <p>浮动盒子内的文字。</p>
+
+    </div>
+
+    <p>浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字，浮动盒子外的文字。</p>
+
+</body>
+
+</html>
