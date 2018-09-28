@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /* 全局 */
 
+=======
+>>>>>>> c5be2b56968669019721cc4d5beaae87da321468
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +22,10 @@ a {
 
 em {
     font-style: normal;
+<<<<<<< HEAD
     font-weight: bolder;
+=======
+>>>>>>> c5be2b56968669019721cc4d5beaae87da321468
 }
 
 .tuan{
@@ -31,10 +37,13 @@ em {
     border: 1px solid #666;
 }
 
+<<<<<<< HEAD
 /* end全局 */
 
 /* 第一个大盒子 */
 
+=======
+>>>>>>> c5be2b56968669019721cc4d5beaae87da321468
 .box01 {
     width:210px;
     position: relative;
@@ -54,7 +63,11 @@ ul {
     width: 120px;
     height: 20px;
     position: absolute;
+<<<<<<< HEAD
     right:-85px;
+=======
+    right:-70px;
+>>>>>>> c5be2b56968669019721cc4d5beaae87da321468
     bottom: 10px;
 }
 
@@ -76,6 +89,7 @@ ul li a {
     font-weight: bold;
     display: block;
     text-align: center;
+<<<<<<< HEAD
 }
 
 /* end第一个大盒子 */
@@ -133,3 +147,6 @@ ul li a {
 }
 
 /* end第二个大盒子 */
+=======
+}
+>>>>>>> c5be2b56968669019721cc4d5beaae87da321468
