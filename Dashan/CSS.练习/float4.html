@@ -24,17 +24,19 @@
 
      .child1,
      .child2,
-     .child3
-            { 
-                width: 100px;
-                height: 50px;
-                line-height: 50xp;
-                background: rgb(117, 190, 187);
-                border: 1px solid rgb(128, 191, 207);
-                margin: 10px 0px;
-                text-align: center;
+     .child3,
+     .child4,
+     .child5
+    { 
+         width: 100px;
+         height: 50px;
+         line-height: 50xp;
+         background: rgb(117, 190, 187);
+         border: 1px solid rgb(128, 191, 207);
+         margin: 10px 0px;
+         text-align: center;
                
-            }
+     }
     .child2        
     {
        
@@ -44,13 +46,24 @@
     }
     .child3        
     {
-        
         position: absolute;/*绝对定位*/
+        right: 150px;
+        top: 200px;
+    }   
+    .child4
+    {
+        position: static;/*static 不定位方式*/
         left: 150px;
         top: 200px;
     }
+     .child5
+     {
+       /*fixed  锁定定位 在浏览器的某个地方*/
+        position: fixed;
+        left: 150px;
+        top: 200px;
+     }
 
-            
     </style>
 </head>
 <body>
@@ -58,6 +71,8 @@
         <div class="child1">one1</div>
         <div class="child2">one2</div>
         <div class="child3">one3</div>
+        <div class="child4">one4</div>
+        <div class="child5">one5</div>
     </div>
 </body>
 </html>
