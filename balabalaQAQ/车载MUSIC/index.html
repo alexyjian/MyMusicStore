@@ -16,14 +16,75 @@
         text-decoration: none;
         font-size: 30px;
         color: white;
+        width: 30PX;
+        height: 80PX;
+        line-height: 80PX;
+        background: #333;
+        opacity: 0.7;
+        text-align: center;
+        border-radius: 5px;
+        display: none;
+        float: left;
+    }
+    div{
+        margin: 50PX  auto;
+        width: 580PX;
+        height: 200PX;
+        position: relative;
+    }
+    div:hover a{
+        display: block;
+    }
+    .left{
+        position: relative;
+        bottom: 150px;
+        left: 0px;
+    }
+    .right{
+        position: relative;
+        bottom: 150px;
+        left:520px;
+    }
+    ul{
+        width: 110px;
+        height: 20px;
+        background: #333;
+        opacity: 0.5;
+        border-radius:10px;
+        position: absolute;
+        right: 30px;
+        bottom: 15px;
+        text-align: center;
+       
+    }
+    li{
+        width: 8px;
+        margin-bottom: 5px;
+        height: 8px; 
+        background:#ccc;
+        display:inline-block;
+        border-radius: 50%;
+    }
+    .currents{
+        width: 15px;
+        background: darkcyan;
+        border-radius:5px;
     }
     </style>
 </head>
 <body>
     <div>
-        <img src="" alt="player">
-        <a href="#"></a>
-        <a href="#"></a>
+        <img src="img/11.jpg" alt="player">
+        <a href="#" class="left"><</a>
+        <a href="#" class="right">></a>
+        <Ul>
+            <li class="currents"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </Ul>
     </div>
 </body>
 </html>
