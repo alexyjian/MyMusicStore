@@ -1,0 +1,129 @@
+/* fast全局 */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+boby{
+    font-size: 15px;
+    font-family: "微软雅黑";
+}
+
+a{
+    text-decoration: none;
+    color: #666;
+}
+
+em{
+    font-style: normal;
+
+}
+
+/* end全局 */
+
+.tuan{
+    width: 300px;
+    height: 350px;
+    /* 防止内容溢出 显示在盒子之外 */
+    overflow: hidden;
+    margin: 15px auto;
+    padding: 15px 12px;
+    border: 2px solid #666;
+}
+
+
+/* 第一个大盒子 */
+.box01{
+    width: 220px;
+    position: relative;
+}
+
+.name{
+    height: 30px;
+}
+
+.pic{
+    position:absolute;
+    left: 80px;
+    top: -6px;
+}
+
+ul{
+    width: 120px;
+    height: 20px;
+    float: left;
+    position: absolute;
+    right: -80px;
+    bottom: 10px;
+}
+ul li{
+    width: 16px;
+    height: 16px;
+    border: 2px solid red ;
+    background:#fff;
+    margin-right: 10px;
+    float: left;
+}
+
+ul li:first-child{
+    background-color: yellow
+}
+
+ul li a {
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+/* 第二个大盒子 */
+.box02{
+    height: 90px;
+    margin-top: 15px;
+}
+
+.tit a{
+    height: 50px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+.tit a{
+    color:#000;
+}
+
+.tit a span{
+    color: #000;
+    font-weight: bold;
+}
+
+.price{
+    width: 200px;
+    height: 40px;
+    float: left;
+}
+
+.price span{
+    font-size: 25px;
+    color: #d59059;
+}
+
+/* 第二个盒子下面 */
+.btn{
+    width: 90px;
+    height: 35px;
+    background: orange;
+    border: 2px solid #d59059;
+    border-radius: 5px;
+    float: right;
+}
+
+.btn strong{
+    font-size: 18px;
+    line-height: 35px;
+    color: white;
+    display: block;
+    text-align: center;
+}
