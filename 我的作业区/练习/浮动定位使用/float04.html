@@ -21,7 +21,7 @@
             border:1px solid red;
         }
 
-          .child1,.child2,.child3{
+          .child1,.child2,.child3,.child4,.child5{
             width: 100px;
             height: 50px;
             line-height: 50px;
@@ -30,17 +30,29 @@
             margin: 10px 0px;
             text-align: center;
         }
-/*相对定位以方块为主*/
+/*相对定位以上一个元素定位*/
         .child2{
             position: relative;
             left: 150px;
             top:100px;
         }
-/*绝对定位以浏览器为主*/
+/*绝对定位以浏览器定位*/
         .child3{
             position: absolute;
             left: 150px;
             top:100px;
+        }
+
+        .child4{
+            position: static;
+            left: 150px;
+            top:100px;
+        }
+
+        .child5{
+            position: fixed;
+            right: 30px;
+            top:10px;
         }
     </style>
 </head>
@@ -54,6 +66,12 @@
                 </div>
                 <div class="child3">
                     div3
+                </div>
+                <div class="child4">
+                    div4
+                </div>
+                <div class="child5">
+                    div5
                 </div>
         </div>
 </body>
