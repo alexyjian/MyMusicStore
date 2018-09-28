@@ -1,0 +1,77 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    border:0;
+    list-style: none;
+}
+a
+{
+    text-decoration: none;
+    font-size: 30px;
+    color: white;  
+}
+div
+{
+    width: 580px;
+    height: 200px;
+    margin: 50px auto;
+    position: relative;
+}
+a
+{
+    float: left;
+    width: 25px;
+    height: 100px;
+    line-height: 100px;
+    background: gray;
+    opacity: 0.7;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer; 
+    display: none;/*鼠标悬停*/
+}
+div:hover /*a:hover - 当用户鼠标放在链接上时*/
+a
+{
+    display: block;/*鼠标悬停显示*/
+}
+.left
+{
+    position: absolute;
+    left: -12px;/*负数 继续往左*/
+    top: 50px;
+}
+.rigth
+{
+    position: absolute;
+    right:-12px;/*负数 继续往右*/
+    top: 50px;
+}
+ul
+{
+    width: 110px;
+    height: 20px;
+    background: #333;
+    opacity: 0.5;
+    border-radius: 8px;
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    text-align: center;
+}
+li
+{
+    width: 5px;
+    height: 5px;
+    background: #ccc;  
+    display: inline-block;
+    border-radius: 50%;
+}
+.playing
+{
+    width: 12px;
+    background: darkcyan; 
+    border-radius: 5px; 
+}
+
