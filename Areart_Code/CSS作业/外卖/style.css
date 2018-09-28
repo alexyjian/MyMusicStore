@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 15px;
+}
+.box01 a{
+    text-decoration: none;
+    font-size: 20px;    
+    color: black;
+}
+.box02 a{
+    text-decoration: none;
+    font-size: 15px;    
+    color: black;
+}
+.name a{
+    color: gray;
+}
+.box01 h2{
+    position: relative;
+    left: 25px;  
+}
+.box01 p{
+    text-align: center;
+}
+.tuan{
+    border: 1px solid #333;
+    width: 320px;
+    height: 350px;
+}
+ul{   
+    float:right;
+    position: relative;
+    bottom: 40px;
+    right: 30px;
+}
+ul li:first-child{
+    background-color: yellow;
+}
+ul li{
+    float: left;
+    width: 20px;
+    height: 20px;
+    border: 1px solid red;
+    text-align: center;
+    background: #ccc;
+    line-height: 20px;
+    margin-left: 5px;
+    
+}
+.box02{
+    clear: both;
+    padding: 10px;
+    position: relative;
+}
+.price span{
+    font-size: 18px;
+    color: orange;
+}
+.price{
+    font-size: 15px;
+}
+.btn strong{
+    border: 1px solid orangered;
+    background: orange;
+    line-height: 40px;
+    text-align: center;
+    padding: 0px 20px;    
+    border-radius: 5px;
+    color: white;   
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+}
+.tit span{
+    font-size: 17px;
+}
