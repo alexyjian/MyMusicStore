@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /*li标签顺数选择*/
+    li:nth-child(2)
+    {
+        color:red;
+    }
+
+    /*li标签倒数选择*/
+    li:nth-last-child(1)
+    {
+        color:blue;
+    }
+
+
+
+    /*p标签奇数选择*/
+    p:nth-of-type(odd)
+    {
+        color:red;
+    }
+
+    /*p标签偶数选择*/
+    p:nth-of-type(even)
+    {
+        color: thistle;
+    }
+
+
+    p{
+        height: 30px;
+    }
+    /*空选择器*/
+    :empty{
+        background-color: gray;
+    }
+    </style>
+</head>
+<body>
+        动作电影
+        <ul>
+            <li>一代宗师</li>
+            <li>叶问</li>
+            <li>复仇者联盟3</li>
+        </ul>
+        卡通电影
+        <ul>
+            <li>冰河世纪</li>
+        </ul>
+        哈哈
+        <ul>
+            <li>哈哈哈</li>
+            <li>呵呵</li>
+            <li>嗯嗯</li>
+            <li>嗯哼</li>
+        </ul>
+
+        <p>aaaaaaaaaaaaaaaa</p>
+        <p>bbbbbbbbbbbbbbbb</p>
+        <p>cccccccccccccccc</p>
+        <p>dddddddddddddddd</p>
+        <p>eeeeeeeeeeeeeeee</p>
+        <p></p>
+        <p>ffffffffffffffff</p>
+</body>
+</html>

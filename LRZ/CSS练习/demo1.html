@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /*( ^ )选择p标签中属性id值为one开头的元素*/
+    p[id^="one"]{
+        color:aqua;
+    }
+
+    /*( $ )选择p标签中属性id值为two结尾的元素*/
+    p[id$="two"]{
+        color:red;
+    }
+
+    /*( * )选择p标签中属性id值中包括a的元素*/
+    p[id*="a"]{
+        color: pink;
+    }
+
+    </style>
+</head>
+<body>
+    <p id="one">测试测试测试测试1</p>
+    <p id="two">测试测试测试测试2</p>
+    <p id="one1">测试测试测试测试3</p>
+    <p id="1one">测试测试测试测试4</p>
+    <p id="1two">测试测试测试测试5</p>
+    <p id="two1">测试测试测试测试6</p>
+    <p id="abc">测试测试测试测试7</p>
+    <p id="cba">测试测试测试测试8</p>
+    <p id="bac">测试测试测试测试9</p>
+</body>
+</html>

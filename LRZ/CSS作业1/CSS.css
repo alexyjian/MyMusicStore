@@ -1,0 +1,51 @@
+@font-face{font-family: BBOX;src:url(font/BOOMBOX.TTF)}
+@font-face{font-family: FZJZJW;src:url(font/FZJZJW.TTF)}
+@font-face{font-family: LTCH;src:url(font/LTCH.TTF)}
+@font-face{font-family: ONYX;src:url(font/ONYX.TTF)}
+@font-face{font-family: ROCK;src:url(font/ROCK.TTF)}
+@font-face{font-family: TCCM;src:url(font/TCCM____.TTF)}
+*{
+    margin: 0;
+    padding: 0;
+}
+h2 .a{
+    font-family: BBOX;
+    font-size: 60px;
+}
+ .b{
+     color:	#FF0088;
+     font-size: 40px;
+ }
+
+.TitleOne .a{
+    font-family: ONYX;
+    color: black;
+    font-size: 48px;
+}
+.TitleOne .b{
+    font-family: TCCM;
+    color:#4c9390;
+    font-size: 58px;
+}
+
+.two .a{
+     font-family: ROCK;
+     font-style: italic;
+     color: black;
+     font-size: 20px;
+ }
+
+ .two .b{
+    font-family: ROCK;
+    color: black;
+ }
+
+ .three{
+     font-family: TCCM;
+     color: black;
+     font-size: 40px;
+ }
+
+  .c{
+      color:#666666;
+  }
