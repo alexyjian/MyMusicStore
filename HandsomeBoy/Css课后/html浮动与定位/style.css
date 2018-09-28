@@ -63,10 +63,16 @@
 
 .nav h3 {
     display: block;
-    float: left;
     font-weight: bold;
     height: 50px;
     line-height: 50px;
     display: inline-block;
     text-indent: 1em;
+}
+
+.nav {
+    width: 70%;
+    background: #395FB4;
+    height: 100px;
+    position: absolute;
 }
