@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            font-size: 18px;
+        }
+
+        .father{
+            margin: 10px auto;
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            background: #666;
+            border:1px solid blue;
+        }
+
+        .childone,
+        .childtwe,
+        .childthree,
+        .childfour,
+        .childfive{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid slateblue;
+            background:yellow;
+            margin: 15px 0px;
+            text-align: center;
+        }
+        
+/* 相对定位 */
+        .childtwe{
+            position: relative;
+            left: 150px;
+            top: 100px;
+        }
+        
+/*绝对定位*/
+        .childthree{
+            position: absolute;
+            left: 120px;
+            top:100px;
+        }
+
+        .childfour{
+            position: static;
+            left:150px;
+            top:100px;
+        }
+
+/* 锁定定位 */
+        .childfive{
+            position: fixed;
+            top: 150px;
+            right: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="childone">
+                childone
+        </div>
+        <div class="childtwe">
+                childtwe
+        </div>
+        <div class="childthree">
+                childthree
+        </div>
+        <div class="childfour">childfuor</div>
+        <div class="childfive">chaildfive</div>
+    </div>
+</body>
+</html>
