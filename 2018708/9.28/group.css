@@ -1,133 +1,137 @@
-*{
+/* 全局 */
+
+* {
     margin: 0;
     padding: 0;
     border: 0;
     list-style: none;
 }
-body{
-    font-size: 12px;
-    font-family: "微软雅黑";
 
+body {
+    font-size: 12px;
+    font-family: "微软雅黑"";
 }
 
-a{
+a {
     text-decoration: none;
     color: #666
 }
-em{
+
+em {
     font-style: normal;
     font-weight: bold;
 }
+
 .tuan{
-    width: 300px;
+    width:300px;
     height: 320px;
-    /*防止内容溢出显示在盒子之外*/
+    /* 防止内容溢出显示在盒子之外 */
     overflow: hidden;
     margin: 10px auto;
     padding: 10px 12px;
     border: 1px solid #666;
 }
-/*end全局*/
-/*第一个大盒子*/
-.box01{
-   width: 210px;
-   position: relative;
 
-   
+/* end全局 */
+
+/* 第一个大盒子 */
+
+.box01 {
+    width:210px;
+    position: relative;
 }
 
-.name{
+.name {
     height: 30px;
-
 }
 
-.pic{
+.pic {
     position: absolute;
-    top:-7px;
-    left: 62px;
-
+    top:-6px;
+    left:62px;
 }
 
-ul{
+ul {
     width: 120px;
     height: 20px;
     position: absolute;
-    right: -70;
+    right:-85px;
     bottom: 10px;
-    
 }
 
-ul li{
-    
+ul li {
     width: 16px;
     height: 16px;
     background: #fff;
     border: 2px solid red;
     float: left;
     margin-right: 10px
-
 }
 
-ul li:first-child{
+ul li:first-child {
     background-color: yellow
 }
 
-ul li a{
+ul li a {
     font-size: 12px;
     font-weight: bold;
     display: block;
     text-align: center;
-
 }
 
-/*end第一个大盒子*/
+/* end第一个大盒子 */
 
-/*第二个大盒子*/
-.box02{
+/* 第二个大盒子 */
+
+.box02 {
     height: 90px;
     margin-top: 15px;
 }
 
-.tit{
+.tit {
     height: 50px;
     line-height: 20px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
-.tit a{
-    color: #000;
+.tit a {
+    color:#000
 }
 
-.tit a span{
-    color: #00000000;
+.tit a span 
+{
+    color:#000000;
     font-weight: bold;
 }
 
-.price{
+.price {
     width: 200px;
     height: 30px;
     float: left;
 }
 
-.price span{
+.price span {
     font-size: 24px;
-    color: orangered
+    color: rgb(255, 145, 0)
 }
 
-.btn{
+/* 第二个大盒子下面 */
+
+.btn {
     width: 90px;
     height: 35px;
     background: orange;
-    border: 1px solid rgb(233, 135, 0);
-    border-radius: 5px;
-    float: right;
-
+    border: 1px solid rgb(255, 145, 0);
+    border-radius:5px;
+    float:right;
 }
 
-.btn strong{
+.btn strong {
     font-size: 18px;
     line-height: 35px;
-    color: white;
+    color:white;
     display: block;
     text-align: center;
 }
+
+/* end第二个大盒子 */
