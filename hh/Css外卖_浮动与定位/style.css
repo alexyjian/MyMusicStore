@@ -15,6 +15,11 @@ a{
     color: #666
 }
 
+em{
+    font-style: normal;
+    font-weight: bold;
+}
+
 .tuan{
 width: 300px;
 height: 320px;
@@ -23,10 +28,6 @@ overflow: hidden;
 margin: 10px auto;
 padding: 10px 12px;
 border: 1px solid #666;
-}
-
-em{
-    font-style: normal;
 }
 
 /* end全局 */
@@ -51,7 +52,7 @@ ul{
 width: 120px;
 height: 20px;
 position: absolute;
-right: -80px;
+right: -85px;
 bottom: 10px;
 }
 
@@ -61,7 +62,7 @@ height: 16px;
 background: #fff;
 border: 2px solid red;
 float: left;
-margin: 10px;
+margin-right: 10px;
 }
 
 ul li:first-child{
@@ -103,7 +104,7 @@ float: left;
 
 .price span{
 font-size: 24px;
-color:orangered
+color:rgb(255, 145, 0)
 }
 
 /* 第二个大盒子下面 */
@@ -112,7 +113,7 @@ color:orangered
 width: 90px;
 height: 35px;
 background: orange;
-border: 1px solid orangered;
+border: 1px solid rgb(255, 145, 0);
 border-radius: 5px;
 float:right;
 }
