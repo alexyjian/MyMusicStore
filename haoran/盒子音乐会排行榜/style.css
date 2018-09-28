@@ -1,0 +1,39 @@
+/*全局样式，重置浏览器样式*/
+*{
+    margin: 0;
+    padding: 0;
+    /*列表没有点点*/
+    list-style: none;
+}
+
+/*唱片模式*/
+.bg{
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 10px solid #ccc;
+    margin: 100px auto;
+    padding: 100px;
+    padding-top: 50px;
+    background-image: radial-gradient(circle at 50% 50%,#ff0000,#000 1%);
+}
+
+/*排名列表样式*/
+ul{
+
+}
+
+/*歌曲项*/
+ul li{
+
+}
+
+/*单独控制的列表，首部*/
+ul .top{
+
+}
+
+/*单独控制的列表，尾部*/
+ul .bottom{
+
+}
