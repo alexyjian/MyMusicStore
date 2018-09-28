@@ -1,0 +1,105 @@
+*{
+   width:0;
+   padding:0; 
+   border: 0;
+   list-style: none;/*去掉默认的点点*/
+} 
+body{
+    font-size: 12px;
+    font-family: "微软雅黑"；
+}
+a {
+    text-decoration: none;
+    color: #666
+}
+
+em {
+    font-size: normal;
+}
+.tuan{
+    width:300px;
+    height:320px;
+    overflow: hidden;/*防止内容溢出显示在盒子之外*/
+    margin: 10px auto;
+    padding: 10px 12px;
+    border: 1px solid #666;
+}
+/*end全局*/
+/*第一个大盒子*/
+.box01{
+        width:210PX;
+        position:relative;
+}
+.name{
+    height:230px;
+}
+.pic{
+    position: absolute;
+    top:-6px;
+    left:62px;
+}
+ul{
+    width:120px;
+    height: 20px;
+position: absolute;
+right: -85;
+bottom: 10px;
+
+}
+ul li {
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border:2px solid red;
+    float:left;
+    margin-right: 10px;
+}
+ul li:first-child{
+    background-color: yellow
+}
+ul li a {
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+/*end 第一大盒子*/
+
+/*  第二大盒子*/
+.box02{
+    height: 90px;
+    margin-top: 15px;
+}
+.tit{
+    height: 50px;
+    line-height: 20px;
+    font-size: 15px;
+}
+.tit a {
+    color: black;
+}
+.tit a span 
+{
+    color: black;
+    font-weight:bold;
+}
+.price span {
+    font-size:24px;
+    clear: orangered
+}
+/*第二大盒子下面*/
+.bht{
+    width: 90px;
+    height: 35px;
+    background: orange;
+    border:1px solid rgb(255,145,0);
+    border-radius:5px;
+    float :right;
+}
+.bth strong{
+    font-size: 18px;
+    line-height: 35px;
+    color:white;
+    display: block;
+    text-align: center;
+}
