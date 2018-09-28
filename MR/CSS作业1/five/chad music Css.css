@@ -1,0 +1,14 @@
+a {
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+}
+
+div {
+    {
+        width: 580px;
+        height: 200px;
+        margin: 50px auto;
+        position: relative;
+    }
+}
