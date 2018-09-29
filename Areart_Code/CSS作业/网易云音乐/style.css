@@ -1,0 +1,36 @@
+.min img{
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 22%;
+    border-radius: 50%;
+}
+.min{
+    width: 550px;
+    height: 550px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 10px solid #ccc;
+    background-image:repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);
+    animation: myfirst 180s;
+}
+@keyframes myfirst{
+from{/*动画开始*/
+    transform: rotate(0deg); /*动画开始旋转度数为0*/
+}
+to{/*动画结束后*/
+    transform: rotate(900deg);/*动画开始旋转度数为900*/
+}
+}
+button{
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    border-color:blue;
+
+}
+
+
+

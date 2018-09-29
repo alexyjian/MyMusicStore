@@ -1,40 +1,51 @@
 *{
-    padding:0;
-    margin: 0;
+ 
 }
-ul{
-    margin: 0 auto;
-    width: 300px;
-    border-radius: 20px;  
-    overflow: hidden;
-    box-shadow: 10px 10px 8px #000;
+ul{    
+   width: 300px;
+   padding:0;
+   margin: 0;
 }
-ul li{
-    background: rgb(105, 96, 96) url(images/yinfu.png) no-repeat 50px 10px;
+li{
+    background: rgb(105, 96, 96);
     border-top-style:solid;
     border-top-color: #ffffff;
     text-align: center;
     height: 40px;
-    width: 300px;
     line-height: 40px;
     list-style: none;
-}  
+    padding:0;
+    margin: 0;
+}
 .top{
     width: 300px;
-    height: 250px;
-    background: #ffffff;
-    background-image: url(images/yinyue.jpg),url(images/wenzi.jpg);
-    background-repeat: no-repeat;
-    background-position: 55px 10px,80px 180px;
+    height: 220px;
+    background-color: #ffffff;
+    padding:0;
+    margin: 0;
 }
 .bg{
     margin: 0 auto;
-    width: 600px;
-    height: 520px;
-    background-color: black;
-    padding-top: 60px;
-    border-radius:50%;
-    border: 10px solid;
-    border-color: rgb(204, 204, 204);
-    background: repeating-radial-gradient(gray, gray 0%, black 1%);    
+    width: 300px;
+    border-radius: 10%;
+    padding:0;
+    margin: 0;    
+    overflow: hidden;
 }
+img{
+    margin-right: 10px;
+    margin-left: -20px;
+    padding:0;
+    margin: 0;
+}
+#yinyue{
+   float:top;
+   margin-left: 20px;
+   
+}
+#wenzi{
+    float: top;
+    margin-left: 10px;
+    
+}
+  
