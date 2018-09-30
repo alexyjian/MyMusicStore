@@ -21,5 +21,24 @@ a{
     background: #0F3981;
    opacity: 0.8;
    padding: 10px 10px;
-   
+    float: left;
+      
+}
+.topBar
+{
+ height:50px;
+    width: 760px;
+    background:#647B9F;
+    opacity: 0.3;
+ padding-left: 20px;
+
+}
+
+.toplinks li{
+    display: inline-block;
+    line-height: 50px;
+}
+a{
+    color: #fff;
+
 }
