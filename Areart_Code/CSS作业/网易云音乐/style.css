@@ -15,6 +15,9 @@
     background-image:repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);
     animation: myfirst 180s;
 }
+.min:hover{
+    animation: myfirst 0s;
+}
 @keyframes myfirst{
 from{/*动画开始*/
     transform: rotate(0deg); /*动画开始旋转度数为0*/
@@ -29,6 +32,11 @@ button{
     background-color: white;
     border-radius: 5px;
     border-color:blue;
+
+}
+button:hover{
+    background-color: aqua;
+    border-color: white;
 
 }
 
