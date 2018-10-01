@@ -1,0 +1,10 @@
+!important>行间样式>id>class|属性>标签选择器
+
+
+
+！important         Infinity
+行间样式             1000
+id
+class|属性|伪类
+标签选择器|伪元素
+通配符
