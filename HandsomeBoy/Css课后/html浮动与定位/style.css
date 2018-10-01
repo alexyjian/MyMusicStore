@@ -22,11 +22,7 @@ a{
    opacity: 0.8;
    padding: 10px 10px;
     float: left;
-<<<<<<< HEAD
       position: relative;
-=======
-      
->>>>>>> 0e0dff8d8aafb2978902e87df1ad48fbeb19c70b
 }
 .topBar
 {
@@ -35,10 +31,7 @@ a{
     background:#647B9F;
     opacity: 0.3;
  padding-left: 20px;
-<<<<<<< HEAD
  position: absolute;
-=======
->>>>>>> 0e0dff8d8aafb2978902e87df1ad48fbeb19c70b
 
 }
 
