@@ -9,7 +9,6 @@
 .min{
     width: 550px;
     height: 550px;
-    margin: 0 auto;
     border-radius: 50%;
     border: 10px solid #ccc;
     background-image:repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);
@@ -27,6 +26,8 @@ to{/*动画结束后*/
 }
 }
 button{
+    margin-top: 50px;
+    margin-left: 120px;
     width: 100px;
     height: 40px;
     background-color: white;
@@ -37,8 +38,32 @@ button{
 button:hover{
     background-color: aqua;
     border-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 24),0 3px 10px 0 rgba(0, 0, 0, 19);
 
 }
+ul.ul1{
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 100px;
+    padding: 0;
+}
+ul.ul1 li{
+    display: inline;
+    border-radius: 50px;
+}
+ul.ul1 li a{
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .5s;
+}
+ul.ul1 li a:hover{
+    background-color: #ccc;
+    border-radius: 5px;
+    color:white;
 
+}
 
 
