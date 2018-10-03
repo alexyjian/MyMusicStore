@@ -12,55 +12,53 @@
             margin: 0;
             padding: 0;
         }
-        div[class^="demo"] {
+        .demo1,.demo2,.demo3,.demo4,.demo5{
             height: 200px;
             width: 200px;
-        }
-
-        .demo {
-            position: relative;
-           
-
-        }
-
-        .demo1 {
             border: 10px solid blue;
             border-radius: 50%;
             position: absolute;
-            top: 200px;
-            left:200px;
+        }
+
+        .demo {
+            position: absolute;
+         left: 50%;
+         top: 50%;
+          
+            height: 380px;
+            width: 570px;
+           margin-left: -285px;
+           margin-top: -190px;
+        }
+
+        .demo1 {
+         border-color: blue;
+         left: 0;
+          top: 0;
         }
 
         .demo2 {
-            border: 10px solid black;
-            border-radius: 50%;
-            position: absolute;
-            top: 200px;
-            left:380px;
+            border-color: black;
+         left: 180px;
+          top: 0;
         }
 
         .demo3 {
-            border: 10px solid red;
-            border-radius: 50%;
-            position: absolute;
-            top: 200px;
-            left:560px;
+            border-color: red;
+         left:360px;
+          top:0;
         }
 
         .demo4 {
-            border: 10px solid yellow;
-            border-radius: 50%;
-            position: absolute;
-            top: 360px;
-            left:300px;
+            border-color: yellow;
+         left: 80px;
+          top: 160px;
         }
 
         .demo5 {
-            border: 10px solid green;
-            border-radius: 50%;
-            position: absolute;
-            top: 360px;
-            left:480px;
+            border-color: green;
+         left: 260px;
+          top:160px;
         }
     </style>
 </head>
@@ -73,6 +71,7 @@
         <div class="demo4"></div>
         <div class="demo5"></div>
     </div>
+
 
 </body>
 

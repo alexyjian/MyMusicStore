@@ -12,18 +12,20 @@
          二、relative保留原来位置进行定位，灵魂出走。 
          相对于原来的自己的位置进行定位 */
 
-
-         三、fixed
-       .demo1{
-           position: fixed;
-           /* left: 100px; */
-           top: 100px;
+  
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       .left{
+        position: absolute;
+          
            width: 100px;
            height: 100px;  
-           background: #f23;       
+           background: #fcc;       
        } 
-        .demo2{
-           width: 100px;
+        .right{
+           margin-left: 100px;
            height: 100px;  
            background: #ff3;       
        }
@@ -31,7 +33,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="demo1">demo1  </div>
-    <div class="demo2">demo2</div>
+    <div class="left">right  </div>
+    <div class="right">right</div>
 </body>
 </html>

@@ -13,6 +13,7 @@ a{
 .siteWidth{
     width: 70%;
     margin: 0 auto;
+
 }
 
 .logoBar{
@@ -26,20 +27,39 @@ a{
 }
 .topBar
 {
+    margin-left: 380px;
  height:50px;
-    width: 760px;
+    width: 700px;
     background:#647B9F;
     opacity: 0.3;
- padding-left: 20px;
- position: absolute;
+
+
 
 }
 
 .toplinks li{
     display: inline-block;
     line-height: 50px;
+    text-indent: 1em;
+    color: #fff;
 }
 a{
     color: #fff;
 
+}
+.nav
+{
+    height: 100px;
+    background: #088;
+    margin-left: 380px;
+    position: absolute;
+    width: 700px;
+    
+}
+.nav h3{
+    font-size: 16px;
+    display: inline-block;
+   text-indent: 1em;
+   line-height: 100px;
+   color: #fff;
 }
