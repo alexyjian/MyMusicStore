@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+         /* 一、absolute脱离原来位置进行定位
+         最近的有定位的父级进行定位，没有的话相对文档进行定位
+
+
+         二、relative保留原来位置进行定位，灵魂出走。 
+         相对于原来的自己的位置进行定位 */
+
+
+         三、fixed
+       .demo1{
+           position: fixed;
+           /* left: 100px; */
+           top: 100px;
+           width: 100px;
+           height: 100px;  
+           background: #f23;       
+       } 
+        .demo2{
+           width: 100px;
+           height: 100px;  
+           background: #ff3;       
+       }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo1">demo1  </div>
+    <div class="demo2">demo2</div>
+</body>
+</html>
