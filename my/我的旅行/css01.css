@@ -1,0 +1,105 @@
+/*全局*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;/*边界*/
+    list-style: none;
+}
+.father {
+    background: #ccc;
+    border: 1px dashed #999;
+    height: 1000px;
+    width: 200px;
+    float: left;
+}
+.ul {
+    width: 120px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    float: right;
+}
+li {
+width: 200px;
+height: 50px;
+line-height: 50px;
+background: #2f2f2f;
+border: 1px solid #050505;
+color: #ffffff;
+margin: 20px 0px;
+text-align: center;
+
+}
+
+.heard {
+    width: 1000px;
+    height: 30px;
+    background:#2BAB79;
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+   
+    
+}
+
+.pji {
+        position: absolute;
+        top:50px;
+        left:222px;
+        float: right;
+        width: 980px;
+        height: 400px;  
+        
+}
+.po{
+        position: absolute;
+        top:30px;
+        left:222px;
+        float: right;
+        width: 40px;
+        height: 40px; 
+        border-radius: 50%;
+        text-align:left;
+        padding: 350px 50px 350px 50px;   
+}   
+
+
+.child2 {
+        position: relative;
+        right: 322px;
+        top:359px;
+        font-size: 20px; 
+}
+
+.div3{
+    position: absolute;
+    top:150px;
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    border: 0px solid red;
+    border-radius: 50%;
+    float: right;
+    padding: 5px 2px 2px 5px; 
+    left:1000px;
+}
+
+.child3{
+    position: relative;
+    right:-20px;
+    top:400px;
+    font-size: 20px; 
+    color: black; 
+    float: left;
+}
+
+.ok{
+    position: absolute;
+    top:490px;
+    left:222px;
+    float: right;
+    width: 980px;
+    height: 400px;  
+}
