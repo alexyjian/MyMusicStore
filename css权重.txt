@@ -4,9 +4,9 @@
 
 ！important         Infinity
 行间样式             1000
-id
-class|属性|伪类
-标签选择器|伪元素
+id                   100
+class|属性|伪类       10
+标签选择器|伪元素       1
 通配符
 
 
