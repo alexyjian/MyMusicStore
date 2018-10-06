@@ -1,0 +1,73 @@
+/*全局*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;/*边界*/
+    list-style: none;
+}
+
+.in{
+        width: 1024px;
+        height: 1024px;
+        padding: 10px;
+        
+       
+}
+
+.into {
+        width: 380px;
+        height: 372px;
+        padding: 10px;
+
+        text-indent:20pt;/*首行缩进两个字*/
+        font-size: 20px;
+        
+}
+h2.jt {
+    text-indent:10pt;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    text-indent:20pt;/*首行缩进两个字*/
+}
+
+h2.zx {
+    text-indent:10pt;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    text-indent:20pt;/*首行缩进两个字*/
+}
+
+.cvb{
+        width: 388px;
+        height: 385px;
+        padding: 10px;
+
+        font-size: 20px;
+
+}
+
+.asd{
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+    position: absolute;
+    top:35px;
+    left:500px;
+    float: right;
+    font-size: 20px;
+    text-indent:20pt;/*首行缩进两个字*/
+
+}
+.yy{
+    float:right;
+    margin-top: 30px;
+    width: 2px;
+    height: 1000px; 
+    background: black;
+    position: absolute;
+    top:10px;
+    left:460px;
+
+}
+
+ 

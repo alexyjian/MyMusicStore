@@ -11,6 +11,7 @@
     height: 1000px;
     width: 200px;
     float: left;
+    text-align: center;
     
 }
 .ul {
@@ -148,4 +149,5 @@ text-align: center;
     font-size: 20px; 
     color: black; 
     float: left;
+    
 }
