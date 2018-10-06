@@ -11,6 +11,7 @@
     height: 1000px;
     width: 200px;
     float: left;
+    
 }
 .ul {
     width: 120px;
@@ -40,6 +41,7 @@ text-align: center;
     color: #ffffff;
     text-align: center;
     font-size: 20px;
+
    
     
 }
@@ -71,6 +73,7 @@ text-align: center;
         right: 322px;
         top:359px;
         font-size: 20px; 
+       
 }
 
 .div3{
@@ -84,6 +87,7 @@ text-align: center;
     float: right;
     padding: 5px 2px 2px 5px; 
     left:1000px;
+    text-align: center;
 }
 
 .child3{
@@ -102,4 +106,46 @@ text-align: center;
     float: right;
     width: 980px;
     height: 400px;  
+}
+
+.mn{
+    position: absolute;
+    top:450px;
+    left:222px;
+    float: right;
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    text-align:left;
+    padding: 350px 50px 350px 50px;   
+}
+
+
+.child4 {
+    position: relative;
+    right:430px;
+    top:760px;
+    font-size: 20px; 
+}
+
+.div4{
+    position: absolute;
+    top:600px;
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    border: 0px solid red;
+    border-radius: 50%;
+    float: right;
+    padding: 5px 2px 2px 5px; 
+    left:1000px;
+}
+
+.child5{
+    position: relative;
+    right:-20px;
+    top:810px;
+    font-size: 20px; 
+    color: black; 
+    float: left;
 }
