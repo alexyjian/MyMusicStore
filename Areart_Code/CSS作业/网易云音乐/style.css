@@ -1,3 +1,6 @@
+*{
+    list-style: none;
+}
 .min img{
     display: block;
     width: 300px;
@@ -7,6 +10,7 @@
     border-radius: 50%;
 }
 .min{
+    float: left;
     width: 550px;
     height: 550px;
     border-radius: 50%;
@@ -26,8 +30,8 @@ to{/*动画结束后*/
 }
 }
 button{
-    margin-top: 50px;
-    margin-left: 120px;
+    margin-top: 60px;
+    margin-left: 6px;
     width: 100px;
     height: 40px;
     background-color: white;
@@ -43,6 +47,7 @@ button:hover{
 
 }
 ul.ul1{
+    
     display: inline-block;
     margin-top: 50px;
     margin-left: 100px;
@@ -65,5 +70,41 @@ ul.ul1 li a:hover{
     color:white;
 
 }
-
-
+.xia{
+    float: left;
+    width: 600px;
+    height: 700px;
+    overflow-x: 600px;
+    background-color: #ccc;  
+}
+.fo{   
+    clear: both;    
+    background-color: #ccc;
+    width: 1200px;
+    height: 60px;
+}
+.hter{
+    width: 600px;
+    height: 700px;
+    float: left;
+}
+#btn{
+    margin-left: 80px;
+}
+ul.ul2 li{
+    display: inline;
+    border-radius: 5px;
+}
+ul.ul2 li a{
+    float: left;
+    padding: 8px 14px;
+    text-decoration: none;
+    background-color: rgb(24, 171, 230);
+    margin-left: 20px;
+    border-radius: 5px;
+    color:white ;
+    margin-top: 13px;
+}
+ul.ul2 li a:hover{
+    background-color:  rgb(4, 160, 221);
+}
