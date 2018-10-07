@@ -14,12 +14,12 @@ body{
 .heard {
     width: 1176px;
     height: 800px;
-    margin: 0 auto;
+    margin: 13px auto;
 }
 #bigdiv{
     width: 1000px;
     margin: 0 auto;
-    position: absolute;
+    position: absolute;/*绝对定位*/
     top:500px;
     left:300px;
     
@@ -31,16 +31,82 @@ body{
     background-color: #aae6da;
     
 }
-   
-
+/*文字效果*/
+.hover{
+	width: 200px;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 40px;
+	left: 0;
+	text-align: center;
+    color: #fff;
+    /*transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。*/
+    /*将矩形旋转 *度：*/
+	transform: rotate(55deg);
+	-webkit-transform: rotate(55deg);
+	transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    /*overflow 所有主流浏览器都支持 overflow 属性。*/
+    /*hidden 属性规定对元素进行隐藏。隐藏的元素不会被显示。*/
+	overflow: hidden;
+    height: 0;
+    /*设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。*/
+	z-index: 4000;
+}
+/*:hover 选择器用于选择鼠标指针浮动在上面的元素。*/
+.hover h3{
+	color: #fff;
+	border-bottom: 2px solid rgba(76,179,77,0.5);
+	padding-bottom: 10px;
+}
+.image:hover .hover{
+	height: 120px;
+	transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+}
+/*图片效果*/
 .image{
     margin: auto 15px;
     float: left;
-    
+	position: relative;
+	overflow: hidden;
     
 }
-.image:host{
-    top:5px;
+.image img{
+    width:100%;
+    height: 100%;
+}
+
+.image:before{
+    content:"";
+    display: block;
+    width: 320px;
+    height: 320px;
+    background-color: rgba(3,55,3,0.5);
+    position: absolute;
+    top:-490px;
+    right:60px;
+    transform: rotate(55deg) translate(100px);
+    transition: 0.5s;
+}
+.image:hover:before{
+    top:-180px;
+}
+
+.image:after{
+    content:"";
+    display: block;
+    width: 320px;
+    height: 320px;
+    background-color: rgba(3,55,3,0.5);
+    position: absolute;
+    bottom:-490px;
+    left:60px;
+    transform: rotate(55deg) translate(-100px);
+    transition: 0.5s;
+}
+.image:hover:after{
+    bottom:-140px;
 }
 
 .wz{
@@ -88,7 +154,7 @@ body{
     left:310px;
     float: left;
     position: absolute;
-    
+    margin: 20px auto    
 }
     
 a:link,a:visited{
