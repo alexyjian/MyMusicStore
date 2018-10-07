@@ -1,0 +1,109 @@
+/*全局*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;/*边界*/
+    list-style: none;
+}
+body{
+	margin: 0;
+	padding: 0;
+    background-color: #f7f7f7;
+    
+}
+.heard {
+    width: 1176px;
+    height: 800px;
+    margin: 0 auto;
+}
+#bigdiv{
+    width: 1000px;
+    margin: 0 auto;
+    position: absolute;
+    top:500px;
+    left:300px;
+    
+}
+.btn{
+    margin: 100px auto;
+    width: 110px;
+    height: 35px;
+    background-color: #aae6da;
+    
+}
+   
+
+.image{
+    margin: auto 15px;
+    float: left;
+    
+    
+}
+.image:host{
+    top:5px;
+}
+
+.wz{
+    width: 100px;
+    height: 35px;
+    background: #AAE6DA;
+    border: 1px solid rgb(247, 243, 247);
+    border-radius:12px;/*圆角边框*/
+    top:445px;
+    left:700px;
+    float: right;
+    position: absolute;
+    font-size: 25px;
+    color: #f7f7f7;
+   
+}
+
+.jz{
+    width: 900px;
+    height: 95px;
+    background: #AAE6DA;
+    border: 1px solid rgb(247, 243, 247);
+    top:430px;
+    left:8px;
+    float: right;
+    position: absolute;
+    font-size: 18px;
+    text-indent:25pt;/*首行缩进两个字*/
+    color: #f7f7f7;
+   
+}
+
+.ol{
+    font-size: 30px; 
+    top:565px;
+    left:380px;
+    float: right;
+    position: absolute;
+    color: #AAE6DA
+}
+
+.qw{
+
+    top:615px;
+    left:310px;
+    float: left;
+    position: absolute;
+    
+}
+    
+a:link,a:visited{
+    color: blue;
+    text-decoration: none;
+    
+    
+}
+
+a:hover{
+    color: red;
+    font-weight: bolder;
+}
+
+a:active{
+    color: darkred;
+    font-weight: bolder;
+}
