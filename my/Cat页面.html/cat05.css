@@ -1,0 +1,101 @@
+/*全局*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;/*边界*/
+    list-style: none;
+}
+body{line-height:normal;}
+
+.button{
+       width: 1000px;
+       height: 1500px;
+       background-color:#DBEE9C;
+       margin: auto;  
+       position: absolute;  
+       top: 0; left: 0; bottom: 0; right: 0; /*div居中*/
+       margin: 13px auto;     
+}
+.po {
+    width: 1000px;
+    height: 480px;
+    margin: 40px auto;
+}
+
+.mn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: -7px auto;
+
+}
+.btn {
+    font-size: 18px;
+    line-height: 35px;
+    color: black;
+    margin: 10px auto;
+    position: absolute;
+    left:60px;
+    top:-5px;
+    font-size: 20px; 
+
+}
+.yu {
+    color: #B5E9F4;
+    position: absolute;
+    left:220px;
+    top:150px;
+    font-size: 100px;
+    letter-spacing:3px;/*字体间距*/
+    line-height:100px;/*字符上下间距*/
+}
+
+a{
+    float: left;
+    width:25px;
+     height: 100px;
+     line-height: 100px;
+     background: #333;
+      opacity:0.7;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;/*显示的光标的类型（形状）*/
+    display: none;
+     /*默认为隐藏*/
+  
+}
+div:hover a{
+    display:block;
+}
+.left{
+    position: absolute;
+    left:-12px;
+    top:250px;
+}
+
+.right{
+    position: absolute;
+    right:-12px;
+    top:250px;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+#picBox{
+    margin:100px auto;
+    width:600px;
+    height:400px;
+}
+#pic{
+    width:600px;
+    height:400px;
+
+}
+#buttonBox{
+    width:150px;
+    margin:10px auto;
+}
+

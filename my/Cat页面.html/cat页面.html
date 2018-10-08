@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="cat05.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="button">
+
+            <p class="btn"><span style="font-weight:bold;">Cat</span>&nbsp;&nbsp;CLUB</p>
+
+            <p class="yu">Because <br>I met you. </p>
+
+            <img src="tx.jpg" class="mn">
+
+            <img src="kl.jpg" class="po">
+
+            <a href="#" class="left"><</a>
+
+            <a href="#" class="right">></a>
+
+            <div class="cvb"><p>cat are cute animals,they are very special as well.
+            It has pointy ears, round eyes,little claws,and short but soft fur.
+            Cats like eating fish and mice.They like to keep themselves clean, they do that 
+            by licking their fur.Also they are nocturnal animals, they sleep in the daytime 
+            and do most of their movements at night.
+            We should love cat, because cats are our friends,too.</p>
+
+        <body>
+        <div id="picBox">
+          <img src="kl.jpg" id="pic">
+          <div id="buttonBox">
+            <input type="button" value="上一张" onclick="pre();">
+            <input type="button" value="下一张" onclick="next();">
+          </div>
+        </div>
+        <script>
+            var picArr=new Array("mm.jpg","tk.jpg","zt.jpg","yg.jpg");
+            var index=0;
+            function next(){
+                index++;
+                if(index==picArr.length){
+                    index=0;
+                }
+                document.getElementById("pic").src=picArr[index];
+            }
+            function pre(){
+                index--;
+                if(index<0){
+                    index=picArr.length-1;
+                }
+                document.getElementById("pic").src=picArr[index];
+            }
+        </script>
+
+    </div>
+</body>
+</html>
