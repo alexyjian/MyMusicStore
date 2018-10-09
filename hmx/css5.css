@@ -1,0 +1,43 @@
+/*全局*/
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;/*边界*/
+    list-style: none;
+}
+.bottom{
+    background: #ccc;
+    border: 1px dashed #999;
+    height: 1000px;
+    width: 1000px;
+    top: 0; left: 0; bottom: 0; right: 0; /*div居中*/
+    text-align: center;
+    margin: auto;  
+    position: absolute;   
+}
+
+.head{
+    height: 200px;
+    width: 1000px;
+    background:green;
+}
+.onleft
+{
+    width: 50px; 
+    height: 800px;
+    background:red;
+    position: absolute;
+    top:195px;
+    right:1px;
+
+}
+.onright
+{
+    width: 50px; 
+    height: 800px;
+    background:red;
+    position: absolute;
+    top:195px;
+    left:1px;
+
+}
