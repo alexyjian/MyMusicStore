@@ -62,6 +62,14 @@ body{line-height:normal;}
     letter-spacing:3px;/*字体间距*/
     line-height:100px;/*字符上下间距*/
 }
+.ki{
+    color:black;
+    position: absolute;
+    left:220px;
+    top:540px;
+    font-size: 40px;
+
+}
 
 a{
     float: left;
@@ -117,6 +125,6 @@ div:hover a{
     position: absolute;
     float: left;
     left:850px;
-    top:400px;
+    top:350px;
 }
 
