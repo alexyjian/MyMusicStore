@@ -41,6 +41,18 @@ body{line-height:normal;}
     font-size: 20px; 
 
 }
+.cvb{
+    width:400px;
+    height: 200px;
+    float: left;
+    position: absolute;
+    left:10px;
+    top:630px;
+    font-size:24px;
+    color: lightyellow;
+    text-indent:26pt;/*首行缩进两个字*/
+
+}
 .yu {
     color: #B5E9F4;
     position: absolute;
@@ -85,17 +97,26 @@ div:hover a{
     padding:0;
 }
 #picBox{
-    margin:100px auto;
     width:600px;
     height:400px;
+    position: absolute;
+    left:10px;
+    top:67px;
+
 }
 #pic{
     width:600px;
     height:400px;
+    position: absolute;
+    left:380px;
+    top:-60px;
 
 }
 #buttonBox{
     width:150px;
-    margin:10px auto;
+    position: absolute;
+    float: left;
+    left:850px;
+    top:400px;
 }
 
