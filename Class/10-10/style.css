@@ -1,0 +1,43 @@
+* {
+    padding: 0px;
+    margin: 0px auto;
+    font-family: "微软雅黑";
+    font-size: 12px;
+}
+
+.box {
+    margin: 100px auto 0px;
+    height: 170px;
+    width: 340px;
+    border: 3px solid #53acc9;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    background-color: #f5f8fd;
+}
+
+input:nth-of-type(1),input:nth-of-type(2) {
+    border: 1px solid #3ea1bd;
+    margin-bottom: 20px;
+    padding: 2px 0px 2px 22px;
+    width: 180px;
+    background: url(images/2.jpg) no-repeat 5px white;
+}
+
+input:nth-of-type(1) {
+    margin-top: 30px;
+    background: url(images/1.jpg) no-repeat 5px white;
+}
+
+input:nth-of-type(3),input:nth-of-type(4) {
+    padding: 3px 15px;
+    background-color: #f98c2d;
+    border: 1px solid #6b5d51;
+    border-radius: 2px;
+}
+
+input:nth-of-type(3) {
+    background-color: #43b8e8;
+    margin-right: 30px;
+}
+

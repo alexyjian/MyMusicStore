@@ -1,0 +1,22 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "黑体";
+}
+
+form {
+    width: 630px;
+    height: 500px;
+    border: 1px solid red;
+}
+
+p span {
+    display: inline-block;
+}
+
+.txt {
+    width: 180px;
+    padding: 3px 0px;
+    border: 1px solid rgb(212,205,187);
+    margin-bottom: 20px;
+}
