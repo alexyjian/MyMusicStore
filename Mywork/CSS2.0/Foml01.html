@@ -10,9 +10,11 @@
     <form action="#" method="POST">
         <!--表单控件-->
         用户:
-        <input type="text" name="loginName" value="红红"/><br/><br/>
+        <input type="text" name="loginName" placeholder="请输入用户名" required="required" pattern="^[a-zA-Z][a-zA-Z0-9_]{4,11}$" /><br/><br/>
         密码:
-        <input type="password" name="password" size="15"/><br/><br/>
+        <input type="password" name="password" size="15" placeholder="请输入密码" pattern="^\d{6}$"/><br/><br/>
+        身份证：
+        <input type="text" name="id" placeholder="请输入" pattern=""/><br/><br/>
         性别:
         <input type="radio" name="sex" checked>男
         <input type="radio" name="sex">女<br/><br/>
