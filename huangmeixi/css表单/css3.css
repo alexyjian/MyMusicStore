@@ -29,11 +29,11 @@ p span{
 }
 
 .uname{
-    background: url(01.jpg) no-repeat 5px center#fff;
+    background: url(images/1.jpg) no-repeat 5px center#fff;
 }
 
 .pword{
-    background: url(02.jpg) no-repeat 5px center#fff;
+    background: url(images/2.jpg) no-repeat 5px center#fff;
 }
 
 .uname,.pword{
