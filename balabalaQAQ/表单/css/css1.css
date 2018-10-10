@@ -1,42 +1,8 @@
-.box{
-    height: 220px;
-    width:220px;
-    border: 2px solid rgb(66, 201, 241);
-    border-radius: 20px;
-    margin: auto;
-    background-color: #f5f8fd;
+body{
+    width: 1000px;
+    height: 800px;
+    background: url(../img/form_bg.jpg) no-repeat;
 }
 p{
-    margin-top: 50px;
-    margin-left: 30px;
-}
-.login{
-    width: 100px;
-    height: 25px;
-    padding-left: 20px;
-    border: 1px solid rgb(66, 201, 241);
-}
-.user{
-    background: url('img/1.jpg') no-repeat 5px center white;
-}
-.pwd{
-    margin-top: 20px;
-    background: url('img/2.jpg') no-repeat 5px center white;
-}
-
-.bt{
-    margin-left: 70px;
-    margin-top: 20px;
-}
-.dl{
-    background-color: rgb(66, 201, 241);
-}
-.zc{
-    margin-left: 20px;
-    background-color:rgb(253, 133, 90);
-}
-.tj{
-    border:1px solid blue;
-    width: 50px;
-    height: 30px;
+    margin-top: 30px;
 }
