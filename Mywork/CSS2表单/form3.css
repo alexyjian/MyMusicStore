@@ -1,0 +1,66 @@
+*{
+    font-size: 12px;
+    font-family: "微软雅黑";
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.bn{
+    width: 948px;
+    height: 686px;
+    background: url(images/sy.png) no-repeat;
+    background-size: cover;
+    margin: 20px auto;
+}
+
+form{
+    width: 500px;
+    height: 300px;
+    /* 表单居中 */
+    margin: 50ox auto;
+    padding-left: 30px;
+    position: absolute;
+    left: 30%;
+    top:24%;
+}
+
+h1{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 25px;
+    font-family: "微软雅黑";
+}
+
+span{
+    width:75px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 8px;
+}
+
+input{
+    height: 22px;
+}
+
+textarea,input{
+    border-radius: 5px;
+    resize: none;
+    vertical-align: middle;
+}
+
+.btn input{
+    width: 150px;
+    height: 25px;
+    background: rgb(237, 241, 237);
+    font-size: 12px;
+    color: black;
+    border-radius: 3px;
+    border: 1px solid #d4cdba;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.advice{
+    margin-top: 8px;
+}

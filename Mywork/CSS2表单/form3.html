@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员注册</title>
+    <link href ="form3.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="bn">
+    <form action="#" method="get" autocomplete="off">
+    <h1>会员注册</h1>
+
+    <span>性质：</span>
+    <input type="radio" name="nature" checked="checked">个人
+    <input type="radio" name="nature" checked>公司<br/><br/>
+    <span>昵称：</span>
+    <input type="text" maxlength="6" placeholder="小明"><br/><br/>
+    <span>密码：</span>
+    <input type="password" name="password" size="15" pattern="^\d{6}$"/><br/><br/>
+    <span>电子邮箱：</span>
+    <input type="email" placeholder="123456@126.com"><br/><br/>
+    <span>所在地：</span>
+    <select>
+        <optgroup label="北京">
+        <option>东城区</option>
+        <option>西城区</option>
+        <option>南城区</option>
+        <option>北城区</option>
+    </optgroup>
+    <optgroup label="柳州">
+            <option>柳南区</option>
+            <option>城中区</option>
+            <option>鱼峰区</option>
+    </optgroup>
+    </select><br/><br/>
+    <span>身份证号：</span>
+    <input type="text" name="card" required /><br/><br/>
+    <span>手机号码：</span>
+    <input type="tel">
+    <p class="advice">
+    <span>意见反馈：</span>
+    <textarea cols="50" rows="5" class="message">如果您有什么意见或问题可以告诉我！</textarea></p>
+    <p class="btn">
+    <input type="submit" value="提交">
+    <input type="reset" value="重置"></p>
+    </form>
+    </div>
+</body>
+</html>
