@@ -1,0 +1,44 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 10px;
+}
+
+p span{
+    width: 40px;
+    display: inline-block;
+    text-align: right;
+}
+
+.uname{
+    background: url(images/1.jpg) no-repeat 5px center #fff;
+}
+
+.pword{
+    background: url(images/2.jpg) no-repeat 5px center #fff;
+}
+
+.uname .pword{
+    width: 150px;
+    height: 50px;
+    border: 1px solid #5f92c5;
+    padding: 2px 2px 2px 2px;
+}
+
+.btnform, .btnreg{
+    width: 70px;
+    height: 25px;
+    border: 1px solid #6b5b51;
+    border-radius: 2px;
+    margin-left: 30px;
+}
+
+.btnform{
+    background: #5f92c5;
+}
+
+.btnreg{
+    background: #fc8717;
+}
