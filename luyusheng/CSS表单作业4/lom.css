@@ -1,0 +1,28 @@
+
+
+
+p input{
+    height: 24px;
+}
+ 
+textarea,input{
+    border-radius: 5px;
+    resize: none;
+    vertical-align: middle;
+}
+
+.mgn{
+    height: 30px;
+}
+.btn{
+    widows: 200px;
+    height: 30px;
+    border-radius: 5px;
+    background: #d9e2eb;
+}
+  .advice{
+      height: 100px;
+  }
+  .message{
+     border: 1px solid black; 
+  }
