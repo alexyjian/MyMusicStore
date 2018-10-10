@@ -2,15 +2,13 @@
     margin: 0;
     padding: 0;
     border: 0;
-
-}
-body{
     font-size: 16px;
+
 }
 
 
 
-.form{
+form{
     width: 320px;
     height: 150px;
     margin: 50px auto;
@@ -31,14 +29,14 @@ p span{
 }
 
 .uname{
-    background: url(1.jpg) no-repeat 5px center#ffff;
+    background: url(01.jpg) no-repeat 5px center#fff;
 }
 
 .pword{
-    background: url(2.jpg) no-repeat 5px center#ffff;
+    background: url(02.jpg) no-repeat 5px center#fff;
 }
 
-.uname, .pword{
+.uname,.pword{
     width: 150px;
     height: 20px;
     border: 1px solid #5f92c5;
