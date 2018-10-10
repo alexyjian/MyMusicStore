@@ -1,0 +1,69 @@
+/* 全局样式，重置浏览器样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    /* 列表没有点点 */
+    list-style: none;
+}
+
+
+/* 唱片样式 */
+
+.bg {
+    width: 600px;
+    height: 550px;
+    margin: 50px auto;
+    border-radius: 50%;
+    border: 10px solid #ccc;
+    padding: 40px;
+    padding-top: 50px;
+    background-image: repeating-radial-gradient(circle at 50% 50%, #333, #000 1%)
+}
+
+
+/* 排名列表样式 */
+
+ul {
+    width: 372px;
+    height: 530px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 15px 15px 12px #000;
+    margin: 0 auto;
+}
+
+
+/* 歌曲项 */
+
+ul li {
+    width: 372px;
+    height: 55px;
+    background: #504d58 url(../../../03Practise/Css盒子音乐会排行榜/images/yinfu.png) no-repeat 70px 20px;
+    color: #d6d6d6;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    text-align: center;
+    margin-bottom: 2px;
+    line-height: 55px;
+}
+
+
+/* 单独控制的列表，首部 */
+
+ul .top {
+    width: 370px;
+    height: 247px;
+    background: #ffffff;
+    background-image: url(../../../03Practise/Css盒子音乐会排行榜/images/yinyue.jpg), url(../../../03Practise/Css盒子音乐会排行榜/images/wenzi.jpg);
+    background-repeat: no-repeat;
+    background-position: 87px 16px, 99px 192px;
+    border-radius: 30px 30px 0 0;
+}
+
+
+/* 单独控制的列表，尾部 */
+
+ul .bo {
+    border-radius: 0 0 30px 30px;
+}
