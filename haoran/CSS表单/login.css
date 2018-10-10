@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 12px;
+}
+
+form{
+    width: 320px;
+    height: 150px;
+    margin: 50px auto;
+    padding-top: 20px;
+    background: #dcebf1;
+    border-radius: 20px;
+    border: 2px solid #5f92c5
+}
+
+p{
+    margin-top: 15px;
+    text-align: center;
+}
+
+p{
+    width: 40px;
+    display: inline-block;
+    text-align: right;
+}
+.uame{
+    background: url(images/1.jpg) no-repeat 5px center #fff;
+}
+
+.pword{
+    background: url(images/2.jpg) no-repeat 5px center #fff;
+}
+
+.uame,.pword{
+    width: 150px;
+}
