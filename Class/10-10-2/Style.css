@@ -10,16 +10,16 @@ h2 {
     text-align: center;
 }
 
-.box {
+html {
     background: url(images/form_bg.jpg) no-repeat;
-    height: 716px;
+    background-size: 1280px;
 }
 
 form {
     width: 560px;
     height: 500px;
     position: absolute;
-    right: 150px;
+    right: 80px;
     top: 100px;
 }
 
