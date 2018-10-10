@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url(img/form_bg.jpg) no-repeat;
+}
+.tex{
+    height: 20px;
+    width: 175px;    
+}
+p{
+    margin-left: 16px;
+}
+#pp{
+    margin-left: 0px;
+}
