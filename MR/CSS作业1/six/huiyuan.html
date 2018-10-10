@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员注册</title>
+</head>
+<body>
+    <body>                                                                             
+        <div class="bg">
+            <form action="#" method="get" autocomplete="off">
+            <h2>会员注册</h2>
+            <p><span>性质：
+            </span>
+            <input type="radio" name="sex" checked>个人
+            <input type="radio" name="sex" checked>公司<br/><br/>
+            <p><span>昵称：</span><input type="text" name="name"  pattern="^[\u4e00-\u9fa5]{0,}$" placeholder="例如：王明" required autofocus/></p>
+            <p><span>密码：</span><input type="number" name="real_lage" value="24" min="15" max="120" required/>（必须填写）</p>
+            <p><span>电子邮箱：</span><input type="email" name="myemail" placeholder="123456@126.com" required multiple/>（必须填写）</p>
+            <p><span>所在地：</span><input type="text" name="card" required pattern="^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$"/>（必须填写，能够以数字、字母x结尾的短身份证号）</p>
+            <p><span>身份证号：</span><input type="tel" name="telphone" pattern="^\d{11}$" required/>（必须填写）</p>
+            <p><span>手机号码：</span><input type="url" name="myurl" list="urllist" placeholder="http://www.itcast.cn" pattern="^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$"/>（请选择网址）
+            <p><span>意见反馈：</span><input type="text" name="birthday" value="1990-10-1" required/>（必须填写）</p>
+  
+            <datalist id="urllist">
+            <option>http://www.itcast.cn</option>
+            <option>http://www.boxuegu.com</option>
+            <option>http://www.w3school.com.cn</option>
+            </datalist>
+            </p>
+            <p class="lucky"><span>幸运颜色：</span><input type="color" name="lovecolor" value="#fed000"/>（请选择你喜欢的颜色）</p>
+            <p class="btn">
+            <input type="submit" value="提交"/>
+            <input type="reset" value="重置"/>
+            </p>
+            </form>
+        </div>
+    </body>
+</body>
+</html>
