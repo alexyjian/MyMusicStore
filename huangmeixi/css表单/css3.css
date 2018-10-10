@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+}
+body{
+    font-size: 16px;
+}
+
+
+
+.form{
+    width: 320px;
+    height: 150px;
+    margin: 50px auto;
+    background:#dcebf1;
+    border-radius: 20px;
+    border:3px solid #5f92c5;
+}
+
+p{
+    margin-top: 15px;
+    text-align: center;
+}
+
+p span{
+    width: 40px;
+    display: inline-block;/*单行显示*/
+    text-align: right;
+}
+
+.uname{
+    background: url(1.jpg) no-repeat 5px center#ffff;
+}
+
+.pword{
+    background: url(2.jpg) no-repeat 5px center#ffff;
+}
+
+.uname, .pword{
+    width: 150px;
+    height: 20px;
+    border: 1px solid #5f92c5;
+    padding: 2px 2px 2px 22px;
+}
+
+.btnLogin.btnReg{
+    width: 70px;
+    height: 25px;
+    border-radius: 2px;
+    border: 1px solid #6B5D51;
+    margin-left: 30px;  
+}
+
+.btnLogin{
+    background: #5f92c5;
+}
+
+.btnReg{
+    background: #fc8717;
+}
+
+
+
