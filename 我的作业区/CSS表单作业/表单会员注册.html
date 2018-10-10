@@ -25,22 +25,30 @@
         </p>
         <p>
             <span>电子邮箱：</span>
-            <input type="email" name="myemail" placeholder="123456@123.com" requiredmultiple/>
+            <input type="email" name="myemail" placeholder="123456@123.com" required multiple/>
         </p>
         <p>
             <span>所在地：</span>
             <select>
-                <option>-请选择-</option>
-                <option>北京</option>
-                <option>上海</option>
-                <option selected="selected">广州</option>
-                <option>武汉</option>
-                <option>成都</option>
-            </select>
+                    <optgroup label="北京">
+                        <option>东城区</option>
+                        <option>西城区</option>
+                        <option>朝阳区</option>
+                        <option>海淀区</option>
+                    </optgroup>
+                    <optgroup label="上海">
+                        <option>浦东新区</option>
+                        <option>徐汇区</option>
+                        <option>虹口区</option>
+                    </optgroup>
+                    <optgroup label="广州">
+                        <option selected>广州</option>
+                    </optgroup>
+                </select>
         </p>
         <p>
             <span>身份证号码：</span>
-            <input type="text" name="card" requiredpattern="^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$" title="(必须填写，能够以数字、字母x结尾的短身份证号)"/>
+            <input type="text" name="card" required pattern="^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$" title="(必须填写，能够以数字、字母x结尾的短身份证号)"/>
         </p>
         <p>
             <span>手机号码：</span>
