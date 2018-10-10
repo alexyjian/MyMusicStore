@@ -13,9 +13,12 @@
         <form action="#" method="POST">
             <!-- 表单控件 -->
             用户:
-            <input type=text name="loginName" value="梅西" /> <br /><br />
+            <input type=text name="loginName" placeholder="请输入用户名" required="required" pattern="^[a-zA-Z][a-zA-Z0-9_]{4,11}$" /> <br /><br />
             密码:
-            <input type="password" name="passWord" size="12" /><br /><br />
+            <input type="password" name="passWord" size="12" placeholder="请输入密码" required="required" pattern="^\d{6}$"/><br /><br />
+            身份证:
+            <input type="text" name="id" pattern="^\d{15}|\d{18}$"/>
+            <br /><br />
             性别:
             <input type="radio" name="sex" checked>男
             <input type="radio" name="sex">女<br /><br />
@@ -36,6 +39,13 @@
             <input type="color" value="#fdfd12" /><br /><br />
             你的芳龄:
             <input type="number" value="16" min="1" max="120" step="1" /><br /><br />
+            生日:
+            <input type="date"><br /><br />
+            <input type="month"><br /><br />
+            <input type="week"><br /><br />
+            <input type="time"><br /><br />
+            <input type="datetime"><br /><br />
+            <input type="datetime-local"><br /><br />
 
             按钮组
             <input type="submit" value="提交">
