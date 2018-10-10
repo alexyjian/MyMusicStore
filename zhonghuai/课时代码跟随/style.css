@@ -1,0 +1,22 @@
+@font-face{font-family: BOOM;src: url(font/BOOMBOX.TTF)}
+
+@font-face{font-family: ONYX;src: url(font/ONYX.TTF)}
+
+
+h2 .a{
+    font-family:BOOM;
+    font-size: 60px;
+}
+
+.TitleOne .a{font-family: ONYX;
+    color: black;
+    font-size: 48px;
+
+
+
+}
+.TitleOne .b{
+    font-family: TCM;
+    color: #4c9372;
+    font-size: 58px;
+}
