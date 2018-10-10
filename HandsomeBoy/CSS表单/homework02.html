@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       *{
+           background: url(images/form_bg.jpg) no-repeat fixed top;
+           background-size:100% 100%;
+       }
+       p{
+           margin-top: 10px;
+       }
+   
+     p span
+     {
+         width: 100px;
+         display: inline-block;
+             text-align: right;
+     }
+       form{
+        width: 400px;
+           height: 500px;
+           position: absolute;
+           top:200px;
+          left: 700px;
+       }
+       input
+       {
+           width: 150px;
+           height: 20px;
+
+       }
+    </style>
+</head>
+<body>
+    <div class="contain">
+    <form action="#">
+            <h2>学生信息登记表</h2>
+        <p>
+                 <span>用户登录名：</span>
+                <input type="text" name="userid" value="1935197914@qq.com" readonly="true">
+                 
+           </p>
+             <p>
+                 <span>真实姓名：</span>
+                <input type="text" name="username" placeholder="例如:王明" pattern="^[\u4e00-\u9fa5]{0,}$">
+                
+             </p>
+             <p>
+                 <span>真实年龄：</span>
+                 <input type="text" name="userage" id="" required="required">
+               
+             </p>
+             <p>
+                 <span>出生日期</span>
+                <input type="date" name="birthday" id="" required="required">
+                
+             </p>
+             <p>
+                 <span>电子邮箱：</span>
+                 <input type="email" name="email" id="" required="required">
+                
+             </p>
+             <p>
+                 <span>身份证号：</span>
+                 <input type="text" name="card" id="" required="required" pattern="^((\d{18})|([0-9x]{18})|([0-9X]{18}))$">
+                
+             </p>
+             <p>
+                 <span>手机号码：</span>
+                <input type="text" name="phone" id="" required="required">
+                
+             </p>
+             <p>
+                 <span>个人主页：</span>
+                 <input type="url" name="url" id="" placeholder="http://www.itcast.cn">
+                
+             </p>
+             <p>
+                 <span>幸运颜色：</span>
+                 <input type="color" name="color" id="">
+                
+             </p>
+             
+             <p>
+                 <span><input type="submit" value="提交" class="submit"></span>
+                 <input type="reset" value="重置" class="reset">
+             </p>
+        
+        </form>
+    </div>
+</body>
+</html>
