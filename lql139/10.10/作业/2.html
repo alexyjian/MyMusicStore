@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学员登记表</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div>
+        <h2>学员信息登记表</h2>
+        <form>
+            用户登录名：<input type="text" value="myemail@163.com">（不能修改，只能查看）<br/>
+            真实姓名：<input type="text" value="列入：王明"/>（必须填写，只能输入汉字）<br/>
+            真实年龄：<input type="text" value="24"/>（必须填写）<br/>
+            出生日期：<input type="date" />（必须填写）<br/>
+            电子邮箱：<input type="email" value="123456@126.com"/>（必须填写）<br/>
+            身份证号：<input type="text" />（必须填写，能顾以数字、字母X结尾的身份证号）<br/>
+            手机号码：<input type="text" />（必须填写）<br/>
+            个人主页：<input type="url" list="list" value="http://www.itcast.cn"/>（请选择网址）
+            <datalist id="list">
+                <option label="" value="http://www.itcast.cn"></option>
+            </datalist><br/>
+            幸运颜色： <input type="color" value=""><br/>
+            <input type="button" value="提交"/>
+            <input type="button" value="重置"/>
+        </form>
+    </div>
+</body>
+</html>

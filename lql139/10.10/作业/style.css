@@ -1,0 +1,14 @@
+body{
+    background: url(form_bg.jpg) no-repeat ;
+    font-size: 15px;
+}
+div{
+    width: 500px;
+    height: 700px;
+    margin: 150px 0 0 650px;
+    text-align: left;
+}
+input{
+    margin-top: 20px;
+   
+}
