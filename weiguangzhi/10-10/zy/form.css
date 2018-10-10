@@ -1,0 +1,43 @@
+.div{
+    height: 200px;
+width: 350px;
+border: 2px solid rgb(57, 157, 214);
+margin: 50px auto;
+position: relative;
+border-radius: 8%;
+margin: 0 auto;
+background-color:darkslategrey;
+}
+.form{
+    margin: 60px;
+    
+}
+.in1{
+background-image: url(images/1.jpg);
+background-repeat: no-repeat;
+background-position: 0px 0px;
+
+
+}
+.in2{
+background-image: url(images/2.jpg);
+background-repeat: no-repeat;
+background-position: 0px 0px;
+
+
+}
+.btn1 .btn2
+{
+width: 70px;
+height: 25px;
+border-radius: 2px;
+border: 1px solid burlywood;
+
+}
+.btn1{
+background: rgb(57, 157, 214);
+margin-left: 30px;
+}
+.btn2{
+background: #fc8717;
+}
