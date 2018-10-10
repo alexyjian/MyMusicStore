@@ -1,0 +1,47 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+.box{
+    width: 300px;
+    border: 3px solid #336693;
+    border-radius: 15px;
+    margin:  50px auto; 
+    padding: 50px;
+}
+.box .login p input[type="text"],input[type="password"]{
+    padding-left: 22px;
+    border: 1px solid #336693;
+}
+.box .login p{
+    position: relative;
+}
+.box .login p::before{
+    position: absolute;
+    left: 58px;
+    top: 3px;
+}
+.box .login p:nth-child(1)::before{
+    content: url(images/1.jpg);
+}
+.box .login p:nth-child(2)::before{
+    content: url(images/2.jpg);
+}
+.login{
+    width: 250px;
+    margin: 0 auto;
+    text-align: center
+}
+.box .login input[type="submit"],input[type="button"]{
+    width: 60px;
+    height: 35px;
+    border: 2px solid #666;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+.box .login input[type="submit"]{
+    background-color: #336696;
+}
+.box .login input[type="button"]{
+    background-color: #FF9900;
+}
