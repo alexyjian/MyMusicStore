@@ -2,16 +2,37 @@
     margin: 0px;
     padding: 0px;
     font-family: "黑体";
+    font-size: 13px;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.box {
+    background: url(images/form_bg.jpg) no-repeat;
+    height: 716px;
 }
 
 form {
-    width: 630px;
+    width: 560px;
     height: 500px;
-    border: 1px solid red;
+    position: absolute;
+    right: 150px;
+    top: 100px;
 }
 
 p span {
     display: inline-block;
+}
+
+.sj{
+    text-indent: 12px;
+}
+
+.cr {
+    width: 90px;
 }
 
 .txt {
@@ -19,4 +40,13 @@ p span {
     padding: 3px 0px;
     border: 1px solid rgb(212,205,187);
     margin-bottom: 20px;
+}
+
+.btn1 {
+    padding: 5px 25px;
+    color: white;
+    font-size: 14px;
+    background-color: #94b32c;
+    margin: 20px 40px 0px;
+    border: 0px;
 }
