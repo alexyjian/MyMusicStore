@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员注册</title>
+    <link rel="stylesheet" href="style2.css" type="text/css">
+</head>
+<body>
+    <div class="bj">
+        <form>
+            <h2>会员注册</h2>
+            <span>性质：</span><input class="rad" type="radio" name="sex" value="sex"/>个人 
+            <input class="rad" type="radio" name="sex" value="sex">公司<br/>
+            <span>昵称：</span><input type="text" value="小明"/><br/>
+            <span>密码：</span><input class="pass" type="password"/><br/>
+            <span>电子邮箱：</span><input type="email" value="123456@126.com"/><br/>
+            <span>所在地：</span><select>
+                <optgroup label="北京">
+                    <option value="东城区">东城区</option>
+                    <option value="西城区">西城区</option>
+                    <option value="朝阳区">朝阳区</option>
+                    <option value="海淀区">海淀区</option>
+                </optgroup>
+                <optgroup label="上海">
+                    <option value="浦东新区">浦东新区</option>
+                    <option value="徐汇区">徐汇区</option>
+                    <option value="虹口区">虹口区</option>
+                </optgroup>
+                <optgroup label="广州">
+                    <option value="广州">广州</option>         
+                </optgroup>
+            </select><br/>
+            <span>身份证号：</span><input type="text"/><br/>
+            <span>手机号码：</span><input type="tel"/><br/>
+            <span class="fankui">意见反馈：</span><textarea cols="50" rows="5" class="text">如果您有什么意见或问题可以告诉我！</textarea><br/>
+            <input class="tj" type="submit" value="提交"/>
+            <input class="cz" type="button" value="重置"/>
+        </form>
+    </div>
+</body>
+</html>
