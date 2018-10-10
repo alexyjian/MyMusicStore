@@ -9,25 +9,30 @@
 <link rel="stylesheet" href="css/css1.css" type="text/css">
 <body>
     <div class="box">
+    <form action="#" method="GET" autocomplete="off">
       <div class="djb">
          <p>学员信息登记表</p>
-         <p>用户登录名：<input type="text" placeholder="myemail@163.com"></p> 
-         <p>真实姓名：<input type="text" placeholder="例如：王明"></p> 
-         <p>真实年龄：<input type="text" ></p> 
-         <p>出生日期：<input type="date"></p> 
-         <p>电子邮箱：<input type="text" placeholder="123456@126.com"></p> 
-         <p>身份证号：<input type="text"></p> 
-         <p>手机号码：<input type="text"></p> 
-         <p>个人主页：<input type="url">
+         <p><span>用户登录名：</span></span><input type="text" placeholder="myemail@163.com" required="required" readonly="readonly"></p> 
+         <p><span> 真实姓名：</span><input type="text"  required="required" placeholder="例如：王明" pattern="^[u4e00-u9fa5]{0,}$"></p> 
+         <p><span> 真实年龄：</span><input type="text" required="required"></p> 
+         <p><span> 出生日期：</span><input type="date" required="required"></p> 
+         <p><span> 电子邮箱：</span><input type="text" required="required" placeholder="123456@126.com"></p> 
+         <p><span> 身份证号：</span><input type="text" required="required"></p> 
+         <p><span> 手机号码：</span><input type="text" required="required"></p> 
+         <p><span> 个人主页：</span><input type="url" list="url_list">
             <datalist id="url_list">
                     <option label="zz" value="http://www.xinlang.com"></option>
                     <option label="bilibili" value="http://www.baidu.com"></option>
                     <option label="bilibili"value="http://www.xinlang.com"></option>
             </datalist>
         </p> 
-        <p>幸运颜色：<input type="color" v></p> 
-        <p><input type="submit"value="提交"> <input type="reset"value="重置"></p>
+        <p><span>幸运颜色：</span><input type="color" value="#" class="col"></p> 
+        <p>
+            <input type="submit" value="提交" class="btn">
+            <input type="reset" value="重置" class="btn">
+        </p>
       </div>
+    </form>
     </div>
 </body>
 </html>
