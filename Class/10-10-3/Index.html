@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员注册</title>
+    <link rel="stylesheet" type="text/css" href="Style.css" /> 
+</head>
+<body>
+    <div class="bg" >
+        <form>
+            <h3>会员注册</h3>
+            <p>
+                <span class="sj"> 性质：</span>
+                <input type="radio" name="type" value="Personage" checked="checked" >个人
+                <input type="radio" name="type" value="Company">公司
+            </p>
+            <p>
+                <span class="sj">昵称：</span>
+                <input class="btn1" type="text" name="user_name" placeholder="小明" />
+            </p>
+            <p>
+                <span class="sj">密码：</span>
+                <input type="password" name="user_pwd" />
+            </p>
+            <p>
+                <span>电子邮箱：</span>
+                <input class="btn1" type="email" name="user_email" placeholder="123456@126.com" />
+            </p>
+            <p>
+                <span>所在地：</span>
+                <select>
+                    <optgroup label="北京" ></optgroup>
+                    <option value="dcq" >东城区</option>
+                    <option value="xcq" >西城区</option>
+                    <option value="cyq" >朝阳区</option>
+                    <option value="hdq" >海淀区</option>
+                    <optgroup label="上海" ></optgroup>
+                    <option value="pdxq" >浦东新区</option>
+                    <option value="xhq" >徐汇区</option>
+                    <option value="hkq" >虹口区</option>
+                    <optgroup label="广州" ></optgroup>
+                    <option value="gz" >广州</option>
+                </select>
+            </p>
+            <p>
+                <span>身份证号：</span>
+                <input class="btn1" type="text" name="card" />
+            </p>
+            <p>
+                <span>电话号码：</span>
+                <input class="btn1" type="text" name="telphone" />
+            </p>
+            <p>
+                <span>意见反馈：</span>
+                <textarea cols="40" rows="6" >如果您有什么意见或问题可以告诉我！</textarea>
+            </p>
+            <p>
+                <input type="submit" value="提交" />
+                <input type="reset" value="重置" />
+            </p>
+        </form>
+    </div>
+</body>
+</html>
