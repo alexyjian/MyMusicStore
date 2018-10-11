@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员注册</title>
+    <link href="redg.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+        <form action="#" method="post" >
+            <h2>会员注册</h2>
+            <p>
+                <span>性质：</span>
+                <input type="radio" name="Nature" checked="checked"/> 个人 
+                <input type="radio" name="Nature" /> 公司
+            </p>
+            <p>
+                <span>昵称：</span>
+                <input type="text" name="nicheng" placeholder="小明" maxlength="6"/>
+            </p>
+            <p>
+                <span>密码：</span>
+                <input type="password" name="pword" size="40"/>
+            </p>
+            <p>
+               <span>电子邮箱：</span> 
+                <input type="email" name="email" placeholder="123456@126.com" required multiple/>
+            </p>
+            <p>
+                <span>所在地：</span>
+                <select>
+                    <optgroup>
+                        <option >东城区</option>
+                        <option >西城区</option>
+                        <option >朝阳区</option>
+                        <option >海淀区</option>
+                    </optgroup>
+                    <optgroup>
+                            <option >浦东区</option>
+                            <option >徐汇区</option>
+                            <option >虹口区</option>
+                    </optgroup>
+                    <optgroup label="广州">
+                        <option selected> 广州</option>
+                    </optgroup>
+                </select>
+            </p>
+            <p>
+                <span>身份证号：</span>
+                <input type="text" name="card"required pattern="^\d{8,18}|[0-9x]{8,18}|[0-9x]{8,18}?$"/></p>
+            <p>
+                <span>手机号码：</span>
+                <input type="tel" name="telphone" pattern="^\d{11}$" required/></p>
+            <p class="advice">
+                <span>意见反馈：</span>
+               <textarea  cols="60" rows="5" class="message">如果你有什么意见或问题可以告诉我！</textarea> </p>
+            <p class="mgn">
+                <span></span>
+                <input type="submit" value="提交" class="btn"/>
+                <input type="reset" value="重置" class="btn"/>
+            </p>        
+        </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+body{
+    font-family: "楷体";
+    font-size: 18px;
+    font-weight: bold;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+form{
+    width: 1068px;
+    height: 768;
+    margin: 0 auto;
+    padding: 160px;
+    background: url(images/sy.png) no-repeat center center;
+    box-sizing: border-box;
+}
+h2 {
+    font-size: 30px;
+    text-align: center;
+    margin: 16px 0;
+}
+
+p{
+    height: 25px;
+    margin-top: 10px;
+}
+p span{
+    text-align: right;
+    display: inline-block;
+    width: 150px;
+    margin-right: 15px; 
+}
+p input{
+    height: 25px;
+}
+ textarea,input{
+    border-radius: 5px;
+    resize: none;
+    vertical-align: middle;
+}
+.mgn{
+    height: 30px;
+}
+.btn{
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    background: #d9e2ed;
+}
+
+.advice{
+    height: 100px;
+}
+
+.message{
+    border: 1px solid black;
+}
