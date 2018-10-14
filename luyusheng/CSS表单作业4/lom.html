@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>会员注册</title>
-    <link href="ret.css" rel="stylesheet" type="text/css">
+    <link href="reg.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <form action="#" method="get">
         <h2>会员注册</h2>
         <p><span>性质：</span>
-        <input type="radio" name="Nature" checked="checked"/>
+        <input type="radio" name="Nature" checked="checked"/>&nbsp;&nbsp;个人
         <input type="radio" name="Nature"/>&nbsp;&nbsp;公司
         </p>
         <p><span>昵称：</span>
@@ -24,18 +24,31 @@
             <input type="email" name="myemail" placeholder="22776@221.com" required multiple/>
         </p>
         <p><span>所在地：</span>
-            <optgroup>
+            <optgroup label="北京">
+            <option>东城区</option>
+            <option>西城区</option>
+            <option>朝阳区</option>
+            <option>海淀区</option>
+        </optgroup>
+        <optgroup label="上海">
+            <option>浦东新区</option>
+            <option>徐汇区</option>
+            <option>虹口区</option>
+        </optgroup>
+        <optgroup label="广州">
+            <option>广州</option>
+        </optgroup>
         </p>
         <p><span>身份证号：</span>
-            <input type="tel" name="card" required pattern="^\d{}">
+            <input type="tel" name="card" required pattern="^\d{8,18}|[0-9X]{8,18}?$"title="(必须填写，能够以数字、字母x结尾的短身份证号)"/>
         </p>
         <p>
             <span>手机号码：</span>
-            <input type="tel" name="telphone" pattern="^\d{11}$">
+            <input type="tel" name="telphone" pattern="^\d{11}$" required/>
         </p>
         <p class="advice">
             <span>意见反馈：</span>
-            <textarea cols="50" rows="5" class="message">如果您有什么意见或问题可以告诉我
+            <textarea cols="50" rows="5" class="message">如果您有什么意见或问题可以告诉我！</textarea>
             </p>
             <p class="mgn">
              <span></span>

@@ -6,7 +6,7 @@
 }
 
 form{
-    width: 210px;
+    width: 310px;
     height: 150px;
     margin: 50px auto;
     padding-top: 20px;
@@ -16,7 +16,7 @@ form{
 }
 
  p{
-     margin-top: 15px;
+     margin-top: 20px;
      text-align: center;
  }
 
@@ -41,8 +41,8 @@ form{
     padding: 2px 2px 2px 22px;
 }
 
-.btnLogin,.btnPeg{
-    width:70px;
+.btnLogin,.btnReg{
+    width:60px;
     height: 25px;
     border-radius: 2px;
     border: 1px solid #6b5b51;
