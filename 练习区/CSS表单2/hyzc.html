@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会员注册</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="bg">
+        <form action="#" method="POST">
+            <h2>会员注册</h2>
+            <p>
+                <span>性质:</span>
+                <input type="radio" name="Nature"checked/>个人
+                <input type="radio" name="Nature"/>公司
+            </p>
+            <p>
+                <span>昵称:</span>
+                <input type="text" value="王小明" name="name" pattern="^[\u4e00-\u9fa5]{0,}$" />
+
+            </p>
+            <p>
+                <span>密码:</span>
+                <input type="password" name="password">
+
+            </p>
+            <p>
+                <span>电子邮箱:</span>
+                <input type="email" name="myemal">
+
+            </p>
+            <p>
+                <span>所在地:</span>
+                    <select>
+                    <optgroup label="北京">
+                            <option label="东城区"></option>
+                            <option label="西城区"></option>
+                            <option label="朝阳区"></option>
+                            <option label="海淀区"></option>
+                    </optgroup>
+                    <optgroup label="上海">
+                            <option label="浦东新区"></option>
+                            <option label="徐汇区"></option>
+                            <option label="虹口区"></option>
+                    </optgroup>
+                    <optgroup label="广州">
+                            <option label="天河区"></option>
+                    </optgroup>
+               </select>
+               
+               
+            </p>
+            <p>
+                <span>身份证号:</span>
+                <input type="number" name="card">
+
+            </p> 
+            <p>
+                    <span>手机号码:</span>
+                    <input type="tel" class="telphone">
+    
+                </p>
+            <p class="advice">
+                <span>意见反馈:</span>
+                <textarea cols="50" rows="5"  class="message"></textarea>
+                
+
+            </p>    
+            <p class="mgn">
+                <input type="submit" class="btn" value="提交">
+                <input type="reset" class="btn" value="重置">
+
+            </p>
+
+        </form>
+    </div>
+</body>
+
+</html>
