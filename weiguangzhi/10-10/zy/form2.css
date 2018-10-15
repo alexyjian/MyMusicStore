@@ -57,6 +57,9 @@ border-radius: 3px;
 border:1px solid #d4cdba;
 margin-top:20px;
 margin-left: 70px; 
-
-
+}
+#boc-video audio{
+    position: absolute;
+    left: -100px;
+    bottom: -70px;
 }
