@@ -1,9 +1,37 @@
 .buttom{
-    width: 1000px;
-    height: 800px;
+    width: 770px;
+    height: 1200px;
     background-color:#DBEE9C;
     margin: auto;  
     position: absolute;  
     top: 0; left: 0; bottom: 0; right: 0; /*div居中*/
-    margin: 13px auto;     
+    margin: 13px auto;
+}     
+.one{
+    width: 770px;
+    height: 40px;
+    background-color: lightgray;
+    margin: auto;  
+    position: absolute;  
+    top: 0; left: 0; bottom: 0; right: 0; /*div居中*/
+    margin:0px auto;
+}
+.two{
+    background: url(images/logo.png) no-repeat;
+    width: 1000px;
+    height: 40px;
+    margin: auto;  
+    text-align: center;
+    letter-spacing: 8px;
+}
+.sree{
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 4000%;
+    max-height: 4000%;
+    position: relative;;
+    top: 25px;
+    left: 50%;
+    margin: 1px auto; 
+    transform: translate(-50%, -50%);
 }
