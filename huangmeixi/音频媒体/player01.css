@@ -1,0 +1,9 @@
+.buttom{
+    width: 1000px;
+    height: 800px;
+    background-color:#DBEE9C;
+    margin: auto;  
+    position: absolute;  
+    top: 0; left: 0; bottom: 0; right: 0; /*div居中*/
+    margin: 13px auto;     
+}
