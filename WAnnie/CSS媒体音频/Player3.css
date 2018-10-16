@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style:none;
+}
+ul{
+    
+    background: lemonchiffon;
+    text-align: center;
+    background-image: url(images/logo.png);
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    
+}
+li{
+    display: inline-block;
+    margin: 15px;
+}
+
+.phone{
+    width: 1000px;
+    height: 200px;
+    border: 1px solid white;
+    margin: 2px;
+}
