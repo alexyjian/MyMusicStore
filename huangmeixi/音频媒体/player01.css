@@ -61,5 +61,6 @@
         width: 180px;
         height: 190px;
         margin: 3px;
+        border-radius:12px;/*圆角边框*/
 
 }
