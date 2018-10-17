@@ -86,12 +86,14 @@ video {
 
 .video-list ul{
     width: 1280px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .video-list li{
     width: 282px;
     height: 150px;
-    margin-right: 38px;
+    margin-right: 24px;
     float: left;
     background: url(img/pg2.jpg) no-repeat center center;
     border: 3px solid white;
