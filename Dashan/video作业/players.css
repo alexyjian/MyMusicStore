@@ -2,28 +2,80 @@
 {
     margin: 0;
     padding:0;
+    list-style: none;/*去掉列表点*/
+    outline: none;
 }
-.box-not
+body
 {
-    background: url(images/logo.png)no-repeat;
-    background-color: lightgrey; 
+    font-family: "微软雅黑";
+    font-size: 12px;
+    background: white;
+}
+a:link,
+a:visited
+{
+    text-decoration: none;/*去掉链接下划线*/
+    color: #333;
+}
+a:hover
+{
+    text-decoration: none;
+}
+/*header 设置*/
+header
+{
     width: 100%;
-    padding: 10px;
-    margin: 10px;
+    background: #eee;
 }
-p
+header ul
 {
-    
-    word-spacing:50px;
-    font-size: 18px;
+    width: 1280px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-size: 25px;
+    box-sizing: border-box;
+    background: url(images/logo.png)no-repeat left center;
+    background-size: 25px;
+    padding-left: 30px;
+    box-sizing: border-box;
 }
-h2
+header li
 {
-   font-size: 35px;
-   font-family: "楷体"; 
+    height: 35px;
+    float: left;
+    line-height: 35px;
+    text-align: center;
+    padding: 0 25px;
 }
-h3
+header li:hover
 {
-    font-size: 30px;
-    font-family: "楷体"; 
+    background: #ccc;
 }
+.video-bg
+{
+    text-align: center;
+    width: 1280px;
+    margin: 0 auto;
+}
+.video-bg p
+{
+text-align: left;
+font-size: 24px;
+color: #333;
+padding: 20px 0 10px;/*上左右下*/ 
+}
+video
+{
+    width: 1280px;
+    height: 640px;
+    background: black;
+}
+.video-list p
+{
+    text-align: left;
+    font-size: 15px;
+    color: #333;
+    padding: 20px 0 ;
+}
+
+/*header设置结束*/
