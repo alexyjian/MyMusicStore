@@ -29,11 +29,9 @@ header
 }
 header ul
 {
-    width: 1280px;
+    width: 1200px;
     overflow: hidden;
     margin: 0 auto;
-    background-size: 25px;
-    box-sizing: border-box;
     background: url(images/logo.png)no-repeat left center;
     background-size: 25px;
     padding-left: 30px;
@@ -41,9 +39,9 @@ header ul
 }
 header li
 {
-    height: 35px;
+    height: 34px;
     float: left;
-    line-height: 35px;
+    line-height: 34px;
     text-align: center;
     padding: 0 25px;
 }
@@ -54,7 +52,7 @@ header li:hover
 .video-bg
 {
     text-align: center;
-    width: 1280px;
+    width: 1200px;
     margin: 0 auto;
 }
 .video-bg p
@@ -66,8 +64,8 @@ padding: 20px 0 10px;/*上左右下*/
 }
 video
 {
-    width: 1280px;
-    height: 640px;
+    width: 1200px;
+    height: 576px;
     background: black;
 }
 .video-list p
@@ -76,6 +74,35 @@ video
     font-size: 15px;
     color: #333;
     padding: 20px 0 ;
+}
+.video-list ul
+{
+    width: 1200px; 
+    display: flex;
+    justify-content: space-between;
+}
+.video-list li
+{
+    width: 280px;
+    height: 150px;
+    margin-right: 24px;
+    float: left;
+    background: url(images/pg2.jpg)no-repeat center center;
+    border: 3px solid white;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-origin: padding-box;
+    opacity: 0.6;
+}
+.video-list .current
+{
+    background: url(images/pg1.jpg)no-repeat center center;
+    border:3px solid #666;
+    opacity: 1;
+}
+.video-list li:nth-child(4)
+{
+    margin-right: 0px;
 }
 
 /*header设置结束*/
