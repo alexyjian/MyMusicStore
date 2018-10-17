@@ -62,7 +62,9 @@ p {
 
 .video-list ul {
     width: 100%;
-    padding: 0px 20px;
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .video-list li img{
@@ -71,7 +73,7 @@ p {
     border-radius: 10px;
     margin-right: 24px;
     border: 3px solid white;
-    width: 282px;
+    width: 280px;
     height: 150px;
     box-sizing: border-box;
 }
@@ -79,4 +81,8 @@ p {
 .current li img {
     border: 3px solid #666;
     opacity: 1;
+}
+
+.video-list li:nth-child(4) {
+    margin-right:0px;
 }
