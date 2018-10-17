@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>视频</title>
-    <link rel="stylesheet" type="text/css" href="css.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
     <header>
@@ -36,9 +36,28 @@
              </a>
         </ul>
     </header>
+    <!--播放器-->
     <div>
         <p>正在播放：流动的城市</p>
-        <video src="video/gn" controls="controls" loop="loop" autoplay="autoplay"></video>
+        <video src="gn.webm" loop autoplay controls ></video>
+    </div>
+    <!--视频列表-->
+    <div class="video-list">
+        <P>视频播放列表：</P>
+        <ul>
+            <a hreft="#">
+                <li></li>
+            </a>
+            <a hreft="#">
+                <li class="current"></li>
+            </a>
+            <a hreft="#">
+                <li></li>
+            </a>
+            <a hreft="#">
+                <li></li>
+            </a>
+        </ul>
     </div>
 </body>
 </html>
