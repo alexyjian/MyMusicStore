@@ -1,25 +1,115 @@
+/* 全局 */
+
 *{
-    margin: 0;
-    padding: 0;
+     margin: 0; 
+     padding: 0; 
     list-style:none;
+    outline: none;
 }
-ul{
-    
-    background: lemonchiffon;
-    text-align: center;
-    background-image: url(images/logo.png);
-    background-repeat: no-repeat;
-    background-position: 10px 10px;
-    
-}
-li{
-    display: inline-block;
-    margin: 15px;
+body{
+    font-family: "楷体";
+    font-size: 15px;
+    background: white;
 }
 
-.phone{
-    width: 1000px;
-    height: 200px;
-    border: 1px solid white;
-    margin: 2px;
+a:link,a:visited{
+    text-emphasis: none; /* 设置链接无线*/
+    color: #333;
 }
+
+a:hover{
+    text-decoration: none;
+}
+
+/* 全局结束 */
+
+/* Header设置 */
+header{
+    width: 100%;
+    background: #eee;
+    
+}
+header ul{
+    width: 1220px;
+    overflow: hidden;  /* 设置多余的隐藏 */
+    margin: 0 auto;   
+    background: url(images/logo.png) no-repeat left center;
+    background-size: 25px;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+header li{
+    height: 35Px;
+    line-height: 35px;
+    float: left;  
+    text-align: center;
+    padding: 0 25px;
+}
+
+header li:hover{
+    background: #ccc;
+}
+/* Header设置结束 */
+
+
+/* 播放器设置 */
+.video-bg{
+    text-align: center;
+    width: 1220px;
+    margin: 0 auto;
+}
+
+.video-bg p{
+    text-align: left;
+    font-size: 25px;
+    color: #333;
+    padding: 20px 0 10px;
+}
+
+video{
+    width: 1220px;
+    height: 669px;
+    background: black;
+
+}
+/* 播放器设置结束 */
+
+
+/* 播放列表 设置 */
+.video-list{
+    width: 1220px;
+    margin: 0 auto;
+    
+}
+.video-list p{
+    text-align: left;
+    font-size: 20px;
+    color: #333;
+    padding: 20px 0;
+}
+.video-list ul{
+    width: 1200px;
+    display: flex;
+     justify-content: space-between; /* 两端对齐*/
+}
+.video-list li{
+    width: 280px;
+    height: 150px;
+    margin-right: 25px; /*边距间隔*/
+    float: left;
+    background: url(images/pg2.jpg) no-repeat center center;
+    border: 3px solid white;
+    border-radius: 15px;
+    box-sizing: border-box; /* 把图片放到盒子里 */
+     opacity: 0.6;  /* 透明度 */
+}
+
+.video-list .curent{
+    background: url(images/pg1.jpg) no-repeat center center;
+    border: 3px solid #666;
+    opacity: 1;
+}
+.video-list li:nth-child(4){
+    margin-right: 0;
+}
+/* 播放列表 设置结束 */
