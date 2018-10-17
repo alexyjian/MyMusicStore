@@ -3,6 +3,9 @@
     padding: 0;    
     list-style: none;
 }
+
+/* 导航*/
+
 .heade{
     background-color: #ccc;
     width: 1000px;  
@@ -22,6 +25,10 @@
     height: 40px;
     margin-left: 30px;
 }
+
+/*导航结束*/
+
+
 .centen{
     clear: both;
     margin: 0 auto;
