@@ -21,7 +21,8 @@
     padding:0px 90px; /*设置内边距：上下10px，左右30px*/
     text-align: center;
     margin-top: 8px;
-    margin-right: 250px;
+    margin-right: 80px;
+    word-spacing: 30px;
 
 }
 .two{
