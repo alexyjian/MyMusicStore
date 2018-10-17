@@ -8,10 +8,44 @@
     <title>Document</title>
 </head>
 
+<style>
+.left,
+    .right {
+        width: 200px;
+        display: inline;
+        height: 100%;
+        background-color: greenyellow;
+    }
+    
+    .left {
+        float: left;
+    }
+    
+    .right {
+        float: right;
+    }
+    
+    .main {
+        position: absolute;
+        left: 200px;
+        right: 200px;
+        height: 100%;
+        background-color: azure;
+        display: inline;
+    }
+</style>
 <body>
-    <script>
-        alert("黄学明真帅");
-    </script>
+    <div class="left">
+        200px
+    </div>
+    <div class="main">
+        自适应
+    </div>
+    <div class="right">
+        200px
+    </div>
+    
+    
 </body>
 
 </html>
