@@ -1,0 +1,119 @@
+*{
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   outline: none;
+}
+
+body{
+    font-family: "微软雅黑";
+    font-size: 12px;
+    background: white;
+}
+
+a:link,a:visited{
+    text-decoration: none;
+    color:#333;
+}
+
+a:hover{
+    text-decoration: none;
+}
+/* 全局设置结束 */
+
+/* Header设置 */
+
+header{
+    width: 100%;
+    background: #eee;
+}
+
+header ul{
+    width:1280px;
+    overflow: hidden;
+    margin:0 auto;
+    background: url(images/logo.png) no-repeat left center;
+    background-size: 25px;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+header li{
+    height: 30px;
+    float: left;
+    line-height: 35px;
+    text-align: center;
+    padding: 0 25px;
+}
+
+header li:hover{
+    background:#ccc;
+}
+/* Header设置结束 */
+
+/* 播放器设置 */
+.video-bg{
+    text-align: center;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.video-bg p{
+    text-align: left;
+    font-size:24px;
+    color:#333;
+    padding:20px 0 20px;
+}
+
+video{
+    width: 1280px;
+    height: 640px;
+    background: black;
+}
+
+
+/* 播放器设置结束 */
+
+
+/* 播放列表设置 */
+.video-list{
+    widows: 120px;
+    margin:0 auto;
+}
+
+.video-list p{
+    text-align: left;
+    font-size: 14px;
+    color:#333;
+    padding: 20px 0 20px;
+}
+
+.video-list ul{
+    width: 1280px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.video-list li{
+    width: 282px;
+    height:150px;
+    margin-right: 24px;
+    float:left;
+    background:url(images/pg2.jpg) no-repeat center center;
+    border: 3px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-origin: padding-box;
+    opacity: 0.6;
+}
+
+.video-list .current{
+    background: url(images/pg1.jpg) no-repeat;
+    border: 3px solid #666;
+    opacity: 1;
+}
+
+.video-list li:nth-child(4){
+    margin-right: 0;
+}
+/* 播放列表设置结束 */
