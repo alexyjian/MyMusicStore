@@ -1,0 +1,29 @@
+*
+{
+    margin: 0;
+    padding:0;
+}
+.box-not
+{
+    background: url(images/logo.png)no-repeat;
+    background-color: lightgrey; 
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+}
+p
+{
+    
+    word-spacing:50px;
+    font-size: 18px;
+}
+h2
+{
+   font-size: 35px;
+   font-family: "楷体"; 
+}
+h3
+{
+    font-size: 30px;
+    font-family: "楷体"; 
+}
