@@ -87,10 +87,11 @@ video{
  .video-list ul{
      width: 1280px;
  }
+ /*图片倒圆角*/
  .video-list li {
      width: 282px;
      height: 150px;
-     margin-right: 24px;
+     margin-right: 38px;
      float: left;
      background: url(images/pg2.jpg) no-repeat center center;
      border: 3px solid white;

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 400px;
+            height: 100px;
+            background-color:red;
+        }
+        div:hover{
+            background-color: darkgreen;
+
+            -webkit-transition-property: background-color;
+            -moz-transition-property: background-color;
+            -o-animation-property:background-color;
+
+              /*时间定格5秒*/
+            -webkit-animation-duration: 5s;
+            -moz-animation-duration: 5s;
+            -O-transition-duration:5S;
+        }
+        </style>
+</head>
+<body>
+<div>点我就变色</div>
+</body>
+</html>
