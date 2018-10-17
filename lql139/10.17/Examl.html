@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        .div1:hover{
+            background-color: coral;
+
+            -webkit-transition-property: background-color;
+            -moz-transition-property:  background-color;
+            -o-transition-property: background-color;
+
+            -webkit-transition-duration:5s;
+            -moz-transition-duration:  5s;
+            -o-transition-duration: 5s;
+        }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            
+        }
+        .div2:hover{
+           border-radius: 50%;
+
+            -webkit-transition-property: border-radius;
+            -moz-transition-property:   border-radius;
+            -o-transition-property:  border-radius;
+
+            -webkit-transition-duration:3s;
+            -moz-transition-duration:  3s;
+            -o-transition-duration: 3s;
+
+             -webkit-transition-timing-function: ease-in-out;
+        }
+        .div3{
+            transform: translate(100px,30px);
+            -webkit-transfotm:translate(100px,30px);
+        }
+        .div4{
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            transform:scale(2,3);
+            -webkit-transfotm:scale(2,3);
+        }
+        .div5{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            transform:skew(30deg,10deg);
+            -webkit-transform:skew(30deg,10deg);
+        }
+        .div6{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            transform:rotate(30deg);
+            -webkit-transform:rotate(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">变色</div>
+    <div class="div2">变形</div>
+    <div class="div3">移动</div>
+    <div class="div4">放大</div>
+    <div class="div5">倾斜</div>
+    <div class="div6">旋转</div>
+</body>
+</html>
