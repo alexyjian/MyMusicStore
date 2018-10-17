@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画过渡渐变</title>
+    <style>
+    div
+    {
+        width: 400px;
+        height: 100px;
+        background-color: red;
+    }
+    div:hover
+    {
+        background-color: cornflowerblue;
+
+        -webkit-transition-property: background-color;
+        -moz-transition-property: background-color;
+        -o-transition-property: background-color;
+
+        -webkit-transition-duration: 5s;/*变色的时间表 transition-duration */
+        -moz-transition-duration:5s;
+        -o-transition-duration:5s;
+    }
+
+    </style>
+
+</head>
+<body>
+    <div>点我。点我。可以变色</div>
+</body>
+</html>
