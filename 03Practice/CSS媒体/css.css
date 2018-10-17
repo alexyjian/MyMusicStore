@@ -92,7 +92,9 @@ video{
 }
 
 .video-list ul{
-    width:1200px;
+    width:1200px;    
+    display: flex;
+    justify-content: space-between;
 }
 
 .video-list li{
