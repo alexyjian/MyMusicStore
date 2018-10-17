@@ -5,6 +5,7 @@
 }
 .hend ul{
     list-style-type: none;
+    background: url(images/logo.png) no-repeat left center;
    
     
 }
@@ -15,27 +16,81 @@
     
    
 }
+.hend ul > li :first-child{
+    width: 30px;
+    height: 30px;
+
+}
+a:link,a:visited{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    text-decoration: none;
+}
 .hend{
    
    width: 100%;
-   height: 50px;
-   position: relative;
-   
-   margin-top: 15px;
+   height: 40px;
+   position: absolute;
+   padding-top: 10px;
+   background-color: rgb(221, 214, 214);
 }
 .video{
+ 
+  
+    width: 100%;
+    height: 700px;
+     position: absolute;
+    
+    margin-top:120px;
+
+}
+.video video{  
+    background-color: black;
     width: 96%;
     height: 600px;
-    background-color: black;
-     position: absolute;
-    margin-left: 2%; 
+    position: absolute;
+    margin-left: 25px;
+   margin-top: -25px;
+}
+h3{
+    position: absolute;
+    margin-top: -60px;
+    margin-left: 20px;
+}
+.two{
+    position: absolute;
+    margin-top: 710px;
+
 
 }
-.video video{   
-    position: relative;
-    margin-left: 20%;   
-}
-.h3{
+.two ul li{
+    list-style-type: none;
+    float: left;
+    margin-right: 15px;
+    top: 15px;
+    opacity: 0.6;
+   
     
+}
+.two ul > li :first-child{
+    margin-left: 26px;
 
+}
+.two img{
+    border-radius: 10px;
+    height: 160px;
+    width: 274px;
+    
+}
+.two p{
+    padding-bottom: 10px;
+    margin-left: 20px;
+}
+.two ul  .pg1{
+    opacity: 1;
+    
+    
+    
 }
