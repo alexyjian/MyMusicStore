@@ -48,4 +48,80 @@ header li{
     padding:0  25px;
 
 }
+
+header li:hover{
+    background: #ccc
+}
+
 /*Header设置结束*/
+
+
+/*播放器设置*/
+.video-bg{
+    text-align: center;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+
+.video-bg p{
+    text-align: left;
+    font-size: 24px;
+    color: #333;
+    padding: 20px 0 20px;
+}
+
+video{
+    width: 1280px;
+    height: 576px;
+    background: black;
+}
+
+
+/*播放器设置结束*/
+
+/*播放列表设置*/
+.video-list{
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.video-list p{
+    text-align: left;
+    font-size: 14px;
+    color:#333;
+    padding: 20px 0 20px;
+}
+
+.video-list ul{
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.video-list li{
+    width: 282px;
+    height: 150px;
+    margin-right: 24px;
+    float: left;
+    background: url(images/pg2.jpg) no-repeat center center;
+    border: 3px solid white;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-origin: padding-box;
+    opacity:0.6;
+}
+
+.video-list .current{
+    background: url(images/pg1.jpg);
+    border: 3px solid #666;
+    opacity: 1;
+}
+
+.video-list li:nth-child(4){
+    margin-right: 0;
+}
+/*播放列表设置结束*/
+
+
+
