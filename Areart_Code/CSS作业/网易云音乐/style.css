@@ -78,10 +78,11 @@ ul.ul1 li a:hover{
     background-color: #ccc;  
 }
 .fo{   
-    clear: both;    
-    background-color: #ccc;
+    clear: both;  
     width: 1200px;
     height: 60px;
+    border-radius:10px;
+    border-top-right-radius: 0px;
 }
 .hter{
     width: 600px;
@@ -90,6 +91,9 @@ ul.ul1 li a:hover{
 }
 #btn{
     margin-left: 80px;
+}
+ul.ul2{
+    margin-left: -10px;
 }
 ul.ul2 li{
     display: inline;
@@ -101,10 +105,19 @@ ul.ul2 li a{
     text-decoration: none;
     background-color: rgb(24, 171, 230);
     margin-left: 20px;
-    border-radius: 5px;
+    border-radius: 6px;
     color:white ;
     margin-top: 13px;
 }
+ul.ul2 li:nth-child(2) a{
+    padding-left: 16px;
+    padding-right: 16px;
+}
 ul.ul2 li a:hover{
     background-color:  rgb(4, 160, 221);
+}
+audio{   
+    width: 1200px;
+    height: 60px;
+    border-radius: 5px;
 }
