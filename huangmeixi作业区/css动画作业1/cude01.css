@@ -44,7 +44,7 @@ ul li:nth-of-type(3){
     transform:rotateX(90deg) translateZ(100px);
 }
 ul li:nth-of-type(4){
-    background:rgba(156, 150, 156, 0.5);
+    background:rgba(99, 72, 99, 0.5);
     transform:rotateX(90deg) translateZ(-100px);
 }
 
