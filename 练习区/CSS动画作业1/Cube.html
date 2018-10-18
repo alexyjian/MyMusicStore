@@ -5,71 +5,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>旋转立方体</title>
     <style>
         * {
+            margin: 0;
+            padding: 0;
             list-style: none;
         }
 
-        div {
-            width: 220px;
-            height: 220px;
-            margin: 220px auto;
+        .box {
+
+            width: 240px;
+            height: 240px;
+            margin: 200px auto;
             position: relative;
-            transition: all 8s;
-            transform-style: preserve-3d;
             animation: move 5s linear infinite;
+            -webkit-animation: move 5s linear infinite;
+            -moz-animation: move 5s linear infinite;
+            -o-animation: move 5s linear infinite;
+            -ms-animation: move 5s linear infinite;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            border: 5px solid white;
+            border-radius: 50%;
+        }
+
+        .one,
+        .two,
+        .three,
+        .four,
+        .five,
+        .six {
+            width: 240px;
+            height: 240px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: "微软雅黑";
+            font-size: 5em;
             text-align: center;
-            line-height: 150px;
-            font-size: 40px;
-            color: black;
-        }
-       
+            line-height: 240px;
+            opacity: 0.7;
 
-        div:nth-child(1) {
-
-            transform: rotateX(0deg) translateZ(110px);
-            background-color: orange;
         }
 
-        div:nth-child(2) {
-            transform: rotateX(-90deg) translateZ(110px);
-            background-color: yellow;
-        }
-
-        div:nth-child(3) {
-            transform: rotateX(90deg) translateZ(110px);
-            background-color: blue;
-        }
-
-        div:nth-child(4) {
-            transform: rotateY(90deg) translateZ(110px);
+        .one {
             background-color: red;
+
         }
 
-        div:nth-child(5) {
-            transform: rotateY(90deg) translateZ(110px);
+        .two {
+            background-color: green;
+
+        }
+
+        .three {
+            background-color: yellow;
+
+        }
+
+        .four {
+            background-color: orange;
+
+        }
+
+        .five {
+            background-color: blueviolet;
+
+        }
+
+        .six {
             background-color: pink;
         }
 
-        div:nth-child(6) {
-            transform: rotateY(90deg) translateZ(110px);
-            background-color: green;
+
+
+        div:nth-child(1) {
+            transform: rotateY(-90deg) translateZ(120px);
         }
 
-        div:hover {
-            transform: rotateX(360deg) rotateY(360deg);
+        div:nth-child(2) {
+            transform: rotateY(90deg) translateZ(120px);
+        }
+
+        div:nth-child(3) {
+            transform: rotateY(180deg) translateZ(120px);
+        }
+
+        div:nth-child(4) {
+            transform: rotateY(360deg) translateZ(120px);
+        }
+
+        div:nth-child(5) {
+            transform: rotateX(90deg) translateZ(120px);
+        }
+
+        div:nth-child(6) {
+            transform: rotateX(-90deg) translateZ(120px);
+        }
+        @keyframes move {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        @-webkit-keyframes move {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
         }
     </style>
 </head>
 
 <body>
-    <div>上</div>
-    <div>下</div>
-    <div>左</div>
-    <div>右</div>
-    <div>前</div>
-    <div>后</div>
+
+    <div class="box">
+        <div class="one">左</div>
+        <div class="two">右</div>
+        <div class="three">下</div>
+        <div class="four">上</div>
+        <div class="five">后</div>
+        <div class="six">前</div>
+    </div>
 </body>
 
 </html>
