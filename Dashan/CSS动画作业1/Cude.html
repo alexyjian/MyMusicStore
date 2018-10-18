@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画正方形立体旋转</title>
+    <style>
+        div {
+            margin: 100px auto;
+            width: 250px;
+            height: 250px;
+            background: cornflowerblue;
+           
+            position: relative;
+            animation: move 5s linear infinite;
+            -webkit-animation: move 5s linear infinite;
+
+        }
+
+        @keyframes move {
+            0% {
+
+                transform: rotateX(0deg) rotateY(0deg);
+
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        @-webkit-keyframes move {
+            0% {
+
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        .no1
+        {
+            margin: 100px auto;
+            width: 250px;
+            height: 250px;
+            border: 5px dotted red;
+            border-radius: 50%;
+        }
+        .no1
+        {
+            margin: 100px auto;
+            width: 230px;
+            height: 230px;
+            border: 5px dotted red;
+            border-radius: 50%;
+        }
+        .no2
+        {
+            margin: 100px auto;
+            width: 230px;
+            height: 230px;
+            text-align: center;
+            background: rgb(212, 133, 219)
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="no1"></div>
+        <div class="no2">前</div>
+        <div class="no3">后</div>
+        <div class="no4">左</div>
+        <div class="no5">右</div>
+        <div class="no6">上</div>
+        <div class="no7">下</div>
+    </div>
+</body>
+</html>
