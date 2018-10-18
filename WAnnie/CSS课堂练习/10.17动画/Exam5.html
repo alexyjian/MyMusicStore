@@ -12,7 +12,7 @@
         border: 1px solid lightcoral;
         /* 父元素设置 perspective */
         perspective: 1400px;
-        
+        perspective-origin: 0 0; /* 视角*/
         position: relative;
     }
 
@@ -21,8 +21,8 @@
         height: 150px;
         -webkit-transform-style: preserve-3d;
         position: absolute;
-        top: 250px;
-        left: 400px;
+        top: 300px;
+        left: 500px;
         
     }
 
@@ -36,30 +36,46 @@
 
     /* 子元素设置 */
     .child img:nth-child(1){
-        transform:rotate(0deg) translateY(400px);
+        transform:rotate(0deg) translateY(250px);
     }
     .child img:nth-child(2){
-        transform:rotate(50deg) translateY(400px);
+        transform:rotate(40deg) translateY(250px);
     }
     .child img:nth-child(3){
-        transform:rotate(100deg) translateY(400px);
+        transform:rotate(80deg) translateY(250px);
     }
     .child img:nth-child(4){
-        transform:rotate(200deg) translateY(400px);
+        transform:rotate(120deg) translateY(250px);
     }
     .child img:nth-child(5){
-        transform:rotate(250deg) translateY(400px);
+        transform:rotate(160deg) translateY(250px);
+    }
+    .child img:nth-child(6){
+        transform:rotate(200deg) translateY(250px);
+    }
+    .child img:nth-child(7){
+        transform:rotate(240deg) translateY(250px);
+    }
+    .child img:nth-child(8){
+        transform:rotate(280deg) translateY(250px);
+    }
+    .child img:nth-child(9){
+        transform:rotate(320deg) translateY(250px);
     }
     </style>
 </head>
 <body>
     <div class="da">
         <div class="child">
-            <img src="./123.jpg" >
-            <img src="./123.jpg" >
-            <img src="./123.jpg" >
-            <img src="./123.jpg" >
-            <img src="./123.jpg" >
+            <img src="./456.jpg" >
+            <img src="./456.jpg" >
+            <img src="./456.jpg" >
+            <img src="./456.jpg" >
+            <img src="./456.jpg" >
+            <img src="./456.jpg" >
+            <img src="./456.jpg" >
+            <img src="./456.jpg" >
+            <img src="./456.jpg" >
         </div>
     </div>
 </body>
