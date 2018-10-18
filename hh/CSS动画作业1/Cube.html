@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .dad {
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            position: relative;
+            transition: all 2s;
+            transform-style: preserve-3d;
+            animation: move 2s linear infinite;
+            text-align: center;
+            line-height: 150px;
+            font-size: 40px;
+            color: black;
+        }
+
+        div:nth-child(1) {
+            transform: rotateX(0deg) translateZ(110px);
+            background-color: orange;
+        }
+
+        div:nth-child(2) {
+            transform: rotateX(-90deg) translateZ(110px);
+            background-color: yellow;
+        }
+
+        div:nth-child(3) {
+            transform: rotateX(90deg) translateZ(110px);
+            background-color: blue;
+        }
+
+        div:nth-child(4) {
+            transform: rotateY(90deg) translateZ(110px);
+            background-color: red;
+        }
+
+        div:nth-child(5) {
+            transform: rotateY(90deg) translateZ(110px);
+            background-color: pink;
+        }
+
+        div:nth-child(6) {
+            transform: rotateY(90deg) translateZ(110px);
+            background-color: green;
+        }
+
+        div:hover {
+            transform: rotateX(360deg) rotateY(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dad">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</body>
+
+</html>
