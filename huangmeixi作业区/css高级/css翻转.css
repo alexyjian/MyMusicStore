@@ -1,8 +1,63 @@
 .zq{
-    width: 400px;
+    width: 200px;
     height: 200px;
-    border: 2px solid red;
-    perspective: 500px;
-    perspective-origin: 0 0;
+    margin: 50px auto;
+    border: 4px solid blue;
     position: relative;
+
+    /*透视图视角效果*/
+    perspective: 30000px;
+    -ms-perspective: 30000px;
+    -webkit-perspective: 30000px;
+    -moz-perspective: 30000px;
+    -o-perspective: 30000px;
+
+    /*3D空间中显示*/
+    transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+
+    /*过度动画*/
+    transition: all 1s ease 0s;
+   -ms-transition: all 1s ease 0s;
+   -webkit-transition: all 1s ease 0s;
+   -moz-transition:all 1s ease 0s;
+   -o-transition:all 1s ease 0s;
 }
+/*设置旋转抽*/
+.zq:hover{
+    transform: rotateX(-90deg);
+    -ms-transform:rotateX(-90deg);
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform:rotateX(-90deg);
+    -o-transform:rotateX(-90deg);
+
+}
+
+.zq img{
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+.zq img.one{
+    transform: translateZ(100px);
+    -ms-transform:rotateZ(100px);
+    -webkit-transform: rotateZ(100px);
+    -moz-transform:rotateZ(100px);
+    -o-transform:rotateZ(100px);
+    z-index: 2;
+
+}
+
+.zq img.two{
+ transform: rotateX(90deg) translateZ(100px);
+ -ms-transition:rotateX(90deg) translateZ(100px);
+ -webkit-transition:rotateX(90deg) translateZ(100px);
+ -moz-transition:rotateX(90deg) translateZ(100px);
+ -o-transition:rotateX(90deg) translateZ(100px);
+
+}
+ 
