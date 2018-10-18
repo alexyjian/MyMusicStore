@@ -6,58 +6,75 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        div{
-            width: 300px;
-            height: 300px;
-            position:absolute;
-            
-        }
+       
         .dad{
-            margin: 30px auto;
+            margin: 200px auto;
             border: 1px solid red;
             border-radius: 50%;
+            position: relative;
            
-            opacity:0.3;
-            perspective: 5000px;
-            -webkit-perspective: 5000px;
+            opacity:1;
+            perspective: 4000px;
+            
+            transform-style:preserve-3d;
 
-            transform-style: preserve-3d;
             -webkit-transform-style: preserve-3d;
+            animation: move  5s linear infinite;
+        } 
+        div{
+            width: 200px;
+            height: 200px;
+            position:absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 200px;
+            opacity:0.3;
+           
         }
         .div1{
+           
             background-color: blue;
-            
+            transform: translateZ(100px);
         }
         .div2{
             background-color: yellow;
-            transform: rotateX(90deg) rotateZ(100px);
+            transform: translateZ(-100px);
         }
         .div3{
             background-color: red;
-            transform: rotateX(180deg) rotateZ(100px);
+            transform: rotateX(90deg) translateZ(100px);
         }
         .div4{
             background-color: chartreuse;
-            transform: rotateX(-90deg) rotateZ(100px);
+            transform: rotateX(90deg) translateZ(-100px);
         }
         .div5{
             background-color:palevioletred;
-            transform: rotateY(-90deg) rotateZ(100px);
+            transform: rotateY(90deg) translateZ(-100px);
         }
         .div6{
-            background-color: rgb(112, 13, 204) ;
-            transform: rotateY(90deg) rotateZ(100px);
+            background-color:darkmagenta ;
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        @keyframes move{
+            0%{
+                transform: rotateX(0deg) rotatey(0deg);
+            }
+            100%{
+                transform: rotateX(360deg) rotatey(360deg);
+            }
         }
     </style>
 </head>
 <body>
     <div class="dad">
-        <div class="div1"></div>
-        <div class="div2"></div>
-        <div class="div3"></div>
-        <div class="div4"></div>
-        <div class="div5"></div>
-        <div class="div6"></div>
+        <div class="div1">前</div>
+        <div class="div2">后</div>
+        <div class="div3">上</div>
+        <div class="div4">下</div>
+        <div class="div5">左</div>
+        <div class="div6">右</div>
     </div>
 </body>
 </html>
