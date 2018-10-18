@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+</head>
+<body>
+        <meta charset="utf-8">
+        <style>
+               {  
+               background: radial-gradient(ellipse at center, #430d6d 0%, #000000 100%);  
+               height: 500px;  
+            }  
+           .stage  
+           {  
+               perspective: 1000px;  
+               width: 20em;  
+               height: 20em;  
+               left: 50%;  
+               top: 50%;  
+               margin-left: -10em;  
+               margin-top: -10em;  
+               position: absolute;  
+           }  
+      
+           .cube  
+           {  
+               position: absolute;  
+               width: 100%;  
+               height: 100%;  
+               transform-style: preserve-3d;  
+               transform: rotateX(-20deg) rotateY(-20deg);  
+           }  
+      
+           .cube *  
+           {  
+               position: absolute;  
+               width: 100%;  
+               height: 100%;  
+               border: 2px solid rgba(54, 226, 248, 0.5);  
+               box-shadow: 0 0 5em #fff;  
+      
+           }  
+      
+           .font  
+           {  
+               transform: translateZ(10em);  
+           }  
+      
+           .back  
+           {  
+               transform: rotateX(180deg) translateZ(10em);  
+           }  
+      
+           .left  
+           {  
+               transform: rotateY(-90deg) translateZ(10em);  
+           }  
+      
+           .right  
+           {  
+               transform: rotateY(90deg) translateZ(10em);  
+           }  
+      
+           .top  
+           {  
+               transform: rotateX(90deg) translateZ(10em);  
+           }  
+      
+           .bottom  
+           {  
+               transform: rotateX(-90deg) translateZ(10em);  
+           } 
+           @keyframes spin  
+           {  
+               from  
+               { 
+                   transform: translateZ(-10em) rotateX(0) rotateY(0deg);  
+               }  
+      
+               to  
+               {
+                   transform: translateZ(-10em) rotateX(360deg) rotateY(360deg);  
+               }  
+           }  
+           .cube  
+           {  
+              animation: 6s spin linear infinite;  
+              position: absolute;  
+              width: 100%;  
+              height: 100%;  
+              transform-style: preserve-3d;  
+              transform: rotateX(-20deg) rotateY(-20deg);  
+            }   
+          .cube *:before  
+          {  
+            display: block;  
+            background: radial-gradient(center, ellipse, rgba(0, 0, 0, 0) 30%, rgba(0, 128, 0, 0.2) 100%);  
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 30%, rgba(0, 128, 0, 0.2) 100%);  
+            content: '';  
+            height: 100%;  
+            width: 100%;  
+            position: absolute;  
+           }    
+        </style>
+    </head>
+    <body>  
+        <div class="stage">  
+            <div class="cube">  
+                <div class="shnh"><canvas id="canvas-1"></canvas></div>  
+                <div class="back"><canvas id="canvas-2"></canvas></div>  
+                <div class="left"><canvas id="canvas-3"></canvas></div>  
+                <div class="right"><canvas id="canvas-4"></canvas></div>  
+                <div class="top"><canvas id="canvas-5"></canvas></div>  
+                <div class="bottom"><canvas id="canvas-6"></canvas></div>  
+            </div>
+        </div>
+        <script> 
+            //正面
+            var c=document.getElementById("canvas-1");
+            var ctx=c.getContext("2d");
+            ctx.font="50px Verdana";
+            // 创建渐变
+            var gradient=ctx.createLinearGradient(0,0,c.width,0);
+            gradient.addColorStop("0","magenta");
+            gradient.addColorStop("0.5","blue");
+            gradient.addColorStop("1.0","red");
+            // 用渐变填色
+            ctx.fillStyle=gradient;
+            ctx.fillText("Hello!",100,100);
+     
+     
+            //背面
+            var c=document.getElementById("canvas-2");
+            var ctx=c.getContext("2d");
+            ctx.font="50px Verdana";
+            // 创建渐变
+            var gradient=ctx.createLinearGradient(0,0,c.width,0);
+            gradient.addColorStop("0","magenta");
+            gradient.addColorStop("0.5","blue");
+            gradient.addColorStop("1.0","red");
+            // 用渐变填色
+            ctx.fillStyle=gradient;
+            ctx.fillText("to",150,100);
+     
+     
+            //左侧
+            var c=document.getElementById("canvas-3");
+            var ctx=c.getContext("2d");
+            ctx.font="50px Verdana";
+            // 创建渐变
+            var gradient=ctx.createLinearGradient(0,0,c.width,0);
+            gradient.addColorStop("0","magenta");
+            gradient.addColorStop("0.5","blue");
+            gradient.addColorStop("1.0","red");
+            // 用渐变填色
+            ctx.fillStyle=gradient;
+            ctx.fillText("the",120,100);
+     
+            //右侧
+            var c=document.getElementById("canvas-4");
+            var ctx=c.getContext("2d");
+            ctx.font="50px Verdana";
+            // 创建渐变
+            var gradient=ctx.createLinearGradient(0,0,c.width,0);
+            gradient.addColorStop("0","magenta");
+            gradient.addColorStop("0.5","blue");
+            gradient.addColorStop("1.0","red");
+            // 用渐变填色
+            ctx.fillStyle=gradient;
+            ctx.fillText("welcome",50,100);
+     
+     
+            //上面
+            var c=document.getElementById("canvas-5");
+            var ctx=c.getContext("2d");
+            ctx.font="50px Verdana";
+            // 创建渐变
+            var gradient=ctx.createLinearGradient(0,0,c.width,0);
+            gradient.addColorStop("0","magenta");
+            gradient.addColorStop("0.5","blue");
+            gradient.addColorStop("1.0","red");
+            // 用渐变填色
+            ctx.fillStyle=gradient;
+            ctx.fillText("magic",100,100);
+     
+     
+            //下面
+            var c=document.getElementById("canvas-6");
+            var ctx=c.getContext("2d");
+            ctx.font="50px Verdana";
+            // 创建渐变
+            var gradient=ctx.createLinearGradient(0,0,c.width,0);
+            gradient.addColorStop("0","magenta");
+            gradient.addColorStop("0.5","blue");
+            gradient.addColorStop("1.0","red");
+            // 用渐变填色
+            ctx.fillStyle=gradient;
+            ctx.fillText("world",100,100);
+        </script>  
+</body>
+</html>
