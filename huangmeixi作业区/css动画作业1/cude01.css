@@ -16,12 +16,14 @@ ul{
     transform-style:preserve-3d;
     width:200px; height:200px;
     margin:200px auto; 
-    transition:all 3s; 
+    transition:all 30s; 
     position:relative;
+    
   
 }
 ul:hover{
-    transform:rotateX(360deg) rotateY(360deg)
+    transform:rotateX(360deg) rotateY(360deg);
+    -webkit-animation:gogogo 2s infinite linear ;
 }
 ul li{
       width:200px; 
@@ -42,7 +44,7 @@ ul li:nth-of-type(3){
     transform:rotateX(90deg) translateZ(100px);
 }
 ul li:nth-of-type(4){
-    background:rgb(73, 173, 231);
+    background:rgba(156, 150, 156, 0.5);
     transform:rotateX(90deg) translateZ(-100px);
 }
 
@@ -59,9 +61,8 @@ ul li:nth-of-type(7){
     border-style: dashed;
     border-color:red; 
     border-radius:50%;
-    width:300px; height:300px;
+    width:280px; height:280px;
     position: absolute;
      margin: -55px  -50px  auto;
      
 }
-
