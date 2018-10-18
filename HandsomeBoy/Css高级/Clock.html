@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+
+            margin-left: 100px;
+            transition: all 1.5s;
+            border: 5px solid black;
+            margin: 50px auto;
+            /* 透视图的视角 */
+            perspective: 50000px;
+            -ms-perspective: 50000px;
+            -webkit-perspective: 50000px;
+            -moz-perspective: 50000px;
+            -o-perspective: 50000px;
+
+            /* 3D控件显示 */
+            transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            ;
+        }
+
+        .box img {
+
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .pg1 {
+            /* 设置旋转轴 */
+            transform: rotateX(90deg) translateZ(100px);
+            -ms-transform: rotateX(90deg) translateZ(100px);
+            -webkit-transform: rotateX(90deg) translateZ(100px);
+            -moz-transform: rotateX(90deg) translateZ(100px);
+            -o-transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .pg2 {
+            /* 设置旋转轴 */
+            transform: translateZ(100px);
+            -moz-transform: translateZ(100px);
+            -o-transform: translateZ(100px);
+            -webkit-transform: translateZ(100px);
+            -o-transform: translateZ(100px);
+        }
+
+        .box:hover {
+            /* 设置旋转轴 */
+            transform: rotateX(-90deg) translateY(100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <img src="images/2.png" alt="asd" class="pg1">
+
+
+        <img src="images/1.png" alt="asd" class="pg2">
+
+    </div>
+</body>
+
+</html>

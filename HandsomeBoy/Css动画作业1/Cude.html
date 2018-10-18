@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            animation: move 5s linear infinite;
+          -webkit-animation: move 5s linear infinite;
+          transform-style:preserve-3d;
+          -webkit-transform-style:preserve-3d; 
+          border: 5px dashed red;
+         border-radius: 50%;
+        }
+      .NO1{
+          background-color:hotpink;
+      }
+      .NO2{
+          background-color:rebeccapurple;
+      }
+      .NO3{
+          background-color:brown;
+      }
+      .NO4{
+          background-color:burlywood;
+      }
+      .NO5{
+          background-color:chartreuse;
+      }
+      .NO6{
+          background-color: aqua;
+      }
+      .NO1,
+      .NO2,
+      .NO3,
+      .NO4,
+      .NO5,
+      .NO6
+      {
+          width: 200px;
+          height: 200px;
+           position: absolute;
+           top: 0;
+           left: 0; 
+           font-family: "幼圆";
+           font-size: 3em;
+           text-align: center;
+         line-height: 200px;
+         opacity: 0.6;
+        
+      }
+       ul li:nth-child(1)
+      {
+          transform:rotateY(-90deg) translateZ(100px);
+      }
+      ul li:nth-child(2)
+      {
+          transform:rotateY(90deg) translateZ(100px);
+      }
+      ul li:nth-child(3)
+      {
+          transform:rotateY(180deg) translateZ(100px);
+      }
+      ul li:nth-child(4)
+      {
+          transform:rotateY(360deg) translateZ(100px);
+      }
+      ul li:nth-child(5)
+      {
+          transform:rotateX(90deg) translateZ(100px);
+      }
+      ul li:nth-child(6)
+      {
+          transform:rotateX(-90deg) translateZ(100px);
+      }
+    
+    @keyframes move{
+       0%{transform:rotateX(0deg) rotateY(0deg);}
+       100%{
+           transform:rotateX(360deg) rotateY(360deg);
+       }
+    }
+    @-webkit-keyframes move{
+        0%{transform:rotateX(0deg) rotateY(0deg);}
+        100%{
+           transform:rotateX(360deg) rotateY(360deg);
+       }
+    }
+    </style>
+</head>
+<body>
+       <ul class="box">
+           <li class="NO1">我</li>
+           <li class="NO2">爱</li>
+           <li class="NO3">你</li>
+           <li class="NO4">呀</li>
+           <li class="NO5">狗</li>
+           <li class="NO6">狗</li>
+       </ul>
+</body>
+</html>
