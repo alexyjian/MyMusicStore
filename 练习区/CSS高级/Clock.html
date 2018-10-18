@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .dad {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            border: 5px solid black;
+            position: relative;
+            /*透视图的视角效果*/
+            perspective: 50000px;
+            -ms-perspective: 50000px;
+            -moz-perspective: 50000px;
+            -o-perspective: 50000px;
+            -webkit-perspective: 50000px;
+            /*3d空间中显示*/
+            transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            /*过渡动画*/
+            transition: all 1s ease 0s;
+            -ms-transition: all 1s ease 0s;
+            -webkit-transition: all 1s ease 0s;
+            -moz-transition: all 1s ease 0s;
+            -o-transition: all 1s ease 0s;
+
+
+        }
+
+        .dad:hover {
+            transform: rotateX(-90deg);
+            -webkit-transform: rotateX(-90deg);
+            -ms-transform: rotateX(-90deg);
+            -moz-transform: rotateX(-90deg);
+            -o-transform: rotateX(-90deg);
+        }
+
+        .dad img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .dad img.p1 {
+            transform: translateZ(100px);
+            -ms-transform: translateZ(100px);
+            -webkit-transform: translateZ(100px);
+            -moz-transform: translateZ(100px);
+            -o-transform: translateZ(100px);
+        }
+
+        .dad img.p2 {
+            transform: rotateX(90deg) translateZ(100px);
+            -ms-transform: rotateX(90deg) translateZ(100px);
+            -webkit-transform: rotateX(90deg) translateZ(100px);
+            -moz-transform: rotateX(90deg) translateZ(100px);
+            -o-transform: rotateX(90deg) translateZ(100px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dad">
+        <img class="p1" src="images/1.png">
+        <img class="p2" src="images/2.png">
+    </div>
+
+</body>
+
+</html>
