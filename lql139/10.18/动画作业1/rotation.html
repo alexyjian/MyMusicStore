@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            position:absolute;
+            
+        }
+        .dad{
+            margin: 30px auto;
+            border: 1px solid red;
+            border-radius: 50%;
+           
+            opacity:0.3;
+            perspective: 5000px;
+            -webkit-perspective: 5000px;
+
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+        }
+        .div1{
+            background-color: blue;
+            
+        }
+        .div2{
+            background-color: yellow;
+            transform: rotateX(90deg) rotateZ(100px);
+        }
+        .div3{
+            background-color: red;
+            transform: rotateX(180deg) rotateZ(100px);
+        }
+        .div4{
+            background-color: chartreuse;
+            transform: rotateX(-90deg) rotateZ(100px);
+        }
+        .div5{
+            background-color:palevioletred;
+            transform: rotateY(-90deg) rotateZ(100px);
+        }
+        .div6{
+            background-color: rgb(112, 13, 204) ;
+            transform: rotateY(90deg) rotateZ(100px);
+        }
+    </style>
+</head>
+<body>
+    <div class="dad">
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="div4"></div>
+        <div class="div5"></div>
+        <div class="div6"></div>
+    </div>
+</body>
+</html>

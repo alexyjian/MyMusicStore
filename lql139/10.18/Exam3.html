@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            position: relative;
+            animation: move 5s linear infinite;
+            -webkit-animation: move 5s linear infinite;
+        }
+        @keyframes move{
+            0%{
+                transform: rotateX(0deg) rotateY(0deg);
+                left: 0px;
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg);
+                left: 1000px;
+            }
+        }
+        @-webkit-keyframes move{
+            0%{
+                transform: rotateX(0deg) rotateY(0deg);
+                left: 0px;
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg);
+                left: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
