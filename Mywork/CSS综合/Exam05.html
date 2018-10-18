@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>照片展示</title>
+    <style>
+    .dad{
+        width: 1280px;
+        height: 768px;
+        border: 1px solid blueviolet;
+        /* 父元素设置perspective */
+        perspective: 1200px;
+        perspective-origin: 0 0; /* 初始角度 */
+        position: relative;
+    }
+
+    .child{
+        width: 200px;
+        height: 150px;
+        -webkit-transform-style:preserve-3d;
+        position: absolute;
+        top: 250px;
+        left: 400px;
+    }
+    .child img{
+        width: 200px;
+        height: 150px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+        /* 子元素设置rotateX/Y/Z */
+        .child img:nth-child(1){
+            transform: rotateY(0deg) translatez(400px);
+        }
+        .child img:nth-child(2){
+            transform: rotateY(50deg) translatez(400px);
+        }
+        .child img:nth-child(3){
+            transform: rotateY(100deg) translatez(400px);
+        }
+        .child img:nth-child(4){
+            transform: rotateY(150deg) translatez(400px);
+        }
+        .child img:nth-child(5){
+            transform: rotateY(200deg) translatez(400px);
+        }
+        .child img:nth-child(6){
+            transform: rotateY(250deg) translatez(400px);
+        }
+        .child img:nth-child(7){
+            transform: rotateY(300deg) translatez(400px);
+        }
+        .child img:nth-child(8){
+            transform: rotateY(350deg) translatez(400px);
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="dad">
+        <div class="child">
+            <img src="images/cd_img.jpg">
+            <img src="images/cd_img.jpg">
+            <img src="images/cd_img.jpg">
+            <img src="images/cd_img.jpg">
+            <img src="images/cd_img.jpg">
+            <img src="images/cd_img.jpg">
+            <img src="images/cd_img.jpg">
+            <img src="images/cd_img.jpg">
+
+        </div>
+    </div>
+</body>
+</html>
