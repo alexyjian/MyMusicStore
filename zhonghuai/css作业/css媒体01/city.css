@@ -1,0 +1,49 @@
+/* 全局 */
+*{
+    margin: 0;
+    padding:0;
+    list-style: none;
+    outline: none; 
+}
+
+body{
+    font-family: "微软雅黑";
+    font-size: 12px;
+    background: white;
+}
+
+a:link,a:visited{
+    text-decoration: none;
+    color: #333;    
+}
+
+a:hover{
+    text-decoration: #333;  
+}
+/* 全局设置结束 */
+
+/* header设置 */
+header{
+    width: 100%;
+    background: #eee;
+}
+
+header ul{
+    width: 1280px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-size: 25px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    background: url(images/logo.png)no-repeat left center;
+}
+
+header li{
+    height: 35px;
+    float: left;
+    line-height: 35px;
+    text-align: center;
+    padding: 0 25px;
+}
+
+/* header设置结束 */
