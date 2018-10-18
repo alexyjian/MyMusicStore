@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .ddd{
+        width: 200px;
+        height: 200px;
+        margin: 200px auto;
+        position: relative;
+        animation: move 5s linear infinite;
+        transform-style: preserve-3d;
+        border: 3px dashed black;
+        border-radius: 50%;
+    }
+
+    .left{
+        background-color: pink;
+    }
+
+    .right{
+        background-color: red;
+    }
+
+    .before{
+        background-color: #E0FFFF;
+    }
+
+    .after{
+        background-color: #C1FFC1;
+    }
+
+    .up{
+        background-color: #DB7093;
+    }
+
+    .down{
+        background-color: #CDB38B;
+    }
+
+    .left,.right,.before,.after,.up,.down{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "微软雅黑";
+    font-size: 50px;
+    text-align: center;
+    line-height: 200px;
+    opacity: 0.6;
+    }
+
+    ul li:nth-child(1){
+    transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    ul li:nth-child(2){
+        transform: rotateY(90deg) translateZ(100px);
+    }
+
+    ul li:nth-child(3){
+        transform: rotateY(360deg) translateZ(100px);
+    }
+
+    ul li:nth-child(4){
+        transform: rotateY(180deg) translateZ(100px);
+    }
+
+    ul li:nth-child(5){
+        transform: rotateX(90deg) translateZ(100px);
+    }
+
+    ul li:nth-child(6){
+        transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    @keyframes move{
+        0%{transform:rotateX(0deg) rotateY(0deg);}
+        100%{
+           transform:rotateX(360deg) rotateY(360deg);
+       }
+    }
+
+    @-webkit-keyframes move{
+        0%{transform:rotateX(0deg) rotateY(0deg);}
+        100%{
+           transform:rotateX(360deg) rotateY(360deg);
+       }
+    }
+    </style>
+</head>
+<body>
+    <ul class="ddd">
+        <li class="left">左</li>
+        <li class="right">右</li>
+        <li class="before">前</li>
+        <li class="after">后</li>
+        <li class="up">上</li>
+        <li class="down">下</li>
+    </ul>
+</body>
+</html>
