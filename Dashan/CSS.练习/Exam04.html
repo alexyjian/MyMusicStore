@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D变形转换</title>
+    <style>
+        .dad {
+            border: 1px solid #000;
+            margin: 0 auto;
+            box-sizing: content-box;
+            width: 1000px;
+            height: 300px;
+            perspective: 800px;
+            /*4角距离 透视的焦点*/
+            transition: all 5s;
+
+        }
+
+        .dad:hover {
+            perspective: 5px;/*鼠标悬浮 变换*/
+        }
+
+        .child1,
+        .child2,
+        .child3 {
+            box-sizing: content-box;
+            width: 300px;
+            height: 300px;
+            float: left;
+            margin-left: 10px;
+            background-color: blueviolet;
+            transform: rotateY(100deg) translateX(200px);/*Y度数 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dad">
+        <div class="child1"></div>
+        <div class="child2"></div>
+        <div class="child3"></div>
+    </div>
+</body>
+
+</html>
