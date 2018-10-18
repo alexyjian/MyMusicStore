@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+            *{
+                margin: 0;
+                padding: 0;
+                /*去除默认边距*/
+            }
+        
+            ul{
+                width: 200px;
+                height: 200px;
+                border: 1px solid #000;
+                box-sizing: border-box;
+                margin: 100px auto;
+                position: relative;
+                /*修改基本样式*/
+                transform: rotateY(45deg) rotateX(45deg);
+                /*旋转看看效果*/
+                transform-style: preserve-3d;
+                /*将父元素设置为3d空间*/
+            }
+            ul li{
+                list-style: none;
+                width: 200px;
+                height: 200px;
+                font-size: 60px;
+                text-align: center;
+                line-height: 200px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                /*修改基本样式*/
+            }
+            ul li:nth-child(1){
+                background-color: red;
+                transform: translateX(-100px) rotateY(90deg);
+                /*将第一个l向左移动100像素，然后绕y轴旋转90度，形成左边的面*/
+            }
+            ul li:nth-child(2){
+                background-color: green;
+                transform: translateX(100px) rotateY(90deg);
+                /*将第一个2向右移动100像素，然后绕y轴旋转90度*，形成右边的面*/
+            }
+            ul li:nth-child(3){
+                background-color: blue;
+                transform: translateY(-100px) rotateX(90deg);
+                /*将第一个3向上移动100像素，然后绕x轴旋转90度，形成上面的面*/
+            }
+            ul li:nth-child(4){
+                background-color: yellow;
+                transform: translateY(100px) rotateX(90deg);
+                /*将第一个4向下移动100像素，然后绕x轴旋转90度*/
+            }
+            ul li:nth-child(5){
+                background-color: purple;
+                transform: translateZ(-100px);
+                /*将第一个5向后移动100像素，形成后面的面*/
+            }
+            ul li:nth-child(6){
+                background-color: pink;
+                transform: translateZ(100px);
+                /*将第一个l向前移动100像素，形成前面的面*/
+            }
+        
+        </style>
+        </head>
+        <body>
+        <ul>
+            <!--首先做好html布局，正方体有6个面，所以写了6个li-->
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+</head>
+<body>
+    
+</body>
+</html>

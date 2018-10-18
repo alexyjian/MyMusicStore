@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            div{
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+                /*修改基本样式*/
+            }
+            .div1{
+                margin-top: 100px;
+                transform: perspective(400px) rotatex(0deg) rotatey(0deg);
+                /*拥有近大远小透视效果*/
+                transform-style: preserve-3d;
+                /*设置为3d空间*/
+                position: relative;
+                border:1px solid #000000;
+                animation: xuanzhuan 5s cubic-bezier(0.0,0.0,0.0,0.0) infinite forwards;
+                /*旋转动画*/
+            }
+            .div1 div{
+                position: absolute;
+                font-size: 80px;
+                line-height: 200px;
+                text-align: center;
+                top: 0;
+                left: 0;
+                /*内部样式*/
+            }
+            .div1_1{
+                transform: translatez(100px);
+                background-color: red;
+                /*向前移动100像素，作为最前面的面*/
+            }
+            .div1_2{
+                transform: rotatex(90deg) translatez(100px);
+                background-color:green;
+                /*绕x轴旋转90度，在z轴正方向移动100像素，作为上面的面*/
+                /*注：旋转时坐标系会跟着一起旋转，z轴原来是垂直屏幕向外的，绕x轴旋转90度以后就是在屏幕上向上的方向*/
+            }
+            .div1_3{
+                transform: rotatex(180deg) translatez(100px);
+                background-color: blue;
+                /*绕x轴旋转180度，这时z轴垂直屏幕向内，在z轴正方向移动100像素，作为后面的面*/
+            }
+            .div1_4{
+                transform: rotatex(270deg) translatez(100px);
+                background-color: purple;
+                /*绕x轴旋转270度，这时z轴向下，在z轴正方向移动100像素，作为下面的面*/
+            }
+            @-webkit-keyframes xuanzhuan{
+                from{
+                    transform:perspective(400px) rotatex(0deg);
+                }
+                to{
+                    transform:perspective(400px) rotatex(360deg);
+                }
+            }
+            .div1:hover{
+                transform: perspective(400px) scale(1.5);
+                animation: xuanzhuan 5s cubic-bezier(0.0,0.0,0.0,0.0) infinite paused forwards;
+                /*有hover事件是动画暂停*/
+            }
+    
+        </style>
+    </head>
+    <body>
+    <div class="div1">
+        <div class="div1_1">1</div>
+        <div class="div1_2">2</div>
+        <div class="div1_3">3</div>
+        <div class="div1_4">4</div>
+    </div>
+    <!--html标签布局-->
+</head>
+<body>
+    
+</body>
+</html>

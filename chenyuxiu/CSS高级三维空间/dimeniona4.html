@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .Dad{
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            border:5px solid black;
+            position: relative;
+             /*修改基本样式*/
+
+             /*浏览器转变样式*/
+            perspective: 50000px;
+            -ms-perspective: 50000px;/*微软浏览器*/
+            -webkit-perspective: 50000px;/*谷歌浏览器*/
+            -moz-pperspective: 50000px;/*莫瑞拉浏览器*/
+            -o-perspective: 50000px;/*欧鹏浏览器*/
+
+               /*设置为3d空间*/
+            transform-style: preserve-3d;
+            -ms-transform-style:preserve-3d;
+            -webkit-transform-style:preserve-3d;
+            -moz-transform-style:preserve-3d;
+            -o-transform-style:preserve-3d;
+        }
+
+             /*设置旋转轴*/
+        .Dad:hover{
+            transform: rotate(-90deg);
+            -ms-transfom:rotate(-90deg);
+            -webkit-transfom:rotate(-90deg);
+            -moz-transfom:rotate(-90deg);
+            -o-transfom:rotate(-90deg);
+        }
+
+          /*内部样式*/
+    .Dad img{
+        position: absolute;
+        top:0;
+        left:0;
+    }
+
+          /*浏览器转变,向z轴旋转，为100像素*/
+    .Dad img.No1{
+        transform: translateZ(100px);
+        -ms-transform: translateZ(100px);
+        -webkit-transform:translateZ(100px);
+        -moz-transform: translateZ(100px);
+        -o-transform:translateZ(100px);
+        z-index: 2; /*z-index是指层的上下次序,值越大,则层越靠前*/
+    }
+
+ /*绕x轴旋转90度，在z轴正方向移动100像素*/
+    .Dad img.No2{
+        transform: rotateX(90deg) translateZ(100px);
+        -ms-transform: rotateX(90deg) translateZ(100px);
+        -webkit-transform: rotateX(90deg) translateZ(100px);
+        -moz-transform: rotateX(90deg) translateZ(100px);
+        -o-transform: rotateX(90deg) translateZ(100px);
+    }
+        </style>
+</head>
+<body>
+    <div class="Dad">
+        <img src="tupian/10.png" class="No1"> 
+        <img src="tupian/11.png" class="No2">
+    </div>
+        
+</body>
+</html>

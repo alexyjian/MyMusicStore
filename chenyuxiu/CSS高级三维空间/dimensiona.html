@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            div{
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+            .div1{
+                margin-top: 100px;
+                transform:perspective(500px) rotatey(0deg);
+                transform-style:preserve-3d;
+                position: relative;
+                border:1px solid #000000;
+            }
+            .div1 div{
+                background-color: #ff0000;
+                transform:rotatey(45deg);
+                position: absolute;
+                font-size: 80px;
+                line-height: 200px;
+                text-align: center;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="div1">
+        <div class="div1_1">1</div>
+    </div>
+</head>
+<body>
+    
+</body>
+</html>
