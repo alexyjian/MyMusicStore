@@ -1,0 +1,62 @@
+<!DOCTYPE html5>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3-Canvas画布（渐变）</title>
+    <script>
+        window.onload = function () {
+
+            var canvas = document.getElementById("canvas");//获取canvas对象
+            var ctx = canvas.getContext("2d"); //创建二维的绘图上下文对象
+            var gra = ctx.createLinearGradient(0, 0, 200, 200);// 创建渐变对象 并且规定渐变填充的方向
+            //坐标（0,0）到(200,200)
+            gra.addColorStop(0, "lightpink");
+            gra.addColorStop(0.5, "lightblue");
+            gra.addColorStop(1, "lightgreen");
+            ctx.fillStyle = gra;//gra渐变对象 通常作为 fillStyle或者strokeStyle的属性值
+            ctx.fillRect(50, 50, 200, 200); //开始坐标为（50,50） 宽度为200  有填充的矩形
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>Canvas画布（渐变）</h2>
+    <canvas id="canvas" width="500" height="500" style="border:1px solid red ">
+        浏览器不支持canvas
+    </canvas>
+
+    <script>
+        var nums = [4, 7, 1, 6, 9, 2, 10, 5];
+        console.log(nums);
+        for (var i = 0; i < nums.length; i++) {
+            for (var j = 0; j < nums.length; j++) {
+                
+
+                if (nums[i] < nums[j]) {
+                    nums[j] = nums[j] ^ nums[i];//a的值为a^b
+
+                    nums[i] = nums[j] ^ nums[i];//b的值为a^b^b,即 a
+
+                    nums[j] = nums[j] ^ nums[i];//a 的值为a^b^a即 b
+                }
+            }
+        }
+        console.log(nums);
+
+        for(var i=0;i<nums-1;i++){
+            if (nums[i] < nums[j]) {
+                    nums[i] = nums[i+1] ^ nums[i];//a的值为a^b
+
+                    nums[i] = nums[i+1] ^ nums[i];//b的值为a^b^b,即 a
+
+                    nums[i] = nums[i+1] ^ nums[i];//a 的值为a^b^a即 b
+                }
+        }
+        console.log(nums);
+    </script>
+</body>
+
+</html>

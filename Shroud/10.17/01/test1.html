@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 50px auto;
+            width: 210px;
+            height: 210px;
+            box-sizing: border-box;
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            float: left;
+        }
+
+        .item1 {
+            background-color: #f00;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            animation:i1 4s linear 2s infinite alternate;
+        }
+
+        .item2 {
+            background-color: #0f0;
+            margin-bottom: 10px;
+            animation:i2 4s linear 2s infinite alternate;
+        }
+
+        .item3 {
+            background-color: #00f;
+            margin-right: 10px;
+            animation:i3 4s linear 2s infinite alternate;
+        }
+
+        .item4 {
+            background-color: #000;
+            animation:i4 4s linear 2s infinite alternate;
+        }
+        @keyframes i1{
+            0%{
+                background-color: #f00;
+            }
+            25%{
+                background-color: #00f;
+            }
+            50%{
+                background-color: #000;
+            }
+            75%{
+                background-color: #0f0;
+            }
+            100%{
+                background-color: #f00;
+            }
+        }
+        @keyframes i2{
+            
+            0%{
+                background-color: #0f0;
+            }
+            25%{
+                
+                background-color: #f00;
+            }
+            50%{
+                
+                background-color: #00f;
+            }
+            75%{
+                background-color: #000;
+            }
+            100%{
+                background-color: #0f0;
+            }
+        }
+        @keyframes i3{
+            0%{
+                
+                background-color: #00f;
+            }
+            25%{
+                
+                background-color: #000;
+            }
+            50%{
+                
+                background-color: #0f0;
+            }
+            75%{
+                background-color: #f00;
+            }
+            100%{
+                
+                background-color: #00f;
+            }
+        }
+        @keyframes i4{
+            0%{
+                
+                background-color: #000;
+            }
+            25%{
+                background-color: #0f0;
+                
+            }
+            50%{
+                background-color: #f00;
+                
+            }
+            75%{
+                
+                background-color: #00f;
+            }
+            100%{
+                
+                background-color: #000;
+            }
+        }
+        .item5 {
+            background-color: #f00;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            animation:i1 4s linear 2s infinite alternate;
+        }
+
+        .item6{
+            background-color: #0f0;
+            margin-bottom: 10px;
+            animation:i2 4s linear 2s infinite alternate;
+        }
+
+        .item7{
+            background-color: #00f;
+            margin-right: 10px;
+            animation:i3 4s linear 2s infinite alternate;
+        }
+
+        .item8{
+            background-color: #000;
+            animation:i4 4s linear 2s infinite alternate;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="item1 item"></div>
+        <div class="item2 item"></div>
+        <div class="item3 item"></div>
+        <div class="item4 item"></div>
+    </div>
+
+    <div class="box">
+            <div class="item5 item"></div>
+            <div class="item6 item"></div>
+            <div class="item7 item"></div>
+            <div class="item8 item"></div>
+            <div class="mark item"></div>
+        </div>
+</body>
+
+</html>
