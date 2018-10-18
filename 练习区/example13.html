@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>纯CSS3 3D旋转立方体动画</title>
-
-	<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转立方体</title>
+    <style>
 		body {
 			background: #eeeeee;
 		}
@@ -19,9 +19,13 @@
 		}
 
 		@keyframes scroll {
-			100% {
-				transform: rotate3d(20,30,30,360deg);
-			}
+			0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
 		}
 
 		#cube {
@@ -80,9 +84,11 @@
 		}
 
 		#item1 {
-			z-index: 6;
-			background: yellow;
 			
+			background: yellow;
+			transform-origin: left;
+			z-index: 6;
+			animation: item1 1s linear 1s both;
 		}
 
 		#item2 {
@@ -120,12 +126,9 @@
 			animation: item6 1s linear 6s both;
 		}
 	</style>
-
 </head>
-
 <body>
-
-	<div id="view">
+    <div id="view">
 		<div id="cube">
 			<div class="item" id="item1">上</div>
 			<div class="item" id="item2">下</div>
@@ -136,5 +139,4 @@
 		</div>
 	</div>
 </body>
-
 </html>
