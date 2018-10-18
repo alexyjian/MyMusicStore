@@ -59,8 +59,8 @@ ul li:nth-of-type(7){
     border-style: dashed;
     border-color:red; 
     border-radius:50%;
-     width:300px; height:300px;
-     position: absolute;
+    width:300px; height:300px;
+    position: absolute;
      margin: -55px  -50px  auto;
      
 }
