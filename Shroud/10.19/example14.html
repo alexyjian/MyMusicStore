@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>工作日天气预报</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            list-style: none;
+        }
+        .slider{
+            width: 100%;
+            position: absolute;
+            bottom: 100px;
+            text-align: center;
+            z-index: 999;
+        }
+        li{
+            display: inline-block;
+            position: relative;
+            padding:70px 15px 20px 15px;
+            margin-right: 10px;
+        }
+        li::before{
+            position: absolute;
+            top:-50px;
+            left:22px;
+            content: '';
+            width: 90px;
+            height: 90px;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            background-size: 100% 100%;
+            opacity: .6;
+        }
+        li:hover::before{
+            opacity: 1;
+        }
+        li:nth-child(1){
+            background-color:rgb(157, 144, 127)
+        }
+        li:nth-child(2){
+            background-color:rgb(25, 66, 94)
+        }
+        li:nth-child(3){
+            background-color:rgb(87, 161, 128)
+        }
+        li:nth-child(4){
+            background-color:rgb(162, 198, 74)
+        }
+        li:nth-child(5){
+            background-color:rgb(254, 193, 4)
+        }
+
+
+        li:nth-child(1)::before{
+            background-image: url(images/sbg1.jpg);
+        }
+        li:nth-child(2)::before{
+            background-image: url(images/sbg2.jpg);
+        }
+        li:nth-child(3)::before{
+            background-image: url(images/sbg3.jpg);
+        }
+        li:nth-child(4)::before{
+            background-image: url(images/sbg4.jpg);
+        }
+        li:nth-child(5)::before{
+            background-image: url(images/sbg5.jpg);
+        }
+        a{
+            /* display: block;
+            width: 120px;
+            height: 120px; */
+            color: #fff;
+            text-decoration: none;
+        }
+        .bg{
+
+        }
+
+        section{
+            width: 1280px;
+            height: 900px;
+            overflow: hidden;
+        }
+        img{
+           width: 100%;
+           height: 100%;
+           transition:all 1s;
+           top: 0;
+           left: 0;
+           bottom: 0;
+           right: 0;
+           position: fixed;
+        }
+        
+        #bg1:target{
+            animation:bg1move 1s ;
+            z-index: 99;
+        }
+        @keyframes bg1move{
+            from{
+                left:-1280px;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+            to{
+                left:0px;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+        
+        #bg2:target{
+            animation:bg2move 1s ;
+            top: 0px;
+            z-index: 99;
+        }
+        @keyframes bg2move{
+            from{
+                left:0;
+                top: 900px;
+                right: 0;
+                bottom: 0;
+            }
+            to{
+                left:0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+        #bg3:target{
+            animation:bg3zoomIn 1s ;
+            z-index: 99;
+        }
+        @keyframes bg3zoomIn{
+            from{
+                top: 50%;
+                left: 50%;
+               transform: translate(-50%,-50%) scale(.4);
+            }
+            to{
+                transform: translate(0,0) scale(1);
+            }
+        }
+        #bg4:target{
+            animation:bgzoomOut 1s ;
+            z-index: 99;
+        }
+        @keyframes bgzoomOut{
+            from{
+               transform: scale(1.6);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+        #bg5:target{
+            animation:bgrotate 1s ;
+            z-index: 99;
+        }
+        @keyframes bgrotate{
+            from{
+               transform: scale(.4) rotate(-360deg);
+            }
+            to{
+                transform: scale(1) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <ul class="slider">
+            <li><a href="#bg1">周一狂躁综合症</a></li>
+            <li><a href="#bg2">周二雷霆似雨浇</a></li>
+            <li><a href="#bg3">周三阴郁似乌云</a></li>
+            <li><a href="#bg4">周四冬日盼春来</a></li>
+            <li><a href="#bg5">周五守得艳阳天</a></li>
+        </ul>
+        <img src="images/bg1.jpg" alt="周一" class="bg slideLeft" id="bg1" />
+        <img src="images/bg2.jpg" alt="周二" class="bg slideBottom" id="bg2" />
+        <img src="images/bg3.jpg" alt="周三" class="bg zoomIn" id="bg3" />
+        <img src="images/bg4.jpg" alt="周四" class="bg zoomOut" id="bg4" />
+        <img src="images/bg5.jpg" alt="周五" class="bg rotate" id="bg5" />
+    </section>
+</body>
+
+</html>
