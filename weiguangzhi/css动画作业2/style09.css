@@ -1,0 +1,113 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+section{
+    position: relative;
+    perspective: 50000px;
+    
+}
+
+ul{
+    list-style-type: none;
+    position: absolute;
+    margin-top: 600px;
+    margin-left: 20px; 
+  
+}
+img.bg{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    z-index: 1;
+}
+img:target{
+    z-index: 3;
+}
+.slider li{
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-left: 40px;
+    opacity: 0.8;
+
+    animation-name: move;
+}
+@keyframes move{
+    0%{ transform: rotateY(1000px)}
+    100%{transform: rotateY(1000px)}
+}
+.slider a{
+    width: 170px;
+    font-size: 22px;
+    color:#fff;
+    display: inline-block;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    border: 2px solid #fff;
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8),
+    -2px -2px 2px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(0, 0, 0, 0.3);
+}
+.slider a::after{
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 5px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 13%;
+    top: -85px;
+    z-index: 9999;
+    
+}
+.slider li:nth-of-type(2) a:active{
+    background: url(images/bg2.jpg);
+}
+.slider li:nth-of-type(1) a::after{
+    background: url(images/sbg1.jpg) no-repeat center;
+}
+.slider li:nth-of-type(2) a::after{
+    background: url(images/sbg2.jpg) no-repeat center;
+}
+.slider li:nth-of-type(3) a::after{
+    background: url(images/sbg3.jpg) no-repeat center;
+}
+.slider li:nth-of-type(4) a::after{
+    background: url(images/sbg4.jpg) no-repeat center;
+}
+.slider li:nth-of-type(5) a::after{
+    background: url(images/sbg5.jpg) no-repeat center;
+}
+.slider a:visited{
+    background: url(images/bg2.jpg);
+}
+.slider li:nth-child(1) a{
+    background-color: #9d907f;
+    background-image: url(images/sbg1.jpg);
+}
+.slider li:nth-child(2) a{
+    background-color: #19425e;
+
+}
+.slider li:nth-child(3) a{
+    background-color: #57a180;
+}
+.slider li:nth-child(4) a{
+    background-color: #a2c64a;
+}
+.slider li:nth-child(5) a{
+    background-color: #fec104;
+}
+
+.slider li:hover{
+    opacity: 1.5;
+}
+.bgslideBottom{
+    transform: rotateX(-90deg)rotateZ(100px);
+}
+
