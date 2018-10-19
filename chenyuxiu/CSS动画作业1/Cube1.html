@@ -14,33 +14,64 @@
             position: relative;
             /* 画圆样式*/
             border: 5px solid red;
-            border-radius: 50%;
-
+            border-radius:50%;
                /* 3D翻转效果*/
-        transform-style:presrver-3D；
+        transform-style:preserve-3d;
          
-         animation:move 8s
+         animation:move 8s linear infinite;
+        }
 
            /* 加动画效果*/
         @keyframes move{
-
-        }
-        }
+            0%{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100%{
+               transform: rotateX(360deg) rotateY(360deg);
+             }
+            }
 
         .Dad>div{
             width: 100%;
-            height: 250px;
+            height: 100%;
             margin: 100px;
             position: absolute;
             text-align: center;
             line-height: 250px;
             font-size: 60px;
             clear: #666
-
-
+        }
+        .up{
+            background-color: rgba(255, 0, 0, 0.3);
+            transform-origin: top;
+            transform: rotateX(90deg) translateY(-125px);
+        }
+        .down{
+            background-color: rgba(0, 255, 0, 0.3);;
+            transform-origin: bottom;
+            transform: rotateX(-90deg) translateY(125px);
+        }
+        .left{
+            background-color: rgba(0, 0, 255, 0.3);;
+            transform-origin: left;
+            transform: rotateY(-90deg) translateX(-125px);
+        }
+        .right{
+            background-color: rgba(255, 255, 0, 0.3);;
+            transform-origin: right;
+            transform: rotateY(90deg) translateX(125px);
+        }
+        .forward{
+            background-color: rgba(255, 0, 255, 0.3);;
+           transform: translateZ(125px);
+        }
+        .back{
+            background-color: rgba(234, 343, 234, 0.3);;
+            transform: rotateY(180deg) translateZ(125px);
         }
         </style>
 </head>
+
 <body>
     <div class="Dad">
         <div class="up">上</div>
@@ -49,5 +80,6 @@
         <div class="right">右</div>
         <div class="forward">前</div>
         <div class="back">后</div>
+        </div>
 </body>
 </html>
