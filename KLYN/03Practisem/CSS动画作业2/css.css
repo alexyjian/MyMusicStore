@@ -1,0 +1,33 @@
+/*全局配置*/
+
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+body {
+    font-family: "微软雅黑";
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+/*全局配置结束*/
+
+/*背景图的统一样式*/
+
+img.bg{
+    width: 100%;
+    height: auto;
+}
+/*背景图片的统一样式结束*/
