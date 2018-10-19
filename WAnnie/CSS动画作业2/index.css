@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0px;
+    list-style:none;
+    outline: none;
+}
+ a:link,a:visited{
+    text-decoration: none; /* 设置链接无线*/
+
+}
+img.bg{
+    width: 100%;
+    height: auto;
+    min-width: 1080px;
+    position: fixed;
+    z-index: 1;
+}
+.slider{
+    width: 100%;
+    bottom: 100px;
+    position: absolute;
+    text-align: center;
+    z-index: 9999;
+    /* 让它在最最下层 */
+}
+.slider li {
+    width: 150px;
+    height: 150px;
+    display:inline-block;
+    margin-right: 15px;
+}
+
+.slider a {
+    width: 150px;
+    font-size: 20px;
+    color: #ffffff;
+    display: inline block;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    position: relative;
+    /* 鼠标变手型 */
+    cursor: pointer;
+    /* 阴影效果 */
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1),
+    -2px -2px 2px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(0, 0, 0, 0.3);
+
+}
+
+/* 天气图标 */
+.slider li:nth-child(1) a{
+
+   background-color: #9d907f;
+   
+}
+.slider li:nth-child(2) a{
+
+    background-color: #19425e;
+
+}
+.slider li:nth-child(3) a{
+
+    background-color: #57a180;
+  
+}
+.slider li:nth-child(4) a{
+
+    background-color: #a2c64a;
+    
+}
+.slider li:nth-child(5) a{
+
+    background-color: #fec104;
+}
+      /*  ::伪元素 */
+.slider a::after{
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 5px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -85px;
+    z-index: 9999;
+    margin-left: -63px;
+    
+}
+.slider li:nth-of-type(1) ::after{
+   
+    background: url(images/sbg1.jpg) no-repeat center;  
+    opacity: 0.3;
+
+}
+.slider li:nth-of-type(2) ::after{
+
+    background: url(images/sbg2.jpg) no-repeat center;  
+}
+.slider li:nth-of-type(3) ::after{
+
+    background: url(images/sbg3.jpg) no-repeat center;  
+}
+.slider li:nth-of-type(4) ::after{
+
+    background: url(images/sbg4.jpg) no-repeat center;  
+}
+.slider li:nth-of-type(5) ::after{
+
+    background: url(images/sbg5.jpg) no-repeat center;  
+}
+.slider a::before{
+    content: "";
+}
+.slider a:hover::before{
+    opacity: 0.3;
+}
+
+
+/* 天气图标结束*/
+
+@keyframes move{
+    0%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg);
+    } 
+}
