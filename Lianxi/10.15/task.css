@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+}
+body{
+    font-family: "微软雅黑";
+    font-size: 12px;
+    background: white;
+}
+li:link,
+li:visited
+{
+    text-decoration: none;
+    color: #333333
+}
+header{
+    width: 200px;
+    height: 10px;
+
+}

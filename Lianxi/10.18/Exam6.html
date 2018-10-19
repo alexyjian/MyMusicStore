@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .Dad{
+        height: 200px;
+        width: 200px;
+        margin: 50px auto;
+        border:  5px solid red;
+        position: relative;
+
+        perspective: 50000px;
+        -ms-perspective: 50000px;
+        -webkit-perspective: 50000px;
+
+        transform-style: preserve-3d;
+        -ms-perspective-style: preserve-3d;
+        -webkit-perspective-style: preserve-3d;
+
+        transition: all 1s ease 0s;
+        transform-style: all 1s ease 0s;
+        -ms-perspective-style: all 1s ease 0s;
+        -webkit-perspective-style: all 1s ease 0s;
+
+    }
+    .Dad:hover{
+        transform-style: rotatex(-90deg);
+        -ms-perspective-style:  rotatex(-90deg);
+        -webkit-perspective-style: a rotatex(-90deg);
+    }
+    .Dad{
+        position: absolute;
+    top: 0;
+    left: 0; 
+    }
+    .Dad img.no1{
+        transform-style: translatez(108px);
+        -ms-perspective-style: translatez(108px);
+        -webkit-perspective-style: translatez(108px);
+    }
+    .Dad img.no2
+    {transform-style:rotatex(90dag) translatez(100px);
+        -ms-perspective-style:rotatex(90dag)translatez(100px);
+        -webkit-perspective-style:rotatex(90dag)translatez(100px);
+    }
+</head>
+<body>
+    <div class="Dad">
+<img src="1.png" class="No1">
+<img src="2.png"  class="No2">
+    </div>
+</body>
+</html>
