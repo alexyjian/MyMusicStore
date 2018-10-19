@@ -127,7 +127,34 @@ img.bg {
 .slider li:nth-of-type(5) a::after {
     background: url(images/sbg5.jpg) no-repeat center;
 }
+/* 天气图标悬停高亮 */
+.slider a::before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 5px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -80px;
+    /* 层次为99999，相当于加了高亮 */
+    z-index: 99999;
+    margin-left: -62px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.slider a:hover::before {
+    opacity: 0;
+}
+/* 天气图标悬停高亮结束 */
 
 /* 天气图标结束 */
 
 /* 整体控制每个天气图标的样式结束  */
+
+/* 天气切换动画 */
+
+
+
+/* 天气切换动画结束 */
