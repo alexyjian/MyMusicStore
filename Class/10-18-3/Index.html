@@ -12,19 +12,21 @@
         transform-style: preserve-3d;
         margin: 100px auto;
         position: relative;
-        transform-style: preserve-3d;
-        box-sizing: border-box;
         perspective: 5000px;
         text-align: center;
         font-size: 36px;
         color: #333;
         line-height: 203px;
+        border-radius: 50%;
+        border: 3px dashed rgb(255, 165, 0);
+        transform: rotateZ(0deg);
+        box-sizing: border-box;
         animation: myrota 8s linear infinite;
     }
 
-    .Dad div {
-        width: 203px;
-        height: 203px;
+    .Dad>div {
+        width: 200px;
+        height: 200px;
         position: absolute;
         top: 0px;
         left: 0px;
@@ -42,7 +44,7 @@
 
     .Dad div.No3 {
         background-color: rgba(0, 128, 0, 0.337);
-        transform: rotateY(90deg) translateZ(-100px);
+        transform: rotateY(-90deg) translateZ(100px);
     }
 
     .Dad div.No4 {
@@ -57,15 +59,7 @@
 
     .Dad div.No6 {
         background-color: rgba(0, 0, 255, 0.337);
-        transform: translateZ(-100px);
-    }
-
-    .Dad div.No7 {
-        width: 196px;
-        height: 196px;
-        border-radius: 50%;
-        border: 3px dashed rgb(255, 165, 0);
-        transform: rotateZ(0deg);
+        transform:rotateY(180deg) translateZ(100px);
     }
     
     @keyframes myrota{
@@ -86,7 +80,6 @@
         <div class="No4">右</div>
         <div class="No5">前</div>
         <div class="No6">后</div>
-        <div class="No7"></div>
     </div>
 </body>
 </html>
