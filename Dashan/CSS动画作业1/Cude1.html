@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正方形立体</title>
+    <style>
+        .Dad {
+            width: 250px;
+            height: 250px;
+            margin: 100px auto;
+            position: relative;
+            border: 5px dotted red;
+            border-radius: 50%;
+
+            transform-style: preserve-3d;
+
+      animation: move 8s linear infinite;
+        } 
+        @keyframes move{
+            0%{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        .Dad>div  /* 选择父级 div的所有内容设置*/
+         {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            text-align: center;
+            line-height: 250px;
+            font-size: 60px;
+            color: gray;
+            opacity: 0.7;/*div 颜色透明度*/
+
+        }
+
+        .top {
+           
+            background: rgb(121, 211, 211);
+             transform-origin: top;
+             transform: rotateX(90deg) translateY(-125px);
+            
+        }
+
+        .bottom {
+
+            background: rgb(176, 226, 101);
+            transform-origin:bottom;
+            transform: rotateX(90deg) translateY(125px);
+        }
+
+        .left {
+
+            background: rgb(233, 0, 0.5);
+            transform-origin:left;
+            transform: rotateY(-90deg) translateX(-125px);
+        }
+
+        .right {
+
+            background: yellow;
+            transform-origin:right;
+            transform: rotateY(90deg) translateX(125px);
+        }
+
+        .front {
+
+            background:hotpink;
+            transform: translateZ(125px);
+        }
+
+        .back {
+
+            background: darkblue;
+            transform: rotateY(180deg) translateZ(125px);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="Dad">
+            <div class="top">上</div>
+            <div class="bottom">下</div>
+            <div class="left">左</div>
+            <div class="right">右</div>
+            <div class="front">前</div>
+            <div class="back">后</div>
+</body>
+
+</html>
