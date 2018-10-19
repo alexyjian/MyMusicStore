@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+        /* 从右上到左下 */
+      .No1{
+          background-image: linear-gradient(to bottom left,red,green);
+      }
+      /* 从左到右 */
+      .No2
+      {
+        background-image: linear-gradient(to right,red,green);
+      }
+      /* 从左上角到右下角 */
+      .No3
+      {
+        background-image: linear-gradient(to bottom right,red,green);
+      }
+      .No1,.No2,.No3{
+          width: 300px;
+          height: 200px;
+          line-height: 200;
+          text-align: center;
+          color: aliceblue;
+          font-size: 24px;
+         
+      }
+      左上角到右下角
+    
+    </style>
+</head>
+<body>
+/* <!-- 角度       英文      作用    
+    0deg     to top     从下向上
+    90deg    to right   从左到右
+    180deg   to bottom  从上到下
+    270deg   to left    从右到左
+              to top left 从右下角到左上角
+              to top right 从左下角到右上角 -->
+              <!-- 第一个参数省略时，默认为“180deg”，等同于“to bottom” --> */
+
+              <div class="No1">我最帅</div>
+              <div class="No2">我最酷</div>
+              <div class="No3">你好年薪十万</div>
+</body>
+</html>
