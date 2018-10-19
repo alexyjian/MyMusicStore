@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#box-video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+#box-video video{
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 4000%;
+    max-height: 4000%;
+}
+.song{
+    position: absolute;
+    top: 25%;
+    left: 55%;
+}
+h2{
+    font-family: MD;
+    font-size: 110px;
+    color: blueviolet
+}
+p{
+    width: 556px;
+    height: 300px;
+    font-family: "微软雅黑";
+    padding-left:30px;
+    line-height: 30px;
+    background: url()repeat-x;
+    box-sizing: border-box;
+    border-radius: spx;
+}
