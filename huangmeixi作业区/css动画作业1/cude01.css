@@ -5,11 +5,14 @@
 }
 
 ul li p{
-    text-align: center;
-    font-size: 60px;
-    margin: 50px auto;
-    font-family: "华文仿宋";
-    color: red;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  line-height: 200px;
+  font-size: 60px;
+  
+   
 }
 
 ul{
@@ -18,9 +21,26 @@ ul{
     margin:200px auto; 
     transition:all 30s; 
     position:relative;
+    animation: move 8s linear infinite;
     
-  
-}
+} @keyframes move{
+    0%{
+        transform:rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+      transform:rotateX(360deg) rotateY(360deg);
+    }
+  }
+  @-webkit-keyframes move{
+      0%{
+        transform:rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+      transform:rotateX(360deg) rotateY(360deg);
+    }
+
+  }
+
 ul:hover{
     transform:rotateX(360deg) rotateY(360deg);
     -webkit-animation:gogogo 2s infinite linear ;
@@ -63,6 +83,6 @@ ul li:nth-of-type(7){
     border-radius:50%;
     width:280px; height:280px;
     position: absolute;
-     margin: -55px  -50px  auto;
+    margin: -55px  -50px  auto;
      
 }
