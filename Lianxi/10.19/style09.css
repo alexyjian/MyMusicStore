@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    font-family: "微软雅黑"；
+}
+a:link,
+a:visited{
+    text-decoration: none
+}
+/* 全局配置结束 */
+/* 背景图片的统一样式 */
+.img.bg{
+    width: 100%;
+    height: auto;
+    min-width: 1024px;
+    position: fixed;
+    z-index: 1;
+}
+/* 背景统一样式结束 */
+/* 整体控制每个天气图标样式 */
+.slider{
+    position: absolute;     
+    bottom: 108px;
+    width: 100%;
+    text-align: center;
+    z-index:8888;
+}/* 让他在最下层 */
+.slider li{
+/* 行内块元素 */
+display: inline-block;
+width: 170px;
+height: 130px;
+margin-right: 15px;
+}
