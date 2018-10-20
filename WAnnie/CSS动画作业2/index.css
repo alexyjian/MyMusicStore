@@ -50,6 +50,7 @@ img.bg{
 }
 
 /* 天气图标 */
+
 .slider li:nth-child(1) a{
 
    background-color: #9d907f;
@@ -85,14 +86,13 @@ img.bg{
     position: absolute;
     left: 50%;
     top: -85px;
-    z-index: 9999;
+    z-index: 9999; /* 设置元素的堆叠顺序 */
     margin-left: -63px;
     
 }
 .slider li:nth-of-type(1) ::after{
    
     background: url(images/sbg1.jpg) no-repeat center;  
-    opacity: 0.3;
 
 }
 .slider li:nth-of-type(2) ::after{
@@ -111,17 +111,80 @@ img.bg{
 
     background: url(images/sbg5.jpg) no-repeat center;  
 }
+
 .slider a::before{
     content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 6px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -85px;
+    z-index: 9999;
+    margin-left: -63px;
+    background: rgba(0, 0, 0, 0.3);
 }
 .slider a:hover::before{
-    opacity: 0.3;
+    opacity: 0;
+}
+.img:target{
+    color: #000;
 }
 
-
+#bg1:target{
+    animation: movebg1 5s; /* 启动动画名称 */
+    z-index: 999;
+}
+#bg2:target{
+    z-index: 999;
+}
+#bg3:target{
+    z-index: 999;
+}
+#bg4:target{
+    z-index: 999;
+}
+#bg5:target{
+    z-index: 999;
+}
 /* 天气图标结束*/
 
-@keyframes move{
+@keyframes movebg1{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform:translateY(0);
+    } 
+}
+
+@keyframes movebg2{
+    0%{
+        transform: rotateX(-100%);
+    }
+    100%{
+        transform: rotateX(0);
+    } 
+}
+@keyframes movebg3{
+    0%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg);
+    } 
+}
+@keyframes movebg4{
+    0%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg);
+    } 
+}
+@keyframes movebg5{
     0%{
         transform: rotateX(0deg) rotateY(0deg);
     }
