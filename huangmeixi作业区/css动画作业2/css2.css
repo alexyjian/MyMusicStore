@@ -11,8 +11,8 @@ img.bg {
     width: 100%;
     height: auto;
     min-width: 1024px;
-    position: fixed;/*锁定*/
-    z-index: 1;
+ 
+    z-index: 2;
 }
 .tromm{
     position: absolute;
