@@ -14,7 +14,7 @@ img{
 }
 a:hover
 {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 body{
     font-family: "微软雅黑";
@@ -28,8 +28,8 @@ img.bg{
     width: 100%;
     height: auto;
     min-width: 1024px;
-    position: fixed;
     z-index: 1;
+   
 }
 .slider{
     position: absolute;
@@ -57,7 +57,7 @@ img.bg{
     cursor: pointer;/*鼠标变手*/
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8),/*3层阴影 shadow*/
     -2px -2px 2px rgba(0, 0, 0, 0.3),
-    -3px -3px 3px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(0, 0, 0, 0.3);
 
 
 }
@@ -92,6 +92,7 @@ left: 50%;
 top:-80px;
 z-index: 9999;
 margin-left: -62px;
+
 }
 .slider li:nth-of-type(1) a::after
 {
@@ -100,6 +101,7 @@ margin-left: -62px;
 .slider li:nth-of-type(2) a::after
 {
     background: url(images/sbg2.jpg)no-repeat center;
+    
 }
 .slider li:nth-of-type(3) a::after
 {
