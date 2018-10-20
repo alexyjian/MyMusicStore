@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 3D旋转图片相册 可鼠标悬停</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+          
+            
+        }
+
+        .Container {
+            margin: 4% auto;
+            width: 210px;
+            height: 140px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        #carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotation 20s infinite linear;
+        }
+
+        #carousel:hover {
+            animation-play-state: paused;
+        }
+
+        #carousel figure {
+            display: block;
+            position: absolute;
+            width: 220px;
+            height: 120px;
+            left: 10px;
+            top: 10px;
+            background: rgb(133, 197, 223);
+            overflow: hidden;
+            border: solid 5px rgb(83, 30, 170);
+        }
+
+        img {
+            filter: grayscale(1);
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+            width: 100%;
+            height: 100%;
+        }
+
+        img:hover {
+            filter: grayscale(0);
+            transform: scale(1.2, 1.2);
+        }
+
+        #carousel figure:nth-child(1) {
+            transform: rotateY(0deg) translateZ(288px);
+        }
+
+        #carousel figure:nth-child(2) {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+
+        #carousel figure:nth-child(3) {
+            transform: rotateY(120deg) translateZ(320px);
+        }
+
+        #carousel figure:nth-child(4) {
+            transform: rotateY(180deg) translateZ(340px);
+        }
+
+        #carousel figure:nth-child(5) {
+            transform: rotateY(240deg) translateZ(360px);
+        }
+
+        #carousel figure:nth-child(6) {
+            transform: rotateY(300deg) translateZ(380px);
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Container">
+        <div id="carousel">
+            <figure><img src="bg1.jpg" alt=""></figure>
+            <figure><img src="bg2.jpg" alt=""></figure>
+            <figure><img src="bg1.jpg" alt=""></figure>
+            <figure><img src="bg2.jpg" alt=""></figure>
+            <figure><img src="bg1.jpg" alt=""></figure>
+            <figure><img src="bg2.jpg" alt=""></figure>
+        </div>
+    </div>
+</body>
+
+</html>
