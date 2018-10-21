@@ -119,6 +119,287 @@ z-index: 9999;
     
 }
 
+.slider a::before{
+
+}
+
+.slider a:hover::before{
+    opacity: 0;
+}
+/*天气图标悬停高亮结束*/
+
 
 
 /*天气图标结束*/
+
+/*第一个动画切换*/
+@keyframes 'slideLeft'{
+    0%{
+        left: -900;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+@-webkit-keyframes 'slideLeft'{
+    0%{
+        left: -900;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+@-mst-keyframes 'slideLeft'{
+    0%{
+        left: -900;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+@-moz-keyframes 'slideLeft'{
+    0%{
+        left: -900;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+@-o-keyframes 'slideLeft'{
+    0%{
+        left: -900;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+.slideLeft:target{
+    z-index: 100;
+    animation: slideLeft 1s 1;
+    -webkit-animation: slideLeft 1s 1;
+    -ms-animation: slideLeft 1s 1;
+    -moz-animation: slideLeft 1s 1;
+    -o-animation: slideLeft 1s 1;
+}
+
+/*第二个背景切换的动画*/
+
+@keyframes 'slideBottom'{
+    0%{
+        top: 400;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+@-webkit-keyframes 'slideBottom'{
+    0%{
+        top: 400;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+@-ms-keyframes 'slideBottom'{
+    0%{
+        top: 400;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+@-moz-keyframes 'slideBottom'{
+    0%{
+        top: 400;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+@-o-keyframes 'slideBottom'{
+    0%{
+        top: 400;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+.slideBottom:target{
+    z-index: 100;
+    animation: slideBottom 1s 1;
+    -webkit-animation: slideBottom 1s 1;
+    -ms-animation: slideBottom 1s 1;
+    -moz-animation: slideBottom 1s 1;
+    -o-animation: slideBottom 1s 1;
+}
+/*第三个背景切换画面*/
+@keyframes 'zoomIn'{
+    0%{
+        transform: scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-webkit-keyframes 'zoomIn'{
+    0%{
+        -webkit-transform: scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-ms-keyframes 'zoomIn'{
+    0%{
+        -ms-transform: scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-moz-keyframes 'zoomIn'{
+    0%{
+        -moz-transform: scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-o-keyframes 'zoomIn'{
+    0%{
+        -o-transform: scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+.zoomIn:target{
+    z-index: 100;
+    animation: zoomIn 1s 1;
+    -webkit-animation: zoomIn 1s 1;
+    -ms-animation: zoomIn 1s 1;
+    -moz-animation: zoomIn 1s 1;
+    -o-animation: zoomIn 1s 1;
+}
+
+/*第四个*/
+@keyframes 'zoomOut'{
+    0%{
+        transform: scale(10);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-webkit-keyframes 'zoomOut'{
+    0%{
+        -webkit-transform: scale(10);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-ms-keyframes 'zoomOut'{
+    0%{
+        -ms-transform: scale(10);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-moz-keyframes 'zoomOut'{
+    0%{
+        -moz-transform: scale(10);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-o-keyframes 'zoomOut'{
+    0%{
+        -o-transform: scale(10);
+    }
+    100%{
+        transform:none;
+    }
+}
+.zoomOut:target{
+    z-index: 100;
+    animation: zoomOut 1s 1;
+    -webkit-animation: zoomOut 1s 1;
+    -ms-animation: zoomOut 1s 1;
+    -moz-animation: zoomOut 1s 1;
+    -o-animation: zoomOut 1s 1;
+}
+
+/*第五个动画切换*/
+@keyframes 'rotate'{
+    0%{
+        transform: scale(10);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-webkit-keyframes 'rotate'{
+    0%{
+        -webkit-transform:rotate(-360deg) scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-ms-keyframes 'rotate'{
+    0%{
+        -ms-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-moz-keyframes 'rotate'{
+    0%{
+        -moz-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+
+@-o-keyframes 'rotate'{
+    0%{
+        -o-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        transform:none;
+    }
+}
+.rotate:target{
+    z-index: 100;
+    animation: rotate 1s 1;
+    -webkit-animation: rotate 1s 1;
+    -ms-animation: rotate 1s 1;
+    -moz-animation: rotate 1s 1;
+    -o-animation: rotate 1s 1;
+}
