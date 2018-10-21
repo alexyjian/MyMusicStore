@@ -58,7 +58,8 @@ span {
     width:100px;
     height: 300px;
     border-radius: 0 10px 10px 0;
-    background-color: #a98659
+    background-color: #a98659;
+    background-image: none;
 }
 
 .cd {
