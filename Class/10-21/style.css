@@ -37,8 +37,7 @@
     display: inline-block;
     padding: 150px 60px;
     background-color: #a28457;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-radius: 0px 8px 8px 0px;
     float: right;
  }
  
@@ -84,3 +83,30 @@
         transform: rotate(360deg);
     }
  }
+
+ @keyframes rotateOn {
+    0% {
+        transform: rotate(0deg)
+    }
+ }
+
+a {
+    display: inline-block;
+    padding: 3px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+}
+
+a:first-of-type {
+    background-color: green;
+    margin-right: 50px;
+}
+
+a:last-of-type {
+    background-color: red;
+}
+
+#cd:target {
+    animation: rotateOn 1s linear;
+}
