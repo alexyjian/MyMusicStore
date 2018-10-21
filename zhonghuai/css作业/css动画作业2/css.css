@@ -105,11 +105,165 @@ img.bg{
 
 }
 
-.slider li:nth-of-type() a ::after {
+.slider li:nth-of-type(1) a::after {
     background: url(images/sbg1.jpg) no-repeat center;
 }
+.slider li:nth-of-type(2) a::after {
+    background: url(images/sbg2.jpg) no-repeat center;
+}
+.slider li:nth-of-type(3) a::after {
+    background: url(images/sbg3.jpg) no-repeat center;
+}
+.slider li:nth-of-type(4) a::after {
+    background: url(images/sbg4.jpg) no-repeat center;
+}
+.slider li:nth-of-type(5) a::after {
+    background: url(images/sbg5.jpg) no-repeat center;
+}
+ /* 整体控制每个天气图标的样式 结束 */
+.slider a::before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 5px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -80px;
+    /* 层次为99999，相当于加了亮度 */
+    z-index: 9999;
+    margin-left: -62px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.slider a:hover::before {
+    opacity: 0;
+}
+/* 第一个背景图切换的动画 */
+@keyframes 'slideLeft' {
+    0% {
+        left: -900px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes 'slideLeft' {
+    0% {
+        left: -900px;
+    }
+    100% {
+        left: 0;
+    }
+}
+.slideLeft:target {
+    z-index: 100;
+    animation: slideLeft 1s 1;
+    -webkit-animation: slideLeft 1s 1;
+    -ms-animation: slideLeft 1s 1;
+    -moz-animation: slideLeft 1s 1;
+    -o-animation: slideLeft 1s 1;
+}
+/* 第一个背景图切换的动画结束 */
+
+/* 第2个背景图切换的动画结束 */
+@keyframes 'slideBottom' {
+    0% {
+        top:400px;   
+    }
+    100% {
+        top:0;
+    }
+}
+@-webkit-keyframes 'slideBottom' {
+    0% {
+        top:400px;   
+    }
+    100% {
+        top:0;
+    }
+}
+.slideBottom:target {
+    z-index: 100;
+    animation: slideBottom 1s s;
+    -webkit-animation: slideBottom 1s 1;
+     
+}
+/* 第2个背景图切换的动画结束 */
+
+/* 第3个背景图切换的动画 */
+@keyframes 'zoomIn'{
+  0%{
+    transform:scale(0.1);
+  }
+  100% {
+      transform:none;
+  }
+}
+@-webkit-keyframes'zoomIn'{
+    0%{
+        transform:scale(0.1);
+      }
+      100% {
+          transform:none;
+      }
+}
+.zoomIn:target {
+    z-index: 100;
+    animation: zoomIn 2s 1;
+    -webkit-animation:  zoomIn 2s 1;
+}
+/* 第3个背景图切换的动画结束 */
 
 
-/* 整体控制每个天气图标的样式 结束
+/* 第4个背景图切换的动画 */
+@keyframes 'zoomOut'{
+    0%{
+        transform:scale(2);
+    }
+    100%{
+        transform:none;
+    }
+}
+@-webkit-keyframes 'zoomOut'{
+    0%{
+        -webkit-transform:scale(2);
+    }
+    100%{
+        -webkit-transform:none;
+    }
+}
+.zoomOut:target {
+    z-index: 100;
+    animation: zoomOut 1s 1;
+    -webkit-animation: zoomOut 1s 1;
+}
+/* 第4个背景图切换的动画结束 */
 
 
+/* 第5个背景图切换的动画*/
+
+@keyframes 'rotate'{
+    0%{
+      transform:scale(0.1);
+    }
+    100% {
+        transform:none;
+    }
+  }
+  @-webkit-keyframes'rotate'{
+      0%{
+          transform:scale(0.1);
+        }
+        100% {
+            transform:none;
+        }
+  }
+  .rotate:target {
+      z-index: 100;
+      animation: rotate 2s 1;
+      -webkit-animation:  rotate 2s 1;
+  }
+  /* 第5个背景图切换的动画结束 */
