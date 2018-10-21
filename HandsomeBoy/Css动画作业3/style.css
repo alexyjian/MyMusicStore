@@ -34,6 +34,7 @@ p{
      margin: 20px auto;
      box-shadow: 0 10px 15px;
      border-radius: 10px;
+   
 }
 .bg1 .a
 {
@@ -42,10 +43,11 @@ p{
     position: absolute;
     background: url(images/cd.png) no-repeat center center;
     animation: move 3s linear infinite;
-    -webkit-animation: move 3s linear infinite;
-     -ms-animation: move 3s linear infinite;
-    -moz-animation: move 3s linear infinite;
-    -o-animation: move 3s linear infinite;
+    -webkit-animation: move 3s 1s linear infinite;
+     -ms-animation: move 3s 1s linear infinite;
+    -moz-animation: move 3s 1s linear infinite;
+    -o-animation: move 3s 1s linear infinite;
+    animation-play-state: paused;
 }
 @keyframes move
 {
@@ -107,10 +109,10 @@ p{
     background-color: #A98659;
    border-radius: 0 10px 10px 0px;
     right: 0;
-    
+   
 }
 
-.bg1 .cd_bg
+.cd_bg
 {
     position: absolute;
     height: 180px;
@@ -118,7 +120,8 @@ p{
     background: url(images/fc.png) no-repeat center center;
     right: 0;
     padding: 170px 60px;
-   
+    animation: moveimg1 1s linear forwards;
+    animation-play-state: paused;
 }
 .b
 {
@@ -142,7 +145,9 @@ a{
      border-radius: 10px;
      box-shadow: 2px 2px 2px #000;
      bottom: 10%;
+
 }
+
 .play
 {
    left:20%;
@@ -151,16 +156,22 @@ a{
 {
    left: 35%;
 }
+/* 开始播放 */
 #play:target
 {
-
+   animation-play-state: running;
 }
 @keyframes moveimg1
 {
    0%{
-      transform: rotate(0);
+      transform: rotate(0) scale(1);
+     
    }
    100%{
-    transform: rotate(-90);
+    right: 100px;
+    transform: rotate(90deg) scale(2) ;
 }
 }
+
+
+
