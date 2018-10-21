@@ -82,12 +82,101 @@ img{
    position: fixed;
    z-index: 1;
 }
-:target
+
+/* 动画切换一 */
+#bg1:target
 {
-    animation: move 5s linear none; 
+    animation: moveimg1 5s linear none; 
     z-index: 2;
     
+}
+
+@keyframes moveimg1
+{
+    0%{
+         transform: translateY(-100%);
+    }
+  100%
+  {
+    transform: translateY(0);
+  }
+}
+
+#bg2:target
+{
+    animation: moveimg2 2s linear none; 
+    z-index: 99;
+    
+}
+
+@keyframes moveimg2
+{
+    0%{
+         transform: translateX(-100%);
+    }
+  100%
+  {
+    transform: translateX(0);
+  }
+}  
+
+/* 动画切换3 */
+#bg3:target
+{
+    animation: moveimg3 2s linear none; 
+    z-index: 99;
+    
+}
+
+@keyframes moveimg3
+{
+    0%{
+         transform:scale(0.5)
+    }
+  100%
+  {
+    transform: scale(1);
+  }
 } 
+
+/* 动画切换4 */
+#bg4:target
+{
+    animation: moveimg4 2s linear none; 
+    z-index: 99;
+    
+}
+
+@keyframes moveimg4
+{
+    0%{
+        transform:scale(1.5)
+   }
+ 100%
+ {
+   transform: scale(1);
+ }
+}  
+
+
+/* 动画切换4 */
+#bg5:target
+{
+    animation: moveimg5 2s linear none; 
+    z-index: 99;
+    
+}
+
+@keyframes moveimg5
+{
+    0%{
+         transform:rotate(0deg)
+    }
+  100%
+  {
+    transform: rotate(360deg)
+  }
+}  
 .slider li:hover a::after
 {
     opacity:1;
@@ -114,14 +203,3 @@ img{
     background: url(images/sbg5.jpg) no-repeat center center;
 }
 
-
- @keyframes move
-{
-    0%{
-         transform: translateY(100px);
-    }
-  100%
-  {
-    transform: translateY(1000px);
-  }
-} 
