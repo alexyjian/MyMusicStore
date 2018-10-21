@@ -127,68 +127,271 @@ img.bg{
     background: rgba(0, 0, 0, 0.3);
 }
 .slider a:hover::before{
-    opacity: 0;
+     opacity: 0; /* 透明度 */
 }
 .img:target{
     color: #000;
 }
 
-#bg1:target{
-    animation: movebg1 5s; /* 启动动画名称 */
-    z-index: 999;
-}
-#bg2:target{
-    z-index: 999;
-}
-#bg3:target{
-    z-index: 999;
-}
-#bg4:target{
-    z-index: 999;
-}
-#bg5:target{
-    z-index: 999;
-}
 /* 天气图标结束*/
+
+
+/* 天气切换动画 */
+/* 第一个动画效果 */
+#bg1:target{
+    animation: movebg1 2s; /* 启动动画名称 */
+    z-index: 999;
+    -ms-zoom-animation: movebg1 2s;
+    -o-animation: movebg1 2s;
+    -webkit-animation: movebg1 2s;
+    -moz-animation: movebg1 2s;
+}
 
 @keyframes movebg1{
     0%{
-        transform: translateY(-100%);
+        transform: translateX(-100%);
     }
     100%{
-        transform:translateY(0);
+        transform:translateX(0);
     } 
 }
-
-@keyframes movebg2{
+@-ms-keyframes movebg1{
     0%{
-        transform: rotateX(-100%);
+        -ms-transform: translateX(-100%);
     }
     100%{
-        transform: rotateX(0);
+        -ms-transform:translateX(0);
     } 
+}
+@-o-keyframes movebg1{
+    0%{
+        -o-transform: translateX(-100%);
+    }
+    100%{
+        -o-transform:translateX(0);
+    } 
+}
+@-webkit-keyframes movebg1{
+    0%{
+        -webkit-transform: translateX(-100%);
+    }
+    100%{
+        -webkit-transform:translateX(0);
+    } 
+}
+@-moz-keyframes movebg1{
+    0%{
+        -moz-transform: translateX(-100%);
+    }
+    100%{
+        -moz-transform:translateX(0);
+    } 
+}
+/* 第一个动画效果结束 */
+
+/* 第二个动画效果 */
+#bg2:target{
+    animation: movebg2 2s; 
+    z-index: 999;
+    -ms-zoom-animation: movebg2 2s;
+    -o-animation: movebg2 2s;
+    -webkit-animation: movebg2 2s;
+    -moz-animation: movebg2 2s;
+}
+@keyframes movebg2{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    } 
+}
+@-ms-keyframes movebg2{
+    0%{
+        -ms-transform: translateX(100%);
+    }
+    100%{
+        -ms-transform:translateX(0);
+    } 
+}
+@-o-keyframes movebg2{
+    0%{
+        -o-transform: translateX(100%);
+    }
+    100%{
+        -o-transform:translateX(0);
+    } 
+}
+@-webkit-keyframes movebg2{
+    0%{
+        -webkit-transform: translateX(100%);
+    }
+    100%{
+        -webkit-transform:translateX(0);
+    } 
+}
+@-moz-keyframes movebg2{
+    0%{
+        -moz-transform: translateX(100%);
+    }
+    100%{
+        -moz-transform:translateX(0);
+    } 
+}
+/* 第二个动画效果结束 */
+
+/* 第三个动画效果 */
+#bg3:target{
+    animation: movebg3 2s; 
+    z-index: 999;
+    -ms-zoom-animation: movebg3 2s;
+    -o-animation: movebg3 2s;
+    -webkit-animation: movebg3 2s;
+    -moz-animation: movebg3 2s;
 }
 @keyframes movebg3{
     0%{
-        transform: rotateX(0deg) rotateY(0deg);
+         transform: scale(0.1); /* scale 设置元素缩放大小 */
     }
     100%{
-        transform: rotateX(360deg) rotateY(360deg);
+        transform: none;
     } 
+}
+@-ms-keyframes movebg3{
+    0%{
+        -ms-transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -ms-transform: none;
+    } 
+}
+@-o-keyframes movebg3{
+    0%{
+        -o-transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -o-transform: none;
+    } 
+}
+@-webkit-keyframes movebg3{
+    0%{
+        -webkit-transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -webkit-transform: none;
+    } 
+}
+@-moz-keyframes movebg3{
+    0%{
+        -moz-transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -moz-transform: none;
+    } 
+}
+/* 第三个动画效果结束 */
+
+/* 第四个动画效果 */
+#bg4:target{
+    animation: movebg4 2s;
+    z-index: 999;
+    -ms-zoom-animation: movebg4 2s;
+    -o-animation: movebg4 2s;
+    -webkit-animation: movebg4 2s;
+    -moz-animation: movebg4 2s;
 }
 @keyframes movebg4{
     0%{
-        transform: rotateX(0deg) rotateY(0deg);
+        transform: scale(3);
     }
     100%{
-        transform: rotateX(360deg) rotateY(360deg);
+        transform: none;
     } 
+}
+@-ms-keyframes movebg4{
+    0%{
+        -ms-transform: scale(3); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -ms-transform: none;
+    } 
+}
+@-o-keyframes movebg4{
+    0%{
+        -o-transform: scale(3); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -o-transform:none;
+    } 
+}
+@-webkit-keyframes movebg4{
+    0%{
+        -webkit-transform: scale(3); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -webkit-transform: none;
+    } 
+}
+@-moz-keyframes movebg4{
+    0%{
+        -moz-transform: scale(3);
+    }
+    100%{
+        -moz-transform: none;
+    } 
+}
+/* 第四个动画效果结束 */
+
+/* 第五个动画效果*/
+#bg5:target{
+    z-index: 999;
+    animation: movebg5 2s;
+    -ms-zoom-animation: movebg5 2s;
+    -o-animation: mobebg5 2s;
+    -webkit-animation: movebg5 2s;
+    -moz-animation: movebg5 2s;
 }
 @keyframes movebg5{
     0%{
-        transform: rotateX(0deg) rotateY(0deg);
+        transform: rotate(-360deg) scale(0.1);
     }
     100%{
-        transform: rotateX(360deg) rotateY(360deg);
+        transform: none;
     } 
 }
+@-ms-keyframes movebg5{
+    0%{
+        -ms-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        -ms-transform: none;
+    } 
+}
+@-o-keyframes movebg5{
+    0%{
+        -o-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        -o-transform: none;
+    } 
+}
+@-webkit-keyframes movebg5{
+    0%{
+        -webkit-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        -webkit-transform: none;
+    } 
+}
+@-moz-keyframes movebg5{
+    0%{
+        -moz-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        -moz-transform: none;
+    } 
+}
+
+/* 第五 个动画效果结束 */
+
+/* 天气切换动画结束 */
