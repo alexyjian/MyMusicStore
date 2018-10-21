@@ -86,7 +86,7 @@ img{
 /* 动画切换一 */
 #bg1:target
 {
-    animation: moveimg1 5s linear none; 
+    animation: moveimg1 1s; 
     z-index: 2;
     
 }
@@ -101,10 +101,19 @@ img{
     transform: translateY(0);
   }
 }
-
+@keyframes moveimg1
+{
+    0%{
+        transform: translateY(-100%);
+   }
+ 100%
+ {
+   transform: translateY(0);
+ }
+}
 #bg2:target
 {
-    animation: moveimg2 2s linear none; 
+    animation: moveimg2 1s; 
     z-index: 99;
     
 }
@@ -119,11 +128,21 @@ img{
     transform: translateX(0);
   }
 }  
+@keyframes moveimg2
+{
+    0%{
+        transform: translateX(-100%);
+   }
+ 100%
+ {
+   transform: translateX(0);
+ }
+}
 
 /* 动画切换3 */
 #bg3:target
 {
-    animation: moveimg3 2s linear none; 
+    animation: moveimg3 1s ; 
     z-index: 99;
     
 }
@@ -138,16 +157,36 @@ img{
     transform: scale(1);
   }
 } 
+@keyframes moveimg3
+{
+    0%{
+        transform:scale(0.5)
+    }
+    100%
+    {
+    transform: scale(1);
+    }
+}
 
 /* 动画切换4 */
 #bg4:target
 {
-    animation: moveimg4 2s linear none; 
+    animation: moveimg4 1s 1; 
     z-index: 99;
     
 }
-
 @keyframes moveimg4
+{
+    0%{
+        transform:scale(1.5)
+   }
+ 100%
+ {
+   transform: scale(1);
+ }
+}  
+
+@-webkit-keyframes moveimg4
 {
     0%{
         transform:scale(1.5)
@@ -162,21 +201,31 @@ img{
 /* 动画切换4 */
 #bg5:target
 {
-    animation: moveimg5 2s linear none; 
+    animation: moveimg5 1s 1; 
     z-index: 99;
     
 }
-
+@-webkit-keyframes moveimg5
+{
+    0%{
+        transform:rotate(0deg) scale(0.1);
+   }
+ 100%
+ {
+   transform: rotate(360deg) scale(1);
+ }
+} 
 @keyframes moveimg5
 {
     0%{
-         transform:rotate(0deg)
+         transform:rotate(0deg) scale(0.1);
     }
   100%
   {
-    transform: rotate(360deg)
+    transform: rotate(360deg) scale(1);
   }
-}  
+}
+  
 .slider li:hover a::after
 {
     opacity:1;
