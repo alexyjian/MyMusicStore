@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 改变标签</title>
+    <style>
+        div {
+            background: darkorange;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='text'></div>
+
+</body>
+
+</html>
+<script>
+    //通过js给 html 标签添加类
+    var div = document.getElementById('text');
+    div.className = 'box'; //移除类 使 text 变成 类.box显示其内容
+
+    //JS 控制HTML
+    div.innerHTML = "<h2>我们是一朵向日葵</h2>";
+</script>
