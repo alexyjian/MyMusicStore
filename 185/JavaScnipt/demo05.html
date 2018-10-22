@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        制定节点操作
+    </title>
+</head>
+<body>
+    <ul>
+        <li id='html'>html</li>
+        <li id='css'>css</li>
+        <li id='js'>js</li>
+        <li id='csharp'>c#</li>
+        <li id='mvc'>mvc</li>
+    </ul>
+</body>
+</html>
+<script>
+    var item= document.getelementbyid('js')
+    item.style.fonweight="bold";
+    var lis=document.getelementsbytagname("li");
+    var li;
+    for(li in lis)
+    lis[li].style.fontsize="24px";
+</script>
