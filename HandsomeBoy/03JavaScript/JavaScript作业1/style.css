@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: #424242;
+}
+header{
+    width: 100%;
+    height: 30px;
+    background-color:#E3E4E5;
+}
+
+/* 头部左边 */
+.ul_left{
+    height: 30px;
+    float: left;
+    margin-left: 10%;
+}
+.ul_left li
+{
+    display: inline-block;
+    line-height: 30px;
+    text-indent: 0.5em;
+}
+
+/* 头部右边 */
+.ul_right li{
+    display: inline-block;
+    line-height: 30px;
+    margin-right: 25px;
+}
+.ul_right{
+    height: 30px;
+    float: right;
+    margin-right: 10%;
+}
+
+/* 取消浮动 */
+header::after
+{
+    clear: both;
+}
+
+/* 中间 */
+.center{
+    margin-top: 20px;
+  
+    height: 200px;
+    width: 100%;
+    position: relative;
+}
+img{
+    float: left;
+}
+.center_zhong
+{
+    margin-left: 350px;
+}
+.center_ul li
+{
+    display: inline-block;
+}
+#sousuo{
+   width: 520px;
+   height:30px;
+   border: 3px solid #E4393C;
+}
+#button
+{
+   position: absolute;
+    width: 70px;
+    height: 32px;
+    background-color: #E4393C;
+    margin: -33px 0 0 455px;
+    
+}
+.button_No1
+{
+    height: 25px;
+    width: 70px;
+ 
+}
+.button_No2
+{
+    height: 25px;
+    width: 85px;
+    margin-left:100px;
+}
+
+.button_No1,
+.button_No2
+{
+   background-color: #F7F7F7;
+   border: 1px solid #E4E4E4;
+   position: absolute;
+   top: 0px;
+   left:70%;
+   margin-top: 5px;
+}
+
