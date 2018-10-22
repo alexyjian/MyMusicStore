@@ -1,0 +1,89 @@
+*{
+    margin: 0 auto;
+}
+.bg h2{
+    padding-top: 30px;
+    font-size: 40px;
+}
+.bg{
+    color: rgb(182,120,103);
+    margin-top: 100px;
+    height: 450px;
+    width: 450px;
+    background:-webkit-linear-gradient(rgb(109, 55, 46) ,rgb(62,30,21));
+    text-align: center;
+    position: relative;
+    z-index: -100;
+    font-size: 10px;
+    text-shadow:2px 2px 5px black;
+}
+.bg1{
+    width: 350px;
+    height: 250px;
+    border: 1px solid rgb(109, 55, 46);
+    border-radius: 10px;
+    margin-top: 50px;
+    position: relative;
+    background: rgb(255,255,255);
+    overflow: hidden;
+    box-shadow:5px 10px 20px black;
+    z-index: 1;
+}
+.b{
+    position: absolute;
+    left: 50px;
+    top: 40px;
+    background-size: 180px;
+    height: 160px;
+    width: 160px;
+    border: 1px solid rgb(255,255,255);
+    border-radius: 50%;
+    box-shadow: 10px 20px 12px black;
+}
+.a{
+    display: block;
+    height: 250px;
+    width: 100px;
+    background: rgb(169, 134, 89);
+    margin-right: 0px;
+}
+.cd_bg{
+    background: url('images/cd.png') no-repeat;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    background-size: 180px;
+    height: 180px;
+    width: 180px;
+    animation: music 0.1s linear infinite;
+    display: block;
+}
+.cd{
+    background: url('images/fc.png') no-repeat;
+    position: absolute;
+    right: -100px;
+    top: 40px;
+    height: 180px;
+    width: 180px;
+    display: block;
+}
+@keyframes music{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#off{
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    z-index: 100;
+}
+#cd:target{
+
+}
+@keyframes button{
+
+}

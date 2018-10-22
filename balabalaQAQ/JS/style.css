@@ -1,0 +1,72 @@
+*{
+    margin: 0 auto;
+}
+/*header部分*/
+header{
+    width: 1280px;
+    height: 40px;
+    background: rgb(247, 247, 247);
+    position: relative;
+}
+ul{
+    display: inline;
+}
+li{
+    list-style: none;
+    display: inline;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 40px;
+    padding-left: 10px;
+}
+.rlist{
+    position: absolute;
+    right: 50px;
+
+}
+/*box部分*/
+.box{
+    width: 900px;
+    height: 500px;
+    position: relative;
+}
+input{
+    height:100px;
+    height: 34px;
+    background: rbg(247,247,247);
+    position: absolute;
+  
+    left: 905px;
+    top: 80px;
+}
+#last{
+    left: 805px;
+}
+.logo{
+    position: absolute;
+    left: 10px;
+}
+#ssbtn{
+    left: 655px;
+    width: 100px;
+    height: 36px;
+    background: red;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border: red solid 1px;
+}
+#text{
+    left: 250px;
+    height: 30px;
+    border: 3px solid red;
+    width: 500px;
+}
+.blist li{
+    color:#ccc;
+}
+.blist{
+    position: absolute;
+    left: 200px;
+    top:110px;
+}
