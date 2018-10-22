@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li id='html'>HTML</li>
+        <li id='css'>CSS</li>
+        <li id='javascript'>JAVASCRIPT</li>
+        <li id='c#'>C#</li>
+        <li id='mvc'>MVC</li>
+    </ul>
+</body>
+
+</html>
+<script>
+    //getElementById 按ID获取文档中元素
+    var item = document.getElementById('c#');
+    item.style.fontWeight = "bold"; //字体加粗
+
+    //getElementsByName 按标签名获取文档中的元素
+    var lis = document.getElementsByName("li");
+    var li;
+    for (li in lis)
+        lis[li].style.fontSize = "30px";
+</script>
