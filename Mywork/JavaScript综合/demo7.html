@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标悬停</title>
+    <style>
+        ul{
+            width: 400px;
+            margin: 100px auto;
+        }
+        li{
+            height: 30px;
+            text-align: center;
+            background: #ccc;
+            border:1px solid black;
+            line-height: 30px;
+            cursor:pointer;
+        }
+    </style>
+    <script>
+        var li1=document.getElementById("li1");
+        var li2=document.getElementById("li2");
+        // JS中的事件
+        li1.onmouseover=function(){
+            alert("鼠标经过");
+        }
+        li2.onmouseover=function(){
+            alert("鼠标离开");
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li id="li1">
+            <!-- 鼠标经过 -->
+        </li>
+        <li id="li2">
+            <!-- 鼠标离开 -->
+        </li>
+    </ul>
+</body>
+</html>
