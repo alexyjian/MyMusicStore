@@ -60,7 +60,6 @@ p{
     background: url(./播放器/images/cd.png) no-repeat center center;
     
 
-
     animation: music 20s linear infinite;
     -moz-animation: music 20s linear infinite;
     -o-animation: music 20s linear infinite;
@@ -69,14 +68,15 @@ p{
 }
 
 .bg1 .b{
-    width: 248px;
-    height: 248px;
+    width: 238px;
+    height: 238px;
     position: absolute;
     top: 16%;
     left: 6%;
     border-radius: 50%;
     box-shadow: 15px 15px 20px   #333;
 }
+
 
 @keyframes music{
     0%{
