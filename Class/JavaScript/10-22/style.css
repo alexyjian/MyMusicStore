@@ -10,7 +10,7 @@ a {
     font-size: 12px;
 }
 
-ul li {
+.login li ,.myStore li,.searchTop li{
     float: left;
 }
 
@@ -22,13 +22,35 @@ header {
     background-color: #f5f5f5;
     line-height: 30px;
     border-bottom: 1px solid #e9e9e9;
+    box-sizing: border-box;
+}
+
+#storeList{
+    display: none;
+    position: relative;
+    color:#656871;
+    font-size: 12px;
+    top: -10px;
+    left: 653px;
+    width: 80px;
+    height: 180px;
+    background-color: white;
+    border-right: 1px solid #f7f7f7;
+    border-left: 1px solid #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    z-index: 9999;
+}
+
+header div {
+    width: 940px;
+    height: 30px;
+    margin: 0px auto;
 }
 
 .login {
     display: inline-block;
     width: 150px;
     height: 30px;
-    margin-left: 100px;
 }
 
 .login a li {
@@ -42,12 +64,22 @@ header {
     color:#656871;
     font-size: 12px;
     float: right;
-    margin-right: 100px;
 }
 
 /*****************main*****************/
 .main {
-    padding: 30px 100px;
+    padding: 30px 200px;
+    position: relative;
+}
+
+.main_right {
+    position: absolute;
+    top: 50px;
+    left: 400px;
+}
+
+form {
+    display: inline-block;
 }
 
 .txt_search {
@@ -55,7 +87,6 @@ header {
     height: 30px;
     width: 380px;
     padding: 0px 20px;
-    position: relative;
 }
 
 .btn_search {
@@ -65,5 +96,25 @@ header {
     background-color: #df393b;
     color: white;
     font-weight: bold;
-    position: absolute;
+    position: relative;
+    cursor: pointer;
+    margin-left: -4px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 10px;
+    background-color: #f7f7f7;
+    border:1px solid #eee;
+    margin-left: 12px;
+}
+
+.searchTop {
+    color:#656871;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.searchTop li:nth-of-type(2),.searchTop li:nth-of-type(3),.searchTop li:nth-of-type(4) {
+    margin-right: 20px;
 }

@@ -6,35 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>京东首页</title>
     <link type="text/css" rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="javascript.js"></script>
 </head>
 <body>
     <header>
-        <ul class="login">
-            <a href="#"><li>亲，请登录</li></a>
-            <a href="#"><li>免费注册</li></a>
-        </ul>
-        <ul class="myStore">
-            <a href="#"><li>我的商城</li></a>
-            <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-            <a href="#"><li>购物车</li></a>
-            <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-            <a href="#"><li>收藏夹</li></a>
-            <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-            <a href="#"><li>卖家中心</li></a>
-            <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-            <a href="#"><li>联系客服</li></a>
-        </ul>
+        <div>
+            <ul class="login">
+                <a href="#"><li>亲，请登录</li></a>
+                <a href="#"><li>免费注册</li></a>
+            </ul>
+            <ul class="myStore">
+                <a href="#"><li id="store">我的商城</li></a>
+                <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <a href="#"><li>购物车</li></a>
+                <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <a href="#"><li>收藏夹</li></a>
+                <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <a href="#"><li>卖家中心</li></a>
+                <li>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                <a href="#"><li>联系客服</li></a>
+            </ul>
+            <ul id="storeList">
+                <li>已买到的宝贝</li>
+                <li>我的足迹</li>
+                <li>我的上新</li>
+                <li>爱逛街</li>
+                <li>商城达人</li>
+                <li>新欢</li>
+            </ul>
+        </div>
     </header>
     <div class="main">
         <img src="logo.gif" />
-        <div>
+        <div class="main_right">
             <form name="search" method="POST" >
                 <input class="txt_search" type="text" name="searchKey" />
                 <input class="btn_search" type="submit" value="搜索" />
             </form>
-            <a href="#">会员中心</a>
-            <a href="#">区购物车结算</a>
+            <a class="btn" href="#">会员中心</a>
+            <a class="btn" href="#">去购物车结算</a>
             <ul class="searchTop">
                 <li>热门搜索：</li>
                 <li>网页培训</li>
@@ -46,3 +55,4 @@
     </div>
 </body>
 </html>
+<script type="text/javascript" src="javascript.js"></script>
