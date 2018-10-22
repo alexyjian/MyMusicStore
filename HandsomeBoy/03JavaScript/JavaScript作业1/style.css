@@ -18,11 +18,13 @@ header{
 .ul_left{
     height: 30px;
     float: left;
-    margin-left: 10%;
+    margin-left: 15%;
 }
 .ul_left li
 {
     display: inline-block;
+    width: 100px;
+    height: 30px;
     line-height: 30px;
     text-indent: 0.5em;
 }
@@ -30,15 +32,35 @@ header{
 /* 头部右边 */
 .ul_right li{
     display: inline-block;
+    width: 80px;
+    height: 30px;
     line-height: 30px;
     margin-right: 25px;
+    text-align: center;
+    position: relative;
 }
 .ul_right{
     height: 30px;
     float: right;
     margin-right: 10%;
 }
-
+.ul_right > li::before
+{
+   
+    content: "";
+    position: absolute;
+   left:-10px;
+   top: 7px;
+    height: 15px;
+    width: 1px;
+    background-color: #000;
+}
+.ul_right > li:first-child::before
+{
+    content: "";
+    height: 0px;
+    width: 0px;
+}
 /* 取消浮动 */
 header::after
 {
@@ -53,12 +75,15 @@ header::after
     width: 100%;
     position: relative;
 }
-img{
+/* 小狗狗图片 */
+.center_left img{
     float: left;
+    margin-left: 15%;
 }
 .center_zhong
 {
-    margin-left: 350px;
+    margin-left: 30%;
+    padding-top: 20px;
 }
 .center_ul li
 {
@@ -97,8 +122,38 @@ img{
    background-color: #F7F7F7;
    border: 1px solid #E4E4E4;
    position: absolute;
-   top: 0px;
+   top: 20px;
    left:70%;
    margin-top: 5px;
 }
+#store:hover
+{
+    background-color: #fff;
+}
+#store_none{
+    position: absolute;
+    height: 220px;
+    width: 110px;
+    border: 1px solid #F2F2F2;
+    background-color: #fff;
+   padding-left: 15px;
+   box-sizing: border-box;
+   margin-left:-15px;
+   z-index: 9999;
+   display:none;
+   
+}
+#store_none li{
+    font-size: 14px;
+     white-space: nowrap;
+     text-align:left;
+}
+.center_ul
+{
+    margin-top: 5px;
+}
 
+.center_ul li{
+    color: #999999;
+    font-size: 12px;
+}
