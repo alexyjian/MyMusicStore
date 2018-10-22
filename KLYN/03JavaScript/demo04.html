@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var student,i,j;
+    student = new Array();
+    student [0] = new Array("天使","恶魔","神仙");
+    student [1] = new Array("魔术师","魔法师","魔幻师");
+    student [2]= new Array("父母","老婆","孩子");
+
+
+    for (i in student) {
+        for (j in student[i]) {
+            document.write(student[i][j])+"\t";
+        }
+        document.write("<br/>");
+    }
+</script>
