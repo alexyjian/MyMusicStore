@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>制定节点操作</title>
+</head>
+<body>
+    <ul>
+        <li id='html'>HTML</li>
+        <li id='css'>CSS</li>
+        <li id='js'>JS</li>
+        <li id='csharp'>C#</li>
+        <li id='mvc'>MVC</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    //GetElementsByID 获取文档中的元素
+    var item = document.getElementById('js');
+    item.style.fontWeight="bold";
+    //GetElementsByName 按标签名称获取文档中的元素
+    var lis=document.getElementsByTagName("li");
+    var li;
+    for(li in lis)
+    lis[li].style.fontSize='24px';
+</script>

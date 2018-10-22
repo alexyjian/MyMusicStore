@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<script>
+    var a,b;
+    a=new Array('班长','学习委员','文体委员','团支书','副班长');
+    //遍历数组中的元素
+    console.log(a.length)
+    for(b in a){
+        if(a[b]=='学习委员'){
+            alert(a[b]+'非常棒');
+        }
+        else{
+            document.write(a[b]+'\t');
+        }
+    }
+</script>
