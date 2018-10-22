@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.ul1,.ul2{
+    background-color:#f5f5f5;
+    height: 25px;
+    
+}
+.ul2{
+    float: right;
+    margin-top: -25px;
+}
+li{
+    margin:0 10px;
+    cursor:pointer;
+}
+.ul1 li{
+    float: left;
+}
+.ul2 li{
+    float: left;
+}
+dl{
+    width: 100px;
+    display: none;
+    margin-top: -20px;
+    text-align: center;
+}
+.li1:hover dl{
+    display: block;
+}
+form{
+    
+}
