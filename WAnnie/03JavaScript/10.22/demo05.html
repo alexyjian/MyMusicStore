@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li id='html'>HTML</li>
+        <li id='css'>CSS</li>
+        <li id='js'>JS</li>
+        <li id='c#'>C#</li>
+        <li id='mvc'>MVC</li>
+    </ul>
+</body>
+
+</html>
+
+<script>
+    // getElementById 按 id 获取文档中的元素
+    var item = document.getElementById('js');
+    item.style.fontWeight = "bold";
+
+    // getElementsByTagName 按标签名称获取文档中所有的元素
+    var lis = document.getElementsByTagName("li");
+    var li;
+    for (li in lis) {
+        lis[li].style.fontSize = "25px";
+        lis[li].style.color="blue";
+    }
+
+</script>
