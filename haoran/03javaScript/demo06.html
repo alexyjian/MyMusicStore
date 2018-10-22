@@ -20,11 +20,14 @@
     </style>
 </head>
 <body>
-    <div id="txt"></div>
+    <div id="txt" class="box"></div>
 </body>
 </html>
 
 <script>
+    //通过js给html标签添加类或移除类
     var div=document.getElementById('txt');
     div.className='box';
+//js控制html
+    div.innerHTML="<h2>我们是很NB的程序猿！</h2>";
 </script>
