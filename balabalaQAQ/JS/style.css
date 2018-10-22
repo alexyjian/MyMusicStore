@@ -1,5 +1,6 @@
 *{
     margin: 0 auto;
+    z-index: 1;
 }
 /*header部分*/
 header{
@@ -7,6 +8,7 @@ header{
     height: 40px;
     background: rgb(247, 247, 247);
     position: relative;
+    z-index: 9999;
 }
 ul{
     display: inline;
@@ -26,7 +28,7 @@ li{
 }
 /*box部分*/
 .box{
-    width: 900px;
+    width: 1000px;
     height: 500px;
     position: relative;
 }
@@ -35,7 +37,6 @@ input{
     height: 34px;
     background: rbg(247,247,247);
     position: absolute;
-  
     left: 905px;
     top: 80px;
 }
@@ -69,4 +70,22 @@ input{
     position: absolute;
     left: 200px;
     top:110px;
+}
+/*下拉框*/
+.one{
+    display: inline-block;
+
+}
+.one ul{
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    border: 1px solid rbg(247,247,247);
+    display: none;
+}
+.one ul li{
+    color: black;
+    padding: 5px 1px;
+    text-decoration: none;  
+    display: block;
 }
