@@ -12,7 +12,7 @@
     <div class="header">
         <ul>
             <li id ="nh">你好，请登录<a href="#" id="sncTxt">免费注册</a></li>
-            <li id="w">我的商城|</li>
+            <li id="w">我的商城| </li>
             <li id="g">购物车|</li>
             <li id="s">收藏夹|</li>
             <li id="m">卖家中心|</li>
@@ -32,17 +32,17 @@
 </body>
 </html>
 <script type="text/javascript">
-        //导航选中
-        $("#nav" + navID).addClass("onnav");
-     
-        $(".navigation_bg li").each(function () {
-            $(this).hover(function () {
-                $(this).addClass("onnav").siblings().removeClass("onnav");
-                $(this).find(".subNav").show();
-            }, function () {
-                $("#nav" + navID).addClass("onnav").siblings().removeClass("onnav");
-                $(this).find(".subNav").hide();
-            });
-        });
-    </script>
+    //显示子菜单
+    function showSubMenu(li){
+        var subMenu = li.getElementsByTagName("ul")[0];
+        subMenu.style.display = "block";
+    }
+
+    //隐藏子菜单
+    function hideSubMenu(li){
+        var subMenu = li.getElementsByTagName("ul")[0];
+        subMenu.style.display = "none";
+    }
+</script>
+    
     
