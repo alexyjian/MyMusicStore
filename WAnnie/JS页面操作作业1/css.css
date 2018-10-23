@@ -3,32 +3,85 @@
     margin: 0;
     list-style:none;
 }
+
+.box{
+    width: 100%;
+    height: 50px;
+    border: 2px solid #333;
+    background: #ccc;
+
+}
 .one{
-    width: 500px;
-    height: 20px;
-    position: relative;
-    border: 2px solid red;
-    margin: 25px auto;
-    top: 0;
+    font-family: "微软雅黑";
+    font-size: 30px;
+    height: 25px;
+    line-height: 25px;  
+    float: left;
+}
+.tow{
+    font-family: "微软雅黑";
+    font-size: 30px;
+    height: 25px;
+    line-height: 25px;
+    float: right;
 }
 
 ul li{
-    width: 700px;
-    height: 20px;
+    float: left;
     border: 0px solid ;
-    margin: 0 auto;
-    top: 0;
+    margin: 10px ;
+    
 }
-input{
-    border: 2px solid red;
+
+
+.on1{
+    width: 300px;
+    height: 50px;
+    border: 5px solid red;
     margin: 25px auto;
     top: 0;
-    font-size: 15px;
+    font-size: 25px;
     color: red;
 }
-.nan{
-    border:2px solid wheat;
-    color: #333;
-    font-size: 15px;
+.on2{
+    width: 200px;
+    height: 50px;
+    border: 2px solid #ececec;
+    background:  #f7f7f7;
+    color: #b37c7c;
+    font-size: 25px;
     font-family: "宋体";
+}
+.on3{
+    width: 200px;
+    height: 50px;
+    border: 2px solid #ececec;
+    background:  #f7f7f7;
+    color: #b37c7c;
+    font-size: 25px;
+    font-family: "宋体";
+}
+.on4{
+    width: 200px;
+    height: 50px;
+    border: 2px solid #ececec;
+    background: #f7f7f7;
+    color: #b37c7c;
+    font-size: 25px;
+    font-family: "宋体";
+}
+img{
+    line-height: 50px;
+    margin: 5px;
+    top: 50px;
+}
+div{
+   width: 700px;
+   height: 100px;
+
+}
+ul li{
+    font-family: "宋体";
+    float: left;
+    font-size: 25px;
 }
