@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   var student,i,j;
+   student = new Array();
+   student[0] = new Array("米粒","米雪","米朵");
+   student[1] = new Array("雪花","梅花","桂花");
+   student[2] = new Array("老师","老板","老兵");
+   //遍历二维数组
+   for (i in student){
+       for (j in student[i]){
+           document.write(student[i][j]+'\t');
+       }
+       document.write('<br/>');
+   }
+</script>
