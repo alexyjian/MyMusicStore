@@ -9,15 +9,49 @@
     <link href="css.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div class="herd">
-        <div class="tb"> 亲，请登录  免费注册
-            <div class="tl"></div>
-        </div>
-      <div class="sou">
-           <div class="tp"></div>
-          <div class="sousuo">搜索</div>
-      </div>
-
+    <div class="header">
+        <ul>
+            <li id ="nh">你好，请登录<a href="#" id="sncTxt">免费注册</a></li>
+            <li id="w">我的商城|</li>
+            <li id="g">购物车|</li>
+            <li id="s">收藏夹|</li>
+            <li id="m">卖家中心|</li>
+            <li id="l">联系我们|</li>
+        </ul>
+    </div>
+    <div id="gth">
+        <img src="images/logo.gif">
     </div>
 </body>
 </html>
+<script src="GZQ/JQ轮播/js/jquery-1.6.4.min.js"></script>
+<script>
+    $(function () {
+        var view = $(".optionBox li:first").text();
+        $(".viewInput").val(view);
+    });
+
+    $(".viewBox").click(function () {
+        if($(".optionBox").css("display")=="none"){
+            $(".optionBox").show();
+            $(".btnImg img").attr("src","arrow_input_up.png")
+        }else{
+            $(".optionBox").hide();
+            $(".btnImg img").attr("src","arrow_input_down.png")
+        }
+    });
+
+    var checkOption = $(".optionBox li");
+    checkOption.click(function () {
+        var index = $(".optionBox li").index(this);
+        var indexVal = $(".optionBox li:eq("+index+")").html();
+        $(".viewInput").val(indexVal);
+        if($(".optionBox").css("display")=="none"){
+            $(".optionBox").show();
+            $(".btnImg img").attr("src","arrow_input_up.png")
+        }else{
+            $(".optionBox").hide();
+            $(".btnImg img").attr("src","arrow_input_down.png")
+        }
+    })
+</script>
