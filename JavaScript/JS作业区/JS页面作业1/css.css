@@ -39,3 +39,73 @@ body {
     right: 420px;
     position: absolute ;
 }
+.search button{
+    position:absolute;
+    right: 500px;
+    width: 80px;
+    height: 36px;
+    top:130px;
+    background-color: #B61D1D;
+    color: #fff;
+    cursor: pointer; /* 鼠标变成小手*/
+    font: 16px/36px "microsoft yahei";
+}
+
+.aa{
+    width:500px ;
+    height: 30px;
+    position: relative;
+    right: -30px;
+    top:-90px;
+    border: 2px solid red;
+   
+}
+.bb{
+    width:90px ;
+    height: 30px;
+    position: relative;
+    right: -30px;
+    top:-90px;
+}
+.cc{
+    width:90px ;
+    height: 30px;
+    position: relative;
+    right: -36px;
+    top:-90px;
+}
+.dd{
+    width:90px ;
+    height: 30px;
+    position: relative;
+    right: -41px;
+    top:-90px;
+}
+ /*没点或点过了*/
+ a:link,a:visited{
+    background-color: #f1f1f1;
+    text-decoration: none;
+    right: 750px;
+    top:-60px;
+    position: relative;
+
+}
+
+a:hover{
+    color: red;
+    font-weight: bolder;
+}
+
+a:active{
+    color: darkred;
+    font-weight: bolder;
+}
+
+
+.search s{
+    position:absolute;
+    background-color: #B61D1D;
+    color: #fff;
+    cursor: pointer; /* 鼠标变成小手*/
+    font: 16px/36px "microsoft yahei";
+}

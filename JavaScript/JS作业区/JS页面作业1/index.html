@@ -19,39 +19,30 @@
             <li id="l">联系我们|</li>
         </ul>
     </div>
-    <div id="gth">
         <img src="images/logo.gif">
-    </div>
+        <input type="text" class="aa"><input type="button" value="搜索" class="bb">
+        <input type="button" value="会员中心" class="cc">
+        <input type="button" value="去购物车结算" class="dd">
+        <a href="#">热门搜索：</a>
+        <a href="#">网页培训</a>
+        <a href="#">大学教材</a>
+         <a href="#">智能手机</a>
+         <a href="#">平板电脑</a>
+
 </body>
 </html>
-<script src="GZQ/JQ轮播/js/jquery-1.6.4.min.js"></script>
-<script>
-    $(function () {
-        var view = $(".optionBox li:first").text();
-        $(".viewInput").val(view);
-    });
-
-    $(".viewBox").click(function () {
-        if($(".optionBox").css("display")=="none"){
-            $(".optionBox").show();
-            $(".btnImg img").attr("src","arrow_input_up.png")
-        }else{
-            $(".optionBox").hide();
-            $(".btnImg img").attr("src","arrow_input_down.png")
-        }
-    });
-
-    var checkOption = $(".optionBox li");
-    checkOption.click(function () {
-        var index = $(".optionBox li").index(this);
-        var indexVal = $(".optionBox li:eq("+index+")").html();
-        $(".viewInput").val(indexVal);
-        if($(".optionBox").css("display")=="none"){
-            $(".optionBox").show();
-            $(".btnImg img").attr("src","arrow_input_up.png")
-        }else{
-            $(".optionBox").hide();
-            $(".btnImg img").attr("src","arrow_input_down.png")
-        }
-    })
-</script>
+<script type="text/javascript">
+        //导航选中
+        $("#nav" + navID).addClass("onnav");
+     
+        $(".navigation_bg li").each(function () {
+            $(this).hover(function () {
+                $(this).addClass("onnav").siblings().removeClass("onnav");
+                $(this).find(".subNav").show();
+            }, function () {
+                $("#nav" + navID).addClass("onnav").siblings().removeClass("onnav");
+                $(this).find(".subNav").hide();
+            });
+        });
+    </script>
+    
