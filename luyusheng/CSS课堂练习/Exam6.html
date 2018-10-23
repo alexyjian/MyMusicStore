@@ -7,10 +7,10 @@
     <title>Document</title>
     <style>
        div{
-           margin: 00px auto;
+           margin: 100px auto;
            width: 200px;
            height: 200px;
-           background: gold;
+           background: aqua;
            position: relative;
            animation: move 5s linear infinite;
            animation-duration: 5s;
@@ -22,10 +22,10 @@
 
        @keyframes move{
            0%{
-               transform: rotateX(0deg);
+               transform: rotateX(0deg) rotateY(0deg);;
            }
            100%{
-               transform:rotateX(360deg);
+               transform:rotateX(360deg) rotateY(360deg);;
            }
        }
        @-webkit-keyframes move{
@@ -33,7 +33,7 @@
                transform: rotateX(0deg) rotateY(0deg);
            }
            100%{
-               transform:rotateX(360deg) rotateY(0deg);
+               transform:rotateX(360deg) rotateY(360deg);
            }
        }
     </style>

@@ -11,17 +11,17 @@
           height: 800px;
           border: 1px solid red;
          /* 父元素设置perspective */
-          perspective: 1400px;
+          perspective: 1800px;
           perspective-origin: 0 0;
           position: relative;
       }
       .child{
-          width: 200px;
-          height: 150px;
+          width: 400px;
+          height: 300px;
           -webkit-transform-style: preserve-3d;
           position: absolute;
           top: 250px;
-          left: 400px;
+          left: 300px;
       }
       .child img{
           width: 200px;
@@ -30,7 +30,7 @@
           top: 0;
           left: 0;
       }
-      /* 子元素设置 */
+      /* 子元素设置rotateX/Y/Z */
       .child img:nth-child(1){
           transform: rotateY(0deg) translateZ(400px);
       }
@@ -61,12 +61,11 @@
 <body>
    <div class="dad">
        <div class="child">
-        <img src="images/JL.png">
-        <img src="images/JL.png">
-        <img src="images/JL.png">
-        <img src="images/JL.png">
-        <img src="images/JL.png">
-        <img src="images/JL.png">
+        <img src="images/JL.jpg">
+        <img src="images/JL.jpg">
+        <img src="images/JL.jpg">
+        <img src="images/JL.jpg">
+        <img src="images/JL.jpg">
        </div>
    </div>
 </body>
