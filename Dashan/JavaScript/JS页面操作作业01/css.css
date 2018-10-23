@@ -6,32 +6,66 @@
 
 body {
     font-family: " 微软雅黑";
-    font-size: 12px;
-    color: gray;
+    font-size: 14px;
+    color: rgb(102, 101, 101);
 }
 
-div {
+#TMO {
     width: 100%;
     height: 30px;
     border: 1px solid #ccc;
-    padding-bottom: #ccc;
+    padding-bottom: 15px;
+    background-color: rgb(238, 237, 237);
 }
 
 .no1 li {
     height: 34px;
     float: left;
     line-height: 34px;
-    padding: 0 5px;
+    padding:5px;
+   
 }
-
 .no2 li {
     height: 34px;
-    float: left;
+    float: right;
     line-height: 34px;
+    padding:5px;
+
+}
+p{
+   margin: 10px 380px auto;
+}
+.txt{
     text-align: center;
-    padding: 0 5px;
+    width: 500px;
+    height: 60px; 
+    
+}
+.mit{ 
+    width: 80px;
+    height: 55px;
+    background: red;
+    color: rgb(95, 94, 94)
+}
+.bon1
+{ 
+    width: 65px;
+    height: 45px;
+background: rgb(228, 227, 227);
+color: rgb(95, 94, 94)
+}
+.bon2
+{ 
+    width: 120px;
+    height: 45px;
+    background: rgb(233, 230, 230);
+    color: rgb(95, 94, 94)
 }
 
-div li:hover {
-    background: white;
+#WTM{
+   padding-top:80px;
+    text-align: center;
+    background: url(logo.png)no-repeat;
+   
 }
+
