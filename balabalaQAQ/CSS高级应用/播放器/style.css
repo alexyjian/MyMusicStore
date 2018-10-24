@@ -64,7 +64,7 @@
     right: -100px;
     top: 40px;
     height: 180px;
-    width: 180px;
+    width: 180px;                       
     display: block;
 }
 @keyframes music{
@@ -74,15 +74,6 @@
     100%{
         transform: rotate(360deg);
     }
-}
-#off{
-    background-color: black;
-    height: 50px;
-    width: 50px;
-    z-index: 100;
-}
-#cd:target{
-
 }
 @keyframes button{
 

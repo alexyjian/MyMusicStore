@@ -103,6 +103,7 @@ img.bg{
 }
 #bg1:target {
     animation:lr 2s ;
+    -webkit-animation: lr 2s ;
     z-index: 100;
 }
 #bg2:target {
@@ -126,43 +127,79 @@ img.bg{
      transform: translate(-1280px,0);
     }
     to{
-    transform: translate(0,0);
+        transform: none;
     }
-    
+}
+@-webkit-keyframes lr{
+    from{
+        transform: translate(-1280px,0);
+       }
+       to{
+        transform: none;
+       }
 }
 @keyframes lr2{
     from{
      transform: translate(0,1280px);
     }
     to{
-    transform: translate(0,0);
+        transform: none;
+    }  
+}
+@-webkit-keyframes lr2{
+    from{
+     transform: translate(0,1280px);
     }
-    
+    to{
+        transform: none;
+    }  
 }
 @keyframes lr3{
     from{
      transform: scale3d(0.1,0.1,0.1);
     }
     to{
-    transform: scale3d(1,1,1);
+        transform: none;
     }
     
+}
+@-webkit-keyframes lr3{
+    from{
+     transform: scale3d(0.1,0.1,0.1);
+    }
+    to{
+        transform: none;
+    }    
 }
 @keyframes lr4{
     from{
         transform: scale3d(3,3,3);
     }
     to{
-        transform: scale3d(1,1,1);
+        transform: none;
     }
-    
+}
+@-webkit-keyframes lr4{
+    from{
+        transform: scale3d(3,3,3);
+    }
+    to{
+        transform: none;
+    }
 }
 @keyframes lr5{
     from{
-     transform: scale3d(0.1,0.1,0.1) rotatez(0deg);
+     transform: scale3d(0.1,0.1,0.1) rotatez(-720deg);
     }
     to{
-    transform: scale3d(1,1,1) rotatez(360deg);
+        transform: none;
     }
-    
+}
+@-webkit-keyframes lr5{
+    from{
+     transform: scale3d(0.1,0.1,0.1) rotatez(-720deg);
+    }
+    to{
+    transform: none;
+    }
 }

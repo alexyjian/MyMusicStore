@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+div{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 5px solid yellow;
+    border-radius: 0px;
+}
+div:hover{
+    background-color: green;
+/*
+    -webkit-transition-property: background-color;
+    -moz-transition-property: background-color;
+    -o-transition-property:background-color;
+
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+
+    border-radius: 50%;
+
+    -webkit-transition-duration: 2s;
+    -moz-transition-duration: 2s;
+    -o-transition-duration: 2s;
+*/
+}
+#dd{
+    /*平移*/
+    transform:translate(100px,30px);
+    -webkit-transform:translate(100px,30px);/*chrome safari*/
+    -ms-transform:translate(100px,30px);/*IE9*/
+    -moz-transform:translate(100px,30px);/*Firefox*/
+    -o-transform:translate(100px,30px);/*Opera*/
+}
+#ddd{
+    transform:scale(2,3);
+    -webkit-transform:scale(2,3);/*chrome safari*/
+    -ms-transform:scale(2,3);/*IE9*/
+    -moz-transform:scale(2,3);/*Firefox*/
+    -o-transform:scale(2,3);/*Opera*/
+}
+#dddd{
+    transform: skew(30deg,-10deg);
+    -webkit-transform: skew(30deg,-10deg);/*chrome safari*/
+    -ms-transform: skew(30deg,-10deg);/*IE9*/
+    -moz-transform: skew(30deg,-10deg);/*Firefox*/
+    -o-transform: skew(30deg,-10deg);/*Opera*/
+}
+#ddddd{
+    transform: rotate(30deg);
+    -webkit-transform:  rotate(30deg);/*chrome safari*/
+    -ms-transform:  rotate(30deg);/*IE9*/
+    -moz-transform:  rotate(30deg);/*Firefox*/
+    -o-transform:  rotate(30deg);/*Opera*/
+}
+</style>
+<body>
+    <div>把我绿了</div>
+    <div id="dd">把我绿了2222</div>
+    <div id="ddd">把我绿了3333</div>
+    <div id="dddd">我是倾斜后的DIV</div>
+    <div id="ddddd">我是倾斜后的DIVaaaa</div>
+</body>
+</html>

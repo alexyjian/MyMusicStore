@@ -1,0 +1,77 @@
+body{
+    margin: 0  ;
+    padding: 0;
+    border: 0;
+}
+.box{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
+.box video{
+   min-width: 100%;
+   min-height: 100%;
+   max-width: 400%;
+   max-height: 400%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform:translate(-50%,-50%);
+   z-index: -1;
+}
+.cd{
+    width: 422px;
+    height: 422px;
+    border-radius: 50%;
+    position: absolute;
+    left:5%;
+    top: 30%;
+    z-index: 2;
+    font-size: 18px;
+    background: url('images/cd_img.jpg') no-repeat;
+}
+.center{
+    height: 100px;
+    width: 100px;
+    background: url('images/yinfu.gif') no-repeat;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    margin-left: -50px;
+    margin-top: 150px;
+    border: 3px solid rgba(255, 255, 255);
+    background-position: center center ;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-color: black;
+}
+.box audio{
+    position: absolute;
+    left: -100px;
+    bottom: -70px;
+}
+@font-face{
+    font-family: MD;
+    src: url(font/MD.ttf);
+}
+.song{
+    position: absolute;
+    top: 25%;
+    left: 43%;
+}
+h2{
+    font-family: MD;
+    font-size:60px;
+    color: #913805;
+}
+p{
+    width: 556px;
+    height: 300px;
+    font-family: 微软雅黑;
+    padding-left: 20px;
+    line-height: 30px;
+    background: url('images/bg.png') repeat-x;
+    box-sizing: border-box;
+    border-radius: 5px;
+}

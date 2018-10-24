@@ -1,52 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>京东首页</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>
-<body>
-    <header>
-        <ul class="llsi">
-            <li>亲,</li>
-            <li>请登录</li>
-            <li>免费注册</li>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>京东首页</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            <ul class="llsi">
+                <li>亲,</li>
+                <li>请登录</li>
+                <li>免费注册</li>
+            </ul>
+            <ul class="rlist">
+                <li class="one"  id="inlist" onmouseover="change('div_drop','block')" onmouseout="change('div_drop','none')">我的商城
+                    <ul id="div_drop">
+                        <li>已买到的宝贝</li>
+                        <li>我的足迹</li>
+                        <li>我的上新</li>
+                        <li>爱逛街</li>
+                        <li>商场达人</li>
+                        <li>新欢</li>
+                    </ul>
+                </li>
+                <li>|</li>
+                <li>购物车</li>
+                <li>|</li>
+                <li>收藏夹</li>
+                <li>|</li>
+                <li>卖家中心</li>
+                <li>|</li>
+                <li>联系客服</li>
+            </ul>
+        </header>
+    <div class="box">
+        <div class="logo">
+            <img src="image/db4d9a5167ab540a.gif" alt="">
+        </div>
+        <input type="text" id="text">
+        <input type="button" value="搜索" id="ssbtn">
+        <input type="button" value="会员中心"id="last">
+        <input type="button" value="去购物车结算">
+        <ul class="blist">
+            <li>热门搜索：</li>
+            <li>网页培训</li>
+            <li>大学教材</li>
+            <li>智能手机</li>
+            <li>平板电脑</li>
         </ul>
-        <ul class="rlist">
-            <li class="one"  id="inlist">我的商城&nbsp;|
-                <ul id="ddd">
-                    <li>已买到的宝贝</li>
-                    <li>我的足迹</li>
-                    <li>我的上新</li>
-                    <li>爱逛街</li>
-                    <li>商场达人</li>
-                    <li>新欢</li>
-                </ul>
-            </li>
-            <li>购物车&nbsp;|</li>
-            <li>收藏夹&nbsp;|</li>
-            <li>卖家中心&nbsp;|</li>
-            <li>联系客服&nbsp;</li>
-        </ul>
-    </header>
-<div class="box">
-    <div class="logo">
-        <img src="image/db4d9a5167ab540a.gif" alt="">
     </div>
-    <input type="text" id="text">
-    <input type="button" value="搜索" id="ssbtn">
-    <input type="button" value="会员中心"id="last">
-    <input type="button" value="去购物车结算">
-    <ul class="blist">
-        <li>热门搜索：</li>
-        <li>网页培训</li>
-        <li>大学教材</li>
-        <li>智能手机</li>
-        <li>平板电脑</li>
-    </ul>
-</div>
-</body>
-</html>
-<script src="jdjs.js" type="text/JavaScript"></script>
+    </body>
+    </html>
+    <script src="jdjs.js" type="text/JavaScript"></script>
