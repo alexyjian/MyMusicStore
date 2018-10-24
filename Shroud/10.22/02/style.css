@@ -30,9 +30,9 @@ ul{
 li
 .childUl{
     position: absolute;
-    left: 16px;
+    left: 0px;
     top:41px;
-    width: 100px;
+    width: 90px;
     height: 180px;
     text-align: left;
     border:1px solid #ccc;

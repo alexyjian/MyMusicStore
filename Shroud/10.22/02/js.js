@@ -20,7 +20,8 @@ window.onload=function(){
     });
     lidom.addEventListener('mouseover',function(){
         uldom.style.display="block";
+        uldom.style.borderTop="none";
         lidom.style.backgroundColor="#FFF";
     });
-    
+    console.log(this);
 }
