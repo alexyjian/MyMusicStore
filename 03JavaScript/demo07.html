@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul {
+            width: 400px;
+            margin: 100px auto;
+        }
+        li {
+            height: 30px;
+            text-align: center;
+            background: #ccc;
+            border: 1px solid black;
+            line-height: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li id='li01'>
+            鼠标经过
+        </li>
+        <li id='li02'>
+            鼠标离开
+        </li>
+    </ul>
+</body>
+</html>
+<script>
+    var li01 = document.getElementById('li01');
+    var li02 = document.getElementById('li02');
+    //JS中的事件
+    li01.onmouseover = function () {
+        alert('鼠标经过！');
+    }
+
+    li02.onmouseout = function () {
+        alert('鼠标离开!');
+    }
+</script>
