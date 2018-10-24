@@ -4,6 +4,42 @@
     list-style: none;
 }
 
-li {
-    float: left;
+.an1{
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    background: #f7f7f7;
+    color: #b37c7c;
+    font-size: 25px;
+    font-family: "微软雅黑";
+}
+
+.an2{
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    background: #f7f7f7;
+    color: #b37c7c;
+    font-size: 25px;
+    font-family: "微软雅黑";
+}
+
+.an3{
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    background: #f7f7f7;
+    color: #b37c7c;
+    font-size: 25px;
+    font-family: "微软雅黑";
+}
+
+.an4{
+    width: 200px;
+    height: 50px;
+    border: 2px solid white;
+    background: #f7f7f7;
+    color: #b37c7c;
+    font-size: 25px;
+    font-family: "微软雅黑";
 }
