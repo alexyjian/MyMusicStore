@@ -6,6 +6,7 @@
     margin: 0 auto;
     width: 1000px;
     position: relative;
+    height: 210px;
 }
 a{
     text-decoration: none;
@@ -30,7 +31,7 @@ li
 .childUl{
     position: absolute;
     left: 16px;
-    top:40px;
+    top:41px;
     width: 100px;
     height: 180px;
     text-align: left;
@@ -39,6 +40,7 @@ li
     padding:0 10px;
     z-index: 999;
     background-color:#fff;
+    
 }
 .box .top>ul>li:nth-child(1){
     border-left:none;
@@ -64,7 +66,7 @@ li
     height: 40px;
     font-size: 12px;
     color:#999;
-    line-height: 30px;
+    line-height: 40px;
     
 }
 .btn{
