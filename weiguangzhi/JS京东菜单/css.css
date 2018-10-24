@@ -43,9 +43,8 @@ ul li{
 
 .dropdown-content a:hover {
     background-color: #f1f1f1;
-    border-radius: 10px;
+    
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
