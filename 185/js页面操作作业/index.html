@@ -5,38 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link  type="text/css" href="css.css" />
+    <link rel="stylesheet" type="text/css" href="css.css" />
+    <script type="text/javascript" src="scnpt.js"></script>
 </head>
 <body>
-    <div class="1">
-        <ul class="u01">
-          <li>亲，请登录</li>
-          <li>免费注册</li>
-        </ul>
-        <ul class="u02">
-         <div class="dropdown">
-             <a class="li01">我的京东</a>
-             <div class="dropdown-contet">
-                <a>待处理订单</a>
-                <a>返修退换货</a>
-                <a>降价商品</a>
-                <a>我的京豆</a>
-                <a>我的白条</a>
-                <a>消息</a>
-                <a>我的问答</a>
-                <a>我的关注</a>
-                <a>我的优惠卷</a>
-                <a>我的理财</a>
-             </div>
-         </div>
-        </ul>
-        <div class="u03">
-            <li>购物车</li>
-            <li>收藏夹</li>
-            <li>卖家中心</li>
-            <li>联系客服</li>
+    <div  id ="top">
+            <div class='top_Nav'>
+                <ul>
+                    <li>亲，请登录</li>
+                    <li>免费注册</li>
+                </ul>
+                <ul class="ul_right">
+                    <li class="ul_drop" onmouseover="change('div_drop','block')" onmouseout="change('div_drop','none')">
+                        <span>我的商城</span>
+                        <div id="div_drop">
+                            <a>已买到的宝贝</a>
+                            <a>我的足迹</a>
+                            <a>我的上新</a>
+                            <a>爱逛街</a>
+                            <a>商城达人</a>
+                            <a>新欢</a>
+                        </div>
+                    </li>
+                    <li class="line">|</li>
+                    <li><span>购物车</span></li>
+                    <li class="line">|</li>
+                    <li><span>收藏夹</span></li>
+                    <li class="line">|</li>
+                    <li><span>卖家中心</span></li>
+                    <li class="line">|</li>
+                    <li><span>联系客服</span></li>
+                </ul>
+            </div>
+    </div>
+    <div id='header'>
+        <a href="#" class='logo'><img src="1.gif"></a>
+        <div id="search">
+           <input type='text' class="txt_search">
+           <input type='button' class='txt_button'>
+           <p>热门搜索：网页培训 人工智能 大数据 物联网</p>
         </div>
-        
+        <div id="info" class="info">
+            <input type="button" value='会员中心'>
+            <input type="button" value='去购物车结算'>
+        </div>
     </div>
 </body>
 </html>
