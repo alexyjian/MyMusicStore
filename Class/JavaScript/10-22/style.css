@@ -4,117 +4,148 @@
     list-style: none;
 }
 
-a {
-    text-decoration: none;
+body {
+    min-width: 800px;
     color:#656871;
     font-size: 12px;
 }
 
-.login li ,.myStore li,.searchTop li{
-    float: left;
+a{
+    text-decoration: none;
 }
 
 /*******************header*********************/
 
-header {
+.ul_right {
+    float: right;
+}
+
+#top {
     width: 100%;
     height: 30px;
     background-color: #f5f5f5;
     line-height: 30px;
     border-bottom: 1px solid #e9e9e9;
-    box-sizing: border-box;
 }
 
-#storeList{
-    display: none;
-    position: relative;
-    color:#656871;
-    font-size: 12px;
-    top: -10px;
-    left: 653px;
-    width: 80px;
-    height: 180px;
-    background-color: white;
-    border-right: 1px solid #f7f7f7;
-    border-left: 1px solid #f7f7f7;
-    border-bottom: 1px solid #f7f7f7;
-    z-index: 9999;
-}
-
-header div {
-    width: 940px;
-    height: 30px;
+#top .top_Nav {
+    max-width: 1280px;
     margin: 0px auto;
+    cursor: pointer;
 }
 
-.login {
-    display: inline-block;
-    width: 150px;
-    height: 30px;
+#top ul {
+    margin: 0px 20px;
 }
 
-.login a li {
-    margin-right: 20px;
+#top li {
+    float: left;
+    padding-right:5px;
 }
 
-.myStore {
-    display: inline-block;
-    width: 286px;
-    height: 30px;
-    color:#656871;
-    font-size: 12px;
-    float: right;
+#top .line {
+    color: #ccc;
+    cursor: default;
 }
 
-/*****************main*****************/
-.main {
-    padding: 30px 200px;
+.ul_right li span {
+    padding: 8px 10px;
+}
+
+.ul_right .ul_drop {
     position: relative;
 }
 
-.main_right {
+.ul_right #div_drop {
+    width: 100px;
+    display: none;
     position: absolute;
-    top: 50px;
-    left: 400px;
+    left: -1px;
+    top: 31px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
 }
 
-form {
-    display: inline-block;
+.ul_right #div_drop a{
+    display: block;
+    padding: 0px 10px;
+    line-height: 28px;
 }
 
-.txt_search {
-    border:3px solid #df393b;
+.top_Nav ul li:hover span {
+    color: red;
+}
+
+.ul_drop:hover span{
+    background-color: #fff;
+}
+
+.ul_right #div_drop a:hover{
+    background-color: #eee;
+}
+
+/*****************main****************/
+
+#header {
+    width: 1280px;
+    margin: 0px auto;
+    padding-top: 20px;
+}
+
+#header .logo {
+    float: left;
+}
+
+#header a {
+    width: 240px;
+    display: block;
+}
+
+#header #search {
+    float: left;
+    width: 500px;
+    margin-top: 15px;
+}
+
+#header #search input {
+    width: 400px;
     height: 30px;
-    width: 380px;
-    padding: 0px 20px;
+    border: 3px solid #e4393c;
 }
 
-.btn_search {
-    border:3px solid #df393b;
-    height: 36px;
+#header #search .txt_search {
+    float: left;
+    padding-left: 5px;
+    color: #5f5f5f;
+}
+
+#header #search .btn_search {
     width: 80px;
-    background-color: #df393b;
+    height: 36px;
     color: white;
     font-weight: bold;
-    position: relative;
+    background-color: #e4393c;
     cursor: pointer;
-    margin-left: -4px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 8px 10px;
-    background-color: #f7f7f7;
-    border:1px solid #eee;
-    margin-left: 12px;
-}
-
-.searchTop {
-    color:#656871;
-    font-size: 12px;
+#header #search p {
     margin-top: 5px;
+    cursor: pointer;
 }
 
-.searchTop li:nth-of-type(2),.searchTop li:nth-of-type(3),.searchTop li:nth-of-type(4) {
-    margin-right: 20px;
+#header #info {
+    float: left;
+    margin: 17px 0px 0px 20px;
+}
+
+#header #info input {
+    height: 32px;
+    border: 1px solid #e1e1e1;
+    background-color: #f7f7f7;
+    color: #666;
+    padding: 0px 10px;
+    cursor: pointer;
+    margin-right: 8px;
 }
