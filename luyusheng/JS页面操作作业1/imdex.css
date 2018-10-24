@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+    margin: auto;
+    font-family: "微软雅黑";
+    font-size: 10px;
+}
+.an1 ul{ 
+    text-align: center;
+    border: 1px solid
+}
+.p input{
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    border: 10px solid red;
+}
