@@ -8,36 +8,57 @@
     <title>京东首页</title>
 
     <link rel="stylesheet" href="css.css" type="text/css">
+    <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
-    <div class="box">
-        <ul class="one">
-            <li>你好,</li>
-            <li>请登录 免费注册</li>
-        </ul>
-        <ul class="tow">
-            <li>我的商城</li>
-            <li>购物车</li>
-            <li>收藏夹</li>
-            <li>卖家中心</li>
-            <li>联系客服</li>
-        </ul>
+    <div id="box">
+        <div class="top">
+            <ul class="one">
+                <li>亲, 请登录</li>
+                <li>免费注册</li>
+            </ul>
+            <ul class="tow">
+                <li class="stree" onmouseover="change('div_dorp','block')" onmouseout="change('div_dorp','none')">
+                    <span>我的商城</span>
+                    <div id="div_dorp">
+                        <a href="">已买到的宝贝</a>
+                        <a href="">我的足迹</a>
+                        <a href="">我的上新</a>
+                        <a href="">爱逛街</a>
+                        <a href="">商城达人</a>
+                        <a href="">新欢</a>
+                    </div>
+                </li>
+                <li class="line">|</li>
+                <li> <span>购物车</span></li>
+                <li class="line">|</li>
+                <li><span>收藏夹</span></li>
+                <li class="line">|</li>
+                <li><span>卖家中心</span></li>
+                <li class="line">|</li>
+                <li><span>联系客服</span></li>
+            </ul>
+        </div>
     </div>
-    <img src="./QQ图片20181023235744.gif" class="pone">
-    <div class="box_1">
-        <input type="text" class="on1">
-        <input type="submit" value="搜索" class="on2">
-        <input type="submit" value="会员中心" class="on3">
-        <input type="submit" value="去购物车结算" class="on4">
-    </div>
-    <div>
-        <ul class="div_1">
-            <li>热门搜索：网页培训</li>
-            <li>大学 教材</li>
-            <li>智能手机</li>
-            <li>平板电脑</li>
-        </ul>
+
+    <!--商都首部-->
+    <div id="box_1">
+        <a href="#" class="logo"><img src="./QQ图片20181023235744.gif"></a>
+        <div id="search">
+            <input type="text" class="text">
+            <input type="button" class="button" value="搜索">
+            <ul class="div_1">
+                <li>热门搜索：网页培训</li>
+                <li>大学教材</li>
+                <li>智能手机</li>
+                <li>平板电脑</li>
+            </ul>
+        </div>
+        <div id="info" >
+            <input type="button" value="会员中心">
+            <input type="button" value="去购物车结算">
+        </div>
     </div>
 </body>
 
