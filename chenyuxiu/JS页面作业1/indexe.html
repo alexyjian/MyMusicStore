@@ -4,111 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>京东首页</title>
+	<title>京东首页</title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script type="text/javasript" src="script.js"></script>
 </head>
 <body>
-    <title>DaoHang</title>
-	<meta charset="utf-8">
-	<style type="text/css">
-		*{margin:0px; padding: 0px; }
-		#dh{
-			position: relative;
-			margin-top: 0px;
-			width: 20000px;
-			height:40px;
-			border: 0px;
-			background-color: rgb(229, 236, 238);
-		}
-		#dh ul{
-			padding: 0px;
-			
-		}
-		a{
-			color: #FFF;
-			width: 100px;
-			height: 40px;
-			display: block;
-			text-decoration: none;
-			text-align: center;
-            line-height: 40px;
-			font-family: "微软雅黑";
-			font-weight: 2px;
-		}
-		#dh {
-			margin:0px auto; 
-		}
-		#dh ul li {
-			list-style: none;
-			float:left;
-		}
-		#dh ul li a:hover{
-			background-color: #6699FF;
-		}
-		#dh ul li ul{
-			background-color: #0099CC;
-            position: absolute; 
-			display: none;
-		}
-		#dh ul li ul li{
-			float: none;
-			background-color: #6688EE;
-        }
-        #dh ul li ul li{
-			float: none;
-            background-color: #6688EE;
-        }
-		#dh ul li ul li a{
-			font-size: 13px;
-			font-weight: 0px;
-		}
-		#dh ul li:hover ul{             /*二级菜单的触发点*/
-			display: block;
-		}
-	</style>
-</head>
-<body>
-	<div id="dh">
-		<ul>
-			<li><a href="#">亲，请登录 免费注册</a></li>
-			<li><a href="#">我的商城|</a>
-					<ul>
-						<li><a href="#">已买到的宝贝</a></li>
-						<li><a href="#">我的足迹</a></li>
-                        <li><a href="#">我的上新</a></li>
-                        <li><a href="#">爱逛街</a></li>
-						<li><a href="#">商城达人</a></li>
-						<li><a href="#">新欢</a></li>
-					</ul>
-				</li>
-			<li><a href="#">购物车|</a>
-					<ul>
-						<li><a href="#">Java试验1</a></li>
-						<li><a href="#">Java试验2</a></li>
-						<li><a href="#">Java试验3</a></li>
-					</ul>
-				</li>
-			<li><a href="#">收藏夹|</a>
-					<ul>
-						<li><a href="#">网站历史</a></li>
-						<li><a href="#">联系方式</a></li>
-					</ul>
-				</li>
-        </ul>
-        <li><a href="#">卖家中心|</a>
-            <ul>
-                <li><a href="#">网站历史</a></li>
-                <li><a href="#">联系方式</a></li>
-            </ul>
-        </li>
-</ul>
-<li><a href="#">联系客|</a>
-    <ul>
-        <li><a href="#">网站历史</a></li>
-        <li><a href="#">联系方式</a></li>
-    </ul>
-</li>
-</ul>
-    </div>     
-    <img src="images/1.jpg.gif"></div>       
+   <!-- 用户信息栏 -->
+   <div id="top">
+	   <div class="top_Nav">
+		   <ul>
+			   <li>亲，请登录</li>
+			   <li>免费注册</li>
+			   </ul>
+			   <ul class="ul_right">
+				   <li class="ul_drop" onmouseover="change('div_drop','block')" 
+				   onmouseout="change('div_drop','none')">
+					   <span>我的商场</span>
+					   <div id="div_drop"> 
+						   <a>已买到的宝贝</a>
+						   <a>我的足迹</a>
+						   <a>我的上新</a>
+						   <a>爱逛街</a>
+						   <a>商场达人</a>
+						   <a>新欢</a>
+					   </div>
+					   </li>
+					   <li class="line">|</li>
+					   <li><span>购物车</span></li>
+					   <li class="line">|</li>
+					   <li><span> 收藏夹</span></li>
+					   <li class="line">|</li>
+					   <li><span>卖家中心 </span></li>
+					   <li class="line">|</li>
+					   <li><span> 联系客服</span></li>
+			  </ul>
+			</div>
+		</div>    
+	<!-- 商场首部  -->
+	<div id="header">
+		<a herf="#" class="logo"><img src="logo.gif"></a>
+		<div id ="search">
+			<input type="text" class="txt_search">
+			<input type="button" class="txt_button" value="搜索">
+			<p> 热门搜索：网页培训 人工智能 大数据  物联网</p>
+		</div>
+				<div id="info" class="info">
+					<input type="button" value="会员中心">
+					<input type="button" value="去购物车结算">
+  </div>
+  </div>
 </body>
+
 </html>
