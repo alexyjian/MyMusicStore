@@ -90,3 +90,9 @@ div{
     margin: 8px 300px auto;
     
 }
+
+li::after{
+    content: "|";
+    height: 3px;
+    margin: 0  auto;
+}
