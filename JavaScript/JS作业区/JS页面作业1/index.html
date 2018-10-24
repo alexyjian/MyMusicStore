@@ -9,15 +9,48 @@
     <link href="css.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <div class="herd">
-        <div class="tb"> 亲，请登录  免费注册
-            <div class="tl"></div>
-        </div>
-      <div class="sou">
-           <div class="tp"></div>
-          <div class="sousuo">搜索</div>
-      </div>
-
+  <div id="box"> <!--header的盒子-->
+  
+    <div id="nav"> <!--导航栏-->
+      <div class="mf">免费注册</div>
+      <ul> 
+        <!--导航栏中信息，鼠标经过时调用下拉菜单显示-->
+        <li onmouseover="display(this)" onmouseout="hide(this)"> <a href="javascript:;">亲，请登录</a></li>
+        <li onmouseover="display(this)" onmouseout="hide(this)"> <a href="javascript:;">我的商城</a>
+          <ul>
+            <li><a href="#">已经买到的宝贝</a></li>
+            <li><a href="#">我的足迹</a></li>
+            <li><a href="#">我的上新</a></li>
+            <li><a href="#">爱逛街</a></li>
+            <li><a href="#">商城达人</a></li>
+            <li><a href="#">新欢</a></li>
+          </ul>
+        </li>
+        <li onmouseover="display(this)" onmouseout="hide(this)"> <a href="javascript:;">购物车</a></li>
+        <li onmouseover="display(this)" onmouseout="hide(this)"> <a href="javascript:;">收藏夹</a></li>
+        <li onmouseover="display(this)" onmouseout="hide(this)"> <a href="javascript:;">卖家中心</a></li>
+        <li onmouseover="display(this)" onmouseout="hide(this)"> <a href="javascript:;">联系客服</a></li>
+      </ul>
     </div>
+  </div>
+  <div class="box1"><img src="images/logo.gif">
+    <div class="box2"><h1>搜索</h1>
+    </div>
+    <P>热门搜索：网页培训 京东 智能手机 平板电脑</P>
+    <button class="box3">会员中心</button>
+    <button class="box4">去购物车结算</button>
+  </div>
 </body>
 </html>
+<script>
+/*-----显示子菜单-----*/
+function display(li) {
+var subNav = li.getElementsByTagName("ul")[0];/*获取下拉菜单的信息*/
+subNav.style.display = "block"; /*菜单中的信息以块的形式展示*/
+}
+/*-----隐藏子菜单-----*/
+function hide(li) {
+var subNav = li.getElementsByTagName("ul")[0];
+subNav.style.display = "none";/*菜单中的信息不显示*/
+}
+</script>
