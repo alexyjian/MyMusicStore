@@ -6,17 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JS时间</title>
-    <script>
-        function updateDate() {
-            var dateTime = (new Date()).toLocaleString() + "<br/>";
-            clock.innerHTML = dateTime;
-        }
-        //初始化
-        function init() {
-            clock = document.getElementById("clock");
-            time = setInterval(updateDate, 1000);
-        }
-    </script>
+
 </head>
 
 <body onload="init()">
@@ -25,3 +15,16 @@
 </body>
 
 </html>
+<script>
+    //定时执行的函数
+    function updateDate() {
+        var dateTime = (new Date()).toLocaleString() + "<br/>";
+
+        clock.innerHTML = dateTime;
+    }
+    //初始化
+    function init() {
+        clock = document.getElementById("clock");
+        time = setInterval(updateDate, 1000);
+    }
+</script>
