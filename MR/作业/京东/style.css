@@ -56,12 +56,28 @@ a:hover {
     content: none;
 }
 
-/* end header */
-
-/* 主体内容 */
 #box-content {
     width: 1050px;
     margin: auto;
+}
+
+#store_none{
+    position: absolute;
+    height: 220px;
+    width: 110px;
+    border: 1px solid #F2F2F2;
+    background-color: #fff;
+   padding-left: 15px;
+   box-sizing: border-box;
+   margin-left:-15px;
+   z-index: 9999;
+   display:none;  
+}
+
+#store_none li{
+    font-size: 14px;
+     white-space: nowrap;
+     text-align:left;
 }
 
 #box-content img {
