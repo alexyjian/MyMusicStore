@@ -39,7 +39,7 @@ text-decoration: none;
        width: 100%;
        text-align: center;
        z-index: 9999;
-       /* 让它最下层 */
+       /* 让它最最最下层 */
    }
 
    .slider li {
@@ -138,7 +138,7 @@ text-decoration: none;
 /* 整体控制每个天气图标的样式结束 */
 /* 天气切换动画 */
 /* 第一个背景图切换到的动画 */
-@keyframes"slideLeft"{
+@keyframes "slideLeft"{
     0%{
         left: -900px;
     }
