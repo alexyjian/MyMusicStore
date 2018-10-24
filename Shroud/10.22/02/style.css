@@ -2,6 +2,11 @@
     padding: 0;
     margin: 0;
 }
+.box{
+    margin: 0 auto;
+    width: 1000px;
+    position: relative;
+}
 a{
     text-decoration: none;
 }
@@ -30,6 +35,8 @@ ul{
     border:1px solid #ccc;
     box-sizing: border-box;
     padding:0 10px;
+    z-index: 999;
+    background-color:#fff;
 }
 .box .top>ul>li:nth-child(1){
     border-left:none;
@@ -45,6 +52,7 @@ ul{
 }
 .childUl>li{
     float: none;
+    
 }
 .top{
     position: relative;
@@ -67,6 +75,21 @@ ul{
 }
 input[type="text"]{
     height: 36px;
-    width: 250px;
+    width: 350px;
     border:2px solid #f00;
+}
+.content{
+    position: relative;
+}
+.search{
+    width: 650px;
+    height: 104px;
+    position: absolute;
+    top: 60%;
+    right:10%;
+    transform: translateY(-50%);
+}
+img{
+    display: block;
+    margin-left: 40px;
 }
