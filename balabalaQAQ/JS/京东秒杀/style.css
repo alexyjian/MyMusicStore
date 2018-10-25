@@ -1,0 +1,48 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+.img-box{
+    height: 378px;
+    width: 702px;
+    background: url(image/flash_sale.png);
+    position: relative;
+    z-index: 1;
+}
+.img-box span{
+    position: relative;
+    width: 32px;
+    height: 27px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 16px;
+    color: #fff;
+}
+.img-box #hour{
+    left: 51%;
+    top: 257px;
+}
+.img-box #minute{
+    left: 56.2%;
+    top:257px;
+}
+.img-box #second{
+    left: 61%;
+    top: 257px
+}
+#end-box{
+    position: absolute;
+    background: url(image/flash_end.png) no-repeat;
+    width: 702px;
+    height: 51px;
+    line-height: 40px;
+    z-index: 999;
+    margin-top: 222px;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 5px;
+    display: none;
+}
