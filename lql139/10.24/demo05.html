@@ -7,18 +7,36 @@
     <title>Document</title>
 </head>
 <body onload="init()">
-    <button onclick="">停止</button>
+    <button onclick="stop()">停止</button>
     <div id='clock'></div>
+    <input type="text" id='width'>
+    <input type="text" id='height'>
 </body>
 </html>
 <script>
+    //时间执行的函数
     function updateDate(){
-        var datetime=(new Date()).toLocaleString()+"<br/>"
-        
+        var datetime=(new Date()).toLocaleString()+"<br/>";
         clock.innerHTML=datetime;
     }
+    //时间的运行方法
     function init(){
         clock=document.getElementById("clock");
         time=setInterval(updateDate,1000);
     }
+    //停止
+    function stop(){
+        clearInterval(time);
+    }
+
+     var width=0;
+    var height=0;
+    function GetSize(){
+        width=window.innerWidth;
+        height=innerHeight;
+        document.getElementById('width').value=width;
+        document.getElementById('height').value=height;
+    }
+   GetSize();
+   window.onresize=GetSize;
 </script>
