@@ -39,9 +39,9 @@ img{
     top:257px;
 }
 #end-bx{
-    margin: 0 auto;
-    width: 200px;
-    height: 150px;
-    position: relative;
     background:url(images/flash_end.png);
+    width: 300px;
+    height: 250px;
+    position: relative;
+    padding: 30px 30px auto;
 }
