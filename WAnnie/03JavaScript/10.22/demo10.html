@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标事件</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#list{
+    width: 300px;
+    height: 150px;
+    margin: 30px auto;
+    border: 1px  solid #333;
+    background: rgb(221, 220, 220);
+}
+ul{
+    height: 35px;
+    line-height: 35px;
+}
+.on1{
+    font-weight: bold;
+}
+li{
+    float: left;
+    text-align: center;
+    width: 75px;
+}
+.highlight{
+    background: lightskyblue;
+}
+.name{
+    cursor: pointer;
+}
+</style>
+<script>
+    function h1(tag){
+        //设置属性
+        tag.setAttribute('class','highlight');
+    }
+
+    function clearh1(tag){
+        //清除属性
+        tag.removeAttribute('class');
+    }
+
+    function datali(tag){
+        alert(tag.innerHTML+"的明细......");
+    }
+
+</script>
+<body>
+    <div id="list">
+       <ul class="on1">
+           <li>姓名</li>
+           <li>年龄</li>
+           <li>性别</li>
+           <li>国籍</li>
+       </ul>
+
+       <ul onmousemove="h1(this)" onmouseout="clearh1(this)">
+            <li class="name" onclick="datali(this)">张杰</li>
+            <li>35</li>
+            <li>男</li>
+            <li>中国</li>
+        </ul>
+
+        <ul onmousemove="h1(this)" onmouseout="clearh1(this)">
+                <li class="name" onclick="datali(this)">谢娜</li>
+                <li>36</li>
+                <li>女</li>
+                <li>中国</li>
+            </ul>
+
+            <ul onmousemove="h1(this)" onmouseout="clearh1(this)">
+                <li class="name" onclick="datali(this)">小鲜肉</li>
+                <li>23</li>
+                <li>男</li>
+                <li>中国</li>
+            </ul>
+    </div>
+</body>
+</html>
