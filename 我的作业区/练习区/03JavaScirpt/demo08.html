@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body onload="init()">
-    <button onclick="">停止</button>
+    <button onclick="stop()">停止</button>
     <div id="clock"></div>
 </body>
 </html>
@@ -25,5 +25,9 @@
         clock = document.getElementById("clock");
         //设置每一秒钟(1000s)间隔调用updateDate方法一次
         time = setInterval(updateDate,1000);
+    }
+
+    function stop(){
+        clearInterval(time);
     }
 </script>
