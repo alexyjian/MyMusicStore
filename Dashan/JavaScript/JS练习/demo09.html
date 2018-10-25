@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS表单的调用方法</title>
+    <style>
+        * {
+            margin: 0;
+            list-style: none;
+        }
+        
+        .list {
+            margin: 0 auto;
+            width: 400px;
+            border: 3px solid rgb(171, 173, 175);
+            background: #eee;
+        }
+        
+        ul {
+            height: 40px;
+            line-height: 30px;
+        }
+        
+        .head {
+            font-weight: bold;
+        }
+        
+        li {
+            float: left;
+            text-align: center;
+            width: 70px;
+        }
+        /*高亮 鼠标单击后现实的颜色*/
+        
+        .highlight {
+            background: rgb(181, 242, 247);
+        }
+        /*鼠标悬停变手型 指可以点击*/
+        
+        .name {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list">
+        <ul class="head">
+            <li>姓名</li>
+            <li>年龄</li>
+            <li>性别</li>
+            <li>国籍</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class="name" onclick="detail(this)">张三</li>
+            <li>19</li>
+            <li>男</li>
+            <li>中国</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class="name" onclick="detail(this)">果果</li>
+            <li>20</li>
+            <li>女</li>
+            <li>纽约</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class="name" onclick="detail(this)">肉肉</li>
+            <li>18</li>
+            <li>女</li>
+            <li>加拿大</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class="name" onclick="detail(this)">胡歌</li>
+            <li>32</li>
+            <li>男</li>
+            <li>中国</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class="name" onclick="detail(this)">辛巴</li>
+            <li>25</li>
+            <li>女</li>
+            <li>美国</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    //
+    function hl(tag) {
+        tag.setAttribute('class', 'highlight');
+    }
+
+    //清除单击颜色 鼠标悬停
+    function clearhl(tag) {
+        tag.removeAttribute('class');
+    }
+
+    //跳出 单击某个人的明细 小对话框
+    function detail(tag) {
+        alert(tag.innerHTML + '\n的明细.....');
+    }
+</script>
