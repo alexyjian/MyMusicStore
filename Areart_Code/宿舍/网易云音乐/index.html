@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css" type="text/css">
-    
+
     <title>音乐播放器</title>
 </head>
 
-<body>
+<body onload="ji()">
     <div class="hter">
         <div class="min" id="min">
             <img src="images/1.png" alt="加载失败">
@@ -22,8 +22,8 @@
     </div>
     <div class="xia">
         <ul class="ul1">
-            <li><a href="#"><</a></li> 
-            <li><a href="#">1</a></li>
+            <li><a href="#">
+                    <</a> </li> <li><a href="#">1</a></li>
             <li><a href="#">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
@@ -32,11 +32,37 @@
             <li><a href="#">></a></li>
         </ul>
     </div>
-    <div class="fo">    
-    <audio  controls>
+    <div class="fo">
+        <button onclick="opon()">开始</button>
+        <button onclick="opon()">开始</button>
+        <button onclick="opon()">开始</button>
+        <ul>
+            <li id="jindu"></li>
+            <li id="dian"></li>
+        </ul>
+    </div>
+    <audio>
         <source src="1.mp3" type="audio/mpeg">
     </audio>
-    </div>
 </body>
 
 </html>
+<script>
+     time=setInterval(ji,1000);
+     var log;
+     var danw='px';
+     function ji(){
+        jindu = document.getElementById('jindu');
+        dian = document.getElementById('dian');
+        log=log+10;
+        jindu.style.width=log+danw;
+     }
+    function opon() {
+        min = document.getElementById("min");
+        
+        if (min.className == 'min')
+            min.className = 'max';
+        else
+            min.className = 'min'
+    }
+</script>
