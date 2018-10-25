@@ -8,9 +8,10 @@
     <title>JS时间</title>
 
 </head>
+<!--页面加载  onload="init()"-->
 
 <body onload="init()">
-    <button onclick="">停止</button>
+    <button onclick="stop()">停止</button>
     <div id="clock"></div>
 </body>
 
@@ -22,9 +23,14 @@
 
         clock.innerHTML = dateTime;
     }
+
+    //清楚周期定时器  clearInterval(time);
+    function stop() {
+        clearInterval(time);
+    }
     //初始化
     function init() {
         clock = document.getElementById("clock");
-        time = setInterval(updateDate, 1000);
+        time = setInterval(updateDate, 1000); //要使用clearInterval清楚定时器，否则一直循环直到页面关闭
     }
 </script>
