@@ -18,13 +18,17 @@
         function init() {
             clock = document.getElementById("clock");
             time = setInterval(updateDate, 1000);
-            console.log(time);
+
+        }
+
+        function stop() {
+            clearInterval(time);
         }
     </script>
 </head>
 
-<body>
-    <button onclick="init()">停止</button>
+<body onload="init()">
+    <button onclick="stop()">停止</button>
     <div id="clock"></div>
 </body>
 
