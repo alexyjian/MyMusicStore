@@ -19,10 +19,25 @@
                 //设置每一秒钟（1000ms）间隔调用updateDate方法一次
                 time=setInterval(updateDate,1000);
             }
+
+            // 清除定时器
+            function stop(){
+                clearInterval(time);
+            }
             </script>
+            <style>
+               div{
+                   text-align: center;
+                   height: 30px;
+                   line-height: 30px;
+                   width: 200px;
+                   margin: 0 auto;
+                   border: 1px solid gray;
+               }
+            </style>
 </head>
 <body onload="init()">
-    <button onclick="">停止</button>
+    <button onclick="stop()">停止</button>
     <div id="clock"></div>
 </body>
 </html>

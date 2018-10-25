@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标对象操作</title>
+    <style>
+      *{
+          margin: 0;
+          padding: 0;
+          list-style:none;
+      }
+      div:nth-child(1){
+          margin: 20px auto;
+          width: 300px;
+          border: 1px solid black;
+          background: #eee;
+      }
+      ul{
+          height: 30px;
+          line-height: 30px;
+      }
+      ul:nth-child(1){
+          font-weight: bold;
+
+      }
+      .name{
+          cursor: pointer;
+      }
+       li{
+           float: left;
+           text-align: center;
+           width: 75px;
+       }
+      
+       .highlight{
+           background: lightgreen;
+       }
+    </style>
+</head>
+
+<body>
+    <div>
+    <ul>
+        <li>姓名</li>
+        <li>年龄</li>
+        <li>性别</li>
+        <li>国籍</li>
+    </ul>
+    <ul onmouseover="h1(this)" onmouseout="clearh1(this)">
+        <li class="name" onclick="datail(this)">Mary</li>
+        <li>21</li>
+        <li>女</li>
+        <li>英国</li>
+    </ul>
+    <ul  onmouseover="h1(this)" onmouseout="clearh1(this)">
+        <li class="name" onclick="datail(this)">Jerry</li>
+        <li>18</li>
+        <li>男</li>
+        <li>美国</li>
+    </ul>
+    <ul  onmouseover="h1(this)" onmouseout="clearh1(this)">
+        <li class="name" onclick="datail(this)">Mack</li>
+        <li>22</li>
+        <li>男</li>
+        <li>加拿大</li>
+    </ul>
+    <ul  onmouseover="h1(this)" onmouseout="clearh1(this)">
+        <li class="name" onclick="datail(this)">Jane</li>
+        <li>22</li>
+        <li>女</li>
+        <li>法国</li>
+    </ul>
+</div>
+</body>
+
+</html>
+<script>    
+   function h1(tag){
+       tag.setAttribute('class','highlight');
+   }
+   function clearh1(tag){
+       tag.removeAttribute('class');
+   }
+   function datail(tag){
+       alert(tag.innerHTML+'\n明细...');
+   }
+</script>
