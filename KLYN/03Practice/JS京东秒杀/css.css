@@ -1,151 +1,46 @@
-body,ul,input,p,dl,dt,dd,h1{
+*{
     margin: 0;
     padding: 0;
-    list-style: none;
 }
 
 body{
-    min-width: 800px;
-    color: #6c6c6c;
     font-family: "微软雅黑";
-    font-size: 12px;
+    font-size:20px;
+    color: white;
 }
 
-a{
-    text-decoration: none;
+img{
+    list-style: none;
+    outline: none;
 }
-
-a:hover{
-    text-decoration: none;
-}
-
-.ul_right{
-    float: right;
-}
-
-#top{
-    height: 30px;
-    line-height: 30px;
-    width: 100%;
-    background: #f7f7f7;
-    border-bottom: 1px solid #eeeeee;
-}
-
-#top .top_Nav{
-    max-width: 1280px;
+.img-box {
+    background: url(images/flash_sale.png);
+    width: 702px;
+    height: 378px;
     margin: 0 auto;
-}
-
-#top ul{
-    margin: 0 20px;
-}
-
-#top li{
-    float: left;
-    padding: 0px 5px 0px 0px;
-}
-
-.ul_right li{
-    cursor: pointer;
-}
-
-/*Begin下拉菜单*/
-.ul_right .ul_drop{
     position: relative;
 }
 
-.ul_right #div_drop{
-    width: 100px;
-    /*默认隐藏*/
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 30px;
-    background-color: #ffff;
-    border: thin;
-    border-color: #eee;
-}
-.ul_right #div_drop a{
-    display: block;
-    padding: 0 10px;
-    line-height: 28px;
-    color: #6c6c6c;
-}
-.ul_right #div_drop a:hover{
-    background: #f5f5f5;
-}
-/*End 下拉菜单*/
-
-/*End 用户信息栏*/
-
-/* Begin 页面的首部*/
-#header{
-    width: 1280px;
-    margin: 0 auto;
-    padding-top: 20px;
+.img-box span{
+    position: relative;
+    width: 32px;
+    height: 27px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 16px;
 }
 
-#header a{
-    width: 240;
-    display: block;
+.img-box #hour {
+    left: 51%;
+    top: 68%;
 }
 
-#header #search{
-    width: 500px;
-    margin-top: 15px；
+.img-box #minute {
+    left: 56%;
+    top: 68%;
 }
 
-#header #search input {
-    width:400px;
-    height: 30px;
-    border:3px solid #e4393c;
+.img-box #second {
+    left: 60%;
+    top: 257px;
 }
-#header #search .txt_search{
-    float: left;
-}
-
-#header #search .txt_button{
-    width: 88px;
-    height: 36px;
-    background: #e4393e;
-    font-size: 14px;
-    font-weight: bolder;
-    color: #fff;
-    cursor: pointer;
-}
-#header #search p{
-    color: #999;
-    font-size: 12px;
-    margin-top: pointer;
-}
-#header #search .txt_search{
-    float: left;
-}
-#header #search .txt_button{
-    width: 88px;
-    height: 36px;
-    background: #e4393c;
-    font-size: 14px;
-    font-weight: bolder;
-    color: #fff;
-    cursor: pointer;
-}
-#header #search p{
-    color: #999;
-    font-size: 12px;
-    margin: 5px;
-}
-#header #info{
-    float: left;
-    margin: 20px 0px 0px 20px;
-}
-#header #info input{
-    height: 30px;
-    border: 1px solid #e3e3e3;
-    background-color: #f7f7f7;
-    color: #666666;
-    padding: 0px 10px;
-    margin-right: 12px;
-
-}
-/*end 页面的首部*/
