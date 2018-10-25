@@ -15,7 +15,7 @@ img
 }
 
 .img-box{
-    background: url(flash_sale.png);
+    background: url(flash_sale.png) no-repeat center;;
     width: 702px;
     height: 378px;
     margin: 0 auto;
@@ -51,5 +51,8 @@ img
     height: 51px;
     margin: 220px 0 auto ;
     position: relative;
+    color:red;
+    font-weight:bold;
+    font-size: 25px;
     
 }
