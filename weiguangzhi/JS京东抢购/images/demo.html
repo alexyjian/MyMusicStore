@@ -19,10 +19,14 @@
                 time=setInterval(updateDate,1000);
             
             }
+
+            function stop(){
+                clearInterval(time);
+            }
             </script>
 </head>
 <body onload="init()">
-    <button onclick="">停止</button>
+    <button onclick="stop()">停止</button>
     <div id='clock'></div>
 </body>
 </html>
