@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "楷体";
+    font-size: 15px;
+    color: azure;
+}
+
+img {
+    list-style: none;
+    outline: none;
+}
+
+.img_box {
+    background: url(./images/flash_sale.png);
+    width: 700px;
+    height: 370px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.img_box span {
+    position: relative;
+    width: 30px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+}
+
+.img_box #hour {
+    left: 51.5%;
+    top: 257.5px;
+}
+
+.img_box #minute {
+    left: 56.5%;
+    top: 257.5px;
+}
+
+.img_box #second {
+    left: 61.5%;
+    top: 257.5px;
+}
+
+#end_box {
+    background: url(./images/flash_end.png);
+    display: none;
+}
