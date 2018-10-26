@@ -1,6 +1,6 @@
 function updateTime(){
     //秒杀结束的时间
-    var endtime =new Date('2018/10/25,12:00:00');
+    var endtime =new Date('2018/10/28,12:00:00');
     var currentTime=new Date();
 
     //取当前时间
@@ -18,9 +18,9 @@ s=parseInt(leftSecond%60);
 if(h<10)
 h="0"+h;
 
-if(m<10&&m>=0)
+if(m<10&&m>=0)  
 m="0"+m;
-else if(m<0)
+else if(m<0)                            
 m="00";
 
 if(s<10&&s>=0)
@@ -32,6 +32,13 @@ document.getElementById('hour').innerHTML=h;
 document.getElementById('minute').innerHTML=m;
 document.getElementById('second').innerHTML=s;
 //秒杀结束
+
+if(leftSecond<=0){
+    document.getElementById('end-box').style.background='url(images/flash_end.png) no-repeat';
+    document.getElementById('end-box').style.display='block';
+    document.getElementById('end-box').innerHTML='秒杀已结束';
+    
+}
 }
 
 var countDown=setInterval(updateTime,1000);
