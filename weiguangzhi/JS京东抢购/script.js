@@ -1,6 +1,6 @@
 function updateTime() {
 	// 描述结束的时间
-	var endtime = new Date('2018/10/25,12:07:00');
+	var endtime = new Date('2018/10/26,11:25:00');
 
 	// 取当前的时间
 	var currentTime = new Date();
@@ -33,8 +33,9 @@ function updateTime() {
 	//秒杀结束的操作
 	if(leftSecond<=0){
 		
-		clearInterval(couptDown);
+		
 		document.getElementById("end").style.display='block';
+		clearInterval(couptDown);
 		
 	}
 	

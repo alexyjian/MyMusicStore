@@ -31,10 +31,9 @@
     top:68%;
 }
 #end{
-    position: relative;
+    position: absolute;
     display: none;
-    top: -128px;
-    left: 290px;
+    top: 250px;
     height: 51px;
     width: 702px;
     background: url(images/flash_end.png);
