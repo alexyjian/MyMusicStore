@@ -47,6 +47,15 @@ img {
 }
 
 #end_box {
-    background: url(./images/flash_end.png);
+    position: absolute;
+    width: 700px;
+    height: 51px;
+    top: 250px;
+    z-index: 1;
+    line-height: 40px;
+    text-align: center;
+    color: #000;
+    font-size: 30px;
+    /* 隐藏 */
     display: none;
 }
