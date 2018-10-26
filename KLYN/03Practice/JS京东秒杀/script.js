@@ -1,6 +1,6 @@
 function updateTime() {
     //秒杀结束的时间
-    var endTime = new Date("2018/10/25,12:00:00");
+    var endTime = new Date("2018/10/25,8:26:33");
     //取当前时间
     var currentTime = new Date();
     //计算剩余的时间，用秒作为单位
@@ -28,6 +28,13 @@ function updateTime() {
     document.getElementById("second").innerHTML = s;
 
     //秒杀结束的操作
+    if(leftSecond<=0){
+        document.getElementById("end-box").style.background="ul(images/flash_end.png) no-repeat";
+        document.getElementById("end-box").style.display = "block";
+        document.getElementById("end-box").innerHTML="秒杀已经结束";
+
+        clearInterval(countDown);
+    }
 }
 
 var countDown = setInterval(updateTime,1000);

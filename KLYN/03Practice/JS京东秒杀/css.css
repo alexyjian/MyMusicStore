@@ -44,3 +44,16 @@ img{
     left: 60%;
     top: 257px;
 }
+
+#end-box{
+    position: absolute;
+    z-index: 1;
+    top: 250px;
+    width: 702px;
+    height: 51px;
+    line-height: 40px;
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    display: none;
+}
