@@ -49,7 +49,7 @@ img {
 #end-box {
     position: absolute;
     z-index: 1;
-    top: 300;
+    top: 300px;
     width: 702px;
     height: 51px;
     line-height: 40px;
