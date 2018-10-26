@@ -24,6 +24,7 @@ function clock() {
     document.getElementById('second').innerHTML = s;
     if (second <= 0) {
         document.getElementById('end-box').style.display = "block";
+        document.getElementById('end-box').style.innerHTML="秒杀结束!!!";
         clearInterval(couptdown);
     }
 }
