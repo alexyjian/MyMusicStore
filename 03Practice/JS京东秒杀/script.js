@@ -32,6 +32,9 @@ function updateTime() {
     //秒杀结束的操作
     if(leftSecond<=0){
         //显示相应信息  "秒杀已经结束"
+        document.getElementById('end-box').style.background='url(images/flash_end.png) no-repeat';
+        document.getElementById('end-box').style.display = 'block';
+        document.getElementById('end-box').innerHTML='秒杀已结束';
 
         clearInterval(countDown);
     }
