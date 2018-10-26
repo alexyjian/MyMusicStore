@@ -45,7 +45,15 @@ img {
     top: 256px;
 }
 
-.img-box #end-box img {
+#end-box {
+    position: absolute;
+    z-index: 1;
+    top: 250px;
+    width: 701;
+    height: 51px;
+    line-height: 40px;
+    color: rgb(86, 90, 90);
+    font-size: 28px;
+    text-align: center;
     display: none;
-    margin: 224px 2px auto;
 }
