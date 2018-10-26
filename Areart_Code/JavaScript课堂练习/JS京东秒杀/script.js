@@ -1,6 +1,6 @@
 function updateDete() {
     //秒杀结束时间
-    var endTime = new Date('2018/10/25,11:57:00');
+    var endTime = new Date('2018/10/26,08:18:00');
     //取当前时间
     var currentTime = new Date();
     //计算剩余时间,用秒作为单位
