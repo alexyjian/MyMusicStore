@@ -35,8 +35,8 @@ function update() {
 
     // 秒杀结束的操作
     if (leftSecond<=0){
-        end= document.getElementById('end-box').style.display='block';
-        console.log(end);
+        document.getElementById('end-box').style.display='block';
+        document.getElementById('end-box').innerHTML='秒杀已结束！！！';
         clearInterval(couptDown);
     }
 }
