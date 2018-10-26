@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试键盘</title>
+    <script>
+        window.onload=function(){
+            document.body.onkeydown = function(evt){
+                var e =evt?evt:window.event;
+                if(e.keyCode==65){
+                    alert('A');
+                }
+                if(e.keyCode==66){
+                    alert('B');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
