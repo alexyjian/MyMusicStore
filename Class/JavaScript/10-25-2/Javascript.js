@@ -1,6 +1,6 @@
 function updateTime() {
     var statrTime = new Date();
-    var endTime = new Date("2018/10/25 11:50:00");
+    var endTime = new Date("2018/10/26 08:05:00");
     var leftSecond = parseInt((endTime.getTime() - statrTime.getTime()) / 1000);
 
     h = parseInt(leftSecond / 3600);
@@ -31,7 +31,7 @@ function updateTime() {
 
     if (leftSecond <= 0) {
         var eb = document.getElementById("end_box");
-        eb.style.zIndex = "999";
+        eb.style.display="block";
         eb.innerHTML = "秒杀已结算！";
         clearInterval(CountDown);
     }

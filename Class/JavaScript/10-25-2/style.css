@@ -20,11 +20,11 @@
     color: red;
     font-weight: bold;
     font-size: 18px;
-    line-height: 51px;
+    line-height: 41px;
     letter-spacing: 5px;
     position: absolute;
     top: 250px;
-    z-index: -1;
+    display: none;
 }
 
 .img_box span {
