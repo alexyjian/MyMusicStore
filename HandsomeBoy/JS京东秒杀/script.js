@@ -13,7 +13,13 @@ function updateTime() {
     //计算剩余的秒
     s = parseInt(leftSecond % 60);
     if (h < 10)
-        h = "0" + h;
+    {
+         h = "0" + h;
+    }
+    else if(h==0)
+    {
+         h="00";
+    }
     if (m < 10 && m >= 0)
         m = "0" + m;
     else if (m < 0)
@@ -21,11 +27,12 @@ function updateTime() {
 
     if (s < 10 && s >= 0)
         s = "0" + s;
-    else if (s < 0)
-        s = "00";
+    else if (s < 0) {
+            s = "00";
         document.getElementById("hour").innerHTML = h;
         document.getElementById("minute").innerHTML = m;
         document.getElementById("secand").innerHTML = s;
+    }
     //秒杀结束
     if(leftSecond<=0)
     {
