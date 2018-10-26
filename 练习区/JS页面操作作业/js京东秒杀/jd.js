@@ -29,9 +29,11 @@
 
      //秒杀结束的操作
      if (leftSecond <= 0) {
-         function change(id, mode) {
-             document.getElementById(id).style.display = mode;
-         }
+
+         document.getElementById('end-box').style.background = 'url(images/flash_end.png) no-repeat';
+         document.getElementById('end-box').style.display = 'block';
+         document.getElementById('end-box').innerHTML = '秒杀已结束';
+
          clearInterval(countDown);
      }
 
