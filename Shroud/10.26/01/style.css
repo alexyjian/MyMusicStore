@@ -9,6 +9,7 @@
     background-color:#369;
     border:5px solid #000;
     margin:50px auto;
+    box-sizing: border-box;
 }
 .bal{
     position: absolute;
@@ -16,5 +17,7 @@
     height: 50px;
     background-color: #000;
     border-radius: 50%;
-    
+    box-sizing: border-box;
+    top:6px;
+    left:6px;
 }
