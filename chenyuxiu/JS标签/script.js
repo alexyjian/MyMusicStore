@@ -1,7 +1,7 @@
 // 但页面加载时执行此方法
 window.onload = function() {
         // 获取所有的tab-head-div
-        var head_divs = document.getElementById('tab-head').getAttributeNames('div');
+        var head_divs = document.getElementById('tab-head').getElementsByTagName('div');
         // 保存当前的焦点元素的索引值
         var current_index = 0;
         //    启动定时器
