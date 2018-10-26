@@ -50,3 +50,10 @@ img{
     font-size:30px;
     display: none;
 }
+#end-bx{
+    background:url(images/flash_end.png);
+    width: 300px;
+    height: 250px;
+    position: relative;
+    padding: 30px 30px auto;
+}
