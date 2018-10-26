@@ -38,10 +38,15 @@ img{
     left:61%;
     top:257px;
 }
-#end-bx{
-    margin: 0 auto;
-    width: 200px;
-    height: 150px;
-    position: relative;
-    background:url(images/flash_end.png);
+#end-box{
+    position: absolute;
+    z-index: 1;
+    top:300px;
+    width: 400px;
+    height: 250px;
+    line-height:40px;
+    text-align: center;
+    color:#666;
+    font-size:30px;
+    display: none;
 }
