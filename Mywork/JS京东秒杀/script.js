@@ -1,6 +1,6 @@
 function updateTime(){
     // 秒杀结束的时间
-    var endTime=new Date("2018/10/25,12:10:00");
+    var endTime=new Date("2018/10/26,11:10:00");
     // 取当前的时间
     var currentTime=new Date();
     // 计算剩余时间
@@ -31,6 +31,16 @@ function updateTime(){
       document.getElementById("second").innerHTML=s;
 
       //秒杀结束的操作
+
+
+  if(leftSecond>=0){
+  // 显示相应信息 “秒杀已结束”
+   document.getElementById("end-box").style.background="url(images/flash_end.png) no-repeat";
+   document.getElementById("end-box").style.display="block";
+   document.getElementById("end-box").innerHTML="秒杀已结束";
+
+   clearInterval(countDown);
+ }
 }
 
 var countDown = setInterval(updateTime,1000);

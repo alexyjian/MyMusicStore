@@ -46,13 +46,17 @@ img{
     top: 257px;
 }
 
-#end{
-    /* display: none; */
+#end-box{
+    background:url(images/flash_end.png);
     position: absolute;
-    margin: 0 auto;
-    left: 0;
-    top: 30px;
-    background: url(images/flash_end.png);
+    /* z-index: 1; */
+    top: 250px;
+    line-height: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 28px;
+    display: none;
     width: 702px;
-    height: 378px;
+    height: 51px;
 }
+
