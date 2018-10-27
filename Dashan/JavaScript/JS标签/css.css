@@ -12,9 +12,9 @@
 .tab-box {
     width: 400px;
     margin: 10px;
-    margin: 50px 230px auto;
-    border: 1px solid #ccc;
-    border-top: 2px solid rgb(111, 176, 196)
+    margin: 10% 40% auto;
+    border: 1px solid rgb(145, 136, 156);
+    border-top: 2px solid rgb(173, 146, 224)
 }
 
 
