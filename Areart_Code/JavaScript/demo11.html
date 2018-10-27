@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        var c=0;
     window.onload=function(){
         document.body.onkeydown=function(evt){
            var e =evt?evt:window.event;
-           if(e.keCode==65)
-              alert('A');
-            if(e.keCode==66)
+           
+           if(e.keyCode==65)          
+              alert(c);
+            
+            if(e.keyCode==66)
             alert('B');
+
+             c++;
         }
     }
     </script>
