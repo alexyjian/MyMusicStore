@@ -6,7 +6,7 @@
 body {
     font-family: '微软雅黑';
     font-size: 20px;
-    color: aliceblue;
+    color: white;
 }
 
 img {
@@ -27,33 +27,34 @@ img {
     width: 32px;
     height: 27px;
     text-align: center;
+    line-height: 27px;
     font-size: 16px;
 }
 
 .img-box #hour {
-    left: 51.3%;
-    top: 256px;
+    left: 51.4%;
+    top: 257px;
 }
 
 .img-box #minute {
-    left: 56.1%;
-    top: 256px;
+    left: 56%;
+    top: 257px;
 }
 
 .img-box #second {
-    left: 60.8%;
-    top: 256px;
+    left: 60.6%;
+    top: 257px;
 }
 
-#end-box {
+#end-box{
     position: absolute;
     z-index: 1;
-    top: 250px;
-    width: 701;
+    top:250px;
+    width: 702px;
     height: 51px;
     line-height: 40px;
-    color: rgb(86, 90, 90);
-    font-size: 28px;
     text-align: center;
-    display: none;
+    color: #666;
+    font-size: 28px;
+    display: none; 
 }
