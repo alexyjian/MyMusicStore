@@ -4,6 +4,15 @@
     border: 1px solid #eee;
     margin: 0 auto;
     background: url(images/bg.png) no-repeat;
+    position: relative;
+}
+.box-size{
+    position: absolute;
+    left: 20px;
+    top:20px;
+    width: 320px;
+    height: 158px;
+    border: 1px red solid;
 }
 img{
     position: relative;
