@@ -1,12 +1,12 @@
 function updateTime(){
     //秒杀结束的时间
-    var endTime = new Date('2018/10/25,12:10:00');
+    var endTime = new Date('2018/10/28,15:10:00');
     //取当前时间
     var currentTime = new Date();
     //计算剩余的时间，用秒作为单位
-    var leftSecond = parseInt((endTime.getTime()-currentTime.gerTime())/1000);
+    var leftSecond = parseInt((endTime.getTime()-currentTime.getTime())/1000);
     //计算剩余小时
-    h = parseInt(letSecond/3600);
+    h = parseInt(leftSecond/3600);
     //计算剩余分钟
     m = parseInt(leftSecond/60%60);
     //计算剩余秒
