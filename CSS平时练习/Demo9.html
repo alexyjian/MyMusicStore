@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        li:nth-last-child(odd){
+         color: cornflowerblue;
+        }
+
+        li:nth-last-child(even){
+            color: tomato;
+        }
+
+        p:nth-of-type(odd){
+            color: red;
+        }
+
+        p:nth-of-type(even){
+            color: darkcyan;
+        }
+        p{
+            height:30px;
+        }
+        /* 空选择器 */
+        :empty {
+            background-color: orchid;
+        }
+    </style>
+</head>
+<body>
+        动作电影列表
+        <ul>
+            <li>杀破狼</li>
+            <li>战狼</li>
+            <li>一个人的武林</li>
+        </ul>
+        卡通电影列表
+        <ul>
+            <li>疯狂动物园</li>
+        </ul>
+        动漫类电影列表
+        <ul>
+            <li>龙珠超</li>
+            <li>我叫白小飞</li>
+            <li>画江湖之灵主</li>
+        </ul>
+        <p>风</p>
+        <p>花</p>
+        <p>雪</p>
+        <p>月</p>
+        <p></p>
+</body>
+</html>
