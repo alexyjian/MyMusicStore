@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>猫咪</title>
+    <style>
+        .hy{
+             width: 702px;
+             height: 378px;
+             margin: 0 auto;
+             position: relative;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="hy">
+        <img src="images/qq.jpg" id="img"> 
+        </div>
+</body>
+</html>
+<script>
+    var k=0;  //当前的索引
+    var ss = new Array(); //数组，用来存放图片
+    ss[0] = "images/ee.jpg";
+    ss[1] = "images/rr.jpg";
+    ss[2] = "images/tt.jpg";
+    ss[3] = "images/ww.jpg";
+    function scrollPic(){ 
+    if(k>ss.length-1){ //如果当前函数超过数组下标的最大值，k=0
+    k=0;
+    }
+    for(var i=0;i<ss.length;i++){ //遍历数组
+    if(i==k){ //如果当前索引等于当前数组下标
+              document.getElementById("img").src=ss[i]; //改变图片路径
+      }
+    }
+    k++; //k++,执行下一次操作
+   }
+ 
+    setInterval("scrollPic()",1500); //设置定时器
+</script>
