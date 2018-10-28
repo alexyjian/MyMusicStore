@@ -8,6 +8,7 @@ window.onload = function () {
         l = 1;
 
     document.onkeydown = function (event) {
+        console.log(player.style.left);
         event = event ? event : window.event;
         var toppos = player.offsetTop;
         var leftpos = player.offsetLeft;
@@ -17,21 +18,22 @@ window.onload = function () {
             location.reload();
             return;
         }
-        console.log(leftpos);
+        console.log(toppos);
         if (event.keyCode == "87") {
-            t -= 5;
+            t -= move;
             player.style.top = t + 'px';
         } else if (event.keyCode == "65") {
-            l -= 5;
+            l -= move;
             player.style.left = l + 'px';
         } else if (event.keyCode == "83") {
-            t += 5;
+            t += move;
             player.style.top = t + 'px';
         } else if (event.keyCode == "68") {
-            l += 5;
+            l += move;
             player.style.left = l + 'px';
         }
-
+        
     }
+    
 
 };
