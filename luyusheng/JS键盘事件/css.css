@@ -1,9 +1,10 @@
 .box{
+    position: relative;
     width: 360px;
-    height:198;
+    height:198px;
     border:1px solid #eee;
     margin:0 auto;
-    background:url(images/b.png) no-repeat;
+    background:url(images/bg.png) no-repeat;
 }
 img{
     position:relative;
