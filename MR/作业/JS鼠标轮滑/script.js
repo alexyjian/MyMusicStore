@@ -1,6 +1,7 @@
-function $(id){
+window.onload = function(){ 
+    function $(id){
     return document.getElementById(id);
-}
+    }
 
 var pic_top=0; //控制图片的top
 var time = null; //定时器
@@ -30,3 +31,7 @@ $('picDown').onmouseover = function(){
 
 
 //onmouseout 计时器停止
+screen("xiaomi").onmouseout=function(){
+    clearInterval(timer);
+}
+}
