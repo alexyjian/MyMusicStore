@@ -1,70 +1,81 @@
 * {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0
 }
-a{
-    text-decoration: none;
+.box {
+    width: 500px;
+    height: 300px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    padding: 5px;
+
 }
-.container {
+.inner{
+    width: 500px;
+    height: 300px;
     position: relative;
-    width: 600px;
-    height: 400px;
-    margin:100px auto 0 auto;
-    box-shadow: 0 0 5px green;
     overflow: hidden;
 }
-.container .wrap {
-    position: absolute;
-    width: 4200px;
-    height: 400px;
-    z-index: 1;
+.inner img{
+    width: 500px;
+    height: 300px;
+    vertical-align: top
 }
-.container .wrap img {
+ul {
+    width: 1000%;
+    position: absolute;
+    list-style: none;
+    left:0;
+    top: 0;
+}
+.inner li{
     float: left;
-    width: 600px;
-    height: 400px;
+
 }
-.container .buttons {
+
+ol {
     position: absolute;
-    right: 5px;
-    bottom:40px;
-    width: 150px;
-    height: 10px;
-    z-index: 2;
+    height: 20px;
+    right: 20px;
+    bottom: 20px;
+    text-align: center;
+    padding: 5px;
 }
-.container .buttons span {
-    margin-left: 5px;
+ol li{
     display: inline-block;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    background-color: green;
-    text-align: center;
-    color:white;
+    line-height: 20px;
+    background-color: #fff;
+    margin: 5px;
     cursor: pointer;
+
 }
-.container .buttons span.on{
+ol .current{
     background-color: red;
 }
-.container .arrow {
-    position: absolute;
-    top: 35%;
-    color: green;
-    padding:0px 14px;
-    border-radius: 50%;
-    font-size: 50px;
-    z-index: 2;
+#arr{
     display: none;
 }
-.container .arrow_left {
-    left: 10px;
+#arr span{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top: -20px;
+    background: #fff;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-family: '黑体';
+    font-size: 30px;
+    color: #000;
+    opacity: 0.5;
+    border: 1px solid #fff;
 }
-.container .arrow_right {
-    right: 10px;
-}
-.container:hover .arrow {
-    display: block;
-}
-.container .arrow:hover {
-    background-color: rgba(0,0,0,0.2);
+#arr #right {
+    right: 5px;
+    left: auto;
 }
