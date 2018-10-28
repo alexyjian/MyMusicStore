@@ -25,7 +25,7 @@
         }
     }
 }
- */
+*/
 window.onload = function () {
     document.body.onkeydown = function (evt) {
         //定义小球的步长
