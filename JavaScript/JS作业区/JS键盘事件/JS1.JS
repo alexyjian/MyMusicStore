@@ -1,0 +1,51 @@
+//位页面加载键盘事件
+window.onabort=function(){
+    //onkeyup 事件会在键盘按键被松开时发生。
+    document.body.onkeyup=function(evt){
+      //定义小球的步长
+      var stop=10;
+      //获取球台和小球的元素
+      var box  =document.getElementById('box');
+      var ball =document.getElementById('img');
+
+      //获取小球相对于球台div左侧和顶部的距离
+      //var left =parseInt(ball.style.left);
+      //var top =parseInt(ball.style.top);
+      var left =ball.offsetLeft;//offsetLeft = left + margin
+      var top =ball.offsetTop; //offsetTop =top + margin
+      console.log('球的初始位置：' + left + ',' + top);
+
+      //获取球桌的高和宽
+      var box_width = box.offsetWidth;
+      var box_height =box.offsetHeight;
+      console.log('球桌的高和宽：' + box_width + ',' + box_height);
+    
+      //小球的高和宽
+       var ball_width = ball.Width;
+       var ball_height =ball.Height;
+       console.log('球的高和宽:' + ball_width +','+ ball_height);
+      //小球距球桌左侧和顶部的最大距离
+       var x_max = box_width - ball_width - stop;
+       var x_max = box_height -ball_height -stop;
+       console.log('x,y最大距离' + x_max + ',' + y_max);
+         
+       //创建键盘事件的对象
+       var e = evt ? evt : window.event;
+       //左键37
+       if (e.keyCOde == 37 && (left-10) > step){
+       ball.style.left = left-stop +'px';
+       }
+       //右键39
+       if (e.keyCOde == 39 && left <= (x_max-20)) {
+        ball.style.left = left + stop +'px';
+        }
+       //上键38
+       if (e.keyCOde == 38 && (top-10) > step){
+        ball.style.left = top-stop +'px';
+        }
+        //下键40
+        if (e.keyCOde == 39 && top <= (x_max-20)) {
+            ball.style.left = top + stop +'px';
+        }
+    }
+}
