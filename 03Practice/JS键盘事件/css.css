@@ -1,0 +1,18 @@
+.box{
+    position: relative;
+    width: 360px;
+    height: 198px;
+    border: 1px solid #eee;
+    margin: 0 auto;
+    background: url(images/bg.png) no-repeat;
+}
+
+img{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    left:50px;top:50px;
+}
+
