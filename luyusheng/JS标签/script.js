@@ -1,29 +1,29 @@
 //当页面加载时执行此方法
-window.onload=function(){
+window.onload = function(){
     //获取所有的tad-head-div
     var head_divs = document.getElementById('tad-head').getElementsByTagName('div');
     //保存当前焦点元素的索引值
     var current_index = 0;
     //启动定时器
-    var timer = serInterval(autuCheck,1000);
+    var timer = setInterval(autuCheck,5000);
 
     //遍历head元素
-    for(var i = 0;i < head_divs.length; i++)
+    for(var i = 0; i < head_divs.length; i++)
     {
         //添加鼠标悬停的事件
         heda_divs[i].onmouseover = function(){
             clearInterval(timer);
-            if(i!=current_index){
+            if(i !=current_index){
                head_divs[current_index].style.backgroundColor='';
                head_divs[current_index].style.borderBottom='';
             }
             //获取所有tad-body-ul
             var body_uls = document.getElementById('tad-body').getElementsByTagName('ul');
             //遍历所有的tad-body-ul
-            for(var i =0; i <head_uls.length; i++){
+            for(var i =0; i < body_uls.length; i++){
                 //将所有元素隐藏 去掉current类名
-                body_uls[i].className=b0dy_uls[i].className.replace('current','');
-                head_divs[i].className=nead_divs[i].className.replace('current','');
+                body_uls[i].className=body_uls[i].className.replace('current','');
+                head_divs[i].className=head_divs[i].className.replace('current','');
                 //将当前索引对应的元素设为显示
             if(head_divs[i] == this){
                 this.className += 'current';
@@ -45,7 +45,7 @@ window.onload=function(){
       ++current_index;
       //当索引值自增到上限，重置为0
       if(current_index == head_divs.length)
-      current_index = 0;
+         current_index = 0;
 
       //切换标签后修改current标签的样式
       for(var i=0; i<head_divs.length; i++){
@@ -58,6 +58,7 @@ window.onload=function(){
             head_divs[i].style.borderBottom='';
           }
       }
+    }
        //切换显示内容
     //获取所有的tad-body-ul
     var body_uls = document.getElementById('tad-body').getElementsByTagName('ul');
