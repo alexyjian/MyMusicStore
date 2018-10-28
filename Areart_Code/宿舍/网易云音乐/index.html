@@ -6,36 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css" type="text/css">
-
+    <script type="text/JavaScript" src="script.js"></script>
     <title>音乐播放器</title>
 </head>
 
-<body onload="ji()">
-    <div class="hter">
-        <div class="min" id="min">
-            <img src="images/1.png" alt="加载失败">
+<body>
+    <div class="header">
+        <div class="hter">
+            <div class="min" id="min">
+                <img src="images/1.png" alt="加载失败">
+            </div>
+            <button id="btn">喜欢</button>
+            <button id="btn1">收藏</button>
+            <button id="btn2">下载</button>
+            <button id="btn3">分享</button>
         </div>
-        <button id="btn">喜欢</button>
-        <button id="btn1">收藏</button>
-        <button id="btn2">下载</button>
-        <button id="btn3">分享</button>
-    </div>
-    <div class="xia">
-        <ul class="ul1">
-            <li><a href="#">
-                    <</a> </li> <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">></a></li>
-        </ul>
+        <div class="xia">
+            <ul class="ul1">
+                <li><a href="#"><</a></li> 
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">></a></li>
+            </ul>
+        </div>
     </div>
     <div class="fo">
+        <button onclick="">开始</button>
         <button onclick="opon()">开始</button>
-        <button onclick="opon()">开始</button>
-        <button onclick="opon()">开始</button>
+        <button onclick="">开始</button>
         <ul>
             <li id="jindu"></li>
             <li id="dian"></li>
@@ -47,22 +49,3 @@
 </body>
 
 </html>
-<script>
-     time=setInterval(ji,1000);
-     var log;
-     var danw='px';
-     function ji(){
-        jindu = document.getElementById('jindu');
-        dian = document.getElementById('dian');
-        log=log+10;
-        jindu.style.width=log+danw;
-     }
-    function opon() {
-        min = document.getElementById("min");
-        
-        if (min.className == 'min')
-            min.className = 'max';
-        else
-            min.className = 'min'
-    }
-</script>

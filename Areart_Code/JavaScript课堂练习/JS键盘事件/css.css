@@ -4,6 +4,7 @@
     border: 1px solid #eee;
     margin: 0 auto;
     background: url(img/bg.png) no-repeat;
+    position: relative;
 }
 img{
     position: relative;

@@ -35,14 +35,7 @@
     padding: 22%;
     border-radius: 50%;
 }
-@keyframes myfirst{
-from{/*动画开始*/
-    transform: rotate(0deg); /*动画开始旋转度数为0*/
-}
-to{/*动画结束后*/
-    transform: rotate(900deg);/*动画开始旋转度数为900*/
-}
-}
+
 button{
     margin-top: 60px;
     margin-left: 6px;
@@ -90,6 +83,12 @@ ul.ul1 li a:hover{
     overflow-x: 600px;
     margin-left: 2px;
     background-color: #ccc;  
+}
+.header{
+    position: relative;
+    width: 1280px;
+    min-width: 1280px;
+    height: 700px;
 }
 .fo{   
     clear: both;  
@@ -171,7 +170,7 @@ audio{
     height: 10px;
     display: block;
     float: left;
-    position:fixed;
+    position:fixed;    
     margin-left: -50px;
     margin-top: -3px;
     border-radius: 5px;
