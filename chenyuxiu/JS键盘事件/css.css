@@ -1,4 +1,5 @@
 .box {
+    position: relative;
     width: 360px;
     height: 198px;
     border: 1px solid #eee;
@@ -13,4 +14,6 @@ img {
     margin: 0;
     border: 0;
     outline: 0;
+    left: 50px;
+    top: 50px;
 }
