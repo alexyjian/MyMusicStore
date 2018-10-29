@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标对象操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .list {
+            margin: 20px auto;
+            width: 300px;
+            border: 1px solid black;
+            background: #eee;
+        }
+
+        ul {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .head {
+            font-weight: bold;
+        }
+
+        li {
+            float: left;
+            text-align: center;
+            width: 75px;
+        }
+
+        .highlight {
+            background: lightgreen;
+        }
+
+        .name {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function hl(tag) {
+            tag.setAttribute('class', 'highlight');
+        }
+
+        function clearhl(tag) {
+            tag.removeAttribute('class');
+        }
+
+        function detail(tag) {
+            alert(tag.innerHTML + '\n明细...');
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class='list'>
+        <ul class='head'>
+            <li>姓名</li>
+            <li>年龄</li>
+            <li>性别</li>
+            <li>国籍</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class='name' onclick="detail(this)">Mary</li>
+            <li>21</li>
+            <li>女</li>
+            <li>英国</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class='name' onclick="detail(this)">Jerry</li>
+            <li>18</li>
+            <li>男</li>
+            <li>美国</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class='name' onclick="detail(this)">Mack</li>
+            <li>22</li>
+            <li>男</li>
+            <li>加拿大</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li class='name' onclick="detail(this)">Jane</li>
+            <li>22</li>
+            <li>女</li>
+            <li>法国</li>
+        </ul>
+
+    </div>
+</body>
+
+</html>
