@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.box {
+    margin: 20px auto;
+    height: 400px;
+    width: 500px;
+    position: relative;
+    border: 1px solid #f42;
+}
+
+.box img {
+    position: absolute;
+    height: 400px;
+    width: 500px;
+
+}
+
+.box ul {
+    position: absolute;
+    height: 30px;
+    width: 180px;
+    bottom: 50px;
+    right: 25px;
+}
+
+.box ul li {
+  text-align: center;
+    float: left;
+    margin-left: 10px;
+    border: 1px solid #f42;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: chocolate;
+    cursor: pointer;
+}
