@@ -3,27 +3,26 @@
     padding: 0;
     list-style: none;
     font-size: 14px;
-    font-family:"宋体" 
+    font-family: '宋体';    
 }
-
+/* 大div的样式 */
 .tab-box{
     width: 400px;
     margin: 10px;
     border: 1px solid #ccc;
-    border-top: 2px solid #2b7abc;
+    border-top:2px solid #2b7abc;    
 }
 
-/*选项标签的样式*/
+/* 选项标签的样式 */
 .tab-head{
     height: 31px;
 }
-
 .tab-head-div{
     width: 99px;
     height: 30px;
     float: left;
     border-bottom: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    border-right:1px solid #ccc;
     background: #eee;
     text-align: center;
     line-height: 30px;
@@ -31,15 +30,15 @@
 }
 
 .tab-head-right{
-    border-right: 0;
+    border-right:0;
 }
 
 .tab-head .current{
     background: white;
-    border-bottom: 0;
+    border-bottom: 0
 }
 
-/*选项内容的样式*/
+/* 选项内容的样式 */
 .tab-body-ul{
     display: none;
     margin: 20px 10px;
@@ -52,3 +51,4 @@
 .tab-body .current{
     display: block;
 }
+
