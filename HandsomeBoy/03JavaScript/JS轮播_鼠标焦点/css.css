@@ -6,19 +6,30 @@
 .slider{
      width: 490px;
      height: 170px;
-     overflow: hidden;
+    
      border: 3px solid #999;
      margin: 30px auto;
      position: relative;
-     white-space: nowrap;
+     padding: 5px;
+}
+img{
+    display: block;
+}
+.ad{
+   width:100%;
+   height: 100%;
+   background: pink;
+   position: relative;
+   overflow: hidden;
+ 
 }
 .ad_ul{
     position: absolute;
-    width: 490px;
+    width: 1000%;
     height: 170px;
 }
 .ad_ul li{
-    display: inline-block;
+   float: left;
 }
 
 .ad_ol{
@@ -40,6 +51,6 @@
     margin-left: 10px;
     cursor: pointer;
 }
-.current{
+.ad_ol li.current{
     background:#ffaf60;
 }
