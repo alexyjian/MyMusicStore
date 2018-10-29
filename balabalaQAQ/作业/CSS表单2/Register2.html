@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<div>
+    <form>
+        <h2>会员注册</h2>
+        <p><span>性质：</span><input type="radio" value="个人"class="radio"name="xz">个人<input type="radio" value="公司" class="radio"name="xz">公司</p>
+        <p><span>昵称：</span><input type="text" placeholder="小明"></p>
+        <p><span>密码：</span><input type="password"class="pwd"></span></p>
+        <p><span>电子邮箱：</span><input type="text" placeholder="123456@126.com"></p>
+        <p><span>所在地：</span>
+            <select class="adress">
+                <optgroup label="广西">
+                    <option>柳州</option>
+                    <option>桂林</option>
+                </optgroup>
+                <optgroup label="广东">
+                    <option>广州</option>
+                    <option>深圳</option>
+                    </optgroup>
+                <optgroup label="云南">
+                    <option>大理</option>
+                    <option>昆明</option>
+                </optgroup>
+            </select>
+        </p>
+        <p><span>身份证号：</span><input type="text" pattern="^[1-9]d{5}[1-9]d{3}((0d)|(1[0-2]))(([0|1|2]d)|3[0-1])d{4}$"></p>
+        <p><span>手机号码：</span><input type="text" pattern="^((d{3,4}-)|d{3.4}-)?d{7,8}$"></p>
+        <p><span>意见反馈：</span><textarea cols="30" rows="10px" class="yj">如果您有什么意见或问题可以告诉我！</textarea></p>
+        <p>
+            <input type="submit" value="提交" class="btn">
+            <input type="reset" value="重置" class="btn">
+        </p>
+    </form>
+</div>
+</body>
+</html>

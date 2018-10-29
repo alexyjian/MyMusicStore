@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<link rel="stylesheet" href="css/reg.css" type="text/css">
+<body>
+    <div class="box">
+    <form action="#" method="GET" autocomplete="off">
+      <div class="djb">
+         <p>学员信息登记表</p>
+         <p><span>用户登录名：</span></span><input type="text" placeholder="myemail@163.com" required="required" readonly="readonly"></p> 
+         <p><span> 真实姓名：</span><input type="text" required="required" placeholder="例如：王明" pattern="^[u4e00-u9fa5]{0,}$"></p> 
+         <p><span> 真实年龄：</span><input type="text" required="required"></p> 
+         <p><span> 出生日期：</span><input type="date" required="required"></p> 
+         <p><span> 电子邮箱：</span><input type="text" required="required" placeholder="123456@126.com"></p> 
+         <p><span> 身份证号：</span><input type="text" required="required"></p> 
+         <p><span> 手机号码：</span><input type="text" required="required"></p> 
+         <p><span> 个人主页：</span><input type="url" list="url_list">
+            <datalist id="url_list">
+                    <option> http://www.xinlang.com</option>
+                    <option>http://www.baidu.com</option>
+                    <option>http://www.xinlang.com</option>
+            </datalist>
+        </p> 
+        <p><span>幸运颜色：</span><input type="color" value="#" class="col"></p> 
+        <p>
+            <input type="submit" value="提交" class="btn">
+            <input type="reset" value="重置" class="btn">
+        </p>
+      </div>
+    </form>
+    </div>
+</body>
+</html>

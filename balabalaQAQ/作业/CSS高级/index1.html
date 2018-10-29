@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .dad{
+        width: 200px;
+        height: 200px;
+        position: relative;
+        margin: 0 auto;
+        border: 2px solid gold;
+        
+    }
+    .child img{
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+    .child img:nth-child(2){
+        transition:transform 2s;
+        transform: rotateX(0deg) translateZ(100px);
+    }
+    .child img:nth-child(1){
+        transition:transform 2s;
+        transform: rotateX(90deg) translateZ(100px);
+    }
+    .child:hover img:nth-child(2){
+        transform: rotateX(-90deg) translatez(100px);
+    }
+    .child:hover img:nth-child(1){
+        
+        transform: rotateX(0deg) translatez(100px);
+    }
+    </style>
+</head>
+<body>
+    <div class="dad">
+        <div class="child">
+            <img src="images/1.png">
+            <img src="images/2.png">
+        </div>
+    </div>
+</body>
+</html>

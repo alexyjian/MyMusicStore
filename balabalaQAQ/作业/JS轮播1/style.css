@@ -1,0 +1,30 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+.xiaomi{
+    width: 512px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    margin: 100px auto;
+}
+.xiaomi span{
+    left: 0;
+    position: absolute;
+    height: 250px;
+    width: 100%;
+    cursor: pointer;
+}
+.up{
+   
+    bottom: 0;
+}
+.dowm{
+    top: 0px;
+}
+#pic{
+    position: absolute;
+    top:0;
+    left: 0;
+}
