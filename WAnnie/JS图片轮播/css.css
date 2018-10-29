@@ -1,0 +1,12 @@
+#box{
+    width: 700px;
+    height: 450px;
+    position: relative;
+    margin: 50px auto;
+
+}
+img{
+    width: 700px;
+    height: 450px;
+    position: absolute;
+}
