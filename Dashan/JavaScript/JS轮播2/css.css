@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+
+.box{
+    width: 600px;
+    height: 200px;
+    margin: 100px auto;
+    background: rgb(165, 204, 209);
+    position: relative;
+    overflow: hidden;
+}
+.box ul li{
+    float: right;
+}
+.box ul{
+   
+    position: absolute;
+    top: 0;
+    list-style: none;
+    right:0 ;
+}
+img{
+    vertical-align: top;
+}
