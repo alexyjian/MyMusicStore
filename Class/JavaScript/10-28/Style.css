@@ -1,0 +1,35 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+#box {
+    height: 400px;
+    width: 512px;
+    border: 1px solid red;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#box span {
+    width: 512px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+}
+
+#picUp {
+    top: 0px;
+}
+
+#picDown {
+    bottom: 0px;
+}
