@@ -7,8 +7,6 @@
     position: relative;
 
 }
-
-
 .xiaomi span{
     position: absolute;
     left: 0;
@@ -16,16 +14,13 @@
     height: 200px;
     cursor: pointer;
 }
-
 .up{
 top: 0;
 }
 
-
 .down{
 bottom: 0;
 }
-
 
 #pic{
     position: absolute;
