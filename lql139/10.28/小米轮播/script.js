@@ -1,4 +1,5 @@
 window.onload = function () {
+    //通用函数 少写document.getElementById(id);
     function $(id) {
         return document.getElementById(id);
     }
