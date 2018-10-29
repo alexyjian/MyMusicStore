@@ -13,14 +13,14 @@
     overflow: hidden;
 }
 .box ul li{
-    float: right;
+    float: left;
 }
 .box ul{
-   
+   width: 1000%;
     position: absolute;
     top: 0;
     list-style: none;
-    right:0 ;
+    left: 0;
 }
 img{
     vertical-align: top;

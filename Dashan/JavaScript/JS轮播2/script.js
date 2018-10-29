@@ -17,7 +17,7 @@ window.onload = function () {
         target <= -1200 ? target = 0 : target;
         leader = leader + (target - leader) / 10;
 
-        ul.style.right= leader + "px";
+        ul.style.left= leader + "px";
     }
     //鼠标悬停事件
     scri.onmouseover = function () {
