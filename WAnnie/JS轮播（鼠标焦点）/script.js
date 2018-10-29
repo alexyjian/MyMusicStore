@@ -1,4 +1,4 @@
-window.onabort = function(){
+window.onload = function(){
     var slider = document.getElementById("slider");
     //取子元素
     var ul = document.getElementById("ad_ul");

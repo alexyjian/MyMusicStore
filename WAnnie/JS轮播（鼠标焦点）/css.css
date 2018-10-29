@@ -6,7 +6,7 @@
 /* 轮播图片的样式 */
 .slider{
     width: 490px;
-    height: 160px;
+    height: 170px;
     position: relative;
     margin: 40px auto;
     border: 1px solid lightgray;
@@ -21,6 +21,7 @@ img{
     height: 100%;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .ad ul {
@@ -31,7 +32,8 @@ img{
 }
 
 .ad ul li {
-    float: left;
+    display: inline-block;  /*变成文本块 */ 
+
 }
 
 /* 编号的样式 */
