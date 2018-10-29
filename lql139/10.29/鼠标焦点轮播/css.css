@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    display: block;
+    margin-right: 5px;
+}
+.slider{
+    margin: 100px auto;
+    width: 490px;
+    height: 170px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    padding:5px;
+    position: relative;
+}
+ul{
+    width: 2500px;
+}
+.ad ul li{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+li{
+    float: left;
+    list-style:none;
+}
+ol{
+    z-index: 9999;
+    position: relative;
+    top: -30px;
+    left: 180px;
+}
+ol li{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    margin-right: 5px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 20px;
+}
+.current{
+    background-color: orange;
+}
