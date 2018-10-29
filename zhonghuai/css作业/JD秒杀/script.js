@@ -23,9 +23,15 @@ function updateTime() {
     else if (s < 0)
         s = "00";
 
-    // 秒杀结束的操作
     document.getElementById('hour').innerHTML = h;
     document.getElementById('minute').innerHTML = m;
     document.getElementById('second').innerHTML = s;
+
+    //  显示相对于信息“秒杀结束的操作”
+    document.getElementById('end_box').style.background = 'url(images/flash_end.png)no-repeat';
+    document.getElementById('end_box').style.display = 'block';
+    document.getElementById('end_box').style.innerHTML = '秒杀已结束';
+
+    clearInterval(countDown);
 }
 var countDown = setInterval(updateTime, 1000);
