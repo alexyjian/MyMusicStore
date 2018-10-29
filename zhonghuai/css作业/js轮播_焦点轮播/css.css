@@ -1,0 +1,57 @@
+ * {
+     margin: 0;
+     padding: 0;
+ }
+ ul,ol {
+     list-style: none;
+ }
+
+ .slider {
+     width: 490px;
+     height: 170px;
+     margin: 30px auto;
+     background: white;
+     position: relative;
+     border: 1px solid #ccc;
+     padding: 5px;
+ }
+
+
+ img {
+     display: block;
+     /* 清除照片的3px的缝隙 */
+ }
+
+ .ad {
+     width: 100%;
+     height: 100%;
+     background: pink;
+     position: relative;
+     overflow: hidden;
+
+ }
+
+ .ad ul {
+     width: 1000%;
+     position: absolute;
+     top: 0;
+     left: 0;
+ }
+
+ .ad ul li {
+     float: left;
+
+ }
+
+ /* 编号的样式 */
+ .slider ol li{
+     background-color: white;
+     float: left;
+     width: 20px;
+     height: 20px;
+    /* 编号间的距离 */
+    margin-right: 10px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+ } 

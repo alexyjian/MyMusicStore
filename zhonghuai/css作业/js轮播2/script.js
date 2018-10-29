@@ -19,6 +19,13 @@ window.onload = function () {
         ul.style.left = leader + "px";
     }
     //鼠标悬停事件
-   
+    scroll.onmouseover = function () {
+        clearInterval(timer);
+
+    }
+    scroll.onmouseover = function () {
+        timer = clearInterval(autoplay, 10);
+
+    }
 
 }
