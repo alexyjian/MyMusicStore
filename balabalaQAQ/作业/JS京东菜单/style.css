@@ -1,0 +1,112 @@
+*{
+    margin: 0 auto;
+    z-index: 1;
+}
+body{
+    min-width: 800px;
+    color: #6c6c6c;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+/*header部分*/
+header{
+    width: 100%;
+    height: 40px;
+    background: rgb(247, 247, 247);
+    position: relative;
+    z-index: 9999;
+    border-bottom: 1px solid #eeeeee;
+}
+ul{
+    display: inline;
+}
+li{
+    list-style: none;
+    display: inline;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 40px;
+    padding: 0 10px;
+}
+.rlist{
+    position: absolute;
+    right: 50px;
+}
+.rlist li:hover{
+    background: rgb(220, 220, 220);
+}
+/*box部分*/
+.box{
+    width: 1000px;
+    height: 500px;
+    position: relative;
+    margin-top: 20px;
+}
+input{
+    height:100px;
+    height: 36px;
+    background: rgb(247,247,247);
+    position: absolute;
+    left: 905px;
+    top: 80px;
+    border:  1px solid #e3e3e3;
+    color: #666;
+}
+#last{
+    left: 805px;
+}
+.logo{
+    position: absolute;
+    left: 10px;
+}
+#ssbtn{
+    left: 655px;
+    width: 100px;
+    height: 36px;
+    background: red;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border: red solid 1px;
+}
+#text{
+    left: 250px;
+    height: 30px;
+    border: 3px solid red;
+    width: 500px;
+}
+.blist li{
+    color:#ccc;
+}
+.blist{
+    position: absolute;
+    left: 200px;
+    top:110px;
+}
+/*下拉框*/
+.one{
+    display: inline-block;
+    position: relative;
+}
+.one ul{
+    position: absolute;
+    background-color: #f9f9f9;
+    left: 0;
+    top: 40px;
+    min-width: 120px;
+    border: 1px solid rgb(247,247,247);
+    display: none;
+    margin:0;
+    padding:0;
+}
+.one ul li{
+    color: black;
+    display: block;
+}
+.one ul li:hover{
+    background: rgb(220, 220, 220);
+}
