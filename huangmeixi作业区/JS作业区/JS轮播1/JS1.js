@@ -1,7 +1,7 @@
 window.onload=function(){
+    //OK 通用方法
 function $(id){
     return document.getElementById(id);
-
 }
 
 var  pic_top=0;//控制图片的top
