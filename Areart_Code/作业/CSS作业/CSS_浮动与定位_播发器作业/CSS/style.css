@@ -52,7 +52,8 @@
     top: 30px;
     background: url(../images/cd.png) no-repeat center center;
     z-index: 999;
-    border-radius: 50%;   
+    border-radius: 50%; 
+    animation: move 15s linear infinite;  
 }
 .a{
    width: 100px;
@@ -99,12 +100,6 @@
 }
 a{
     color: white;
-}
-.cd:target{
-    animation: move 15s linear infinite;
-}
-.cd:target{
-    animation: move 0s linear infinite;
 }
 /* 动画*/
 @keyframes move {
