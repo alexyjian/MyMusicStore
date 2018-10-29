@@ -1,0 +1,23 @@
+*{
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+.box{
+    width: 600px;
+    height: 200px;
+    overflow: hidden;
+    margin: 100px auto;
+    position: relative;
+}
+.box ul{
+    height: 100%;
+    width: 1280px;  
+    position: absolute;
+}
+.box ul li{
+    
+    padding: 0;
+    margin: 0;
+    float: left;
+}
