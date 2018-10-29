@@ -4,12 +4,12 @@ window.onload=function(){
     var top=xm_pic.offsetTop;
     var step=20;
     // 启动定时器
-    var timer=setTimeout(autuCheck,1000);
+    var timer=setTimeout(autuCheck,100);
 
     function autuCheck(){
         ++current_index;
         
-         for(var i=0;i<10000;i++)
+         for(var i=0;i<1000;i++)
         {
                xm_pic.style.top=top-step+'px';            
         }
