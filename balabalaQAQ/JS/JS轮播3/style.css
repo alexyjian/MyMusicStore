@@ -1,0 +1,39 @@
+*{
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+.box{
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    margin: 100px auto;
+    position: relative;
+}   
+.box ul{
+    height: 100%;
+    width: 1280px;  
+    position: relative;
+}
+.box ul li{
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+#left ,#right{
+    height: 50px;
+    width: 30px;
+    background: rgba(169, 169, 169, 0.7);
+    position: absolute;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+#left{
+    left: 0;
+    top: 70px;
+}
+#right{
+    top: 70px;
+    right: 0;
+}
