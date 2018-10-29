@@ -15,5 +15,5 @@ window.onload = function () {
             if(step==0)
             LorR=false;
         }
-    }, 10);
+    }, 1);
 }
