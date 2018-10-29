@@ -1,9 +1,6 @@
 function updateTime() {
     //秒杀时间
-    var endTime = new Date('2018/10/26,8:02:00');
-
-    var endTime = new Date('2018/10/25,12:41:00');
-
+    var endTime = new Date('2018/10/29,10:19:00');
     //取当前的时间
     var currentTime = new Date();
     //计算剩余时间,用秒作为单位
