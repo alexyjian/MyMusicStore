@@ -20,9 +20,22 @@ window.onload=function(){
            target=-this.index*490;//目标位置=当前index索引号*图片宽度
         }
     }
+    setInterval(autoPlay,4000);
+   function autoPlay(){
+       for(var j=0;j<ollis.length;j++){
+        ollis[j].className='';//去掉所有的class='current'
+       }
+       ollis[intr].className='current';
+       target=-intr*490;
+       intr++;
+       if(intr==ollis.length){
+           intr=0;
+       }
+   }
+
     //过度动画
     setInterval(function(){
-        leader=leader+(target-leader)/10;
+        leader=leader+(target-leader)/100;
         ul.style.left=leader+'px';
-    },20)
+    },2)
 }

@@ -1,7 +1,7 @@
 //页面加载完成时
 window.onload=function(){
-    var ul=document.getElementById('ad_ul');
-    var ol=document.getElementById('ad_ol');
+    var ul=document.getElementById('head_ul');
+    var ol=document.getElementById('head_ol');
     //取所有子元素
     var ollis=ol.children;
     //用来控制left
@@ -16,13 +16,27 @@ window.onload=function(){
            for(var j=0;j<ollis.length;j++){
             ollis[j].className='';//去掉所有的class='current'
            }
+           intr=this.index;
            this.className='current';
-           target=-this.index*490;//目标位置=当前index索引号*图片宽度
+           target=-this.index*576;//目标位置=当前index索引号*图片宽度
         }
     }
+    setInterval(autoPlay,4000);
+   function autoPlay(){
+       for(var j=0;j<ollis.length;j++){
+        ollis[j].className='';//去掉所有的class='current'
+       }
+       ollis[intr].className='current';
+       target=-intr*576;
+       intr++;
+       if(intr==ollis.length){
+           intr=0;
+       }
+   }
+
     //过度动画
     setInterval(function(){
-        leader=leader+(target-leader)/10;
+        leader=leader+(target-leader)/100;
         ul.style.left=leader+'px';
-    },20)
+    },2)
 }
