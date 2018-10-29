@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "微软雅黑";
+    font-size: 20px;
+    color: white;
+}
+img{
+    list-style: none;
+    outline: none;
+}
+.img-box{
+    background: url(images/flash_sale.png);
+    width: 702px;
+    height: 378px;
+    margin: 0 auto;
+    position: relative;
+}
+.img-box span{
+    position: relative;
+    width: 32px;
+    height: 27px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 18px;
+}
+.img-box #hour{
+    left: 51%;
+    top:257px;
+}
+.img-box #minute{
+    left: 55.5%;
+    top:257px;
+}
+.img-box #second{
+    left: 60%;
+    top:257px;
+}
+#end-box{
+    background: url(images/flash_end.png) no-repeat;
+    width: 702px;
+    height: 50px;
+    position: relative;
+    top: 221px;
+    left: 0;
+    text-align: center;
+    color: red;
+    font-size: 30px;
+    display:none;
+}

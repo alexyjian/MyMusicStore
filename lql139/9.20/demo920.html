@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p[id^=one]{
+            background-color: cornflowerblue;
+        }
+        p[class^=aa]{
+            background-color: blueviolet;
+        }
+        h1>i{
+           color: darkgreen;
+        }
+       
+     
+        li:nth-child(2){
+            color: aqua;
+        }
+        li:nth-last-child(3)
+        {
+            color: brown;
+        }
+
+      
+        :empty{
+            background-color: dimgrey;
+        }
+        :target{
+            color: chocolate;
+        }
+
+        p::before{
+            content: "号外号外！！！";
+            color: lightskyblue;
+            font-size: 30px;
+        }
+        a:link,:visited{
+            color: pink;
+            text-decoration: none;
+        }
+        a:hover{
+            color: brown;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <p id="one">1</p>
+    <p id="two">2</p>
+    <p id="one1">3</p>
+    <p id="two1">4</p>
+    <p class="aa">5</p>
+    <h1>aaaa<i>bbbbbb</i></h1>
+    <ul>
+        <li></li>
+    </ul>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <p>OOOOOOOOO</p>
+    <p>OOOOOOOOO</p>
+    <p>OOOOOOOOO</p>
+    <p>OOOOOOOOO</p>
+    <p>OOOOOOOOO</p>
+    <p>OOOOOOOOO</p>
+    <p id="toubu">
+        <a href="#7">第一</a>
+        <a href="#8">第二</a>
+    </p>
+    <p id="7">
+        777777777777777
+    </p>
+    <p id="8">
+        888888888888888
+    </p>
+
+    <a href="#">公司1</a>
+    <a href="#">公司2</a>
+    <a href="#">公司3</a>
+</body>
+</html>

@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 20px;
+}
+img.bg {
+   
+    height: auto;
+    min-width: 1280px;
+    position: fixed;
+    z-index: 1;
+}
+
+
+.slider{
+    position: absolute;
+    left: 15%;
+    bottom: 150px;
+    z-index: 9999;
+
+}
+a{
+    width: 150px;
+    height: 100px;
+    display:inline-block; 
+    color: white;
+    text-decoration:none;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8),
+    -2px -2px 2px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    opacity: 0.8;
+}
+ li{
+    float: left;
+    color: white;
+    margin-right: 40px;
+    text-align: center;
+    line-height: 170px;
+}
+.slider a::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 5px solid white;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-top: -250px;
+}
+.slider a:hover{
+    opacity: 1;
+}
+.slider li:nth-of-type(1) a::after {
+    background: url(images/sbg1.jpg) no-repeat center;
+}
+
+.slider li:nth-of-type(2) a::after {
+    background: url(images/sbg2.jpg) no-repeat center;
+}
+
+.slider li:nth-of-type(3) a::after {
+    background: url(images/sbg3.jpg) no-repeat center;
+}
+
+.slider li:nth-of-type(4) a::after {
+    background: url(images/sbg4.jpg) no-repeat center;
+}
+
+.slider li:nth-of-type(5) a::after {
+    background: url(images/sbg5.jpg) no-repeat center;
+}
+.slider li:nth-child(1) a{
+    background-color: #9d907f;
+}
+.slider li:nth-child(2) a{
+    background-color: #19425e;
+}
+.slider li:nth-child(3) a{
+    background-color: #57a188;
+}
+.slider li:nth-child(4) a{
+    background-color: #a2c64a;
+}
+.slider li:nth-child(5) a{
+    background-color: #fec104;
+}
+#bg1:target{
+    animation: move0 2s;
+    z-index: 999;
+}
+#bg2:target{
+    animation: move1 2s;
+    z-index: 999;
+}
+#bg3:target{
+    animation: move2 2s;
+    z-index: 999;
+}
+#bg4:target{
+    animation: move3 2s;
+    z-index: 999;
+}
+#bg5:target{
+    animation: move4 2s;
+    z-index: 999;
+}
+@keyframes move0{
+    from{
+        transform: translate(-1280px,0);
+    }
+    to{
+        transform: translate(0,0);
+    }
+}
+@keyframes move1{
+    0%{
+        bottom: -1280px;
+    }
+    100%{
+        bottom: 0px;
+    }
+}
+@keyframes move2{
+    from{
+        transform: scale(0.1);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes move3{
+    from{
+        transform: scale(3);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes move4{
+    from{
+        transform:scale(0.1) rotate(-360deg );
+    }
+    to{
+        transform:scale(1) rotate(0deg);
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            margin: 0 auto;
+            width: 300px;
+            border: 1px solid yellow;
+            background: #eee;
+        }
+
+        ul {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .head {
+            font-weight: bold;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            text-align: center;
+            width: 75px;
+        }
+        .highlight{
+            background: #f5f5f5;
+        }
+        .name{
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function h1(tag){
+            tag.setAttribute('class','highlight');
+        }
+        function cleath1(tag){
+            tag.removeAttribute('class');
+        }
+        function dateli(tag){
+            alert(tag.innerHTML+'\n明细...')
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <ul class="head">
+            <li>姓名</li>
+            <li>年龄</li>
+            <li>性别</li>
+            <li>国籍</li>
+        </ul><br />
+        <ul onmouseover="h1(this)" onmouseout="cleath1(this)">
+            <li class="name" onclick="dateli(this)">Mary</li>
+            <li>21</li>
+            <li>女</li>
+            <li>英国</li>
+        </ul><br />
+        <ul  onmouseover="h1(this)" onmouseout="cleath1(this)"> 
+            <li class="name" onclick="dateli(this)">Jerry</li>
+            <li>18</li>
+            <li>男</li>
+            <li>美国</li>
+        </ul><br />
+        <ul  onmouseover="h1(this)" onmouseout="cleath1(this)">
+            <li class="name" onclick="dateli(this)">Nali</li>
+            <li>22</li>
+            <li>女</li>
+            <li>加拿大</li>
+        </ul><br />
+        <ul  onmouseover="h1(this)" onmouseout="cleath1(this)">
+            <li class="name" onclick="dateli(this)">黎涛</li>
+            <li>19</li>
+            <li>男</li>
+            <li>中国</li>
+        </ul>
+    </div>
+</body>
+
+</html>

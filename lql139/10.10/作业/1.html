@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 50px auto;
+            width: 300px;
+            height: 150px;
+            border: 2px solid #53acc9;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 12px;
+           
+        }
+        #id{
+            margin-top: 20px;
+            background: url(1.jpg) no-repeat 5px center;
+        }
+        #pass{
+            background: url(2.jpg) no-repeat 5px center;
+        }
+        #id,#pass{
+            height: 20px;
+            padding-left: 20px;
+        }
+        input{
+            border: 1px solid #53acc9;
+           margin: 10px 0;
+        }
+        .denlu{
+            border-radius: 3px;
+            width: 50px;
+            background-color: #53acc9;
+        }
+        .zhuche{
+            border-radius: 3px;
+            width: 50px;
+            background-color:#fc8717;
+            margin-left: 20px;
+        }
+      
+    </style>
+</head>
+<body>
+    <div>
+        <form action="#" method="POST">
+            帐号：<input id="id" type="text" value="admin"/><br/>
+            密码：<input id="pass" type="password" /><br/>
+            <input class="denlu" type="button" value="登录">
+            <input class="zhuche" type="button" value="注册">
+        </form>
+    </div>
+</body>
+</html>

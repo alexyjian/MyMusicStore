@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "微软雅黑";    
+}
+body{
+    font-family: "微软雅黑";    
+}
+.tuan{
+    border: 1px solid black;
+    width: 320px;
+    height: 350px;
+    margin: 0 auto;
+    position: relative;
+    top: 30px;
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
+h2 .name{
+   
+}
+.pic{
+    position: absolute;
+    left: 90px;
+}
+.box01{
+    padding: 10PX;
+    position: relative;
+}
+
+ul{
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+
+li{
+    display: inline-block;
+    background: white;
+    border: 2px solid red;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    text-align: center;
+}
+.li1{
+    background: yellow;
+}
+.box02{
+    padding: 0 10px;
+    position: relative;
+}
+
+.tit a{
+    color: black;
+    
+}
+.tit a span{
+    font-weight: bold;
+}
+.price{
+    margin: 10px 0; 
+}
+.price span{
+    font-size: 30px;
+    color: coral;
+}
+.price em{
+    font-style: normal;
+    font-size: 5px;
+}
+.btn{
+    text-align: center; 
+    border: 1px solid chocolate;
+    color: white;
+    width: 80px;
+    height: 30px; 
+    line-height: 30px;
+    background: darkorange;
+    border-radius: 5px;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
