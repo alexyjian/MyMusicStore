@@ -1,5 +1,5 @@
 window.onload = function () {
-    var box = document.getElementById('scroll');
+    var box = document.getElementsByClassName('scroll');
     //取出子元素
     var ul = box.children[0];
     //计时器
