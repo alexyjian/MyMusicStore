@@ -21,18 +21,18 @@ img{
     height: 100%;
     position: relative;
     overflow: hidden;
-    white-space: nowrap;
+   
 }
 
 .ad ul {
-    width: 100%;
+    width: 1000%;
     position: absolute;
     top: 0;
     left: 0;
 }
 
 .ad ul li {
-    display: inline-block;  /*变成文本块 */ 
+    float: left;
 
 }
 
