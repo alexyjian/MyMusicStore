@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS实现轮播图</title>
+    <link href="css.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="Bigbox"> 
+        <div id="Box"> 
+          <ul id="Ul"> 
+            <li> 
+              1<img src="images/qq.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              2<img src="images/ee.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              3<img src="images/rr.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              4<img src="images/tt.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              5<img src="images/ww.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              6<img src="images/yy.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              7<img src="images/qq.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              8<img src="images/qq.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              9<img src="images/mn.jpg" width="100%" height="100%"> 
+            </li> 
+            <li> 
+              10<img src="images/sy.jpg" width="100%" height="100%"> 
+            </li> 
+          </ul> 
+          <div id="Left" onselectstart="return false"><</div> 
+          <div id="Right" onselectstart="return false">></div> 
+        </div> 
+     </div> 
+    </div>
+    
+
+</body>
+</html>
+<script>
+window.onload = function() { 
+   var n = 0; 
+   var timer = null; 
+   var timer1 = null; 
+   var timer2 = null; 
+   var timer3 = null; 
+   var oDiv = document.getElementById('Box') 
+   var oUl = document.getElementById('Ul') 
+   var oLi = oUl.getElementsByTagName('li') 
+    //获取div宽度 
+   var oDivWidth = getStyle(oDiv, 'width').split('px')[0] //复制oUl的innerHTML 
+   oUl.innerHTML += oUl.innerHTML 
+    //设置ul宽度 
+   oUl.style.width = oLi.length * oDivWidth + 'px'
+    //获取ul宽度 
+   var oUlWidth = getStyle(oUl, 'width').split('px')[0] //封装获取非行间样式函数 
+   function getStyle(obj, sName) { 
+    if (obj.currentStyle) { 
+     return obj.currentStyle[sName]; 
+    } else { 
+     return getComputedStyle(obj, false)[sName]; 
+    } 
+   } 
+   //执行函数 
+   clearInterval(timer3) 
+   timer3 = setInterval(function() { 
+     Run() 
+    }, 2000) 
+    //封装运动函数 
+   function Run() { 
+    clearInterval(timer) 
+    timer = setInterval(function() { 
+     n -= 20; 
+     oUl.style.left = n + 'px'
+     if (n % oDivWidth == 0) { 
+      clearInterval(timer3) 
+      clearInterval(timer) 
+      clearInterval(timer1) 
+      timer1 = setTimeout(function() { 
+       Run() 
+      }, 2000) 
+     } 
+     if (n <= -oUlWidth / 2) { 
+      oUl.style.left = 0; 
+      n = 0; 
+      clearInterval(timer3) 
+      clearInterval(timer) 
+      clearInterval(timer1) 
+      timer1 = setTimeout(function() { 
+       Run() 
+      }, 2000) 
+     } 
+    }, 30) 
+   } 
+  
+   //鼠标移入停止滚动 
+   oDiv.onmouseover = function() { 
+    Left.style.display = 'block'
+    Right.style.display = 'block'
+    clearInterval(timer3) 
+    clearInterval(timer2) 
+    timer2 = setInterval(function() { 
+     if (n % oDivWidth == 0) { 
+      clearInterval(timer) 
+      clearInterval(timer1) 
+     } 
+    }, 30) 
+  
+   } 
+  
+   //鼠标移出继续执行 
+   oDiv.onmouseout = function() { 
+    Left.style.display = 'none'
+    Right.style.display = 'none'
+    clearInterval(timer3) 
+    clearInterval(timer2) 
+    clearInterval(timer1) 
+    timer1 = setTimeout(function() { 
+     Run() 
+    }, 2000) 
+   } 
+  
+   //向左 
+   Left.onclick = function() { 
+    //清除所有定时器 
+    clearInterval(timer) 
+    clearInterval(timer1) 
+    clearInterval(timer2) 
+    clearInterval(timer3) 
+    timer = setInterval(function() { 
+     n -= 50; 
+     oUl.style.left = n + 'px'
+     if (n % oDivWidth == 0) { 
+      clearInterval(timer) 
+     } 
+     if (n <= -oUlWidth / 2) { 
+      oUl.style.left = 0; 
+      n = 0; 
+     } 
+    }, 30) 
+   } 
+  
+   //向右 
+   Right.onclick = function() { 
+    clearInterval(timer) 
+    clearInterval(timer1) 
+    clearInterval(timer2) 
+    clearInterval(timer3) 
+    if (n == 0) { 
+     n = -oUlWidth / 2 
+    } 
+    clearInterval(timer) 
+    timer = setInterval(function() { 
+     n += 50; 
+     oUl.style.left = n + 'px'
+     if (n % oDivWidth == 0) { 
+      clearInterval(timer) 
+     } 
+  
+    }, 30) 
+   } 
+  } 
+</script>
