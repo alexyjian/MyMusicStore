@@ -22,6 +22,7 @@ window.onload = function () {
         }
         ol_li[i].onmouseout=function(){
             setInterval(autoPlay,3000);
+            ol_li[i]= ol_li[i+1];
         }
     }
     setInterval(function () {
@@ -43,7 +44,6 @@ window.onload = function () {
         leader = leader + (target - leader) / 10;
         $('imgs').style.left = leader + 'px';
         
-       
         ol_li[ol-1].className=''; 
         if(ol==5){
             ol_li[0].className = 'sn_one';
