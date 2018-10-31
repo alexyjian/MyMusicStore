@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML综合作业</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" src="js.js"></script>
+</head>
+
+<body>
+    <style type="text/css">
+        /*重置样式*/
+        
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        /*wrap的轮播图和切换按钮样式*/
+        
+        .wrap {
+            height: 170px;
+            width: 500px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .wrap ul {
+            position: absolute;
+        }
+        
+        .wrap ul li {
+            height: 170px;
+        }
+        
+        .wrap ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        
+        .wrap ol li {
+            height: 20px;
+            width: 20px;
+            background-color: #eee;
+            border: 1px solid #eee;
+            margin-left: 10px;
+            float: left;
+            line-height: 20px;
+            text-align: center;
+        }
+        
+        .wrap ol li.active {
+            background-color: yellow;
+            color: #fff;
+            border: 2px solid rgb(238, 241, 238);
+        }
+    </style>
+    </head>
+
+    <body>
+        <!-- wrap包裹录播的图片以及可点击跳转的按钮 -->
+        <div class="wrap" id="wrap">
+            <ul id="pic">
+                <li><img src="images/1 .jpg" alt=""></li>
+                <li><img src="images/2.jpg" alt=""></li>
+                <li><img src="images/3.jpg" alt=""></li>
+                <li><img src="images/4.jpg" alt=""></li>
+                <li><img src="images/5.jpg" alt=""></li>
+            </ul>
+            <ol id="list">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ol>
+        </div>
+        <script type="text/javascript">
+            window.onload = function() {
+                var wrap = document.getElementById('wrap'),
+                    pic = document.getElementById('pic'),
+                    list = document.getElementById('list').getElementsByTagName('li'),
+                    index = 0,
+                    timer = null;
+                // 定义并调用自动播放函数  
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+                timer = setInterval(autoplay, 2000);
+                // 定义图片切换函数  
+                function autoplay() {
+                    index++;
+                    if (index >= list.length) {
+                        index = 0;
+                    }
+                    changeoptions(index);
+                }
+                // 鼠标划过整个容器时停止自动播放  
+                wrap.onmouseover = function() {
+                        clearInterval(timer);
+                    }
+                    // 鼠标离开整个容器时继续播放至下一张  
+                wrap.onmouseout = function() {
+                        timer = setInterval(autoplay, 2000);
+                    }
+                    // 遍历所有数字导航实现划过切换至对应的图片  
+                for (var i = 0; i < list.length; i++) {
+                    list[i].id = i;
+                    list[i].onmouseover = function() {
+                        clearInterval(timer);
+                        changeoptions(this.id);
+                    }
+                }
+
+                function changeoptions(curindex) {
+                    for (var j = 0; j < list.length; j++) {
+                        list[j].className = '';
+                        pic.style.top = 0;
+                    }
+                    list[curindex].className = 'active';
+                    pic.style.top = -curindex * 170 + 'px';
+                    index = curindex;
+                }
+            }
+        </script>
+    </body>
+
+</html>

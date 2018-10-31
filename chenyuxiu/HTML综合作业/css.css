@@ -1,0 +1,49 @@
+/*重置样式*/
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/*wrap的轮播图和切换按钮样式*/
+
+.wrap {
+    height: 170px;
+    width: 500px;
+    margin: 100px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.wrap ul {
+    position: absolute;
+}
+
+.wrap ul li {
+    height: 170px;
+}
+
+.wrap ol {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.wrap ol li {
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border: 1px solid #eee;
+    margin-left: 10px;
+    float: left;
+    line-height: 20px;
+    text-align: center;
+}
+
+.wrap ol li.active {
+    background-color: yellow;
+    color: #fff;
+    border: 2px solid rgb(238, 241, 238);
+}
