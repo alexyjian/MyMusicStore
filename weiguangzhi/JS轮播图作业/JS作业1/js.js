@@ -14,13 +14,13 @@ window.onload=function(){
    
     //用于控制动left的变量
     //计时器
-    timer = setInterval(autoPlay, 10);
+    timer = setInterval(autoPlay, 10)
     
     function autoPlay() {
         target--;
 
         target <= -2000? target = 0 : target;
-        leader = leader + (target - leader) / 10;
+        leader = leader + (target - leader) /10;
         //console.log(leader);
         ul_ll.style.left = leader + "px";
     }
