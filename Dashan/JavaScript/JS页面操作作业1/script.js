@@ -14,5 +14,5 @@ if (mode == 'block') {
 } else {
     //不显示下拉菜单时，鼠标划过li的效果
     document.getElementById(id).parentNode.style.backgroundColor = '';
-    document.getElementById(id).parentNode.style.border = '';
+    document.getElementById(id).parentNode.style.border = ''; 
 }
