@@ -38,15 +38,15 @@ img {
 }
 
 span {
-    display: block;
-    height: 70px;
+    display: none;
+    height: 40px;
     width: 40px;
     font-size: 24px;
     text-align: center;
-    line-height: 70px;
+    line-height: 40px;
     background-color: rgba(204, 204, 204, 0.315);
     position: absolute;
-    top: 120px;
+    top: 140px;
     cursor: pointer;
 }
 
