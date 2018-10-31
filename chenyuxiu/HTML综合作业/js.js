@@ -14,7 +14,7 @@ window.onload = function() {
     function autoplay() {
         index++;
         if (index >= list.length) {
-            index = 0
+            index = 0;
         }
         changeoptions(index);
     }
