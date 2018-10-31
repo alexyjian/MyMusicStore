@@ -16,11 +16,12 @@ img {
 /* 轮播图片的样式 */
 .slider {
     width: 500px;
-    height: 300px;
+    height: 200px;
     border: 1px solid #ccc;
     margin: 30px auto;
     padding: 5px;
     position: relative;
+    
 }
 
 .ad {
@@ -28,11 +29,11 @@ img {
     height: 100%;
     background: pink;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .ad ul {
-    width: 1000%;
+    width: 500%;
     position: absolute;
     top: 0;
     left: 0;
@@ -65,4 +66,6 @@ img {
 .slider ol li.current{
     background-color: orange;
 }
-
+img{
+    vertical-align: top;
+}
