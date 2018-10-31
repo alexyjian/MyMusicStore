@@ -20,7 +20,7 @@ body,ul,li,img{
 
 .ad{
     width: 520px;
-    height: 200px;
+    height: 280px;
     overflow: hidden;
     position: relative;
 }
@@ -36,7 +36,7 @@ body,ul,li,img{
 }
 
 #arrow{
-    display: block;
+    display: none;
 }
 
 #arrow span{
