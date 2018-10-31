@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.slider {
+    width: 500px;
+    height: 199px;
+    margin: 100px auto;
+    border: 1px solid #ccc;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad {
+    width: 100%;
+    height: 100%;
+    background: pink;
+    position: relative;
+}
+
+.ad ul {
+    width: 1000%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.ad ul li {
+    float: left;
+}
+
+img {
+    display: block;
+}
+
+.slider ol {
+    position: absolute;
+    left: 70%;
+    margin-left: 0px;
+    bottom: 10px;
+}
+
+.slider ol li {
+    background-color: white;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.slider ol li.current {
+    background-color: yellow;
+}
