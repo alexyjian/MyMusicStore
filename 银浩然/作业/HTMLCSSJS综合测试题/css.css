@@ -26,3 +26,18 @@
     top: 0;
     left: 0;
 }
+
+ul,ol {
+    list-style: none;
+}
+
+.ad ul li {
+    float: left;
+}
+
+.slider ol {
+    position: relative;
+    left: 50%;
+    margin-left: -65px;
+    bottom: 10px;
+}
