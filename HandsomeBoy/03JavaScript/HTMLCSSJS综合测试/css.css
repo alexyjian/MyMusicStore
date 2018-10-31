@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.box{
+    width: 500px;
+    height: 200px;
+    margin: 30px auto;
+    padding: 5px;
+    background: pink;
+    border: 1px solid #ccc;
+    position: relative;
+}
+.ad{
+    width: 100%;
+    height: 100%;
+   
+    overflow: hidden;
+}
+.ad_ul{
+    width: 1000%;
+    height: 100%;
+    position: relative;
+}
+.ad_ul li{
+    float: left;
+}
+.ad_ol
+{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    width: 175px;
+    height: 25px;
+ 
+}
+.ad_ol li 
+{
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+}
+.ad_ol li.current
+{
+    background-color: yellow;
+}
