@@ -3,7 +3,7 @@
     padding: 0;
     list-style: none;
 }
-#box{
+.all{
     width: 350px;
     height: 200px;
     position: relative;
@@ -23,36 +23,38 @@
     width: 350px;
     height: 200px;
     float: left;
-    margin: auto;
-    position: absolute;
-    
+    margin: auto;  
 }
+
 .ad ul {
-    width: 1000%;
+    width: 1750px;
     position: absolute;
     top: 0;
-    left: 0;
 }
 
-/* 数字编号样式 */
-#box ol{
+#arrow{
+    display: none;
+}
+
+#arrow span{
     position: absolute;
-    left: 50%;
-    margin-left: -60px;
-    bottom: 10px;
-}
-
-#box ol li {
-    float: left;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    margin-right: 10px;
-    line-height: 20px;
-    background-color: bisque;
+    width: 35px;
+    height: 50px;
+    left: 3px;
+    top: 50%;
+    margin-top: -20px;
     cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    line-height: 40px;
+    background: lightblue;
+    opacity: 0.3;
+    font-size: 35px;
+    color: white;
+    border: 1px solid white;
 }
 
-#box ol li.on{
-    background-color: lightpink;
+#arrow #right{
+    right: 3px;
+    left: auto;
 }
