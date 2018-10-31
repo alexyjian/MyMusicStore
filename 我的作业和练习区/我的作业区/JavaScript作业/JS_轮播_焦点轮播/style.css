@@ -26,8 +26,11 @@
 .slider .ad ul li{
     float: left;   
 }
-.slider .ad img{
+.slider .ad ul li img{
+    width: 490px;
+    height: 170px;
     vertical-align: top;
+  
 }
 
 /* 编号的样式 */

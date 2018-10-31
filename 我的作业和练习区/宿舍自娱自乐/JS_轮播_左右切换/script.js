@@ -26,6 +26,15 @@ window.onload=function(){
         }
         target=-intr*576;//目标位置=当前index索引号*图片宽度
      }
+     //鼠标悬停
+     document.getElementById('head').onmouseover=function(){
+         head_left.style.display='block';
+         head_right.style.display='block';
+     }
+     document.getElementById('head').onmouseout=function(){
+        head_left.style.display='none';
+        head_right.style.display='none';
+    }
     //过度动画
     setInterval(function(){
         leader=leader+(target-leader)/100;

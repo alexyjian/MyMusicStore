@@ -25,6 +25,7 @@ div ul li img{
 }
 div span{
     position: absolute;
+    display: none;
     z-index: 2;
     height: 100px;
     width: 50px;

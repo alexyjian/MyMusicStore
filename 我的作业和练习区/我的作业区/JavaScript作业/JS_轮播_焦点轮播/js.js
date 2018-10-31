@@ -7,7 +7,7 @@ window.onload=function(){
     //用来控制left
     var leader=0;
     var target=0;
-    var intr=0;
+    var intr=1;
     //遍历ol
     for(var i=0;i<ollis.length;i++){
         // 每个li的索引号
