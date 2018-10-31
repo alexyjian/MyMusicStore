@@ -6,9 +6,7 @@ window.onload = function () {
     var target = 0;
     var lender = 0;
     var nums = $("list_num").children;
-    var imgs = $("list_img").children;
     var ul = $("list_img");
-    var ol = $("list_num");
     //当前索引
     var current_index = 0;
     var timer = null;
