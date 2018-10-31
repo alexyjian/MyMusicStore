@@ -16,7 +16,7 @@ window.onload = function(){
     //提取方法
     function outoPlay (){
         target -- ;
-        target <= -1200 ? target = 0 : target;
+        target <= -600 ? target = 0 : target;
         leader = leader + (target -leader) / 10;
         ul.style.left = leader + "px";
     }
