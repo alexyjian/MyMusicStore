@@ -19,7 +19,7 @@ window.onload=function(){
     function autoPlay() {
         target--;
 
-        target <= -2500? target = 0 : target;
+        target <= -2000? target = 0 : target;
         leader = leader + (target - leader) / 10;
         //console.log(leader);
         ul_ll.style.left = leader + "px";
