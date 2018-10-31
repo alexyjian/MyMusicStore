@@ -14,4 +14,4 @@ window.onload=function(){
             aLi_u[this.index].style.display ='block';
         }
     }
-} 
+}
