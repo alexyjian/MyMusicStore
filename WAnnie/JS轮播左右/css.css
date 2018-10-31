@@ -39,7 +39,7 @@
 #arrow span{
     position: absolute;
     width: 35px;
-    height: 50px;
+    height: 45px;
     left: 3px;
     top: 50%;
     margin-top: -20px;
@@ -54,6 +54,10 @@
     border: 1px solid white;
 }
 
+#arrow #left {
+  left: 15px;
+
+}
 #arrow #right{
     right: 3px;
     left: auto;
