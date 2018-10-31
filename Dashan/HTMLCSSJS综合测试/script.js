@@ -15,7 +15,7 @@ window.onload = function () {
                 break;
             }
         }
-        buttons[index - 1].className = 'on'; //改变classname改变小圆点的样式
+        buttons[index - 1].className = 'on'; 
     }
 
     function change(offset) { //切换函数
