@@ -6,6 +6,7 @@ window.onload = function () {
     var target = 0;
     var lender = 0;
     var nums = $("list_num").children;
+    var imgs = $("list_img").children;
     var ul = $("list_img");
     var ol = $("list_num");
     //当前索引
@@ -40,14 +41,14 @@ window.onload = function () {
     }, 20);
 
     function autoPlay() {
+        if(current_index == 4) {
+            current_index = -1;
+        }
         current_index++;
         for (var i = 0; i < nums.length; i++) {
             nums[i].className = "";
         }
         nums[current_index].className = "current";
         target = -current_index * 555;
-        if(current_index == 4) {
-            current_index = -1;
-        }
     }
 }
