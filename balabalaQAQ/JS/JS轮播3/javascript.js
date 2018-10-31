@@ -11,7 +11,12 @@
 
     right.onclick =function(){
         i++;
-        target =-300*i+'px';
+        if(i>=0){
+            target =-300*i+'px';
+        }
+        if(i<0){
+            target =i* 300+300+'px';
+        }
         if(i>=4){
             i=0;
             target=0+'px';
@@ -22,10 +27,15 @@
     }
     left.onclick =function(){
         i--;
-        target =-i* 300+'px';
+        if(i<=0){
+            target =i* 300+'px';
+        }
+        if(i>0){
+            target =-i* 300+300+'px';
+        }
         if (i<=-4){
             i=0;
-            target=0+'px';
+            target=-900+'px';
         }
         ul.style.left = target ;
         console.log(i);

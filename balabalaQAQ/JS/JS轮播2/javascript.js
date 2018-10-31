@@ -1,7 +1,7 @@
 window.onload = function () {
-    var scroll = document.getElementById('scroll');
+    var box = document.getElementById('scroll');
     //取出子元素
-    var ul = scroll.children[0];  
+    var ul = box.children[0];
     //计时器
     var timer = null;
     //用于控制动left的变量
@@ -14,13 +14,15 @@ window.onload = function () {
         target--;
         target <= -1200 ? target = 0 : target;
         leader = leader + (target - leader) / 10;
-        ul.style.left = leader + 'px';     
+        ul.style.left = leader + 'px';
+        //ul.style.transform = ul.style.transform + 'translateX(-1px)'; 
+        //console.log(target);        
     }
     
-    scroll.onmouseover = function () {
+    box.onmouseover = function () {
         clearInterval(timer);
     }
-    scroll.onmouseout = function () {
+    box.onmouseout = function () {
         timer =setInterval(autoPlay, 10);
     }
  
