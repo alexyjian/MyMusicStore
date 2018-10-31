@@ -13,7 +13,6 @@ window.onload = function () {
                 ollis[j].className = '';
             }
             this.className = 'current';
-
             target = -this.index * 490;
         }
     }

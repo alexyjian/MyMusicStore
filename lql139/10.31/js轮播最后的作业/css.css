@@ -1,0 +1,44 @@
+*,div,li,ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#box{
+    width: 400px;
+    height: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    overflow: hidden;
+}
+ul{
+    width: 2200px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+li{
+    float: left;
+}
+img{
+    width: 400px;
+    height: 200px;
+    margin-right: 5px;
+}
+ol{
+    position: relative;
+    top: -30px;
+    left: 270px;
+}
+ol li{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: white;
+    margin-left: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+ol .current{
+    background:yellow;
+}
