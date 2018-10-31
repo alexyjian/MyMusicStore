@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,ol{
+    list-style: none;
+}
+img{
+    display: block;
+ }
+.naoll{
+    width: 500px;
+    height: 200px;
+    border: 1px solid #ccc;
+    margin: 40px auto;
+    padding: 5px;
+}
+.on{
+    width: 100%;
+    height: 100%;
+    background: pink;
+    position: relative;
+    overflow: hidden;
+}
+.on ul{
+    width: 1000%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.on ul li{
+    float: left;
+}
+.naoll ol{
+    position: absolute;
+    left: 50%;
+    margin-left: -65px;
+    bottom: 403px;
+}
+.naoll ol li{
+    background-color: white;
+    float: left;
+    width: 20px;
+    height: 20px;
+    /*编号间的距离*/
+    margin-right: 10px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+.naoll ol li.arroet{
+    background-color:yellow;
+}
