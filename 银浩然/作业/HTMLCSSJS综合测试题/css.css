@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.slider {
+    width: 500px;
+    height: 200px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    padding: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad {
+    width: 100%;
+    height: 100%;
+    background: pink;
+    position: relative;
+}
+
+.ad ul {
+    width: 1000%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
