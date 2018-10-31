@@ -2,10 +2,10 @@
      var box = document.getElementById("box");
      var ul = document.getElementById("ad_ul");
      var ol = document.getElementById("ad_ol").getElementsByTagName("li");
-
+    
      var timer = null;
      var index = 0;
-     var target =0;
+     var target = 0;
      var leader = 0;
 
      //若有在等待的定时器，则清掉
@@ -32,10 +32,15 @@
          }
          //改变当前显示索引
          ol[curIndex].className = "on";
-         ul.style.marginTop = -440 *curIndex + "px";
+         target = -curIndex * 500;
          index = curIndex;
      }
 
+     //图片切换效果
+     setInterval(function(){
+         leader = leader + (target - leader) / 10;
+         ul.style.left = leader + "px";
+     },30)
 
      //遍历所有数字导航实现划过切换对应的图片
      for (var i = 0; i < ol.length;i++){

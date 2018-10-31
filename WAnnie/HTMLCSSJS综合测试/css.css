@@ -17,18 +17,21 @@
     width: 500px;
     height: 200px;
     position: relative;
-    overflow: hidden;
-    
+    overflow: hidden;    
 }
 
 img{
     display: block;
 }
+
 .ad ul li{
-   height: 200px;
+  float: left;
 }
+
 .ad ul{
-   position: absolute;
+    width: 2500px;
+    height: 200px;
+    position: absolute;
 }
 
 /* 数字编号样式  */
