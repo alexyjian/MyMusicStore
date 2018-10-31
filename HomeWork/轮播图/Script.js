@@ -6,6 +6,7 @@ window.onload = function () {
     var target = 0;
     var lender = 0;
     var nums = $("list_num").children;
+    var imgs = $("list_img").getElementsByTagName("li");
     var ul = $("list_img");
     //当前索引
     var current_index = 0;
@@ -15,6 +16,7 @@ window.onload = function () {
 
     for (var i = 0; i < nums.length; i++) {
         nums[i].index = i;
+        imgs[i].index = i;
         nums[i].onmouseover = function () {
             for (var j = 0; j < nums.length; j++) {
                 nums[j].className = "";
@@ -48,5 +50,6 @@ window.onload = function () {
         }
         nums[current_index].className = "current";
         target = -current_index * 555;
+
     }
 }
