@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    list-style: none;
 }
 
 ul,ol{
@@ -19,7 +18,7 @@ img{
     margin: 50px auto;
     width: 490px;
     height: 170px;
-    border: 2px solid black;
+    border: 2px solid #ccc;
     padding: 5px;
 }
 
@@ -36,7 +35,7 @@ img{
     left: 0;
     top: 0;
     width :2500px;
-    list-style: none;
+    /* list-style: none; */
 }
 
 .ad ul li{
