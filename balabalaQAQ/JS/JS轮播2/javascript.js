@@ -14,9 +14,7 @@ window.onload = function () {
         target--;
         target <= -1200 ? target = 0 : target;
         leader = leader + (target - leader) / 10;
-        ul.style.left = leader + 'px';
-        //ul.style.transform = ul.style.transform + 'translateX(-1px)'; 
-        //console.log(target);        
+        ul.style.left = leader + 'px';      
     }
     
     box.onmouseover = function () {
