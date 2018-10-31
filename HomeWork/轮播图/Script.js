@@ -6,38 +6,48 @@ window.onload = function () {
     var target = 0;
     var lender = 0;
     var nums = $("list_num").children;
-    var imgs = $("list_img").children;
     var ul = $("list_img");
     var ol = $("list_num");
     //当前索引
-    var img_current_index = 0;
-    var num_current_index = 0;
+    var current_index = 0;
     var timer = null;
+
+    timer = setInterval(autoPlay, 1500);
 
     for (var i = 0; i < nums.length; i++) {
         nums[i].index = i;
-        imgs[i].index = i;
         nums[i].onmouseover = function () {
-            if (this.index == img_current_index) {
-                this.className = "";
-            } else {
-                this.className = "current";
+            for (var j = 0; j < nums.length; j++) {
+                nums[j].className = "";
             }
-            img_current_index = num_current_index = this.index;
-            console.log(img_current_index);
-            console.log(num_current_index);
+            current_index = this.index;
+            this.className = "current";
             target = -this.index * 555;
         }
+    }
 
-        nums[i].onmouseout = function () {
-            num_current_index = 0;
-            console.log(img_current_index);
-            console.log(num_current_index);
-        }
+    ul.onmouseover = function () {
+        clearInterval(timer);
+    }
+
+    ul.onmouseout = function () {
+        timer = setInterval(autoPlay, 1500);
     }
 
     setInterval(function () {
         lender = lender + (target - lender) / 10;
         ul.style.left = lender + "px";
-    }, 20)
+    }, 20);
+
+    function autoPlay() {
+        current_index++;
+        for (var i = 0; i < nums.length; i++) {
+            nums[i].className = "";
+        }
+        nums[current_index].className = "current";
+        target = -current_index * 555;
+        if(current_index == 4) {
+            current_index = -1;
+        }
+    }
 }
