@@ -1,14 +1,14 @@
 * {
-    margin: 0;
-    padding: 0;
+    padding: 0px;
+    margin: 0px;
     list-style: none;
 }
 
 img {
-    width: 550px;
+    display: block;
     height: 300px;
-    z-index: -1;
-    position: absolute;
+    width: 550px;
+    margin-right: 5px;
 }
 
 .box {
@@ -16,34 +16,43 @@ img {
     height: 300px;
     margin: 100px auto;
     position: relative;
+    border: 1px solid #eee;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.ad {
+    width: 550px;
+    height: 300px;
+    position: relative;
+}
+
+.list_img {
+    width: 2775px;
+    position: absolute;
+    left: 0;
 }
 
 .list_img li {
-    display: none;
-}
-
-.list_img .current {
-    display: block;
-}
-
-.list_No {
-    width: 200px;
-    height: 50px;
-    position: absolute;
-    right: 5px;
-    bottom: 10px;
-}
-
-.list_No li {
     float: left;
-    padding: 2px 5px;
+}
+
+.list_num {
+    width: 160px;
+    position: absolute;
+    bottom:35px;
+    right: 50px;
+}
+
+.list_num li {
+    float: left;
+    padding: 0px 5px;
+    margin: 0px 5px;
     background-color: #fff;
-    margin:0px 5px;
-    border-radius: 50%;
+    border: 1px solid #eee;
     cursor: pointer;
 }
 
-.list_No .current {
+.list_num .current {
     background-color: orange;
-    color: white;
 }
