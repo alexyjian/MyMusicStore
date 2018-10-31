@@ -1,0 +1,61 @@
+/*全局定义*/
+body,
+ul,
+li,
+img {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.box1 {
+    width: 520px;
+    height: 280px;
+    padding: 5px;
+    position: relative;
+    border: 1px solid #ccc;
+    margin: 100px auto 0;
+    overflow: hidden; /*超出部分应隐藏*/
+   
+}
+.box1 img{
+    width: 520px;
+}
+.box1{
+    width: 520px;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+.box1 ul{
+    position: absolute;
+    top: 0;
+    width: 3120px;
+}
+.box1 ul li{
+    float: left;
+}
+#ad{
+    display:none;
+}
+#ad span{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    margin-top: -20px;
+    background: #000;
+    cursor: pointer;
+    line-height: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(232, 246, 247);
+    opacity: 0.3;
+    border: 1px solid white;
+}
+#ad #right{
+    right: 5px;
+    left: auto;
+}
