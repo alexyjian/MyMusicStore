@@ -1,5 +1,4 @@
 window.onload = function () {
-    var slider = document.getElementById('slider');
     var ul = document.getElementById('ad_ul');
     var ol = document.getElementById('ad_ol');
 
@@ -21,6 +20,7 @@ window.onload = function () {
         }
     }
 
+    //动画 每20ms left的值如何变化
     setInterval(function () {
         leader = leader + (target - leader) / 10;
         ul.style.left = leader + 'px';
