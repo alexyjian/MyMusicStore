@@ -9,29 +9,25 @@
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-    <div class="selir">
-        <div class="sv">
-            <ul id='sv_ul'>
-                <li><a href="#"><img src="img/1.jpg" alt="广告1" ></a></li>
-                <li><a href="#"><img src="img/2.jpg" alt="广告2" ></a></li>
-                <li><a href="#"><img src="img/3.jpg" alt="广告3" ></a></li>
-                <li><a href="#"><img src="img/4.jpg" alt="广告4" ></a></li>
-                <li><a href="#"><img src="img/5.jpg" alt="广告5" ></a></li>
-            </ul>
-        </div>
-        <ol id='sv_ol'>
-            <li class="current">1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-        </ol>
-
-        <div id="ad">
-            <span id="left">
-                <</span> <span id="right">>
-            </span>
-        </div>
-    </div>
+        <div id="container">
+                <div id="list" style="left:-600px;">
+                    <img src="img/5.jpg" alt="" />
+                    <img src="img/1.jpg" alt="" />
+                    <img src="img/2.jpg" alt="" />
+                    <img src="img/3.jpg" alt="" />
+                    <img src="img/4.jpg" alt="" />
+                    <img src="img/5.jpg" alt="" />
+                    <img src="img/1.jpg" alt="" />
+                </div>
+                <div id="buttons">
+                    <span index="1" class="on">1</span>
+                    <span index="2">2</span>
+                    <span index="3">3</span>
+                    <span index="4">4</span>
+                    <span index="5">5</span>
+                </div>
+                <a href="javascript:;" class="arrow" id="prev">&lt;</a>
+                <a href="javascript:;" class="arrow" id="next">&gt;</a>
+            </div>    
 </body>
 </html>

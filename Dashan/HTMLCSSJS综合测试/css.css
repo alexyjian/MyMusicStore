@@ -1,95 +1,86 @@
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
-ul,
-ol {
-    list-style: none;
-}
-
-img {
-    display: block;
-    /*清除照片的像素缝隙*/
-}
-
-.selir {
-    width: 500px;
-    height: 200px;
-    border: 1px solid #ccc;
-    margin: 30px auto;
-    padding: 5px;
-    position: relative;
-
-}
-
-
-.sv {
-    width: 100%;
-    height: 100%;
-    background: pink;
-    position: relative;
+#container {
+    width: 450px;
+    height: 180px;
+    border: 1px solid rgb(94, 92, 92);
     overflow: hidden;
-    /*超出部分影藏*/
-
+    position: relative;
+    margin: 0 auto;
 }
 
-.sv ul {
-    width: 1000%;
+#list {
+    width: 3600px;
+    height: 300px;
     position: absolute;
-    top: 0;
-    left: 0;
+    z-index: 1;
 }
 
-.sv ul li {
+#list img {
     float: left;
 }
 
-/*编号样式*/
-.selir ol {
+#buttons {
     position: absolute;
-    left: 50%;
-    /*居中*/
-    margin-left: -65px;
-    bottom: 10px;
+    height: 10px;
+    width: 100px;
+    z-index: 2;
+    bottom: 20px;
+    left: 200px;
 }
 
-.selir ol li {
-    background-color: white;
-    float: left;
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    text-align: center;
-    line-height: 20px;
+#buttons span {
     cursor: pointer;
-    /*鼠标变手型*/
-
-}
-.selir ol li.current{
-    background-color: aqua;
-}
-#ad{
-    display:none;
-}
-#ad span{
+    float: left;
+    border: 1px solid #fff;
     width: 10px;
-    height: 40px;
-    position: absolute;
-    left: 5px;
-    top: 50%;
-    margin-top: -20px;
-    background: rgb(103, 205, 223);
-    cursor: pointer;
-    line-height: 40px;
-    text-align: center;
-    font-weight: bold;
+    height: 10px;
     font-size: 10px;
-    color: rgb(10, 10, 10);
-    opacity: 0.5;
-    border: 1px solid white;
+    text-align: center;
+    color: #fff;
+    background: rgb(206, 162, 179);
+    margin-right: 5px;
 }
-#ad #right{
-    right: 5px;
-    left: auto;
+
+#buttons .on {
+    background: orange;
+}
+
+.arrow {
+    cursor: pointer;
+    display: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    width: 20px;
+    height: 30px;
+    border-radius: 30%;
+    position: absolute;
+    z-index: 2;
+    top: 180px;
+    background-color: RGBA(0, 0, 0, .5);
+    color: white;
+}
+
+.arrow:hover {
+    background-color: RGBA(0, 0, 0, .7);
+}
+
+#container:hover .arrow {
+    display: block;
+}
+
+#prev {
+    top: 80px;
+    left: 1px;
+}
+
+#next {
+    top: 80px;
+    right: 1px;
 }
