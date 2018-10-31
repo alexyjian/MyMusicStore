@@ -1,0 +1,18 @@
+body,ul,li,img{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.all{
+    width:580px;
+    height: 300px;
+    padding: 5px;
+    position: relative;
+    border:1px solid #ccc;
+    margin: 100px auto 0;
+    overflow: hidden;
+}
+.all img{
+    width: 580px;
+}
