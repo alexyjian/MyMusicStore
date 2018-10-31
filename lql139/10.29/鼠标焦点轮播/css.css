@@ -16,6 +16,9 @@ img{
     position: relative;
 }
 ul{
+    position: relative;
+    top: 0;
+    left: 0;
     width: 2500px;
 }
 .ad ul li{

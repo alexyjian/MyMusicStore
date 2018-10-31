@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.all{
+    width: 400px;
+    height: 200px;
+    margin: 100px auto;
+    overflow: hidden;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+ul{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 1700px;
+}
+li{
+    list-style: none;
+    float: left;
+}
+img{
+    width: 400px;
+    height: 200px;
+    margin-right: 5px;
+}
+#arrow{
+    position: absolute;
+    display: none;
+}
+span{
+    display: inline-block;
+    position: relative;
+    top: 90px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    background: #ccc;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    opacity: 0.8;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+#right{
+  left: 325px;
+}
