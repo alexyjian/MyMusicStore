@@ -1,12 +1,9 @@
-/* 清除浏览器 */
-
 body,
 ul,
 li,
 img {
-    padding: 0;
     margin: 0;
-    /* 去掉点点 */
+    padding: 0;
     list-style: none;
 }
 
@@ -15,7 +12,6 @@ img {
     height: 280px;
     padding: 5px;
     position: relative;
-    /*相对定位*/
     border: 1px solid #ccc;
     margin: 100px auto 0;
     overflow: hidden;
@@ -42,9 +38,6 @@ img {
     float: left;
 }
 
-
-/* 箭头样式 */
-
 #arrow {
     display: none;
 }
@@ -63,8 +56,8 @@ img {
     font-weight: bold;
     font-size: 40px;
     color: white;
+    /* 当前透明度为0.3 */
     opacity: 0.3;
-    /*当前透明度 0.3*/
     border: 1px solid white;
 }
 
