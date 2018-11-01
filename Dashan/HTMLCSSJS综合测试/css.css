@@ -3,10 +3,14 @@
     padding: 0;
     text-decoration: none;
 }
+img {
+    display: block;
+    /*清除照片的像素缝隙*/
+}
 
 #container {
-    width: 450px;
-    height: 180px;
+    width: 480px;
+    height: 192px;
     border: 1px solid rgb(94, 92, 92);
     overflow: hidden;
     position: relative;
@@ -14,10 +18,11 @@
 }
 
 #list {
-    width: 3600px;
+    width: 2400px;
     height: 300px;
     position: absolute;
-    z-index: 1;
+    overflow: hidden;
+    
 }
 
 #list img {
@@ -28,7 +33,6 @@
     position: absolute;
     height: 10px;
     width: 100px;
-    z-index: 2;
     bottom: 20px;
     left: 200px;
 }
@@ -39,8 +43,9 @@
     border: 1px solid #fff;
     width: 10px;
     height: 10px;
-    font-size: 10px;
+    font-size: 5px;
     text-align: center;
+    position: relative;
     color: #fff;
     background: rgb(206, 162, 179);
     margin-right: 5px;
@@ -61,7 +66,6 @@
     height: 30px;
     border-radius: 30%;
     position: absolute;
-    z-index: 2;
     top: 180px;
     background-color: RGBA(0, 0, 0, .5);
     color: white;
