@@ -51,11 +51,12 @@ img {
     text-align: center;
     font-weight: bold;
     font-size: 40px;
+    border-radius: 30%;
     color: rgb(232, 246, 247);
     opacity: 0.3;
     border: 1px solid white;
 }
 #ad #right{
-    right: 5px;
+    right: 1px;
     left: auto;
 }
