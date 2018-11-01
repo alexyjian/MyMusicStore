@@ -23,6 +23,15 @@ window.onload = function () {
         ollis[i].onmouseover = function () {
             //清除计时器
             clearInterval(timer);
+
+            ul2.style.left = '576px';
+            ul2.style.display = 'none';
+            leader1 = 576;
+            target2 = 0;
+            leader = 0;
+            target = 0;
+            intr = 0;
+
             for (var j = 0; j < ollis.length; j++) {
                 ollis[j].className = '';//去掉所有的class='current'
             }
@@ -41,29 +50,32 @@ window.onload = function () {
 
 
     //过度动画
-     tim= setInterval(function () {
-        if (intr>6) {       
+    tim = setInterval(function () {
+
+
+    }, 1);
+    setInterval(function () {
+        if (intr <= 6) {
+            leader = leader + (target - leader) / 100;
+            ul.style.left = leader + 'px';
+        }
+
+        if (intr > 5) {
+            ul2.style.display = 'block';
+            leader1 = leader1 + (target2 - leader1) / 100;
+            ul2.style.left = leader1 + 'px';
+            console.log(intr);
+        }
+        if (leader1 < 1) {
             ul.style.left = '0px';
             ul2.style.left = '576px';
             ul2.style.display = 'none';
             leader1 = 576;
             target2 = 0;
             leader = 0;
-            target = 0;               
-            intr=0;
-            intrs=0;        
-        } ;      
-        
-    }, 1);
-    setInterval(function () {
-        leader = leader + (target - leader) / 100;
-        ul.style.left = leader + 'px';
-        if (intr >5) {
-            ul2.style.display = 'block';
-            leader1 = leader1 + (target2 - leader1) / 100;
-            ul2.style.left = leader1 + 'px';
-            console.log(intr);
-        }
+            target = 0;
+            intr = 0;
+        };
 
     }, 2);
 
@@ -77,8 +89,8 @@ window.onload = function () {
         }
         //当页数到达最大时重置
         if (intrs == ollis.length) {
-            intrs = 0;     
-        }       
+            intrs = 0;
+        }
         ollis[intrs].className = 'current';
     }
 }
