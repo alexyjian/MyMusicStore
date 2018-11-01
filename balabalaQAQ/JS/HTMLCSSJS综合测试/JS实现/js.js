@@ -13,8 +13,8 @@ function animate(obj, target) {
 }
 window.onload = function () {
     // 获取元素
-    var box = document.getElementById("box");  // 大盒子
-    var ul = document.getElementById("imgs");
+    var box = document.getElementById("all");  // 大盒子
+    var ul = document.getElementById("ul");
     var ulLis = ul.children;
 
     // 操作元素

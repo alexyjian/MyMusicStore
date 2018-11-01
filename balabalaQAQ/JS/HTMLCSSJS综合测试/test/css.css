@@ -19,14 +19,7 @@
     left: 0;
     display: block;
 }
-#imgsfor{
-    position:absolute;
-    width: 3000px;
-    height: 100%;
-    left: 3000px;
-    display: none;
-}
-.current{
+.img_one{
     padding-left: 5px;
 }
 #imgs li {
@@ -35,12 +28,7 @@
     float: left;
     margin-right: 5px;
 }
-#imgsfor li{
-    width: 500px;
-    height: 200px;
-    float: left;
-    margin-right: 5px;
-}
+
 #sn{
     color: black;
     position:absolute;
