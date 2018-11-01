@@ -17,15 +17,12 @@ window.onload = function () {
     //计时器
     var timer = null;
     //重置ul2的位置
-    function Reset(){
+    function Reset() {
         ul2.style.left = '576px';
         ul2.style.display = 'none';
         leader1 = 576;
         target2 = 0;
-        leader = 0;
-        target = 0;
-        intr = 0;
-        intrs=0;
+
     }
     //遍历ol
     for (var i = 0; i < ollis.length; i++) {
@@ -59,7 +56,7 @@ window.onload = function () {
 
     //过度动画
     setInterval(function () {
-        
+
         if (intr <= 6) {
             leader = leader + (target - leader) / 100;
             ul.style.left = leader + 'px';
@@ -75,6 +72,10 @@ window.onload = function () {
         if (leader1 < 1) {
             ul.style.left = '0px';
             Reset();
+            leader = 0;
+            target = 0;
+            intr = 0;
+            intrs = 0;
         };
 
     }, 1);
