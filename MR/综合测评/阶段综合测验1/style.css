@@ -1,52 +1,58 @@
-*{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
     list-style: none;
+    border: 0;
 }
-.slider{
+
+.all {
     width: 500px;
     height: 200px;
-    margin: 30px auto;
-    padding: 5px;
-    background: white;
+    padding: 7px;
     border: 1px solid #ccc;
+    margin: 100px auto;
     position: relative;
 }
-.ad{
-    width: 100%;
-    height: 100%;
-   
+
+.screen {
+    width: 500px;
+    height: 200px;
     overflow: hidden;
-}
-.ad_ul{
-    width: 1000%;
-    height: 100%;
     position: relative;
 }
-.ad_ul li{
+
+.screen li {
+    width: 500px;
+    height: 200px;
+    overflow: hidden;
     float: left;
 }
-.ad_ol
-{
+
+.screen ul {
     position: absolute;
-    bottom: 10px;
-    right: 15px;
-    width: 175px;
-    height: 25px;
- 
+    left: 0;
+    top: 0px;
+    width: 3000px;
 }
-.ad_ol li 
-{
-    background-color: #fff;
-    width: 25px;
-    height: 25px;
-    float: left;
-    margin-left: 10px;
+
+.all ol {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    line-height: 20px;
     text-align: center;
-    line-height: 25px;
+}
+
+.all ol li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-left: 10px;
     cursor: pointer;
 }
-.ad_ol li.current
-{
-    background-color: yellow;
+
+.all ol li.current {
+    background: yellow;
 }
