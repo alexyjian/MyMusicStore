@@ -23,7 +23,7 @@ window.onload = function() {
         }
 
     }
-    
+
 
     function play() {
         //重复执行的定时器
@@ -86,8 +86,6 @@ window.onload = function() {
     container.onmouseenter = stop;
     container.onmouseout = play;
     play();
-
-
 
 
 }
