@@ -34,8 +34,8 @@ p {
     width: 400px;
     height: 300px;
     margin: 0 auto;
-    position: absolute;
-    /*绝对定位*/
+    position: relative;
+    /*相对定位*/
     left: 50%;
     top: 55%;
     border-radius: 10px;
@@ -59,6 +59,7 @@ span {
     background-position: center center;
     width: 100px;
     height: 300px;
+    position: absolute;
     border-radius: 0 10px 10px 0;
     background-color: #a98659;
 }
