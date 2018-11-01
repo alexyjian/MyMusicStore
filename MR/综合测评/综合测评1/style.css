@@ -1,0 +1,138 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    list-style: none;
+}
+
+.box {
+    width: 500px;
+    height: 200px;
+    margin: 30px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.play {
+    width: 1000%;
+    height: 333px;
+    float: left;
+    animation: move 20s linear infinite;
+  
+}
+
+.list {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+}
+
+.num {
+    position:absolute;
+    z-index:10;
+    display:inline-block;
+    right:5px;
+    border-radius:100%;
+    background:#f00;
+    width:25px;height:25px;
+    line-height:25px;
+    cursor:pointer;
+    color:#fff;
+    text-align:center;
+    opacity:0.8;
+    bottom: 10px;
+}
+.num:hover{background:#00f;}
+.num:hover,#photos:hover{animation-play-state:paused;}
+.num:nth-child(5){margin-right:30px}
+.num:nth-child(4){margin-right:60px}
+.num:nth-child(3){margin-right:90px}
+.num:nth-child(2){margin-right:120px}
+.num:nth-child(1){margin-right:150px}
+#a1:hover ~ #photos {
+    animation: a1 1s linear forwards;
+}
+
+ #a2:hover ~ #photos {
+    animation: a2 2s linear forwards;
+}
+
+ #a3:hover ~ #photos {
+    animation: a3 2s linear forwards;
+}
+
+ #a4:hover ~ #photos {
+    animation: a4 2s linear forwards;
+}
+
+#a5:hover ~ #photos{ 
+    animation: a5 2s linear forwards;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-500px);
+    }
+
+    50% {
+        transform: translateX(-1000px);
+    }
+
+    75% {
+        transform: translateX(-1500px);
+    }
+
+    100% {
+        transform: translateX(-2000px);
+    }
+}
+
+@keyframes a1 {
+    0% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes a2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-500px);
+    }
+}
+
+@keyframes a3 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-1000px);
+    }
+}
+
+@keyframes a4 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-1500px);
+    }
+}
+
+@keyframes a5 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-2000px);
+    }
+}
