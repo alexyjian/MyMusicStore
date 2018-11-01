@@ -74,10 +74,11 @@ video {
 }
 
 .video-list p {
-    text-align: center;
-    font-size: 15px;
+    margin: 40px 350px auto;
+    font-size: 20px;
     color: #333;
-    padding: 20px 0;
+    padding: 15px;
+    
    
 }
 
