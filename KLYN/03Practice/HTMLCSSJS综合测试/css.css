@@ -74,6 +74,7 @@ body {
     background-color: RGBA(0,0,0, .7);
 }
 
+
 #container:hover .arrow {
     display: none;
 }

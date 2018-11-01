@@ -23,6 +23,7 @@ window.onload = function() {
         }
 
     }
+    
 
     function play() {
         //重复执行的定时器
