@@ -5,11 +5,10 @@ window.onload = function(){
     //保存当前焦点元素的索引值
     var current_index = 0;
     //启动定时器
-    var timer = setInterval(autuCheck,5000);
+    var timer = setInterval(autuCheck,1000);
 
     //遍历head元素
-    for(var i = 0; i < head_divs.length; i++)
-    {
+    for(var i = 0; i < head_divs.length; i++){
         //添加鼠标悬停的事件
         heda_divs[i].onmouseover = function(){
             clearInterval(timer);
@@ -33,33 +32,30 @@ window.onload = function(){
         }
         //添加鼠标的移出事件
             head_divs[i].onmouseout = function(){
-            timer = setInterval(autuCheck,5000);
+            timer = setInterval(autuCheck,1000);
         }
     }
         
-
     //定义定时器，按周期检查tad栏的切换
-    function autuCheck()
-    {
+    function autuCheck(){
       //每间隔对应周期，标签索引值自增
       ++current_index;
       //当索引值自增到上限，重置为0
       if(current_index == head_divs.length)
-         current_index = 0;
+        current_index = 0;
 
       //切换标签后修改current标签的样式
-      for(var i=0; i<head_divs.length; i++){
+      for(var i=0; i < head_divs.length; i++){
           if(i == current_index){
-              head_divs[i].style.backgroundColor='#fff';
-              head_divs[i].style.borderBottom='1px solid #fff';
-          }
+            head_divs[i].style.backgroundColor='#fff';
+            head_divs[i].style.borderBottom='1px solid #fff';
+        }
           else{
             head_divs[i].style.backgroundColor='';
             head_divs[i].style.borderBottom='';
-          }
+        }
       }
-    }
-       //切换显示内容
+    //切换显示内容
     //获取所有的tad-body-ul
     var body_uls = document.getElementById('tad-body').getElementsByTagName('ul');
     //遍历所有tad-body-ul
@@ -69,8 +65,9 @@ window.onload = function(){
       head_divs[i].className=head_divs[i].className.replace('current','')
       //将当前索引对应的元素设为显示
       if(head_divs[i]==head_divs[current_index]){
-          this.className +='current';
-          body_uls[i].className +='current';
+        this.className +='current';
+        body_uls[i].className +='current';
       }
     }
- }
+  }
+}
