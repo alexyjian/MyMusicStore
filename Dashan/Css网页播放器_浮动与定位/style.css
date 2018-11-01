@@ -39,13 +39,13 @@ a
 .left
 {
     position: absolute;
-    left: -12px;/*负数 继续往左*/
+    left: -1px;/*负数 继续往左*/
     top: 50px;
 }
 .rigth
 {
     position: absolute;
-    right:-12px;/*负数 继续往右*/
+    right:-1px;/*负数 继续往右*/
     top: 50px;
 }
 ul
