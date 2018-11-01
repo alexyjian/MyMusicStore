@@ -6,46 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>综合测试</title>
-    <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>综合测试</title>
     <link rel="stylesheet" type="text/css" href="css.css">
-    <script type="text/javascript" src="js.js"></script>
-</head>
-
+    <script type="text/javascript" src="js/js"></script>
 <body>
-    <div class="slider">
-        <div class="ad" id="ad">
-            <ul id="ad_ul">
-                <li>
-                    <a href="#"><img src="images/1.jpg" alt="广告图"></a>
-                </li>
-                <li>
-                    <a href="#"><img src="images/2.jpg" alt="广告图"></a>
-                </li>
-                <li>
-                    <a href="#"><img src="images/3.jpg" alt="广告图"></a>
-                </li>
-                <li>
-                    <a href="#"><img src="images/4.jpg" alt="广告图"></a>
-                </li>
-                <li>
-                    <a href="#"><img src="images/5.jpg" alt="广告图"></a>
-                </li>
-            </ul>
+    <div id="contaiber">
+
+        <div id="list" style="left:-500px">
+           <img src="images/1.jpg" alt="1">
+           <img src="images/2.jpg" alt="2">
+           <img src="images/3.jpg" alt="3">
+           <img src="images/4.jpg" alt="4">
+           <img src="images/5.jpg" alt="5">
         </div>
-        <ol id="ad_ol">
-            <li class="current">1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-        </ol>
+        <div id="buttons">
+           <span index="1" class="on">1</span>
+           <span index='2'>2</span>
+           <span index="3">3</span>
+           <span index="4">4</span>
+           <span index="5">5</span> </div>
+        <a href="#" id="prev" class="arrow"></a>
+        <a href="#" id="next" class="arrow"></a>
     </div>
 </body>
 
