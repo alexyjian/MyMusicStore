@@ -46,7 +46,7 @@ img{
     margin-right: 10px;
     text-align: center;
     line-height: 20px;
-    cursor: pointer;
+    border:1px solid wheat;
 }
 .naoll ol li.arroet{
     background-color:yellow;
