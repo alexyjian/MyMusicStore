@@ -1,28 +1,55 @@
-window.onload = function () {
-    var ul = document.getElementById('ad_ul');
-    var ol = document.getElementById('ad_ol');
-    var ollis = ol.children;
-    var leader = 0;
-    var target = 0;
-    for (var i = 0; i < ollis.length; i++) {
-        //每个li的索引号
-        ollis[i].index = i;
-        ollis[i].onmouseover = function () {
-            for (var j = 0; j < ollis.length; j++) {
-                ollis[j].className = '';   //去掉所有的class='current'
-            }
-            this.className = 'current';
+function $(id) {
+    return document.getElementById(id);
+}
 
-            target = -this.index * 500;  //目标位置=当前index乘以图片宽度
+window.onload = function () {
+    var target = 0;
+    var lender = 0;
+    var nums = $("list_num").children;
+    var imgs = $("list_img").getElementsByTagName("li");
+    var ul = $("list_img");
+    //当前索引
+    var current_index = 0;
+    var timer = null;
+
+    timer = setInterval(autoPlay, 1500);
+
+    for (var i = 0; i < nums.length; i++) {
+        nums[i].index = i;
+        imgs[i].index = i;
+        nums[i].onmouseover = function () {
+            for (var j = 0; j < nums.length; j++) {
+                nums[j].className = "";
+            }
+            current_index = this.index;
+            this.className = "current";
+            target = -this.index * 555;
         }
     }
 
-    //动画 每20ms left的值如何变化
+    ul.onmouseover = function () {
+        clearInterval(timer);
+    }
+
+    ul.onmouseout = function () {
+        timer = setInterval(autoPlay, 1500);
+    }
+
     setInterval(function () {
-        leader = leader + (target - leader) / 10;
-        ul.style.left = leader + 'px';
-    }, 20)
+        lender = lender + (target - lender) / 8;
+        ul.style.left = lender + "px";
+    }, 8);
+
+    function autoPlay() {
+        if(current_index == 4) {
+            current_index = -1;
+        }
+        current_index++;
+        for (var i = 0; i < nums.length; i++) {
+            nums[i].className = "";
+        }
+        nums[current_index].className = "current";
+        target = -current_index * 555;
+
+    }
 }
-
-
-
