@@ -58,3 +58,11 @@ img {
     font-size: 28px;
     display: none;
 }
+
+#end-box {
+    background: url(images/flash_end.png);
+    width: 700px;
+    height: 51px;
+    position: relative;
+    margin: 1px 1px auto;
+}
