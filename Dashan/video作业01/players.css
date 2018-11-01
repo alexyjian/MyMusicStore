@@ -74,15 +74,17 @@ video {
 }
 
 .video-list p {
-    text-align: left;
+    text-align: center;
     font-size: 15px;
     color: #333;
     padding: 20px 0;
+   
 }
 
 .video-list ul {
     width: 1200px;
     display: flex;
+    margin: 0 auto;
     justify-content: space-between;
 }
 
@@ -93,6 +95,7 @@ video {
     float: left;
     background: url(images/pg2.jpg)no-repeat center center;
     border: 3px solid white;
+    margin: 0 auto;
     border-radius: 8px;
     box-sizing: border-box;
     background-origin: padding-box;
