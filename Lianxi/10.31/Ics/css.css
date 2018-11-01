@@ -1,0 +1,40 @@
+body,ul,li,img{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.slider{
+    width:580px;
+    height: 330px;
+    padding: 5px;
+    position: relative;
+    border:1px solid #ccc;
+    margin: 100px auto 0;
+    overflow: hidden;
+}
+.slider img{
+    width: 580px;
+}
+
+/* 编号的样式 */
+.slider #Button {
+    position: absolute;
+    left:50%;
+    margin-left: -65px;
+    bottom: 10px;
+}
+.slider #Button li{
+    background-color: white;
+    float: left;
+    width: 30px;
+    height: 30px;
+    /* 编号间的距离 */
+    margin-right: 10px;  
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;    
+}
+.slider #Button li.a{
+    background-color: orange;
+}

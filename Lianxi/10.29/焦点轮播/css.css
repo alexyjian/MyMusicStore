@@ -62,6 +62,6 @@ img {
     cursor: pointer;    
 }
 
-.slider ol li.current{
+.slider ol li.a{
     background-color: orange;
 }
