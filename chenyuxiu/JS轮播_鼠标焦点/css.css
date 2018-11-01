@@ -1,23 +1,16 @@
-/* 清除浏览器样式 */
-
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
-
-
-/* 清除点点 */
 
 ul,
 ol {
     list-style: none;
 }
 
-
-/* 清除照片的3px的缝隙 */
-
 img {
     display: block;
+    /* 清除照片的3px的缝隙 */
 }
 
 
