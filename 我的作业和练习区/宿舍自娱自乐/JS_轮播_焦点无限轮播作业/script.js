@@ -3,6 +3,7 @@ window.onload = function () {
     var ul = document.getElementById('head_ul');
     var ul2 = document.getElementById('head_ul2');
     var ol = document.getElementById('head_ol');
+    var head = document.getElementById('head');
     //取所有子元素
     var ollis = ol.children;
     //用来控制left
@@ -19,16 +20,15 @@ window.onload = function () {
     for (var i = 0; i < ollis.length; i++) {
         // 每个li的索引号
         ollis[i].index = i;
+
         //鼠标悬停事件
         ollis[i].onmouseover = function () {
-            //清除计时器
-            clearInterval(timer);
-
+           
             ul2.style.left = '576px';
             ul2.style.display = 'none';
             leader1 = 576;
             target2 = 0;
-            
+
             for (var j = 0; j < ollis.length; j++) {
                 ollis[j].className = '';//去掉所有的class='current'
             }
@@ -38,12 +38,12 @@ window.onload = function () {
             this.className = 'current';
             target = -this.index * 576;//目标位置=当前index索引号*图片宽度
         }
-        ollis[i].onmouseout = function () {
-            //重启计时器
-            timer = setInterval(autoPlay, 3000);
-        }
+      
+        
+        
     }
     timer = setInterval(autoPlay, 3000);
+
 
 
     //过度动画
@@ -69,7 +69,15 @@ window.onload = function () {
             target = 0;
             intr = 0;
         };
-
+        //鼠标悬停
+        head.onmouseover = function () {
+             //清除计时器         
+            clearInterval(timer);
+        }
+        head.onmouseout = function () {
+            //重启计时器
+            timer = setInterval(autoPlay, 3000);
+        }
     }, 1);
 
     function autoPlay() {

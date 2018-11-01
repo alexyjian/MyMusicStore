@@ -8,6 +8,8 @@
     height: 300px;
     position: relative;
 }
+
+/*最上方的导航栏*/
 .header_head{
     width: 100%;
     height: 30px;
@@ -38,11 +40,39 @@
     cursor: pointer;
 }
 
-.header div:nth-child(2){
-    width:1920px ;
-    height: 240px;
+/*导航栏下方的背景*/
+.header div:nth-child(2){ 
+    width:100% ;
+    height: 260px;
     overflow: hidden;
-    position: absolute;
-    margin: 0 auto;
+    background: rgb(90, 89, 89);
+    position: absolute;  
     top: 0;
+}
+.header div:nth-child(2) div{
+    margin: 0 auto;
+    width: 1920px;
+    height: 1080px;
+    background: url(img/2.jpg) no-repeat center;
+}
+
+/*导航栏2*/
+.header div:nth-child(3){ 
+    width:100% ;
+    height: 30px;  
+    position: absolute;  
+    bottom: 0;
+}
+.header div:nth-child(3) ul{
+    margin: 0 auto;
+    width: 1280px;
+    min-width: 1280px;
+    height: 30px;
+}
+.header div:nth-child(3) ul li{
+    float: left;
+    margin-right: 20px;
+    line-height: 30px;
+    font-size: 16px;
+    
 }
