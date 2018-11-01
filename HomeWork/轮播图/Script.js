@@ -18,6 +18,7 @@ window.onload = function () {
         nums[i].index = i;
         imgs[i].index = i;
         nums[i].onmouseover = function () {
+            clearInterval(timer);
             for (var j = 0; j < nums.length; j++) {
                 nums[j].className = "";
             }
@@ -41,7 +42,7 @@ window.onload = function () {
     }, 20);
 
     function autoPlay() {
-        if(current_index == 4) {
+        if (current_index == 4) {
             current_index = -1;
         }
         current_index++;
@@ -50,6 +51,5 @@ window.onload = function () {
         }
         nums[current_index].className = "current";
         target = -current_index * 555;
-
     }
 }
