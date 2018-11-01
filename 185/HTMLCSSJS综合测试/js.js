@@ -25,7 +25,7 @@ window.onload = function () {
                 ol[i].className = '';
             }
             ol[cuindex].className = "current";
-            target = ol[cuindex].index * -490;
+            target = ol[cuindex].index * -500;
         }
     }
 
