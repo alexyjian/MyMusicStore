@@ -1,63 +1,51 @@
 * {
-    margin: 0;
     padding: 0;
-}
-
-ul,
-ol {
+    margin: 0;
     list-style: none;
+    border: 0;
 }
-
-img {
-    display: block;
-}
-
-.slider {
-    width: 490px;
-    height: 170px;
+ .all {
+    width: 500px;
+    height: 200px;
+    padding: 7px;
     border: 1px solid #ccc;
-    margin: 30px auto;
-    padding: 5px;
+    margin: 100px auto;
     position: relative;
 }
-
-.ad {
-    width: 100%;
-    height: 100%;
-    background: pink;
+ .screen {
+    width: 500px;
+    height: 200px;
+    overflow: hidden;
     position: relative;
-    overflow: hidden; 
 }
-
-.ad ul {
-    width: 1000%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.ad ul li {
+ .screen li {
+    width: 500px;
+    height: 200px;
+    overflow: hidden;
     float: left;
 }
-
-.slider ol{
+ .screen ul {
     position: absolute;
-    left:50%;
-    margin-left: -65px;
-    bottom: 10px;
+    left: 0;
+    top: 0px;
+    width: 3000px;
 }
-
-.slider ol li{
-    background-color: white;
+ .all ol {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    line-height: 20px;
+    text-align: center;
+}
+ .all ol li {
     float: left;
     width: 20px;
     height: 20px;
-    margin-right: 10px;  
-    text-align: center;
-    line-height: 20px;
-    cursor: pointer;    
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    cursor: pointer;
 }
-
-.slider ol li.current{
-    background-color: orange;
-}
+ .all ol li.current {
+    background: yellow;
+} 
