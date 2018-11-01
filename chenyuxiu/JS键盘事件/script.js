@@ -23,12 +23,12 @@ window.onload = function() {
         //小球的高和宽
         var ball_width = ball.width;
         var ball_heigth = ball.height;
-        console.log("球桌高和宽：" + ball_width + ',' + ball_height);
+        console.log('球桌高和宽：' + ball_width + ',' + ball_height);
 
         // 小球距球桌左侧和顶部的最大距离
         var x_max = box_width - ball_width - step;
         var y_max = box_height - ball_heigth - step;
-        console.log('x y 最大的距离' + x_max + ',' + y_max);
+        console.log('x, y 最大的距离' + x_max + ',' + y_max);
 
         //  创建键盘事件的对象
         var e = evt ? evt : window.event;
