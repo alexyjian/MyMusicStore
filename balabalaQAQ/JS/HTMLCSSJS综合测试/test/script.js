@@ -23,6 +23,7 @@ window.onload = function () {
         ol_li[i].onmouseout=function(){
             setInterval(autoPlay,3000);
             ol_li[i]= ol_li[i+1];
+          
         }
     }
     setInterval(function () {

@@ -35,7 +35,7 @@ window.onload = function () {
             timer = setInterval(autuCheck, 5000);
         }
     }
-
+    
     //定义定时器，按周期tab栏的切换
     function autuCheck() {
         //每间隔对应周期 ，标签索引值自增
