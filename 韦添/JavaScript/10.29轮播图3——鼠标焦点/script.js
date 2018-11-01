@@ -1,31 +1,28 @@
 window.onload = function () {
-    var scroll = document.getElementById('ad');
-    //取子元素;
-    var ul = scroll.children[0];    
-    //计时器
-    var timer = null;
-    //用于控制动left的变量
+    var ul = document.getElementById('ad_ul');
+    var ol = document.getElementById('ad_ol');
+
+    var ollis = ol.children;
+
     var leader = 0;
     var target = 0;
 
-    //计时器
-    timer = setInterval(autoPlay, 10);
-    
-    function autoPlay() {
-        target--;
+    for (var i = 0; i < ollis.length; i++) {
+        //每个li的索引号
+        ollis[i].index = i;
+        ollis[i].onmouseover = function () {
+            for (var j = 0; j < ollis.length; j++) {
+                ollis[j].className = '';   //去掉所有的class='current'
+            }
+            this.className = 'current';
 
-        target <= -1200 ? target = 0 : target;
+            target = -this.index * 490;  //目标位置=当前index乘以图片宽度
+        }
+    }
+
+    //动画 每20ms left的值如何变化
+    setInterval(function () {
         leader = leader + (target - leader) / 10;
-        //console.log(leader);
-        ul.style.left = leader + "px";
-    }
-
-    //鼠标悬停事件
-    scroll.onmouseover = function(){
-        clearInterval(timer);
-    }
-    scroll.onmouseout = function(){
-        timer = setInterval(autoPlay, 10);
-    }
-
+        ul.style.left = leader + 'px';
+    }, 20)
 }
