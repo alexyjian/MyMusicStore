@@ -1,0 +1,41 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" language="javascript">
+    var show = false;
+    function ShowQueryOption()
+     {
+        var divQueryOptionUserControl = document.getElementById("MainComment");
+        var imgShow = document.getElementById("ShowComment");
+        if (show) {
+            divQueryOptionUserControl.style.display = "none";
+            show = false;
+            imgShow.src = "../Img/Plus.gif";
+        }
+        else
+         {
+            divQueryOptionUserControl.style.display = "";
+            show = true;
+            imgShow.src = "../Img/Minus.gif";
+        }
+    }
+</script>
+</head>
+<body>
+    <div id="MainComment" runat="server"  style="display: none">
+
+        <div>1</div>
+        
+        <div>2</div>
+        
+        <div>需要折叠的内容</div>
+        
+        </div>
+        
+        
+</body>
+</html>
