@@ -12,7 +12,7 @@ window.onload = function () {
         timer = setInterval(function () {
             pic_top--;
             pic_top >= -1070 ? $('pic').style.top = pic_top + "px" : clearInterval(timer);
-        }, 100);
+        }, 20);
     }
 
 
@@ -24,7 +24,7 @@ window.onload = function () {
         timer = setInterval(function () {
             pic_top++;
             pic_top >= -1070 ? $('pic').style.top = pic_top + "px" : clearInterval(timer);
-        }, 100);
+        }, 20);
     }
     $("notmi").onmouseout = function () {
         clearInterval(timer);
