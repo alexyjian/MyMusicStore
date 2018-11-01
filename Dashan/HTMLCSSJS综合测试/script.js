@@ -22,8 +22,8 @@ window.onload = function () {
         changed = true;
         var newleft = parseInt(list.style.left) + offset;
 
-        var time = 50; //位移总时间（ms）
-        var interval = 10; //位移间隔时间
+        var time = 10; //位移总时间（ms）
+        var interval = 5; //位移间隔时间
         var speed = offset / (time / interval); //每次的位移量   总偏移/次数
 
         function go() {
