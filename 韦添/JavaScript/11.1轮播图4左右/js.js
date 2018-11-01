@@ -6,7 +6,7 @@ window.onload = function () {
     var target = 0;
     var leader = 0;
 
-    // 鼠标悬停时箭头出现
+ 
     $("box").onmouseover = function () {
         $("arrow").style.display = "block";
     }
@@ -15,7 +15,7 @@ window.onload = function () {
         $("arrow").style.display = "none";
     }
 
-    //点两只左箭头，left - 520;  right +520
+ 
     $("left").onclick = function () {
         target += 520;
     }
@@ -23,7 +23,7 @@ window.onload = function () {
         target -= 520;
     }
 
-    //动画。把ul的left属性设置为对应的值
+    
     setInterval(function () {
         if (target >= 0) {
             target = 0;

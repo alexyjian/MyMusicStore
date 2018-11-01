@@ -42,7 +42,7 @@ img {
     float: left;
 }
 
-/* 编号的样式 */
+
 .slider ol{
     position: absolute;
     left:50%;
@@ -55,7 +55,7 @@ img {
     float: left;
     width: 20px;
     height: 20px;
-    /* 编号间的距离 */
+ 
     margin-right: 10px;  
     text-align: center;
     line-height: 20px;
