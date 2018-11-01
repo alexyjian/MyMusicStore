@@ -25,6 +25,7 @@ window.onload = function () {
         leader = 0;
         target = 0;
         intr = 0;
+        intrs=0;
     }
     //遍历ol
     for (var i = 0; i < ollis.length; i++) {

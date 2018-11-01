@@ -28,10 +28,7 @@ window.onload = function () {
             ul2.style.display = 'none';
             leader1 = 576;
             target2 = 0;
-            leader = 0;
-            target = 0;
-            intr = 0;
-
+            
             for (var j = 0; j < ollis.length; j++) {
                 ollis[j].className = '';//去掉所有的class='current'
             }
@@ -50,10 +47,6 @@ window.onload = function () {
 
 
     //过度动画
-    tim = setInterval(function () {
-
-
-    }, 1);
     setInterval(function () {
         if (intr <= 6) {
             leader = leader + (target - leader) / 100;
@@ -77,7 +70,7 @@ window.onload = function () {
             intr = 0;
         };
 
-    }, 2);
+    }, 1);
 
     function autoPlay() {
         intr++;
