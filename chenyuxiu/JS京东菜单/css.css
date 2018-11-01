@@ -49,7 +49,6 @@ a:hover {
 #top .top_Nav {
     max-width: 1280px;
     margin: 0 auto;
-    /*居中显示 */
 }
 
 #top ul {
@@ -62,7 +61,7 @@ a:hover {
 }
 
 #top .line {
-    color: #ccc;
+    color: #ccc
 }
 
 .ul_right li {
@@ -82,14 +81,14 @@ a:hover {
 
 .ul_right #div_drop {
     width: 95px;
-    /* 默为隐藏 */
+    /* 默认为隐藏 */
     display: none;
     position: absolute;
     left: 0;
     top: 30px;
     background-color: #fff;
     border: thin;
-    border-color: #eee;
+    border-color: #eee
 }
 
 .ul_right #div_drop a {
@@ -118,7 +117,7 @@ a:hover {
     padding-top: 20px;
 }
 
-#header.logo {
+#header .logo {
     float: left;
 }
 
