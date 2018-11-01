@@ -1,216 +1,70 @@
-@-webkit-keyframes pic_1 {
-    0% {
-        opacity: 1;
-    }
-    15% {
-        opacity: 1;
-    }
-    25% {
-        opacity: 0;
-    }
-    90% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes pic_2 {
-    0% {
-        opacity: 0;
-    }
-    15% {
-        opacity: 0;
-    }
-    25% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@-webkit-keyframes pic_3 {
-    0% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    65% {
-        opacity: 1;
-    }
-    75% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@-webkit-keyframes pic_4 {
-    0% {
-        opacity: 0;
-    }
-    65% {
-        opacity: 0;
-    }
-    75% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes pic_1 {
-    0% {
-        opacity: 1;
-    }
-    15% {
-        opacity: 1;
-    }
-    25% {
-        opacity: 0;
-    }
-    90% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes pic_2 {
-    0% {
-        opacity: 0;
-    }
-    15% {
-        opacity: 0;
-    }
-    25% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes pic_3 {
-    0% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    65% {
-        opacity: 1;
-    }
-    75% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes pic_4 {
-    0% {
-        opacity: 0;
-    }
-    65% {
-        opacity: 0;
-    }
-    75% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-/****  涓绘鏋�   ****/
-
 * {
     margin: 0;
     padding: 0;
 }
 
-body {
-    margin: 0 auto;
-}
-
-#container {
-    width: 500px;
-    height: 200px;
-    box-shadow: 1px 1px 10px #aaa;
-    padding: 5px;
-    margin: 20px auto;
-    position: relative;
-}
-
-ul {
-    width: 500px;
-    height: 200px;
-    position: relative;
-    overflow: hidden;
-}
-
-li {
+ul,
+ol {
     list-style: none;
+}
+
+img {
+    display: block;
+    /* 清除照片的3px的缝隙 */
+}
+
+/* 轮播图片的样式 */
+.slider {
+    width: 490px;
+    height: 170px;
+    border: 1px solid #ccc;
+    margin: 30px auto;
+    padding: 5px;
+    position: relative;
+}
+
+.ad {
+    width: 100%;
+    height: 100%;
+    background: pink;
+    position: relative;
+    overflow: hidden; 
+}
+
+.ad ul {
+    width: 1000%;
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 0;
 }
 
-/****  榧犳爣鎮仠鏆傚仠鍔ㄧ敾   ****/
-
-#slide:hover li {
-    -webkit-animation-play-state: paused;
-    -moz-animation-play-state: paused;
+.ad ul li {
+    float: left;
 }
 
-#first{
-    -webkit-animation: pic_1 12s infinite;
-    -moz-animation: pic_1 12s infinite;
+
+.slider ol{
+    position: absolute;
+    left:50%;
+    margin-left: -65px;
+    bottom: 10px;
 }
 
-#second {
-    -webkit-animation: pic_2 12s infinite;
-    -moz-animation: pic_2 12s infinite;
+.slider ol li{
+    background-color: white;
+    float: left;
+    width: 20px;
+    height: 20px;
+ 
+    margin-right: 10px;  
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;    
 }
 
-#third {
-    -webkit-animation: pic_3 12s infinite;
-    -moz-animation: pic_3 12s infinite;
+.slider ol li.current{
+    background-color: orange;
 }
 
-#fourth {
-    -webkit-animation: pic_4 12s infinite;
-    -moz-animation: pic_4 12s infinite;
-}
+
+
