@@ -3,33 +3,48 @@ window.onload=function(){
     var ul=document.getElementById('on_ul');
     var ol=document.getElementById('on_ol').getElementsByTagName("li");
     var timer=null;
+    var index=0;
     var leader=0;
     var target=0;
     
-    var 
+    timer=setInterval(autoPlay,900);
 
-    //自动播放设置
-    if(timer){
-       clearInterval(timer);
-       timer=null;
-   }  
-    var ollis=ol.children;
-    for(var i=0; i<ollis.length; i++){
-        //每个li的索引号
-        ollis[i].index=i;
-        ollis[i].onmouseover=function(){
-            for(var j=0; j<ollis.length; j++){
-                //去掉所有的class='arroet'
-                ollis[j].className='';
-            }
-            this.className='arroet';
-            //目标位置=当前index乘以图片宽度
-            Animation(ul) -this.index * 500;
+    function autoPlay(){
+        index++;
+        if(index >= ol.length) {
+           index=0;
+        }
+        cutimages(index);
+        console.log(index);
+    }
+    function cutimages(cuindex){
+    for(var i=0; i < ol.length; i++){
+        for(var i=0; i < ol.length; i++){
+            ol[i].className ='';
+        }
+        ol[cuindex].className="arroet";
+        target=ol[cuindex].index*-500;
+      }
+    }
+    setInterval(function(){
+        leader=leader +(target - leader)/10;
+        ul.style.left=leader + 'px';
+    },20)
+    
+    naoll.onmouseover=function(){
+        clearInterval(timer);
+    }
+    naoll.onmouseover=function(){
+        timer=setInterval(autoPlay,900);
+    }
+
+    for(var i=0; i< ol.length; i++){
+        ol[i].index=i;
+        ol[i].onmouseover=function(){
+            clearInterval(timer);
+            cutimages(this.index);
+            index=this.index;
+            console.log(index);
         }
     }
-    //动画，每20秒 left的值如何变化
-    setInterval(function(){
-        leader=leader + (target-leader)/10;
-        ul.style.left=leader + 'px';
-    },100)
 }
