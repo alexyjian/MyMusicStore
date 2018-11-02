@@ -110,6 +110,7 @@
     height: 300%;
     position: relative; 
 }
+/*轮播导航栏*/
 .main_header{
     margin-top: 10px;    
     width: 1280px;
@@ -145,6 +146,7 @@
    float: left;
    margin-left: 20px;
    border-radius: 5px;
+   overflow: hidden;
 }
 .main_header  div:nth-child(2) .li_min {   
    margin-top: 20px;
