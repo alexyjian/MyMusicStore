@@ -15,13 +15,28 @@
 }
 #imgs{
     position:absolute;
-    width: 5000px;
+    width: 2500px;
     left: 0;
+    display: block;
 }
-.current{
+#imgsfor{
+    position:absolute;
+    width: 3000px;
+    height: 100%;
+    left: 3000px;
+    display: none;
+}
+.imgs_one{
     padding-left: 5px;
+    padding-bottom: 5px;
 }
 #imgs li {
+    width: 500px;
+    height: 200px;
+    float: left;
+    margin-right: 5px;
+}
+#imgsfor li{
     width: 500px;
     height: 200px;
     float: left;
