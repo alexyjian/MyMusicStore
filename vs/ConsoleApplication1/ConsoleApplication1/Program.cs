@@ -11,6 +11,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             Console .Write ("黄学名是傻子 ");
+            Console.Read();
         }
     }
 }
