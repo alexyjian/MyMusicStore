@@ -6,6 +6,7 @@ window.onload = function () {
     var leader=0;
     var ol_li = $('sn').children;
     var ol=0;
+    var img =$('imgs').children;
 
     var timer= setInterval(autoPlay,3000);
     
@@ -13,7 +14,7 @@ window.onload = function () {
     for (var i = 0; i < ol_li.length; i++) {
         ol_li[i].index = i;
         ol_li[i].onmouseover = function () {
-            clearInterval(timer);
+            window.clearInterval(timer);
             for (var j = 0; j < ol_li.length; j++) {
                 ol_li[j].className = '';
             }
@@ -21,14 +22,13 @@ window.onload = function () {
             target = -this.index * 505;
         }
         ol_li[i].onmouseout=function(){
-            setInterval(autoPlay,3000);
-            ol_li[i]= ol_li[i+1];
+            //timer= setInterval(autoPlay,3000);
         }
     }
     setInterval(function () {
         leader = leader + (target - leader) / 10;
         $('imgs').style.left = leader + 'px';
-    }, 20)
+    }, 20) 
     /*鼠标焦点控制end*/ 
 
     /*自动轮播*/ 
@@ -40,6 +40,10 @@ window.onload = function () {
             ol_li[0].className=''; 
         }
         target=target-505;
+        if(target<=-2100){
+            target = 0
+            marquue.appendChild(marquue.children[0].cloneNode(true)); 
+        }
         target <= -2100 ? target = 0 : target;
         leader = leader + (target - leader) / 10;
         $('imgs').style.left = leader + 'px';
