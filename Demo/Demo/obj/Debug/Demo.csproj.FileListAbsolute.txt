@@ -7,3 +7,6 @@ E:\VSGit\Demo\Demo\obj\Debug\Demo.pdb
 E:\VSGit\MyMusicStore\Demo\Demo\bin\Debug\Demo.exe.config
 E:\VSGit\MyMusicStore\Demo\Demo\obj\Debug\Demo.exe
 E:\VSGit\MyMusicStore\Demo\Demo\obj\Debug\Demo.pdb
+E:\VSGit\MyMusicStore\Demo\Demo\bin\Debug\Demo.exe
+E:\VSGit\MyMusicStore\Demo\Demo\bin\Debug\Demo.pdb
+E:\VSGit\MyMusicStore\Demo\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache

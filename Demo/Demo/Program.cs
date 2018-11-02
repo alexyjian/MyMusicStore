@@ -15,6 +15,8 @@ namespace Demo
             Console.WriteLine("1008611");
             Console.WriteLine("1008611");
             Console.WriteLine("1008611");
+            Console.WriteLine("1008611");
+
         }
     }
 }
