@@ -40,11 +40,11 @@ namespace Demo
                     ID = Guid.NewGuid(),
                     Name = "测试学院",
                     Dscn = "环境与食品开发检测",
-                    SortCode = "999"
+                    SortCode = "888"
                 };
                 //把新对象添加到上下文中
                 conext.Department.Add(newDepartment);
-                //更新上下文把新的实体保存到数据库中
+                //更新上下文把新的实体保存到数据库
                 conext.SaveChanges();
 
                 //显示新的记录
