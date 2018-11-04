@@ -1,0 +1,9 @@
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\bin\Debug\Demmo1.exe.config
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\bin\Debug\Demmo1.exe
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\bin\Debug\Demmo1.pdb
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\obj\Debug\Demmo1.exe
+C:\Users\Administrator\Source\Repos\suweixi\MyMusicStore\Dashan\Demo1\Demmo1\obj\Debug\Demmo1.pdb
