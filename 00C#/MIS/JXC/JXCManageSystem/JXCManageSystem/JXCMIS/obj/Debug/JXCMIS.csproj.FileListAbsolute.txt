@@ -32,3 +32,6 @@ E:\yjian\JXCManageSystem\JXCMIS\obj\Debug\JXCMIS.Frm_Purchase_Stock.resources
 E:\yjian\JXCManageSystem\JXCMIS\obj\Debug\JXCMIS.Frm_UserManager.resources
 E:\yjian\JXCManageSystem\JXCMIS\obj\Debug\JXCMIS.Frm_ChangePwd.resources
 E:\yjian\JXCManageSystem\JXCMIS\obj\Debug\JXCMIS.Form2.resources
+E:\chenyuxiu vs2015\MyMusicStore\00C#\MIS\JXC\JXCManageSystem\JXCManageSystem\JXCMIS\bin\Debug\JXCMIS.exe.config
+E:\chenyuxiu vs2015\MyMusicStore\00C#\MIS\JXC\JXCManageSystem\JXCManageSystem\JXCMIS\obj\Debug\JXCMIS.exe
+E:\chenyuxiu vs2015\MyMusicStore\00C#\MIS\JXC\JXCManageSystem\JXCManageSystem\JXCMIS\obj\Debug\JXCMIS.pdb
