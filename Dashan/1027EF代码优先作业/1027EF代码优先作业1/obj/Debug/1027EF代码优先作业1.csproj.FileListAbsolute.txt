@@ -1,0 +1,11 @@
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\bin\Debug\1027EF代码优先作业1.exe.config
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\bin\Debug\1027EF代码优先作业1.exe
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\bin\Debug\1027EF代码优先作业1.pdb
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\bin\Debug\EntityFramework.dll
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\bin\Debug\EntityFramework.SqlServer.dll
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\bin\Debug\EntityFramework.xml
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\bin\Debug\EntityFramework.SqlServer.xml
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\obj\Debug\1027EF代码优先作业1.csprojResolveAssemblyReference.cache
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\obj\Debug\1027EF代码优先作业1.exe
+E:\webswx\1027EF代码优先作业\1027EF代码优先作业1\obj\Debug\1027EF代码优先作业1.pdb
