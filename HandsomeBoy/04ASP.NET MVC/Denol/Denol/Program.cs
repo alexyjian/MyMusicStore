@@ -27,12 +27,12 @@ namespace Denol
             {
                 // .where .orderby .tolist() 注意顺序
 
-                var departments = context.Departments.Where(n=>n.Name.Contains("工程")).OrderBy(n => n.SortCode).ToList();
-                
-                foreach (var d in departments)
-                {
-                    Console.WriteLine("编号{0},部门{1},说明{2}", d.SortCode, d.Name, d.Dscn);
-                }
+                //var departments = context.Departments.Where(n=>n.Name.Contains("工程")).OrderBy(n => n.SortCode).ToList();
+
+                //foreach (var d in departments)
+                //{
+                //    Console.WriteLine("编号{0},部门{1},说明{2}", d.SortCode, d.Name, d.Dscn);
+                //}
 
 
                 //Console.WriteLine("添加一条新纪录");
@@ -55,7 +55,7 @@ namespace Denol
                 //修改
                 //Console.Write("修改记录");
                 //Console.WriteLine("----------------------------------------");
-                
+
                 //var editDcpartment = context.Departments.SingleOrDefault(x => x.Name == "环境与食品学院");
                 //if (editDcpartment != null)
                 //{
@@ -71,22 +71,24 @@ namespace Denol
                 //    Console.WriteLine("编号{0},部门{1},说明{2}", d.SortCode, d.Name, d.Dscn);
 
                 //删除
-                Console.Write("删除记录");
-                Console.WriteLine("----------------------------------------");
-                //find--用主键查询实体
-                var delDept = context.Departments.Find(Guid.Parse("e54fbe5d-026f-46d5-8455-bd981e6b39c5"));
-                context.Departments.Remove(delDept);
-                context.SaveChanges();
+                //Console.Write("删除记录");
+                //Console.WriteLine("----------------------------------------");
+                ////find--用主键查询实体
+                //var delDept = context.Departments.Find(Guid.Parse("e54fbe5d-026f-46d5-8455-bd981e6b39c5"));
+                //context.Departments.Remove(delDept);
+                //context.SaveChanges();
 
-                foreach (var d in departments)
-                {
-                    Console.WriteLine("编号{0},部门{1},说明{2}", d.SortCode, d.Name, d.Dscn);
-                }
+                //foreach (var d in departments)
+                //{
+                //    Console.WriteLine("编号{0},部门{1},说明{2}", d.SortCode, d.Name, d.Dscn);
+                //}
+              
+                //查询
 
             }
             Console.ReadLine();
-         
-            
+
+            //
         }
     }
 }
