@@ -52,16 +52,19 @@ namespace _11_4EF代码优先级作业
                 }
                 Console.WriteLine("----------------------------------------");
                 Console.WriteLine("更改一条新纪录后的查询");
-                foreach (var c in courses)
+                foreach (var c in context.Courses.ToList())
                 {
                     Console.WriteLine("课程名称{0},课程学分{1},所属学院{2}", c.Title, c.Credit, c.Departments.Name);
                 }
 
                 //-----------------------删除----------------------------------
-                var deletecon =  context.Courses.Find(Guid.Parse("7fdf3c57-b50a-4305-b4b3-b3ba074bd0f3"));
+                var deletecon =  context.Courses.Find(Guid.Parse("7e933b53-0d5a-4f42-99ba-2931396e85e7"));
                 context.Courses.Remove(deletecon);
                 context.SaveChanges();
-              
+                foreach (var c in context.Courses.ToList())
+                {
+                    Console.WriteLine("课程名称{0},课程学分{1},所属学院{2}", c.Title, c.Credit, c.Departments.Name);
+                }
             }
             Console.ReadKey();
         }
