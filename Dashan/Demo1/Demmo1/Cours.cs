@@ -18,5 +18,7 @@ namespace Demmo1
         public string Title { get; set; }
         public int Credit { get; set; }
         public Nullable<System.Guid> Department_ID { get; set; }
+    
+        public virtual Departmnt Departmnt { get; set; }
     }
 }

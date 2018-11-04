@@ -14,9 +14,16 @@ namespace Demmo1
     
     public partial class Departmnt
     {
+        public Departmnt()
+        {
+            this.Courses = new HashSet<Cours>();
+        }
+    
         public System.Guid ID { get; set; }
         public string Name { get; set; }
         public string Dscn { get; set; }
         public string SortCode { get; set; }
+    
+        public virtual ICollection<Cours> Courses { get; set; }
     }
 }
