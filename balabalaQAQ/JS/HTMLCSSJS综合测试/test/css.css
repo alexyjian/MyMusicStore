@@ -64,3 +64,13 @@
 #sn .sn_one{
     background: rgba(247, 222, 82,0.8);
 }
+
+@keyframes zhuan{
+    from{
+        transform:  translateX(505px); 
+     }
+     to{ transform: translateX(-505px);  }
+}
+.dh{
+    animation: zhuan 2s infinite;
+}
