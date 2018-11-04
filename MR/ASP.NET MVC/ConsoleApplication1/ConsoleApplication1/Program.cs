@@ -10,6 +10,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            var courses = new CourseDBEntities().Courses.ToList();
+
+            foreach(var c in courses)
+            {
+                Console.WriteLine("课程名称：{0} 课程学分：{1} 所属学院：{2}", c.Title, c.Credit, c.Dapartments.Name);
+            }
+
+
+            Console.ReadKey();
         }
     }
 }
