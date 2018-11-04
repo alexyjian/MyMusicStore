@@ -59,7 +59,7 @@ namespace 代码优先作业
                 Console.WriteLine("未找该课程，不能修改!");
 
             foreach (var c in context.Courses.ToList())
-                Console.WriteLine("课程名称：{0}  课程学分:{1}  所属学院:{2}", c.Title, c.Credit, c.Departments.Name);
+                Console.WriteLine("课程名称：{0}  课程学分:{1}  所属学院:{2}", c.Title, c.Credit, c.Department.Name);
 
             Console.WriteLine("==================删除一门课程====================");
             var delobj = context.Courses.Find(Guid.Parse("4254e5ff-29bd-4a18-8029-14de19259d9f"));
