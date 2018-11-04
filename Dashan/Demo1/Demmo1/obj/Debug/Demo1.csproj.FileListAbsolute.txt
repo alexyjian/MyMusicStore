@@ -1,0 +1,10 @@
+E:\webswx\Demo1\Demmo1\bin\Debug\Demmo1.exe.config
+E:\webswx\Demo1\Demmo1\bin\Debug\Demmo1.exe
+E:\webswx\Demo1\Demmo1\bin\Debug\Demmo1.pdb
+E:\webswx\Demo1\Demmo1\bin\Debug\EntityFramework.dll
+E:\webswx\Demo1\Demmo1\bin\Debug\EntityFramework.SqlServer.dll
+E:\webswx\Demo1\Demmo1\bin\Debug\EntityFramework.xml
+E:\webswx\Demo1\Demmo1\bin\Debug\EntityFramework.SqlServer.xml
+E:\webswx\Demo1\Demmo1\obj\Debug\Demo1.csprojResolveAssemblyReference.cache
+E:\webswx\Demo1\Demmo1\obj\Debug\Demmo1.exe
+E:\webswx\Demo1\Demmo1\obj\Debug\Demmo1.pdb

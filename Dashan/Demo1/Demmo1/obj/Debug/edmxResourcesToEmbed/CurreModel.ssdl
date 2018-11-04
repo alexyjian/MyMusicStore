@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CourseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“CourseDB.dbo.Courses”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="Credit" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Credit" Type="int" Nullable="false" />
+    <Property Name="Department_ID" Type="uniqueidentifier" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“CourseDB.dbo.Departmnt”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="Departmnt">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dscn" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="CourseDBModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="Self.Courses" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Courses].[ID] AS [ID], 
+    [Courses].[Title] AS [Title], 
+    [Courses].[Credit] AS [Credit], 
+    [Courses].[Department_ID] AS [Department_ID]
+    FROM [dbo].[Courses] AS [Courses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Departmnt" EntityType="Self.Departmnt" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Departmnt].[ID] AS [ID], 
+    [Departmnt].[Name] AS [Name], 
+    [Departmnt].[Dscn] AS [Dscn], 
+    [Departmnt].[SortCode] AS [SortCode]
+    FROM [dbo].[Departmnt] AS [Departmnt]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
