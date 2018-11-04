@@ -82,7 +82,7 @@ namespace Denol
                 //{
                 //    Console.WriteLine("编号{0},部门{1},说明{2}", d.SortCode, d.Name, d.Dscn);
                 //}
-              
+              //123123
                 //查询
 
             }
