@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>div标记初识</title>
+
+    <style>
+        .title{
+            width: 100%;/* 设置宽度*//*默认宽度100%*/
+            height:50px; /* 设置高度*/
+            line-height: 50px;/*设置行高*//*高度和宽度一样的时候，可以垂直居中*/
+            background-color: aqua;/*background设置所有的背景属性*/
+            font-size:40px;/*size 属性规定 font 元素中文本的尺寸大小*/
+            font-weight:bold;/*文本的粗细*//*数字值 400 相当于 关键字 normal，700 等价于 bold*/
+            text-align: center;/*元素的文本对齐方式：*/
+        }
+        .main{ 
+            float:left;/*元素在哪个方向浮动*/
+            width: 80%;/* 设置宽度*//*默认宽度100%*/
+            background-color:coral;
+            text-indent: 2em;/*属性规定文本块中首行文本的缩进*/
+            
+        }
+        .right{
+            float:left;
+            background-color: bisque;
+            width:20%;
+        }
+    </style>
+</head>
+<body> 
+        <p>
+    <div class="title"> 
+        用div标记设置标题文本
+    </div>
+    <div class="main"> 
+        <p>
+            div标记中嵌套p标记的文本
+        </p>
+    </div>
+    <div class="right">
+        <p>
+            青春无限
+        </p>
+    </div>
+</body>
+
+</html>

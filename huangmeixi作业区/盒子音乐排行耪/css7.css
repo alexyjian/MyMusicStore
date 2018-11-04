@@ -1,0 +1,56 @@
+
+/*全局变量，重置浏览器*/
+*{
+    margin:0%;
+    padding: 0;
+    list-style: none;/*list-style列表中的列表项目标记,*/
+}
+/*唱片样式*/
+.bg{
+    width: 600px;
+    height:530px;/**/
+    margin: 50px auto;/*外边距*/
+    border-radius: 50%;/*添加圆角边框*/
+    border: 10px solid #ccc;/*设置所有的边框属性*/
+    padding: 40px ;/*内边距*/
+    padding-top: 50px;/*设置元素的上内边距（空间）*/
+    background-image: repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);/*从中心向四周渐变*/
+} 
+
+/*排名列表样式*/
+ul {
+    width: 370px;
+    height:500px;
+    background: #FFF;
+    border-radius: 30px;
+    box-shadow: 15px 15px 12px #000;/*向框添加一个或多个阴影*/
+    margin: 0 auto;
+}
+/*歌曲项*/
+ul li{
+    width:370px;
+    height:50px;
+    background: #504D59 url(yinfu.png)  no-repeat 70px 20px;
+    color: #d6d6d6;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    text-align:center;
+    margin-bottom: 2px;/*下外边距*/
+    line-height: 55px;
+}
+/*单独控制列表，首部*/
+ul .top{
+    width:370px;
+    height:250px;
+    background:#ffffff;
+    background-image:url(yinyue.jpg),url(wenzi.jpg);
+    background-repeat: no-repeat;/*定义了图像的平铺模式*/
+    background-position: 87px 16px,99px 190px;/*设置背景图像的起始位置*/
+    border-radius: 30px 30px 0 0 ;
+}
+/*单独控制列表 ，胃部*/
+ul .bu{
+    border-radius: 0 0 30px 30px;/*圆角边框*/
+}
+
+

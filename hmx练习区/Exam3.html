@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动+放大</title>
+    <style>
+        div{
+            width: 100px;
+            height: 50px;
+            background-color: aqua;
+            border:1px solid black;
+        }
+        #div2{
+            transform:translate(100px,30px);
+            -webkit-transform: translate(100px,30px);
+            -ms-transform: translate(100px,30px);
+            -moz-transform: (100px,30px);
+            -o-transform: (100px,30px);/*浏览器的兼容性*/
+            
+        }
+        #div3{
+               margin: 100px;
+               transform: scale(2,2);
+               -webkit-transform: scale(2,2);
+               -ms-transform: scale(2,2);
+               -moz-transform: scale(2,2);
+               -o-transform:scale(2,2);
+        }
+
+        #div4{
+    
+               transform: skew(40deg,-10deg);
+               -webkit-transform: skew(40deg,-10deg);
+               -ms-transform:skew(40deg,-10deg);
+               -moz-transform: skew(40deg,-10deg);
+               -o-transform:skew(40deg,-10deg);
+        }
+        
+        #div4{
+               transform: rotate(40deg,);
+               -webkit-transform: rotate(40deg,);
+               -ms-transform:rotate(40deg,);
+               -moz-transform:rotate(40deg,);
+               -o-transform:rotate(40deg,);
+             /*正往右边，复往左边*/
+}
+ 
+
+    </style>
+</head>
+<body>
+    <div>原 本</div>
+    <div  id=div2>移动后</div>
+    <div id=div3>放大后</div>
+    <div id=div4>倾斜后</div>
+    <div id=div55>旋转后</div>
+</body>
+</html>

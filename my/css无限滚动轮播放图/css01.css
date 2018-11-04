@@ -1,0 +1,42 @@
+div{
+    margin: 0 auto;
+    width: 520px;
+    height: 140px;
+    border: 1px solid;
+    box-sizing: border-box;
+    overflow:hidden;
+    background-color: #000;
+}
+div ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 2600px;
+    animation:move 10s linear 0s infinite normal;
+}
+div ul li img{
+width: 260px;
+height: 140px;
+}
+div ul:hover{
+    -webkit-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+div ul:hover li{
+    opacity: .5;
+}
+div ul li:hover{
+    opacity: 1;
+}
+div ul li{
+    float: left;
+}
+@keyframes move{
+    from{
+        margin-left: 0;
+    }
+    to{
+        margin-left: -1040px;
+    }
+}

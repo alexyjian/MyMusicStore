@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标对象操作</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .list{
+        margin: 20px auto;
+        width: 300px;
+        border: 1px solid royalblue;
+        background: #eee;
+
+    }
+
+    ul{
+        height: 30px;
+        line-height: 30px;/*设置行间的距离（行高）*/
+    }
+
+
+    .head{
+        font-weight: bold;/*设置三个段落的字体的粗细：*/
+    }
+
+    li{
+        float: left;
+        text-align: center;
+        width: 75px;
+    }
+    .highlight{
+      background:gold;
+    }
+
+    .name{
+        cursor: pointer;
+    }
+    </style>
+
+    <script>
+  function h1(tag){
+      tag.setAttribute('class','highlight');
+
+  }
+
+  function cleaeh1(tag)
+  {
+      tag.removeAttribute('class');
+  }
+  function detail(tag) {
+             alert(tag.innerHTML+'\n明细...');
+         }
+    
+    </script>
+</head>
+<body>
+    <div class='list'>
+    <ul class='head'>
+        <li>姓名</li>
+        <li>年龄</li>
+        <li>性别</li>
+        <li>国籍</li>
+    </ul>
+    <ul onmouseover="h1(this)" onmouseout="cleaeh1(this)">
+        <li class='name' onclick="detail(this)">赵丽颖</li>
+        <li>30</li>
+        <li>女</li>
+        <li>中国</li>
+    </ul>
+    <ul onmouseover="h1(this)" onmouseout="cleaeh1(this)">
+        <li  class='name'onclick="detail(this)">ghyer</li>
+        <li>22</li>
+        <li>女</li>
+        <li>中国 </li>
+    </ul>
+    <ul onmouseover="h1(this)" onmouseout="cleaeh1(this)">
+         <li  class='name' onclick="detail(this)">Ayrme</li>
+         <li>21</li>
+         <li>女</li>
+        <li>中国 </li>
+    </ul>
+     <ul onmouseover="h1(this)" onmouseout="cleaeh1(this)">
+        <li  class='name'onclick="detail(this)">Pur</li>
+        <li>26</li>
+        <li>女</li>
+        <li>中国</li>
+    </ul>
+</body>
+</html>
