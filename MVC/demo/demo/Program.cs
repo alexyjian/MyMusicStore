@@ -42,9 +42,9 @@ namespace demo
                 //    Console.WriteLine("未找到记录，请重新查询");
                 //}
                 ////删除
-                var delDept = context.Departments.Find(Guid.Parse("9d43730e-d178-47ec-adef-aca57ff5c987"));
-                context.Departments.Remove(delDept);
-                context.SaveChanges();
+                //var delDept = context.Departments.Find(Guid.Parse("9d43730e-d178-47ec-adef-aca57ff5c987"));
+                //context.Departments.Remove(delDept);
+                //context.SaveChanges();
                 var departments1 = context.Departments.OrderBy(n => n.SortCode).ToList();
                 foreach (var d in departments1)
 
