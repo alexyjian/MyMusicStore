@@ -64,7 +64,7 @@ namespace EF代码优先作业
             var obj = context.Courses.SingleOrDefault(x => x.Title == "人性的弱点");
             if (obj != null)
             {
-                obj.Title = "卡基";
+                obj.Title = "卡";
                 obj.Credit = 3;
                 obj.Departments = context.Departments.SingleOrDefault(x => x.Name == "艺术学院");
                 context.SaveChanges();
