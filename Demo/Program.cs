@@ -32,7 +32,7 @@ namespace Demo
                     Console.WriteLine("编号：{0},部门名称:{1},说明:{2}", d.SortCode, d.Name, d.Dscn);
 
                 Console.WriteLine("添加一条新的部门记录");
-                Console.WriteLine("=========================s===========================");
+                Console.WriteLine("=====================================================");
 
                 //添加一条记录
                 var newDepartment = new Department
