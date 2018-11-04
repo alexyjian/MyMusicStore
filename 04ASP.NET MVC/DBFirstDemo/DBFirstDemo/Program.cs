@@ -30,6 +30,16 @@ namespace DBFirstDemo
                 else
                     Console.WriteLine("未找到该记录，不能修改.");
 
+                //Console.WriteLine("删除记录");
+                //Console.WriteLine("========================================");
+                ////find--用主键查询实体
+                //var delDept = context.Departments.Find(Guid.Parse("e6a729b7-7638-40b1-a8e7-ce9e0e666b70"));
+                ////var id = Guid.Parse("e6a729b7-7638-40b1-a8e7-ce9e0e666b70");
+                ////var delDept = context.Departments.SingleOrDefault(x => x.ID == id);
+                //context.Departments.Remove(delDept);
+                //context.SaveChanges();
+
+
                 var departments1 = context.Departments.OrderBy(n => n.SortCode).ToList();
                 foreach (var d in departments1)
                     Console.WriteLine("编号:{0},部门名称:{1},说明:{2}", d.SortCode, d.Name, d.Dscn);
