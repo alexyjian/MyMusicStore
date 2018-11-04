@@ -23,7 +23,7 @@ window.onload = function () {
     }, 20)
     //----------自动轮播
     var timer = null;
-
+  
     function autoplay() {//--自动方法
         target -= 405;
         target <= -1700 ? target = 0 : target;
@@ -64,6 +64,7 @@ window.onload = function () {
 
     }
 
+  
     timer = setInterval(autoplay, 2000);
 
     $('box').onmouseover = function () {

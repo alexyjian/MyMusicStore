@@ -6,3 +6,6 @@ D:\Yjian\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
 D:\Yjian\ADOdotNETSolution\ConsoleApplication\bin\Debug\DBAUtility.dll
 D:\Yjian\ADOdotNETSolution\ConsoleApplication\bin\Debug\DBAUtility.pdb
 D:\Yjian\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.csprojResolveAssemblyReference.cache
+E:\lql\ccoe\MyMusicStore\00C#\MIS\ADOdotNETSolution\ConsoleApplication\bin\Debug\ConsoleApplication.exe.config
+E:\lql\ccoe\MyMusicStore\00C#\MIS\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.exe
+E:\lql\ccoe\MyMusicStore\00C#\MIS\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
