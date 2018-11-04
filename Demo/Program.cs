@@ -54,7 +54,7 @@ namespace Demo
                     Console.WriteLine("编号：{0},部门名称:{1},说明:{2}", d.SortCode, d.Name, d.Dscn);
 
                 //Console.WriteLine("修改记录");
-                //Console.WriteLine("=====================================================");
+                //Console.WriteLine("====================================================");
 
                 //修改
 
