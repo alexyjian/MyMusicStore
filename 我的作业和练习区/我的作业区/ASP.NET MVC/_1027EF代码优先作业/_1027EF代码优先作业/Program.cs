@@ -12,19 +12,41 @@ namespace _1027EF代码优先作业
         {
             using(var context=new CuresContext())
             {
-                foreach(var dep in context.Departments.OrderBy(x => x.SortCode).ToList())
+                foreach(var cou in context.Courses.ToList())
                 {
-                    Console.WriteLine("{0}   {1}    {2}",dep.Name,dep.SortCode,dep.Dscn);
+                    Console.WriteLine("课程名称：{0}   课程学分：{1}    所属学院：{2}", cou.Title, cou.Credit, cou.Departments.Name);
                 }
-                //添加一条纪录
-                Console.WriteLine("添加一条纪录");
-                var adddep = new Departments() {
-                    ID = Guid.Parse("08693647-b635-4a8d-a734-b6ba8f9da479"),
-                    Name="电竞与战略学院",
-                    Dscn="就是专门打游戏的学校",
-                    SortCode="010"
+                //添加课程
+                Console.WriteLine("=======================添加三门课程==========================");
+                var cour1 = new Courses() {
+                    ID = Guid.NewGuid(),
+                    Title = "软件工程项目组织管理",
+                    Credit=17,
+                    Departments=context.Departments.SingleOrDefault(x=>x.Name=="电子信息工程学院")
                 };
-                context.Departments.Add();
+                var cour2 = new Courses()
+                {
+                    ID = Guid.NewGuid(),
+                    Title = "算法与数据结构",
+                    Credit = 10,
+                    Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院")
+                };
+                var cour3 = new Courses()
+                {
+                    ID = Guid.NewGuid(),
+                    Title = "C#图像处理",
+                    Credit = 10,
+                    Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院")
+                };
+                context.Courses.Add(cour1);
+                context.Courses.Add(cour2);
+                context.Courses.Add(cour3);
+                context.SaveChanges();
+                //刷新列表
+                foreach (var cou in context.Courses.ToList())
+                {
+                    Console.WriteLine("课程名称：{0}   课程学分：{1}    所属学院：{2}", cou.Title, cou.Credit, cou.Departments.Name);
+                }
                 Console.ReadKey();
             }
         }
