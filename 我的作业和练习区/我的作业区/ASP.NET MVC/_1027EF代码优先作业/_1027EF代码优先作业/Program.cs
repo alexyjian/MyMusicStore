@@ -10,19 +10,22 @@ namespace _1027EF代码优先作业
     {
         static void Main(string[] args)
         {
-            using(var context=new CuresContext())
+            using (var context = new CuresContext())
             {
-                foreach(var cou in context.Courses.ToList())
+
+
+                foreach (var cou in context.Courses.ToList())
                 {
                     Console.WriteLine("课程名称：{0}   课程学分：{1}    所属学院：{2}", cou.Title, cou.Credit, cou.Departments.Name);
                 }
-                //添加课程 
+                //添加课程  
                 Console.WriteLine("=======================添加三门课程==========================");
-                var cour1 = new Courses() {
+                var cour1 = new Courses()
+                {
                     ID = Guid.NewGuid(),
                     Title = "软件工程项目组织管理",
-                    Credit=17,
-                    Departments=context.Departments.SingleOrDefault(x=>x.Name=="电子信息工程学院")
+                    Credit = 17,
+                    Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院")
                 };
                 var cour2 = new Courses()
                 {
@@ -34,8 +37,9 @@ namespace _1027EF代码优先作业
                 var cour3 = new Courses()
                 {
                     ID = Guid.NewGuid(),
-                    Title = "C#图像处理", 
+                    Title = "C#图像处理",
                     Credit = 10,
+                    //Department_ID=context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院").ID,
                     Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院")
                 };
                 context.Courses.Add(cour1);
