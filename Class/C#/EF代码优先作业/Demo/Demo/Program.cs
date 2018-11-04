@@ -29,7 +29,7 @@ namespace Demo
                 context.SaveChanges();
                 Console.WriteLine("==============添加成功！==============");
                 var editContext = context.TBL_BookInfo.SingleOrDefault(x => x.BookName == "算法导论");
-                editContext.WordCount = 50000;
+                editContext.WordCount = 5000;
                 context.SaveChanges();
                 Console.WriteLine("==============修改成功！==============");
                 var delContext = context.TBL_BookInfo.Find("10653387543");
