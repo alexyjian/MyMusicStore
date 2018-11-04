@@ -34,7 +34,7 @@ namespace _1027EF代码优先作业
                 var cour3 = new Courses()
                 {
                     ID = Guid.NewGuid(),
-                    Title = "C#图像处理",
+                    Title = "C#图像处理", 
                     Credit = 10,
                     Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院")
                 };
