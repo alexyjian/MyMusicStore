@@ -10,15 +10,43 @@ namespace _1027EF代码优先作业
     {
         static void Main(string[] args)
         {
-            //使用数据上下文进行数据操作，using不是上下文代码的范围，执行完后内存就会自动释放
-            using (var context = new CourseContext())
-            {
-                var departments = context.Departments.OrderBy(n => n.SortCode).ToList();
-                foreach (var d in departments)
-                    Console.WriteLine("编号{0},部门名称{1},说明{2}", d.SortCode, d.Name, d.Dscn);
-                Console.ReadKey();
+            var context = new CourseContext();
+            var courses = context.Courses.ToList();
+            foreach (var c in courses)
+                Console.WriteLine("课程名称：{0}  课程学分:{1}  所属学院:{2}", c.Title, c.Credit, c.Departments.Name);
 
-            }
+            Console.WriteLine("==================添加三门课程====================");
+            //添加课程
+            var c1 = new Courses()
+            {
+                ID = Guid.NewGuid(),
+                Title = "软件工程项目组织管理",
+                Credit = 17,
+                //外键的对象 一定要从同一个上下文中查询
+                Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院")
+            };
+            var c2 = new Courses()
+            {
+                ID = Guid.NewGuid(),
+                Title = "算法与数据结构",
+                Credit = 2,
+                Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院")
+            };
+            var c3 = new Courses()
+            {
+                ID = Guid.NewGuid(),
+                Title = "C#图像处理",
+                Credit = 2,
+                Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院")
+            };
+            context.Courses.Add(c1);
+            context.Courses.Add(c2);
+            context.Courses.Add(c3);
+            context.SaveChanges();
+
+            foreach (var c in context.Courses.ToList())
+                Console.WriteLine("课程名称：{0}  课程学分:{1}  所属学院:{2}", c.Title, c.Credit, c.Departments.Name);
+            Console.ReadLine();
         }
     }
 }
