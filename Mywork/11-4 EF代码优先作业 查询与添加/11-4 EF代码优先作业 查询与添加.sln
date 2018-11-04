@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11-4 EF代码优先作业 查询与添加", "11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加.csproj", "{148A2F6A-44B4-48BE-8D52-39059DAA2E32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{148A2F6A-44B4-48BE-8D52-39059DAA2E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148A2F6A-44B4-48BE-8D52-39059DAA2E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148A2F6A-44B4-48BE-8D52-39059DAA2E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148A2F6A-44B4-48BE-8D52-39059DAA2E32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
