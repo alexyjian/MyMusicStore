@@ -46,6 +46,28 @@ namespace _1027EF代码优先作业
 
             foreach (var c in context.Courses.ToList())
                 Console.WriteLine("课程名称：{0}  课程学分:{1}  所属学院:{2}", c.Title, c.Credit, c.Departments.Name);
+
+            Console.WriteLine("================修改一门课程======================");
+            var obj = context.Courses.SingleOrDefault(x => x.Title == "C#程序设计");
+            if (obj != null)
+            {
+                obj.Title = "计算机英语";
+                obj.Credit = 4;
+                obj.Departments = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院");
+                context.SaveChanges();
+            }
+            else
+                Console.WriteLine("未找到该课程，无法修改！");
+                foreach (var c in context.Courses.ToList())
+                Console.WriteLine("课程名称：{0} 课程学分{1} 所属学院{2}", c.Title, c.Credit, c.Departments.Name);
+
+            //Console.WriteLine("================删除一门课程======================");
+            //var delobj = context.Courses.Find(Guid.Parse("eddc1f62-013d-4324-9b7f-e52994d338d5"));
+            //context.Courses.Remove(delobj);
+            //context.SaveChanges();
+            //foreach (var c in context.Courses.ToList())
+            //    Console.WriteLine("课程名称：{0} 课程学分{1} 所属学院{2}", c.Title, c.Credit, c.Departments.Name);
+
             Console.ReadLine();
         }
     }
