@@ -20,7 +20,7 @@ namespace _11_4EF代码优先级作业
                     Console.WriteLine("课程名称{0},课程学分{1},所属学院{2}", c.Title, c.Credit,c.Departments.Name);
                 }
 
-                //添加一条新纪录
+                //-----------------------添加----------------------------------
                 var Newcourses = new Courses
                 {
                     ID = Guid.NewGuid(),
@@ -38,6 +38,7 @@ namespace _11_4EF代码优先级作业
                     Console.WriteLine("课程名称{0},课程学分{1}", c.Title, c.Credit,c.Departments.Name);
                 }
 
+                //-----------------------修改----------------------------------
                 var courseUpdate = context.Courses.SingleOrDefault(x => x.Title == "商务英语");
                 if (courseUpdate != null)
                 {
@@ -56,7 +57,8 @@ namespace _11_4EF代码优先级作业
                     Console.WriteLine("课程名称{0},课程学分{1},所属学院{2}", c.Title, c.Credit, c.Departments.Name);
                 }
 
-             var deletecon =  context.Courses.Find(Guid.Parse("7fdf3c57-b50a-4305-b4b3-b3ba074bd0f3"));
+                //-----------------------删除----------------------------------
+                var deletecon =  context.Courses.Find(Guid.Parse("7fdf3c57-b50a-4305-b4b3-b3ba074bd0f3"));
                 context.Courses.Remove(deletecon);
                 context.SaveChanges();
               
