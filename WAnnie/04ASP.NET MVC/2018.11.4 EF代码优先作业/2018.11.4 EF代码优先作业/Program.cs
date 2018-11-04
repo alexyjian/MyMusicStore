@@ -33,10 +33,10 @@ namespace _2018._11._4_EF代码优先作业
 
                 //Console.WriteLine("删除记录");
                 //Console.WriteLine("===================================");
-                ////find--用主键查询实体
+                //find--用主键查询实体
                 //var delDept = context.Departments.Find(Guid.Parse("fa0d71e5-6d49-4bd3-b079-d2df53b5a711"));
-                ////var id = Guid.Parse("fa0d71e5-6d49-4bd3-b079-d2df53b5a711");
-                ////var delDept = context.Departments.SingleOrDefault(x => x.ID == id);
+                //var id = Guid.Parse("fa0d71e5-6d49-4bd3-b079-d2df53b5a711");
+                //var delDept = context.Departments.SingleOrDefault(x => x.ID == id);
                 //context.Departments.Remove(delDept);
                 //context.SaveChanges();
 

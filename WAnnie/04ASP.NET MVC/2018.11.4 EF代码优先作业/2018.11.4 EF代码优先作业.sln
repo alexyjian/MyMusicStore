@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2018.11.4 EF代码优先作业", "2018.11.4 EF代码优先作业\2018.11.4 EF代码优先作业.csproj", "{977A9FD2-25B3-47C3-82C2-248EFB038578}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB first", "2018.11.4 EF代码优先作业\DB first.csproj", "{977A9FD2-25B3-47C3-82C2-248EFB038578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
