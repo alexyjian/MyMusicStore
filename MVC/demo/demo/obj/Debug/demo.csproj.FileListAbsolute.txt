@@ -1,0 +1,10 @@
+E:\MyMusicStore\MVC\demo\demo\bin\Debug\demo.exe.config
+E:\MyMusicStore\MVC\demo\demo\obj\Debug\demo.csprojResolveAssemblyReference.cache
+E:\MyMusicStore\MVC\demo\demo\bin\Debug\demo.exe
+E:\MyMusicStore\MVC\demo\demo\bin\Debug\demo.pdb
+E:\MyMusicStore\MVC\demo\demo\bin\Debug\EntityFramework.dll
+E:\MyMusicStore\MVC\demo\demo\bin\Debug\EntityFramework.SqlServer.dll
+E:\MyMusicStore\MVC\demo\demo\bin\Debug\EntityFramework.xml
+E:\MyMusicStore\MVC\demo\demo\bin\Debug\EntityFramework.SqlServer.xml
+E:\MyMusicStore\MVC\demo\demo\obj\Debug\demo.exe
+E:\MyMusicStore\MVC\demo\demo\obj\Debug\demo.pdb
