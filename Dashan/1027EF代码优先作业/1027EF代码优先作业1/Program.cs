@@ -68,6 +68,7 @@ namespace _1027EF代码优先作业1
             foreach (var c in context.Courses.ToList())
                 Console.WriteLine("课程程名程：{0} 课程学分：{1} 所属学院:{2}", c.Title, c.Credit, c.Departmnt.Name);
 
+
             Console.ReadLine();
         }
     }
