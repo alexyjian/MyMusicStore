@@ -40,7 +40,7 @@ namespace Demo
                     ID = Guid.NewGuid(),
                     Name = "测试学院",
                     Dscn = "环境与食品开发检测",
-                    SortCode = "666"
+                    SortCode = "66"
                 };
                 //把新对象添加到上下文中
                 conext.Department.Add(newDepartment);
