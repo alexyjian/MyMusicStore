@@ -16,7 +16,7 @@ namespace _1027EF代码优先作业
                 {
                     Console.WriteLine("课程名称：{0}   课程学分：{1}    所属学院：{2}", cou.Title, cou.Credit, cou.Departments.Name);
                 }
-                //添加课程
+                //添加课程 
                 Console.WriteLine("=======================添加三门课程==========================");
                 var cour1 = new Courses() {
                     ID = Guid.NewGuid(),
