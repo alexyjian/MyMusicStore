@@ -58,7 +58,7 @@ namespace _1027EF代码优先作业
 
             //删除课程
             Console.WriteLine("===========删除1门课程===============");
-            var delobj = context.Courses.Find(Guid.Parse("906b285b-779e-46f5-b952-884e394a602c"));
+            var delobj = context.Courses.Find(Guid.Parse("00bd0515-59ea-4c9a-bc2e-8ada025528eb"));
             context.Courses.Remove(delobj);
             context.SaveChanges();
 
