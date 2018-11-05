@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\MyMusicStore\Shroud\ASP.NET MVC\11.4作业\11.4作业\bin\Debug\11.4作业.exe.config
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\bin\Debug\11.4作业.exe.config
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\bin\Debug\11.4作业.exe
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\bin\Debug\11.4作业.pdb
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\bin\Debug\EntityFramework.dll
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\bin\Debug\EntityFramework.SqlServer.dll
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\bin\Debug\EntityFramework.xml
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\bin\Debug\EntityFramework.SqlServer.xml
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\obj\Debug\11.4作业.csprojResolveAssemblyReference.cache
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\obj\Debug\11.4作业.exe
+F:\Shroud\ASP.NET MVC\11.4作业\11.4作业\obj\Debug\11.4作业.pdb
