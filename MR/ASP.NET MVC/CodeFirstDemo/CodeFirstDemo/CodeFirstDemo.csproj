@@ -53,7 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeFirstMadels\Course.cs" />
+    <Compile Include="CodeFirstMadels\CourseContext.cs" />
     <Compile Include="CodeFirstMadels\Department.cs" />
+    <Compile Include="CodeFirstMadels\Student.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
