@@ -25,7 +25,7 @@ namespace Demo
                     Dscn = "环境与食品检测",
                     SortCode="008"
                   
-
+                
                 };
 
                 //把新的对象添加到上下文
