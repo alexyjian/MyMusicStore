@@ -24,7 +24,7 @@ namespace Demo
                     Name = "环境与食品学院",
                     Dscn = "环境与食品检测",
                     SortCode="008"
-                  
+                 
                 
                 };
 
