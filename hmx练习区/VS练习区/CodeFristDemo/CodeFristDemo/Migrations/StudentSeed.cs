@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeFristDemo
+namespace CodeFristDemo.Migrations
 {
-    class Program
+  public  class StudentSeed
     {
-        static void Main(string[] args)
+        public static void Seed(CourseContext context)
         {
+            var stu1 =new Student()
          
         }
     }
