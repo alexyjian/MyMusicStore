@@ -47,12 +47,12 @@ namespace EF代码作业1
             context.SaveChanges();
 
             Console.WriteLine("==================修改一门课程====================");
-            var obj = context.Courses.SingleOrDefault(x => x.Title == "商务英语");
+            var obj = context.Courses.SingleOrDefault(x => x.Title == "艺术修养");
             if (obj != null)
             {
-                obj.Title = "计算机英语";
+                obj.Title = "艺术修养1";
                 obj.Credit = 4;
-                obj.Department = context.Departments.SingleOrDefault(x => x.Name == "电子信息工程学院");
+                obj.Department = context.Departments.SingleOrDefault(x => x.Name == "艺术设计学院");
                 context.SaveChanges();
             }
             else
@@ -62,7 +62,7 @@ namespace EF代码作业1
                 Console.WriteLine("课程名称：{0}  课程学分:{1}  所属学院:{2}", c.Title, c.Credit, c.Department.Name);
 
             //Console.WriteLine("==================删除一门课程====================");
-            //var delobj = context.Courses.Find(Guid.Parse("abb77302-f84a-4497-9204-79e3addb84e4"));
+            //var delobj = context.Courses.Find(Guid.Parse("7771ce06-278c-4bda-9c9e-30824490460f"));
             //context.Courses.Remove(delobj);
             //context.SaveChanges();
 
