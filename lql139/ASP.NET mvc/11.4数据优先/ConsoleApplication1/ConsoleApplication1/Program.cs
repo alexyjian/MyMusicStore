@@ -13,7 +13,8 @@ namespace ConsoleApplication1
             var context = new CourseDBEntities();
             var course = context.Courses.ToList();
             foreach (var c in course)
-                Console.WriteLine("课程名称：{0},课程学分：{1},所属学院：{2}",c.Title,c.Credit,c.Departments.Name);
+            Console.WriteLine("课程名称：{0},课程学分：{1},所属学院：{2}",c.Title,c.Credit,c.Departments.Name);
+           
             ////添加--------------------
             //var newcour = new Courses()
             //{
@@ -27,26 +28,26 @@ namespace ConsoleApplication1
             //var course1 = context.Courses.ToList();
             //foreach (var c in course1)
             //    Console.WriteLine("课程名称：{0},课程学分：{1},所属学院：{2}", c.Title, c.Credit, c.Departments.Name);
-            //修改--------------------
+            
+            ////修改--------------------
             //var updetecourse = context.Courses.SingleOrDefault(x => x.Title == "软件工程项目");
             //if (updetecourse != null)
             //{
             //    updetecourse.Title = "软件工程大大大项目";
-            //    context.SaveChanges();     
+            //    updetecourse.Credit = 4;
+            //    context.SaveChanges();
             //}
             //else
             //{ Console.WriteLine("未找到记录"); }
 
-            //var course2 = context.Courses.ToList();
-            //foreach (var c in course2)
+            //foreach (var c in course)
             //    Console.WriteLine("课程名称：{0},课程学分：{1},所属学院：{2}", c.Title, c.Credit, c.Departments.Name);
 
             ////删除
             //var deletecourse=context.Courses.SingleOrDefault(x => x.Title == "软件工程大大大项目");
             //context.Courses.Remove(deletecourse);
             //context.SaveChanges();
-            //var course3 = context.Courses.ToList();
-            //foreach (var c in course3)
+            //foreach (var c in course)
             //    Console.WriteLine("课程名称：{0},课程学分：{1},所属学院：{2}", c.Title, c.Credit, c.Departments.Name);
 
             Console.ReadKey();
