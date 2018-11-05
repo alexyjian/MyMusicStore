@@ -76,7 +76,7 @@ namespace EF代码优先作业
                 Console.WriteLine("课程名称：{0} 课程学分：{1} 所属学院：{2} ", c.Title, c.Credit, c.Departments.Name);
 
             Console.WriteLine("================删除课程===============");
-            var delobj = context.Courses.Find(Guid.Parse("aa7c919a-3b8c-425f-9ed5-7042d37e85c1"));
+            var delobj = context.Courses.Find(Guid.Parse("3c723d7f-caf1-4b4a-99de-21ececb52762"));
             context.Courses.Remove(delobj);
             context.SaveChanges();
 
