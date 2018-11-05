@@ -62,6 +62,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,8 +71,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Course.cs" />
-    <Compile Include="Dpartment.cs" />
+    <Compile Include="CodeFirsDemoMoldels\Student.cs" />
+    <Compile Include="CodeFirsDemoMoldels\Course.cs" />
+    <Compile Include="CodeFirsDemoMoldels\CourseContext.cs" />
+    <Compile Include="CodeFirsDemoMoldels\Dpartment.cs" />
+    <Compile Include="CourseSeed.cs" />
+    <Compile Include="DpartmentSeed.cs" />
+    <Compile Include="StudentSeed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,9 +85,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CodeFirsDemoMoldels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
