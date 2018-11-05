@@ -11,10 +11,19 @@ namespace CodeFirstDemo
     {
         static void Main(string[] args)
         {
-            using (var context = new CourseContext())
+            //using (var context = new CourseContext())
+            //{
+            //    Console.WriteLine("ef初始化");
+            //}
+            var studens = new CourseContext().Student.OrderBy(x => x.StudentCode).ToList();
+            foreach(var s in studens)
             {
-                Console.WriteLine("ef初始化");
-            }
+                Console.WriteLine(s.Name);
+                Console.WriteLine(s.Sex);
+                Console.WriteLine(s.ID);
+            };
+
+            Console.Read();
         }
     }
 }
