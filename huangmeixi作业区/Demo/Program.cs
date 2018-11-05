@@ -10,7 +10,7 @@ namespace Demo
     {
         static void Main(string[] args)
         {
-            //创建数据的上下文,所有的表的实体都会在此上下文中;
+            //创建数据的上下文,所有的表的实体都会在此上下文中;1
             //var context = new CourseDBEntities();
             //var depatments = context.Departments.OrderBy(x=>x.SortCode).ToList();
             //var course = context.Coures.OrderBy(x => x.ID).ToList();

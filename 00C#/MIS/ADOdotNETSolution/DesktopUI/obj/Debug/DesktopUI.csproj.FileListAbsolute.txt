@@ -15,3 +15,6 @@ E:\yjian\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
 E:\VS123\Demo\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
 E:\VS123\Demo\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
 E:\VS123\Demo\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
+E:\黄美悉\VSGit\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
+E:\黄美悉\VSGit\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
+E:\黄美悉\VSGit\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
