@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Data.Entity;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CodeFirstll
+{ /// <summary>
+  /// 数据上下文 映射带DB
+  /// </summary>
+    public class CourseContext:DbContext
+    {
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Course> Courses { get; set; }
+
+        
+    }
+}
