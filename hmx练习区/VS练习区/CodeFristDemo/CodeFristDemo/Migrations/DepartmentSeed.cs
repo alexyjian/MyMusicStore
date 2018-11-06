@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeFristDemo.CodeFirstModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace CodeFristDemo.Migrations
 {
     public class DepartmentSeed
     {
-        public static void Seed(CourseContext contex)
+        public static void Seed(CourseContext context)
         {
             var d1 = new Department()
             {
@@ -37,7 +38,6 @@ namespace CodeFristDemo.Migrations
                 SortCode = "004",
                 Description = "第四大学院"
             };
-
             context.Departments.Add(d1);
             context.Departments.Add(d2);
             context.Departments.Add(d3);

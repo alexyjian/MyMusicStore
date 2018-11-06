@@ -17,6 +17,7 @@ namespace CodeFristDemo.Migrations
         {
             context.Database.ExecuteSqlCommand("delete courses");
             context.Database.ExecuteSqlCommand("delete departments");
+            context.Database.ExecuteSqlCommand("delete students");
             CourserSeed.Seed(context);
             DepartmentSeed.Seed(context);
             StudentSeed.Seed(context);

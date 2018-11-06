@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeFristDemo.CodeFirstModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace CodeFristDemo.Migrations
 {
     public class CourserSeed
     {
-        public static void Seed(CourserContext context)
+        public static void Seed(CourseContext context)
         {
             var c1 = new Course()
             {

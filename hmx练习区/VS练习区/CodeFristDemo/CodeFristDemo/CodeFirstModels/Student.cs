@@ -14,7 +14,7 @@ namespace CodeFristDemo.CodeFirstModels
         public Guid ID { get; set; }
         public string StudentCode { get; set; }
         public  string Name { get; set; }
-        public  bool Sex { get; set; }
+        public bool Sex { get; set; } = true;
         
         public DateTime Birthday { get; set; }
    
