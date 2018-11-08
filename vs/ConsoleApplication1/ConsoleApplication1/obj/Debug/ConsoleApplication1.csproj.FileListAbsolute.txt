@@ -1,0 +1,10 @@
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.dll
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.dll
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.xml
+E:\2015\MyMusicStore\vs\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.xml

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CourseDBModelStoreContainer" CdmEntityContainer="CourseDBEntities">
+    <EntitySetMapping Name="dbo_Courses">
+      <EntityTypeMapping TypeName="CourseDBModel.dbo_Courses">
+        <MappingFragment StoreEntitySet="dbo_Courses">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Credit" ColumnName="Credit" />
+          <ScalarProperty Name="Departent_ID" ColumnName="Departent_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbo_Departnents">
+      <EntityTypeMapping TypeName="CourseDBModel.dbo_Departnents">
+        <MappingFragment StoreEntitySet="dbo_Departnents">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Dscn" ColumnName="Dscn" />
+          <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

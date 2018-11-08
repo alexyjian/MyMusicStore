@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CourseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="dbo_Courses">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Credit" Type="Int32" Nullable="false" />
+    <Property Name="Departent_ID" Type="Guid" />
+    <NavigationProperty Name="dbo_Departnents" Relationship="Self.FK_dbo_Courses_dbo_Departnents" FromRole="dbo_Courses" ToRole="dbo_Departnents" />
+  </EntityType>
+  <EntityType Name="dbo_Departnents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dscn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SortCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="dbo_Courses" Relationship="Self.FK_dbo_Courses_dbo_Departnents" FromRole="dbo_Departnents" ToRole="dbo_Courses" />
+    <NavigationProperty Name="dbo_Departnents1" Relationship="Self.FK_dbo_Departnents_dbo_Departnents" FromRole="dbo_Departnents" ToRole="dbo_Departnents1" />
+    <NavigationProperty Name="dbo_Departnents2" Relationship="Self.FK_dbo_Departnents_dbo_Departnents" FromRole="dbo_Departnents1" ToRole="dbo_Departnents" />
+  </EntityType>
+  <Association Name="FK_dbo_Courses_dbo_Departnents">
+    <End Role="dbo_Departnents" Type="Self.dbo_Departnents" Multiplicity="0..1" />
+    <End Role="dbo_Courses" Type="Self.dbo_Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dbo_Departnents">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="dbo_Courses">
+        <PropertyRef Name="Departent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Departnents_dbo_Departnents">
+    <End Role="dbo_Departnents" Type="Self.dbo_Departnents" Multiplicity="1" />
+    <End Role="dbo_Departnents1" Type="Self.dbo_Departnents" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="dbo_Departnents">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="dbo_Departnents1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CourseDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="dbo_Courses" EntityType="Self.dbo_Courses" />
+    <EntitySet Name="dbo_Departnents" EntityType="Self.dbo_Departnents" />
+    <AssociationSet Name="FK_dbo_Courses_dbo_Departnents" Association="Self.FK_dbo_Courses_dbo_Departnents">
+      <End Role="dbo_Departnents" EntitySet="dbo_Departnents" />
+      <End Role="dbo_Courses" EntitySet="dbo_Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Departnents_dbo_Departnents" Association="Self.FK_dbo_Departnents_dbo_Departnents">
+      <End Role="dbo_Departnents" EntitySet="dbo_Departnents" />
+      <End Role="dbo_Departnents1" EntitySet="dbo_Departnents" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
