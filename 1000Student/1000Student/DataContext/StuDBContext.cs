@@ -8,7 +8,7 @@ using _1000Student.Entities;
 
 namespace _1000Student.DataContext
 {
-    class StuDBContext:DbContext
+    public class StuDBContext:DbContext
     {
 		public DbSet<DepartMent> DepartMents { get; set; }
 		public DbSet<Student> Students { get; set; }
