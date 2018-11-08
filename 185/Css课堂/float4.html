@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            font-size:18px;
+        }
+        .father{
+            margin: 10px auto;
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            background: #ccc;
+            border: 1px solid #000
+        }
+        .div1,
+        .div2,
+        .div3,
+        .div4
+        {
+            width: 100px;
+            height: 50px;
+            line-height:50px;
+            background:yellow;
+            border:1px solid red;
+            margin: 10px 0px ;
+            text-align:center;
+        }
+        .div2{
+            position:relative;/*相对定位*/
+            left:220px;
+            top:400px;
+        }
+
+        .div3{
+            position:absolute;/*绝对定位方式*/
+           /* position:static; 不定位方式*/
+            left:150px;
+            top:100px;
+        }
+        .div4{
+            position: fixed;
+            top:40px;
+            left:6px;
+        }
+    </style>
+</head>
+<body>
+        <div class="father">
+                <div class="div1">div1</div>
+                <div class="div2">div2</div>
+                <div class="div3">div3</div>
+                <div class="div1">div1</div>
+                <div class="div2">div2</div>
+                <div class="div3">div3</div>
+                <div class="div4">div4</div>
+            </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\bin\Debug\11.4代码先优作业.exe.config
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\obj\Debug\11.4代码先优作业.csprojResolveAssemblyReference.cache
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\bin\Debug\11.4代码先优作业.exe
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\bin\Debug\11.4代码先优作业.pdb
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\bin\Debug\EntityFramework.dll
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\bin\Debug\EntityFramework.SqlServer.dll
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\bin\Debug\EntityFramework.xml
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\bin\Debug\EntityFramework.SqlServer.xml
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\obj\Debug\11.4代码先优作业.exe
+E:\2015\MyMusicStore\185\11.4代码先优作业\11.4代码先优作业\obj\Debug\11.4代码先优作业.pdb

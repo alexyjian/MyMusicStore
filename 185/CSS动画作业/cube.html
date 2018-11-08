@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .qaq{
+            width:250px;
+            height:250px;
+            margin:100px auto;
+            border: 5px solid red;
+            position:relative;
+            border-radius:50%;
+
+            transform-style:preserve-3d;
+            animation: move 8s linear infinite;
+
+        }
+        @keyframes move{
+            0%{
+                transform:rotateX(0deg) rotateY(0deg)
+            }
+            100%{
+                transform:rotateX(360deg) rotateY(360deg)
+            }
+        }
+        .qaq>div{
+            width:100%;
+            height:100%;
+            position:absolute;
+            text-align: center;
+            line-height:250px;
+            font-size:60px;
+            color:#666;
+        }
+        .c{
+            background-color: rgba(255, 0, 0, 0.3);
+            transform-origin: top;
+            transform:rotateX(90deg)  translateY(-125px);
+        }
+        .W{
+            background-color: rgba(0, 255, 0, 0.3);
+            transform-origin: bottom;
+            transform:rotateX(-90deg) translateY(125px);
+        }
+        .J{
+            background-color: rgba(95, 0, 76, 0.3);
+
+            transform-origin:  left;
+            transform:rotateY(-90deg) translateX(-125px);
+        }
+        .D{
+            background-color: rgba(0, 0, 98, 0.3);
+            transform-origin: right;
+            transform:rotateY(90deg) translateX(125px);
+        }
+        .M{
+            background-color: rgba(255, 0, 255, 0.3);
+            transform:translateZ(120px)
+        }
+        .N{
+            background-color: rgba(0, 97, 97,0.3);
+            transform:rotateY(180deg) translateZ(125px);
+        }
+    </style>
+</head>
+<body>
+    <div class="qaq">
+      <div class="c">陈</div>
+      <div class="W">文</div>
+      <div class="J">君</div>
+      <div class="D">大</div>
+      <div class="M">美</div>
+      <div class="N">女</div>
+    </div>
+</body>
+</html>
