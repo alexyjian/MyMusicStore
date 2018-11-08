@@ -11,6 +11,6 @@ namespace CodeFirst11._08.DataContext
     public class StuDBContext:DbContext
     {
         public DbSet<DepartMent> DepartMents { get; set; }
-        public DbSet<Student> Student { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 }
