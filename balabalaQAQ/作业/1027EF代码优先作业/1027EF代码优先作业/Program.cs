@@ -43,7 +43,7 @@ namespace _1027EF代码优先作业
             context.Courses.Remove(DB);
             context.SaveChanges();
 
-
+            //查询
             foreach (var c in courseDB)
                     Console.WriteLine("课程名称：{0} 课程学分：{0} 课程ID：{0}", c.Title, c.Credit, c.Department_ID);
                 Console.ReadKey();
