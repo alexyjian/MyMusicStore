@@ -14,7 +14,7 @@ namespace DBFirstDemo
             using (var context = new CourseContext())
             {
                 //.where .orderby .tolist() 注意调用的顺序
-                var departments = context.Departments.OrderBy(n => n.SortCode).ToList();
+                var departments = context.Departm201ents.OrderBy(n => n.SortCode).ToList();
 
                 foreach (var d in departments)
                     Console.WriteLine("编号{0},部门名称{1},说明{2}", d.SortCode, d.Name, d.Dscn);
