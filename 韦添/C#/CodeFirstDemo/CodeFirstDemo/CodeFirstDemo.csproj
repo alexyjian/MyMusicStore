@@ -55,6 +55,11 @@
     <Compile Include="CodeFirstModels\Course.cs" />
     <Compile Include="CodeFirstModels\CourseContext.cs" />
     <Compile Include="CodeFirstModels\Department.cs" />
+    <Compile Include="CodeFirstModels\Student.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\CourseSeed.cs" />
+    <Compile Include="Migrations\DepartmentSeed.cs" />
+    <Compile Include="Migrations\StudentSeed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +67,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

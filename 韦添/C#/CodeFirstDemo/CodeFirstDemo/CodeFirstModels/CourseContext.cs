@@ -7,18 +7,11 @@ using System.Threading.Tasks;
 
 namespace CodeFirstDemo.CodeFirstModels
 {
-   public class CourseContext:DbContext
+   
+    public class CourseContext : DbContext
     {
         public DbSet<Department> Departments { get; set; }
-        public DbSet<Course>Courses { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        
-        }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
-
-   
 }
-

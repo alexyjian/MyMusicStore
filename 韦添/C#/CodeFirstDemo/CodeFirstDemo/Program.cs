@@ -11,7 +11,9 @@ namespace CodeFirstDemo
     {
         static void Main(string[] args)
         {
-          
+            var students = new CourseContext().Students.OrderBy(x => x.StudentCode).ToList();
+            foreach (var s in students)
+                Console.WriteLine(s.Name);
         }
     }
 }
