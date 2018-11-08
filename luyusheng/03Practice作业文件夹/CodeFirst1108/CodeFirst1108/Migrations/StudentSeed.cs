@@ -73,6 +73,7 @@ namespace CodeFirst1108.Migrations
                     Department = d3,
                     Phone = "137*******"
                 };
+
                 context.Students.Add(student);
                 Thread.Sleep(1);
             }
