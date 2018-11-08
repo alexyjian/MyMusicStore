@@ -12,6 +12,7 @@ namespace CodeFirst1108
     {
         static void Main(string[] args)
         {
+            //
             //for(var i = 0; i < 100; i++)
             //{
             //    var fname = "";
