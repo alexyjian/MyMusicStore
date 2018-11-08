@@ -15,6 +15,7 @@ namespace CodeFirstDemo
 
             foreach (var s in students)
                 Console.WriteLine(s.Name);
+            Console.ReadKey();
         }
     }
 }
