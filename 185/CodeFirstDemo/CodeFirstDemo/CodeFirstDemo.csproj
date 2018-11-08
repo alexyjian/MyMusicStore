@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99B8FCA7-D17C-4222-9884-C84ABB6A71DE}</ProjectGuid>
+    <ProjectGuid>{02927EE8-A90B-451E-8E63-4B0A1263BEEA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CodeFirstDemo</RootNamespace>
@@ -52,6 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeFirstModels\Course.cs" />
+    <Compile Include="CodeFirstModels\CourseContext.cs" />
+    <Compile Include="CodeFirstModels\Department.cs" />
+    <Compile Include="CodeFirstModels\Student.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\CourseSeed.cs" />
+    <Compile Include="Migrations\DepartmentSeed.cs" />
+    <Compile Include="Migrations\StudentSeed.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

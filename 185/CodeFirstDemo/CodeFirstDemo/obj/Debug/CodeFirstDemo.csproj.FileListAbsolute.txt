@@ -1,1 +1,1 @@
-E:\2015\MyMusicStore\185\CodeFirstDemo\CodeFirstDemo\bin\Debug\CodeFirstDemo.exe.config
+E:\2015\MyMusicStore\04ASP.NET MVC\CodeFirstDemo\CodeFirstDemo\bin\Debug\CodeFirstDemo.exe.config

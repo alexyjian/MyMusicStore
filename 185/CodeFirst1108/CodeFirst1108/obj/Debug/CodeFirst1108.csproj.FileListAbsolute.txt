@@ -1,1 +1,15 @@
 E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.exe.config
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\obj\Debug\CodeFirst1108.exe
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\obj\Debug\CodeFirst1108.pdb
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.exe
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.pdb
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.dll
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.SqlServer.dll
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.xml
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.SqlServer.xml
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.Extended.dll
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\MoreLinq.dll
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\System.ValueTuple.dll
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.Extended.xml
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\MoreLinq.xml
+E:\2015\MyMusicStore\185\CodeFirst1108\CodeFirst1108\bin\Debug\System.ValueTuple.xml
