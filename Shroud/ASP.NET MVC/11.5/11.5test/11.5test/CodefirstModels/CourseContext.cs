@@ -12,16 +12,16 @@ namespace _11._5test.CodefirstModels
         public DbSet<Department> Department { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Student> Students { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            Database.SetInitializer<CourseContext>(new CourseInitializer());
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    Database.SetInitializer<CourseContext>(new CourseInitializer());
+        //}
     }
 
-    public class CourseInitializer : DropCreateDatabaseIfModelChanges<CourseContext>
-    {
+    //public class CourseInitializer : DropCreateDatabaseIfModelChanges<CourseContext>
+    //{
 
-    }
+    //}
 
 
 }

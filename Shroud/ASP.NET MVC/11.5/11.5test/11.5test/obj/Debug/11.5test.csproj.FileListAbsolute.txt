@@ -8,3 +8,6 @@ C:\Users\Administrator\Desktop\11.5test\11.5test\bin\Debug\EntityFramework.SqlSe
 C:\Users\Administrator\Desktop\11.5test\11.5test\obj\Debug\11.5test.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\11.5test\11.5test\obj\Debug\11.5test.exe
 C:\Users\Administrator\Desktop\11.5test\11.5test\obj\Debug\11.5test.pdb
+C:\Users\Administrator\Desktop\ShroudzZ\MyMusicStore\Shroud\ASP.NET MVC\11.5\11.5test\11.5test\bin\Debug\11.5test.exe.config
+C:\Users\Administrator\Desktop\ShroudzZ\MyMusicStore\Shroud\ASP.NET MVC\11.5\11.5test\11.5test\obj\Debug\11.5test.exe
+C:\Users\Administrator\Desktop\ShroudzZ\MyMusicStore\Shroud\ASP.NET MVC\11.5\11.5test\11.5test\obj\Debug\11.5test.pdb
