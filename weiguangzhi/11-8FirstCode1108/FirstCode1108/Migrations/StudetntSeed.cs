@@ -136,6 +136,7 @@ namespace FirstCode1108.Migrations
         }
 
         private static void _GarbageClear()
+
         {
             var dbcontext = new StuDBContext();
             var stulist = dbcontext.Students.DistinctBy(x => x.FullName).ToList();
