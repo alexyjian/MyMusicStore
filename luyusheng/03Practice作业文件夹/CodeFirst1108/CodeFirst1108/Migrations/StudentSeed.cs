@@ -1,4 +1,5 @@
 ﻿using CodeFirst1108.DataContext;
+using CodeFirst1108.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace CodeFirst1108.Migrations
         {
             #region 电子信息学生
             var d1 = context.DepartMents.SingleOrDefault(x => x.Name == "电子信息工程学院");
-            for(var i=0; i<400; i++)
+            for (var i = 0; i < 400; i++)
             {
                 var fname = "";
                 var lname = "";
@@ -33,16 +34,61 @@ namespace CodeFirst1108.Migrations
                 context.Students.Add(student);
                 Thread.Sleep(1);
             }
+            #region 机电学生
+            var d2 = context.DepartMents.SingleOrDefault(x => x.Name == "机电工程学院");
+            for (var i = 0; i < 300; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+                var student = new Student()
+                {
+                    StudentNo = "JDGC" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "秀厢路07号",
+                    Department = d2,
+                    Phone = "178*******"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+            #region 汽车学生
+            var d3 = context.DepartMents.SingleOrDefault(x => x.Name == "汽车工程学院");
+            for (var i = 0; i < 250; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+                var student = new Student()
+                {
+                    StudentNo = "QCGC" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "秀厢路07号",
+                    Department = d3,
+                    Phone = "137*******"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
             #endregion
-           // context.SaveChanges();
         }
+
+        #endregion
+
+
         /// <summary>
         /// 随机生成中文名字
         /// </summary>
         /// <param name="firstName">姓</param>
         /// <param name="lasrName">名</param>
         /// <returns>姓名</returns>
-        private static string GetRandomChineseFullName(ref string firstName, ref string lasrName)
+        public static string _GetRandomChineseFullName(ref string firstName, ref string lasrName)
         {
             string[] _seedFirstName = new string[]
             {
@@ -78,6 +124,7 @@ namespace CodeFirst1108.Migrations
                     + _seedLastName.Substring(rnd.Next(0, _seedLastName.Length - 1), 1);
                 return firstName + lasrName;
             }
+        }
             private static void _GarbageClear()
         {
             var dbcontext = new StuDBContext();
@@ -85,3 +132,4 @@ namespace CodeFirst1108.Migrations
         }
         }
     }
+#endregion
