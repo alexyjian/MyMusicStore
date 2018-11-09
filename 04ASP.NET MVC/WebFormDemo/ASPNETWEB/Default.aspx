@@ -6,5 +6,5 @@
     <asp:DropDownList ID="DropDownList1" runat="server">
     </asp:DropDownList>
 
-
+    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
 </asp:Content>
