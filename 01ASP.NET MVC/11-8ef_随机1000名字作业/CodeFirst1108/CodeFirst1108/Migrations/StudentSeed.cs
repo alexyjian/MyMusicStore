@@ -21,7 +21,7 @@ namespace CodeFirst1108.Migrations
 
                  var student = new Student()
                 {
-                 
+                   
                    StudentNo = "DZXXGC" + i.ToString("0000"),
                     FirstName ="",
                     LastName = "",
