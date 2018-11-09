@@ -14,10 +14,14 @@ namespace DataContext.Migrations
 
         protected override void Seed(DataContext.StuDBContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            DepartmentSeed.Seed(context, "电子信息工程学院", "", "001");
+            DepartmentSeed.Seed(context, "机电工程学院", "", "002");
+            DepartmentSeed.Seed(context, "汽车工程学院", "", "003");
+            DepartmentSeed.Seed(context, "贸易旅游学院", "", "004");
+            DepartmentSeed.Seed(context, "环境与食品检测学院", "", "005");
+            context.SaveChanges();
+            StudentSeed.Seed(context);
+            context.SaveChanges();
         }
     }
 }
