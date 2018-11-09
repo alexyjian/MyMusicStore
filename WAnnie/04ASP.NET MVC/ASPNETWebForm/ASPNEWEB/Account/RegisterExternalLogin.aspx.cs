@@ -2,7 +2,7 @@
 using Microsoft.Owin.Security;
 using System;
 using System.Web;
-using APS.NETWebForm示例;
+using ASPNEWEB;
 
 public partial class Account_RegisterExternalLogin : System.Web.UI.Page
 {

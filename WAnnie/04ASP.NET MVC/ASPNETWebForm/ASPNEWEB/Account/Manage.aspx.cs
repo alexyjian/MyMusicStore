@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using APS.NETWebForm示例;
+using ASPNEWEB;
 
 public partial class Account_Manage : System.Web.UI.Page
 {

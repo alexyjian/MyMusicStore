@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 using System.Web.UI;
-using APS.NETWebForm示例;
+using ASPNEWEB;
 
 public partial class Account_Register : Page
 {

@@ -4,7 +4,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 
-namespace APS.NETWebForm示例
+namespace ASPNEWEB
 {
     public partial class Startup {
 
