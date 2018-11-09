@@ -73,7 +73,50 @@ namespace CodeFirst1108.Migrations
                     Department = d3,
                     Phone = "137*******"
                 };
-
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+            #endregion
+            #region 贸易与旅游学生
+            var d4 = context.DepartMents.SingleOrDefault(x => x.Name == "贸易与旅游学院");
+            for (var i = 0; i < 250; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+                var student = new Student()
+                {
+                    StudentNo = "MYLY" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "秀厢路07号",
+                    Department = d4,
+                    Phone = "137*******"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+            #endregion
+            #region 财经与物流学生
+            var d5 = context.DepartMents.SingleOrDefault(x => x.Name == "财经与物流学院");
+            for (var i = 0; i < 250; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+                var student = new Student()
+                {
+                    StudentNo = "CJWL" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "秀厢路07号",
+                    Department = d5,
+                    Phone = "137*******"
+                };
                 context.Students.Add(student);
                 Thread.Sleep(1);
             }
@@ -126,11 +169,11 @@ namespace CodeFirst1108.Migrations
                 return firstName + lasrName;
             }
         }
-            private static void _GarbageClear()
-        {
-            var dbcontext = new StuDBContext();
-
-        }
+        //    private static void _GarbageClear()
+        //{
+        //    var dbcontext = new StuDBContext();
+        
+        //}
         }
     }
 #endregion
