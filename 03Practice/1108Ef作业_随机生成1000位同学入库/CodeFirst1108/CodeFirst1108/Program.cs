@@ -12,13 +12,13 @@ namespace CodeFirst1108
     {
         static void Main(string[] args)
         {
-            for(var i=0;i<10;i++)
-            {
-                var fname = "";
-                var lname = "";
-                Console.WriteLine(StudentSeed._GetRandomChineseFullName(ref fname, ref lname));
-                Thread.Sleep(3);
-            }
+            //for(var i=0;i<100;i++)
+            //{
+            //    var fname = "";
+            //    var lname = "";
+            //    Console.WriteLine(StudentSeed._GetRandomChineseFullName(ref fname, ref lname));
+            //    Thread.Sleep(3);
+            //}
         }
     }
 }
