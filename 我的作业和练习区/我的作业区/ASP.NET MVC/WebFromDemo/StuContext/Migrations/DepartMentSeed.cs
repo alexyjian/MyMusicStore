@@ -1,5 +1,6 @@
 ﻿using ASPNETWEB.StuContext;
 using ASPNETWEB.StuEntities;
+using StuContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
