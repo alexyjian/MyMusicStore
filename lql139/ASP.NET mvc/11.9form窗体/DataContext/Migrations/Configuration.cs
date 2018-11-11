@@ -14,10 +14,10 @@ namespace StuContext.Migrations
 
         protected override void Seed(StuContext.StuuuContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            context.Database.ExecuteSqlCommand("delete DepartMents");
+            context.Database.ExecuteSqlCommand("delete Studetnts");
+            DepartMentSeed.Seed(context);
+            StudetntSeed.Seed(context);
         }
     }
 }
