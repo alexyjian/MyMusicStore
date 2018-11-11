@@ -18,7 +18,17 @@ public partial class _Default : Page
             DropDownList1.DataValueField = "ID";
             DropDownList1.DataBind();
 
-            GridView1.DataSource = context.Students.Select(n=>new { fullName = n.FullName, stuNo = n.StudentNo }).Take(20).ToList();
+            var list = context.Students
+                 .Select(n => new {
+                     StuNo = n.StudentNo,
+                     FullName = n.FullName,
+                     Department = n.Department.Name,
+                     Sex = n.Sex ? "男" : "女",
+                     Address = n.Address,
+                     Telphone = n.Phone
+                 })
+                .Take(20).ToList();
+            GridView1.DataSource = list;
             GridView1.DataBind();
         }
     }
