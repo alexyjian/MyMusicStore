@@ -10,7 +10,9 @@
     height: 300px;
     position: relative;
 }
-
+a:hover{
+    color: rgb(10, 99, 233);
+}
 /*最上方的导航栏*/
 .header_head{
     width: 100%;
@@ -180,7 +182,7 @@
 .column1 div:nth-child(1) img{
    float: left;
 }
-.column1 div:nth-child(1) span{
+.column1 div:nth-child(1)>span{
     float: left;
     text-align: center;
     font-size: 24px;
@@ -197,6 +199,13 @@
     height: 34px;  
     background: rgb(219, 218, 218);
     border-radius: 8px;
+}
+.column1>div:nth-child(2) a{
+   font-size: 12px;
+   line-height: 34px;
+   text-align: center;
+   margin-left: 23px;
+   color: #333;
 }
 .column1>div:nth-child(3){
     position: absolute;
@@ -222,7 +231,176 @@
     width: 160px;
     height: 48px;
     position: absolute;
+    font-size: 12px;
+    text-align: left;
+    line-height: 20px;
+    letter-spacing: 0px;
     bottom: -55px;
+    right: 0;  
+}
+/* 正在直播 */
+.column2{
+    margin-top: 40px;
+    width: 980px;
+    height: 393px;
+    /* background: #333; */
+    position: relative;
+}
+.column2>div:nth-child(1){
+    width: 720px;
+    height: 45px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.column2>div:nth-child(1) img{
+   float: left;
+}
+.column2>div:nth-child(1) span{
+    float: left;
+    text-align: center;
+    font-size: 24px;
+    line-height: 45px;
+    letter-spacing: 1px;
+    margin-left: -10px;
+    width: 150px;
+    height: 45px;
+}
+.column2>div:nth-child(1) input{
+    clear: both;
+    height: 24px;
+    border: 2px solid #eee;
+    border-radius: 5px;
+    background: white;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: right;
+    padding: 0 10px;
+    position: absolute;
+    top: 10px;   
+    cursor: pointer;
+    margin-right: 20px;
+}
+.column2>div:nth-child(1) input:nth-last-child(2){   
+    right: 70px;
+    width: 109.7px;      
+}
+.column2>div:nth-child(1) input:nth-last-child(1){
+    letter-spacing: 1px; 
+    right: 0; 
+ }
+ .column2>div:nth-child(2){
+    width: 720px;
+    height: 336px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: white;
+}
+.column2>div:nth-child(2) div{
+    width: 160px;
+    float: left;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+.column2>div:nth-child(2) img{
+    width: 160px;   
+    height: 100px; 
+    border-radius: 5px;   
+}
+.column2>div:nth-child(2) span{
+    width: 160px;
+    height: 48px;
+    position: absolute;
+    overflow: hidden;
+    font-size: 12px;
+    text-align: left;
+    line-height: 20px;
+    letter-spacing: 0px;
+    bottom: -55px;
+    right: 0;  
+}
+.div_min{
+   margin-top: 68px;
+}
+.column2>div:nth-child(2) span>div{
+    width: 160px;
+    height: 26px;
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    z-index: 2;
+    transform: all 6s;
+}
+.box{
+    width: 260px;
+    height: 368px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
     right: 0;
-    background: rgb(219, 218, 218);
+    top: 5px;
+}
+.box>ul{
+    width: 260px;
+    height: 30px;
+}
+.box ul li{
+    float: left;
+    width: 30%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+}
+.box ul li:nth-child(2){
+    width: 40%;
+}
+.box_ul_top{
+    border-bottom: 2px solid rgb(10, 99, 233);
+}
+.box>div{
+    width:260px ;
+    height: 338px;   
+    position: absolute;
+    top: 30px;
+
+}
+.box_min{
+}
+.box>div>div{
+    width: 260px;
+    height: 40px;
+    margin-top: 15px;
+    position: relative;
+}
+.box img{
+    position: absolute;
+    left: 25px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.box>div>div>p:nth-child(1){
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    border-radius:5px;
+    text-align:center;
+    color: white;
+    background: red;
+}
+.box>div>div>div{
+    width: 180px;
+    height: 36px;
+    position: absolute;
+    right: 0;
+}
+.box>div>div>div>p{
+    width: 180px;
+    font-size: 12px;
 }
