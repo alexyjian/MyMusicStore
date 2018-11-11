@@ -107,7 +107,7 @@ namespace Migrations
             }
 
             context.SaveChanges();
-                //_GarbageClear();
+            //_GarbageClear();
         }
 
         //中文姓名的转换
@@ -197,16 +197,16 @@ namespace Migrations
             return firstName + lasrName;
      }
 
-        //private static  void _GarbageClear()
+        //private static void _GarbageClear()
         //{
         //    var dbcontext = new StuDBCotext();
         //    var students = dbcontext.Students.DistinctBy(x => x.FullName).ToList();
 
         //    //删除重命名
         //    foreach (var stu in students)
-        //        dbcontext.Students.Where(x => x.FullName == stu.FullName && x.ID != stu.ID).Delete();
+        //        dbcontext.Students.Where(x => x.FullName == stu.FullName && x.ID != stu.ID.DE;
         //}
 
-   }
+    }
 
 }

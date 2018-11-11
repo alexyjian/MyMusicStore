@@ -37,7 +37,7 @@ namespace ASPnetWebForm01
                     })
 
                    //运用二次排序（ThenBy）运用二次倒叙（ThenByDescending）
-                   .Take(20).OrderBy(x => x.StuNo).ToList();
+                   .Take(30).OrderBy(x => x.StuNo).ToList();
                     GridView1.DataSource = list;
                     GridView1.DataBind();
 
@@ -63,8 +63,8 @@ namespace ASPnetWebForm01
                         Address = n.Address,
                         Telphone = n.Phone
                     })
-                   //运用二次排序（ThenBy）运用二次倒叙（ThenByDescending）
-                  .Take(20).OrderBy(x => x.StuNo).ToList();
+                  //运用二次排序（ThenBy）运用二次倒叙（ThenByDescending）
+                  .Take(30).OrderBy(x => x.StuNo).ToList();
                 GridView1.DataSource = list;
                 GridView1.DataBind();
             }
