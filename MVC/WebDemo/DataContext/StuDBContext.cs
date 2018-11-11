@@ -1,4 +1,4 @@
-﻿using CodeFirst1108.Entities;
+﻿using Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeFirst1108.DataContext
+namespace DataContext
 {
     public class StuDBContext:DbContext
     {
