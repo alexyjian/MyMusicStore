@@ -1,6 +1,4 @@
 ﻿
-using EntityFramework.Extensions;
-using MoreLinq;
 using StuContext;
 using StuEntities;
 using System;
@@ -10,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CodeFirst.Migrations
+namespace StuDataContext
 {
     public class StudentSeed
     {

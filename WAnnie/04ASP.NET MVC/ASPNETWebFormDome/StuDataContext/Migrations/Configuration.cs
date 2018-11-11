@@ -1,6 +1,5 @@
-namespace StuContext.Migrations
+namespace StuDataContext.Migrations
 {
-    using global::StuContext;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -19,6 +18,11 @@ namespace StuContext.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            //context.Database.ExecuteSqlCommand("delete Students");
+            //context.Database.ExecuteSqlCommand("delete Departments");
+
+            //DepartmentSeed.Seed(context);
+            //StudentSeed.Seed(context);
         }
     }
 }
