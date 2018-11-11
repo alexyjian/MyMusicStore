@@ -26,21 +26,88 @@ namespace Migrations
                 var student = new Student()
                 {
                     StudentNo = "DZXX" + i.ToString("0000"),
-                    FirstName=fname,
-                    LastName=lname,
-                    FullName=fullname,
-                    BirthDay =DateTime.Now,
-                    Address ="社湾路28号",
-                    Department=d1,
-                    Phone ="177********"
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "社湾路28号",
+                    Department = d1,
+                    Phone = "177********"
                 };
                 context.Students.Add(student);
                 Thread.Sleep(1);
-               
+
+            }
+
+            var d2 = context.DepartMents.SingleOrDefault(x => x.Name == "贸易与旅游工程学院");
+            for (var i = 0; i < 200; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+
+                var student = new Student()
+                {
+                    StudentNo = "MLXX" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "官塘校区",
+                    Department = d2,
+                    Phone = "187********"
+                };
+
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+
+            var d3= context.DepartMents.SingleOrDefault(x => x.Name == "汽修工程学院");
+            for (var i = 0; i < 200; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+
+                var student = new Student()
+                {
+                    StudentNo = "QX" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "官塘校区",
+                    Department = d3,
+                    Phone = "187********"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+
+            var d4 = context.DepartMents.SingleOrDefault(x => x.Name == "艺术学院");
+            for (var i = 0; i < 100; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+
+                var student = new Student()
+                {
+                    StudentNo = "YS" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "社湾路28号",
+                    Department = d4,
+                    Phone = "187********"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
             }
 
             context.SaveChanges();
-            //_GarbageClear();
+                //_GarbageClear();
         }
 
         //中文姓名的转换

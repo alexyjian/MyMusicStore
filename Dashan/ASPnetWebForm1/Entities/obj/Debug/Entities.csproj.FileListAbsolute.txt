@@ -10,3 +10,12 @@ E:\2018Web  ef\Dashan\ASPnetWebForm1\Entities\obj\Debug\Entities.csproj.CopyComp
 E:\2018Web  ef\Dashan\ASPnetWebForm1\Entities\obj\Debug\Entities.dll
 E:\2018Web  ef\Dashan\ASPnetWebForm1\Entities\obj\Debug\Entities.pdb
 E:\2018Web  ef\Dashan\ASPnetWebForm1\Entities\obj\Debug\Entities.csprojAssemblyReference.cache
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\bin\Debug\Entities.dll.config
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\bin\Debug\Entities.dll
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\bin\Debug\Entities.pdb
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\bin\Debug\EntityFramework.dll
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\bin\Debug\EntityFramework.SqlServer.dll
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\bin\Debug\EntityFramework.xml
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\bin\Debug\EntityFramework.SqlServer.xml
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\obj\Debug\Entities.dll
+E:\2018 Web SUweixi\Dashan\ASPnetWebForm1\Entities\obj\Debug\Entities.pdb
