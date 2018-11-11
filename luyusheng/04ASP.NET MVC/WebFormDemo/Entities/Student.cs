@@ -25,5 +25,10 @@ namespace StuEntities
         {
             ID = Guid.NewGuid();
         }
+        public string GetFullName()
+        {
+            this.FullName = this.FirstName + this.LastName;
+            return this.FirstName;
+        }
     }
 }

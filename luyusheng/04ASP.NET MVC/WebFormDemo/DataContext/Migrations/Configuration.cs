@@ -14,7 +14,8 @@ namespace StuContext.Migrations
 
         protected override void Seed(StuContext.StuDBContext context)
         {
-            
+            DepartmentSeed.Seed(context);
+            StudentSeed.Seed(context);
         }
     }
 }
