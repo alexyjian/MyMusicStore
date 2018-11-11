@@ -1,5 +1,5 @@
 ﻿using StuContext;
-using StuEntities;
+using ASPNETWEB.StuEntities;
 using EntityFramework.Extensions;
 using MoreLinq;
 using System;

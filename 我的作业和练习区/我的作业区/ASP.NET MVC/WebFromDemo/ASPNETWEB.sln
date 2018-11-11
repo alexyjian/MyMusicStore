@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ASPNETWEB", "F:\吴少洺\Areart\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\WebFromDemo\ASPNETWEB\", "{212DAA4A-5FA8-4ACD-937F-D884A634BEBB}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{12e457ea-dcb6-41c8-b8f2-0c1cf9eca4ef}|StuContext.dll;{835C5164-EF94-4175-953C-B46F5CC12479}|StuEntities.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_2720"
+		Debug.AspNetCompiler.PhysicalPath = "F:\吴少洺\Areart\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\WebFromDemo\ASPNETWEB\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2720\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_2720"
+		Release.AspNetCompiler.PhysicalPath = "F:\吴少洺\Areart\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\WebFromDemo\ASPNETWEB\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_2720\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2720"
+		SlnRelativePath = "F:\吴少洺\Areart\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\WebFromDemo\ASPNETWEB\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuEntities", "F:\吴少洺\Areart\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\WebFromDemo\StuEntities\StuEntities.csproj", "{835C5164-EF94-4175-953C-B46F5CC12479}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuContext", "F:\吴少洺\Areart\MyMusicStore\我的作业和练习区\我的作业区\ASP.NET MVC\WebFromDemo\StuContext\StuContext.csproj", "{12E457EA-DCB6-41C8-B8F2-0C1CF9ECA4EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{212DAA4A-5FA8-4ACD-937F-D884A634BEBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{212DAA4A-5FA8-4ACD-937F-D884A634BEBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{212DAA4A-5FA8-4ACD-937F-D884A634BEBB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{212DAA4A-5FA8-4ACD-937F-D884A634BEBB}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{835C5164-EF94-4175-953C-B46F5CC12479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{835C5164-EF94-4175-953C-B46F5CC12479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{835C5164-EF94-4175-953C-B46F5CC12479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{835C5164-EF94-4175-953C-B46F5CC12479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E457EA-DCB6-41C8-B8F2-0C1CF9ECA4EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E457EA-DCB6-41C8-B8F2-0C1CF9ECA4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E457EA-DCB6-41C8-B8F2-0C1CF9ECA4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E457EA-DCB6-41C8-B8F2-0C1CF9ECA4EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
