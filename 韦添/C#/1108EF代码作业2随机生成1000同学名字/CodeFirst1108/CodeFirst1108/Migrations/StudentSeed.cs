@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using 
+
 
 namespace CodeFirst1108.Migrations
 {
@@ -106,10 +106,6 @@ context.SaveChanges();
                 + _seedLastName.Substring(rnd.Next(0, _seedLastName.Length - 1), 1);
             return firstName + lasrName;
         }
-        private static void _GarbageClear()
-        {
-            var dbcontext = new StuDBContext();
-            var stulist=dbcontext.Students.
+       
         }
     }
-}
