@@ -43,7 +43,7 @@ namespace DataContext
                 string name = s3 + s2 + s1;
 
                 var lastNum = rd.Next(10000000, 99999999).ToString();
-                var sortcode = "00" + rd.Next(1, 3);
+                var sortcode = "00" + rd.Next(1, 6);
 
                 var stu = new Student()
                 {
@@ -56,11 +56,11 @@ namespace DataContext
                 };
 
                 context.Students.Add(stu);
-                Thread.Sleep(3);
+                Thread.Sleep(5);
             }
         }
 
-        public static void _GarbageClear()
+        public static void GarbageClear()
         {
             var dbcontext = new StuDBContext();
             var students = dbcontext.Students.DistinctBy(x => x.Name).ToList();
