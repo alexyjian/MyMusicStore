@@ -1,0 +1,97 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ .slider{
+    width: 490px;
+    height: 170px;
+    margin: 100px auto;
+    background: white;
+    position: relative;
+    overflow:hidden;
+}
+
+.slider ul{
+    width: 500%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    list-style: none;
+}
+
+.ad ul li{
+    float: left;
+}
+
+img{
+     display: block;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+img{
+    display: block;
+    /* 清除照片的样式 */
+}
+
+/* 轮播图片的样式 */
+.slider{
+    width: 490px;
+    height:170px;
+    border: 1px solid #ccc;
+    margin: 30px auto;
+    padding: 5px;
+    position: relative;
+}
+
+.ad{
+    width: 100%;
+    height: 100%;
+    background: pink;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad ul{
+    width: 1000%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ab ul li{
+    float: left;
+}
+
+/* 编号的样式 */
+.slider ol{
+    position: absolute;
+    left: 50%;
+    margin-left: -65px;
+    bottom:10px;
+}
+
+.slider ol li{
+    background-color:white;
+    float: left;
+    width: 20px;
+    height: 20px;
+    /* 编号间的距离 */
+    margin-right: 10px;
+    text-align: center;
+    line-height: 20px;
+    cursor:pointer;
+}
+
+.slider ol li.current{
+    background-color: orange;
+}

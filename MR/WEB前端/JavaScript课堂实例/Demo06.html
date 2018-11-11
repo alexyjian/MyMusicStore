@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            background: pink;
+            width:100px;
+            height: 100px;
+        }
+
+        .box{
+            width: 200px;
+            height:200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id='txt' class="box"></div>
+</body>
+</html>
+
+<script>
+    //通过JS给HTML标签添加类或移除类
+    var div=document.getElementById('txt');
+    div.className=' ';
+    //JS控制HTML
+    div.innerHTML="<h2>我们是NB的程序员<h2/>"
+</script>

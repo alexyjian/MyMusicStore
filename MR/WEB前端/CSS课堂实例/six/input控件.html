@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>input控件</title>
+</head>
+<body>
+    <div>
+        <form action="#" method="POST">
+            <!--表单控件-->
+            用户:
+            <input type="text" name="loginName" placeholder="请输入用户名" required="required" pattern="^[a-zA-Z][a-zA-Z0-9_]{4,11}$"/><br/><br/>
+
+            <input type="text" name="loginName" value="C罗"/><br/><br/>
+            密码:
+            <input type="password" name="password" size="12"/><br/><br/>
+            性别:
+            <input type="radio" name="sex" checked>男
+            <input type="radio" name="sex">女<br/><br/>
+            兴趣:
+            <input type="checkbox">唱歌
+            <input type="checkbox">跳舞
+            <input type="checkbox">玩游戏<br/><br/>
+            上传头像:
+            <input type="file"><br/><br/>
+            邮箱：
+            <input type="email"><br/><br/>
+            个人主页:
+            <input type="url"><br/><br/>
+            电话：
+            <input type="tel"><br/><br/>
+            你的幸运颜色:
+            <input type="color" value="#ccc"/><br/><br/>
+
+            你的芳龄:
+            <input type="number" value="16" min="1" max="120" step="1"/><br/><br/>
+            生日:
+            <input type="date"><br/><br/>
+            <input type="month"><br/><br/>
+            <input type="time"><br/><br/>
+            <input type="week"><br/><br/>
+            <input type="datetime"><br/><br/>
+            <input type="datetime-local"><br/><br/>
+
+            按钮组
+            <input type="submit" value="提交">
+            <input type="raset" value="重置">
+            <input type="button" value="普通按钮">
+            <input type="image" src="">
+
+            <input type="hidden" value="3.1415926535">
+        </form>
+    </div>
+</body>
+</html>

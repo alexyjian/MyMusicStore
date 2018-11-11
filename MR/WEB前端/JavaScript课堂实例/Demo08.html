@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="init()">
+    <button onclick="">停止</button>
+    <div id="clock"></div>
+</body>
+</html>
+
+<script>
+    //定时器执行的函数
+    function updateDate(){
+        var dateTime= (new Date()).toLocaleString()+"<br/>"; 
+        //把时间字符串写到<div id='clock'></div>
+        clock.innerHTML=dateTime; 
+    
+    }
+    //初始化
+    function init(){
+        clock = document.getElementById("clock");
+        time = setInterval(updateDate,1000);
+    }
+</script>
