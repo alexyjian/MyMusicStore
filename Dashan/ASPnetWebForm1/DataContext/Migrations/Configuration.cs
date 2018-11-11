@@ -16,8 +16,8 @@ namespace DataContext.Migrations
         protected override void Seed(DataContext.StuDBCotext context)
         {
 
-            DepartmentSeed.Seed(context);
-            StudentSeed.Seed(context);
+            //DepartmentSeed.Seed(context);
+            //StudentSeed.Seed(context);
         }
     }
 }
