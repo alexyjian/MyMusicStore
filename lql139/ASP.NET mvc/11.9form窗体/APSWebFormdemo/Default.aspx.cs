@@ -9,6 +9,7 @@ public partial class _Default : Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack) { 
         using (var context = new StuContext.StuuuContext())
         {
             var depts = context.DepartMent.ToList();
@@ -32,4 +33,25 @@ public partial class _Default : Page
             GridView1.DataBind();
         }
     }
+    }
+
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var id = Guid.Parse(DropDownList1.SelectedValue);
+        using (var context = new StuContext.StuuuContext())
+        {
+            var list = context.Studetnt.Where(n => n.DepartMent.ID == id).Select(n=>new
+            {
+                StuNo = n.StudentNo,
+                Name = n.Name,
+                department = n.DepartMent.Name,
+                Sex = n.Sex ? "男" : "女",
+                Address = n.Address,
+                phone = n.Phone
+            })
+        .OrderBy(x => x.StuNo).ToList();
+            GridView1.DataSource = list;
+            GridView1.DataBind();
+        }
+        }
 }
