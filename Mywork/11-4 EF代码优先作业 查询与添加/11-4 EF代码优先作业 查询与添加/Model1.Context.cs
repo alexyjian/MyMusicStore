@@ -7,25 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _11_4_EF代码优先作业_查询与添加
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+public partial class DBContext : DbContext
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class DBContext : DbContext
+    public DBContext()
+        : base("name=DBContext")
     {
-        public DBContext()
-            : base("name=DBContext")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
-        public virtual DbSet<Courses> Courses { get; set; }
-        public virtual DbSet<Departments> Departments { get; set; }
     }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+
+    public virtual DbSet<Courses> Courses { get; set; }
+    public virtual DbSet<Departments> Departments { get; set; }
 }
