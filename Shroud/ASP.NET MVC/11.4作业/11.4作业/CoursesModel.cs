@@ -7,3 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+
+public partial class Cours
+{
+    public System.Guid ID { get; set; }
+    public string Title { get; set; }
+    public int Credit { get; set; }
+    public string Department_ID { get; set; }
+
+    public virtual Department Department { get; set; }
+}
+
+public partial class Department
+{
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Department()
+    {
+        this.Courses = new HashSet<Cours>();
+    }
+
+    public string ID { get; set; }
+    public string Name { get; set; }
+    public string Dscn { get; set; }
+    public string SortCode { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    public virtual ICollection<Cours> Courses { get; set; }
+}

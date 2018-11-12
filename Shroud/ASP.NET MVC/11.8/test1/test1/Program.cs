@@ -12,13 +12,7 @@ namespace test1
     {
         static void Main(string[] args)
         {
-            for(var i=0;i<=99;i++)
-            {
-                Student s = new Code.Student();
-                Console.WriteLine(s.Name);
-                Thread.Sleep(100);
-            }
-            Console.ReadKey();
+          
         }
     }
 }

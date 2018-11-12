@@ -7,25 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _11._4作业
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+public partial class CoursesContent : DbContext
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class CoursesContent : DbContext
+    public CoursesContent()
+        : base("name=CoursesContent")
     {
-        public CoursesContent()
-            : base("name=CoursesContent")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
-        public virtual DbSet<Cours> Courses { get; set; }
-        public virtual DbSet<Department> Departments { get; set; }
     }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+
+    public virtual DbSet<Cours> Courses { get; set; }
+    public virtual DbSet<Department> Departments { get; set; }
 }

@@ -6,6 +6,8 @@ namespace test1.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using System.Threading;
+    using System.Linq.Expressions;
+    using System.Collections.Generic;
 
     internal sealed class Configuration : DbMigrationsConfiguration<test1.DbContent.StudentContent>
     {
@@ -16,6 +18,8 @@ namespace test1.Migrations
 
         protected override void Seed(test1.DbContent.StudentContent context)
         {
+            
+            
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -48,7 +52,7 @@ namespace test1.Migrations
 
             string studentid;
             string dpsname = "";
-            for (var i = 1; i <= 100; i++)
+            for (var i = 1; i <= 1000; i++)
             {
                 dpsname = dps[new Random().Next(0, dps.Length - 1)];
                 if (i <= 9) studentid = "2017031000" + i.ToString();
@@ -65,7 +69,7 @@ namespace test1.Migrations
                 };
 
                 context.Students.Add(s);
-                Thread.Sleep(50);
+                Thread.Sleep(10);
             }
             context.SaveChanges();
         }

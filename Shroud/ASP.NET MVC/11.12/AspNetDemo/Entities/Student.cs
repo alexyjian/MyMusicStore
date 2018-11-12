@@ -1,12 +1,11 @@
-﻿using MoreLinq;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using test1.DbContent;
 
-namespace test1.Code
+namespace SEntities
 {
     public class Student
     {
@@ -65,15 +64,15 @@ namespace test1.Code
             }
             return result.Trim().Replace(" ", "").Replace("  ", "");
         }
-        private void Clear()
-        {
-            var dbcontext = new StudentContent();
-           var stus= dbcontext.Students.DistinctBy(x => x.Name).ToList();
-            foreach(var stu in stus)
-            {
-                dbcontext.Students.Where(x => x.Name == stu.Name && x.ID != stu.ID);
-            }
-        }
+        //private void Clear()
+        //{
+        //    var dbcontext = new StudentContent();
+        //   var stus= dbcontext.Students.DistinctBy(x => x.Name).ToList();
+        //    foreach(var stu in stus)
+        //    {
+        //        dbcontext.Students.Where(x => x.Name == stu.Name && x.ID != stu.ID);
+        //    }
+        //}
         public Student()
         {
             ID = Guid.NewGuid();
