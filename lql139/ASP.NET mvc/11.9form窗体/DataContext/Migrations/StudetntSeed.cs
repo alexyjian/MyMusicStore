@@ -21,20 +21,20 @@ namespace StuContext.Migrations
             var c3 = context.DepartMent.SingleOrDefault(x => x.Name == "贸易旅游学院");
             var c4 = context.DepartMent.SingleOrDefault(x => x.Name == "汽车工程学院");
             var c5 = context.DepartMent.SingleOrDefault(x => x.Name == "财经与物流学院");
-            var rr = new Random();
-            object[] dep = new object[] { c1, c2 ,c3,c4,c5};
+         
             for (var i = 0; i < 200; i++)
             {
                 string fname = "";
                 string lname = "";
                 var fullName = _GetRandomChineseFullName(ref fname, ref lname);
-
+              
+                
                 var s1 = new Studetnt()
                 {
                     StudentNo =i.ToString("20170000"),
                     Name = fullName,
                     Birthday=DateTime.Now,
-                    DepartMent= c1,
+                    DepartMent=c1,
                     Phone="10086",
                     Address="社湾路"
                    
