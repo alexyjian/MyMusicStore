@@ -47,4 +47,44 @@ public partial class ProductList : System.Web.UI.Page
         }
         _getData();
     }
+    //编辑事件
+    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        GridView1.EditIndex = e.NewEditIndex;
+        _getData();
+    }
+    //取消编辑事件
+    protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    {
+        GridView1.EditIndex = -1;
+        _getData();
+    }
+    //保存修改事件
+    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        //查询出该纪录的主键
+        var id = Guid.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
+
+        using (var context = new ProductDbContext())
+        {
+            //查询出要修改这条记录
+            var p  = context.Products.Find(id);
+            //读出GridView中用户编辑的字段，给每个允许修改的实体属性赋值
+            //获取用户编辑的这一行
+            var row = GridView1.Rows[e.RowIndex];
+
+
+            var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim(); //商品编号
+            var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim(); //商品名称
+            var dscn = (row.Cells[2].Controls[0] as TextBox).Text.Trim(); //说明
+
+            p.SN = sn;
+            p.Name = name;
+            p.DSCN = dscn;
+            context.SaveChanges();
+        }
+        GridView1.EditIndex = -1;
+        _getData();
+       
+    }
 }
