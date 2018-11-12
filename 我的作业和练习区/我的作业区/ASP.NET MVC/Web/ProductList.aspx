@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <h4 style="text-align:center">商品列表</h4>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" Width="663px" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" Width="663px" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="SN" HeaderText="商品编号">
@@ -13,6 +13,7 @@
             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
+            <asp:BoundField DataField="Category" HeaderText="商品类别" />
             <asp:BoundField DataField="DSCN" HeaderText="说明" />
             <asp:TemplateField HeaderText="维护操作" ShowHeader="False">
                 <EditItemTemplate>
