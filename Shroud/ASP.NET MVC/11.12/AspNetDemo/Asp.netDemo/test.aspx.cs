@@ -76,5 +76,6 @@ public partial class test : System.Web.UI.Page
         _UpdateData(id, n, a, s);
         GridView1.EditIndex = -1;
         _GetData();
+
     }
 }
