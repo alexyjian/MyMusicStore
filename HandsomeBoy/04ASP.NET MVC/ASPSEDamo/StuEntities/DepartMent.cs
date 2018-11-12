@@ -11,7 +11,6 @@ namespace StuEntities
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string SortCode { get; set; }
-
         public string Description { get; set; }
         public DepartMent()
         {
