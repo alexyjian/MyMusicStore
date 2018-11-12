@@ -14,7 +14,7 @@ public partial class _Default : Page
         {
             using (var context = new StuContext.StuDBContext())
             {
-                var depts = context.DepartMents.ToList();
+                var depts = context.DopartMents.ToList();
                 DropDownList1.DataSource = depts;
                 DropDownList1.DataTextField = "Name";
                 DropDownList1.DataValueField = "ID";
@@ -26,7 +26,7 @@ public partial class _Default : Page
                      {
                          StuNo = n.StudentNo,
                          FullName = n.FullName,
-                         Department = n.Department.Name,
+                         Department = n.Dopartment.Name,
                          Sex = n.Sex ? "男" : "女",
                          Address = n.Address,
                          Telphone = n.Phone,
@@ -53,7 +53,7 @@ public partial class _Default : Page
              {
                  StuNo = n.StudentNo,
                  FullName = n.FullName,
-                 Department = n.Department.Name,
+                 Department = n.Dopartment.Name,
                  Sex = n.Sex ? "男" : "女",
                  Address = n.Address,
                  Telphone = n.Phone,

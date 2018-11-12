@@ -12,7 +12,7 @@ namespace StuContext
 {
    public class StuDBContext:DbContext
     {
-        public DbSet<DopartMent> DepartMents { get; set; }
+        public DbSet<DopartMent> DopartMents { get; set; }
         public DbSet<Student> Students { get; set; }
     }
 }

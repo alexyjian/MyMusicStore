@@ -42,11 +42,11 @@ namespace StuContext.Migrations
                 Description = "财经与物流学院",
                 SortCode = "005",
             };
-            context.DepartMents.Add(d1);
-            context.DepartMents.Add(d2);
-            context.DepartMents.Add(d3);
-            context.DepartMents.Add(d4);
-            context.DepartMents.Add(d5);
+            context.DopartMents.Add(d1);
+            context.DopartMents.Add(d2);
+            context.DopartMents.Add(d3);
+            context.DopartMents.Add(d4);
+            context.DopartMents.Add(d5);
             context.SaveChanges();
         }
     }

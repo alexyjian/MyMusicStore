@@ -15,7 +15,7 @@ namespace StuEntities
         public string FirstName { get; set; }//姓
         public string LastName { get; set; }//名
         public string FullName { get; set; }
-        public string Sex { get; set; }
+        public bool Sex { get; set; } = true;
         public DateTime BirthDay { get; set; } = DateTime.Parse("1998-01-01");
         public string Address { get; set; }
         public string Phone { get; set; }
