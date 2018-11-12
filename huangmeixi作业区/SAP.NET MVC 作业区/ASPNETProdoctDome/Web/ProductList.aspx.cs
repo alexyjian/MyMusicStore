@@ -33,4 +33,18 @@ public partial class ProductList : System.Web.UI.Page
         GridView1.PageIndex = e.NewPageIndex;
         _getData();
     }
+    //删除事件
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        //查询出该纪录的主键
+        var id = Guid.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
+        using (var context = new ProductDbContext())
+        {
+            //删除这条记录
+            var delProduct = context.Products.Find(id);
+            context.Products.Remove(delProduct);
+            context.SaveChanges();
+        }
+        _getData();
+    }
 }

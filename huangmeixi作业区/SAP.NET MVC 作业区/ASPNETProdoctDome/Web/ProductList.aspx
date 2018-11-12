@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="商品列表" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ProductList.aspx.cs" Inherits="ProductList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    <h4>商品列表<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品列表" OnPageIndexChanging="GridView1_PageIndexChanging" Width="100%">
+    <h4>商品列表<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品列表" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" Width="100%">
         <Columns>
             <asp:BoundField DataField="SN" HeaderText="商品编号" />
             <asp:BoundField DataField="Name" HeaderText="商品名称">
