@@ -14,10 +14,10 @@ namespace StuContext.Migrations
 
         protected override void Seed(DataContext.StuDBContext context)
         {
-            //context.Database.ExecuteSqlCommand("delete Students");
-            //context.Database.ExecuteSqlCommand("delete DepartMents");
-            //StudentSeed.Seed(context);
-            //DepartmentSeed.Seed(context);
+            context.Database.ExecuteSqlCommand("delete students");
+            context.Database.ExecuteSqlCommand("delete departments");
+            StudentSeed.Seed(context);
+            DepartmentSeed.Seed(context);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace StuContext.Migrations
         {
             #region 电子信息学生
             var d1 = context.DepartMents.SingleOrDefault(x => x.Name == "电子信息工程学院");
+
             for(var  i=0;i<400;i++)
             {
                 var fname = "";
@@ -31,7 +32,7 @@ namespace StuContext.Migrations
                     FullName = fullname,
                     BirthDay = DateTime.Now,
                     Address = "社湾路28号",
-                    Department = d1,
+                    Department= d1,
                     Phone = "188********"
                 };
                 context.Students.Add(student);
