@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class category
+    public class Category
     {
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string SortCode{get;set;}
-            public category ()
+            public Category ()
         {
             this.ID = Guid.NewGuid();
         }

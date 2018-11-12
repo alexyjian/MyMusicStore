@@ -7,10 +7,10 @@ using System.Data.Entity;
 using Entities;
 namespace DataContext
 {
-    public class DbContext:System.Data.Entity.DbContext
+    public class ProductDbContext:System.Data.Entity.DbContext
         {
-        public DbSet<category> Categories { get; set; }
-        public DbSet<Prpduct> Puoducts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Puoducts { get; set; }
    
     }
 }
