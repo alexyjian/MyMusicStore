@@ -1,12 +1,12 @@
 ﻿using DataContext;
-using FirstCode1108.Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstCode1108.Migrations
+namespace Migrations
 {
     public class DepartmentSeed
     {

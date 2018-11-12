@@ -1,6 +1,6 @@
 namespace DataContent.Migrations
 {
-    using FirstCode1108.Migrations;
+    using global::Migrations;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -16,6 +16,7 @@ namespace DataContent.Migrations
         protected override void Seed(DataContext.StuDBContext context)
         {
             //  This method will be called after migrating to the latest version.
+
             StudetntSeed.Seed(context);
             DepartmentSeed.Seed(context);
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

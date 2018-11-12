@@ -1,5 +1,5 @@
 ﻿using DataContext;
-using FirstCode1108.Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using EntityFramework.Extensions;
 using MoreLinq;
 
-namespace FirstCode1108.Migrations
+namespace Migrations
 {
     public class StudetntSeed
     {
@@ -40,7 +40,7 @@ namespace FirstCode1108.Migrations
             #endregion
 
             #region 机电学生
-            var d2 = context.DepartMents.SingleOrDefault(x => x.Name == "电子信息工程学院");
+            var d2 = context.DepartMents.SingleOrDefault(x => x.Name == "机电工程学院");
             for (var i = 0; i < 400; i++)
             {
                 var fname = "";
@@ -64,7 +64,7 @@ namespace FirstCode1108.Migrations
             #endregion
 
             #region 汽车学生
-            var d3 = context.DepartMents.SingleOrDefault(x => x.Name == "电子信息工程学院");
+            var d3 = context.DepartMents.SingleOrDefault(x => x.Name == "汽车工程学院");
             for (var i = 0; i < 300; i++)
             {
                 var fname = "";
@@ -86,6 +86,31 @@ namespace FirstCode1108.Migrations
                 Thread.Sleep(1);
             }
             #endregion
+
+            #region 财经学生
+            var d4 = context.DepartMents.SingleOrDefault(x => x.Name == "财经与物流学院");
+            for (var i = 0; i < 300; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+
+                var student = new Studetnt()
+                {
+                    StudentNo = "QCGC" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "社湾路28号",
+                    Department = d4,
+                    Phone = "188**********"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+            #endregion
+
             context.SaveChanges();
 
         }

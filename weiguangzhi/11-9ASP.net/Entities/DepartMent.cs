@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstCode1108.Entities
+namespace Entities
 {
     public class DepartMent
     {

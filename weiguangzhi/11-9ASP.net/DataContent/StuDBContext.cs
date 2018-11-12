@@ -1,4 +1,4 @@
-﻿using FirstCode1108.Entities;
+﻿using Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
