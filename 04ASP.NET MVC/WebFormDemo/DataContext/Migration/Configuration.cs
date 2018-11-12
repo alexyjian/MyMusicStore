@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataContext
 {
-   public  class Configuration()
-    {
-    }
+   //public  class Configuration()
+   // {
+   // }
 }
