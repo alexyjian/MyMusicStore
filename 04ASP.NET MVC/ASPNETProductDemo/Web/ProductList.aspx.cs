@@ -35,6 +35,7 @@ public partial class ProductList : System.Web.UI.Page
 
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
+        //查询出该记录的主键
         var id = Guid.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
         using (var context = new ProductDbContext())
         {
