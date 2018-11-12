@@ -11,6 +11,7 @@ namespace Class1
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string Sn { get; set; }
+        public string DSCN { get; set; }
         public virtual Category Categoty { get; set; }
         public Produc()
         {
