@@ -6,6 +6,13 @@
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Caption="商品报表" Width="100%">
+            <Columns>
+                <asp:BoundField DataField="SN" HeaderText="商品编号" />
+                <asp:BoundField DataField="Name" HeaderText="商品名称" />
+                <asp:BoundField DataField="DSCN" HeaderText="说明" />
+            </Columns>
+        </asp:GridView>
     </div>
 
     <div class="row">
