@@ -20,27 +20,27 @@ namespace DataContext.Migrations
             var c2 = new Category()
             {
                 Name = " 手机/数码",
-                SortCode = "001",
+                SortCode = "002",
             };
             var c3 = new Category()
             {
                 Name = "电脑/办公",
-                SortCode = "001",
+                SortCode = "003",
             };
             var c4 = new Category()
             {
                 Name = "家具/家居",
-                SortCode = "001",
+                SortCode = "004",
             };
             var c5 = new Category()
             {
                 Name = "男装/女装",
-                SortCode = "001",
+                SortCode = "005",
             };
             var c6 = new Category()
             {
                 Name = "男鞋/女鞋",
-                SortCode = "001",
+                SortCode = "006",
             };
 
             context.Categories.Add(c1);
