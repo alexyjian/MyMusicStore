@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MR",
+    "\\MR\\ASP.NET MVC",
+    "\\MR\\ASP.NET MVC\\ASPNETProductDemo"
   ],
+  "SelectedNode": "\\MR\\ASP.NET MVC\\ASPNETProductDemo",
   "PreviewInSolutionExplorer": false
 }
