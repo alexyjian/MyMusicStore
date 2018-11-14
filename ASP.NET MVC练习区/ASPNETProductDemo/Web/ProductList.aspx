@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 
     <h4>商品列表</h4>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品报表" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="18" Width="100%" DataKeyNames="ID" OnRowDeleting="GridView1_RowDeleting">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品报表" OnPageIndexChanging="GridView1_PageIndexChanging" PageSize="18" Width="100%" DataKeyNames="ID" OnRowDeleting="GridView1_RowDeleting" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
             <asp:BoundField DataField="SN" HeaderText="商品编号">
             <ItemStyle Width="120px" />
@@ -11,6 +11,15 @@
             <asp:BoundField DataField="Name" HeaderText="商品名称">
             <ItemStyle Width="30%" />
             </asp:BoundField>
+            <asp:TemplateField HeaderText="分类">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Categoty") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="LblCategory" runat="server" Font-Bold="False" ForeColor="#666666" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="15%" />
+            </asp:TemplateField>
             <asp:BoundField DataField="DSCN" HeaderText="说明" />
             <asp:TemplateField HeaderText="维护操作" ShowHeader="False">
                 <EditItemTemplate>
@@ -19,7 +28,8 @@
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="编辑"></asp:LinkButton>
-                    &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="删除" OnClientClick="return confirm('你确定要删除该条记录吗？');"></asp:LinkButton>
+                    &nbsp;
+                    <asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="删除" OnClientClick="return confirm('你确定要删除该条记录吗？');"></asp:LinkButton>
                 </ItemTemplate>
                 <HeaderStyle Width="150px" />
                 <ItemStyle Width="150px" />
