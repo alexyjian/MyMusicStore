@@ -20,7 +20,8 @@ namespace StuEntities
         public virtual DepartMent Department { get; set; }
         public Student()
         {
-            this.ID = Guid.NewGuid();            
+            this.ID = Guid.NewGuid();     
+            //asdasd       
         }
 
         public string GetFullName()
