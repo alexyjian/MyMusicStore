@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Optimization;
 using System.Web.UI;
 
-namespace ASP.NETWebForm
+namespace ASPNETWEB
 {
     public class BundleConfig
     {

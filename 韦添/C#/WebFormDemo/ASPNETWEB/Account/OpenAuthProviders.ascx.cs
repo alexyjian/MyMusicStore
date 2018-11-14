@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
-using ASP.NETWebForm;
+using ASPNETWEB;
 
 public partial class OpenAuthProviders : System.Web.UI.UserControl
 {
