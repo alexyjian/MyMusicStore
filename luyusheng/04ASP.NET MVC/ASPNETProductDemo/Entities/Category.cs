@@ -14,7 +14,6 @@ namespace Entities
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string SortCode { get; set; }
-
         public Category()
         {
             this.ID = Guid.NewGuid();
