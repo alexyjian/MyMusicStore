@@ -16,6 +16,7 @@ namespace Entities
         public string SN { get; set; }
         public string DSCN { get; set; }
         public virtual Category Category { get; set; }
+        public Category Categoty { get; set; }
 
         public Product()
         {
