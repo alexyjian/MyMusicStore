@@ -8,7 +8,7 @@ namespace _11_5
 {
     /// <summary>
     /// 课程实体
-    /// </summary>
+    /// </summary> 
    public  class Course
     {
         public Guid ID { get; set; }
