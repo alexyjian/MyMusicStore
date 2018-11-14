@@ -88,7 +88,7 @@ public partial class ProductList : System.Web.UI.Page
             p.SN = sn;
             p.Name = name;
             p.DSCN = dscn;
-            p.Category.Name = category;
+            p.Category= context.Categorys.Single(x => x.Name == category);
             //保存
             context.SaveChanges();
         }
