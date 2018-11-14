@@ -14,6 +14,7 @@ namespace Entities
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string SN { get; set; }
+        public string DSCN { get; set; }
         public virtual Category Categoty { get; set; }
 
         public Product()
