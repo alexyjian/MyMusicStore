@@ -25,6 +25,14 @@
                 <HeaderStyle Width="150px" />
                 <ItemStyle Width="150px" />
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="分类">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Categety") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="LblCategory" runat="server" Text='<%# GetName(Eval("Categety")) %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 </asp:Content>
