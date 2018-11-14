@@ -67,9 +67,21 @@ public partial class ProductList : System.Web.UI.Page
 
         //查询出gridview中分类列编辑状态模板中下拉菜单
 
+        var ddl = (DropDownList)GridView1.Rows[e.NewEditIndex].FindControl("DdlCategory");
+
         //下拉数据绑定
+        ddl.DataSource = categories;
+        ddl.DataTextField = "Name";
+        ddl.DataValueField = "ID";
+        ddl.DataBind();
 
         //选项绑定
+        var id = (Guid)GridView1.DataKeys[e.NewEditIndex].Value;
+
+        //查询出当前激励的商品记录,获取它的分类
+        var product = context.Products.Find(id);
+        if (product.Categoty != null)
+            ddl.SelectedValue = product.Categoty.ID.ToString();
     }
 
     //取消编辑
@@ -94,7 +106,8 @@ public partial class ProductList : System.Web.UI.Page
             var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
             var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
             var dscn = (row.Cells[2].Controls[0] as TextBox).Text.Trim();
-
+            var categoryID = Guid.Parse(((DropDownList)row.FindControl("DdlCategory")).SelectedValue);
+            p.Categoty = context.Categories.Find(categoryID);
             p.SN = sn;
             p.Name = name;
             p.DSCN = dscn;

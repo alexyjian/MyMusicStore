@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <h4>商品列表</h4>
+
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品报表" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" PageSize="18" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
             <asp:BoundField DataField="SN" HeaderText="商品编号">
@@ -27,17 +28,16 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="分类">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Categety") %>'></asp:TextBox>
+                    <asp:DropDownList ID="DdlCategory" runat="server" AutoPostBack="True" Width="119px">
+                    </asp:DropDownList>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="LblCategory" runat="server" Text='<%# GetName(Eval("Categety")) %>'></asp:Label>
+                    <asp:Label ID="LblCategory" runat="server" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
-    <asp:GridView ID="GridView2" runat="server">
-    </asp:GridView>
-</asp:Content>
+    </asp:Content>
 
 
 
