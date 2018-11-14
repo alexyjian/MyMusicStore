@@ -21,7 +21,7 @@ namespace StuEntities
         public Student()
         {
             this.ID = Guid.NewGuid();     
-            //asdasd       
+            
         }
 
         public string GetFullName()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StuEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,6 +23,12 @@ public partial class ProductList : System.Web.UI.Page
 
  
        }
+    }
+
+    protected string GetName(object obj) {
+        if (obj != null)
+            return ((DepartMent)obj).Name;
+        return "该商品未被分类";
     }
 
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)

@@ -24,6 +24,14 @@
                 <asp:BoundField DataField="Address" HeaderText="地址">
                 <ItemStyle HorizontalAlign="Center" Width="100px" />
                 </asp:BoundField>
+                <asp:TemplateField HeaderText="学院">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Department") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="LbLDepartMent" runat="server" ForeColor="#333333" Text='<%# GetName(Eval("Department")) %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField ShowHeader="False">
                     <EditItemTemplate>
                         <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="更新"></asp:LinkButton>
