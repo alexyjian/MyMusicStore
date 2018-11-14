@@ -45,6 +45,7 @@ namespace aspWeb
             _getData();
         }
 
+       
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             //查询出该记录的主键
@@ -59,13 +60,18 @@ namespace aspWeb
             }
             _getData();
         }
-        
-    
+
+        //切换到编辑
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
             _getData();
+
+            //查询出所有的分类
+            //var context= new Stu StuDBContext
         }
+
+
 
         //取消编辑
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
