@@ -38,6 +38,7 @@ public partial class ProductList : System.Web.UI.Page
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView1.PageIndex = e.NewPageIndex;
+        GridView1.EditIndex = -1; //每一次翻页的编辑状态
         _getData();
     }
     //删除事件
@@ -50,15 +51,37 @@ public partial class ProductList : System.Web.UI.Page
             //删除这条记录
             var delProduct = context.Products.Find(id);
             context.Products.Remove(delProduct);
-            context.SaveChanges();
+            context.SaveChanges();//保存更改
         }
         _getData();
     }
     //编辑事件
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
-        GridView1.EditIndex = e.NewEditIndex;
+        GridView1.EditIndex = e.NewEditIndex;//获取新数据指数
         _getData();
+
+        //查询出所有的分类
+        var context = new ProductDbContext();
+        var categories = context.Categories.ToList();
+
+
+        //查询出gridview中分类列编辑状态模版中下拉菜单
+        var ddl = (DropDownList)GridView1.Rows[e.NewEditIndex].FindControl("DblCategory");
+
+        // 下来数据绑定
+        ddl.DataSource = categories;
+        ddl.DataTextField = "Name";
+        ddl.DataValueField = "ID";
+        ddl.DataBind();
+
+        //选项绑定
+        var id = (Guid)GridView1.DataKeys[e.NewEditIndex].Value;
+        //查询出当前记录的商品记录，获取它的分类
+        var product = context.Products.Find(id);
+        if (product.Categoty != null)
+            ddl.SelectedValue = product.Categoty.ID.ToString();
+
     }
     //取消编辑事件
     protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -76,15 +99,16 @@ public partial class ProductList : System.Web.UI.Page
         {
             //查询出要修改这条记录
             var p  = context.Products.Find(id);
-            //读出GridView中用户编辑的字段，给每个允许修改的实体属性赋值
-            //获取用户编辑的这一行
-            var row = GridView1.Rows[e.RowIndex];
 
+            //读出GridView中用户编辑的字段，给每个允许修改的实体属性赋值
+            var row = GridView1.Rows[e.RowIndex];
+            //获取用户编辑的这一行
 
             var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim(); //商品编号
             var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim(); //商品名称
-            var dscn = (row.Cells[2].Controls[0] as TextBox).Text.Trim(); //说明
-
+            var dscn = (row.Cells[3].Controls[0] as TextBox).Text.Trim(); //说明
+            var categoryID = Guid.Parse(((DropDownList)row.FindControl("DblCategory")).SelectedValue);
+            p.Categoty = context.Categories.Find(categoryID);
             p.SN = sn;
             p.Name = name;
             p.DSCN = dscn;
