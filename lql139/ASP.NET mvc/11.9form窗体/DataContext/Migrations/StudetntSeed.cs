@@ -21,43 +21,68 @@ namespace StuContext.Migrations
             var c3 = context.DepartMent.SingleOrDefault(x => x.Name == "贸易旅游学院");
             var c4 = context.DepartMent.SingleOrDefault(x => x.Name == "汽车工程学院");
             var c5 = context.DepartMent.SingleOrDefault(x => x.Name == "财经与物流学院");
-         
+
             for (var i = 0; i < 200; i++)
             {
                 string fname = "";
                 string lname = "";
                 var fullName = _GetRandomChineseFullName(ref fname, ref lname);
-              
-                
+
                 var s1 = new Studetnt()
                 {
-                    StudentNo =i.ToString("20170000"),
+                    StudentNo = i.ToString("DZ20170000"),
                     Name = fullName,
-                    Birthday=DateTime.Now,
-                    DepartMent=c1,
-                    Phone="10086",
-                    Address="社湾路"
-                   
-                };
-                context.Studetnt.Add(s1);
-                Thread.Sleep(3);
-            }
-            for (var j = 0; j < 200; j++)
-            {
-                string fname = "";
-                string lname = "";
-                var fullName = _GetRandomChineseFullName(ref fname, ref lname);
+                    Birthday = DateTime.Now,
+                    DepartMent = c1,
+                    Phone = "10086",
+                    Address = "社湾路"
 
+                };
                 var s2 = new Studetnt()
                 {
-                    StudentNo = j.ToString("20180000"),
+                    StudentNo = i.ToString("JD20170000"),
                     Name = fullName,
                     Birthday = DateTime.Now,
                     DepartMent = c2,
-                    Phone = "12580",
-                    Address="官塘路"
+                    Phone = "10086",
+                    Address = "天堂路"
+
                 };
+                var s3 = new Studetnt()
+                {
+                    StudentNo = i.ToString("MY20170000"),
+                    Name = fullName,
+                    Birthday = DateTime.Now,
+                    DepartMent = c3,
+                    Phone = "10086",
+                    Address = "地狱路"
+
+                };
+                var s4 = new Studetnt()
+                {
+                    StudentNo = i.ToString("QC20170000"),
+                    Name = fullName,
+                    Birthday = DateTime.Now,
+                    DepartMent = c4,
+                    Phone = "10086",
+                    Address = "没路"
+
+                };
+                var s5 = new Studetnt()
+                {
+                    StudentNo = i.ToString("CJ20170000"),
+                    Name = fullName,
+                    Birthday = DateTime.Now,
+                    DepartMent = c5,
+                    Phone = "10086",
+                    Address = "大道路"
+
+                };
+                context.Studetnt.Add(s1);
                 context.Studetnt.Add(s2);
+                context.Studetnt.Add(s3);
+                context.Studetnt.Add(s4);
+                context.Studetnt.Add(s5);
                 Thread.Sleep(3);
             }
             context.SaveChanges();

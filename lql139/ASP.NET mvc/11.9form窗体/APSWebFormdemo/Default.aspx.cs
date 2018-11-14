@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using StuContext;
+using StuEntities;
+using StuEntities;
 
 public partial class _Default : Page
 {
@@ -85,6 +88,19 @@ public partial class _Default : Page
     {
         GridView1.EditIndex = e.NewEditIndex;
         _selectStudetnt();
+
+        //数据绑定
+        var context = new DepartMent();
+        var cate = context.Desctiption.ToList();
+        var ddl =(DropDownList)GridView1.Rows[e.NewEditIndex].FindControl("DropDownList2");
+        ddl.DataSource = cate;
+        ddl.DataTextField = "Name";
+        ddl.DataValueField = "ID";
+        ddl.DataBind();
+        //选项绑定
+        var id = (Guid)GridView1.DataKeys[e.NewEditIndex].Value;
+        var desctip = context.Desctiption
+
     }
  
     protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -118,5 +134,13 @@ public partial class _Default : Page
         GridView1.EditIndex = -1;
         _selectStudetnt();
 
+    }
+    protected object GetName(object obj)
+    {
+        //  var dd = (TextBox)GridView1.Rows[e.NewEditIndex].FindControl("DepartMentSeedLbl");
+
+        if (obj != null)
+            return obj;
+        return "此学生未分院系";
     }
 }

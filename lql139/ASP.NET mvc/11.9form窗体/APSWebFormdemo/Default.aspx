@@ -24,6 +24,15 @@
             </ItemTemplate>
             <ItemStyle Width="70px" />
         </asp:TemplateField>
+        <asp:TemplateField HeaderText="分类">
+            <EditItemTemplate>
+                <asp:DropDownList ID="DropDownList2" runat="server" Height="19px" Width="108px">
+                </asp:DropDownList>
+            </EditItemTemplate>
+            <ItemTemplate>
+                <asp:Label ID="DepartMentSeedLbl" runat="server" Text='<%# GetName(Eval("DepartMent")) %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
     </Columns>
     <RowStyle HorizontalAlign="Center" />
 </asp:GridView>
