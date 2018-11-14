@@ -7,14 +7,23 @@
             <asp:BoundField DataField="Name" HeaderText="姓名" />
             <asp:BoundField DataField="Sex" HeaderText="性别" />
             <asp:BoundField DataField="Age" HeaderText="年龄" />
-            <asp:BoundField DataField="DepartMent" HeaderText="学院" />
+            <asp:TemplateField HeaderText="学院">
+                <EditItemTemplate>
+                    <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="71px" DataSource="<%# GetDepartMent() %>" DataTextField='<%# "Name" %>' DataValueField='<%# "ID" %>'>
+                    </asp:DropDownList>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="Label1" runat="server" Text='<%# GetName(Eval("DepartMent")) %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" HeaderText="操作">
                 <ControlStyle Width="30px" />
             </asp:CommandField>
+            <asp:BoundField DataField="DepartMent" Visible="False" />
         </Columns>
 
     </asp:GridView>
-    <script>
+    <%--<script>
         var a = document.getElementsByTagName('a');
         var alinks=[];
         for (var l = 0; l < a.length;l++)
@@ -36,6 +45,6 @@
 
             }
         }
-    </script>
+    </script>--%>
 </asp:Content>
 
