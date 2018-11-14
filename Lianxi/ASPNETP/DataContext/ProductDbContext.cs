@@ -11,6 +11,5 @@ namespace DataContext
         {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Puoducts { get; set; }
-   //不合格
     }
 }
