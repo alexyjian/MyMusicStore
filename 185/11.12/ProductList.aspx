@@ -5,6 +5,15 @@
         <Columns>
             <asp:BoundField DataField="Sn" HeaderText="商品编号" />
             <asp:BoundField DataField="Name" HeaderText="商品名称" />
+            <asp:TemplateField HeaderText="分类">
+                <EditItemTemplate>
+                    <asp:DropDownList ID="DdlCategory" runat="server" Height="27px" Width="166px">
+                    </asp:DropDownList>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="CblCategory" runat="server" ForeColor="#000333" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="DSCN" HeaderText="说明" />
             <asp:TemplateField HeaderText="维护操作" ShowHeader="False">
                 <EditItemTemplate>

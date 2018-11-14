@@ -1,0 +1,17 @@
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\DataContext.dll.config
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\DataContext.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\DataContext.pdb
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\Entities.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.Extensions.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.SqlServer.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\MoreLinq.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\System.ValueTuple.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\Entities.pdb
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.xml
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.SqlServer.xml
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\MoreLinq.xml
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\bin\Debug\System.ValueTuple.xml
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\obj\Debug\DataContext.csprojResolveAssemblyReference.cache
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\obj\Debug\DataContext.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\DataContext\obj\Debug\DataContext.pdb

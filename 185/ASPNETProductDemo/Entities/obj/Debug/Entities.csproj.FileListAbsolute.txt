@@ -1,0 +1,4 @@
+E:\2015\MyMusicStore\185\ASPNETProductDemo\Entities\bin\Debug\Entities.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\Entities\bin\Debug\Entities.pdb
+E:\2015\MyMusicStore\185\ASPNETProductDemo\Entities\obj\Debug\Entities.dll
+E:\2015\MyMusicStore\185\ASPNETProductDemo\Entities\obj\Debug\Entities.pdb

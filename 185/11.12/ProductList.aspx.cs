@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataContext;
+using Class1;
 
 public partial class ProductList : System.Web.UI.Page
 {
@@ -51,13 +52,31 @@ public partial class ProductList : System.Web.UI.Page
         _getData();
 
     }
-
+    //切换到编辑
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
         GridView1.EditIndex = e.NewEditIndex;
         _getData();
-    }
 
+        //查询出所有的分类
+        var context = new ProductDbContext();
+        var categories = context.Categories.ToList();
+
+        //查询出gridview中分类列编辑状态模板中下拉菜单
+        var ddl = (DropDownList)GridView1.Rows[e.NewEditIndex].FindControl("DblCategory");
+        //下拉数据绑定
+        ddl.DataSource = categories;
+        ddl.DataTextField = "Name";
+        ddl.DataValueField = "ID";
+        ddl.DataBind();
+        //选项绑定
+        var id = (Guid)GridView1.DataKeys[e.NewEditIndex].Value;
+        //查询当前记录的商品记录，获取它的分类
+        var product = context.Products.Find(id);
+        if (product.Categoty != null)
+            ddl.SelectedValue = product.Categoty.ID.ToString();
+    }
+    //取消编辑
     protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
         GridView1.EditIndex = -1;
@@ -87,4 +106,12 @@ public partial class ProductList : System.Web.UI.Page
         GridView1.EditIndex = -1;
         _getData();
     }
+    //分类字段绑定的方法
+    protected string GetName(object obj)
+    {
+        if (obj != null)
+            return ((Category)obj).Name;
+        return "该商品未分类";
+    }
+  
 }
