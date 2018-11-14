@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataContext;
-
+using Entities;
 
 public partial class ProdrctList : System.Web.UI.Page
 {
@@ -25,6 +25,15 @@ public partial class ProdrctList : System.Web.UI.Page
             GridView1.DataBind();
         }
     }
+
+    //分类字段绑定的方法
+    protected string GetName(object obj)
+    {
+        if (obj != null)
+            return ((Category)obj).Name;
+        return "该商品未分类";
+    }
+
     //翻页事件
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -54,15 +63,40 @@ public partial class ProdrctList : System.Web.UI.Page
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
         GridView1.EditIndex = e.NewEditIndex;
+        GridView1.EditIndex = -1;
         _getData();
-    }
 
+
+        //查询出所有的分类
+        var context = new ProductDbContext();
+        var catagories = context.Categories.ToList();
+
+
+        //查询出gridview中分类列编辑状态模板中的下拉菜单
+        var ddl =(DropDownList) GridView1.Rows[e.NewEditIndex].FindControl("Dblcategoy");
+
+
+        //下拉数据绑定
+        ddl.DataSource = catagories;
+        ddl.DataTextField = "Name";
+        ddl.DataValueField = "ID";
+        ddl.DataBind();
+
+        //选项绑定
+        var id = (Guid)GridView1.DataKeys[e.NewEditIndex].Value;
+        //查询出当前记录的商品分类记录，获取它的分类
+        var product = context.Products.Find(id);
+        if (product.Categoty != null)
+            ddl.SelectedValue = product.Categoty.ID.ToString();
+    }
+   
     //取消编辑事件
     protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
     {
         GridView1.EditIndex = -1;
         _getData();
     }
+
     //保存修改
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
@@ -77,9 +111,16 @@ public partial class ProdrctList : System.Web.UI.Page
             var row = GridView1.Rows[e.RowIndex];
             var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
             var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
-            var dscn = (row.Cells[2].Controls[0] as TextBox).Text.Trim();
+            var dscn = (row.Cells[3].Controls[0] as TextBox).Text.Trim();
+            var categotyID = Guid.Parse(((DropDownList)row.FindControl("Dblcategoy")).SelectedValue);
+            p.Categoty = context.Categories.Find(categotyID);
+            p.SN = sn;
+            p.Name = name;
+            p.DSCN = dscn;
+            context.SaveChanges();
 
         }
-
+        GridView1.EditIndex = -1;
+        _getData();
     }
 }

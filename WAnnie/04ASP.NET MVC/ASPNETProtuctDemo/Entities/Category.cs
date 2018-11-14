@@ -14,7 +14,7 @@ namespace Entities
         public string SortCode { get; set; }
         public Category()
         {
-            ID = Guid.NewGuid();
+          this.ID = Guid.NewGuid();
         }
     }
 }

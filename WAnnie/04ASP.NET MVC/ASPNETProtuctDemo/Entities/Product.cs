@@ -16,7 +16,7 @@ namespace Entities
         public virtual Category Categoty { get; set; }
         public Product()
         {
-            ID = Guid.NewGuid();
+            this.ID = Guid.NewGuid();
         }
     }
 }

@@ -9,6 +9,16 @@
             <asp:BoundField DataField="Name" HeaderText="商品名称" >
             <ItemStyle Width="30%" />
             </asp:BoundField>
+            <asp:TemplateField HeaderText="商品分类">
+                <EditItemTemplate>
+                    <asp:DropDownList ID="Dblcategoy" runat="server" Height="19px" Width="167px">
+                    </asp:DropDownList>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="LblCategory" runat="server" ForeColor="#0080FF" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="20%" />
+            </asp:TemplateField>
             <asp:BoundField DataField="DSCN" HeaderText="说明" />
             <asp:TemplateField HeaderText="维护操作" ShowHeader="False">
                 <EditItemTemplate>
