@@ -56,6 +56,7 @@ namespace DataContext.Migrations
                     Categoty = c1,
                     Name = c1.Name + i.ToString("00"),
                     DSCN = c1.Name + i.ToString("00") + "用了就知道好!",
+                    SN = c1.SortCode + "_" + i.ToString("00")
                 };
                 context.Products.Add(p1);
             }
@@ -67,6 +68,7 @@ namespace DataContext.Migrations
                     Categoty = c2,
                     Name = c2.Name + i.ToString("00"),
                     DSCN = c2.Name + i.ToString("00") + "用了就知道好!",
+                    SN = c2.SortCode + "_" + i.ToString("00")
                 };
                 context.Products.Add(p2);
             }
@@ -78,6 +80,7 @@ namespace DataContext.Migrations
                     Categoty = c3,
                     Name = c3.Name + i.ToString("00"),
                     DSCN = c3.Name + i.ToString("00") + "用了就知道好!",
+                    SN = c3.SortCode + "_" + i.ToString("00")
                 };
                 context.Products.Add(p3);
             }
@@ -89,6 +92,7 @@ namespace DataContext.Migrations
                     Categoty = c4,
                     Name = c4.Name + i.ToString("00"),
                     DSCN = c4.Name + i.ToString("00") + "用了就知道好!",
+                    SN = c4.SortCode + "_" + i.ToString("00")
                 };
                 context.Products.Add(p4);
             }
@@ -100,6 +104,7 @@ namespace DataContext.Migrations
                     Categoty = c5,
                     Name = c5.Name + i.ToString("00"),
                     DSCN = c5.Name + i.ToString("00") + "用了就知道好!",
+                    SN = c5.SortCode + "_" + i.ToString("00")
                 };
                 context.Products.Add(p5);
             }
@@ -111,6 +116,7 @@ namespace DataContext.Migrations
                     Categoty = c6,
                     Name = c6.Name + i.ToString("00"),
                     DSCN = c6.Name + i.ToString("00") + "用了就知道好!",
+                    SN = c6.SortCode + "_" + i.ToString("00")
                 };
                 context.Products.Add(p6);
             }
