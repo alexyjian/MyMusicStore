@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Entities;
 
 public partial class ProductList : System.Web.UI.Page
 {
@@ -20,14 +21,7 @@ public partial class ProductList : System.Web.UI.Page
         //显示数据
         using (var context=new ProductDbContext())
         {
-            var productList = context.Products.Select(x =>new
-            {     SN=x.SN,
-                DSCN = x.DSCN,
-                Name = x.Name,
-                ID = x.ID,
-                Category = x.Category.Name       
-              
-            }).OrderBy(x => x).ToList();            
+            var productList = context.Products.OrderBy(x => x.SN).ToList();            
             GridView1.DataSource = productList;
             GridView1.DataBind();
         }
@@ -46,10 +40,17 @@ public partial class ProductList : System.Web.UI.Page
         }
         _getData();
     }
+    protected string GetName(object obj)
+    {
+        if (obj != null)
+            return ((Category)obj).Name;      
+        else return "该商品未分类";
+
+    }
     //翻页时发生
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
-
+        GridView1.EditIndex = -1;
         GridView1.PageIndex = e.NewPageIndex;
         _getData();
     }
@@ -58,6 +59,27 @@ public partial class ProductList : System.Web.UI.Page
     {
         GridView1.EditIndex = e.NewEditIndex;
         _getData();
+        //查询所有的分类
+        var context = new ProductDbContext();       
+        var catagoryList = context.Categorys.OrderBy(x => x.SortCode).ToList();
+        
+        //查询出Gridvidew中分类列编辑状态模版中下拉菜单
+        var ddl =(DropDownList)GridView1.Rows[e.NewEditIndex].FindControl("DropDownList1");
+
+        //下拉数据绑定
+        ddl.DataSource = catagoryList;
+        ddl.DataTextField = "Name";
+        ddl.DataValueField = "ID";
+        ddl.DataBind();
+
+        //选项绑定
+        var id = (Guid)GridView1.DataKeys[e.NewEditIndex].Value;
+        var product = context.Products.Find(id);
+        if (product.Category != null)
+        {
+            ddl.SelectedValue = product.Category.ID.ToString();                        
+        }
+
     }
     //取消编辑
     protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -82,13 +104,13 @@ public partial class ProductList : System.Web.UI.Page
             //var dscn= (row.Cells[2].Controls[2] as TextBox).Text.Trim();
             var sn = e.NewValues["SN"].ToString();
             var name = e.NewValues["Name"].ToString();
-            var dscn = e.NewValues["DSCN"].ToString();
-            var category = e.NewValues["Category"].ToString();
+            var dscn = e.NewValues["DSCN"].ToString();           
+            var category = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("DropDownList1");
             //更新
             p.SN = sn;
             p.Name = name;
             p.DSCN = dscn;
-            p.Category= context.Categorys.Single(x => x.Name == category);
+            p.Category= context.Categorys.Find(Guid.Parse(category.SelectedValue));         
             //保存
             context.SaveChanges();
         }

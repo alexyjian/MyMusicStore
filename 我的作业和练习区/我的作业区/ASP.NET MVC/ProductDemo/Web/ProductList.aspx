@@ -2,19 +2,30 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <h4 style="text-align:center">商品列表</h4>
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" Width="663px" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" Width="1188px" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="SN" HeaderText="商品编号">
             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-            <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" />
+            <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="15%" />
             </asp:BoundField>
             <asp:BoundField DataField="Name" HeaderText="商品名称">
             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="15%" />
             </asp:BoundField>
-            <asp:BoundField DataField="Category" HeaderText="商品类别" />
-            <asp:BoundField DataField="DSCN" HeaderText="说明" />
+            <asp:TemplateField HeaderText="商品类别">
+                <EditItemTemplate>
+                    <asp:DropDownList ID="DropDownList1" runat="server">
+                    </asp:DropDownList>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="LblCategory" runat="server" Text='<%# GetName(Eval("Category")) %>'></asp:Label>
+                </ItemTemplate>
+                <ItemStyle Width="10%" />
+            </asp:TemplateField>
+            <asp:BoundField DataField="DSCN" HeaderText="说明" >
+            <ItemStyle Width="50%" />
+            </asp:BoundField>
             <asp:TemplateField HeaderText="维护操作" ShowHeader="False">
                 <EditItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="更新"></asp:LinkButton>
@@ -24,6 +35,7 @@
                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="编辑"></asp:LinkButton>
                     &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="删除" OnClientClick="return confirm('你真的要删了我么？');"></asp:LinkButton>
                 </ItemTemplate>
+                <ItemStyle Width="10%" />
             </asp:TemplateField>
         </Columns>
         <EditRowStyle BackColor="#999999" />
