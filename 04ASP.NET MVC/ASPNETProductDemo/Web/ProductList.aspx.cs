@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataContext;
+using Entities;
 
 public partial class ProductList : System.Web.UI.Page
 {
@@ -26,7 +27,7 @@ public partial class ProductList : System.Web.UI.Page
         }
     }
 
-    protected string GetName(object )
+    protected string GetName(object obj)
     {
         if (obj != null)
             return ((Category)obj).Name;
@@ -59,6 +60,16 @@ public partial class ProductList : System.Web.UI.Page
     {
         GridView1.EditIndex = e.NewEditIndex;
         _getData();
+
+        //查询出所有的分类
+        var context = new ProductDbContext();
+        var categories = context.Categories.ToList();
+
+        //查询出gridview中分类列编辑状态模板中下拉菜单
+
+        //下拉数据绑定
+
+        //选项绑定
     }
 
     //取消编辑
