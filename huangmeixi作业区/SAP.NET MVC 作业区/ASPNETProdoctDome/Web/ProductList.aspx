@@ -4,10 +4,21 @@
     <h4>商品列表</h4>
          <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品报表" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" PageSize="18" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
-            <asp:BoundField DataField="SN" HeaderText="商品编号" />
+            <asp:BoundField DataField="SN" HeaderText="商品编号" >
+            <FooterStyle Width="200%" />
+            </asp:BoundField>
             <asp:BoundField DataField="Name" HeaderText="商品名称">
             <FooterStyle Width="30%" />
             </asp:BoundField>
+            <asp:TemplateField HeaderText="分类">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Categoty") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:Label ID="LblCategory" runat="server" BackColor="#9999FF" Text='<%# GatName(Eval("Categoty")) %>'></asp:Label>
+                </ItemTemplate>
+                <FooterStyle Width="15%" />
+            </asp:TemplateField>
             <asp:BoundField DataField="DSCN" HeaderText="说明">
             <FooterStyle Width="200%" />
             </asp:BoundField>

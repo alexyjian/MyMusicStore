@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataContext;
+using Entities;
 
 public partial class ProductList : System.Web.UI.Page
 {
@@ -22,9 +23,15 @@ public partial class ProductList : System.Web.UI.Page
             var productList = context.Products.OrderBy(x => x.SN).ToList();
             GridView1.DataSource = productList;
             GridView1.DataBind();
-    
-
         }
+    }
+
+    //分类字段绑定的方法
+    protected string GatName(object obj)
+    {
+        if (obj != null)
+            return ((Category)obj).Name;
+        return "该商品分类";
 
     }
     //翻页事件
