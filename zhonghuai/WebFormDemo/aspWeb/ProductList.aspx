@@ -16,6 +16,14 @@
             <Columns>
                 <asp:BoundField DataField="SortCode" HeaderText="编号" />
                 <asp:BoundField DataField="Name" HeaderText="名字" />
+                <asp:TemplateField HeaderText="分类">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Categoty") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="LblCategory" runat="server" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="Description" HeaderText="说明" />
                 <asp:TemplateField HeaderText="维护" ShowHeader="False">
                     <EditItemTemplate>

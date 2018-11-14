@@ -29,6 +29,15 @@ namespace aspWeb
             }
         }
 
+        //分类字段绑定的方法
+        //protected string GetName(object obj)
+        //{
+        //    if (obj != null)
+        //        return ((Category)obj).Name;
+        //    return "该商品为分类";
+        //}
+
+
         //翻页事件
         protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
@@ -50,7 +59,7 @@ namespace aspWeb
             }
             _getData();
         }
-
+        
     
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -81,7 +90,7 @@ namespace aspWeb
                 var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
 
                 var dsscn = (row.Cells[2].Controls[0] as TextBox).Text.Trim();
-
+                 
 
                 p.ID = id;
                 p.Name = name;
