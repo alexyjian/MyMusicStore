@@ -16,8 +16,7 @@ namespace DataContent.Migrations
         protected override void Seed(DataContext.StuDBContext context)
         {
             //  This method will be called after migrating to the latest version.
-
-            StudetntSeed.Seed(context);
+            //StudetntSeed.Seed(context);
             DepartmentSeed.Seed(context);
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
