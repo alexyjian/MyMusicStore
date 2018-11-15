@@ -30,5 +30,15 @@ namespace Web
             }
              
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //直接删除
+            //Session.Remove("D");
+
+            //立即过期
+            Session.Abandon();
+            Response.Redirect("~/E.aspx");
+        }
     }
 }
