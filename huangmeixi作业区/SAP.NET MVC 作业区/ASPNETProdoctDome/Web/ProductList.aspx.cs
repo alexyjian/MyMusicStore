@@ -11,6 +11,7 @@ public partial class ProductList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //页面初次加载时，加载数据
         if (!IsPostBack)
             _getData();
     }
@@ -118,4 +119,6 @@ public partial class ProductList : System.Web.UI.Page
         _getData();
        
     }
+
+    
 }

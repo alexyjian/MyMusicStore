@@ -4,6 +4,9 @@
     <h4>商品列表</h4>
          <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品报表" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" PageSize="18" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
+            <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="ProdoctDetail.aspx?id={0}" DataTextField="SN" DataTextFormatString="编号{0}" HeaderText="查看">
+            <FooterStyle Width="60px" />
+            </asp:HyperLinkField>
             <asp:BoundField DataField="SN" HeaderText="商品编号" >
             <FooterStyle Width="200%" />
             </asp:BoundField>
