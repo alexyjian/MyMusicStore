@@ -8,7 +8,7 @@ namespace _1027EF代码优先作业
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main( string[] args)
         {
             var context = new DBContext();
             var courses = context.Courses.ToList();
