@@ -15,7 +15,7 @@ public partial class C : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        var category = new ProductDbContext().Categories.First();
+        var category = new ProductDbContext().Categories.ToList();
         Session["C"] = category;
         Response.Redirect("~/D.aspx");
     }
