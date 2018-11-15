@@ -90,8 +90,8 @@ public partial class _Default : Page
         _selectStudetnt();
 
         //数据绑定
-        var context = new DepartMent();
-        var cate = context.Desctiption.ToList();
+        var context = new StuContext.StuuuContext();
+        var cate = context.DepartMent.ToList();
         var ddl =(DropDownList)GridView1.Rows[e.NewEditIndex].FindControl("DropDownList2");
         ddl.DataSource = cate;
         ddl.DataTextField = "Name";
@@ -99,7 +99,8 @@ public partial class _Default : Page
         ddl.DataBind();
         //选项绑定
         var id = (Guid)GridView1.DataKeys[e.NewEditIndex].Value;
-        var desctip = context.Desctiption
+        var desctip = context.DepartMent.Find(id);
+       
 
     }
  
@@ -117,16 +118,14 @@ public partial class _Default : Page
             var p = context.Studetnt.Find(id);
             //获取编辑行
             var row = GridView1.Rows[e.RowIndex];
-            var StuNo = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
+            //var StuNo = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
             var Name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
-            //var department = (row.Cells[2].Controls[0] as TextBox).Text.Trim();
-            //var Sex = (row.Cells[3].Controls[0] as TextBox).Text.Trim();
             var Address = (row.Cells[4].Controls[0] as TextBox).Text.Trim();
             var phone = (row.Cells[5].Controls[0] as TextBox).Text.Trim();
-            p.StudentNo = StuNo;
+            var Departmentid = Guid.Parse(((DropDownList)row.FindControl("DropDownList2")).SelectedValue);
+            p.DepartMent = context.DepartMent.Find(Departmentid);
+           // p.StudentNo = StuNo;
             p.Name = Name;
-            //p.DepartMent = department;
-            //p.Sex = Sex;
             p.Address = Address;
             p.Phone = phone;
             context.SaveChanges();

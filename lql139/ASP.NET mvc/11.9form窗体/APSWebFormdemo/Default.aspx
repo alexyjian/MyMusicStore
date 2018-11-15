@@ -7,9 +7,17 @@
 </asp:DropDownList>
 <asp:GridView  ID="GridView1" runat="server" AutoGenerateColumns="False" Width="100%" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" DataKeyNames="ID" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
     <Columns >
-        <asp:BoundField DataField="StuNo" HeaderText="学号" />
+        <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="Details.aspx?id={0}" DataTextField="StuNo" HeaderText="学号" />
         <asp:BoundField DataField="Name" HeaderText="姓名" />
-        <asp:BoundField DataField="department" HeaderText="学院" />
+        <asp:TemplateField HeaderText="院系">
+            <EditItemTemplate>
+                <asp:DropDownList ID="DropDownList2" runat="server" Height="19px" Width="108px">
+                </asp:DropDownList>
+            </EditItemTemplate>
+            <ItemTemplate>
+                <asp:Label ID="DepartMentSeedLbl" runat="server" Text='<%# GetName(Eval("DepartMent")) %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
         <asp:BoundField DataField="Sex" HeaderText="性别" />
         <asp:BoundField DataField="Address" HeaderText="地址" />
         <asp:BoundField DataField="Phone" HeaderText="电话" />
@@ -23,15 +31,6 @@
                 &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="删除" OnClientClick="return confirm('是否删除?');" ></asp:LinkButton>
             </ItemTemplate>
             <ItemStyle Width="70px" />
-        </asp:TemplateField>
-        <asp:TemplateField HeaderText="分类">
-            <EditItemTemplate>
-                <asp:DropDownList ID="DropDownList2" runat="server" Height="19px" Width="108px">
-                </asp:DropDownList>
-            </EditItemTemplate>
-            <ItemTemplate>
-                <asp:Label ID="DepartMentSeedLbl" runat="server" Text='<%# GetName(Eval("DepartMent")) %>'></asp:Label>
-            </ItemTemplate>
         </asp:TemplateField>
     </Columns>
     <RowStyle HorizontalAlign="Center" />
