@@ -11,4 +11,11 @@ public partial class _Default : Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        var str = TextBox1.Text;
+        var str1 = TextBox2.Text;
+        Response.Redirect("Contact.aspx?str=" + str + "&str1=" + str1);
+    }
 }
