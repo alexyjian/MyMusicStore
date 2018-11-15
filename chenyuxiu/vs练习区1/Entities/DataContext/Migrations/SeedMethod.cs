@@ -230,4 +230,3 @@ namespace DataContext.Migrations
 
     }
 }
-}

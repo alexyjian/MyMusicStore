@@ -7,7 +7,7 @@ namespace DataContext.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<DataContext.ProductDbContext>
     {
-        public  class Configuration()
+        public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
@@ -25,3 +25,4 @@ namespace DataContext.Migrations
             //  to avoid creating duplicate seed data.
         }
     }
+}
