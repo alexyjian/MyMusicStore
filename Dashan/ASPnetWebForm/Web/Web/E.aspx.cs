@@ -15,8 +15,17 @@ namespace Web
 
             if (Session["D"] != null)
             {
-                 var d = Session["D"] as Category;
-                Label1.Text = d.SortCode + "." + d.Name;   
+
+
+                //var d = Session["D"] as Category; //传对象
+
+                //运用泛型
+                var d = Session["D"] as List<Category>;
+                var cstr = "";
+
+                foreach (var item in d)
+                    cstr += item.SortCode + "." + item.Name;
+                Label1.Text =cstr;   
 
             }
              

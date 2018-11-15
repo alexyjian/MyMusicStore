@@ -17,8 +17,11 @@ namespace Web
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var category = new ProductDbContext().Categories.First();
-            Session["D"] = category;
+            //var category = new ProductDbContext().Categories.First();//传对象
+
+            //转泛型
+            var Categories = new ProductDbContext().Categories.ToList();
+            Session["D"] = Categories;
             Response.Redirect("~/E.aspx");
 
         }
