@@ -15,3 +15,6 @@ E:\yjian\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
 E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
 E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
 E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
+E:\KLYNM\KLNYSOBS\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
+E:\KLYNM\KLNYSOBS\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
+E:\KLYNM\KLNYSOBS\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
