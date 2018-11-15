@@ -22,7 +22,7 @@ namespace Web
             }
             else
             {
-                Response.Redirect("~/ProductList.aspx");
+                Response.Redirect("~/productlist.aspx");
             }
         }
     }

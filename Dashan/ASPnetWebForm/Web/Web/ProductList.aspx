@@ -9,7 +9,7 @@
                         <asp:TextBox ID="txtSN" runat="server" Height="27px" Text='<%# Eval("SN") %>' Width="158px"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("ID", "ProductDetail.aspx？id={0}") %>' Text='<%# Eval("SN", "{0}") %>'></asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("ID", "ProductDetail.aspx?id={0}") %>' Text='<%# Eval("SN", "{0}") %>'></asp:HyperLink>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Name" HeaderText="商品名称" />
