@@ -4,7 +4,14 @@
     <h3>this is test</h3>
     <asp:GridView ID="GridView1" runat="server" Caption="学生列表" Width="100%" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" AllowPaging="True" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowEditing="GridView1_RowEditing" PageSize="5" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
-            <asp:BoundField DataField="Name" HeaderText="姓名" />
+            <asp:TemplateField HeaderText="姓名">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("Name") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("ID", "StuD?Id={0}") %>' Text='<%# Eval("Name") %>'></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Sex" HeaderText="性别" />
             <asp:BoundField DataField="Age" HeaderText="年龄" />
             <asp:TemplateField HeaderText="学院">
@@ -46,5 +53,7 @@
             }
         }
     </script>--%>
+
+
 </asp:Content>
 

@@ -86,7 +86,7 @@ public partial class test : System.Web.UI.Page
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
         var id = (Guid)GridView1.DataKeys[e.RowIndex].Value;
-        var n = e.NewValues["Name"].ToString().Trim();
+        var n = (GridView1.Rows[e.RowIndex].FindControl("TextBox1") as TextBox).Text.Trim();
         var a = Convert.ToInt16(e.NewValues["Age"]);
         var s = Convert.ToBoolean(e.NewValues["Sex"]);
         var Drl = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("DropDownList1");
