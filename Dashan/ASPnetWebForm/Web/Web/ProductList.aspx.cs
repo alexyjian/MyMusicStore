@@ -95,7 +95,8 @@ namespace Web
             {
                 var p = context.Products.Find(id);
                 var row = GridView1.Rows[e.RowIndex];
-                var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
+                var sn = ((TextBox)row.FindControl("txtSN")).Text.Trim();
+               
                 var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
                 var dscn = (row.Cells[3].Controls[0] as TextBox).Text.Trim();
 

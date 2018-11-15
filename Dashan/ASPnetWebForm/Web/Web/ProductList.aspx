@@ -2,9 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h4>商品列表</h4>
     <h4>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Caption="商品报表" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" PageSize="18" Width="100%" AllowPaging="True" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Caption="商品报表" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" PageSize="18" Width="106%" AllowPaging="True" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
             <Columns>
-                <asp:BoundField DataField="SN" HeaderText="商品编号" />
+                <asp:TemplateField HeaderText="商品编号">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtSN" runat="server" Height="27px" Text='<%# Eval("SN") %>' Width="158px"></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("ID", "ProductDetail.aspx？id={0}") %>' Text='<%# Eval("SN", "{0}") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="Name" HeaderText="商品名称" />
                 <asp:TemplateField HeaderText="分类">
                     <EditItemTemplate>
