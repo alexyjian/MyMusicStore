@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" AllowPaging="True">
         <Columns>
-            <asp:BoundField DataField="SN" HeaderText="商品编号" />
+            <asp:HyperLinkField DataNavigateUrlFormatString="ProductDetail.aspx?id={0}" DataTextField="SN" HeaderText="商品编号" DataNavigateUrlFields="ID" DataTextFormatString="{0}" >
+            <ItemStyle Width="100px" />
+            </asp:HyperLinkField>
             <asp:BoundField DataField="Name" HeaderText="商品名称" />
             <asp:TemplateField HeaderText="分类">
                 <EditItemTemplate>
