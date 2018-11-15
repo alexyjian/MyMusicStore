@@ -93,7 +93,9 @@ public partial class ProductList : System.Web.UI.Page
             //讀出gridview中用戶的字段，給每個允許修改的屍體屬性賦值
             //獲取用戶編輯的這一行
             var row = GridView1.Rows[e.RowIndex];
-            var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
+
+            var sn = ((TextBox)row.FindControl("TextBox1")).Text.Trim();
+
             var name= (row.Cells[1].Controls[0] as TextBox).Text.Trim();
             var dscn= (row.Cells[3].Controls[0] as TextBox).Text.Trim();
 

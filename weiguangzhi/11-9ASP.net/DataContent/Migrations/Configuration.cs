@@ -10,14 +10,13 @@ namespace DataContent.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(DataContext.StuDBContext context)
         {
             //  This method will be called after migrating to the latest version.
-            //StudetntSeed.Seed(context);
-            DepartmentSeed.Seed(context);
+            StudetntSeed.Seed(context);
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
         }
