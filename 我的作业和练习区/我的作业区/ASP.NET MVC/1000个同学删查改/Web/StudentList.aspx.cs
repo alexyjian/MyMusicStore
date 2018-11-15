@@ -33,4 +33,60 @@ public partial class StudentList : System.Web.UI.Page
          return "显示错误";
 
     }
+
+    protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+
+    }
+    //删除时发生
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        var id = Guid.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
+        using (var context=new StuDBContext())
+        {
+            var stu = context.Students.Find(id);
+            context.Students.Remove(stu);
+            context.SaveChanges();
+        }
+        _getDate();
+
+    }
+    //翻页时发生
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.EditIndex = -1;
+        GridView1.PageIndex = e.NewPageIndex;
+        _getDate();
+        
+    }
+    //保存修改
+    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        var id = Guid.Parse(GridView1.DataKeys[e.RowIndex].Value.ToString());
+        using (var context = new StuDBContext())
+        {
+            var stu = context.Students.Find(id);
+            var name = e.NewValues["Name"].ToString();
+            var studentcode = e.NewValues["StudentCode"].ToString();
+            var sex= true;
+            if (e.NewValues["sex"].ToString().Trim()!="男")
+            {
+                sex = false;
+            }
+            
+            stu.Name = name;
+            stu.StudentCode = studentcode;
+            stu.Sex =sex;
+            context.SaveChanges();
+
+        }
+        GridView1.EditIndex = -1;
+        _getDate();
+    }
+    //切换编辑
+    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        GridView1.EditIndex = e.NewEditIndex;
+        _getDate();
+    }
 }

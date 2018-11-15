@@ -5,10 +5,15 @@
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" Width="1188px" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
-            <asp:BoundField DataField="SN" HeaderText="商品编号">
-            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-            <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="15%" />
-            </asp:BoundField>
+            <asp:TemplateField HeaderText="查看">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("SN") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("ID", "ProductDetail.aspx?id={0}") %>' Text='<%# Eval("SN") %>'></asp:HyperLink>
+                </ItemTemplate>
+                <ItemStyle Width="10%" />
+            </asp:TemplateField>
             <asp:BoundField DataField="Name" HeaderText="商品名称">
             <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="15%" />
@@ -24,7 +29,7 @@
                 <ItemStyle Width="10%" />
             </asp:TemplateField>
             <asp:BoundField DataField="DSCN" HeaderText="说明" >
-            <ItemStyle Width="50%" />
+            <ItemStyle Width="45%" />
             </asp:BoundField>
             <asp:TemplateField HeaderText="维护操作" ShowHeader="False">
                 <EditItemTemplate>

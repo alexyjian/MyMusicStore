@@ -102,12 +102,12 @@ public partial class ProductList : System.Web.UI.Page
             //var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
             //var name= (row.Cells[1].Controls[1] as TextBox).Text.Trim();
             //var dscn= (row.Cells[2].Controls[2] as TextBox).Text.Trim();
-            var sn = e.NewValues["SN"].ToString();
+            var sn = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TextBox1");
             var name = e.NewValues["Name"].ToString();
             var dscn = e.NewValues["DSCN"].ToString();           
             var category = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("DropDownList1");
             //更新
-            p.SN = sn;
+            p.SN = sn.Text.ToString().Trim();
             p.Name = name;
             p.DSCN = dscn;
             p.Category= context.Categorys.Find(Guid.Parse(category.SelectedValue));         
