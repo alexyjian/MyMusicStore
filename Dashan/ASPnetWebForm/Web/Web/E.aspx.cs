@@ -17,6 +17,7 @@ namespace Web
             {
                  var d = Session["D"] as Category;
                 Label1.Text = d.SortCode + "." + d.Name;   
+
             }
              
         }

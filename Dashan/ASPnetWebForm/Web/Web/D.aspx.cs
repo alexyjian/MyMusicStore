@@ -20,6 +20,7 @@ namespace Web
             var category = new ProductDbContext().Categories.First();
             Session["D"] = category;
             Response.Redirect("~/E.aspx");
+
         }
     }
 }
