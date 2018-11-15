@@ -104,8 +104,10 @@ public partial class ProductList : System.Web.UI.Page
             var row = GridView1.Rows[e.RowIndex];
             var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
             var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
-            var dscn = (row.Cells[2].Controls[0] as TextBox).Text.Trim();
+            var dscn = (row.Cells[3].Controls[0] as TextBox).Text.Trim();
+            var categoryID = Guid.Parse(((DropDownList)row.FindControl("DdlCategory")).SelectedValue);
 
+            p.Categoty = context.Categories.Find(categoryID);
             p.SN = sn;
             p.Name = name;
             p.DSCN = dscn;

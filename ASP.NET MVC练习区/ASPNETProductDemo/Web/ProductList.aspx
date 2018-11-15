@@ -13,8 +13,7 @@
             </asp:BoundField>
             <asp:TemplateField HeaderText="分类">
                 <EditItemTemplate>
-                    <asp:DropDownList ID="DdlCategory" runat="server" Width="150px">
-                    </asp:DropDownList>
+                    <asp:DropDownList ID="DdlCategory" runat="server" Width="150px"></asp:DropDownList>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="LblCategory" runat="server" Font-Bold="False" ForeColor="#666666" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
