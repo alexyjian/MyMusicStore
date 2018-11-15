@@ -35,6 +35,7 @@
                     <asp:Label ID="LblCategory" runat="server" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
+            <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="ProductDetail.aspx?id={0}" HeaderText="查看" Text="明细" />
         </Columns>
     </asp:GridView>
     </asp:Content>
