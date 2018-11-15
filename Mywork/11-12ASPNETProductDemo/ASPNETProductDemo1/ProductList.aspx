@@ -6,9 +6,14 @@
 
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品报表" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" PageSize="18" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
-            <asp:BoundField DataField="SN" HeaderText="商品编号">
-            <ItemStyle Width="120px" />
-            </asp:BoundField>
+            <asp:TemplateField HeaderText="商品编号">
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("ID", "ProductDetail.aspx?id={0}") %>' Text='<%# Eval("SN", "编号{0}") %>'></asp:HyperLink>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Name" HeaderText="商品名称">
             <ItemStyle Width="30%" />
             </asp:BoundField>
@@ -35,7 +40,6 @@
                     <asp:Label ID="LblCategory" runat="server" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="ProductDetail.aspx?id={0}" HeaderText="查看" Text="明细" />
         </Columns>
     </asp:GridView>
     </asp:Content>

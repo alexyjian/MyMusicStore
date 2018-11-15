@@ -14,9 +14,9 @@ public partial class ProductDetail : System.Web.UI.Page
         {
             var id = Guid.Parse(Request.QueryString["id"].ToString());
             var product = new ProductDbContext().Products.Find(id);
-            Label2.Text = product.SN;
-            Label3.Text = product.Name;
-            Label4.Text = product.DSCN;
+            lblSN.Text = product.SN;
+            lblName.Text = product.Name;
+            lblSCN.Text = product.DSCN;
         }
         else
         {

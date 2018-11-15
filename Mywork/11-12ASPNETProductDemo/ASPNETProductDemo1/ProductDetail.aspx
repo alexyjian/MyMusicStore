@@ -11,16 +11,19 @@
     <form id="form1" runat="server">
     <div id="Label1">
     
-        <br />
+        <p />
         <asp:Label ID="Label2" runat="server" Text="商品编号:"></asp:Label>
-        <br />
+        <asp:Label ID="lblSN" runat="server" Text="Label"></asp:Label>
+        <p />
         <asp:Label ID="Label3" runat="server" Text="商品名称:"></asp:Label>
-        <br />
+        <asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
+        <p />
         <asp:Label ID="Label4" runat="server" Text="商品说明:"></asp:Label>
-        <br />
+        <asp:Label ID="lblSCN" runat="server" Text="Label"></asp:Label>
+        <p />
         <asp:Image ID="Image1" runat="server" ImageUrl="https://www.lzzy.net/upload/main/image/2018/11/12/201811121640511804_650_400.jpg" Width="400px" />
-        <br />
-        <asp:HyperLink ID="HyperLink1" runat="server">返回</asp:HyperLink>
+        <p />
+        <asp:HyperLink ID="HyperLink1" runat="server"  NavigateUrl="~/ProductList.aspx">返回</asp:HyperLink>
     
     </div>
     </form>
