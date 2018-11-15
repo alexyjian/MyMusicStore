@@ -38,6 +38,7 @@ public partial class ProdrctList : System.Web.UI.Page
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView1.PageIndex = e.NewPageIndex;
+
         _getData();
     }
 
@@ -63,7 +64,7 @@ public partial class ProdrctList : System.Web.UI.Page
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
         GridView1.EditIndex = e.NewEditIndex;
-        GridView1.EditIndex = -1;
+        
         _getData();
 
 
@@ -73,13 +74,14 @@ public partial class ProdrctList : System.Web.UI.Page
 
 
         //查询出gridview中分类列编辑状态模板中的下拉菜单
-        var ddl =(DropDownList) GridView1.Rows[e.NewEditIndex].FindControl("Dblcategoy");
+        var ddl =(DropDownList) GridView1.Rows[e.NewEditIndex].FindControl("Dblcategoy1");
 
 
-        //下拉数据绑定
-        ddl.DataSource = catagories;
+        //下拉数据绑定   
         ddl.DataTextField = "Name";
         ddl.DataValueField = "ID";
+        ddl.DataSource = catagories;
+     
         ddl.DataBind();
 
         //选项绑定
@@ -109,10 +111,10 @@ public partial class ProdrctList : System.Web.UI.Page
             //读出gridvie中用户编辑的字段，给每个允许修改的实体属性赋值
             //获取用户编辑的这一行
             var row = GridView1.Rows[e.RowIndex];
-            var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
+            var sn = ((TextBox)row.FindControl("textSN")).Text.Trim();
             var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
             var dscn = (row.Cells[3].Controls[0] as TextBox).Text.Trim();
-            var categotyID = Guid.Parse(((DropDownList)row.FindControl("Dblcategoy")).SelectedValue);
+            var categotyID = Guid.Parse(((DropDownList)row.FindControl("Dblcategoy1")).SelectedValue);
             p.Categoty = context.Categories.Find(categotyID);
             p.SN = sn;
             p.Name = name;

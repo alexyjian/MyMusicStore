@@ -1,17 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ProdrctList.aspx.cs" Inherits="ProdrctList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ProductList.aspx.cs" Inherits="ProdrctList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <h4>商品列表<asp:GridView ID="GridView1" runat="server" Height="80px" Width="100%" AllowPaging="True" AutoGenerateColumns="False" Caption="商品报表" OnPageIndexChanging="GridView1_PageIndexChanging" DataKeyNames="ID" OnRowDeleting="GridView1_RowDeleting" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
-            <asp:BoundField DataField="SN" HeaderText="商品编号" >
-            <ItemStyle Width="130px" />
-            </asp:BoundField>
+            <asp:TemplateField HeaderText="商品编号">
+                <EditItemTemplate>
+                    <asp:TextBox ID="textSN" runat="server" Text='<%# Eval("SN") %>'></asp:TextBox>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("ID", "productdetail.aspx?id={0}") %>' Text='<%# Eval("SN") %>' ForeColor="#003300"></asp:HyperLink>
+                </ItemTemplate>
+                <ItemStyle Width="100px" />
+            </asp:TemplateField>
             <asp:BoundField DataField="Name" HeaderText="商品名称" >
             <ItemStyle Width="30%" />
             </asp:BoundField>
             <asp:TemplateField HeaderText="商品分类">
                 <EditItemTemplate>
-                    <asp:DropDownList ID="Dblcategoy" runat="server" Height="19px" Width="167px">
+                    <asp:DropDownList ID="Dblcategoy1" runat="server">
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <ItemTemplate>
