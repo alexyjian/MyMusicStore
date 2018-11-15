@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataContext;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,8 @@ namespace Web
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Session["str"] = TextBox1.Text;
+            var category = new ProductDbContext().Categories.First();
+            Session["D"] = category;
             Response.Redirect("~/E.aspx");
         }
     }

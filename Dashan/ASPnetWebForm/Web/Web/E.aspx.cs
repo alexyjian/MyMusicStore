@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +12,13 @@ namespace Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["str"] != null)
-                Label1.Text = Session["str"].ToString();       
+
+            if (Session["D"] != null)
+            {
+                 var d = Session["D"] as Category;
+                Label1.Text = d.SortCode + "." + d.Name;   
+            }
+             
         }
     }
 }
