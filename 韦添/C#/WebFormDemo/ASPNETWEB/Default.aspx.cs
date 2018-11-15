@@ -40,7 +40,9 @@ public partial class _Default : Page
     }
 
     //当下拉选项发生变化，触发的事件
-    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+
+
+    protected void DropDownList1_SelectedIndexChanged1(object sender, EventArgs e)
     {
         //读出选择的部门id
         var id = Guid.Parse(DropDownList1.SelectedValue);

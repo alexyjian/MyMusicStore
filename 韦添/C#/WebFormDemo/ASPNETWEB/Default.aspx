@@ -2,9 +2,11 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-    <asp:DropDownList ID="DropDownList1" runat="server">
+    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged1" Width="200px">
     </asp:DropDownList>
 
+
+    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+    
 
 </asp:Content>
