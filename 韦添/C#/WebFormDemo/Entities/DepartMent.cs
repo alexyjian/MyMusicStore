@@ -15,7 +15,7 @@ namespace StuEntities
          
 
         public string SortCode { get; set; }
-        public string Description { get; internal set; }
+        public string Description { get;  set; }
 
         public DepartMent()
         {
