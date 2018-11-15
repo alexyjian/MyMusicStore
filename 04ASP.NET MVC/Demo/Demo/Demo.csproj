@@ -73,7 +73,9 @@
     <Compile Include="Departments.cs">
       <DependentUpon>CourseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="..\..\..\aa\17代码优先\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
