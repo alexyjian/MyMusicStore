@@ -15,5 +15,6 @@ public partial class b : System.Web.UI.Page
 
         if (Session["str"] != null)
             Label1.Text = Session["str"].ToString();
+     
     }
 }
