@@ -54,10 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cours.cs">
+      <DependentUpon>Model11.tt</DependentUpon>
+    </Compile>
     <Compile Include="Courses.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DataContext\StuDBContext.cs" />
+    <Compile Include="Department.cs">
+      <DependentUpon>Model11.tt</DependentUpon>
+    </Compile>
     <Compile Include="Departments.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -96,6 +102,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model11.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model11.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model11.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model11.edmx</DependentUpon>
+    </Compile>
     <Compile Include="MSreplication_options.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -130,6 +151,13 @@
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="Model11.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model11.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model11.edmx.diagram">
+      <DependentUpon>Model11.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +180,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model11.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model11.edmx</DependentUpon>
+      <LastGenOutput>Model11.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model11.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model11.edmx</DependentUpon>
+      <LastGenOutput>Model11.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

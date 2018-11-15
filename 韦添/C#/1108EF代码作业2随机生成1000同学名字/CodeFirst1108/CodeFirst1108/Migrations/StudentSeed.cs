@@ -13,55 +13,129 @@ namespace CodeFirst1108.Migrations
    public   class StudentSeed
     {
         public static void Seed(StuDBContext context)
-        { 
-        #region 电子信息学生
-        var d1 = context.DepartMents.SingleOrDefault(x => x.Name == "电子信息工程学院");
-            for(var i = 0; i<400;i++)
-            {
-                var fname = "";
-        var lname = "";
-        var funllnae = _GetRandomChineseFullName(ref fname, ref lname);
-
-        var student = new Student()
         {
-            StudentNo = "DZXX" + i.ToString("0000"),
-            FirstName = fname,
-            LastName = lname,
-            FullName = funllnae,
-            BirthDay = DateTime.Now,
-            Address = "麒麟街社湾路28号",
-            Department = d1,
-            Phone = "112*************************"
-        };
-        context.Students.Add(student);
-                Thread.Sleep(1);
-            }
-    #endregion
-
-    #region 机电工程学生
-    var d2 = context.DepartMents.SingleOrDefault(x => x.Name == "机电工程学院");
-            for (var i = 0; i< 300; i++)
+            #region 电子信息学生
+            var d1 = context.DepartMents.SingleOrDefault(x => x.Name == "电子信息工程学院");
+            for (var i = 0; i < 400; i++)
             {
                 var fname = "";
-    var lname = "";
-    var funllnae = _GetRandomChineseFullName(ref fname, ref lname);
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
 
-    var student = new Student()
-    {
-        StudentNo = "JDGC" + i.ToString("0000"),
-        FirstName = fname,
-        LastName = lname,
-        FullName = funllnae,
-        BirthDay = DateTime.Now,
-        Address = "麒麟街社湾路28号",
-        Department = d2,
-        Phone = "122*************************"
-    };
-    context.Students.Add(student);
+                var student = new Student()
+                {
+                    StudentNo = "DZXX" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "社湾路28号",
+                    Department = d1,
+                    Phone = "188********"
+                };
+                context.Students.Add(student);
                 Thread.Sleep(1);
             }
-#endregion
-context.SaveChanges();
+            #endregion
+
+            #region 机电学生
+            var d2 = context.DepartMents.SingleOrDefault(x => x.Name == "机电工程学院");
+            for (var i = 0; i < 300; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+
+                var student = new Student()
+                {
+                    StudentNo = "JDGC" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "社湾路28号",
+                    Department = d2,
+                    Phone = "188********"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+            #endregion
+
+            #region 汽车学生
+            var d3 = context.DepartMents.SingleOrDefault(x => x.Name == "汽车工程学院");
+            for (var i = 0; i < 250; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+
+                var student = new Student()
+                {
+                    StudentNo = "QCGC" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "社湾路28号",
+                    Department = d3,
+                    Phone = "188********"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+            #endregion
+
+            #region 贸易与旅游学生
+            var d4 = context.DepartMents.SingleOrDefault(x => x.Name == "贸易与旅游学院");
+            for (var i = 0; i < 200; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+
+                var student = new Student()
+                {
+                    StudentNo = "MYLY" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "社湾路28号",
+                    Department = d4,
+                    Phone = "188********"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+            #endregion
+
+            #region 财经与物流学生
+            var d5 = context.DepartMents.SingleOrDefault(x => x.Name == "财经与物流学院");
+            for (var i = 0; i < 150; i++)
+            {
+                var fname = "";
+                var lname = "";
+                var fullname = _GetRandomChineseFullName(ref fname, ref lname);
+
+                var student = new Student()
+                {
+                    StudentNo = "CJWL" + i.ToString("0000"),
+                    FirstName = fname,
+                    LastName = lname,
+                    FullName = fullname,
+                    BirthDay = DateTime.Now,
+                    Address = "社湾路28号",
+                    Department = d5,
+                    Phone = "188********"
+                };
+                context.Students.Add(student);
+                Thread.Sleep(1);
+            }
+            #endregion
+
+            context.SaveChanges();
+            //_GarbageClear();
         }
         /// <summary>
         /// 随机生成中文姓名
