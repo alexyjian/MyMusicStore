@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
 
 public partial class _Default : Page
 {
@@ -95,6 +96,8 @@ public partial class _Default : Page
         {
             item1.SelectedValue = stu.Department.ID.ToString();
         }
+
+        Cookie cookie = new Cookie("pwd", "123456");
     }
 
     /// <summary>

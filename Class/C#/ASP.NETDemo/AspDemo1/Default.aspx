@@ -10,7 +10,7 @@
     <br />
 
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="15" Width="100%" OnPageIndexChanging="GridView1_PageIndexChanging" DataKeyNames="ID" OnRowDeleting="GridView1_RowDeleting" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" PageSize="15" Width="100%" OnPageIndexChanging="GridView1_PageIndexChanging" DataKeyNames="ID" OnRowDeleting="GridView1_RowDeleting" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="StuNo" HeaderText="学号"></asp:BoundField>
             <asp:BoundField DataField="Name" HeaderText="姓名" />
