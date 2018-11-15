@@ -47,6 +47,73 @@ namespace DataContext.Migrations
             context.Categories.Add(c4);
             context.Categories.Add(c5);
             context.Categories.Add(c6);
+
+            for(var i=0; i < 100; i++)
+            {
+                var p1 = new Product()
+                {
+                    Categoty = c1,
+                    Name = c1.Name + i.ToString("00"),
+                    DSCN = c1.Name + i.ToString("00") + "用了就知道好！",
+                    SN =c1.SortCode +"_"+ i.ToString("00")
+                };
+                context.Products.Add(p1);
+            }
+            for (var i = 0; i < 100; i++)
+            {
+                var p2 = new Product()
+                {
+                    Categoty = c2,
+                    Name = c1.Name + i.ToString("00"),
+                    DSCN = c1.Name + i.ToString("00") + "用了就知道好！",
+                    SN = c1.SortCode + "_" + i.ToString("00")
+                };
+                context.Products.Add(p2);
+            }
+            for (var i = 0; i < 100; i++)
+            {
+                var p3 = new Product()
+                {
+                    Categoty = c3,
+                    Name = c1.Name + i.ToString("00"),
+                    DSCN = c1.Name + i.ToString("00") + "用了就知道好！",
+                    SN = c1.SortCode + "_" + i.ToString("00")
+                };
+                context.Products.Add(p3);
+            }
+            for (var i = 0; i < 100; i++)
+            {
+                var p4 = new Product()
+                {
+                    Categoty = c4,
+                    Name = c1.Name + i.ToString("00"),
+                    DSCN = c1.Name + i.ToString("00") + "用了就知道好！",
+                    SN = c1.SortCode + "_" + i.ToString("00")
+                };
+                context.Products.Add(p4);
+            }
+            for (var i = 0; i < 100; i++)
+            {
+                var p5 = new Product()
+                {
+                    Categoty = c5,
+                    Name = c1.Name + i.ToString("00"),
+                    DSCN = c1.Name + i.ToString("00") + "用了就知道好！",
+                    SN = c1.SortCode + "_" + i.ToString("00")
+                };
+                context.Products.Add(p5);
+            }
+            for (var i = 0; i < 100; i++)
+            {
+                var p6 = new Product()
+                {
+                    Categoty = c6,
+                    Name = c1.Name + i.ToString("00"),
+                    DSCN = c1.Name + i.ToString("00") + "用了就知道好！",
+                    SN = c1.SortCode + "_" + i.ToString("00")
+                };
+                context.Products.Add(p6);
+            }
             context.SaveChanges();
         }
     }
