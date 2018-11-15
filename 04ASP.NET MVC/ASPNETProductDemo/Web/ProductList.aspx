@@ -5,6 +5,9 @@
     <h4>商品列表</h4>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" Caption="商品报表" DataKeyNames="ID" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDeleting="GridView1_RowDeleting" PageSize="18" Width="100%" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
         <Columns>
+            <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="productdetail.aspx?id={0}" HeaderText="查看" Text="明细">
+            <ItemStyle Width="60px" />
+            </asp:HyperLinkField>
             <asp:BoundField DataField="SN" HeaderText="商品编号">
             <ItemStyle Width="120px" />
             </asp:BoundField>
@@ -13,10 +16,10 @@
             </asp:BoundField>
             <asp:TemplateField HeaderText="分类">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Categoty") %>'></asp:TextBox>
+                    <asp:DropDownList ID="DdlCategory" runat="server" Width="150px"></asp:DropDownList>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="LblCategory" runat="server" Font-Bold="False" ForeColor="#0066FF" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
+                    <asp:Label ID="LblCategory" runat="server" Font-Bold="False" ForeColor="#666666" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
                 </ItemTemplate>
                 <ItemStyle Width="15%" />
             </asp:TemplateField>
