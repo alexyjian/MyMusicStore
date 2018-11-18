@@ -426,7 +426,7 @@ a:hover{
     font-size: 24px;
     line-height: 45px;
     letter-spacing: 1px;
-    margin-left: -10px;
+    margin-left: -40px;
     width: 150px;
     height: 45px;
 }
@@ -553,7 +553,7 @@ a:hover{
 
 .column3>div:nth-last-child(1)>ul:nth-last-child(2)>li{
     width: 260px;
-    height: 43px;
+    padding: 6px 0;
     line-height: 25px;
     font-size: 12px;
     text-align: center;
@@ -566,6 +566,6 @@ a:hover{
    border-radius:5px;
 }
 .c3_di_u3{
-    height: 100px;
+    height: 50px;
     background: #eee;
  }
