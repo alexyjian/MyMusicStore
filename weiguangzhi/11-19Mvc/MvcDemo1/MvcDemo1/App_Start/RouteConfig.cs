@@ -18,6 +18,11 @@ namespace MvcDemo1
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "HelloWorld", action = "Index", id = UrlParameter.Optional }
             );
+            //添加一个新的路由
+            routes.MapRoute(
+                name: "Hello",
+                url: "{controller}/{action}/{name}/{id}"
+                );
         }
     }
 }
