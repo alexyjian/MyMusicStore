@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataContext;
+using Entities;
 
 public partial class ProductList : System.Web.UI.Page
 {
@@ -27,6 +28,14 @@ public partial class ProductList : System.Web.UI.Page
         }
     }
 
+    protected string GetName(object obj)
+    {
+        if (obj != null)
+            return ((Category)obj).Name;
+        return "该商品未分类";
+    }
+   
+    //翻译事件
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView1.PageIndex = e.NewPageIndex;
