@@ -12,36 +12,22 @@
             <ItemStyle Width="30%" />
             </asp:BoundField>
             <asp:BoundField DataField="DSCN" HeaderText="说明" />
-            <asp:CommandField HeaderText="维护操作" ShowDeleteButton="True" ShowEditButton="True">
-            <HeaderStyle Width="150px" />
-            <ItemStyle Width="150px" />
-            </asp:CommandField>
+            <asp:TemplateField HeaderText="维护操作" ShowHeader="False">
+                <EditItemTemplate>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="更新"></asp:LinkButton>
+                    &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="取消"></asp:LinkButton>
+                </EditItemTemplate>
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="编辑"></asp:LinkButton>
+                    &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="删除" OnClientClick="return confirm('你真的要删了我吗？');"></asp:LinkButton>
+                </ItemTemplate>
+                <HeaderStyle Width="150px" />
+                <ItemStyle Width="150px" />
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 
-    <script>
-        var links = document.links;//获取所有链接
-        for (var i in links) {
-            //遍历所有链接
-            var a = links[i];
-            if (a.text == 'Delete' || a.text == '删除') {
-                //如果是删除链接按钮
-                //临时保存原来的链接
-                var alink = a.href;
-                //清楚原链接，为了先确认是否继续
-                a.href = "#";
-                //添加JS事件，加确认弹窗
-                a.addEventListener("click",function(){
-                var result=window.confirm('你确定要删除吗？');
-                    if(result==true)
-                        
-                        eval(alink);
-                    return false;
-                });
-            }
-
-        }
-    </script>
+    
 
 
 
