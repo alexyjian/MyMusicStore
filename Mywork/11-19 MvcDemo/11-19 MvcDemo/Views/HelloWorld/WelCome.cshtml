@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>欢迎光临</h2>
+<h2 class="text-danger">@Session["message"].ToString()</h2>
 
 <ul>
     @for(var i=0;i<ViewBag.ID;i++)

@@ -19,6 +19,7 @@ namespace _11_19_MvcDemo.Controllers
         {
             ViewBag.ID = id;
             ViewBag.Name = name + ",你好!";
+            Session["message"] = "这是主页啊!";
             return View();
         }
     }
