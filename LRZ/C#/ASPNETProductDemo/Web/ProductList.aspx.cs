@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataContext;
+using Entities;
 
 public partial class ProductList : System.Web.UI.Page
 {
@@ -26,10 +27,20 @@ public partial class ProductList : System.Web.UI.Page
         }
     }
 
+    //分类字段绑定的方法
+    protected string GetName(object obj)
+    {
+        if (obj != null)
+            return ((Category)obj).Name;
+        return "该商品没有分类";
+    }
+
+
     //翻页事件
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GridView1.PageIndex = e.NewPageIndex;
+        GridView1.EditIndex = -1;
         _getData();
     }
 
@@ -52,6 +63,25 @@ public partial class ProductList : System.Web.UI.Page
     {
         GridView1.EditIndex = e.NewEditIndex;
         _getData();
+
+        //查询出所有的分类
+        var context = new ProductDbContext();
+        var categories = context.Categories.ToList();
+
+        //查询出Gridview中分类列编辑状态模板中下拉菜单
+        var ddl = (DropDownList)GridView1.Rows[e.NewEditIndex].FindControl("DdlCategory");
+
+        //下拉数据绑定
+        ddl.DataSource = categories;
+        ddl.DataTextField = "Name";
+        ddl.DataValueField = "ID";
+        ddl.DataBind();
+
+        //选项绑定
+        var id = (Guid)GridView1.DataKeys[e.NewEditIndex].Value;
+        var product = context.Products.Find(id);
+        if (product.Categoty != null)
+            ddl.SelectedValue = product.Categoty.ID.ToString();
     }
 
 
