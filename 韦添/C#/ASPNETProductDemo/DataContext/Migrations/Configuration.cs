@@ -16,7 +16,7 @@ namespace DataContext.Migrations
         {
             //context.Database.ExecuteSqlCommand("delete products");
             //context.Database.ExecuteSqlCommand("delete categories");
-            //SeedMethod.CategoryandProductSeed(context);
+            SeedMethod.CategoryandProductSeed(context);
         }
     }
 }
