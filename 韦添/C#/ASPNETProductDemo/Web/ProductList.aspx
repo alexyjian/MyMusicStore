@@ -16,7 +16,7 @@
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Categoty") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblCategory" runat="server" Font-Bold="False" ForeColor="#3333FF" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
+                    <asp:Label ID="lblCategory" runat="server" Font-Bold="False" ForeColor="#666666" Text='<%# GetName(Eval("Categoty")) %>'></asp:Label>
                 </ItemTemplate>
                 <ItemStyle Width="15%" />
             </asp:TemplateField>
