@@ -9,15 +9,16 @@ namespace MvcDemo1.Controllers
     public class HelloWordController : Controller
     {
         // GET: HelloWord
-        public string Index()
+        public ActionResult Index()
         {
-            return "这是我的<b>默认的</b>控制器方法(action)";
+            return View();
         }
 
-        public string Welcome(string name, int id = 1)
+        public ActionResult Welcome(string name, int id = 1)
         {
-            return "您好" + name + "欢迎次数" + id;
-
+            ViewBag.ID = id;
+            ViewBag.Name = name + "你好";
+            return View();
         }
     }
 }
