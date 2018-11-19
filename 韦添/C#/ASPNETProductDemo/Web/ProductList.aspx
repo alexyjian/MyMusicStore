@@ -18,5 +18,32 @@
             </asp:CommandField>
         </Columns>
     </asp:GridView>
+
+    <script>
+        var links = document.links;//获取所有链接
+        for (var i in links) {
+            //遍历所有链接
+            var a = links[i];
+            if (a.text == 'Delete' || a.text == '删除') {
+                //如果是删除链接按钮
+                //临时保存原来的链接
+                var alink = a.href;
+                //清楚原链接，为了先确认是否继续
+                a.href = "#";
+                //添加JS事件，加确认弹窗
+                a.addEventListener("click",function(){
+                var result=window.confirm('你确定要删除吗？');
+                    if(result==true)
+                        
+                        eval(alink);
+                    return false;
+                });
+            }
+
+        }
+    </script>
+
+
+
 </asp:Content>
 
