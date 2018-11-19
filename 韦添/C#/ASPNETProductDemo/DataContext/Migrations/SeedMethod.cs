@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataContext.Migrations
 {
-   public  class Seed
+   public  class SeedMethod
     {
 
         public static void CategoryandProductSeed(ProductDbContext context)
