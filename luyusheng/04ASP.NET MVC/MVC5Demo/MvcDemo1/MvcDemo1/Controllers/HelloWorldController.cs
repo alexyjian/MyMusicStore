@@ -18,7 +18,7 @@ namespace MvcDemo1.Controllers
         {
             ViewBag.ID = id;
             ViewBag.Name = name + ",您好!";
-            Session["message"] = "今天很冷哦!!!";
+            Session["message"] = "今天很冷哦！！！";
             return View();
         }
 
