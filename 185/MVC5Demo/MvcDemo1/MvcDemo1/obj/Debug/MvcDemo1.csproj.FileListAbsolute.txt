@@ -14,6 +14,8 @@ E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\MvcDemo1.dll.config
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\MvcDemo1.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\MvcDemo1.pdb
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\Antlr3.Runtime.dll
+E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\EntityFramework.dll
+E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\EntityFramework.SqlServer.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\Microsoft.Web.Infrastructure.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\Newtonsoft.Json.dll
@@ -25,6 +27,8 @@ E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\System.Web.WebPages.Depl
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\System.Web.WebPages.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\System.Web.WebPages.Razor.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\WebGrease.dll
+E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\EntityFramework.xml
+E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\EntityFramework.SqlServer.xml
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\System.Web.Helpers.xml
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\System.Web.Mvc.xml
@@ -42,6 +46,6 @@ E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\zh-Hans\System.Web.Razor
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
-E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\obj\Debug\MvcDemo1.csprojResolveAssemblyReference.cache
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\obj\Debug\MvcDemo1.dll
 E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\obj\Debug\MvcDemo1.pdb
+E:\2015\MyMusicStore\185\MVC5Demo\MvcDemo1\MvcDemo1\obj\Debug\MvcDemo1.csprojResolveAssemblyReference.cache
