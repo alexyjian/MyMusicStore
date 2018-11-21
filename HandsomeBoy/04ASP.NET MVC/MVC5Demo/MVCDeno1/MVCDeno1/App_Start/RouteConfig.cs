@@ -16,13 +16,13 @@ namespace MVCDeno1
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "HelloWorld", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Movies", action = "Index", id = UrlParameter.Optional }
             );
             //添加一个新路由
-            routes.MapRoute(
-                 name: "Hello",
-                 url: "{controller}/{action}/{name}/{id}"
-                );
+            //routes.MapRoute(
+            //     name: "Hello",
+            //     url: "{controller}/{action}/{name}/{id}"
+            //    );
         }
     }
 }
