@@ -19,5 +19,10 @@ namespace MvcDemo1.Controllers
             ViewBag.Name = name+"你好";
             return View();
         }
+        public ActionResult leader(string name, int id = 1)
+        {
+            
+            return View();
+        }
     }
 }
