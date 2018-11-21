@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MvcDemo.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller //默认控制类
     {
         public ActionResult Index()
         {
