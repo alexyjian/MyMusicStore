@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+}
+
+.all {
+    width: 500px;
+    height: 200px;
+    padding: 7px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    position: relative;
+}
+
+.screen {
+    width: 500px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.screen li {
+    width: 500px;
+    height: 200px;
+    overflow: hidden;
+    float: left;
+}
+
+.screen ul {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 3000px;
+}
+
+.all ol {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.all ol li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.all ol li.current {
+    background: yellow;
+}
