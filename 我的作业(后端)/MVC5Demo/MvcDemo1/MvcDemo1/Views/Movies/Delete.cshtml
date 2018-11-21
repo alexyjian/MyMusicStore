@@ -1,13 +1,13 @@
 ﻿@model MvcDemo1.Models.Movie
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "删除电影";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>删除</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>是否删除？</h3>
 <div>
     <h4>Movie</h4>
     <hr />
@@ -50,8 +50,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("返回列表", "Index")
         </div>
     }
 </div>

@@ -17,6 +17,7 @@ namespace MvcDemo1.Controllers
         // GET: Movies
         public ActionResult Index()
         {
+            //强类型模型传入数据到试图
             return View(db.Movies.ToList());
         }
 
