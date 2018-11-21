@@ -12,5 +12,11 @@ namespace MvcDemo1.Models
         public DateTime ReleaseDate { get; set; }   //上映时间 
         public string Genre { get;set;}   //电影类别
         public decimal Price { get; set; }   //价格
+
+        public Movie()
+        {
+            ID = Guid.NewGuid();
+            ReleaseDate = DateTime.Now;
+        }
     }
 }
