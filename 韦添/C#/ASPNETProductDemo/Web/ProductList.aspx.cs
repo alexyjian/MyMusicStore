@@ -55,7 +55,7 @@ public partial class ProductList : System.Web.UI.Page
         }
         _getData();
     }
-
+    //切换编辑
     protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     {
         GridView1.EditIndex = e.NewEditIndex;
@@ -101,9 +101,10 @@ public partial class ProductList : System.Web.UI.Page
             //获取用户编辑的这一行
             var row = GridView1.Rows[e.RowIndex];
             var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
-            var name = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
-            var dscn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
-
+            var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
+            var dscn = (row.Cells[3].Controls[0] as TextBox).Text.Trim();
+            var categoryID = Guid.Parse(((DropDownList)row.FindControl("DdlCategory")).SelectedValue);
+            p.Categoty = context.Categories.Find(categoryID);
             p.SN = sn;
             p.Name = name;
             p.DSCN = dscn;
