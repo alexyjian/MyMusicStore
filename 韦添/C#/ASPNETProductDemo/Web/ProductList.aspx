@@ -33,6 +33,9 @@
                 <HeaderStyle Width="150px" />
                 <ItemStyle Width="150px" />
             </asp:TemplateField>
+            <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="productdetail.aspx?id={0}" HeaderText="查看" Text="明细">
+            <ItemStyle Width="60px" />
+            </asp:HyperLinkField>
         </Columns>
     </asp:GridView>
 
