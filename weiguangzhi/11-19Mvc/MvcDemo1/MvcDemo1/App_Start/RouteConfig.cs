@@ -16,7 +16,7 @@ namespace MvcDemo1
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "HelloWorld", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Movies", action = "Index", id = UrlParameter.Optional }
             );
             //添加一个新的路由
             routes.MapRoute(
