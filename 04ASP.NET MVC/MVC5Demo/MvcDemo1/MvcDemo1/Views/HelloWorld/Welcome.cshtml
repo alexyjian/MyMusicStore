@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "欢迎页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-danger">@Session["message"].ToString()</h2>
+
+<ul>
+    @for(var i=0;i< ViewBag.ID;i++)
+    {
+        <li>@ViewBag.Name</li>
+    }
+</ul>
+
+
+
