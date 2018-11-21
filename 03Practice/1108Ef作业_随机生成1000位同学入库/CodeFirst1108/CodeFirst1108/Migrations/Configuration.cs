@@ -14,7 +14,8 @@ namespace CodeFirst1108.Migrations
 
         protected override void Seed(CodeFirst1108.DataContext.StuDBContext context)
         {
-            DepartmentSeed.Seed(context);
+            //DepartmentSeed.Seed(context);
+            StudentSeed.Seed(context);
         }
     }
 }

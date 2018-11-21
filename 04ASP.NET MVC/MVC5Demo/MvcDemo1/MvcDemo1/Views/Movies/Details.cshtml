@@ -1,0 +1,51 @@
+﻿@model MvcDemo1.Models.Movie
+
+@{
+    ViewBag.Title = "电影明细";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>电影明细</h2>
+
+<div>
+    <h4>电影</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("回到列表", "Index")
+</p>
