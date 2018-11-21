@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace _11_19_MvcDemo.Models
 {
-    public class MovieDBContext
+    public class MovieDBContext:DbContext
     {
         public DbSet<Movie> Movie {get;set;}
     }
