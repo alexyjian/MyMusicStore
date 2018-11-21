@@ -21,5 +21,11 @@ namespace MvcWeb.Models
 
         //价格
         public decimal Price { get; set; }
+
+        public Movie()
+        {
+            ID = Guid.NewGuid();
+            ReleaseDate = DateTime.Now;
+        }
     }
 }
