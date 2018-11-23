@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 
 // 程序集的版本信息由下列四个值组成: 
 //
-//      主版本
+//      1主版本
 //      次版本
 //      生成号
 //      修订号

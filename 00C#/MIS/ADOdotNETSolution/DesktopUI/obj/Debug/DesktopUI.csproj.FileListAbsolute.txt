@@ -15,3 +15,16 @@ E:\yjian\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
 E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
 E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
 E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.pdb
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DBAUtility.dll
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DBAUtility.pdb
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.csprojAssemblyReference.cache
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.Form1.resources
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.Properties.Resources.resources
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.csproj.GenerateResource.cache
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.csproj.CoreCompileInputs.cache
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.csproj.CopyComplete
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb

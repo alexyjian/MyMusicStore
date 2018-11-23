@@ -6,3 +6,13 @@ D:\Yjian\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.pdb
 D:\Yjian\ADOdotNETSolution\ConsoleApplication\bin\Debug\DBAUtility.dll
 D:\Yjian\ADOdotNETSolution\ConsoleApplication\bin\Debug\DBAUtility.pdb
 D:\Yjian\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.csprojResolveAssemblyReference.cache
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\bin\Debug\ConsoleApplication.exe.config
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\bin\Debug\ConsoleApplication.exe
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\bin\Debug\ConsoleApplication.pdb
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\bin\Debug\DBAUtility.dll
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\bin\Debug\DBAUtility.pdb
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.csprojAssemblyReference.cache
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.csproj.CoreCompileInputs.cache
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.csproj.CopyComplete
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.exe
+D:\VS2017Git\00C#\MIS\ADOdotNETSolution\ConsoleApplication\obj\Debug\ConsoleApplication.pdb

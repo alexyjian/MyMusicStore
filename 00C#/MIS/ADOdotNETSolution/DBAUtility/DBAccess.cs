@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DBAUtility
 {
     /// <summary>
-    /// 公共数据访问方法
+    /// 公共数据访问方的法
     /// </summary>
     public class DBAccess
     {
