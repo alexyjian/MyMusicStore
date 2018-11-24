@@ -1,0 +1,4 @@
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ASPNETP\Entities\bin\Debug\Entities.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ASPNETP\Entities\bin\Debug\Entities.pdb
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ASPNETP\Entities\obj\Debug\Entities.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ASPNETP\Entities\obj\Debug\Entities.pdb

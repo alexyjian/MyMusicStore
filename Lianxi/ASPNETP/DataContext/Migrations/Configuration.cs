@@ -14,8 +14,8 @@ namespace DataContext.Migrations
 
         protected override void Seed(ProductDbContext context)
         {
-           // context.Database.ExecuteSqlCommand("delete products");
-           // context.Database.ExecuteSqlCommand("delete categories");
+            //context.Database.ExecuteSqlCommand("delete products");
+            //context.Database.ExecuteSqlCommand("delete categories");
             //SeedMethod.CategoryandProductSeed(context);
         }
     }

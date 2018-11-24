@@ -7,6 +7,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContext", "DataContext\DataContext.csproj", "{B1BC6565-18E2-43E8-9E06-1BC489582AEC}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web1", "..\..\Web1\", "{91762B9F-3120-4C85-9BC3-8970F793D7A1}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{b1bc6565-18e2-43e8-9e06-1bc489582aec}|DataContext.dll;{D4E09BEC-4485-4EC7-BC8B-2F6E8CCFFC6D}|Entities.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1357"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\Web1\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1357\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1357"
+		Release.AspNetCompiler.PhysicalPath = "..\..\Web1\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1357\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1357"
+		SlnRelativePath = "..\..\Web1\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +44,10 @@ Global
 		{B1BC6565-18E2-43E8-9E06-1BC489582AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1BC6565-18E2-43E8-9E06-1BC489582AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1BC6565-18E2-43E8-9E06-1BC489582AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91762B9F-3120-4C85-9BC3-8970F793D7A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91762B9F-3120-4C85-9BC3-8970F793D7A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91762B9F-3120-4C85-9BC3-8970F793D7A1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{91762B9F-3120-4C85-9BC3-8970F793D7A1}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,10 @@
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\bin\Debug\CodeFirstDemo.exe.config
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\obj\Debug\CodeFirstDemo.csprojResolveAssemblyReference.cache
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\bin\Debug\CodeFirstDemo.exe
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\bin\Debug\CodeFirstDemo.pdb
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\bin\Debug\EntityFramework.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\bin\Debug\EntityFramework.SqlServer.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\bin\Debug\EntityFramework.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\bin\Debug\EntityFramework.SqlServer.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\obj\Debug\CodeFirstDemo.exe
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\CodeFirstDemo\CodeFirstDemo\obj\Debug\CodeFirstDemo.pdb

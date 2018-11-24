@@ -1,0 +1,11 @@
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
