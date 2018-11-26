@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace MusicStore.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        /// <summary>
+        /// 测试登录
+        /// </summary>
+        /// <param name="usernme"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        public string TestLogin(string usernme ="hs",string pwd = "123.abc")
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
+            var user = userManager.Find(usernme, pwd);
+            if (user != null)
+            {
+                var roleName = "";
+                var context = new MusicStoreEntity.EntityDbContext();
+                foreach(var role in user.Roles)
+                    roleName +=(context.Roles.Find(role.Roles))
+            }
+        }
+    }
+}
