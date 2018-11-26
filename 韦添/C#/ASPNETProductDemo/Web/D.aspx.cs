@@ -31,5 +31,6 @@ public partial class D : System.Web.UI.Page
         //立即过期
         Session.Abandon();
         Response.Redirect("~/D.aspx");
+
     }
 }
