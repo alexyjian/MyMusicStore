@@ -53,3 +53,5 @@ E:\2015\MyMusicStore\185\05Musi\MusicStore101\MusicStore\bin\Microsoft.AspNet.Id
 E:\2015\MyMusicStore\185\05Musi\MusicStore101\MusicStore\bin\Microsoft.AspNet.Identity.Core.xml
 E:\2015\MyMusicStore\185\05Musi\MusicStore101\MusicStore\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\2015\MyMusicStore\185\05Musi\MusicStore101\MusicStore\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
+E:\2015\MyMusicStore\185\05Musi\MusicStore101\MusicStore\bin\MusicStoreEntity.dll
+E:\2015\MyMusicStore\185\05Musi\MusicStore101\MusicStore\bin\MusicStoreEntity.pdb
