@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MusicStoreEntity.UserAndRole;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,5 +29,24 @@ namespace MusicStore.Controllers
 
             return View();
         }
+
+        /// <summary>
+        /// 测试登录
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        //public string  TestLogin(string  username = "dayu" , string  pwd = "123.abc")
+        //{
+        //    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContexts()));
+        //    var user = userManager.Find(username,pwd);
+        //    if(user !=null)
+        //    {
+        //        var roleName = "";
+        //        var context = new MusicStoreEntity.EntityDbContexts();
+        //        foreach(var role in user .Roles)
+        //            roleName += (context .Roles.Find(role.RoleId)
+        //    }
+        //}
     }
 }
