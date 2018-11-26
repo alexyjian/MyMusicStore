@@ -20,7 +20,7 @@ namespace MvcDemo1.Controllers
             //强类型模型传入数据到试图
             return View(db.Movies.ToList());
         }
-
+         
         // GET: Movies/Details/5
         public ActionResult Details(Guid? id)
         {
