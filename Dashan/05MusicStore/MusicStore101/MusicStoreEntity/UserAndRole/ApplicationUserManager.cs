@@ -7,6 +7,7 @@ namespace MusicStoreEntity.UserAndRole
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
+
         }
     }
 }
