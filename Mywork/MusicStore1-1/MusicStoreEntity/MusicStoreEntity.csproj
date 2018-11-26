@@ -57,13 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MusicContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MusicStore\MusicStore.csproj">
-      <Project>{bd23a8b8-4330-4bac-b9fb-8a83e76215f2}</Project>
-      <Name>MusicStore</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
