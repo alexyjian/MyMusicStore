@@ -89,4 +89,10 @@ public partial class StudentList : System.Web.UI.Page
         GridView1.EditIndex = e.NewEditIndex;
         _getDate();
     }
+    //取消编辑
+    protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    {
+        GridView1.EditIndex = -1;
+        _getDate();
+    }
 }
