@@ -1,4 +1,4 @@
-namespace MusicStore.Migrations
+namespace MusicStoreEntity.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -9,7 +9,7 @@ namespace MusicStore.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MusicStoreEntity.EntityDbContext context)
