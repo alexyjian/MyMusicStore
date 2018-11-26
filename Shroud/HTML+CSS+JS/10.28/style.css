@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.box{
+    position: relative;
+    width: 512px;
+    height: 370px;
+    margin: 80px auto;
+    overflow: hidden;
+    border:5px solid #000;
+}
+img{
+    position: absolute;
+    width: 512px;
+    top: 0;
+    left: 0;
+}
+span{
+    position: absolute;
+    width: 512px;
+    height: 180px;
+}
+.up{
+    top: 0;
+    left: 0;
+}
+.down{
+    bottom: 0;
+    left: 0;
+}

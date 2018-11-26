@@ -1,0 +1,52 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+p{
+    margin:25px 0;
+}
+.box{
+    position: relative;
+    height: 718px;
+    width: 1280px;
+    background-image: url(images/form_bg.jpg);
+    background-repeat: no-repeat;
+    background-size:1280px 100%;  
+    overflow: hidden;
+}
+.box .studyinfo{
+    position: absolute;
+    top: 20px;
+    height: 520px;
+    width: 280px;
+    text-align: right;
+    padding: 40px 80px; 
+    right: 180px;
+}
+.box .studyinfo h3{
+    text-align: center;
+}
+.box .studyinfo p>input{
+    width: 180px;
+}
+.box .studyinfo p:nth-last-child(2)>input{
+    width: 60px;
+    
+}
+.box .studyinfo p:nth-last-child(2){
+    text-align: left;
+    text-indent: 14px;
+}
+.box .studyinfo p:last-child{
+    text-align: center;
+}
+.box .studyinfo p:last-child>input{
+    width: 60px;
+    height: 35px;
+    margin:0 20px;
+    font-weight: bold;
+    color:#fff;
+    border: 1px solid #999;
+    background-color: #669933;
+    border-radius: 5px;
+}

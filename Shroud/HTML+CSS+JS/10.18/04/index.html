@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            box-sizing: border-box;
+            perspective: 500000px;
+            
+            margin: 50px auto;
+            width: 100px;
+            height: 100px;
+            transform: rotate3d(1,1,1,75deg);
+            transform-style: preserve-3d;
+            transition: all 1s;
+            animation:cuberotate 5s linear 0s infinite alternate;
+        }
+        .box:hover{
+            transform: rotate(2,1,1,150deg);
+        }
+        .item {
+            position: absolute;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 36px;
+            text-align: center;
+            font-weight: bold;
+            transform-style: preserve-3d;
+            transform-origin: 0 0;
+
+        }
+
+        .item1 {
+            transform: translateZ(-100px);
+            background-color: rgba(0,102,255,.4)
+        }
+
+        .item2 {
+            transform:rotateY(90deg);
+            background-color: rgba(0,255,153,.4)
+        }
+
+        .item3 {
+           transform: rotateX(90deg);
+           transform-origin:0 100% ;
+           background-color: rgba(51,153,153,.4)
+        }
+
+        .item4 {
+            transform-origin: 100% 0;
+            transform:rotateY(-90deg);
+            background-color: rgba(204,51,153,.4)
+        }
+
+        .item5 {
+            transform: rotateX(-90deg);
+        }
+
+        .item6 {
+            background-color: rgba(102,51,153,.4)
+        }
+
+
+        @keyframes cuberotate{
+            0%{
+                transform: rotate3d(1,1,1,150deg);
+            }
+            25%{
+                transform: rotate3d(2,1,1,60deg);
+            }
+            50%{
+                transform: rotate3d(2,1,2,120deg);
+            }
+            75%{
+                transform: rotate3d(1,2,1,360deg);
+            }
+            100%{
+                transform: rotate3d(1,1,1,75deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="item1 item">1</div>
+        <div class="item2 item">2</div>
+        <div class="item3 item">3</div>
+        <div class="item4 item">4</div>
+        <div class="item5 item">5</div>
+        <div class="item6 item">6</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            /* perspective: 800px; */
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            border:1px solid #000;
+            font-size: 36px;
+            line-height: 200px;
+            text-align: center;
+            transform-style: preserve-3d;
+        }
+        .mid,.top{
+            width: 200px;
+            height: 200px;
+        }
+        .mid{
+            background-color: #0f0;
+            transform: rotateX(0deg) ;
+            transform-origin:100% 0;
+            transition:all 1s;
+        }
+        .top{
+            background-color: #f00;
+            position: absolute;
+            transform-origin:50% 0;
+            transform: rotateX(90deg);
+            transition:all 1s;
+            top: 0px;
+        }
+        .box:hover .mid{
+            transform: rotateX(-90deg);
+        }
+        .box:hover .top{
+            transform: rotateX(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="mid">1</div>
+        <div class="top">2</div>
+    </div>
+</body>
+
+</html>
