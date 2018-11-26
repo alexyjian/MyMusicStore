@@ -8,6 +8,7 @@ namespace Entities
 {
    public class Product
     {
+        //ID
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string SN { get; set; }

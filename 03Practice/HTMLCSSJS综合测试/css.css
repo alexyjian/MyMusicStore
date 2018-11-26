@@ -1,0 +1,216 @@
+@-webkit-keyframes pic_1 {
+    0% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes pic_2 {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes pic_3 {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes pic_4 {
+    0% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes pic_1 {
+    0% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes pic_2 {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes pic_3 {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes pic_4 {
+    0% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/****  涓绘鏋�   ****/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0 auto;
+}
+
+#container {
+    width: 500px;
+    height: 200px;
+    box-shadow: 1px 1px 10px #aaa;
+    padding: 5px;
+    margin: 20px auto;
+    position: relative;
+}
+
+ul {
+    width: 500px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+    position: absolute;
+    top: 0px;
+    left: 0;
+}
+
+/****  榧犳爣鎮仠鏆傚仠鍔ㄧ敾   ****/
+
+#slide:hover li {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+}
+
+#first{
+    -webkit-animation: pic_1 12s infinite;
+    -moz-animation: pic_1 12s infinite;
+}
+
+#second {
+    -webkit-animation: pic_2 12s infinite;
+    -moz-animation: pic_2 12s infinite;
+}
+
+#third {
+    -webkit-animation: pic_3 12s infinite;
+    -moz-animation: pic_3 12s infinite;
+}
+
+#fourth {
+    -webkit-animation: pic_4 12s infinite;
+    -moz-animation: pic_4 12s infinite;
+}
