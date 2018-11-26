@@ -1,0 +1,45 @@
+.siled{
+    width: 200px;
+    height: 100px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 100px auto;
+}
+.siled div:nth-child(1){
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: aqua;
+}
+.siled div:nth-child(2){
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 200px;
+    top: 0;
+    background: red;
+}
+.siled div:nth-child(1):hover{
+    animation: move1 2s;
+  
+}
+@keyframes move{
+    from{
+       transform: rotateX(200px);
+    }
+    to{
+        transform: rotateX(0px);
+    }
+}
+@keyframes move1{
+    0%{
+        left: 0px;
+    }
+    100%{
+        left: -200px;
+    }
+}

@@ -1,0 +1,179 @@
+*{
+    list-style: none;
+}
+.min img{
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 22%;
+    border-radius: 50%;
+}
+.min{
+    float: left;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    border: 10px solid #ccc;
+    background-image:repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);
+    animation: myfirst 180s;
+}
+.max{
+    float: left;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    border: 10px solid #ccc;
+    background-image:repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);
+    animation: myfirst 0s;
+}
+.max img{
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    padding: 22%;
+    border-radius: 50%;
+}
+
+button{
+    margin-top: 60px;
+    margin-left: 6px;
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    border-color:blue;
+}
+button:hover{
+    background-color: aqua;
+    border-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 24),0 3px 10px 0 rgba(0, 0, 0, 19);
+
+}
+ul.ul1{
+    
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 100px;
+    padding: 0;
+}
+ul.ul1 li{
+    display: inline;
+    border-radius: 50px;
+}
+ul.ul1 li a{
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .5s;
+}
+ul.ul1 li a:hover{
+    background-color: #ccc;
+    border-radius: 5px;
+    color:white;
+
+}
+.xia{
+    float: left;
+    width: 600px;
+    height: 700px;
+    overflow-x: 600px;
+    margin-left: 2px;
+    background-color: #ccc;  
+}
+.header{
+    position: relative;
+    width: 1280px;
+    min-width: 1280px;
+    height: 700px;
+}
+.fo{   
+    clear: both;  
+    width: 1200px;
+    height: 60px;
+    border-radius:10px;
+    border-top-right-radius: 0px;
+    background: #eee;
+    position: relative;
+    border: 1px solid #ccc;
+}
+.hter{
+    width: 600px;
+    height: 700px;
+    float: left;
+}
+#btn{
+    margin-left: 80px;
+}
+ul.ul2{
+    margin-left: -10px;
+}
+ul.ul2 li{
+    display: inline;
+    border-radius: 5px;
+}
+ul.ul2 li a{
+    float: left;
+    padding: 8px 14px;
+    text-decoration: none;
+    background-color: rgb(24, 171, 230);
+    margin-left: 20px;
+    border-radius: 6px;
+    color:white ;
+    margin-top: 13px;
+}
+ul.ul2 li:nth-child(2) a{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+ul.ul2 li a:hover{
+    background-color:  rgb(4, 160, 221);
+}
+audio{   
+    width: 1200px;
+    height: 60px;
+    border-radius: 5px;
+}
+.fo button{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 5px;
+   }
+.fo ul{
+    width: 500px;
+    height: 4px;
+    background: #ccc;    
+    position: relative;
+    border-radius: 5px;
+    left: 300px;
+    top: 10px;
+}
+.fo ul li:nth-child(1){
+    width: 0px;
+    height: 4px;
+    display: block;
+    float: left;
+    background: blue;
+    position: absolute;
+    border-radius: 5px;
+    left: 0;
+    top: 0;
+}
+.fo ul li:nth-child(2){
+    width: 10px;
+    height: 10px;
+    display: block;
+    float: left;
+    position:fixed;    
+    margin-left: -50px;
+    margin-top: -3px;
+    border-radius: 5px;
+    background: black;
+    cursor: pointer;
+}

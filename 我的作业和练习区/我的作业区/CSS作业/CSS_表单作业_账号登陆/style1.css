@@ -1,0 +1,41 @@
+div{
+  
+    width: 270px;
+    height: 150px;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: rgb(79, 164, 212) ;
+    background: rgb(238, 236, 236);
+    padding-left: 50px;
+    padding-top: 30px;   
+}
+#tex{
+    border-radius: 2px;
+    border:1px solid rgb(79, 164, 212);
+    text-align: left;
+    height: 20px;
+    line-height: 20px;
+    width: 130px;
+    padding-left: 22px;
+    
+}
+#but{   
+    margin-top: 20px;
+    padding: 4px 12px;
+    margin-left: 40px;
+    border-radius: 5px;
+}
+input:nth-child(1){
+    background: url(img/1.jpg) no-repeat 5px center white;
+
+    
+}
+.upsw{
+    background: url(img/2.jpg) no-repeat 5px center white;
+}
+input:nth-last-child(1){
+    background-color: orange;
+}
+input:nth-last-child(2){
+    background-color:rgb(79, 164, 212) ;
+}
