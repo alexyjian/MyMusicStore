@@ -101,7 +101,7 @@ public partial class ProductList : System.Web.UI.Page
             //读出gridview中用户编辑的字段，给每个允许修改的实体属性赋值
             //获取用户编辑的这一行
             var row = GridView1.Rows[e.RowIndex];
-            var sn = (row.Cells[0].Controls[0] as TextBox).Text.Trim();
+            var sn = ((TextBox)row.FindControl("txtSN")).Text.Trim();
             var name = (row.Cells[1].Controls[0] as TextBox).Text.Trim();
             var dscn = (row.Cells[3].Controls[0] as TextBox).Text.Trim();
             var categoryID = Guid.Parse(((DropDownList)row.FindControl("DdlCategory")).SelectedValue);
