@@ -26,7 +26,7 @@ namespace MusicStore.Migrations
             };
             var role2 = new ApplicationRole()
             {
-                Name = "Manger",
+                Name = "Manager",
                 DisplayName = "一般管理组",
                 Description = "一般管理权限的角色",
                 SortCode = "002",
@@ -47,7 +47,7 @@ namespace MusicStore.Migrations
 
         public static void AddUsers()
         {
-            var idManger = new IdentityManager();
+            var idManager = new IdentityManager();
             #region 管理员
             var person1 = new Person()
             {
@@ -76,10 +76,76 @@ namespace MusicStore.Migrations
                 Person =person1,
             };
             //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户
-            idManger.CreateUser(loginUser, "123.abc");
+            idManager.CreateUser(loginUser, "123.abc");
             //添加到Admin角色
-            idManger.AddUserToRole(loginUser.Id, "Admin");
+            idManager.AddUserToRole(loginUser.Id, "Admin");
             #endregion
+
+            #region 注册用户
+
+            var person2 = new Person()
+            {
+                FirstName = "黄",
+                LastName = "生",
+                Name = "黄生",
+                CredentialsCode = "452222198210090011",
+                Birthday = DateTime.Now,
+                Sex = false,
+                MobileNumber = "13899998888",
+                Email = "978798821@qq.com",
+                CreateDateTime = DateTime.Now,
+                TelephoneNumber = "80861688",
+                Description = "",
+                UpdateTime = DateTime.Now,
+                InquiryPassword = "123456",
+            };
+            var newUser2 = new ApplicationUser()
+            {
+                UserName = "hs",
+                FirstName = "黄",
+                LastName = "生",
+                ChineseFullName = "黄生",
+                MobileNumber = "13899998888",
+                Email = "978798821@qq.com",
+                Person = person2
+            };
+            idManager.CreateUser(newUser2, "123.abc");
+            idManager.AddUserToRole(newUser2.Id, "RegisterUser");
+
+            #endregion 注册用户
+
+            #region 业务管理
+
+            var person3 = new Person()
+            {
+                FirstName = "许",
+                LastName = "生",
+                Name = "许生",
+                CredentialsCode = "452222198210090011",
+                Birthday = DateTime.Parse("1980-01-01"),
+                Sex = true,
+                MobileNumber = "13899998888",
+                Email = "646495830@qq.com",
+                CreateDateTime = DateTime.Now,
+                TelephoneNumber = "2621688",
+                Description = "",
+                UpdateTime = DateTime.Now,
+                InquiryPassword = "123456",
+            };
+            var newUser3 = new ApplicationUser()
+            {
+                UserName = "xs",
+                FirstName = "许",
+                LastName = "生",
+                ChineseFullName = "许生",
+                MobileNumber = "13899998888",
+                Email = "646495830@qq.com",
+                Person = person3
+            };
+            idManager.CreateUser(newUser3, "123.abc");
+            idManager.AddUserToRole(newUser3.Id, "Manager");
+
+            #endregion 业务管理
         }
     }
 }
