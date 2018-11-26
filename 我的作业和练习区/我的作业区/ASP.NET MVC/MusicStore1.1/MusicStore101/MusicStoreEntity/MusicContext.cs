@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-    public class MusicStoreEntity:DbContext
+    public class MusicContext:DbContext
     {
     }
 }
