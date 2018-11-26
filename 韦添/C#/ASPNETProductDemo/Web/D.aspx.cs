@@ -27,8 +27,8 @@ public partial class D : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         //手工方式
-        //Session.Remove("C");
-        //立即 过期 
+        
+        //立即过期 
         Session.Abandon();
         Response.Redirect("~/D.aspx");
    
