@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>欢迎访问</h2>
+
+<ul>
+    @for(var i=0;i<ViewBag.ID;i++)
+    {
+        <li>@ViewBag.Name</li>
+    }
+</ul>
+
