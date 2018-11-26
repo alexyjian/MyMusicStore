@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicStoreEntity", "MusicStoreEntity\MusicStoreEntity.csproj", "{DC113C1C-52CA-412E-B479-87BA7C9A337D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music", "Music\Music.csproj", "{3CDCF6F1-8983-48FF-92E3-443B54F480CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicStore", "Music\MusicStore.csproj", "{3CDCF6F1-8983-48FF-92E3-443B54F480CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
