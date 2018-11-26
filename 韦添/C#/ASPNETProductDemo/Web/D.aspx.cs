@@ -28,9 +28,9 @@ public partial class D : System.Web.UI.Page
     {
         //手工方式
         //Session.Remove("C");
-        //立即过期
+        //立即 过期 
         Session.Abandon();
         Response.Redirect("~/D.aspx");
-
+   
     }
 }
