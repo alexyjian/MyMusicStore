@@ -1,5 +1,6 @@
 namespace MusicStore.Migrations
 {
+    using MusicStoreEntity.Migrations;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -18,6 +19,8 @@ namespace MusicStore.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            UserAndRoleSeed.AddRoles();
+            //UserAndRoleSeed.AddUsers();
         }
     }
 }
