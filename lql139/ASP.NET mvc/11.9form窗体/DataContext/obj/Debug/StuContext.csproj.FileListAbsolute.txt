@@ -1,0 +1,14 @@
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\obj\Debug\StuContext.csprojResolveAssemblyReference.cache
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\EntityFramework.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\EntityFramework.SqlServer.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\EntityFramework.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\EntityFramework.SqlServer.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\StuContext.dll.config
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\StuContext.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\StuContext.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\StuEntities.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\StuEntities.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\obj\Debug\StuContext.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\obj\Debug\StuContext.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\EntityFramework.Extended.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\DataContext\bin\Debug\EntityFramework.Extended.xml

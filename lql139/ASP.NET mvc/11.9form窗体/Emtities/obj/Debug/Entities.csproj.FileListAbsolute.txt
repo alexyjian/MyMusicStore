@@ -1,0 +1,5 @@
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\bin\Debug\Emtities.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\bin\Debug\Emtities.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\obj\Debug\Emtities.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\obj\Debug\Emtities.pdb

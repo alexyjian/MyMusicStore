@@ -1,0 +1,16 @@
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.exe.config
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.exe
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.SqlServer.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.SqlServer.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\obj\Debug\CodeFirst1108.csprojResolveAssemblyReference.cache
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\obj\Debug\CodeFirst1108.exe
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\obj\Debug\CodeFirst1108.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.Extended.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.Extended.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\MoreLinq.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\System.ValueTuple.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\MoreLinq.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.8随机1000位的数据入库\CodeFirst1108\CodeFirst1108\bin\Debug\System.ValueTuple.xml

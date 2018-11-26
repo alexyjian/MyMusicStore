@@ -1,0 +1,13 @@
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll.config
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb

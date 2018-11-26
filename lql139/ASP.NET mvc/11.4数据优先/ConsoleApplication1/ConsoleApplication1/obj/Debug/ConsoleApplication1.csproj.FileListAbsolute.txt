@@ -1,0 +1,11 @@
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\bin\Debug\EntityFramework.SqlServer.xml
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.4\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

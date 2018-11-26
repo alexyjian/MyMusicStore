@@ -1,0 +1,4 @@
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\bin\Debug\StuEntities.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\bin\Debug\StuEntities.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\obj\Debug\StuEntities.dll
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\11.9form窗体\Emtities\obj\Debug\StuEntities.pdb
