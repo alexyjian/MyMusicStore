@@ -25,6 +25,7 @@ public partial class ProductList : System.Web.UI.Page
             var productList = context.Products.OrderBy(x => x.SN).ToList();
             GridView1.DataSource = productList;
             GridView1.DataBind();
+
         }
     }
 
