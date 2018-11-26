@@ -176,7 +176,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\HelloWorld\Index.cshtml" />
     <Content Include="Views\HelloWorld\WelCome.cshtml" />
-    <Content Include="Views\HelloWorld\qwe.cshtml" />
+    <Content Include="Views\Home\qwe.cshtml" />
     <Content Include="Views\Movies\Create.cshtml" />
     <Content Include="Views\Movies\Delete.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
