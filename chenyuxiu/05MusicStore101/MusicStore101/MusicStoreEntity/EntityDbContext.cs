@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-   public class EntityDbContext : IdentityDbContext<ApplicationUser>
-    {
+  
         //使用带用户认证权限机制的实体框架
         public class EntityDbContext : IdentityDbContext<ApplicationUser>
         {
@@ -30,5 +29,5 @@ namespace MusicStoreEntity
 
             #endregion
         }
-    }
+    
 }
