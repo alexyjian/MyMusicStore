@@ -7,7 +7,7 @@ namespace MvcDemo1.Models
 {
     public class Movie
     {
-        public Guid ID { get; set; }//主键
+        public Guid ID { get; set; }//zhujian
         public string Titile { get; set; }
         public DateTime ReleaseDate { get; set; }//上映时间
 
