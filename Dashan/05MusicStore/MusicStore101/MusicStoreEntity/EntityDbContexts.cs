@@ -11,8 +11,7 @@ namespace MusicStoreEntity
 {
   public  class EntityDbContexts : DbContext
     {
-        public object Roles { get; set; }
-
+      
         //使用带用户认证权限机制的实体框架
         public class EntityDbContext : IdentityDbContext<ApplicationUser>
         {

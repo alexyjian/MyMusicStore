@@ -36,17 +36,20 @@ namespace MusicStore.Controllers
         /// <param name="username"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        //public string  TestLogin(string  username = "dayu" , string  pwd = "123.abc")
-        //{
-        //    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContexts()));
-        //    var user = userManager.Find(username,pwd);
-        //    if(user !=null)
-        //    {
-        //        var roleName = "";
-        //        var context = new MusicStoreEntity.EntityDbContexts();
-        //        foreach(var role in user .Roles)
-        //            roleName += (context .Roles.Find(role.RoleId)
-        //    }
-        //}
+        public string TestLogin(string username = "zrn", string pwd = "123.abc")
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContexts()));
+            var user = userManager.Find(username, pwd);
+            if (user != null)
+            {
+                var roleName = "";
+                var context = new MusicStoreEntity.EntityDbContexts();
+                foreach (var role in user.Roles)
+                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + " ";
+                return "登录成功，用户属于：" + roleName;
+            }
+            else
+                return "登录失败";
+        }
     }
 }

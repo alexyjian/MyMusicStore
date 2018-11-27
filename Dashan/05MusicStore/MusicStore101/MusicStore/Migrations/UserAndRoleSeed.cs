@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MusicStore.Migrations
 {
-   public class UserAndRoleSeed
+   public static class UserAndRoleSeed
     {
         private static readonly MusicStoreEntity.EntityDbContexts _dbContext = new MusicStoreEntity.EntityDbContexts();
 
@@ -80,7 +80,7 @@ namespace MusicStore.Migrations
                 Email = "zhangRn@188.com",
                 CreateDateTime = DateTime.Now,
                 TelephoneNumber = "480309390",
-                Description = "",
+                Description = "注册用户",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
