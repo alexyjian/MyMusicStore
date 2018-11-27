@@ -6,11 +6,11 @@ using System.Web;
 
 namespace MusicStore.Migrations
 {
-    public class UseAndRoleSeed
+    public static  class UseAndRoleSeed
     {
         private static readonly MusicStoreEntity.EntityDbContext _dbContext = new MusicStoreEntity.EntityDbContext();
         ///添加角色
-        public void AddRoles()
+        public static void AddRoles()
         {
             var idManger = new IdentityManager();
             var role1 = new ApplicationRole()
@@ -41,7 +41,7 @@ namespace MusicStore.Migrations
             idManger.CreateRole(role2);
             idManger.CreateRole(role3);
         }
-        public void AddUsers()
+        public static void AddUsers()
         {
             var idManger = new IdentityManager();
             #region 管理员
@@ -49,6 +49,7 @@ namespace MusicStore.Migrations
             {
                 FirstName = "梅",
                 LastName = "西",
+                Name = "梅西",
                 CredentialsCode = "450000000201501012345",
                 Birthday = DateTime.Parse("2015-01-01"),
                 Sex = true,

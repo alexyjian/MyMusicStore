@@ -41,8 +41,8 @@ namespace MusicStore.Controllers
         public string TestLogin(string username = "messi", string pwd = "123.bak")
         {
             var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
-            object userManager = null;
-            var user = userManager.Find(username, pwd);
+            //object userManager = null;
+            var user=userManage.Find (username, pwd);
             if (user != null)
             {
                 var roleName = "";
