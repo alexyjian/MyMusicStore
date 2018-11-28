@@ -9,6 +9,6 @@ namespace MusicStoreEntity
 {
     public class EntityDBContext:DbContext
     {
-
+        
     }
 }
