@@ -1,0 +1,3 @@
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1027EF代码优先作业\CodeFirstDeno\CodeFirstDeno\bin\Debug\CodeFirstDeno.exe.config
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1027EF代码优先作业\CodeFirstDeno\CodeFirstDeno\obj\Debug\CodeFirstDeno.exe
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1027EF代码优先作业\CodeFirstDeno\CodeFirstDeno\obj\Debug\CodeFirstDeno.pdb

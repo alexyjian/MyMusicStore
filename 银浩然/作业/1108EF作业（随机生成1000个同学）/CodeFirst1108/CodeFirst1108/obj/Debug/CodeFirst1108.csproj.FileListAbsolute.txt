@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.exe.config
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.exe
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\bin\Debug\CodeFirst1108.pdb
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\obj\Debug\CodeFirst1108.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\obj\Debug\CodeFirst1108.exe
+C:\Users\Administrator\Desktop\MyMusicStore\银浩然\作业\1108EF作业（随机生成1000个同学）\CodeFirst1108\CodeFirst1108\obj\Debug\CodeFirst1108.pdb

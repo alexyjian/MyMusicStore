@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll.config
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.pdb
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
+C:\Users\Administrator\Desktop\MyMusicStore\05\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
