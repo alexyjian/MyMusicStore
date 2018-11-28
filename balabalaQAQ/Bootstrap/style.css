@@ -6,7 +6,6 @@ body{
     margin: auto;
     width: 1000px;
     height: 100%;
-  
 }
 li{
     list-style: none;}
@@ -16,33 +15,53 @@ a{
 a:hover{
     text-decoration: none;
 }
-.top-nav ul{
-    float: right;
+
+/*nav*/
+.navbar-header{
+padding-right: 45%;
+}
+.top-nav ul li a{
+    margin-right:20px;
 }
 .navbar-header img{
     float: left;
     padding-right: 10px;
     padding-top:5px;
 }
+/*nav end*/
+
 .music-left{
     width:250px;
     float: left;
-}
-.bg{
-    background-color: gray;
-}
-.music-img{
-    float: left;
-    margin-left: 30px;
+    margin-left: 12px;
 }
 .music-dw{
     color: rgb(80, 144, 240);
     text-align: center;
 }
+.btn{
+    width: 100%;
+    text-align: left;
+    height: 40px;
+}
+/*music-view*/
 .music-view{
-    width: 500px;
-  
+    width: 700px;
+    float: left;
+    margin-left: 30px;
+    text-align: center;
 }
-.music-news ul li{
-    margin-left: 00px;
+.bg{
+    background-color: gray;
 }
+.music-news ul li  {
+  padding: 0;
+  width: 105px;
+  margin-left: 15px;
+  padding-bottom: 10px;
+ 
+}
+.music-news ul li a{
+  margin-top:10px;
+}
+/*music-view  end*/
