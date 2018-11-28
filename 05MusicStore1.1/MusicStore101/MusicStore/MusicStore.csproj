@@ -9,7 +9,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
+<<<<<<< HEAD
     <ProjectGuid>{7C23ECCD-BCDB-4458-A6C6-493F8435A824}</ProjectGuid>
+=======
+    <ProjectGuid>{CEDD2DB3-491D-4B0F-BF2A-E0FC95BD5873}</ProjectGuid>
+>>>>>>> 9a85611ff46ac84b89d3d36a6e04f8ef9c8b08fd
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -140,6 +144,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\UserAndRoleSeed.cs" />
+>>>>>>> 9a85611ff46ac84b89d3d36a6e04f8ef9c8b08fd
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -187,7 +196,10 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
+<<<<<<< HEAD
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+=======
+>>>>>>> 9a85611ff46ac84b89d3d36a6e04f8ef9c8b08fd
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -222,6 +234,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
@@ -229,16 +242,28 @@
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+=======
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+>>>>>>> 9a85611ff46ac84b89d3d36a6e04f8ef9c8b08fd
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
       <Project>{956a7034-e2f5-4ce8-9490-15a1dacbc026}</Project>
+=======
+    <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
+      <Project>{79bad7eb-bcc7-42fc-966c-38ae70c9e6b3}</Project>
+>>>>>>> 9a85611ff46ac84b89d3d36a6e04f8ef9c8b08fd
       <Name>MusicStoreEntity</Name>
     </ProjectReference>
   </ItemGroup>
@@ -258,9 +283,15 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
+<<<<<<< HEAD
           <DevelopmentServerPort>56678</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:56678/</IISUrl>
+=======
+          <DevelopmentServerPort>2476</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2476/</IISUrl>
+>>>>>>> 9a85611ff46ac84b89d3d36a6e04f8ef9c8b08fd
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
