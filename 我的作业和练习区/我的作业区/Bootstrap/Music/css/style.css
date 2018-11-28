@@ -1,13 +1,47 @@
-.header>h1{
+/* 头部 */
+*{
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: rgb(251, 249, 239);
+}
+#header{
+    width: 90%;
+    height: 100px;
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+    border-bottom: 1px dotted black;    
+}
+#header>h1{
     width: 197.7px;
     height: 69px;
     font-size: 17px;
+    background: url(../img/logo.PNG) no-repeat top left;    
     position: relative;
+    top: 25px;
 }
-.header>h1>a{
+#header>h1>a{
     width: 197.7px;
     height: 20px;
     position: absolute;
     bottom: 0;
-    text-decoration: none;
+    color: black;   
+}
+#header>ul{
+    width: 186px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#header>ul>li{
+    font-size: 18px;
+    line-height: 50px;
+    width: 62px;
+    height: 50px;
+    
 }
