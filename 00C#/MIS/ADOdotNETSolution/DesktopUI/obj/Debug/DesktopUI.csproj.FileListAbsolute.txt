@@ -12,9 +12,3 @@ D:\Yjian\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.Form1.resources
 E:\yjian\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
 E:\yjian\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
 E:\yjian\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
-E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
-E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
-E:\VSGit\MyMusicStore\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
-E:\KLYNM\KLNYSOBS\00C#\MIS\ADOdotNETSolution\DesktopUI\bin\Debug\DesktopUI.exe.config
-E:\KLYNM\KLNYSOBS\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.exe
-E:\KLYNM\KLNYSOBS\00C#\MIS\ADOdotNETSolution\DesktopUI\obj\Debug\DesktopUI.pdb
