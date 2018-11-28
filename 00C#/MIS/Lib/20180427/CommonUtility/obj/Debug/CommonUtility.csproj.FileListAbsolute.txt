@@ -1,0 +1,5 @@
+E:\yjian\LibraryManagermentSystem\CommonUtility\bin\Debug\CommonUtility.dll
+E:\yjian\LibraryManagermentSystem\CommonUtility\bin\Debug\CommonUtility.pdb
+E:\yjian\LibraryManagermentSystem\CommonUtility\obj\Debug\CommonUtility.csprojResolveAssemblyReference.cache
+E:\yjian\LibraryManagermentSystem\CommonUtility\obj\Debug\CommonUtility.dll
+E:\yjian\LibraryManagermentSystem\CommonUtility\obj\Debug\CommonUtility.pdb
