@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    background-color:#333;
+}
+.wrapper{
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    /* border:1px solid black; */
+    height:200px;
+    margin-top:200px;
+}
+.wrapper img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 400px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    border-radius: 8px;
+    /* transition: transform 0.5s ease-in-out; */
+}
