@@ -9,7 +9,7 @@ namespace MusicStore101.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(MusicStoreEntity.EntityDbContext context)
@@ -18,6 +18,8 @@ namespace MusicStore101.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            UserAndRoleSeed.AddRoles();
+            UserAndRoleSeed.AddUser();
         }
     }
 }
