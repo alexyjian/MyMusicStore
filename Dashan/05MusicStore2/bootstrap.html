@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音乐商店</title>
+
+    <link rel="stylesheet" href="css.css" type="text/css">
+    <link rel="stylesheet" href="css1.css" type="text/css">
+</head>
+
+<body>
+    <div id="header">
+        <h1><a href="/">ASP.NET MVC 音乐商店</a></h1>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/">主页</a></li>
+            <li><a href="/store">商店</a></li>
+            <li><a href="/account/login"> 登录 </a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+
+                <ul id="categories">
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/42ad62c4-4d3a-475e-b7d2-0f90d1934374">Disco</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/83bd4a00-5d00-41ca-a266-5bd54be29158">Jazz</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/a4ef8716-2b67-450a-a5d2-7708dfc94abe">Rock</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/3f1012b4-e8ed-4f29-94ba-8dd550860c0c">Reggae</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/acfd48d1-aa98-4705-b859-9417e1b8824d">Classical</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/b4eea44c-cb3c-4b86-a55f-af667560e304">Metal</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/d78060d1-f937-4101-b53d-b3f3653074c4">Pop</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/7349b1b1-e9dc-407a-9f5e-b560f691f024">Blues</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/bc9a0e83-0d19-4e6b-b4b3-b5a4120fce4a">Alternative</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-music"></i>
+                        <a href="/store/browse/0cf592f8-6729-44ac-9081-bb84c64a1c86">Latin</a>
+                    </li>
+                    <li>
+                        <p></p>
+                        <p class="text-info">
+                            当前位置：<span id="city" class="glyphicon glyphicon-map-marker">定位中...</span>
+                            <span id="district"></span>
+                        </p>
+                        <div id="divWeather"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
