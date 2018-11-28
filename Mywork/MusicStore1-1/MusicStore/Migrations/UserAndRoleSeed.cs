@@ -137,7 +137,7 @@ namespace MusicStore.Migrations
                 UserName = "xs",
                 FirstName = "许",
                 LastName = "生生",
-                ChineseFullName = "许生生",
+                ChineseFullName = "许生",
                 MobileNumber = "13899998888",
                 Email = "646495830@qq.com",
                 Person = person3
