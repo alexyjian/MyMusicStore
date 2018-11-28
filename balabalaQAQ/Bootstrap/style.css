@@ -1,0 +1,48 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+body{
+    margin: auto;
+    width: 1000px;
+    height: 100%;
+  
+}
+li{
+    list-style: none;}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.top-nav ul{
+    float: right;
+}
+.navbar-header img{
+    float: left;
+    padding-right: 10px;
+    padding-top:5px;
+}
+.music-left{
+    width:250px;
+    float: left;
+}
+.bg{
+    background-color: gray;
+}
+.music-img{
+    float: left;
+    margin-left: 30px;
+}
+.music-dw{
+    color: rgb(80, 144, 240);
+    text-align: center;
+}
+.music-view{
+    width: 500px;
+  
+}
+.music-news ul li{
+    margin-left: 00px;
+}
