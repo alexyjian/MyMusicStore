@@ -1,0 +1,13 @@
+.header>h1{
+    width: 197.7px;
+    height: 69px;
+    font-size: 17px;
+    position: relative;
+}
+.header>h1>a{
+    width: 197.7px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    text-decoration: none;
+}
