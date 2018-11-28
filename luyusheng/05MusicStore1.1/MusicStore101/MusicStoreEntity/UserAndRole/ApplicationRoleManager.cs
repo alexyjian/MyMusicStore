@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 
-namespace MusicStoreEntities.UserAndRole
+namespace MusicStoreEntity.UserAndRole
 {
     public class ApplicationRoleManager : RoleManager<ApplicationRole>
     {

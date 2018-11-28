@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.ComponentModel.DataAnnotations;
 
-namespace MusicStoreEntities.UserAndRole
+namespace MusicStoreEntity.UserAndRole
 {
     public class ApplicationRole : IdentityRole
     {
