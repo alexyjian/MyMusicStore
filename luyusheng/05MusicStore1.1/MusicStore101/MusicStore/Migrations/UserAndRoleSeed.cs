@@ -13,7 +13,7 @@ namespace MusicStore.Migrations
             /// <summary>
             /// 添加角色
             /// </summary>
-            public void AddRoles()
+            public static void AddRoles()
         {
             var idManger = new IdentityManager();
             var role1 = new ApplicationRole()
