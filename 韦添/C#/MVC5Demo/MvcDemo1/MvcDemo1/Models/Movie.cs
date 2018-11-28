@@ -12,5 +12,12 @@ namespace MvcDemo1.Models
         public DateTime ReleaseDate { get; set; }
         public string Genre { get; set; }
         public decimal Price { get; set; }
+
+
+        public Movie()
+        {
+            ID = Guid.NewGuid();
+            ReleaseDate = DateTime.Now;
+        }
     }
 }
