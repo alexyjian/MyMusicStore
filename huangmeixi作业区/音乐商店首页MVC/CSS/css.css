@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.one {
+    background-color:#DBEE9C;
+    height: 100px;
+    width: 1500px;
+
+} 
+.two{
+
+    width: 800px;
+    height: 530px;
+    margin: 10px auto;
+}
