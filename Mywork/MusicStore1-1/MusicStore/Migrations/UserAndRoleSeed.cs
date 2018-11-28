@@ -119,8 +119,8 @@ namespace MusicStore.Migrations
             var person3 = new Person()
             {
                 FirstName = "许",
-                LastName = "生",
-                Name = "许生",
+                LastName = "生生",
+                Name = "许生生",
                 CredentialsCode = "452222198210090011",
                 Birthday = DateTime.Parse("1980-01-01"),
                 Sex = true,
@@ -136,8 +136,8 @@ namespace MusicStore.Migrations
             {
                 UserName = "xs",
                 FirstName = "许",
-                LastName = "生",
-                ChineseFullName = "许生",
+                LastName = "生生",
+                ChineseFullName = "许生生",
                 MobileNumber = "13899998888",
                 Email = "646495830@qq.com",
                 Person = person3
