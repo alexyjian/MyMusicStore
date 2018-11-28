@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: rgb(108,108,108);
+}
+/*--------用户信息栏--------*/
+header{
+    width: 100%;
+    min-width: 1280px;
+    height: 30px;   
+    background: rgb(247,247,247); 
+    font-size: 15px;  
+    border-bottom: 1px solid #eeeeee;  
+}
+header div:nth-child(1){
+    margin: 0 auto;
+    width: 1280px;
+    min-width: 1280px;
+}
+header ul li{
+    display: block;
+    float: left;
+    margin-right: 10px; 
+    cursor: pointer;   
+}
+header ul:nth-child(1){
+    float: left;
+    margin-left: 30px;
+    line-height: 30px;
+}
+header ul:nth-child(1) li{
+    margin-right: 30px;
+}
+header ul:nth-child(2){
+    float: right;
+    margin-right: 30px;
+}
+header ul:nth-child(2) li{
+   width: 60px;
+   height: 10px;
+   margin-top: 10px;
+   text-align: center;
+   border-left: 1px solid black;
+   padding-left: 10px;
+   line-height: 10px;
+}
+header ul:nth-child(2) li:nth-child(1){
+    height: 30px;
+    margin-top: -0px;    
+    border-left: 0px solid black;
+    padding-right: 10px; 
+    margin-right: 0px;
+    line-height: 30px;
+ }
+ /*鼠标悬停*/
+ header ul:nth-child(2) ul{   
+    width: 100px;    
+    position: relative;
+    left:60px ;
+    background-color: white;
+    display: none; 
+    overflow: hidden;   
+    z-index: 999;
+}
+
+header ul:nth-child(2) ul  li{
+    clear: both;
+    width: 90px;
+    height: 30px;
+    text-align: left;
+    line-height: 30px;
+    border: 0;     
+    padding-left: 10px;
+}
+header ul:nth-child(2) ul li:hover{   
+   background-color: #f1f1f1;
+}
+ /*鼠标悬停结束*/
+
+/*--------用户信息栏结束--------*/
+
+
+
+/*--------logo设置--------*/
+ div:nth-child(2){
+     margin: 0 auto;     
+     width: 1280px;
+     height: 800px;     
+ }
+ div:nth-child(2) div:nth-child(1){
+     width: 150px;
+     height: 200px;
+     float: left;
+     margin-left: 80px;
+     background: url(img/1.gif) no-repeat center center;
+ }
+/*--------logo设置结束--------*/
+
+
+
+/*--------表单设置--------*/
+ div:nth-child(2) form{
+    width: 800px;
+    height: 200px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 50px;
+    position: relative;
+  }
+
+form input{
+    outline: none;
+}
+
+form input:nth-child(1){
+    width: 550px;
+    height: 30px;  
+    line-height: 30px;
+    font-size: 18px;
+    border: 3px solid rgb(228, 57, 60);   
+}
+form input:nth-child(2){
+    width: 80px;
+    height: 36px;  
+    position: absolute;
+    left: 553px;
+    top: 0;
+    border: 3px solid rgb(228, 57, 60);
+    background-color: rgb(228, 57, 60);
+    color: white;
+    cursor: pointer; 
+}
+form input:nth-child(3){
+    width: 80px;
+    height: 36px;
+    margin-left: 100px;    
+    border: 1px solid rgb(227, 227, 227);
+    background: rgb(247,247,247);
+    cursor: pointer;
+}
+form input:nth-child(4){
+    width: 100px;
+    height: 36px;
+    position: absolute;
+    left: 763px;
+    top: 1px;
+    border: 1px solid rgb(227, 227, 227);
+    background: rgb(247,247,247);
+    cursor: pointer;
+}
+form ul{
+    margin-top: 10px;
+}
+form ul li{
+    display: block;
+    float: left;
+    margin-right: 10px;
+    font-size: 13px;
+    color: rgb(153,153,178);
+    cursor: pointer;
+}
+/*--------表单设置结束--------*/
+
+
+

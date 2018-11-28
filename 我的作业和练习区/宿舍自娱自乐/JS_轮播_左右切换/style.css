@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+div{
+    width: 576px;
+    height: 324px;
+    border: 3px solid #ccc;
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+div ul{
+    width: 600%;
+    height: 325px;
+    position: absolute;
+}
+div ul li{
+    float: left;
+}
+div ul li img{
+    width: 576px;
+    height: 324px;
+}
+div span{
+    position: absolute;
+    display: none;
+    z-index: 2;
+    height: 100px;
+    width: 50px;
+    border-radius: 10px;
+    line-height: 100px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    background-color: rgba(219, 208, 208, 0.3);
+}
+div span:nth-child(1){
+    top: 34%;
+    left: 0;
+}
+div span:nth-child(2){
+    top: 34%;
+    right: 0;
+}

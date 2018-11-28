@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            opacity: 0.7;
+            position: absolute;
+            font-size: 30px;
+            line-height: 200px;
+            text-align: center;
+            color: aqua;
+        }
+
+        .did {
+            margin: 200px auto;
+            position: relative;
+            perspective: 50000px;
+            transform-style: preserve-3d;
+            opacity: 1;
+            animation: mymove 15s linear infinite;
+        }
+
+        .quan {
+            width: 190px;
+            height: 190px;
+            opacity: 1;
+            border-radius: 50%;
+            border: 5px dashed red;
+        }
+
+        .chil1 {
+            background: blue;
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .chil2 {
+            background: red;
+            transform: rotateX(0deg) translateZ(100px);
+        }
+
+        .chil3 {
+            background: green;
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        .chil4 {
+            background: yellow;
+            transform: rotateX(-180deg) translateZ(100px);
+        }
+
+        .chil5 {
+            background: orange;
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+
+        .chil6 {
+            background: rgb(136, 9, 240);
+            transform: rotateY(-90deg) translateZ(-100px);
+        }
+
+        @keyframes mymove {
+            0% {
+                transform: rotateY(0deg) rotatez(720deg);
+            }
+
+            100% {
+                transform: rotateY(360deg) rotatez(0deg);
+            }
+          
+        }
+    </style>
+</head>
+
+<body>
+    <div class="did">
+        <div class="quan"></div>
+        <div class="chil1">上</div>
+        <div class="chil2">前</div>
+        <div class="chil3">下</div>
+        <div class="chil4">后</div>
+        <div class="chil5">左</div>
+        <div class="chil6">右</div>
+    </div>
+</body>
+
+</html>

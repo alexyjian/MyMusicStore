@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <style>
+    div{
+        width: 200px;
+        height: 200px;       
+      
+    }
+    .did{
+        margin: 200px auto;
+        position: relative;    
+        perspective: 50000px;   
+        transform-style: preserve-3d;
+        transition: all 2s;
+        animation:mymove 5s linear infinite;
+    }    
+    .chil1{
+       background: blue;
+       position: absolute;     
+       transform: rotateX(90deg) translateZ(100px);
+    }
+    .chil2{
+        background: red;
+        position: absolute;
+        
+        transform: rotateX(0deg) translateZ(100px);
+    }
+     .chil3{
+        background: green;
+        position: absolute;
+        transform:  rotateX(-90deg) translateZ(100px);
+    }
+    .chil4{
+        background: yellow;
+        position: absolute;
+        transform:  rotateX(-180deg) translateZ(100px);
+    }
+    .chil5{
+        background:orange;
+        position: absolute;
+        transform: rotateY(90deg) translateZ(-100px);
+    }
+    .chil6{
+        background: gray;
+        transform: rotateY(-90deg);
+    }
+    @keyframes mymove{
+       0%{           
+           transform: rotate3d(0deg 0deg 0deg );
+           
+       }       
+        100%{
+           
+            transform: rotate3d(360deg 360deg 360deg);
+        }
+    }   
+    </style>
+</head>
+<body>
+    <div class="did">
+        <div class="chil1"></div>
+        <div class="chil2"></div>
+        <div class="chil3"></div>
+        <div class="chil4"></div>
+        <div class="chil5"></div>
+        <div class="chil6"></div>
+    </div>
+</body>
+</html>
