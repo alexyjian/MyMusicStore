@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        background: blue;
+        border: 5px solid red;
+        border-radius: 0px;
+    }
+    div:hover{
+        border-radius: 50%;   
+         -webkit-transition-property:border-radius;
+         -moz-transition-property: border-radius;
+         -o-transition-property: border-radius;
+
+         -webkit-transition-duration: 5s;
+         -moz-transition-duration: 5s;
+         -o-transition-duration: 5;
+
+         -webkit-transition-timing-function: ease-in-out;
+         -moz-transition-timing-function: ease-in-out;
+         -o-transition-timing-function: ease-in-out;
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
