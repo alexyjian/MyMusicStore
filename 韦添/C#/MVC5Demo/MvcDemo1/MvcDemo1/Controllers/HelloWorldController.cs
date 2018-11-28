@@ -9,14 +9,18 @@ namespace MvcDemo1.Controllers
     public class HelloWorldController : Controller
     {
         // GET: HelloWorld
-        public string Index()
+        public ActionResult Index()
         {
-            return "这是我的<b>默认</b>控制方法(action)";
+            //return View("../Views/Test/test1");
+            return View();
         }
 
-        public string Welcome(string name,int id=1)
+        public ActionResult Welcome(string name,int id=1)
         {
-            return "您好，" + name + ",欢迎次数:"+id;
+            ViewBag.ID = id;
+            ViewBag.Name = name+",您好！";
+            Session["message"] = "今天天气不错!!!";
+            return View();
         }
     }
 }
