@@ -68,7 +68,7 @@ namespace MusicStore101.Migrations
                 MobileNumber = "21346579",
                 Email = "messi@qq.com",
                 Person = person1,
-
+                 
             };
             //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户
             idManger.CreateUser(loginUser, "123.abc");
