@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MusicStoreEntity.UserAndRole;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +28,21 @@ namespace MusicStore.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public string TestLogin(string username = "Messi", string pwd = "123.abc")
+        {
+            var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.MusicContext()));
+            var user = userManage.Find(username, pwd);
+            if (user != null)
+            {
+                var roleName = "";
+                var context = new MusicStoreEntity.MusicContext();
+                foreach (var role in user.Roles)
+                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + " ";
+                return "登录成功,用户属于" + roleName;
+            }
+            else
+                return "登录失败";
         }
     }
 }
