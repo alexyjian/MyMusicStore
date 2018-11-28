@@ -33,17 +33,17 @@ namespace MusicStore.Controllers
         /// <param name="usernme"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public string TestLogin(string usernme ="hs",string pwd = "123.abc")
-        {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
-            var user = userManager.Find(usernme, pwd);
-            if (user != null)
-            {
-                var roleName = "";
-                var context = new MusicStoreEntity.EntityDbContext();
-                foreach(var role in user.Roles)
-                    roleName +=(context.Roles.Find(role.Roles))
-            }
-        }
+        //public string TestLogin(string usernme ="hs",string pwd = "123.abc")
+        //{
+        //    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
+        //    var user = userManager.Find(usernme, pwd);
+        //    if (user != null)
+        //    {
+        //        var roleName = "";
+        //        var context = new MusicStoreEntity.EntityDbContext();
+        //        foreach (var role in user.Roles)
+        //            roleName += (context.Roles.Find(role.Roles));
+        //    }
+        //}
     }
 }
