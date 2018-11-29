@@ -130,4 +130,14 @@ ul#album-list li {
     font-size: 25px;
     
 }
+.container .row .col-md-3 ul li::before{
+    background: url(../音乐商品/Images/11-29.jpg) no-repeat;
+    width: 15px;
+    height: 15px;
+}
+.glyphicon-music{
+    background: url(../音乐商品/Images/wymc.png) no-repeat;
+    width: 18px;
+    height: 18px;
 
+}
