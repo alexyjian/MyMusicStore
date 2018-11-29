@@ -19,7 +19,7 @@ namespace MusicStore.Migrations
             var role1 = new ApplicationRole()
             {
                 Name = "Admin",
-                DisplayName = "超级管理员",
+                DisplayName = "超级管理员组",
                 Description = "最高级权限角色",
                 SortCode = "001",
                 ApplicationRoleType =ApplicationRoleType.适用于系统管理人员
@@ -36,7 +36,7 @@ namespace MusicStore.Migrations
             {
                 Name = "RegisterUser",
                 DisplayName = "注册用户组",
-                Description = "注册",
+                Description = "注册用户的角色",
                 SortCode = "003",
                 ApplicationRoleType = ApplicationRoleType.适用于一般注册用户
             };
@@ -65,7 +65,6 @@ namespace MusicStore.Migrations
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
-            
             var loginUser = new ApplicationUser()
             {
                 UserName ="messi",
@@ -121,7 +120,7 @@ namespace MusicStore.Migrations
                 Name = "许宣",
                 CredentialsCode = "452220199311155207",
                 Birthday = DateTime.Parse("1980-11-25"),
-                Sex = false,
+                Sex = true,
                 MobileNumber = "1775623478",
                 Email = "12254778@qq.com",
                 CreateDateTime = DateTime.Now,
