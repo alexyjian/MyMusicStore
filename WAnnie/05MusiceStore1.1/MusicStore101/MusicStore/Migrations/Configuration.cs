@@ -20,7 +20,7 @@ namespace MusicStore.Migrations
             //  to avoid creating duplicate seed data.
 
             //UserAndRoleSeed.AddRoles();
-            //UserAndRoleSeed.AddUser();
+            //UserAndRoleSeed.AddUsers();
 
             //GenreSeed.Seed();
         }

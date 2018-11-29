@@ -13,10 +13,11 @@ namespace MusicStore.Migrations
         //添加角色
         public static void AddRoles()
         {
+          
             var idManger = new IdentityManager();
             var role1 = new ApplicationRole()
             {
-                Name = "Admie",
+                Name = "Admin",
                 DisplayName = "超级管理员组",
                 Description = "最高权限的角色",
                 SortCode = "001",
@@ -24,11 +25,11 @@ namespace MusicStore.Migrations
             };
             var role2 = new ApplicationRole()
             {
-                Name = "Manger",
+                Name = "Manager",
                 DisplayName = "一般管理组",
                 Description = "一般管理权限的角色",
                 SortCode = "002",
-                ApplicationRoleType = ApplicationRoleType.适用于系统管理人员
+                ApplicationRoleType = ApplicationRoleType.适用于有管理权限用户
             };
             var role3 = new ApplicationRole()
             {
@@ -41,12 +42,11 @@ namespace MusicStore.Migrations
             idManger.CreateRole(role1);
             idManger.CreateRole(role2);
             idManger.CreateRole(role3);
-
         }
 
-        public static void AddUser()
+        public static void AddUsers()
         {
-            var idManger = new IdentityManager();
+            var idManager = new IdentityManager();
             #region 管理员
             var person1 = new Person()
             {
@@ -57,7 +57,7 @@ namespace MusicStore.Migrations
                 Birthday = DateTime.Parse("1982-12-20"),
                 Sex = true,
                 MobileNumber = "13471892486",
-                Email = "messi@198.com",
+                Email = "jason@1220.com",
                 CreateDateTime = DateTime.Now,
                 TelephoneNumber = "321838579",
                 Description = "超级管理员",
@@ -66,22 +66,21 @@ namespace MusicStore.Migrations
             };
             var loginUser = new ApplicationUser()
             {
+                UserName = "Jason",
                 FirstName = "张",
                 LastName = "杰",
                 ChineseFullName = "张杰",
-                MobileNumber = "13471892485",
-                Email = "jason@1220.com",
+                MobileNumber = "13471892456",
+                Email = "Jason@1220.com",
                 Person = person1,
             };
-
-            //缺少配置，密码大于6位，字母数字特殊符号，否则不能创建用户
-            idManger.CreateUser(loginUser, "123.abc");
+            //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户
+            idManager.CreateUser(loginUser, "123.abc");
             //添加到Admin角色
-            idManger.AddUserToRole(loginUser.Id, "Admin");
-
+            idManager.AddUserToRole(loginUser.Id, "Admin");
             #endregion
 
-            #region  注册用户
+            #region 注册用户
 
             var person2 = new Person()
             {
@@ -90,7 +89,7 @@ namespace MusicStore.Migrations
                 Name = "谢娜",
                 CredentialsCode = "45200019810506889",
                 Birthday = DateTime.Now,
-                Sex = true,
+                Sex = false,
                 MobileNumber = "1895324988",
                 Email = "xiena@56.com",
                 CreateDateTime = DateTime.Now,
@@ -98,27 +97,23 @@ namespace MusicStore.Migrations
                 Description = "",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
-
             };
-
             var newUser2 = new ApplicationUser()
             {
                 UserName = "xn",
                 FirstName = "谢",
                 LastName = "娜",
                 ChineseFullName = "谢娜",
-                MobileNumber = "18953249988",
+                MobileNumber = "1895324988",
                 Email = "xiena@56.com",
                 Person = person2
             };
-            idManger.CreateUser(newUser2, "123.abc");
-            idManger.AddUserToRole(newUser2.Id, "RegisterUser");
+            idManager.CreateUser(newUser2, "123.abc");
+            idManager.AddUserToRole(newUser2.Id, "RegisterUser");
 
+            #endregion 注册用户
 
-            #endregion
-
-
-            #region  业务管理
+            #region 业务管理
 
             var person3 = new Person()
             {
@@ -127,7 +122,7 @@ namespace MusicStore.Migrations
                 Name = "何炅",
                 CredentialsCode = "45201331972112600",
                 Birthday = DateTime.Parse("1972-11-26"),
-                Sex = false,
+                Sex = true,
                 MobileNumber = "18975697598",
                 Email = "1234567@qq.com",
                 CreateDateTime = DateTime.Now,
@@ -136,7 +131,6 @@ namespace MusicStore.Migrations
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
-
             var newUser3 = new ApplicationUser()
             {
                 UserName = "hj",
@@ -147,9 +141,10 @@ namespace MusicStore.Migrations
                 Email = "1234567@qq.com",
                 Person = person3
             };
-            idManger.CreateUser(newUser3, "123.abc");
-            idManger.AddUserToRole(newUser3.Id, "Manager");
-            #endregion
+            idManager.CreateUser(newUser3, "123.abc");
+            idManager.AddUserToRole(newUser3.Id, "Manager");
+
+            #endregion 业务管理
         }
-}
+    }
 }
