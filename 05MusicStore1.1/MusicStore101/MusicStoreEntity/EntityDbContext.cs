@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace MusicStoreEntity
 {
     //使用带用户认证权限机制的实体框架
-    public class EntityDbContext:IdentityDbContext<ApplicationUser>
+    public class EntityDbContext : IdentityDbContext<ApplicationUser>
     {
         //调用基类的构造函数
         public EntityDbContext() : base("EntityDbContext") { }
@@ -29,6 +29,7 @@ namespace MusicStoreEntity
         #endregion
 
         #region 音乐商店实体
+
         public IDbSet<Genre> Genres { get; set; }
 
         #endregion
