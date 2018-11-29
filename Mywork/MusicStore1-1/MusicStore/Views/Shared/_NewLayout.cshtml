@@ -1,0 +1,28 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width" />
+    <title>_NewLayout</title>
+    @*绑定样式库*@
+    @Styles.Render("~/Content/site.css")
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JqueryUI")
+
+    @*绑定脚本库*@
+    @Styles.Render("~/bundles/jquery")
+    @Styles.Render("~/bundles/bootstrap")
+    @Styles.Render("~/bundles/JqueryUI")
+    @Styles.Render("~/bundles/jqueryval")
+
+</head>
+<body>
+    <div> 
+        @*操作区*@
+        @RenderBody()
+    </div>
+</body>
+</html>
