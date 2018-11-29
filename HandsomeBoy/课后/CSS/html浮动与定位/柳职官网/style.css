@@ -1,0 +1,65 @@
+/* 全局 */
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    box-shadow: none;
+}
+a{
+    text-decoration: none;
+}
+/* 头部样式 */
+.siteWidth{
+    width: 70%;
+    margin: 0 auto;
+
+}
+
+.logoBar{
+    width: 360px;
+    height:130px;
+    background: #0F3981;
+   opacity: 0.8;
+   padding: 10px 10px;
+    float: left;
+      position: relative;
+}
+.topBar
+{
+    margin-left: 380px;
+ height:50px;
+    width: 700px;
+    background:#647B9F;
+    opacity: 0.3;
+
+
+
+}
+
+.toplinks li{
+    display: inline-block;
+    line-height: 50px;
+    text-indent: 1em;
+    color: #fff;
+}
+a{
+    color: #fff;
+
+}
+.nav
+{
+    height: 100px;
+    background: #088;
+    margin-left: 380px;
+    position: absolute;
+    width: 700px;
+    
+}
+.nav h3{
+    font-size: 16px;
+    display: inline-block;
+   text-indent: 1em;
+   line-height: 100px;
+   color: #fff;
+}

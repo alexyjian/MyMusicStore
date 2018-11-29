@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .No1:hover{
+ 
+          /* rotate()是二维空间旋转正数的话就顺时针旋转，负数的话就逆时针旋转 */
+          transform: rotate(20deg);
+    }
+    .No2:hover{
+       
+          /* skew()是改变元素状态，扭曲元素实现的，有X轴和Y轴  正负相反*/
+          transform: skew(30deg);
+          color: #fff;
+         
+          /* 一般情况下元素的中心点都是X50%/Y50%,transform-origin可以改变元素中心点 */
+          transform-origin: top right;
+    }
+    .No3:hover{
+        
+        /* scale()是元素缩放，默认是1，0.01到0.99是缩小，大于1.01的是放大 */
+         transform: scale(0.8);
+    }
+    .No4:hover
+    {
+        /* transform从原来位置进行位移，不影响别人，X轴和Y轴控制位移，有正负数 */
+        transform: translate(-50%,-50%);
+    }
+    .No5:hover
+    { 
+        width: 500px;
+
+        
+    }
+    @keyframes wo
+    {
+        0%
+        {
+            background:red;
+        }
+        50%
+        {
+            background:green;
+        }
+    }
+    .No6:hover
+    {
+        /* animation：动画名;  调用动画 区分大小写 */
+          animation: wo 9s ease-in;
+          /* 分开写的话 */
+          /* animation-name: wo;
+          animation-direction: 9s;
+          animation-timing-function: ease-in; */
+          /* 动画开始播放时间 */
+          animation-delay: 0ms;
+          /*animation-iteration-count:  动画播放次数 infinite表示无限次 */
+          animation-iteration-count: infinite;
+    }
+
+    @keyframes move {
+  0%{
+    transform: translateY(90px);
+  }
+  15%{
+    transform: translate(90px,90px);
+  }
+  30%{
+    transform: translate(180px,90px);
+  }
+  45%{
+    transform: translate(90px,90px);
+  }
+  60%{
+    transform: translate(90px,0);
+  }
+  75%{
+    transform: translate(90px,90px);
+  }
+  90%{
+    transform: translate(90px,180px);
+  }
+  100%{
+    transform: translate(90px,90px);
+  }
+}
+ .No7
+ {
+    /* animation-direction:alternate; 动画播放方向当第偶数向前播放，基数向反方向播放; */
+     animation: move 4s ease alternate infinite;
+/* none
+
+默认值，表示动画将按预期进行和结束，在动画完成其最后一帧时，动画会反转到初始帧处
+
+forwards
+
+表示动画在结束后继续应用最后的关键帧的位置
+
+backwards
+
+会在向元素应用动画样式时迅速应用动画的初始帧
+
+both
+
+元素动画同时具有forwards和backwards效果 */
+
+/* animation-fill-mode属性定义在动画开始之前和结束之后发生的操作 */
+     animation-fill-mode: backwards;
+ }
+      div{
+        background-color: #f42;
+          width: 200px;
+          height: 200px;
+          margin: 50px auto;
+          /* 指定过度属性 */
+          /* transition-property: width; */
+          /* 指定过度所需时间 */
+          /* transition-duration: 5s; */
+          /* 指定过度速度 */
+          /* transition-timing-function: ease-in; */
+          /* 可以连起来写  */
+          transition: all 5s ease-in;
+      }
+  .no7:hover
+  {
+    /* animation-play-state:running;让动画在hover的时候播放 paused则为停止播放动画 */
+    animation-play-state:running;
+  }
+      
+    </style>
+</head>
+<body>
+    <div class="No1">
+     我是旋转
+    </div>
+    <div class="No2">
+      我是倾斜变形+改变元素原点
+    </div>
+    <div class="No3">
+      我是缩放
+    </div>
+    <div class="No4">
+       我是位移
+        </div>
+    <div class="No5">
+       我是过度动画
+        </div>
+
+        <div class="No6">
+                我是动画关键帧
+         </div>
+         <div class="No7">
+               我是动画播放方向
+         </div>
+</body>
+</html>

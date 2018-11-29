@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>多列布局</title>
+    <style>
+         .columns{
+           width: 900px;
+            /* 吧文字分为3栏显示，栏与栏之间的间隔是3em */
+            /* 分开写的话为： */
+             /* column-count: 3;
+             column-gap: 3em; */
+             /* 还有一个是设置每栏宽度 */
+             /* column-width: 150px; */
+             columns: 3 3em;
+             /* 这个是拿来设置分隔线的 */
+             column-rule: 2px dotted green;
+             
+             /* 跨列设置，主要作用就是有些地方不需要分栏，就用上这个 */
+           
+
+
+         }
+         p:nth-child(2n){
+          column-span:all;
+         }
+    </style>
+</head>
+<body>
+        <div class="columns">
+                <h2>我要分列显示</h2>
+                <p>为了能在Web页面中方便实现类似报纸、杂志那种多列排版的布局，W3C特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面。对于文本的多列布局，我想大家并不陌生，因为报纸和杂志上我们随处可见，这种布局在报纸和杂志上都使用了几十年了，但需要在Web页面上实现文本的多列布局，正如下图所示。</p>
+                <p>为了能在Web页面中方便实现类似报纸、杂志那种多列排版的布局，W3C特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面。对于文本的多列布局，我想大家并不陌生，因为报纸和杂志上我们随处可见，这种布局在报纸和杂志上都使用了几十年了，但需要在Web页面上实现文本的多列布局，正如下图所示。</p>
+                <p>为了能在Web页面中方便实现类似报纸、杂志那种多列排版的布局，W3C特意给CSS3增加了一个多列布局模块（CSS Multi Column Layout Module）。它主要应用在文本的多列布局方面。对于文本的多列布局，我想大家并不陌生，因为报纸和杂志上我们随处可见，这种布局在报纸和杂志上都使用了几十年了，但需要在Web页面上实现文本的多列布局，正如下图所示。</p>
+              </div>
+</body>
+</html>

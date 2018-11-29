@@ -1,26 +1,47 @@
 *{
     margin:0;
     padding:0;
+    list-style: none;
 }
 html,body{
     background-color:#333;
 }
-.wrapper{
-    position: relative;
-    transform-style: preserve-3d;
-    perspective: 800px;
-    /* border:1px solid black; */
-    height:200px;
-    margin-top:200px;
+img{
+    height: 270px;
 }
-.wrapper img{
+.poster-list a,.poster-list img{
+    display: block;
+}
+.poster-main{
+    position: relative;
+    width: 641px;
+    height: 270px;
+    background-color: red;
+}
+.poster-main .poster-list{
+    
+    width: 641px;
+    height: 270px;
+}
+.poster-main .poster-btn
+{
     position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 400px;
-    height: 200px;
-    margin-left: -150px;
-    margin-top: -100px;
-    border-radius: 8px;
-    /* transition: transform 0.5s ease-in-out; */
+    width: 100px;
+    height: 270px;
+    z-index: 10;
+    background-color: aqua;
+    top: 0;
+    font-size: 100px;
+    color: #333;
+    font-weight: bold;
+    line-height: 270px;
+}
+.poster-main .poster-btn-left{
+    left: 0;
+}
+.poster-main .poster-btn-right{
+    right: 0;
+}
+.poster-list li{
+    position: absolute;left: 0;top: 0;
 }
