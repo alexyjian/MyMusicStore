@@ -34,6 +34,8 @@ namespace MusicStore
             //绑定JqueryUI的脚本库
             bundles.Add(new ScriptBundle("~/bundles/JqueryUI").Include(
                       "~/Content/themes/base/jquery-ui-{version}.js"));
+
+
         }
     }
 }
