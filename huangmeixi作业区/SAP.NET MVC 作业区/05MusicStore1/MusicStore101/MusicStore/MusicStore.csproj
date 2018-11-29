@@ -143,6 +143,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\GenreSeed.cs" />
     <Compile Include="Migrations\UserAndRoloSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -265,6 +266,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
+    <Content Include="Views\Shared\_GetGenreMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

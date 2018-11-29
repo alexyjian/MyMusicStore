@@ -19,8 +19,9 @@ namespace MusicStore.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
-            UserAndRoloSeed.AddRoles();
-            UserAndRoloSeed.AddUsers();
+            // UserAndRoloSeed.AddRoles();
+            // UserAndRoloSeed.AddUsers();
+            GenreSeed.Seed();
         }
     }
 }
