@@ -141,6 +141,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\GenreSeed.cs" />
     <Compile Include="Migrations\UserAndRoleSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -234,6 +235,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\test\Index.cshtml" />
+    <Content Include="Views\Left.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

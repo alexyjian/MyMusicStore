@@ -21,6 +21,8 @@ namespace MusicStoreEntity
         public IDbSet<Person> Persons { get; set; }
 
        
+        public IDbSet<Genre> Genres { get; set; }
+
 
         //调用基类的构造函数
         public MusicContext() : base("MusicContext") { }

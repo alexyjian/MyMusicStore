@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MusicStoreEntity
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -58,18 +59,7 @@
 
             <div class="row">
                 <div class="col-lg-2 col-xs-3">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#">Disco</a></li>
-                        <li><a href="#">Jazz</a></li>
-                        <li><a href="#">Rock</a></li>
-                        <li><a href="#">Reggae</a></li>
-                        <li><a href="#">Classical</a></li>
-                        <li><a href="#">Metal</a></li>
-                        <li><a href="#">Pop</a></li>
-                        <li><a href="#">Blues</a></li>
-                        <li><a href="#">Alternative</a></li>
-                        <li><a href="#">Latin</a></li>
-                    </ul>
+                   @Html.Partial("../Left",new MusicContext().Genres.ToList())
                 </div>
                 <div class="col-lg-10 col-xs-9">
                     @RenderBody()
