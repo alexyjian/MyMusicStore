@@ -16,26 +16,26 @@
     @Styles.Render("~/bundles/jqueryval")
 </head>
 <body>
-    <div class="header">
+    <div class="header collapse navbar-collapse">
         <h3>
             <br />
-            <a href="#">Number One in the world 音乐商店  <samp>- 032c</samp></a>
+            <a href="#">Number One in the Universe 音乐商店  <samp>- 032c</samp></a>
         </h3>
-        <ul class="header-ul">
+        <ul class="nav navbar-nav header-ul">
             <li>
-                主页
+               <a href="#">主页</a> 
             </li>
             <li>
-                商店
+              <a href="#">商店</a>  
             </li>
             <li>
-                登录
+               <a href="#">登录</a> 
             </li>
         </ul>
     </div>
     <div class="row">
         <div class="col-md-2">
-            @Html.Partial("_GetgenreMenu")
+            @Html.Partial("_GetgenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
         </div>
         <div class="col-md-10 content">
             <div class="showcase"></div>
@@ -47,9 +47,10 @@
     </div>
     <div class="row stern">
         @*尾栏*@
-        <div class="stern_logo">
-            <h4> 2016-2018  CopyRight By <a>2016软件技术1班</a></h4>
-        </div>
+        @Html.Partial("_FooterLayout")
+        @*<div class="stern_logo">
+            <h4> 2017-@DateTime.Now.Year CopyRight By <a>2017软件技术1班</a></h4>
+        </div>*@
     </div>
     @*继承此布局页的页面执行脚本的位置*@
     @RenderSection("scripts", required: false);

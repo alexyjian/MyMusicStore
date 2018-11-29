@@ -38,21 +38,25 @@ body {
 
 .header-ul {
     float: right;
-    width: 180px;
+    width: 210px;
 }
 
     .header-ul li {
         float: left;
-        width: 60px;
+        width: 70px;
         height: 50px;
         line-height: 50px;
         font-size: 16px;
         font-weight: bolder;
-        color: #f6855e;
         text-align: center;
     }
+        .header-ul li a {
+            list-style:none;
+             color: #f6855e;
+             cursor: pointer;
+        }
 
-        .header-ul li:hover {
+        .header-ul li a:hover {
             background-color: #ccc;
             color: black;
         }
@@ -98,21 +102,23 @@ body {
 .stern {
     border-bottom: 1px dotted black;
     border-top: 1px dotted black;
+    
 }
 
 .stern_logo {
-    width: 550px;
+    width: 300px;
     height: 40px;
     display: block;
     background: url("images/stern_logo.png")no-repeat;
     background-size: 120px;
     margin: 0 auto;
-  
 }
 
 .row h4 {
     line-height: 25px;
-
+    margin-left:120px;
+    font-size:10px;
+    width:240px;
 }
 
     .row h4 a {
@@ -121,6 +127,6 @@ body {
         cursor: pointer;
     }
 
-        .row h4 a:hover {
-            color: black;
-        }
+ .row h4 a:hover {
+     color: black;
+ }

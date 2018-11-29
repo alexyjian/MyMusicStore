@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable <MusicStoreEntity.Genre>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_GetgenreMenu</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+<ul class="body-ul">
+    @foreach (var item in Model)
+    {
+       
+    <li>
+        <i class="glyphicon glyphicon-music"></i>
+        <a>@Html.ActionLink(item.Name, "", "", new { id = item.ID }, null)</a>
+    </li>
+    }
+</ul>
