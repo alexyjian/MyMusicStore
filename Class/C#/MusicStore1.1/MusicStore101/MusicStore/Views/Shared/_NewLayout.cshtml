@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - 音乐商店</title>
     @*绑定样式库*@
-    @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/JqueryUI")
+    @Styles.Render("~/Content/css")
     @*绑定脚本库*@
     @Styles.Render("~/bundles/jquery")
     @Styles.Render("~/bundles/bootstrap")
@@ -20,19 +20,17 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                    <img src="Images/logo.png" alt="Logo" />
+                    <img src="~/Content/Images/logo.png" alt="Logo" />
                 </a>
                 <a class="navbar-brand" href="#">
-                    ASP.NET MVC音乐商店
+                    ChaoPiPi音乐商店
                 </a>
             </div>
             <div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">主页</a></li>
-                    <li><a href="#">商店</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">登录</a>
-                    </li>
+                    <li class="active"><a href="@Url.Action("Index","Home")">首页</a></li>
+                    <li><a href="@Url.Action("","")">商店</a></li>
+                    <li><a href="@Url.Action("","")">登录</a></li>
                 </ul>
             </div>
         </div>
@@ -85,6 +83,10 @@
                 @RenderBody()
             </div>
         </div>
+        <div class="row">
+
+        </div>
     </div>
+    @RenderSection("scripts", required: false);
 </body>
 </html>
