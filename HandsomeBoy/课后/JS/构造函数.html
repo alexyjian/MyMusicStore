@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    //    构造函数与函数的区别 就是大头风势
+    //原型 构造函数的共有祖先 减少代码耦合  
+    
+    // 构造函数名 + prototype.对象名 = 对象；、
+    // 构造函数名 + prototype = {}；
+    
+    Car.prototype.Name = "宝马";
+    Car.prototype.ID = "001";
+    // Car.constructor 找出构造函数的声明
+    // var ob1 = Object.create(原型)
+    function tyre(tcolor,towner)
+    {
+        this.tcolor = tcolor;
+        this.towner =towner;
+    }
+    function tyre1(tcolor,towner)
+    {
+        this.tcolor = tcolor;
+        this.towner =towner;
+    }
+    function Model(style,height) {
+        this.style = style;
+        this.height =height;
+    }
+    //吧别人的东西拿来自己用  call
+    //apply 需要传入arguments  arguments 是一个对应于传递给函数的参数的类数组对象
+    function Car(color,owner)
+    {
+        Model.apply(this,[style,height]);
+        tyre.call(this,tcolor,towner);
+        tyre1.call(this,tcolor,towner);
+    }
+    
+    //  var obj ={};
+    // Car.call(obj); 改变this指向，变成obj
+     
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

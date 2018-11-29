@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div>
+       <span></span>
+        <strong class="demo"></strong>
+ 
+    </div>
+</body>
+</html>
+<script>
+         
+    document.querySelector('div>strong.demo') //像css一样找出
+    //创建一个div
+    var newDiv = document.createElement('div');
+    document.body.appendChild(newDiv);
+
+    var strong = document.getElementsByTagName('strong')[0];
+    strong.parentNode; //可以找出这个标签的父亲
+</script>

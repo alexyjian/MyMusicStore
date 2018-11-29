@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // Error.name的六种值对应的信息：
+        // 1.EvalError :eval() 的使用与定义不一致
+        // 2.RangeError : 数值越界
+        // 3.ReferenceError：非法或不能识别的引用数值
+        // 4.SyntaxError：发生于法错误
+        // 5.TypeError:操作数类型错误
+        // 6.URlError: URl处理函数使用不当
+            
+        // "use strict" 写上这个就是Es5的严格模式 可写全局可写局部
+        try{
+             console.log("a");
+     console.log(b);
+     console.log("c");
+        }catch(e)
+        {
+           console.log(e.name + ":"+ +e.message);
+        }
+
+
+        // with(作用域) 指定作用域
+    //  es5.0严格模式的启动
+    //  with(作用域)不可用
+
+    // eval('console.log(a)'); eval能把里面的代码执行 但在 二十
+    // 不能用
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 画布 -->
+    <canvas id="mom" style="background: #111"></canvas>
+    <script>
+        var canvas = document.getElementById("mom");
+        //平面  这是一只笔
+        var context = canvas.getContext("2d");
+        //获取到浏览器屏幕的高度和宽度
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        canvas.width = w;
+        canvas.height = h;
+
+        var fontSize = 16;
+        //当前浏览器一共能显示多少列数字
+        var colunms = Math.floor(w / fontSize);
+        var drops = [];
+        for (var i = 0; i < colunms; i++) {
+            drops.push(0); //吧字符串放进去
+        }
+
+        var str = "CANVAS Javascript asdfg{};':<>?,./,,./hjklzxcvbnmqwertyuiop1234567890 ASDFGHJKLZXCVBNM,QWERTYUIOP"; //运动的文字
+
+        function draw() {
+            context.fillStyle = "rgba(0,0,0,0.05)"; //画布的背景色
+            context.fillRect(0, 0, w, h);
+            context.font = "700 " + fontSize + "px 微软雅黑";
+            context.fillStyle = "#00cc33"; //文字颜色
+            //写入画布
+
+            // math.floor() 向下取整    math.random()  随机数 
+            for (var i = 0; i < colunms; i++) {
+                var index = Math.floor(Math.random() * str.length); //【0-1】
+                
+                var x = i * fontSize;
+                var y = drops[i] * fontSize;
+                context.fillText(str[index], x, y);
+                if (y >= canvas.height && Math.random() > 0.99) {
+                    // 为什么要大于0.99呢。是因为这样子可以减少一些字母Y抽移动
+                    drops[i] = 0;
+                    
+                }
+                drops[i]++;
+               
+            }
+        }
+        draw();
+        setInterval(draw,20);
+    </script>
+</body>
+
+</html>
