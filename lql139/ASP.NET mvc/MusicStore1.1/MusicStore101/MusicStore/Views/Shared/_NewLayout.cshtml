@@ -1,17 +1,57 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>_NewLayout</title>
+    <title>@ViewBag.Title - 音乐商店</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JqueryUI")
+
+    @*@Styles.Render("~/bundles/JqueryUI")*@
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    @Styles.Render("~/bundles/bootstrap")
+    @Styles.Render("~/bundles/jquery")
+    @Styles.Render("~/bundles/jqueryval")
 </head>
 <body>
-    <div> 
+    <div class="header">
+        <h3>
+            <br />
+            <a href="#">Number One in the world 音乐商店  <samp>- 032c</samp></a>
+        </h3>
+        <ul class="header-ul">
+            <li>
+                主页
+            </li>
+            <li>
+                商店
+            </li>
+            <li>
+                登录
+            </li>
+        </ul>
     </div>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.Partial("_GetgenreMenu")
+        </div>
+        <div class="col-md-10 content">
+            <div class="showcase"></div>
+
+            <h3>新<samp>品上架</samp></h3>
+            @*操作区*@
+            @RenderBody()
+        </div>
+    </div>
+    <div class="row stern">
+        @*尾栏*@
+        <div class="stern_logo">
+            <h4> 2016-2018  CopyRight By <a>2016软件技术1班</a></h4>
+        </div>
+    </div>
+    @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false);
 </body>
 </html>
