@@ -1,17 +1,9 @@
-﻿
-@{
-    Layout = null;
+﻿@model IEnumerable<MusicStoreEntity.Genre>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("","",new { id=item.ID},null)" class="list-group-item">
+        <span class="glyphicon glyphicon-music"></span>
+        @item.Name
+    </a>
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_GetGenreMenu</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>

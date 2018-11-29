@@ -38,7 +38,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-3">
-                @Html.Partial("_GetGenreMenu")
+                @Html.Partial("_GetGenreMenu",new MusicStoreEntity.EntityDbContext().Genres.ToList())
             </div>
             <div class="col-xs-9">
                 @RenderBody()
@@ -46,7 +46,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center navbar-fixed-bottom footer">
-                <img src="~/Content/Images/login_logo.png" />2016-2018,CopyRight By 2017软件技术1班
+                <img src="~/Content/Images/login_logo.png" />2017 - @DateTime.Now.Year CopyRight By 2017软件技术1班
             </div>
         </div>
     </div>
