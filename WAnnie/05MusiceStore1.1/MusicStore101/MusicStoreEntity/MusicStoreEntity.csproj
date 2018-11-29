@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Genre.cs" />
     <Compile Include="MusicContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserAndRole\ApplicaitionUserInApplication.cs" />
