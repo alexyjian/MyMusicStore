@@ -11,6 +11,7 @@
     @Styles.Render("~/Content/css.css")
     @Styles.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/JqueryUI")
+    @Styles.Render("~/Content/css")
 
     @*绑定脚本库*@
     @Styles.Render("~/bundles/jquery")
@@ -31,13 +32,10 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">  
-            </div>
             <div class="col-md-3">
                 @*左侧导航*@
                 @Html.Partial("_GetGenreMenu",
                new MusicStoreEntity.EntityDbContext().Genres.ToList())
-
             </div>
             <div class="col-md-9">
                 @*操作区*@
