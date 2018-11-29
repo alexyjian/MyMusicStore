@@ -6,9 +6,9 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width" />
-    <title>_NewLayout</title>
+    <title>好嗨哟音乐商店</title>
     @*绑定样式库*@
-    @Styles.Render("~/Content/site.css")
+    @Styles.Render("~/Content/css.css")
     @Styles.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/JqueryUI")
 
@@ -20,9 +20,32 @@
 
 </head>
 <body>
-    <div> 
-        @*操作区*@
-        @RenderBody()
+    <div id="header">
+        @*Logo和菜单*@
+        <h1><a href="/">好嗨哟音乐商店</a></h1>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="@Url.Action("index","home")">主页</a></li>
+            <li><a href="@Url.Action("","")">商店</a></li>
+            <li><a href="@Url.Action("","")"> 登录 </a></li>
+        </ul>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">  
+            </div>
+            <div class="col-md-3">
+                @*左侧导航*@
+            </div>
+            <div class="col-md-9">
+                @*操作区*@
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row">
+            @*尾栏*@
+        </div>
+    </div>
+    @*继承此布局页的页面执行脚本位置*@
+    @RenderSection("scripts", required: false);
 </body>
 </html>
