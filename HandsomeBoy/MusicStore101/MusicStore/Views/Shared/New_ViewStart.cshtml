@@ -1,0 +1,65 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - 音乐商店</title>
+    @*绑定样式库*@
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/modernizr")
+
+    @*绑定脚本库*@
+    @Styles.Render("~/bundles/jquery")
+    @Styles.Render("~/bundles/bootstrap")
+    @Styles.Render("~/bundles/JqueryUI")
+    @Styles.Render("~/bundles/jqueryval")
+ 
+</head>
+<body>
+    <div class="container" id="header">
+        <div class="row">
+            <h1>
+                <a href="#"></a>
+            </h1>
+            <div class="col-md-6">
+                <h1 class="logo">
+                    <a href="#">ASP.NET MVC 音乐商店</a>
+                </h1>
+            </div>
+            <div class="col-md-6">
+                <ul class="nav">
+                    <li><a href="@Url.Action("index","home")">主页</a></li>
+                    <li><a>商店</a></li>
+                    <li><a>登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+               @Html.Partial("_GetGenreMonu",new MusicStoreEntity.EntityDbContext().Genres);
+            </div>
+            <div class="col-md-9">
+                    @*操作区*@
+                    @RenderBody()
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <footer>
+                    <img class="foorlogo" src="http://crp.lzzy.net/oa/login_images/login_logo.png"/> <span>
+                        2016-2018,
+                        CopyRight<strong class="SClass">软件技术1班</strong>
+                    </span>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+   @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
