@@ -9,10 +9,7 @@
     @*绑定样式库*@
     @Styles.Render("~/Content/css")
     @*绑定脚本*@
-    @Scripts.Render("~/bundles/jquery")
-
-   
-
+  
     <style>
         .row .col-lg-3 {
             border: 1px solid #aaa;
@@ -83,9 +80,12 @@
             </footer>
         </div>
     </nav>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </body>
 </html>
-@Scripts.Render("~/bundles/bootstrap")
+@*继承次布局页的页面执行脚本的位置*@
+@RenderSection("scripts",required:false)
 <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT"></script>
 <script>
     // 定位
