@@ -19,6 +19,7 @@ namespace MusicStorEntity
             {
                 return new EntityDbContext();
             }
+        public IDbSet <Genre> Genres { get;set; }
 
             #region 用户与角色的实体
 

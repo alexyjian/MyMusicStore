@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MusicStorEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace WebApplication1.Controllers
         /// <returns></returns>
         public string TestLogin(string username = "hs", string pwd = "123.abc")
         {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStorEntity.EntityDbContext()));
             var user = userManager.Find(username, pwd);
             if (user != null)
             {
