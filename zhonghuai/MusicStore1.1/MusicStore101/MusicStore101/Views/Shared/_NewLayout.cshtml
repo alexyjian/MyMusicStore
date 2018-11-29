@@ -14,10 +14,20 @@
 
     @*绑定脚本库*@
     @Styles.Render("~/bundles/jqueryUI")
-    @Styles.Render("~/bundles/bootsstrap")
-    @Styles.Render("~/bundles/jqueryUI")
+    @Styles.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/jqueryUI")
     @Styles.Render("~/bundles/jqueryval")
-
+    <style>
+        ul li{
+            list-style:none;
+        }
+        #header h1 {
+    font-size: 18px;
+    float: left;
+    background: url(../../Content/Images/logo.png) no-repeat;
+    padding: 45px 0 5px 0;
+}
+    </style>
 </head>
 <body>
     <div id="header"></div>
