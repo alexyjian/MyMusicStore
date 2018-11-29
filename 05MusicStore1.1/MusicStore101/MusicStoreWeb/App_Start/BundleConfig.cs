@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MusicStoreWeb
+namespace MusicStore
 {
     public class BundleConfig
     {
@@ -26,6 +26,14 @@ namespace MusicStoreWeb
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //绑定JqueryUI的样式库
+            bundles.Add(new StyleBundle("~/Content/JqueryUI").Include(
+                "~/Content/themes/base/jquery-ui.css"
+                ));
+            //绑定JqueryUI的脚本库
+            bundles.Add(new ScriptBundle("~/bundles/JqueryUI").Include(
+                      "~/Content/themes/base/jquery-ui-{version}.js"));
         }
     }
 }
