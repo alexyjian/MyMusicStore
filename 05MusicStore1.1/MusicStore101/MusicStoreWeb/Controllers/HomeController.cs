@@ -11,6 +11,8 @@ namespace MusicStoreWeb.Controllers
 {
     public class HomeController : Controller
     {
+        private string pwd;
+
         public ActionResult Index()
         {
             return View();
