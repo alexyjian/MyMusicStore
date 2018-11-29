@@ -1,17 +1,10 @@
-#header h1 {
-    font-size: 18px;
-    float: left;
-    background: url(../Images/logo.png) no-repeat;
-    padding: 45px 0 5px 0;
-}
 *{
-    margin: 0;
     padding: 0;
-    list-style:none;
+    margin: 0;
 }
-#footer{
+#footer .copy-right {
+    height: 50px;
+    line-height: 50px;
+    margin-top: 10px;
     text-align: center;
-}
-#footer ul{
-    display: inline-block;
 }
