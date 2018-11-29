@@ -26,6 +26,13 @@ namespace MusicStore101
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            //绑定juqueryUI的样式库
+            bundles.Add(new StyleBundle("~/Content/jqueryUI").Include(
+                "~/Content/themes/base/jquery-ui.css"));
+
+            //绑定jqueryUI的脚本库
+            bundles.Add(new StyleBundle("~/bundles/jqueryUI").Include(
+           "~/Content/themes/base/jquery-ui-{version}.js"));
         }
-    }
+    } 
 }
