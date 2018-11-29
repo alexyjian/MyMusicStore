@@ -3,7 +3,7 @@
     margin: 0;
     list-style: none;
 }
-a{
+a,a:hover{
      text-decoration: none;
 }
 .col-md-6 h1
@@ -47,7 +47,15 @@ h1 a,h3{
     height: 274px;
     border-right: 1px dashed #5D5A53;
 }
-
+.categories li{
+   height: 25px;
+   line-height: 25px;
+   
+}
+.categories li:hover{
+    background-color: rgba(10, 10, 10, 0.2);
+    color: #F6855E;
+}
 .categories li a 
 {
     margin-left: 15px;  
@@ -56,6 +64,7 @@ h1 a,h3{
    font-weight: bold;
    font-family: Constantia,Georgia,serif;
 }
+
 .glyphicon {
     position: relative;
     top: 1px;
@@ -84,4 +93,22 @@ h1 a,h3{
     color: #9B9993;
     font-weight: bold;
     text-decoration: underline;
+}
+.foorlogo
+{
+    width: 150px;
+}
+.SClass
+{
+    color: #F6855E;
+    font-size: 18px;
+    font-family: Constantia,Georgia,serif;
+}
+
+footer{
+    border-bottom: 1px dashed #5D5A53;
+    border-top: 1px dashed #5D5A53;
+    line-height: 80px;
+    height: 80px;
+    text-align: center;
 }
