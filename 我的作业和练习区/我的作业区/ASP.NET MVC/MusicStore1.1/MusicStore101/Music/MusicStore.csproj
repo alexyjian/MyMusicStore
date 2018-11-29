@@ -141,12 +141,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\GenreSeed.cs" />
     <Compile Include="Migrations\UserAndRoleSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -156,6 +158,10 @@
     <Content Include="Content\themes\base\datepicker.css" />
     <Content Include="Content\themes\base\dialog.css" />
     <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\2.png" />
+    <Content Include="Content\themes\base\images\3.png" />
+    <Content Include="Content\themes\base\images\login_logo.png" />
+    <Content Include="Content\themes\base\images\logo.PNG" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -193,10 +199,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
-    <Content Include="Scripts\jquery-1.12.4.js" />
-    <Content Include="Scripts\jquery-1.12.4.min.js" />
-    <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <None Include="Scripts\jquery-2.2.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.4.js" />
+    <Content Include="Scripts\jquery-2.2.4.min.js" />
+    <Content Include="Scripts\jquery-2.2.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
@@ -225,6 +231,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
+    <Content Include="Views\Shared\_NewLayout1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
