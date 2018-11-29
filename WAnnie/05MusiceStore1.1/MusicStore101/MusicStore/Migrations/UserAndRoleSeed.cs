@@ -44,7 +44,7 @@ namespace MusicStore.Migrations
 
         }
 
-        public static  void AddUsers()
+        public static void AddUser()
         {
             var idManger = new IdentityManager();
             #region 管理员
