@@ -26,5 +26,10 @@ namespace MusicStoreEntity
         public IDbSet<Person> Persons { get; set; }
 
         #endregion
+
+
+        public IDbSet<Genre> Genre { get; set; }
+
+
     }
 }
