@@ -35,6 +35,9 @@
             </div>
             <div class="col-md-3">
                 @*左侧导航*@
+                @Html.Partial("_GetGenreMenu",
+               new MusicStoreEntity.EntityDbContext().Genres.ToList())
+
             </div>
             <div class="col-md-9">
                 @*操作区*@
@@ -43,6 +46,7 @@
         </div>
         <div class="row">
             @*尾栏*@
+            @Html.Partial("_FooterLayout")
         </div>
     </div>
     @*继承此布局页的页面执行脚本位置*@

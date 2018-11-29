@@ -27,7 +27,11 @@ namespace MusicStoreEntity
             public IDbSet<ApplicaitionUserInApplication> ApplicaitionUserInApplications { get; set; }
             public IDbSet<Person> Persons { get; set; }
 
-            #endregion
-        }
+        #endregion
+
+        #region 音乐商店实体
+        public IDbSet<Genre> Genres { get; set; }
+        #endregion
     }
+}
 

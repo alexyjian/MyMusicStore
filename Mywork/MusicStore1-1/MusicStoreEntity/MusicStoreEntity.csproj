@@ -68,6 +68,7 @@
     <Compile Include="UserAndRole\ApplicationRoleType.cs" />
     <Compile Include="UserAndRole\ApplicationUser.cs" />
     <Compile Include="UserAndRole\ApplicationUserManager.cs" />
+    <Compile Include="Genre.cs" />
     <Compile Include="UserAndRole\IdentityManager.cs" />
     <Compile Include="UserAndRole\Person.cs" />
   </ItemGroup>
