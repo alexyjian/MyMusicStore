@@ -72,6 +72,7 @@ body{
    
  }
  #min>div:nth-child(1)>div{
+     background-size: 90% 66px;
      display: inline;
      text-align: center;
 }
