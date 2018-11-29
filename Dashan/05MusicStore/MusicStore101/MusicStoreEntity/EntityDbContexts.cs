@@ -11,12 +11,12 @@ namespace MusicStoreEntity
 {
   public  class EntityDbContexts : DbContext
     {
-      
+
         //使用带用户认证权限机制的实体框架
         public class EntityDbContext : IdentityDbContext<ApplicationUser>
         {
             //调用基类的构造函数
-            public EntityDbContext() : base("EntityDbContexts") { }
+            public EntityDbContext() : base("EntityDbContext") { }
             public static EntityDbContext Create()
             {
                 return new EntityDbContext();
@@ -29,6 +29,10 @@ namespace MusicStoreEntity
             public IDbSet<ApplicaitionUserInApplication> ApplicaitionUserInApplications { get; set;}
             public IDbSet<Person> Persons { get; set;}
 
+            #endregion
+
+            #region 音乐商店实体
+            public IDbSet<Genre>Genres{ get; set; }
             #endregion
         }
     }
