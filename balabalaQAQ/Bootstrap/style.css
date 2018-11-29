@@ -29,7 +29,10 @@ padding-right: 45%;
     padding-top:5px;
 }
 /*nav end*/
-
+/*Music List*/
+.list-group-item{
+    padding-top: 15px;
+}
 .music-left{
     width:250px;
     float: left;
