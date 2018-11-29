@@ -14,8 +14,9 @@ namespace MusicStore.Migrations
 
         protected override void Seed(MusicStoreEntity.MusicContext context)
         {
-            UserAndRoleSeed.AddRoles();
-            UserAndRoleSeed.AddUsers();
+            //UserAndRoleSeed.AddRoles();
+            //UserAndRoleSeed.AddUsers();
+            GenreSeed.Seed();
         }
     }
 }

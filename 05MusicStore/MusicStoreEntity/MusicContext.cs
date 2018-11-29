@@ -27,5 +27,9 @@ namespace MusicStoreEntity
         public IDbSet<Person> Persons { get; set; }
 
         #endregion
+
+        #region
+        public IDbSet<Genre> Genres { get; set; }
+        #endregion
     }
 }
