@@ -35,6 +35,7 @@
         <div class="row">
             <div class="col-md-3">
                 @*左侧导航*@
+                @Html.Partial("_GetGenreMenu",new MusicStoreEntity.EntityDbContext().Genres.ToList())
             </div>
             <div class="col-md-9">
                 @*操作区*@
