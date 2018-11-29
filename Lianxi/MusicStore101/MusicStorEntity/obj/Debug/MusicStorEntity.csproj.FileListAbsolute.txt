@@ -24,3 +24,4 @@ D:\梁伟杰\GIT\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\EntityFramework.
 D:\梁伟杰\GIT\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\EntityFramework.SqlServer.xml
 D:\梁伟杰\GIT\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 D:\梁伟杰\GIT\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\obj\Debug\MusicStorEntity.csprojResolveAssemblyReference.cache

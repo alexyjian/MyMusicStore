@@ -1,0 +1,14 @@
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll.config
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.pdb
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
+E:\梁伟杰\MyMusicStore\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache
