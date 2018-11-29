@@ -18,6 +18,7 @@ namespace MusicStore.Migrations
             var idManger = new IdentityManager();
             var role1 = new ApplicationRole()
             {
+
                 Name = "Admin",
                 DisplayName = "超级管理员组",
                 Description = "最高权限的角色",
