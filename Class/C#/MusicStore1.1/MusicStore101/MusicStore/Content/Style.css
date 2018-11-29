@@ -9,10 +9,10 @@ body {
 }
 
 .footer {
-    background-color: rgb(242,242,242);
+    background-color: #F2F2F2;
     height:50px;
     line-height:50px;
-    border-top:1px solid rgb(211,211,211);
+    border-top:1px solid #D3D3D3;
 }
 
 .footer img {
