@@ -240,6 +240,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\Shared\_GetGenreMenu.cshtml" />
+    <Content Include="Views\Shared\_FooterLayout.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
