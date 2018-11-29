@@ -1,0 +1,66 @@
+*{
+    font-size: 12px;
+    font-family: "微软雅黑";
+    margin:0;
+    padding:0;
+    border: 0;
+}
+
+.bg{
+    width:1431px;
+    height: 717px;
+    background: url(form_bg.jpg) no-repeat;
+    margin: 0 auto;
+    position: relative;
+    /* 相对定位 */
+}
+
+form{
+    width: 600px;
+    height: 400px;
+    /* 表单居中 */
+    margin: 50px auto;
+    padding-left: 30px;
+    position: absolute;
+    left: 50%;
+    top:10%;
+}
+
+h2{
+    text-align: center;
+    margin: 20px 0;
+}
+
+p{
+    margin-top: 20px;
+}
+p span{
+    width: 75px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+}
+
+p input{
+    width:200px;
+    height:20px;
+    border: 1px solid #d4cdba;
+    padding-right: 2px;
+}
+
+.lucky input{
+    width: 100px;
+    height: 25px;
+}
+
+.btn input{
+    width:100px;
+    height:30px;
+    background: lightgreen;
+    font-size: 18px;
+    color:white;
+    border-radius: 3px;
+    border: 1px solid #d4cdba;
+    margin-top: 20px;
+    margin-left: 70px;
+}

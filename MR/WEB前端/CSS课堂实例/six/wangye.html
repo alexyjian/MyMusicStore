@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link href="reg.css" rel="stylesheet" type="text/css">
+</head>
+<body>                                                                             
+    <div class="bg">
+        <form action="#" method="get" autocomplete="off">
+        <h2>学员信息登记表</h2>
+        <p><span>用户登录名：</span><input type="text" name="user_name" value="myemail@163.com" disabled readonly />（不能修改，只能查看）</p>
+        <p><span>真实姓名：</span><input type="text" name="real_name"  pattern="^[\u4e00-\u9fa5]{0,}$" placeholder="例如：王明" required autofocus/>（必须填写，只能输入汉字）</p>
+        <p><span>真实年龄：</span><input type="number" name="real_lage" value="24" min="15" max="120" required/>（必须填写）</p>
+        <p><span>出生日期：</span><input type="date" name="birthday" value="1990-10-1" required/>（必须填写）</p>
+        <p><span>电子邮箱：</span><input type="email" name="myemail" placeholder="123456@126.com" required multiple/>（必须填写）</p>
+        <p><span>身份证号：</span><input type="text" name="card" required pattern="^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$"/>（必须填写，能够以数字、字母x结尾的短身份证号）</p>
+        <p><span>手机号码：</span><input type="tel" name="telphone" pattern="^\d{11}$" required/>（必须填写）</p>
+        <p><span>个人主页：</span><input type="url" name="myurl" list="urllist" placeholder="http://www.itcast.cn" pattern="^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$"/>（请选择网址）
+          <datalist id="urllist">
+          <option>http://www.itcast.cn</option>
+          <option>http://www.boxuegu.com</option>
+          <option>http://www.w3school.com.cn</option>
+          </datalist>
+        </p>
+        <p class="lucky"><span>幸运颜色：</span><input type="color" name="lovecolor" value="#fed000"/>（请选择你喜欢的颜色）</p>
+        <p class="btn">
+        <input type="submit" value="提交"/>
+        <input type="reset" value="重置"/>
+        </p>
+        </form>
+    </div>
+</body>
+</html>

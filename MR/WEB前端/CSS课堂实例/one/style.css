@@ -1,0 +1,80 @@
+@font-face {
+    font-family: BOOM;
+    src: url(..//../02CSS/作业效果图/CSS1/font/BOOMBOX.TTF);
+}
+
+@font-face {
+    font-family: ONYX;
+    src: url(..//../02CSS/作业效果图/CSS1/font/ONYX.TTF);
+}
+
+@font-face {
+    font-family: FZJ;
+    src: url(..//../02CSS/作业效果图/CSS1/font/FZJZJW.TTF);
+}
+
+@font-face {
+    font-family: LTCH;
+    src: url(..//../02CSS/作业效果图/CSS1/font/LTCH.TTF);
+}
+
+@font-face {
+    font-family: ROCK;
+    src: url(..//../02CSS/作业效果图/CSS1/font/ROCK.TTF);
+}
+
+@font-face {
+    Q font-family: TCCM;
+    src: url(..//../02CSS/作业效果图/CSS1/font/TCCM____.TTF);
+}
+
+div {
+    width: 800px;
+    height: 200px;
+}
+
+.p1 .a {
+    font-family: ONYX;
+    font-size: 48px;
+}
+
+.p1 .b {
+    font-family: TCCM;
+    color: #4c9372;
+    font-size: 58px;
+}
+
+.p2 i {
+    font-family: ROCK;
+    font-size: 24px;
+}
+
+.p2 .b {
+    font-family: ROCK;
+    font-size: 40px;
+}
+
+.p3 .a {
+    font-family: BOOM;
+    font-size: 60px;
+}
+
+.p3 .b {
+    color: #E1005A;
+    font-family: BOOM;
+    font-size: 50px;
+}
+
+.p4 {
+    font-family: TCCM;
+    font-size: 40px;
+}
+
+.p4 .a {
+    font-family: TCCM;
+    color: #E1005A;
+}
+
+.p5 {
+    color: grey;
+}

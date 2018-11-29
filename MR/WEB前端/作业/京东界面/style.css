@@ -1,0 +1,153 @@
+/* begin全局样式设计 */
+body,ul,input,p,dl,dt,dd,h1{
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    min-width: 800px;
+    color: #6c6c6c;
+    font-family: "微软雅黑";
+    font-size:12px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.ul_right{
+    float: right;
+}
+/* end全局样式设置 */
+
+/* begin用户信息栏 */
+#top{
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background: #f7f7f7;
+    border-bottom: 1px solid #eeeeee;
+}
+
+#top .top_Nav{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+#topul{
+    margin: 0 20px;
+}
+
+#top li{
+    float: left;
+    padding: 0px 5px 0px 0px;
+}
+
+#top .lone{
+    color: #ccc;
+}
+
+.ul_right li{
+    cursor: pointer;
+}
+
+.ul_right li span{
+    padding: 0px 10px;
+}
+
+/* begin下拉菜单 */
+.ul_right .ul_drop{
+    position: relative;
+}
+.ul_right #div_drop{
+    width:95px;
+    /* 默认为隐藏的 */
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    background-color: #fff;
+    border: thin;
+    border-color: #eee;
+}
+
+.ul_right #div_drop a{
+    display: block;
+    padding: 0 10px;
+    line-height: 28px;
+    color: #6c6c6c;
+}
+
+.ul_right #div_drop a:hover{
+    background: #f5f5f5;
+}
+/* end下拉菜单 */
+
+/* end用户信息栏 */
+
+/* begin页面的首部 */
+#header{
+    width: 1280px;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+#header .logo{
+    float:left;
+}
+
+#header a{
+    width:240px;
+    display: block;
+}
+
+#header #search{
+    float: left;
+    width:500px;
+    margin-top:15px;
+}
+
+#header #search input{
+    width: 400px;
+    height:30px;
+    border:3px solid #e4393c;
+}
+
+#header #search .txt_search{
+  float: left;
+}
+#header #search .txt_button{
+    width:80px;
+    height: 36px;
+    background:#e4393c;
+    font-size: 14px;
+    font-weight: bolder;
+    color:#fff;
+    cursor: pointer;
+}
+
+#header #search p{
+    color:#6c6c6c;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#header #info{
+    float: left;
+    margin: 20px 0px 0px 20px;
+}
+
+#header #info input{
+    height: 30px;
+    border: 1px solid #e3e3e3;
+    background-color: #f7f7f7;
+    color: #666;
+    padding: 0px 10px;
+    margin-right: 12px;
+}
+/* end页面的首部 */

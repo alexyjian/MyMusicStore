@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: white;
+}
+
+img {
+    list-style: none;
+    outline: none;
+}
+
+.img-box {
+    width: 702px;
+    height: 378px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+    background: url(flash_sale.png);
+}
+
+span {
+    width: 32px;
+    height: 27px;
+    display: block;
+    /* background: gold; */
+    position: absolute;
+    font-size: 16px;
+}
+
+.img-box #hour {
+    left: 50%;
+    top: 69.5%;
+}
+
+.img-box #minute {
+    left: 58.5%;
+    top: 69.5%;
+}
+
+.img-box #second {
+    left: 67%;
+    top: 69.5%;
+}
+
+#end-box{
+    width: 702px;
+    height: 51px;
+    background: url(flash_end.png);
+    position: absolute;
+    top: 250px;
+    display: block;
+    font-size: 24px;
+    line-height: 50px;
+    text-shadow: 2px 2px 2px #666;
+    color: red;
+    text-align: center;
+}

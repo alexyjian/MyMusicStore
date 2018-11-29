@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 600px;
+    height: 200px;
+    margin: 100px auto;
+    background: white;
+    position: relative;
+    overflow:hidden;
+}
+
+.box ul{
+    width: 400%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    list-style: none;
+}
+
+.box ul li{
+    float: left;
+}
+
+img{
+    vertical-align: top;
+}

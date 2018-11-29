@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会转的盒子</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background:white;
+            border:1.5px solid black;
+            transform-style: preserve-3d;
+            position: absolute;
+            top:0;
+            left:0;
+            border-radius: 30%;
+        }
+        div:only-child {
+            background: none;
+            position: relative;
+            top:30px;
+            margin:0 auto;
+            animation: move 20s linear infinite;
+            border:0px solid black;
+            perspective: 40000px;
+            transition: all 1.5s ease 0s;
+        }
+        
+        @keyframes move {
+            0% {
+                transform:rotateX(0deg) rotateY(0deg);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+      
+        div div:nth-child(1){
+            transform:translateZ(50px);
+        }
+        div div:nth-child(2){
+            transform: rotateX(360deg) translateZ(50px);
+        }
+        div div:nth-child(3){
+            transform: rotateX(90deg) translateZ(50px);
+        }
+         div div:nth-child(4){
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+        div div:nth-child(5){
+            transform: rotateY(90deg) translateZ(50px);
+        }
+        div div:nth-child(6){
+            transform: rotateY(-90deg) translateZ(50px);
+        } 
+    </style>
+</head>
+
+<body>   
+    <div>
+        <div class="div1"></div>
+        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="div4"></div>
+        <div class="div5"></div>
+        <div class="div6"></div>
+    </div>
+</body>
+
+</html> 
