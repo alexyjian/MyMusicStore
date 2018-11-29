@@ -248,6 +248,8 @@
     <Content Include="Views\Shared\_NewLayzout.cshtml" />
     <Content Include="Views\Shared\_GetGenreMenu.cshtml" />
     <Content Include="Views\Shared\_FooterLayout.cshtml" />
+    <Content Include="Views\Shared\LoginLayout.cshtml" />
+    <Content Include="Views\Home\login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">

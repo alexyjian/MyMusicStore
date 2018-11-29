@@ -11,8 +11,8 @@
     width: 100%;
     border-bottom: 1px dotted #5d5a53;
     margin-bottom: 10px;
-    background-color: rgb(158, 134, 134);
-
+    background-color: rgb(194, 170, 170);
+    border-radius:5px;
 }
 .one{
     float:right;
@@ -109,7 +109,8 @@ li {
 #promotion {
     height: 300px;
     width: 700px;
-    background: url(../音乐商品/Images/home-showcase.png) no-repeat;
+    background: url(/Content/Images/home-showcase.png) no-repeat;
+
 }
 h3 {
     color: #9b9993;
