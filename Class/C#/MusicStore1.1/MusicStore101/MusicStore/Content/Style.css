@@ -1,13 +1,21 @@
 body {
     font-family: "微软雅黑";
-    padding-top:0px;
+    padding-top: 0px;
 }
 
 .navbar-header img {
     position: relative;
-    top: -8px;    
+    top: -8px;
 }
 
-.img-width {
-    width: 100%;
+.footer {
+    background-color: rgb(242,242,242);
+    height:50px;
+    line-height:50px;
+    border-top:1px solid rgb(211,211,211);
+}
+
+.footer img {
+    width: 200px;
+    height: 35px;
 }

@@ -10,10 +10,10 @@
     @Styles.Render("~/Content/JqueryUI")
     @Styles.Render("~/Content/css")
     @*绑定脚本库*@
-    @Styles.Render("~/bundles/jquery")
-    @Styles.Render("~/bundles/bootstrap")
-    @Styles.Render("~/bundles/JqueryUI")
-    @Styles.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
@@ -38,53 +38,16 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-3">
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Disco
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Jazz
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Rock
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Reggae
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Classical
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Metal
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Pop
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Blues
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Alternative
-                </a>
-                <a href="#" class="list-group-item">
-                    <span class="glyphicon glyphicon-music"></span>
-                    Latin
-                </a>
+                @Html.Partial("_GetGenreMenu")
             </div>
             <div class="col-xs-9">
                 @RenderBody()
             </div>
         </div>
         <div class="row">
-
+            <div class="col-md-12 text-center navbar-fixed-bottom footer">
+                <img src="~/Content/Images/login_logo.png" />2016-2018,CopyRight By 2017软件技术1班
+            </div>
         </div>
     </div>
     @RenderSection("scripts", required: false);

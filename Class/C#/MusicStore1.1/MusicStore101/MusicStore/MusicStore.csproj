@@ -141,6 +141,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\GenreSeed.cs" />
     <Compile Include="Migrations\UserAndRoleSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\home-showcase.png" />
+    <Content Include="Content\Images\login_logo.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\placeholder.gif" />
     <Content Include="Content\Images\ProgressIcon.gif" />
@@ -238,6 +240,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
+    <Content Include="Views\Shared\_GetGenreMenu.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
