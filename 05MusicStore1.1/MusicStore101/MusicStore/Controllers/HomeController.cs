@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MusicStoreEntity;
 
 namespace MusicStore.Controllers
 {
@@ -13,19 +14,9 @@ namespace MusicStore.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-            return View();
+            var context = new EntityDbContext();
+            var list = context.Albums.OrderByDescending(x => x.PublisherDate).Take(20).ToList();
+            return View(list);
         }
 
         /// <summary>
