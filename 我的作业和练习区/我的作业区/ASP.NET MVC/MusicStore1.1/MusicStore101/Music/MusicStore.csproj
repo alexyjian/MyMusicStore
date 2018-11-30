@@ -137,6 +137,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,8 +161,10 @@
     <Content Include="Content\themes\base\draggable.css" />
     <Content Include="Content\themes\base\images\2.png" />
     <Content Include="Content\themes\base\images\3.png" />
+    <Content Include="Content\themes\base\images\home-showcase.png" />
     <Content Include="Content\themes\base\images\login_logo.png" />
     <Content Include="Content\themes\base\images\logo.PNG" />
+    <Content Include="Content\themes\base\images\placeholder.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -227,14 +230,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\Shared\_NewLayout1.cshtml" />
     <Content Include="Views\Shared\_GetGenreMenu.cshtml" />
     <Content Include="Views\Shared\_GetGenreMenu1.cshtml" />
     <Content Include="Views\Shared\_FooterLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Store\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
