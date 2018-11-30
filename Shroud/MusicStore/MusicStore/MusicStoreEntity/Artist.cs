@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-    public class Genre
+    /// <summary>
+    /// 歌手
+    /// </summary>
+    public class Artist
     {
         public Guid ID { get; set; }
         public string Name { get; set; }
+        public bool Sex { get; set; } = false;
         public string Description { get; set; }
-        public virtual ICollection<Album> Albums { get; set; }
 
-        public Genre()
+        public Artist()
         {
             ID = Guid.NewGuid();
         }

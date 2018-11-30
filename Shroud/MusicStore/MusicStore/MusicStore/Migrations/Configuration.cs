@@ -18,7 +18,13 @@ namespace MusicStore.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            context.Database.ExecuteSqlCommand("delete Albums");
+            context.Database.ExecuteSqlCommand("delete Artists");
+            context.Database.ExecuteSqlCommand("delete Genres");
             GenreSeed.Seed();
+            ArtistSeed.Seed();
+            AlbumSeed.Seed();
+            
         }
     }
 }
