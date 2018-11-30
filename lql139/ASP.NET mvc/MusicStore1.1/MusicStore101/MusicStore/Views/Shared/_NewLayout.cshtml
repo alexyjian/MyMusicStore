@@ -38,13 +38,10 @@
             @Html.Partial("_GetgenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
         </div>
         <div class="col-md-10 content">
-            <div class="showcase"></div>
-
-            <h3>新<samp>品上架</samp></h3>
-            @*操作区*@
-            @RenderBody()
-        </div>
+        @*操作区*@
+        @RenderBody()
     </div>
+        </div>
     <div class="row stern">
         @*尾栏*@
         @Html.Partial("_FooterLayout")
