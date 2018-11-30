@@ -13,13 +13,20 @@ body {
 }
 
 .footer {
+    width:100%;
     background-color: #F2F2F2;
-    height:60px;
-    line-height:60px;
+    padding:12px 0px;
     border-top:1px solid #D3D3D3;
+    margin-top:50px;
+    position:relative;
+    top:20px;
 }
 
 .footer img {
     width: 200px;
     height: 35px;
+}
+
+.col-md-2, .col-sm-6 {
+    height:115px;
 }

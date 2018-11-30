@@ -11,10 +11,10 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-2 col-sm-6 text-center">
-            <a href="#">
+        <div class="col-md-2 col-sm-6">
+            <a href="@Url.Action("Detail","Store",new { id=item.ID})">
                 <img src="@item.AlbumArtUrl" alt="图片加载失败" />
-                <span>@item.Title</span>
+                <span>@item.Title - @item.Artist.Name</span>
             </a>
         </div>
     }
