@@ -141,7 +141,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Genre.cs" />
+    <Compile Include="Migrations\GenreSeed.cs" />
+    <Compile Include="Migrations\UserAndRoleSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -234,11 +235,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\NewLayout.cshtml" />
     <Content Include="Views\Shared\_GetGenreMenu.cshtml" />
+    <Content Include="Views\_FooterLayout.cshtml" />
+    <Content Include="Views\_NewLayout.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
