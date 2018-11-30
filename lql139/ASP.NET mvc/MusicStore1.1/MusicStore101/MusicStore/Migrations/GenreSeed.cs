@@ -244,11 +244,11 @@ namespace MusicStore.Migrations
         public static void Extend()
         {
             var albums = _dbContext.Albums.ToList();
-            foreach (var album in albums)
+            foreach (var al in albums)
             {
-                var item = _dbContext.Albums.Find(album.ID);
-                item.GenreID = item.GenreID.ToString();
-                item.ArtistID = item.ArtistID.ToString();
+                var item = _dbContext.Albums.Find(al.ID);
+                item.GenreID = item.Genre.ID.ToString();
+                item.ArtistID = item.Artist.ID.ToString();
                 Thread.Sleep(3);
             }
             _dbContext.SaveChanges();
