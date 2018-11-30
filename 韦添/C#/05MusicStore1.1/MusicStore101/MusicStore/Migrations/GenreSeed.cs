@@ -15,16 +15,16 @@ namespace MusicStore.Migrations
             _dbContext.Database.ExecuteSqlCommand("delete genres");
             var genres = new List<Genre>()
             {
-                new Genre () {Name="摇滚" },
-                new Genre () {Name="爵士" },
-                new Genre () {Name="重金属" },
-                new Genre () {Name="慢摇" },
-                new Genre () {Name="蓝调" },
-                new Genre () {Name="拉丁" },
-                new Genre () {Name="流行" },
-                new Genre () {Name="古典" },
-                new Genre () {Name="DJ" },
-                new Genre () {Name="周防尊" },
+               new Genre() {Name = "摇滚",Description = "Rock"},
+                new Genre() {Name =  "爵士",Description = "Jazz"},
+                new Genre() {Name =  "重金属",Description = "重金属"},
+                new Genre() {Name =  "慢摇",Description = "DownTempo"},
+                new Genre() {Name =  "蓝调",Description = "Blue"},
+                new Genre() {Name =  "拉丁",Description = "Latin"},
+                new Genre() {Name =  "流行",Description = "Pop"},
+                new Genre() {Name =  "古典",Description = "Classical"},
+                new Genre() {Name =  "周防尊",Description = "Love"},
+                new Genre() {Name =  "嘻哈",Description = "HiHop"},
             };
         
             foreach(var g in genres)
