@@ -71,7 +71,7 @@ ul {
 
                 ul#album-list li a span {
                     color: #9b9993;
-                    text-decoration: underline;
+                    text-decoration: none;
                 }
 
 #cart {
