@@ -8,6 +8,10 @@ body {
     top: -8px;
 }
 
+.img-width {
+    width:100%;
+}
+
 .footer {
     background-color: #F2F2F2;
     height:60px;

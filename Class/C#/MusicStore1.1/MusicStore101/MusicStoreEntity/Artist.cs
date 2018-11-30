@@ -7,20 +7,19 @@ using System.Threading.Tasks;
 namespace MusicStoreEntity
 {
     /// <summary>
-    /// 类别实体类
+    /// 歌手实体类
     /// </summary>
-    public class Genre
+    public class Artist
     {
         public Guid ID { get; set; }
 
         public string Name { get; set; }
 
+        public bool Sex { get; set; }
+
         public string Description { get; set; }
 
-        //当前分类包含的专辑
-        public virtual ICollection<Album> Alubums { get; set; }
-
-        public Genre()
+        public Artist()
         {
             ID = Guid.NewGuid();
         }
