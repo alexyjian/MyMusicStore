@@ -24,7 +24,7 @@
 #header h1 {
     font-size: 20px;
     float: left;
-    background: url(../Content/Images/logo.png) no-repeat;
+    background: url(/Content/Images/logo.png) no-repeat;
     padding: 45px 0 5px 0;
     
 }
@@ -67,7 +67,7 @@ body {
     font-size: 14px;
     line-height: 1.428571429;
     color: #333;
-    background-color: rgb(179, 176, 176);
+    background-color: blanchedalmond;
 }
 .glyphicon {
     position: relative;
@@ -109,7 +109,7 @@ li {
 #promotion {
     height: 300px;
     width: 700px;
-    background: url(../音乐商品/Images/home-showcase.png) no-repeat;
+    background:url(~/Content/Images/home-showcase.png) no-repeat;
 }
 h3 {
     color: #9b9993;
