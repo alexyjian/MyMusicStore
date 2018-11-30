@@ -44,5 +44,10 @@ namespace MusicStoreEntity
 
         #endregion
 
+        #region 音乐商店实体
+        public IDbSet<Genre>Genres { get; set; }
+        public IDbSet<Genre> Artists { get; set; }
+        public IDbSet<Genre> Albums { get; set; }
+        #endregion
     }
 }

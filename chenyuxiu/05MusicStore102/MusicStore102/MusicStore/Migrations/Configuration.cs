@@ -7,16 +7,17 @@ namespace MusicStore.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<MusicStoreEntity.EntityDbContext>
     {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled =true;
-        }
+        //    public Configuration()
+        //    {
+        //        AutomaticMigrationsEnabled =true;
+        //    }
 
-        protected override void Seed(MusicStoreEntity.EntityDbContext context)
-        {
-            UseAndRoleSeed.AddRoles();
-            UseAndRoleSeed.AddUsers();
-            GenreSee.Seed();
-        }
+        //    protected override void Seed(MusicStoreEntity.EntityDbContext context)
+        //    {
+        //        UseAndRoleSeed.AddRoles();
+        //        UseAndRoleSeed.AddUsers();
+        //        GenreSee.Seed();
+        //GenreSeed.Extend();
+        //    }
     }
 }

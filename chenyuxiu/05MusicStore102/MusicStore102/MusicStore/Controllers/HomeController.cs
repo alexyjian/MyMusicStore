@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Microsoft.Ajax.Utilities;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
@@ -11,9 +13,8 @@ namespace MusicStore.Controllers
 {
     public class HomeController
     {
-       
 
-        }
+
 
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace MusicStore.Controllers
         {
             var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
             //object userManager = null;
-            var user=userManage.Find (username, pwd);
+            var user = userManage.Find(username, pwd);
             if (user != null)
             {
                 var roleName = "";
@@ -39,4 +40,6 @@ namespace MusicStore.Controllers
             else
                 return "登录失败";
         }
+
     }
+}
