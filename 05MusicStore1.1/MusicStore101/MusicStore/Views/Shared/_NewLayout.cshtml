@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - 音乐商店</title>    
+    @*绑定样式库*@
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JqueryUI")
+
+    @*绑定脚本库*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
+
+</head>
+<body>
+    <div id="header">
+        @*Logo和菜单*@
+        <h1><a href="/">天下第一音乐商店</a></h1>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="@Url.Action("index","home")">首页</a></li>
+            <li><a href="@Url.Action("","")">专辑</a></li>
+            <li><a href="@Url.Action("","")">登录</a></li>
+        </ul>
+    </div>
+    <div class="container"> 
+        <div class="row">
+            <div class="col-md-3">
+                @*左侧导航*@
+                @Html.Partial("_GetGenreMenu",
+                    new MusicStoreEntity.EntityDbContext().Genres.ToList())
+            </div>
+            <div class="col-md-9">
+                @*操作区*@
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @*底部*@
+                @Html.Partial("_FooterLayout")
+            </div>
+        </div>
+    </div>
+    @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
