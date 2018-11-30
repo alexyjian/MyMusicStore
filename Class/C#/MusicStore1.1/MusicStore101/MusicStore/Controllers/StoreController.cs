@@ -11,10 +11,16 @@ namespace MusicStore.Controllers
     {
         private static readonly EntityDbContext _dbContext = new EntityDbContext();
         // GET: Store
-        public ActionResult Detail(Guid ID)
+        public ActionResult Detail(Guid id)
         {
-            var detail = _dbContext.Albums.Find(ID);
+            var detail = _dbContext.Albums.Find(id);
             return View(detail);
+        }
+
+        public ActionResult Browser(Guid id)
+        {
+            var list = _dbContext.Albums.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublisherDate).ToList();
+            return View(list);
         }
     }
 }
