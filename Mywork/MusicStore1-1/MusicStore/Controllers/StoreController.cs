@@ -11,11 +11,27 @@ namespace MusicStore.Controllers
     {
         private static readonly EntityDbContext _context = new EntityDbContext();
 
+        /// <summary>
+        /// 按分类显示专辑
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Store
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
             return View(detail);
+        }
+        /// <summary>
+        /// 按分类显示专辑
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Browser(Guid id)
+        {
+            var list = _context.Albums.Where(x => x.Genre.ID == id)
+                .OrderByDescending(x => x.PublisherDate).ToList();
+            return View(list);
         }
     }
 }
