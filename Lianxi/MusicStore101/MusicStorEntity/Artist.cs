@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace MusicStorEntity
 {
-    public class Genre
+    /// <summary>
+    /// 歌手
+    /// </summary>
+    public class Artist
     {
         public Guid ID { get; set; }
-
-        public string Description { get; set; }
         public string Name { get; set; }
-        public Genre()
+        public string Description { get; set; }
+        public bool Sex { get; set; } = true;
+        public Artist()
         {
             ID = Guid.NewGuid();
         }
