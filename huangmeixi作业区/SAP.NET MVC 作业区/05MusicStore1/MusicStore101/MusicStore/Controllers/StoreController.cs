@@ -23,7 +23,7 @@ namespace MusicStore.Controllers
             return View(detail);
         }
         /// <summary>
-        /// 按分类显示专辑
+        /// 按分类显示专辑页
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
