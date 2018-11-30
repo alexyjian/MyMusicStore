@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
@@ -11,26 +12,15 @@ namespace MusicStoreWeb.Controllers
 {
     public class HomeController : Controller
     {
-        private string pwd;
+        //private string pwd;
 
         public ActionResult Index()
         {
-            return View();
+            var context = new EntityDbContext();
+            var list = context.Albums.OrderByDescending(x => x.PublisherDate).Take(20).ToList();
+            return View(list);
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
 
         /// <summary>
         /// 测试登录
