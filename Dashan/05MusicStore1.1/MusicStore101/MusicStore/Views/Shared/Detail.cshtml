@@ -1,0 +1,37 @@
+﻿@model MusicStoreEntity.Album
+@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+<p>
+    <img alt="@Model.Title" sre="@Model.AlbumaArtUrl"/>
+</p>
+
+<div id="album-details">
+    <p>
+
+        <em>
+            发布时间：
+        </em>
+        @Model.Genre.Name
+    </p>
+
+    <p>
+
+        <em>
+            分类：
+        </em>
+        @Model.Genre.Name
+    </p>
+
+    <p>
+
+        <em>
+            歌手：
+        </em>
+        @Model.Artist.Name
+    </p>
+
+</div>

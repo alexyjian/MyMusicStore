@@ -44,7 +44,6 @@ namespace MusicStore.Migrations
             idManger.CreateRole(role2);
             idManger.CreateRole(role3);
         }
-
         public static void AddUsers()
         {
             var idManager = new IdentityManager();
