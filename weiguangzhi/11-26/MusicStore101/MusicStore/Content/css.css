@@ -106,10 +106,16 @@ li {
     top: 7%;
 
 }
+.col-md-3 ul li {
+height:25px;
+width:50px;
+border:solid;
+}
 #promotion {
     height: 300px;
     width: 700px;
     background: url(/Content/Images/home-showcase.png) no-repeat;
+        margin-top: -60px;
 
 }
 h3 {
@@ -131,5 +137,12 @@ ul#album-list li {
     padding-bottom: 15px;
     font-size: 25px;
     
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
