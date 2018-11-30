@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicStoreEntity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,8 +11,11 @@ namespace MusicStore101.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var context = new EntityDbContext();
+            var list = context.Albums.OrderByDescending(x => x.PublisherDate).Take(50).ToList();
+            return View(list);
         }
+
 
         public ActionResult About()
         {
