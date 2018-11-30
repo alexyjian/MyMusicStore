@@ -45,7 +45,7 @@ namespace MusicStore.Migrations
                 new Artist() {Name="陈粒",Sex=false,Description="陈粒，又名粒粒，1990年7月26日出生于贵州省贵阳市，中国内地民谣女歌手、独立音乐人、唱作人，前空想家乐队主唱，毕业于上海对外经贸大学。2012年，其所在乐队“空想家乐队”获得“Zippo炙热摇滚大赛”上海赛区冠军。2014年，随空想家乐队推出乐队首张EP专辑《万象》；同年，其演唱的歌曲《奇妙能力歌》入围“第四届阿比鹿音乐奖”年度民谣单曲。2015年，推出首张个人音乐专辑《如也》；同年，推出个人民谣单曲《远辰》。2016年1月，获得“第五届阿比鹿音乐奖”最受欢迎音乐人（民谣）；同年3月8日，化身“粒粒”并推出首支单曲《幻期颐》；同年7月26日，推出第二张个人音乐专辑《小梦大半》。" },
                 new Artist() {Name="李荣浩",Sex=true,Description="李荣浩，1985年7月11日生于蚌埠，中国流行音乐制作人、歌手、吉他手。曾为众多艺人创作歌曲以及担任制作人，也曾为多部电影与多款电子游戏制作音乐。2013年9月17日发行个人首张原创专辑《模特》，凭借这张专辑入围第25届金曲奖最佳国语男歌手奖、最佳新人奖、最佳专辑制作人、最佳国语专辑、最佳作词奖等五项大奖提名，成为最大黑马，实现了从制作人到歌手的华丽转身。" },
                 new Artist() {Name="张惠妹",Sex=false,Description="中国台湾著名女歌手，亚洲流行歌坛重量级天后，台湾原住民歌手。张惠妹于华人世界名气极高，于海外（尤美、日等地）也有一定的知名度，已囊括多项华语圈重要的音乐奖项。也是台湾首位接受美国CNN专访的歌手（并且在2011年第二度接受此媒体《Talk Asia》节目专访）。阿妹在1996年三月被著名台湾音乐人陈志远、陈复明发现并签约丰华唱片。并在同年7月在带自己入行的恩师张雨生的《两伊战争－红色热情》专辑中与张雨生男女对唱《最爱的人伤我最深》。同年12月13日，张惠妹在张雨生的协助下发行第一张个人专辑《姐妹》。1998年 举办第一场个人大型户外售票演唱会“妹力四射”，创下台湾歌手有史以来最快举行大型演唱会的纪录。2009年发行的《阿密特》专辑至今仍是金曲奖史上获得最大成功的作品，曾于第21届时擒下包括专辑、制作人、歌手等六项大奖。代表作品：《姐妹》、《我可以抱你吗》、《记得》、《火》、《如果你也听说》、《掉了》、《我最亲爱的》。" },
-                new Artist() {Name="赵雷",Sex=true,Description="民谣音乐人赵雷，中国内地新生代民谣歌手。1986年7月20日生于北京，高中时间接触音乐，开始学习吉他。年纪轻轻便踏遍祖国的大江南北，山河东西，足迹遍布陕甘、云藏，为自己的音乐之路，积累了大量时代底蕴与人文滋养。赵雷的音乐，虽然没有诗句般的柔情感动，但痞子气的调侃，单纯率直直达你的内心。词作、编曲朴实坦诚以描写生活中细微见长，每一首歌都像一部短剧，折射出他自己的生活、他眼中社会、甚至他心底的梦想，画面感极强。是最具传统北京胡同文化气质的新生代音乐人之一。" }
+                new Artist() {Name="赵雷",Sex=true,Description="民谣音乐人赵雷，中国内地新生代民谣歌手。1986年7月20日生于北京，高中时间接触音乐，开始学习吉他。年纪轻轻便踏遍祖国的大江南北，山河东西，足迹遍布陕甘、云藏，为自己的音乐之路，积累了大量时代底蕴与人文滋养。赵雷的音乐，虽然没有诗句般的柔情感动，但痞子气的调侃，单纯率直直达你的内心。词作、编曲朴实坦诚以描写生活中细微见长，每一首歌都像一部短剧，折射出他自己的生活、他眼中社会、甚至他心底的梦想，画面感极强。是最具传统北京胡同文化气质的新生代音乐人之一。" },
                 new Artist() {Name="Fine乐团",Sex=true,Description="内地流行乐独立音乐人Fine乐团由一男一女组成。男生冠南创作词曲，女生乔西负责演唱" },
                 new Artist() {Name="王三溥",Sex=true,Description="左手新古典，右手金属，踽踽行于音乐旅途。 微信公众号：王三溥 微博：王三溥" },
                 new Artist() {Name="万晓利",Sex=true,Description="是一位富有浓郁人文色彩的民谣歌手，中国现代民谣的代表人物之一，浮华世界里一位坚定的歌唱者。万晓利给我留下的印象是一把木箱琴和千变万化的人声，后来他出动机的时候，居然拿出一支碗，用勺子在碗边划出丁冬之声，表情是无比虔诚的，效果是出人意料的。 万晓利因其独特的唱腔被观众评为颠覆民谣的歌手。" },
@@ -69,155 +69,157 @@ namespace MusicStore.Migrations
                 new Artist() {Name="王力宏",Sex=true,Description="中国著名流行歌手、词曲创作音乐人；亚洲华语流行乐坛最具代表性的创作、偶像、实力派音乐偶像巨星。1995年发行首张专辑《情敌贝多芬》在台湾出道，亦是金曲奖中最年轻的封王者，其唱片总销量在全亚洲已超过2500万张。从改编歌曲《龙的传人》融合西方电子节奏和东方旋律的华人中式嘻哈风，再到为华语流行乐注入新元素，进一步将其推向全世界。超高唱片销量便可以证明力宏的影响力毋庸置疑的强。况且身为金曲奖常客，3次接受CNN电视台访问。首创Chinked-out曲风，将中国风推向世界，又用自己写的歌揭露了娱乐圈的众多丑闻，都可以表现他对华语乐坛的巨大贡献。亦参与多部电影工作，2010年进军影坛，首部自导自演的电影《恋爱通告》票房纪录突破5000万，成为票房冠军，其导演才华受到了广大好评。" }
 
             };
-
+            foreach (var a in artists)
+                _dbContext.Artists.Add(a);
+            _dbContext.SaveChanges();
 
             var albums = new List<Album>
                 {
                 new Album
                 { Title = "正常人", Genre = genres.Single(g => g.Name =="爵士"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="李霄云"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="李霄云"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "粥请客（厘小白）", Genre = genres.Single(g => g.Name =="爵士"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="花粥"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="花粥"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "Different World", Genre = genres.Single(g => g.Name =="流行"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="Alan Walker"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Alan Walker"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "L.O.V.E.", Genre = genres.Single(g => g.Name =="古典"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="陈奕迅"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="陈奕迅"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "Until The Day", Genre = genres.Single(g => g.Name =="嘻哈"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="林俊杰"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="林俊杰"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "Victoria", Genre = genres.Single(g => g.Name =="嘻哈"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="邓紫棋"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="邓紫棋"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "The GREAT YOGA", Genre = genres.Single(g => g.Name =="蓝调"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="林宥嘉"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="林宥嘉"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "你是年少的欢喜", Genre = genres.Single(g => g.Name =="流行"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="王贰浪"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="王贰浪"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "Best Better Ever", Genre = genres.Single(g => g.Name =="重金属"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "耳朵", Genre = genres.Single(g => g.Name =="摇滚"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="李荣浩"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="李荣浩"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "Are You Ready", Genre = genres.Single(g => g.Name =="古典"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="张惠妹"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="张惠妹"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "At The Age of Nineteen", Genre = genres.Single(g => g.Name =="摇滚"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="赵雷"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="赵雷"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "写了好多事都是关于你", Genre = genres.Single(g => g.Name =="摇滚"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="Fine乐团"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Fine乐团"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "十一月", Genre = genres.Single(g => g.Name =="重金属"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="王三溥"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="王三溥"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "太阳看起来圆圆的", Genre = genres.Single(g => g.Name =="古典"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="万晓利"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="万晓利"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                 new Album
                 { Title = "寒鸦少年", Genre = genres.Single(g => g.Name =="摇滚"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="华晨宇"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="华晨宇"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                  new Album
                 { Title = "Feel & Sight", Genre = genres.Single(g => g.Name =="嘻哈"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="王以太"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="王以太"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                  new Album
                 { Title = "Beach House", Genre = genres.Single(g => g.Name =="流行"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="The Chainsmokers"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Chainsmokers"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                   new Album
                 { Title = "The Way I Am (Slushii Remix)", Genre = genres.Single(g => g.Name =="蓝调"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="Charlie Puth"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Charlie Puth"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                   new Album
                 { Title = "Love Yourself (Afrobeat Refix)", Genre = genres.Single(g => g.Name =="爵士"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="Justin Bieber"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Justin Bieber"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                    new Album
                 { Title = "Big Things Start Small", Genre = genres.Single(g => g.Name =="嘻哈"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="Jony J"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Jony J"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                    new Album
                 { Title = "不爱我就拉倒", Genre = genres.Single(g => g.Name =="流行"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                    new Album
                 { Title = "Something Strange", Genre = genres.Single(g => g.Name =="蓝调"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="Vicetone"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Vicetone"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                    new Album
                 { Title = "More", Genre = genres.Single(g => g.Name =="摇滚"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="Beyond"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Beyond"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                    new Album
                 { Title = "Consideration (Dance Remixes)", Genre = genres.Single(g => g.Name =="摇滚"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="Rihanna"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="Rihanna"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                    new Album
                 { Title = "FEELING DOPE", Genre = genres.Single(g => g.Name =="嘻哈"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="ICE"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="ICE"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                    new Album
                 { Title = "No Fear In My Heart", Genre = genres.Single(g => g.Name =="古典"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="朴树"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="朴树"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
 
                    new Album
                 { Title = "疤", Genre = genres.Single(g => g.Name =="流行"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="胡彦斌"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="胡彦斌"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                    new Album
                 { Title = "SHERO", Genre = genres.Single(g => g.Name =="流行"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="S.H.E"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="S.H.E"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                    new Album
                 { Title = "一江水", Genre = genres.Single(g => g.Name =="蓝调"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="徐佳莹"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="徐佳莹"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                     new Album
                 { Title = "极美", Genre = genres.Single(g => g.Name =="爵士"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="孙燕姿"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="孙燕姿"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                     new Album
                 { Title = "Miss You Much, Leslie", Genre = genres.Single(g => g.Name =="古典"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="张国荣"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="张国荣"),AlbumArtUrl="/Content/Images/placeholder.gif", },
 
                      new Album
                 { Title = "CrossFire", Genre = genres.Single(g => g.Name =="重金属"),Price=8.99M,
-                    Arist =artists.Single(a=>a.Name=="王力宏"),AlbumArtUrl="/Content/Images/placeholder.gif", },
+                    Artist =artists.Single(a=>a.Name=="王力宏"),AlbumArtUrl="/Content/Images/placeholder.gif", }
 
             };
-            albums.ForEach(n => _dbContext.Albums.Add(n));           
+            albums.ForEach(n => _dbContext.Albums.Add(n));
             _dbContext.SaveChanges();
         }
 
@@ -228,7 +230,7 @@ namespace MusicStore.Migrations
             foreach(var album in albums)
             {
                 var item = _dbContext.Albums.Find(album.ID);
-                item.GemreId = item.Genre.ID.ToString();
+                item.GenreId = item.Genre.ID.ToString();
                 item.ArtistId = item.Artist.ID.ToString();
                 _dbContext.SaveChanges();
                 Thread.Sleep(3);

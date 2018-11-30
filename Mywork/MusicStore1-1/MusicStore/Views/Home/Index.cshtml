@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<MusicStoreEntity.Album>
+@{
     ViewBag.Title = "首页";
 }
 
@@ -11,8 +12,8 @@
         {
             <li>
                 <a href="#">
-                    <img alt="@item.Tite" src="@item.AlbumArtUrl" />
-                    <span>@item.Artist.Name</span>.<span>@item.Tite</span>
+                    <img alt="@item.Title" src="@item.AlbumArtUrl" />
+                    <span>@item.Artist.Name</span>.<span>@item.Title</span>
                 </a>
             </li>
         }

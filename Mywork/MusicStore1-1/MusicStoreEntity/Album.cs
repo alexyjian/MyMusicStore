@@ -23,7 +23,7 @@ namespace MusicStoreEntity
         public string GenreId { get; set; }
 
         //歌手
-        public virtual Artist Arist { get; set; }
+        public virtual Artist Artist { get; set; }
 
         //歌手主键
         public string ArtistId { get; set; }
@@ -33,6 +33,7 @@ namespace MusicStoreEntity
 
         //专辑网址
         public string AlbumArtUrl { get; set; }
+        public object Artists { get; set; }
 
         public Album()
         {
