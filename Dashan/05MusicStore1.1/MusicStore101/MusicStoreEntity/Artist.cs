@@ -15,8 +15,7 @@ namespace MusicStoreEntity
         public bool Sex { get; set; } = true;
         public string Description { get; set; }
 
-        //包含分类的专辑
-        public virtual ICollection<Album> Albums { get; set; }
+        
         public Artist()
         {
             ID = Guid.NewGuid();
