@@ -8,6 +8,9 @@ namespace MusicStoreEntity
 {
    public class Album
     {
+        /// <summary>
+        /// 专辑
+        /// </summary>
         public Guid ID { get; set; }
         public string Title { get; set; } //专辑名称
         public decimal Price { get; set; }
@@ -26,7 +29,8 @@ namespace MusicStoreEntity
         public string AlbumArtUr { get; set; }
         public Album()
         {
-
+            ID = Guid.NewGuid();
+            PublisherDate = DateTime.Now;
         }
 
     }
