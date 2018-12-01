@@ -1,12 +1,8 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - 音乐商店</title>
     @*绑定样式库*@
@@ -34,7 +30,8 @@
         <div class="row">
             <div class="col-md-3">
                 @*左侧导航*@
-                @Html.Partial("_GetGenreMenu")
+               @Html.Partial("_GetGenreMenu",
+              new MusicStoreEntity.EntityDbContext().Genres.ToList())
             </div>
             <div class="col-md-9">
                 @*操作区*@
@@ -42,7 +39,9 @@
             </div>
         </div>
         <div class="row">
-            @*尾栏*@
+            <div class="col-lg-12">
+             @Html.Partial("_FooterLayout")
+            </div>
         </div>
     </div>
     @*继承此布局的页面执行脚本的位置*@
