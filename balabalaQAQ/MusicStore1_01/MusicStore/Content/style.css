@@ -65,3 +65,12 @@ a:hover{
   margin-top:10px;
 }
 /*music-view  end*/
+.row {
+    margin-top:70px;
+    border-bottom:dotted 1px red;
+    border-top:dashed 1px red;
+    height:50px;
+    background-color:gray;
+    text-align:center;
+    line-height:50px;
+}
