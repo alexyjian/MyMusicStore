@@ -65,7 +65,10 @@ a:hover{
   margin-top:10px;
 }
 /*music-view  end*/
-.row {
+
+
+/*bottom*/
+.bottom {
     margin-top:70px;
     border-bottom:dotted 1px red;
     border-top:dashed 1px red;
