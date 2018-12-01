@@ -15,7 +15,7 @@
         <em>
             发布时间：
         </em>
-        @Model.Genre.Name
+        @Model.PublisherDate.ToString("yyyy年MM月dd日");
     </p>
 
     <p>
@@ -33,5 +33,16 @@
         </em>
         @Model.Artist.Name
     </p>
+    <p>
+
+        <em>
+            价格：
+        </em>
+        @String.Format("{0:F}",Model.Price)
+    </p>
+
+    <div id="msg"></div>
+    <p class="btn" id="addcart">添加到购物车</p>
+     <div id="msg"></div>
 
 </div>
