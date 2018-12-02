@@ -11,7 +11,7 @@ namespace MusicStoreEntity
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        当前分类包含的专辑
+       // 当前分类包含的专辑
         public virtual ICollection<Album> Albums { get; set; }
 
         public Genre()
