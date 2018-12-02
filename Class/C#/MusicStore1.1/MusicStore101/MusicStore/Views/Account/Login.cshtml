@@ -18,9 +18,10 @@
                 </a>
             </h4>
         </div>
-        @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "bs-example bs-example-form", role = "form" }))
-        {
-            <div id="collapseOne" class="panel-collapse collapse in">
+
+        <div id="collapseOne" class="panel-collapse collapse in">
+            @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "bs-example bs-example-form", role = "form" }))
+            {
                 <div class="panel-body">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
@@ -36,46 +37,46 @@
                     <br>
                     <input type="submit" class="btn btn-primary" value="登录" />
                 </div>
-            </div>
-        }
+            }
         </div>
-        @*注册*@
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapseTwo">
-                        注册新用户
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <form class="bs-example bs-example-form" role="form">
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                            <input type="text" class="form-control" placeholder="UserName">
-                        </div>
-                        <br>
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                            <input type="text" class="form-control" placeholder="Email">
-                        </div>
-                        <br>
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="text" class="form-control" placeholder="PassWord">
-                        </div>
-                        <br>
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            <input type="text" class="form-control" placeholder="Confirm password again">
-                        </div>
-                        <br>
-                        <input type="submit" class="btn btn-success" value="注册" />
-                    </form>
-                </div>
+
+    </div>
+    @*注册*@
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion"
+                   href="#collapseTwo">
+                    注册新用户
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                <form class="bs-example bs-example-form" role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                        <input type="text" class="form-control" placeholder="UserName">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                        <input type="text" class="form-control" placeholder="Email">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input type="text" class="form-control" placeholder="PassWord">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input type="text" class="form-control" placeholder="Confirm password again">
+                    </div>
+                    <br>
+                    <input type="submit" class="btn btn-success" value="注册" />
+                </form>
             </div>
         </div>
     </div>
-
+</div>

@@ -75,13 +75,33 @@ namespace MusicStore.Controllers
 
                     //保存登录成功后的信息
                     Session["LoginUserSessionModel"] = loginUserSessionModel;
+                    Session["Username"] = loginUserSessionModel.User.UserName;
 
                     //identity登录处理，创建ASP.NET的登录令牌Token
                     var identity = usermanager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     return Redirect(returnUrl);
                 }
+                else
+                {
+                    if (string.IsNullOrEmpty(returnUrl))
+                    {
+                        ViewBag.ReturnUrl = Url.Action("Index", "Home");
+                    }
+                    else
+                    {
+                        ViewBag.ReturnUrl = returnUrl;
+                    }
+                }
             }
-            return View();
+            if (string.IsNullOrEmpty(returnUrl))
+            {
+                ViewBag.ReturnUrl = Url.Action("index", "home");
+            }
+            else
+            {
+                ViewBag.ReturnUrl = returnUrl;
+            }
+            return View(Session["Username"]);
         }
     }
 }
