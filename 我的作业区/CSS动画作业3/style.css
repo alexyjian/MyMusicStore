@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.bg{
+    width: 600px; 
+    height: 600px;
+    margin: 80px auto;
+    background-image: linear-gradient(0deg,#3c1d14,#713e34);
+}
+
+h2{
+    width: 600px;
+    padding-top: 50px;
+    font-size: 60px;
+    font-family: "微软雅黑";
+    text-align: center;
+    color: #b67867;
+    text-shadow: 5px 5px 5px #200a08;
+}
+
+p{
+    width: 600px;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    text-align: center;
+    color: #ac7465;
+    text-shadow: 2px 2px 2px #200a08;
+}
+
+.bg1{
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+    left: 50%;
+    top: 55%;
+    margin-left: -200px;
+    margin-top: -240px;
+    box-shadow: 0px 20px 20px #200a08;
+}
+
+span{
+    float: left;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px 0 0 10px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.b{
+    width: 100px;
+    height: 300px;
+    border-radius: 0 10px 10px 0;
+    background-color: #a98659;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cd{
+    width: 248px;
+    height: 248px;
+    background: url(images/cd.png) no-repeat;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    margin-left: -135px;
+    margin-top: -124px;
+    z-index: 99;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation-name: move;
+    -webkit-animation-duration: 18s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.cd_bg{
+    width: 240px;
+    height: 240px;
+    background:url(images/fc.png) no-repeat center;
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    margin-left: -90px;
+    margin-top: -120px;
+    z-index: 1;
+}
+
+@-webkit-keyframes move{
+    0%{
+        -webkit-transform: rotate(0);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
