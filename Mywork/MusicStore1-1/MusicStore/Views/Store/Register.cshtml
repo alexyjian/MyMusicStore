@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MusicStoreEntity.Genre>
+@{
+    ViewBag.Title = "注册";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>用户注册</h2>
+
+<form action="/account/register" method="post">
+    <div>
+        <fieldset>
+            <legend>用户信息</legend>
+            <div class="editor-label">
+                <label for="UserName">用户名</label>
+            </div>
+            <div class="editor-field">
+                <input data-val="true" data-val-required="用户名不能为空。" id="UserName" name="UserName" placeholder="用户名" type="text" value="" />
+                <span class="field-validation-valid" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+            </div>
+            <div class="editor-label">
+                <label for="Email">邮箱</label>
+            </div>
+            <div class="editor-field">
+                <input data-val="true" data-val-required="邮箱不能为空。" id="Email" name="Email" placeholder="邮箱" type="text" value="" />
+                <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+            </div>
+            <div class="editor-label">
+                <label for="PassWord">密码</label>
+            </div>
+            <div class="editor-field">
+                <input data-val="true" data-val-length="密码长度不能小于6位。" data-val-length-max="100" data-val-length-min="6" data-val-required="密码不能为空。" id="PassWord" name="PassWord" placeholder="密码" type="password" />
+                <span class="field-validation-valid" data-valmsg-for="PassWord" data-valmsg-replace="true"></span>
+            </div>
+
+            <div class="editor-label">
+                <label for="ConfirmPassWord">确认密码</label>
+            </div>
+            <div class="editor-field">
+                <input data-val="true" data-val-equalto="密码两次输入要一致。" data-val-equalto-other="*.PassWord" id="ConfirmPassWord" name="ConfirmPassWord" placeholder="再次输入密码" type="password" />
+                <span class="field-validation-valid" data-valmsg-for="ConfirmPassWord" data-valmsg-replace="true"></span>
+            </div>
+
+            <p>
+                <input type="submit" value="注册" class="btn btn-success" />
+            </p>
+        </fieldset>
+    </div>
+</form>
+
+        

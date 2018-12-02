@@ -43,5 +43,23 @@ namespace MusicStore.Controllers
             var genre = _context.Genres.OrderBy(x => x.Name).ToList();
             return View(genre);
         }
+
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 用户注册
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 }
