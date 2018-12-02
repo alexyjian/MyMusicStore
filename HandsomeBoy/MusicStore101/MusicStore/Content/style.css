@@ -31,6 +31,12 @@ h1 a,h3{
     color: #F6855E;
     font-weight: bold;
 }
+fieldset {
+       border: #9b9993 1px solid;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    clear: left;
+}
 .nav li a:hover
 {
     color: black;
