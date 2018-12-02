@@ -7,17 +7,24 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
+    /// <summary>
+    /// 音乐分类
+    /// </summary>
     public class Genre
     {
-        //public object Genre;
-        public object ArtistId;
-        public object Genre;
+        public object GenreId;
+        public readonly object Artist;
 
         public Guid ID { get; set; }
         public string Name { get; set; }
-        public string Decripon { get; set; }
-        public object GenreId { get; set; }
-        public object Artist { get; set; }
+        public string Description { get; set; }
+        //当前分类包含的专辑
+        public virtual ICollection<Album> Albums { get; set; }
+        public object ArtistId { get; set; }
+        public object PublisherDate { get; set; }
+        public object Genres { get; set; }
+
+        //public object Genre { get; set; }
 
         public Genre()
         {
@@ -25,20 +32,3 @@ namespace MusicStoreEntity
         }
     }
 }
-    /// <summary>
-    /// 音乐分类
-    /// </summary>
-  public class Genre
-    {
-        public string Description;
-
-        public Guid ID { get; set; }
-        public string Name { get; set; }
-        public string Descr { get; set; }
-        public  virtual ICollection<Album>Albums { get; set; }
-
-    public Genre()
-    {
-        ID = Guid.NewGuid();
-    }
-    }
