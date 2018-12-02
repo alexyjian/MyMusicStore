@@ -20,22 +20,7 @@ namespace MusicStore.Controllers
             var list= context.Ablums.OrderByDescending(x => x.PublisherDate).Take(20).ToList();
             return View(list);
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-        
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        /// <summary>
+       /// <summary>
         /// 登录测试
         /// </summary>
         /// <returns></returns>
