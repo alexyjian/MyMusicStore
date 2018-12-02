@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MusicStoreEntity;
 using System.Collections.Generic;
 
 namespace MusicStorEntity.UserAndRole

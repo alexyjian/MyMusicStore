@@ -1,0 +1,13 @@
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\MusicStoreEntity.dll.config
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\MusicStoreEntity.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\MusicStoreEntity.pdb
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\EntityFramework.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\EntityFramework.SqlServer.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\EntityFramework.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\EntityFramework.SqlServer.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\obj\Debug\MusicStoreEntity.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\MusicStorEntity\obj\Debug\MusicStoreEntity.pdb
