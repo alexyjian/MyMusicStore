@@ -138,6 +138,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -216,10 +217,19 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\country.jpg" />
+    <Content Include="Content\Images\DJ.jpg" />
+    <Content Include="Content\Images\DY.jpg" />
+    <Content Include="Content\Images\folksong.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\love.jpg" />
+    <Content Include="Content\Images\lovesong.jpg" />
+    <Content Include="Content\Images\mawkishness.jpg" />
     <Content Include="Content\Images\placeholder.gif" />
+    <Content Include="Content\Images\popmusic.jpg" />
     <Content Include="Content\Images\ProgressIcon.gif" />
+    <Content Include="Content\Images\RockMusic.jpg" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -350,6 +360,8 @@
     <Content Include="Views\Shared\New_ViewStart.cshtml" />
     <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\Store\browser.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Login\TestLogin.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

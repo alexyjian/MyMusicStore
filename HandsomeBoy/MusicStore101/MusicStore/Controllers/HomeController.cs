@@ -15,7 +15,7 @@ namespace MusicStore.Controllers
         public ActionResult Index()
         {
             var context = new EntityDbContext();
-            var list = context.Albuns.OrderByDescending(x => x.PublsherDate).Take(20).ToList();
+            var list = context.Albuns.OrderByDescending(x => x.PublsherDate).Take(24).ToList();
             return View(list);
 
         }
@@ -33,26 +33,6 @@ namespace MusicStore.Controllers
 
             return View();
         }
-        /// <summary>
-        /// 测试登录
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="pwd"></param>
-        /// <returns></returns>
-        public string TestLogin(string username = "messi", string pwd = "123.abc")
-        {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
-            var user = userManager.Find(username, pwd);
-            if (user != null)
-            {
-                var roleName = "";
-                var context = new MusicStoreEntity.EntityDbContext();
-                foreach (var role in user.Roles)
-                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + "";
-                return "登录成功,用户属于："+roleName;
-            }
-            else
-                return "登录失败";
-        }
+      
     }
 }

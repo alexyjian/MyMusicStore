@@ -11,7 +11,7 @@
     {
         <li>
             <a href="@Url.Action("Detail","Store",new { id = item.ID})">
-                <img src="@item.AlbumArtUrl" alt="@item.Title">
+               <img src="@item.AlbumArtUrl" alt="@item.Artist.Name"/>
                 <span>@item.Artist.Name</span>
                 <br />
                 <span>@item.Title</span>

@@ -31,7 +31,7 @@
             <div class="col-md-6">
                 <ul class="nav">
                     <li><a href="@Url.Action("index","home")">主页</a></li>
-                    <li><a>商店</a></li>
+                    <li><a href="@Url.Action("index","Store")">商店</a></li>
                     <li><a>登录</a></li>
                 </ul>
             </div>
@@ -39,7 +39,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-12">
                @Html.Partial("_GetGenreMonu",new MusicStoreEntity.EntityDbContext().Genres);
             </div>
             <div class="col-md-9">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" >
                 <footer>
                     <img class="foorlogo" src="http://crp.lzzy.net/oa/login_images/login_logo.png"/> <span>
                         2016-2018,
