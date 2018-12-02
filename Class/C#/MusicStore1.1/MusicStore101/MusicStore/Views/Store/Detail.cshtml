@@ -4,15 +4,12 @@
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<h2>@Model.Title</h2>
-
+<h4>歌曲 - @Model.Title</h4>
+<hr />
 <p>
     <img alt="图片加载失败" src="@Model.AlbumArtUrl" />
 </p>
 <div>
-    <p>
-        <em>歌名：</em>@Model.Title
-    </p>
     <p>
         <em>歌手：</em>@Model.Artist.Name
     </p>

@@ -245,6 +245,7 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\Store\Browser.cshtml" />
+    <Content Include="Views\Home\Store.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

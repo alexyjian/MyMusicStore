@@ -18,6 +18,12 @@ namespace MusicStore.Controllers
             return View(context.Albums.OrderByDescending(x => x.PublisherDate).Take(20).ToList());
         }
 
+        public ActionResult Store()
+        {
+            var context = new EntityDbContext();
+            return View(context.Genres.ToList());
+        }
+
         public ActionResult Login()
         {
             return View();

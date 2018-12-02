@@ -26,3 +26,14 @@ body {
     width: 200px;
     height: 35px;
 }
+
+.badge {
+    color:yellow;
+    background-color:red;
+}
+
+fieldset{
+    border:1px solid #9b9993;
+    padding:0px 10px;
+    padding-bottom:20px;
+}
