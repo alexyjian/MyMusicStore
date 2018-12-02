@@ -92,12 +92,14 @@ li {
     float: left;
 }
 #footer {
+    margin-top: 50px;
     clear: both;
-    padding: 10px;
+    padding: 25px;
     text-align: center;
     border-top: 1px dotted #8a8575;
     border-bottom: 1px dotted #8a8575;
     font-family: Constantia,Georgia,serif;
+
 }
 .col-md-9 {
     width: 75%;

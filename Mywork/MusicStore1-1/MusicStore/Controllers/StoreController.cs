@@ -33,5 +33,15 @@ namespace MusicStore.Controllers
                 .OrderByDescending(x => x.PublisherDate).ToList();
             return View(list);
         }
+
+        /// <summary>
+        /// 显示所有分类
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index2()
+        {
+            var genre = _context.Genres.OrderBy(x => x.Name).ToList();
+            return View(genre);
+        }
     }
 }
