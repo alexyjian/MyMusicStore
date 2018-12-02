@@ -14,6 +14,16 @@
             <i class="glyphicon glyphicon-music"></i>
             @Html.ActionLink(item.Name,"Browser","Store",new { id=item.ID},null)
             (@item.Album.Count)
+            @if (item.Album.Count> 0)
+            {
+                <em>:</em>
+                foreach (var ab in item.Album.Take(5))
+                {
+                    <a href="@Url.Action("Detail",new{ id=ab.ID})" style="color:black;font-size:12px;"></a>
+                     <i class="glyphicon glyphicon-cd"></i>
+                     <span>@(ab.Title) &nbsp;&nbsp;</span>  
+                }
+            }
         </li>
 
     }
