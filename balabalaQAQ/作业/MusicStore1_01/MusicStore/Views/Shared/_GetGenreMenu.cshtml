@@ -1,0 +1,10 @@
+﻿@model  IEnumerable<MusicStoreEntity.Genre>
+
+ @foreach (var i in Model)
+ {
+    <div class="list-group-item ">
+        <h4 class="list-group-item-heading glyphicon glyphicon-music">
+            @Html.ActionLink(i.Name, "Browser", "Store", new { i.ID }, null)
+        </h4>
+    </div>
+ }
