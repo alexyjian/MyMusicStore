@@ -20,11 +20,17 @@ namespace MusicStore101.Controllers
             var datail = _context.Albums.Find(id);
             return View(datail);
         }
+        /// <summary>
+        /// 按分类专辑
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
-       public ActionResult Browser(Guid id)
+        public ActionResult Browser(Guid id)
         {
-            var
-        }
+            var list = _context.Albums.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublisherDate).ToList();
+            return View(list);
+         }
     }
    
 }
