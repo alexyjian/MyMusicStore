@@ -9,10 +9,10 @@
         
     </div>
 <h4>新品上架</h4>
-    <ul class="row">
+<ul class="row">
     @foreach (var item in Model)
     {
-        <li class="col-md-3 col-xs-6">
+        <li class="col-md-3 col-xs-6 music-news">
             <a href="@Url.Action("detail","store",new { id=item.ID})">
                 <img alt="@item.Title" src="@item.AlbumArtUrl" /><br />
                 <span>@item.Title</span>

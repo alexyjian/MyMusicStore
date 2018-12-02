@@ -17,6 +17,9 @@ a:hover{
 }
 
 /*nav*/
+.navbar-header{
+padding-right: 45%;
+}
 .top-nav ul li a{
     margin-right:20px;
 }
@@ -25,16 +28,16 @@ a:hover{
     padding-right: 10px;
     padding-top:5px;
 }
-.bg{
-    background-color: gray;
-}
 /*nav end*/
-
 /*Music List*/
 .list-group-item{
     padding-top: 15px;
 }
-
+.music-left{
+    width:250px;
+    float: left;
+    margin-left: 12px;
+}
 .music-dw{
     color: rgb(80, 144, 240);
     text-align: center;
@@ -47,17 +50,19 @@ a:hover{
 /*music-view*/
 .music-view{
     float: left;
-    margin-left: 60px;
+    margin-left: 30px;
+    text-align: center;
 }
-.music-view h2 {
-    text-align:left;
+.bg{
+    background-color: gray;
 }
-.row li a {
-    float:left;
-    text-align:center;
+.music-news  {
+  padding: 0;
+  padding-bottom: 10px;
+  text-align:center;
+ 
 }
 /*music-view  end*/
-
 /*music-store*/
 .music-store h2 {
     text-align:left;
