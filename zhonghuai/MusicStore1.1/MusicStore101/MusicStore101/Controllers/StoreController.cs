@@ -21,7 +21,7 @@ namespace MusicStore101.Controllers
             return View(datail);
         }
         /// <summary>
-        /// 按分类专辑
+        /// 按分类显示专辑
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -31,6 +31,15 @@ namespace MusicStore101.Controllers
             var list = _context.Albums.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublisherDate).ToList();
             return View(list);
          }
+
+        //显示所有的分类
+        public ActionResult Index()
+        {
+            var genres = _context
+                .Genre.OrderBy(x => x.Name).ToList();
+            return View(genres);
+        }
+        }
     }
+    
    
-}

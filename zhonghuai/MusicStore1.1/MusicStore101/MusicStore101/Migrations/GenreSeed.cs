@@ -78,7 +78,7 @@ namespace MusicStore101.Migrations
                     Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
 
                         new Album
-                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="民谣"),
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
                     Price =8.99m,Artist=artists.Single(a=>a.Name=="田馥甄"),AlbumArtUrl="/Content/Images/placeholder.gif"},
 
                           new Album
@@ -98,13 +98,126 @@ namespace MusicStore101.Migrations
                     Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
 
                                 new Album
-                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="民谣"),
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
                     Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
 
                                  new Album
                 { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="民谣"),
-                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"}
-        };/*.ForEach(n => _dbContext.Albums.Add(n));*/
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+
+                                 new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="摇滚"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+   new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="田馥甄"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+   
+      new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+         new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="田馥甄"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+            new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="摇滚"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+               new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="摇滚"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                  new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                     new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="爵士"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                        new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="爵士"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                           new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                     new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="爵士"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                               new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                                         new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="爵士"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                                                 new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="爵士"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                                                         new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="爵士"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                                                                 new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                                                                         new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="慢摇"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                                                                                 new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="蓝调"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+                                                                                                         new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="蓝调"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+
+
+                                new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="流行"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+
+                                new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="流行"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+
+                                new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="流行"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+
+                                new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="民谣"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+
+                                new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+
+                                new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="民谣"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+
+                                new Album
+                { Title = "The Best Of Men At Work",Genre=genres.Single(g=>g.Name=="电音"),
+                    Price =8.99m,Artist=artists.Single(a=>a.Name=="陈粒"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+
+            };/*.ForEach(n => _dbContext.Albums.Add(n));*/
             //_dbContext.SaveChanges();
             foreach (var a in alubms)
                 _dbContext.Albums.Add(a);
