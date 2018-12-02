@@ -27,8 +27,8 @@
             </div>
             <div class="top-nav">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">主页</a></li>
-                    <li><a href="#">商店</a></li>
+                    <li><a href="@Url.Action("index","home")">主页</a></li>
+                    <li><a href="@Url.Action("Store","Home")">商店</a></li>
                     <li class="active"><a href="#">登录</a></li>
                 </ul>
             </div>
@@ -36,8 +36,7 @@
     </nav>
     <div class="container">
         <ul class="row">
-            <li class="col-md-3">
-                <div class="music-left">
+            <li class="col-md-3 col-xs-12">
                     <div class="list-group">
                         <a href="#" class="list-group-item  bg">
                             <h4 class="list-group-item-heading ">
@@ -48,13 +47,10 @@
                         @Html.Partial("_GetGenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
                     </div>
                     <div class="music-dw">当前位置：</div>
-                </div>
             </li>
             <li class="col-md-9">
-                <div class="music-view">
                     @*操作区*@
                     @RenderBody()
-                </div>
             </li>
         </ul>
         <div class="row">

@@ -26,11 +26,11 @@ namespace MusicStore.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Store()
         {
-            ViewBag.Message = "Your contact page.";
+            var context = new EntityDbContext();
 
-            return View();
+            return View(context.Genres.OrderBy(x=>x.Name).ToList());
         }
 
     }

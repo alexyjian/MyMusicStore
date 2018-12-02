@@ -315,10 +315,12 @@
     <Content Include="Views\Shared\_newLayout.cshtml" />
     <Content Include="Views\Shared\_GetGenreMenu.cshtml" />
     <Content Include="Views\Home\View.cshtml" />
+    <Content Include="Views\Home\Store.cshtml" />
+    <Content Include="Views\Store\Browser.cshtml" />
+    <Content Include="Views\Store\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Store\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

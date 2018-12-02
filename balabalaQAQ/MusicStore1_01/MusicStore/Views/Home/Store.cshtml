@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MusicStoreEntity.Genre>
+@{
+    ViewBag.Title = "分类";
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+
+    
+}
+<div class="music-store">
+    <h2>所有音乐分类</h2>
+    <h2>本站共有 @Model.Count() 个分类</h2>
+    <ul class="row">
+        @foreach (var item in Model)
+        {
+            <li class="col-md-3 ">
+                <i class="glyphicon glyphicon-music"></i>@item.Name <br />@item.Albums.Count()
+            </li>
+        }
+    </ul>
+</div>
