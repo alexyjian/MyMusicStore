@@ -77,7 +77,7 @@ E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\MusicStorEntity.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\MusicStoreEntity.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Newtonsoft.Json.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Net.Http.Formatting.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Helpers.dll
@@ -90,7 +90,7 @@ E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.WebPages.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.WebPages.Razor.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\WebGrease.dll
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\MusicStorEntity.pdb
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\MusicStoreEntity.pdb
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\EntityFramework.xml
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\EntityFramework.SqlServer.xml
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml

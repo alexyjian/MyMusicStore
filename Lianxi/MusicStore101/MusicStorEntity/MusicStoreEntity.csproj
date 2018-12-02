@@ -7,8 +7,8 @@
     <ProjectGuid>{3114AC43-9F93-4852-88DF-D906215E2D46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MusicStorEntity</RootNamespace>
-    <AssemblyName>MusicStorEntity</AssemblyName>
+    <RootNamespace>MusicStoreEntity</RootNamespace>
+    <AssemblyName>MusicStoreEntity</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

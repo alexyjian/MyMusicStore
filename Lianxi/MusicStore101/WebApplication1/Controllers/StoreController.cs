@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using MusicStorEntity;
+using MusicStoreEntity;
 
 namespace MusicStore.Controllers
 {

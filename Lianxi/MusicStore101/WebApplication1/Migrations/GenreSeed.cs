@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicStoreEntity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace MusicStorEntity.Migrations
 {
     public class GenreSeed
     {
-        private static readonly MusicStorEntity.EntityDbContext _dbContext = new MusicStorEntity.EntityDbContext();
+        private static readonly MusicStoreEntity.EntityDbContext _dbContext = new MusicStoreEntity.EntityDbContext();
         public static void Seed()
         {
             _dbContext.Database.ExecuteSqlCommand("delete albums");

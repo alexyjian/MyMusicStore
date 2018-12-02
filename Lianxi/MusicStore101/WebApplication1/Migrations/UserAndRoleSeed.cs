@@ -10,7 +10,7 @@ namespace WebApplication1.Migrations
     public class UserAndRoleSeed : Controller
     {
         // GET: UserAndRoleSeed
-        private static readonly MusicStorEntity.EntityDbContext _dbContext = new MusicStorEntity.EntityDbContext();
+        private static readonly MusicStoreEntity.EntityDbContext _dbContext = new MusicStoreEntity.EntityDbContext();
 
         /// <summary>
         /// 添加角色

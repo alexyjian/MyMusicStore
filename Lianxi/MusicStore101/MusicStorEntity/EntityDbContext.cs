@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MusicStorEntity
+namespace MusicStoreEntity
 {
 
     //使用带用户认证权限机制的实体框架
