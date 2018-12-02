@@ -24,11 +24,6 @@ namespace MusicStore.Controllers
             return View(context.Genres.ToList());
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
-
         public string TestLogin(string username = "messi", string pwd = "123.abc")
         {
             var usermanager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
