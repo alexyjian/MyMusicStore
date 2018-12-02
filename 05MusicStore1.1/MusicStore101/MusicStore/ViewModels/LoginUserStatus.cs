@@ -31,6 +31,6 @@ namespace MusicStore.ViewModels
 
         public string RoleName { get; set; }  //用户角色
 
-        //此外还可以定义其它业务对象 购物车  订单 ……
+         //此外还可以定义其它业务对象 购物车  订单 ……
     }
 }

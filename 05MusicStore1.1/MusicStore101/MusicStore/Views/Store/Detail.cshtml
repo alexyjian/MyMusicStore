@@ -1,14 +1,14 @@
-﻿阿飞 2018/12/2 11:38:26
-@model MusicStoreEntity.Album
+﻿@model MusicStoreEntity.Album
+
 @{
-    ViewBag.Title = "专辑明细";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+    ViewBag.Title = "专辑明细";
 }
 
 <h2>@Model.Title</h2>
 
 <p>
-    <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
+    <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
 </p>
 
 <div id="album-details">
@@ -42,4 +42,5 @@
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
+
 </div>

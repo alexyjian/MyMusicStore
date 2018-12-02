@@ -24,7 +24,7 @@ namespace MusicStore.Controllers
         /// </summary>
         /// <param name="returnUrl">登录成功后跳转地址</param>
         /// <returns></returns>
-        public ActionResult Login(string returnUrl = null)
+        public ActionResult Login(string returnUrl=null)
         {
             if (string.IsNullOrEmpty(returnUrl))
                 ViewBag.ReturnUrl = Url.Action("index", "home");
@@ -42,8 +42,8 @@ namespace MusicStore.Controllers
             {
                 var loginStatus = new LoginUserStatus()
                 {
-                    IsLogin = false,
-                    Message = "用户或密码错误",
+                     IsLogin =  false,
+                    Message =  "用户或密码错误",
                 };
                 //登录处理
                 var userManage =
@@ -53,7 +53,7 @@ namespace MusicStore.Controllers
                 {
                     var roleName = "";
                     var context = new EntityDbContext();
-                    foreach (var role in user.Roles)
+                    foreach (var  role in user.Roles)
                     {
                         roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + ",";
                     }

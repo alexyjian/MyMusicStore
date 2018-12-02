@@ -13,7 +13,7 @@ namespace MusicStoreEntity
     {
         public Guid ID { get; set; }
         public string Name { get; set; }
-        public bool Sex { get; set; } =true;
+        public bool Sex { get; set; } = true;
         public string Description { get; set; }
 
         public Artist()

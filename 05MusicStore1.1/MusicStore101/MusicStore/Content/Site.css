@@ -71,7 +71,7 @@ ul {
 
                 ul#album-list li a span {
                     color: #9b9993;
-                    text-decoration: underline;
+                    text-decoration: none;
                 }
 
 #cart {
@@ -281,7 +281,7 @@ tr:hover {
     background-color: #fff;
 }
 
-#album-list{
-    color:red;
+#album-Link {
+    color: #5d5a53;
     font-size: 12px;
 }
