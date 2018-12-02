@@ -15,7 +15,7 @@ namespace MusicStore.Migrations
         {
             _dbContext.Database.ExecuteSqlCommand("delete genres");
             _dbContext.Database.ExecuteSqlCommand("delete artists");
-            _dbContext.Database.ExecuteSqlCommand("delete albums");
+            _dbContext.Database.ExecuteSqlCommand("delete Albums");
 
             var genres = new List<Genre>()
             {
@@ -80,37 +80,37 @@ namespace MusicStore.Migrations
                 new Album
                 {
                     Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "摇滚"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" 
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/1.jpg"
                 },
 
                    new Album
                 {
                     Title = "The Best Of Men Work", Genre = genres.Single(g => g.Name == "慢摇"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/2.jpg"
                 },
 
                       new Album
                 {
                     Title = "The BestAt Work", Genre = genres.Single(g => g.Name == "爵士"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/1.jpg"
                 },
 
                          new Album
                 {
                     Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/1.jpg"
                 },
 
                      new Album
                 {
                     Title = "The Of Men At Work", Genre = genres.Single(g => g.Name == "流行"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/2.jpg"
                 },
 
                         new Album
                 {
                     Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/2.jpg"
                 },
 
                     new Album
@@ -134,7 +134,7 @@ namespace MusicStore.Migrations
                    new Album
                 {
                     Title = "The Best Of Men Work", Genre = genres.Single(g => g.Name == "爵士"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/2.jpg"
                 },
 
                       new Album
@@ -152,13 +152,13 @@ namespace MusicStore.Migrations
                      new Album
                 {
                     Title = "The Of Men At Work", Genre = genres.Single(g => g.Name == "拉丁"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/2.jpg"
                 },
 
                         new Album
                 {
                     Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/2.jpg"
                 },
 
                     new Album
@@ -167,40 +167,85 @@ namespace MusicStore.Migrations
                     Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
                 },
 
+
+
+
+
                        new Album
                 {
                     Title = "TheWork", Genre = genres.Single(g => g.Name == "嘻哈"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
                 },
                                          new Album
                 {
                     Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
                 },
 
                      new Album
                 {
                     Title = "The Of Men At Work", Genre = genres.Single(g => g.Name == "拉丁"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
                 },
 
                         new Album
                 {
                     Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
                 },
+
+
+
 
                     new Album
                 {
                     Title = "The Best Of Men At", Genre = genres.Single(g => g.Name == "拉丁"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
                 },
 
                        new Album
                 {
-                    Title = "TheWork", Genre = genres.Single(g => g.Name == "流行"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Title = "TheWork", Genre = genres.Single(g => g.Name == "嘻哈"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
                 },
+                                         new Album
+                {
+                    Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+                        new Album
+                {
+                    Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+
+
+
+         new Album
+                {
+                    Title = "The Best Of Men At", Genre = genres.Single(g => g.Name == "拉丁"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                       new Album
+                {
+                    Title = "TheWork", Genre = genres.Single(g => g.Name == "嘻哈"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="张杰"),AlbumaArtUrl ="/Content/Images/3.jpg"
+                },
+                                         new Album
+                {
+                    Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="张杰"),AlbumaArtUrl ="/Content/Images/3.jpg"
+                },
+                        new Album
+                {
+                    Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="张杰"),AlbumaArtUrl ="/Content/Images/3.jpg"
+                },
+
+
+
 
 
             }.ForEach(n => _dbContext.Albums.Add(n));
