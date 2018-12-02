@@ -3,25 +3,28 @@
     ViewBag.Title = "分类";
     Layout = "~/Views/Shared/_newLayout.cshtml";
 
-    
+
 }
 <div class="music-store">
     <h2>所有音乐分类</h2>
     <h2>本站共有 @Model.Count() 个分类</h2>
-    <ul class="row">
+
         @foreach (var item in Model)
         {
-            <li class="col-md-3 ">
-                <i class="glyphicon glyphicon-cd"></i>@item.Name <br />@item.Albums.Count()
-             @if (item.Albums.Count>0)
-             {
-                 <em>:</em>
-                 foreach (var ab in item.Albums.Take(3))
-                 {
-                     <a href="@Url.Action("Detail",new { id=ab.ID})"></a>
-                 }
-             }
-               </li>
+            
+                <i class="glyphicon glyphicon-music"></i>@item.Name  @item.Albums.Count()
+                if (item.Albums.Count > 0)
+                {
+                    <b>:</b>
+                    foreach (var ab in item.Albums.Take(3))
+                    {
+                        <a href="@Url.Action("Detail",new { id=ab.ID})">
+                            <i class="glyphicon glyphicon-cd"></i>
+                            <span>@(ab.Title)&nbsp&nbsp</span>
+                        </a>
+                    }
+                }
+        
         }
-    </ul>
+
 </div>
