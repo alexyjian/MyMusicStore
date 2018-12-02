@@ -26,8 +26,17 @@ namespace MusicStore.Controllers
         public ActionResult Browser(Guid id)
         {
             var list = _Context.Ablums.Where(x => x.Genre.ID == id)
-                .OrderByDescending(x => x.PublisherDate).ToString();
+                .OrderByDescending(x => x.PublisherDate).ToList();
             return View(list);
+        }
+        /// <summary>
+        /// 显示所有的分类
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            var genres = _Context.Genres.OrderBy(x => x.Name).ToList();
+            return View(genres);
         }
     }
 }
