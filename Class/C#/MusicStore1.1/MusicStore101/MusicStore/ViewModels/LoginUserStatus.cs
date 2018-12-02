@@ -37,5 +37,7 @@ namespace MusicStore.ViewModels
         public ApplicationUser User { get; set; }
 
         public Person Person { get; set; }
+
+        public string RoleName { get; set; }
     }
 }
