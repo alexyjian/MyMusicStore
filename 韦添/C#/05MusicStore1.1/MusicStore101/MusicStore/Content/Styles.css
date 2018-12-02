@@ -280,3 +280,8 @@ th, td {
 tr:hover {
     background-color: #fff;
 }
+
+#album-Link {
+    color: #5d5a53;
+    font-size: 12px;
+}

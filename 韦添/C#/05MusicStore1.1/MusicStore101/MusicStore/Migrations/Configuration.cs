@@ -18,7 +18,6 @@ namespace MusicStore.Migrations
             //UserAndRoleSeed.AddUsers();
             GenreSeed.Seed();
             GenreSeed.Extend();
-
         }
     }
 }
