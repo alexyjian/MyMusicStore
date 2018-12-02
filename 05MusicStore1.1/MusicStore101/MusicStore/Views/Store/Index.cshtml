@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MusicStoreEntity.Genre>
+
+@{
+    ViewBag.Title = "所有音乐分类";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>所有音乐分类</h2>
+<p>本站共有 @Model.Count() 个分类</p>
+
+<ul class="list-unstyled">
+    @foreach (var item in Model)
+    {
+        <li>
+            <i class="glyphicon glyphicon-music"></i>
+            @Html.ActionLink(item.Name,"Browser","Store",new {id=item.ID},null)
+            (@item.Albums.Count)
+            @*显示前5个该分类的专辑*@
+            @if (item.Albums.Count > 0)
+            {
+                <b>:</b>
+                foreach (var ab in item.Albums.Take(5))
+                {
+                    <a href="@Url.Action("Detail",new {id=ab.ID})">
+                        <i class="glyphicon glyphicon-cd"></i>
+                        <span>@(ab.Title) &nbsp;&nbsp;</span>
+                    </a>
+                }
+            }
+        </li>
+    }
+</ul>
