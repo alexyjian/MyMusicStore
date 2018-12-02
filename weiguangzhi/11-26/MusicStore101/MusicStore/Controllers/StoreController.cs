@@ -31,13 +31,6 @@ namespace MusicStore.Controllers
             var genres = _context.Genres.OrderBy(x => x.Name).ToList();
             return View(genres);
         }
-        public ActionResult Login()
-        {
-            return View();
-        }
-        public ActionResult Register()
-        {
-            return View();
-        }
+       
     }
 }
