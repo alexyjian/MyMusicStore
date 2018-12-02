@@ -15,7 +15,7 @@ namespace MusicStore.Migrations
         {
             _dbContext.Database.ExecuteSqlCommand("delete genres");
             _dbContext.Database.ExecuteSqlCommand("delete artists");
-            //_dbContext.Database.ExecuteSqlCommand("delete albums");
+            _dbContext.Database.ExecuteSqlCommand("delete albums");
 
             var genres = new List<Genre>()
             {
@@ -83,12 +83,55 @@ namespace MusicStore.Migrations
                     Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" 
                 },
 
+                   new Album
+                {
+                    Title = "The Best Of Men Work", Genre = genres.Single(g => g.Name == "慢摇"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
-                  new Album {Title="2", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                   new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                        new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="易烊千玺"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                   new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周杰伦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                             new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
+                //      new Album
+                //{
+                //    Title = "The BestAt Work", Genre = genres.Single(g => g.Name == "爵士"),
+                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                //},
+
+                //         new Album
+                //{
+                //    Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
+                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                //},
+
+                //     new Album
+                //{
+                //    Title = "The Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                //},
+
+                //        new Album
+                //{
+                //    Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                //},
+
+                //    new Album
+                //{
+                //    Title = "The Best Of Men At", Genre = genres.Single(g => g.Name == "摇滚"),
+                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                //},
+
+                //       new Album
+                //{
+                //    Title = "TheWork", Genre = genres.Single(g => g.Name == "蓝调"),
+                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                //},
+
+
+
+                  //new Album {Title="2", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
+                  // new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
+                  //      new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="易烊千玺"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
+                  // new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周杰伦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
+                  //           new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
                 //   new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="林俊杰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
                 //        new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="半阳"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
                 //   new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="陈奕迅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },

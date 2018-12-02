@@ -12,9 +12,10 @@
         @foreach(var item in Model)
         {
             <li>
-                <a href="@Url.Action("detail","store",new { id=item.ID})">
+                <a href="@Url.Action("detail","Store",new { id=item.ID})">
                 <img alt="@item.Title" src="@item.AlbumaArtUrl"/>
-                   
+                   <span>@item.Artist.Name</span><br/>
+                    <span>@item.Title</span>
                 </a>
             </li>
         }

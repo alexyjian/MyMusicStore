@@ -23,10 +23,20 @@ namespace MusicStore.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public ActionResult Browaer(Guid id)
+        public ActionResult Browser(Guid id)
         {
             var list = _context.Albums.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublisherDate).ToList();
             return View(list);
         }
+        /// <summary>
+        /// 显示所有分类
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            var genres = _context.Genres.OrderBy(x =>x.Name).ToList();
+            return View(genres);//返回到视图
+        }
+
     }
 }
