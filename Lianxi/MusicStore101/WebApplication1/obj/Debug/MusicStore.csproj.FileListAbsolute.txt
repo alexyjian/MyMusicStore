@@ -55,7 +55,6 @@ D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Web
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\obj\Debug\WebApplication1.dll
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\obj\Debug\WebApplication1.pdb
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\roslyn\csc.exe
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -80,7 +79,10 @@ E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\MusicStorEntity.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Newtonsoft.Json.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Net.Http.Formatting.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Helpers.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.WebHost.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Mvc.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Optimization.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Razor.dll
@@ -94,6 +96,9 @@ E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Net.Http.Formatting.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.WebHost.xml
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Helpers.xml
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Mvc.xml
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Optimization.xml
@@ -103,6 +108,9 @@ E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.WebPages.Razor.xml
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Antlr3.Runtime.pdb
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\Newtonsoft.Json.xml
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Http.resources.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Helpers.resources.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Mvc.resources.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Optimization.resources.dll
@@ -110,14 +118,6 @@ E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\WebApplication1.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\WebApplication1.pdb
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Net.Http.Formatting.dll
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.dll
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.WebHost.dll
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Net.Http.Formatting.xml
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.xml
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.WebHost.xml
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Http.resources.dll
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Http.WebHost.resources.dll

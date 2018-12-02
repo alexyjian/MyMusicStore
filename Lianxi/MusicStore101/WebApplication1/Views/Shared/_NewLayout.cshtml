@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title - 音乐商店</title>
+    <title>@ViewBag.Title - 音乐商店</title>    
     @*绑定样式库*@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/modernizr")
@@ -27,28 +27,26 @@
             <li><a href="@Url.Action("","")">登录</a></li>
         </ul>
     </div>
-    <div class="container">
+    <div class="container"> 
         <div class="row">
             <div class="col-md-3">
                 @*左侧导航*@
                 @Html.Partial("_GetGenreMenu",
-               new MusicStorEntity.EntityDbContext().Genres.ToList())
-                
+                    new MusicStorEntity.EntityDbContext().Genres.ToList())
             </div>
             <div class="col-md-9">
-                <div>
-                    @*操作区*@
-                    @RenderBody()
-                 
-                </div>
+                @*操作区*@
+                @RenderBody()
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    @*底部*@
-                    @Html.Partial("_FooterLayout")
-                </div>
         </div>
-        @*继承此布局页的页面执行脚本的位置*@
-        @RenderSection("scripts", required: false)
+        <div class="row">
+            <div class="col-md-12">
+                @*底部*@
+                @Html.Partial("_FooterLayout")
+            </div>
+        </div>
+    </div>
+    @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false)
 </body>
 </html>

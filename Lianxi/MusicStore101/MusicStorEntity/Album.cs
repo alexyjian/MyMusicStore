@@ -9,15 +9,22 @@ namespace MusicStorEntity
     /// <summary>
     /// 专辑
     /// </summary>
-   public class Album
+    public class Album
     {
         public Guid ID { get; set; }
         public string Title { get; set; }//专辑名称
         public decimal Price { get; set; }
+
+
+
+
+
+
         //所属分类
         public virtual Genre Genre { get; set; }
         //分类主键值
         public string GenreId { get; set; }
+        //歌手
         public virtual Artist Artist { get; set; }
         //歌手的主键值
         public string ArtistId { get; set; }
@@ -33,5 +40,5 @@ namespace MusicStorEntity
             ID = Guid.NewGuid();
             PublisherDate = DateTime.Now;
         }
-        }
+    }
 }

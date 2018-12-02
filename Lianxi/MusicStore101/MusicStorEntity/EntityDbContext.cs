@@ -34,8 +34,7 @@ namespace MusicStorEntity
         public IDbSet<Artist> Artists { get; set; }
         public IDbSet<Album> Albums { get; set; }
 
-        #endregion
-        #region 用户与角色的实体
+       
 
     }
 
