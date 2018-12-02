@@ -1,0 +1,41 @@
+﻿@model MusicStoreEntity.Albun
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+ <p>
+     <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
+<p> 
+    <em>
+        分类：
+    </em>
+    @Model.Genre.Name
+</p>
+<p>
+    <em>
+        发布时间：
+    </em>
+    @Model.PublsherDate.ToString("yyyy年MM月dd日");
+</p>
+<p>
+    <em>
+        歌手：
+    </em>
+    @Model.Artist.Name
+</p>
+
+
+<p>
+    <em>
+        价格：
+    </em>
+    @string.Format("{0:F}",Model.Price)
+</p>
+
+<div id="msg"></div>
+<p>
+    <a class="btn" id="">添加到购物车</a>
+</p>

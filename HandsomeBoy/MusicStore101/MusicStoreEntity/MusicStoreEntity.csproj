@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Albun.cs" />
+    <Compile Include="Artist.cs" />
     <Compile Include="EntityDbContext.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
