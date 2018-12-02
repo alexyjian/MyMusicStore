@@ -76,7 +76,7 @@ namespace MusicStore.Migrations
             var albums = new List<Album>
             {
            
-             new Album { Title="演员",Genre=genres.Single(g=>g.Name=="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="薛之谦"),AlbumArtUrl="/Content/Images/"},
+             new Album { Title="演员",Genre=genres.Single(g=>g.Name=="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="薛之谦"),AlbumArtUrl="/Content/Images/XZQ.PNG"},
              new Album { Title="意外",Genre=genres.Single(g=>g.Name=="流行"),Price=7.99M,Artist=artists.Single(a=>a.Name=="薛之谦"),AlbumArtUrl="/Content/Images/XZQ.PNG"},
              new Album { Title="哑巴",Genre=genres.Single(g=>g.Name=="流行"),Price=6.99M,Artist=artists.Single(a=>a.Name=="薛之谦"),AlbumArtUrl="/Content/Images/XZQ.PNG"},
              new Album { Title="像风一样的男子",Genre=genres.Single(g=>g.Name=="摇滚"),Price=9.99M,Artist=artists.Single(a=>a.Name=="华晨宇"),AlbumArtUrl="/Content/Images/placeholder.gif"},

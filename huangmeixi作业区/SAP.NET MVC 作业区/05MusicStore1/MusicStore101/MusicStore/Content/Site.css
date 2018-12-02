@@ -45,6 +45,13 @@ ul li a {
     float: left;
 }
 
+
+
+#album-list li a img
+{
+    width:100px;
+    height:75px;
+}
 ul {
     list-style-type: square;
     margin-left: 25px;
