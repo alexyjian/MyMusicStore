@@ -12,19 +12,17 @@
         {
             <li>
                 <i class="glyphicon glyphicon-music"></i>
-                @Html.ActionLink(item.Name,"Browser","Store",new {id=item.ID},null)
-                (@item.Albums.Count()) 
-                @foreach(var st in item.Albums) {
-                    if (s<5)
+                @Html.ActionLink(item.Name, "Browser", "Store", new { id = item.ID }, null)
+                (@item.Albums.Count())
+                @if (item.Albums.Count() > 0)
+                {
+                    <em>:</em>
+                    foreach (var ab in item.Albums.Take(5))
                     {
-                       
-                        @Html.ActionLink(st.Title+ "    ", "Detail", "Store", new { id =st.ID }, null) 
-                        s++;
-                    }
-                    else
-                    {
-                        s = 0;
-                        break;
+                       <a href="@Url.Action("Detail",new {id=ab.ID})">
+                            <i class="glyphicon glyphicon-cd"></i>
+                            <span>@(@ab.Title) &nbsp;&nbsp;</span>
+                        </a>
                     }
                 }
 
@@ -32,4 +30,3 @@
         }
     </ul>
 </div>
-
