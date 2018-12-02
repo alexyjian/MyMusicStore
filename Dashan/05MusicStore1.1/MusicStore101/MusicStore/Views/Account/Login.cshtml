@@ -1,32 +1,55 @@
-﻿@model  MusicStore.ViewMoldels.LoginViewModel
+﻿
+@using  MusicStore.ViewMoldels
+@model  MusicStore.ViewMoldels.LoginViewModel
+
 @{
     ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+    var msg = "";
+    if (ViewBag.LoginUserStatus != null)
+    {
+        msg = (ViewBag.LoginUserStatus as LoginUserStatus).Message;
+    }
 }
 <h2>用户登录</h2>
 <p> 如果没有用户名就戳一下 @Html.ActionLink("这里" ,"Register")</p>
 
-
+@*BeginForm指  Mvc中的表单*@
+@using (Html.BeginForm("login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{ 
 <div>
     <fieldset>
+
         <legend>账户信息</legend>
-        <div class="editor-lable">
-            @Html.LabelFor(x=>x.UserName)
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.UserName)
         </div>
+
+
         <div class="editor-field">
             @Html.TextBoxFor(x=>x.UserName,new {placeholder = "请输入用户名登录"})
             @Html.ValidationMessageFor(x=>x.UserName)
         </div>
 
-        <div class="editor-lable">
-            @Html.PasswordFor(x=>x.PassWord,new { placeholder = " 请输入登录密码" })
-            @Html.ValidationMessageFor(x=>x.PassWord)
+        <div  class="editor-label">
+            @Html.LabelFor(x=>x.PassWord)
         </div>
 
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = " 请输入登录密码" })
+                @Html.ValidationMessageFor(x => x.PassWord)
+            </div>
+           <p class="text-danger">
+               @msg
+
+           </p>
         <p>
-            <input  type="submit" value="登录" class="btn btn-success" style="width: 70px"/>
+            <input type="submit" value="登录" class="btn btn-success" style="width: 70px" />
         </p>
-    </fieldset>
+</fieldset>
 </div>
+}
 
 
