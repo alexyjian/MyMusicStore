@@ -32,7 +32,8 @@ namespace MusicStore.Migrations
         };
             foreach (var g in genres)
                 dbContext.Genres.Add(g);
-           var artists = new List<Artist>()
+            dbContext.SaveChanges();
+            var artists = new List<Artist>()
             {
                 new Artist() { Name="张杰",Sex=true,Description="中国著名男歌手"},
                 new Artist() { Name="林俊杰",Sex=true,Description="中国著名男歌手"},
@@ -49,7 +50,7 @@ namespace MusicStore.Migrations
             };
             foreach (var a in artists)
                 dbContext.Artists.Add(a);
-
+            dbContext.SaveChanges();
             var albums=new List<Album>()
             {
                 new Album() { Title="剑心",Genre=genres.Single(g=>g.Name=="流行"),Price=2.20M,Artist=artists.Single(a=>a.Name=="张杰"),AlbumArtUrl="/Content/Images/placeholder.gif"},
@@ -110,7 +111,7 @@ namespace MusicStore.Migrations
                 new Album() { Title="无心",Genre=genres.Single(g=>g.Name=="流行"),Price=2.20M,Artist=artists.Single(a=>a.Name=="小缘"),AlbumArtUrl="/Content/Images/placeholder.gif"},
                 new Album() { Title="aliez",Genre=genres.Single(g=>g.Name=="流行"),Price=2.20M,Artist=artists.Single(a=>a.Name=="小缘"),AlbumArtUrl="/Content/Images/placeholder.gif"},
                 new Album() { Title="温柔之诗",Genre=genres.Single(g=>g.Name=="流行"),Price=2.20M,Artist=artists.Single(a=>a.Name=="小缘"),AlbumArtUrl="/Content/Images/placeholder.gif"},
-                new Album() { Title="平安经年",Genre=genres.Single(g=>g.Name=="摇滚"),Price=2.20M,Artist=artists.Single(a=>a.Name=="小缘"),AlbumArtUrl = "/MusicStore101/MusicStore/Content/Images/placeholder.gif" },
+                new Album() { Title="平安经年",Genre=genres.Single(g=>g.Name=="摇滚"),Price=2.20M,Artist=artists.Single(a=>a.Name=="小缘"),AlbumArtUrl = "/Content/Images/placeholder.gif" },
                 new Album() { Title="最后的夏天",Genre=genres.Single(g=>g.Name=="嘻哈"),Price=2.20M,Artist=artists.Single(a=>a.Name=="小缘"),AlbumArtUrl="/Content/Images/placeholder.gif"}
 
             };
