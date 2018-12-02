@@ -9,14 +9,14 @@ namespace MusicStore.ViewModels
     /// <summary>
     /// 用户登录时的状态
     /// </summary>
-    public class LoginUserViewModel
+    public class LoginUserStatus
     {
         //是否登录成功
         public bool IsLogin { get; set; }
         //登录成功或失败的信息
         public string Message { get; set; }
         //登录成功后跳转的控制器
-        public string GotoContrller { get; set; }
+        public string GotoController { get; set; }
         //登录成功后跳转的方法
         public string GotoAction { get; set; }
     }
