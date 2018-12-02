@@ -22,11 +22,26 @@ namespace MusicStoreWeb.Controllers
             return View(detail);
         }
 
+        /// <summary>
+        /// 按分类显示专辑
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Browser(Guid id)
         {
             var list = _context.Albums.Where(x => x.Genre.ID == id)
                 .OrderByDescending(x => x.PublisherDate).ToList();
             return View(list);
+        }
+
+        /// <summary>
+        /// 显示所有的分类
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            var genres = _context.Genres.OrderBy(x => x.Name).ToList();
+            return View(genres);
         }
     }
 }
