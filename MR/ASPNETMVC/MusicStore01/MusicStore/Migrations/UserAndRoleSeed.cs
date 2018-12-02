@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using UserAndRole;
 
 namespace MusicStore.Migrations
 {
@@ -57,10 +58,10 @@ namespace MusicStore.Migrations
                 CredentialsCode = "4500002015010112345",
                 Birthday = DateTime.Parse("2015-01-01"),
                 Sex = true,
-                MobileNumber = "13833883388",
-                Email = "messi@163.com",
+                MobileNumber = "11111111",
+                Email = "messi@qq.com",
                 CreateDateTime = DateTime.Now,
-                TelephoneNumber = "3158899",
+                TelephoneNumber = "123456",
                 Description = "超级管理员",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
@@ -71,8 +72,8 @@ namespace MusicStore.Migrations
                 FirstName = "梅",
                 LastName = "西",
                 ChineseFullName = "梅西",
-                MobileNumber = "13833883388",
-                Email = "messi@163.com",
+                MobileNumber = "1111111",
+                Email = "messi@qq.com",
                 Person =person1,
             };
             //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户

@@ -35,11 +35,8 @@ namespace MusicStore.Migrations
 
             var artists = new List<Artist>()
             {
-                new Artist() {Name = "蔡健雅", Sex = false, Description = "代表作《红色高跟鞋》。"},
-                new Artist() {Name = "周杰伦", Sex = tr, Description = "代表作《以父之名》"},
-                new Artist { Name = "周杰伦" },
-                new Artist { Name = "蔡健雅" },
-              
+                new Artist() {Name = "蔡健雅", Sex = false, Description = "代表作《红色高跟鞋》"},
+                new Artist() {Name = "周杰伦", Sex = false, Description = "代表作《以父之名》"},
             };
             foreach (var a in artists)
                 _dbContext.Artists.Add(a);
@@ -50,15 +47,16 @@ namespace MusicStore.Migrations
             {
                 new Album
                 {
-                    Title = "叶惠美", Genre = genres.Single(g => g.Name == "古典"), Price = 8.99M,
-                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/placeholder.gif"
+                    Title = "红色高跟鞋", Genre = genres.Single(g => g.Name == "摇滚"), Price = 8.99M,
+                    Artist = artists.Single(a => a.Name == "蔡健雅"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Album
                 {
-                    Title = "红色高跟鞋", Genre = genres.Single(g => g.Name == "摇滚"),
-                    Price = 8.99M, Artist = artists.Single(a => a.Name == "蔡健雅"),
+                    Title = "叶惠美", Genre = genres.Single(g => g.Name == "古典"),
+                    Price = 8.99M, Artist = artists.Single(a => a.Name == "周杰伦"),
                     AlbumArtUrl = "/Content/Images/placeholder.gif"
-                },              
+                },
+              
             }.ForEach(n => _dbContext.Albums.Add(n));
             _dbContext.SaveChanges();
         }
