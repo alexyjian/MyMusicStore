@@ -27,5 +27,7 @@ namespace MusicStore.Controllers
                 .OrderByDescending(x => x.PublisherDate).ToList();
             return View(list);
         }
+
+
     }
 }

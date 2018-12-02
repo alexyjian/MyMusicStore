@@ -25,7 +25,10 @@ namespace MusicStore.Controllers
 
             return View();
         }
-
+        /// <summary>
+        /// 显示所有的分类
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Store()
         {
             var context = new EntityDbContext();
