@@ -11,7 +11,7 @@
     width: 100%;
     border-bottom: 1px dotted #5d5a53;
     margin-bottom: 10px;
-    background-color: rgb(158, 134, 134);
+    background-color: rgb(214, 201, 136);
 
 }
 .one{
@@ -92,9 +92,9 @@ li {
     float: left;
 }
 #footer {
-    margin-top: 50px;
+    margin-top: 60px;
     clear: both;
-    padding: 25px;
+    padding: 20px;
     text-align: center;
     border-top: 1px dotted #8a8575;
     border-bottom: 1px dotted #8a8575;
