@@ -179,5 +179,17 @@ body {
              color: #f6855e;
 
         }
-.Login {
+.login {
+    margin:0 auto;
+    width:400px;
+    height:200px;
+}
+.login-pane {
+    background-color:white;
+}
+.anniu {
+     display: block;
+     margin-left:350px;
+     margin-top:-25px;
+      text-decoration: none;
 }
