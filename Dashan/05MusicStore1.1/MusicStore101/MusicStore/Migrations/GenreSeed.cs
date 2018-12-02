@@ -89,341 +89,119 @@ namespace MusicStore.Migrations
                     Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
                 },
 
-                //      new Album
-                //{
-                //    Title = "The BestAt Work", Genre = genres.Single(g => g.Name == "爵士"),
-                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
-                //},
+                      new Album
+                {
+                    Title = "The BestAt Work", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
-                //         new Album
-                //{
-                //    Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
-                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
-                //},
+                         new Album
+                {
+                    Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
-                //     new Album
-                //{
-                //    Title = "The Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
-                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
-                //},
+                     new Album
+                {
+                    Title = "The Of Men At Work", Genre = genres.Single(g => g.Name == "流行"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
-                //        new Album
-                //{
-                //    Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
-                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
-                //},
+                        new Album
+                {
+                    Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
-                //    new Album
-                //{
-                //    Title = "The Best Of Men At", Genre = genres.Single(g => g.Name == "摇滚"),
-                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
-                //},
+                    new Album
+                {
+                    Title = "The Best Of Men At", Genre = genres.Single(g => g.Name == "摇滚"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
-                //       new Album
-                //{
-                //    Title = "TheWork", Genre = genres.Single(g => g.Name == "蓝调"),
-                //    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
-                //},
+                       new Album
+                {
+                    Title = "TheWork", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
+                           new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
+                   new Album
+                {
+                    Title = "The Best Of Men Work", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
 
-                  //new Album {Title="2", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                  // new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                  //      new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="易烊千玺"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                  // new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周杰伦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                  //           new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="林俊杰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="半阳"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="陈奕迅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="毛不易"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="庄心妍"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="胡彦斌"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张韶涵"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张学友"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="蒋蒋"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="蒋家驹"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="刘德华"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李宇春"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="冯提莫"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张杰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="于文文"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="黑龙"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="贺一航"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="金玟岐"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周传雄"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王嘉尔"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="吴亦凡"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周柏豪"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="汪峰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="许巍"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //            new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //       new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //       new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //    new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" }, new Album {Title="1", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //  new Album {Title="2", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="易烊千玺"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周杰伦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="林俊杰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="半阳"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="陈奕迅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="毛不易"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="庄心妍"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="胡彦斌"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张韶涵"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张学友"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="蒋蒋"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="蒋家驹"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="刘德华"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李宇春"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="冯提莫"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张杰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="于文文"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="黑龙"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="贺一航"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="金玟岐"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周传雄"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王嘉尔"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="吴亦凡"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周柏豪"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="汪峰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="许巍"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //            new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //       new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //       new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //    new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" }, new Album {Title="1", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //  new Album {Title="2", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"), Price = 9.33M, Artist = artists.Single(a=>a.Name=="易烊千玺"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="", Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周杰伦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M, Artist = artists.Single(a=>a.Name=="林俊杰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="半阳"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="陈奕迅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "摇滚"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="毛不易"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="庄心妍"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="胡彦斌"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张韶涵"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张学友"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="蒋蒋"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="蒋家驹"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="刘德华"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李宇春"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "爵士"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="冯提莫"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="张杰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="于文文"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="黑龙"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="贺一航"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="金玟岐"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周传雄"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王嘉尔"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "慢摇"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="吴亦凡"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="周柏豪"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="汪峰"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="郑源"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="许巍"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "蓝调"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //            new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "流行"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //             new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="王菲"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "嘻哈"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //   new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="朴树"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "古典"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //       new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //       new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "重金属"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="简弘亦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //          new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //    new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="빅뱅"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "DJ"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //         new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //        new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
-                //      new Album {Title="",Genre = genres.Single(g=>g.Name == "拉丁"),Price = 9.33M,Artist = artists.Single(a=>a.Name=="李荣浩"),AlbumaArtUrl ="/Content/Images/placeholder.gif" },
+                      new Album
+                {
+                    Title = "The BestAt Work", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                         new Album
+                {
+                    Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                     new Album
+                {
+                    Title = "The Of Men At Work", Genre = genres.Single(g => g.Name == "拉丁"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                        new Album
+                {
+                    Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                    new Album
+                {
+                    Title = "The Best Of Men At", Genre = genres.Single(g => g.Name == "拉丁"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                       new Album
+                {
+                    Title = "TheWork", Genre = genres.Single(g => g.Name == "嘻哈"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+                                         new Album
+                {
+                    Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="charlie Puth"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                     new Album
+                {
+                    Title = "The Of Men At Work", Genre = genres.Single(g => g.Name == "拉丁"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                        new Album
+                {
+                    Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="杨坤"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                    new Album
+                {
+                    Title = "The Best Of Men At", Genre = genres.Single(g => g.Name == "拉丁"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
+                       new Album
+                {
+                    Title = "TheWork", Genre = genres.Single(g => g.Name == "流行"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="王力宏"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                },
+
 
             }.ForEach(n => _dbContext.Albums.Add(n));
             _dbContext.SaveChanges();
