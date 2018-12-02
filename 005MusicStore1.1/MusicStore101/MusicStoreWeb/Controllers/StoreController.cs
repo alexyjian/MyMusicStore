@@ -11,7 +11,7 @@ namespace MusicStoreWeb.Controllers
     {
         private static readonly EntityDbContext _context = new EntityDbContext();
         /// <summary>
-        /// 显示专辑的明细
+        /// 显示专辑明细
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
