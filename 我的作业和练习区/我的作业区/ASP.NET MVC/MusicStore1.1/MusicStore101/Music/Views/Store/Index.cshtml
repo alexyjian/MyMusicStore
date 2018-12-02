@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "所有的音乐分类";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+    int s = 0;
 }
 <div>
     <h3>一共有 @Model.Count()个音乐种类</h3>
@@ -12,7 +13,20 @@
             <li>
                 <i class="glyphicon glyphicon-music"></i>
                 @Html.ActionLink(item.Name,"Browser","Store",new {id=item.ID},null)
-                (@item.Albums.Count())
+                (@item.Albums.Count()) 
+                @foreach(var st in item.Albums) {
+                    if (s<5)
+                    {
+                       
+                        @Html.ActionLink(st.Title+ "    ", "Detail", "Store", new { id =st.ID }, null) 
+                        s++;
+                    }
+                    else
+                    {
+                        s = 0;
+                        break;
+                    }
+                }
 
             </li>
         }
