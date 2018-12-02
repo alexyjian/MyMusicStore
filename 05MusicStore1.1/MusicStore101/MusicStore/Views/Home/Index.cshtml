@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<MusicStoreEntity.Album>
+@{
     ViewBag.Titlb = "首页";
 }
 
@@ -7,14 +8,16 @@
 <h3><em>新歌</em>上架</h3>
 <div>
     <ul id="album-list">
-        @foreach (var item in Model)
+       @foreach (var item in Model)
         {
-            <li>
-                <a href="@Uri.Action("detail","store",new { id=item.ID})">
-                    <img alt="@item.Title" src="@item.AlbumArtUrl" />
-                    <span>@item.Artist.Name</span><br /><span>@item.Title</span>
-                </a>
-            </li>
-        }
+           <li>
+              <a href="@Url.Action("detail","store",new {id=item.ID})">
+                  <img alt="@item.Title" src="@item.AlbumArtUrl" />
+                  <span>@item.Artist.Name</span><br /><span>@item.Title</span>
+              </a>
+           </li>
+         }
     </ul>
 </div>
+
+
