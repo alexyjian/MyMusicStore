@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<MusicStoreEntity.Genre>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayzout.cshtml";
@@ -12,7 +13,23 @@
             <li>
                 <i class="glyphicon glyphicon-music"></i>
                 @Html.ActionLink(item.Name, "Browser", "store", new { id = item.ID }, null)
-                (@item.Albums.Count)
+                (@item.Albums.Count)：
+                @if (item.Albums.Count > 0)
+                {
+                    <em>:</em>
+                    foreach (var ab in item.Albums.Take(3))
+                    {
+                        <a href="@Url.Action("Detail", new { id=ab.ID})">
+                            <i class="glyphicon glyphicon-cd"></i>
+                            <span>@(ab.Title) &nbsp; &nbsp;</span>
+                        </a>
+                    }
+                }
+
+
+
+
+
 
             </li>
         }

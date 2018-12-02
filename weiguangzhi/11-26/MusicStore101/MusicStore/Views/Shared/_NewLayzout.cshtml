@@ -23,7 +23,7 @@
         <h1><a href="/">ASP.NET MVC 音乐商店</a></h1>
 
         <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="http://10.88.91.101:9000/">主页</a></li>
+            <li><a class="@Url.Action("Index", "Home")">主页</a></li>
             <li><a href="@Url.Action("Index", "store")">商店</a></li>
             <li><a href="@Url.Action("Login", "store")"> 登录 </a></li>
         </ul>

@@ -11,7 +11,7 @@
     width: 100%;
     border-bottom: 1px dotted #5d5a53;
     margin-bottom: 10px;
-    background-color: rgb(194, 170, 170);
+    background-color: rgb(189, 189, 189);
     border-radius:5px;
 }
 .one{
@@ -59,7 +59,7 @@ div {
 body {
     font-family: Arial,Helvetica,sans-serif;
     font-size: 14px;
-    background-color:rgb(236, 236, 236);
+    background-color:rgb(255, 255, 255);
     padding: 0 6%;
 }
 body {
@@ -67,7 +67,7 @@ body {
     font-size: 14px;
     line-height: 1.428571429;
     color: #333;
-    background-color: rgb(179, 176, 176);
+    background-color: rgb(255, 255,255);
 }
 .glyphicon {
     position: relative;
@@ -103,7 +103,7 @@ li {
     width: 75%;
     margin-left: 20%;
     
-    top: 7%;
+    top: -50px;
 
 }
 .col-md-3 ul li {
@@ -144,11 +144,7 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-a:link, a:visited {
-    color: #f6855e;
-    text-decoration: none;
-    font-weight: bold;
-}
+
 fieldset {
     border: #ffd400 1px solid;
     padding: 0 10px;
@@ -157,4 +153,18 @@ fieldset {
 }
 div.editor-field {
     margin-bottom: 10px;
+}
+.button, input[type=submit] {
+    clear: both;
+    display: inline-block;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px;
+    background: #5e5b54;
+    color: #fff;
+    font-weight: bold;
+}
+input[type=text], input[type=password], select {
+    border: 1px solid #000;
+    width: 300px;
 }
