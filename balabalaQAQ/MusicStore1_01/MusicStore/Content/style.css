@@ -25,6 +25,9 @@ a:hover{
     padding-right: 10px;
     padding-top:5px;
 }
+.bg{
+    background-color: gray;
+}
 /*nav end*/
 
 /*Music List*/
@@ -42,7 +45,7 @@ a:hover{
 }
 /*music-view*/
 .music-view{
-     float: left;
+    float: left;
     margin-left: 60px;
 }
 .music-view h2 {
@@ -62,4 +65,7 @@ a:hover{
     border:solid 1px black;
     text-align:center;
     font-size:14px;
+}
+.thumbnail {
+    border:0px;
 }
