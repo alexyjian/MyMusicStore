@@ -11,11 +11,17 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-2 col-sm-6">
-            <a href="@Url.Action("Detail","Store",new { id=item.ID})">
-                <img src="@item.AlbumArtUrl" alt="图片加载失败" />
-                <span>@item.Title - @item.Artist.Name</span>
-            </a>
+        <div class="col-md-4 col-sm-6">
+            <div class="thumbnail text-center">
+                <a href="@Url.Action("Detail","Store",new { id=item.ID})">
+                    <img src="@item.AlbumArtUrl"
+                         alt="通用的占位符缩略图">
+                    <div class="caption">
+                        <h5>@item.Title</h5>
+                        <p>@item.Artist.Name</p>
+                    </div>
+                </a>
+            </div>
         </div>
     }
 </div>
