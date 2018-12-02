@@ -30,6 +30,7 @@ body {
     }
 
 #promotion {
+    height: 150px;
     background: url(/Content/themes/base/images/home-showcase.png) no-repeat;
     background-size: 100% 100%;
 }
