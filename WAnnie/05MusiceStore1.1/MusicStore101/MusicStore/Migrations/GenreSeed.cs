@@ -51,137 +51,137 @@ namespace MusicStore.Migrations
                 new Ablum
                 {
                     Title = "吻别", Genre = genres.Single(g => g.Name == "流行"), Price = 10M,
-                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "好久不见", Genre = genres.Single(g => g.Name == "流行"), Price = 10M,
-                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "如果这不算爱", Genre = genres.Single(g => g.Name == "古典"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "不爱我就拉倒", Genre = genres.Single(g => g.Name == "摇滚"), Price = 30M,
-                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "等你下课", Genre = genres.Single(g => g.Name == "摇滚"), Price = 26M,
-                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "给我一首歌的时间", Genre = genres.Single(g => g.Name == "流行"), Price = 15M,
-                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "不能说的秘密", Genre = genres.Single(g => g.Name == "流行"), Price = 35M,
-                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "这就是爱", Genre = genres.Single(g => g.Name == "蓝调"), Price = 18M,
-                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "爱不解释", Genre = genres.Single(g => g.Name == "蓝调"), Price = 20M,
-                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "一路之下", Genre = genres.Single(g => g.Name == "古典"), Price = 30M,
-                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "只要平凡", Genre = genres.Single(g => g.Name == "流行"), Price = 26M,
-                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "不想想你", Genre = genres.Single(g => g.Name == "古典"), Price = 16M,
-                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "Precious", Genre = genres.Single(g => g.Name == "流行"), Price = 10M,
-                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "Precious", Genre = genres.Single(g => g.Name == "慢摇"), Price = 30M,
-                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "默", Genre = genres.Single(g => g.Name == "慢摇"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "相爱恨早", Genre = genres.Single(g => g.Name == "拉丁"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "一笑而过", Genre = genres.Single(g => g.Name == "慢摇"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "那又怎样", Genre = genres.Single(g => g.Name == "慢摇"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "相见不如怀念", Genre = genres.Single(g => g.Name == "慢摇"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "和你一样", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "动物世界", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "野蛮生长", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "无花果", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "1987我不知会遇见你", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "Shake It Off", Genre = genres.Single(g => g.Name == "蓝调"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "Red", Genre = genres.Single(g => g.Name == "蓝调"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Ablum
                 {
                     Title = "Delicate", Genre = genres.Single(g => g.Name == "蓝调"), Price = 25M,
-                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/img/placeholder.gif"
+                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
 
             }.ForEach(n => _dbContext.Ablums.Add(n));
