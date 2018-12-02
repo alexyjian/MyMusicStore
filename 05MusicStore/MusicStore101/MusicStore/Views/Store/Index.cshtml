@@ -15,7 +15,7 @@
                 (@item.Albums.Count):
             @if (item.Albums.Count > 0)
             {
-                <em>:</em>
+                
                 foreach (var ab in item.Albums.Take(5))
                 {
                     <a href="@Url.Action("Detail",new { id=ab.ID})" id="album-Link">
