@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Album.cs" />
+    <Compile Include="Artist.cs" />
     <Compile Include="EntityDbContext.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

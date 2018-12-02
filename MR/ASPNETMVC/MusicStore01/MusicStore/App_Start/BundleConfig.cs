@@ -27,15 +27,13 @@ namespace MusicStore
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css"));
 
-            //绑定jqueryUI的样式库
+            //绑定JqueryUI的样式库
             bundles.Add(new StyleBundle("~/Content/JqueryUI").Include(
-               "~/Content/themes/base/jquery-ui.css"
-               ));
-
-            //绑定jqueryUI的脚本库
-            bundles.Add(new StyleBundle("~/bundles/JqueryUI").Include(
-               "~/Content/themes/base/jquery-ui-{version}.js"
-               ));
+                "~/Content/themes/base/jquery-ui.css"
+                ));
+            //绑定JqueryUI的脚本库
+            bundles.Add(new ScriptBundle("~/bundles/JqueryUI").Include(
+                      "~/Content/themes/base/jquery-ui-{version}.js"));
         }
     }
 }
