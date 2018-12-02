@@ -20,7 +20,6 @@ D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.AspNet.Ident
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.Web.Infrastructure.dll
-D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\MusicStorEntity.dll
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\Newtonsoft.Json.dll
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Helpers.dll
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Mvc.dll
@@ -30,7 +29,6 @@ D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.WebPages.De
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.WebPages.dll
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.WebPages.Razor.dll
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\WebGrease.dll
-D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\MusicStorEntity.pdb
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\EntityFramework.xml
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\EntityFramework.SqlServer.xml
 D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\Microsoft.AspNet.Identity.Core.xml
@@ -121,3 +119,14 @@ E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\WebApplication1.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\MusicStoreEntity.dll
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Net.Http.Formatting.dll
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.dll
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.WebHost.dll
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\MusicStoreEntity.pdb
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Net.Http.Formatting.xml
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.xml
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\System.Web.Http.WebHost.xml
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Net.Http.Formatting.resources.dll
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Http.resources.dll
+D:\梁伟杰\GIT\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.Http.WebHost.resources.dll

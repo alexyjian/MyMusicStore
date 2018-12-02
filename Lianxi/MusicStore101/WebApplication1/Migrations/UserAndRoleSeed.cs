@@ -53,9 +53,9 @@ namespace WebApplication1.Migrations
             #region 管理员
             var person1 = new Person()
             {
-                FirstName = "梅",
-                LastName = "西",
-                Name = "梅西",
+                FirstName = "梁",
+                LastName = "伟",
+                Name = "梁伟杰",
                 CredentialsCode = "4500002015010112345",
                 Birthday = DateTime.Parse("2015-01-01"),
                 Sex = true,
