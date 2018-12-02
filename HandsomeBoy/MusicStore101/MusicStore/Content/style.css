@@ -6,10 +6,7 @@
 a,a:hover{
      text-decoration: none;
 }
- .album-list li a img{
-    width: 130px;
- height: 110px;
-}
+
 .col-md-6 h1
 {
     float: left;
@@ -85,9 +82,6 @@ h1 a,h3{
     text-align: center;
     
 }
-.album-list img{
-   width: 100px;
-}
 
 
 .album-list span {
@@ -115,4 +109,10 @@ footer{
     line-height: 80px;
     height: 80px;
     text-align: center;
+}
+
+
+ .album-list li a  img,album-list img{
+    width: 130px;
+ height: 110px;
 }

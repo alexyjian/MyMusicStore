@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<MusicStoreEntity.Genre>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
@@ -11,9 +12,9 @@
 <ul class="album-list">
     <li>
         <a href="@Url.Action("browser","store",new { item.ID})">
-            <img src="@item."/>
             <span>@item.Name</span>
             <span>@item.Albun.Count()</span>
+           
         </a>
     </li>
 </ul>

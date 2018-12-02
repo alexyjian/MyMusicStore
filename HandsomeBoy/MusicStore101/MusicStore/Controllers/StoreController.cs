@@ -31,7 +31,7 @@ namespace MusicStore.Controllers
         {
             var list = _context.Genres.OrderByDescending(x => x.Name).ToList();
             var list1 = _context.Albuns.OrderByDescending(x => x.PublsherDate).ToList();
-
+            
             return View(list);
 
         }
