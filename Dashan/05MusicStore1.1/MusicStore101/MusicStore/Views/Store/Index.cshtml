@@ -17,6 +17,7 @@
             <i class="glyphicon glyphicon-music"></i>
             @Html.ActionLink(item.Name, "Browser", "Store", new { id = item.ID }, null)
             (@item.Albums.Count )
+            @*显示前两个专辑分类*@
         </li>
     }
 </ul>
