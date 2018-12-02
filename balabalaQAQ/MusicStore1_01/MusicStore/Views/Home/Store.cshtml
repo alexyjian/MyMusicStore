@@ -12,8 +12,16 @@
         @foreach (var item in Model)
         {
             <li class="col-md-3 ">
-                <i class="glyphicon glyphicon-music"></i>@item.Name <br />@item.Albums.Count()
-            </li>
+                <i class="glyphicon glyphicon-cd"></i>@item.Name <br />@item.Albums.Count()
+             @if (item.Albums.Count>0)
+             {
+                 <em>:</em>
+                 foreach (var ab in item.Albums.Take(3))
+                 {
+                     <a href="@Url.Action("Detail",new { id=ab.ID})"></a>
+                 }
+             }
+               </li>
         }
     </ul>
 </div>
