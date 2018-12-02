@@ -1,0 +1,43 @@
+﻿@using MusicStore.ViewModels
+@model MusicStore.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+    var msg = "";
+    if (ViewBag.LoginUserStatus != null)
+    {
+        msg = (ViewBag.LoginUserStatus as LoginUserStatus).Message;
+    }
+}
+
+@using (Html.BeginForm("login", "Account", new { returnUrl = "" }, FormMethod.Post))
+{
+<div class="panel panel-default login login-pane">
+    <div class="panel-body">
+        用户登录
+    </div>
+    <div class="panel-footer login-pane">
+        
+            @Html.TextBoxFor(x => x.UserName, new { placeholder = "用户名", @class = "form-control  icon user" })<a href="#" class="glyphicon glyphicon-user anniu"></a>
+           <br />
+           @Html.ValidationMessageFor(x => x.UserName)
+            <br />
+            
+            @Html.TextBoxFor(x => x.PassWord, new { placeholder = "密码", @class = "form-control" })<a href="#" class="glyphicon glyphicon-lock anniu"></a>
+            <br />
+            @Html.ValidationMessageFor(x => x.PassWord)
+        <p class="text-danger">
+            @msg
+        </p>
+            <button type="submit" class="btn btn-primary">登录</button>
+        
+           
+            <button type="button" class="btn btn-success">注册</button>
+
+            <button type="button" class="btn btn-danger">返回</button>
+       
+    </div>
+</div>
+}
+

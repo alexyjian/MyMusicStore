@@ -182,11 +182,17 @@ body {
 .login {
     margin:0 auto;
     width:400px;
-    height:200px;
+    height:280px;
 }
 .login-pane {
-    background-color:white;
+    background-color:#fbf9ef;
+
 }
+    .login-pane  button {
+      margin-top:25px;
+      margin-left:5px;
+    }
+
 .anniu {
      display: block;
      margin-left:350px;

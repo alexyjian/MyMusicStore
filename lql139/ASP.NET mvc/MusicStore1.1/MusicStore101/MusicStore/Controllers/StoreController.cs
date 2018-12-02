@@ -30,9 +30,6 @@ namespace MusicStore.Controllers
             var context = new EntityDbContext();
             return View(context.Genres.OrderBy(x=>x.Name).ToList());
         }
-        public ActionResult Login()
-        {
-            return View();
-        }
+       
     }
 }
