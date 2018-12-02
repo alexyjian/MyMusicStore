@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
@@ -13,27 +14,15 @@ namespace MusicStore.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var context = new EntityDbContext();
+            var list = context.Albums.OrderByDescending(x => x.PublisherDate).Take(20).ToList();
+            return View(list);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-        
         ///<summary>
         ///测试登录
         ///</summary>
-        public string TestLogin(string username = "messi",string pwd = "123.abc")
+        public string TestLogin(string username = "hs", string pwd = "123.abc")
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
             var user = userManager.Find(username, pwd);
@@ -42,8 +31,8 @@ namespace MusicStore.Controllers
                 var roleName = "";
                 var context = new MusicStoreEntity.EntityDbContext();
                 foreach (var role in user.Roles)
-                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + "";
-                return "登录成功, 用户属于:" + roleName;
+                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + " ";
+                return "登录成功，用户属于:" + roleName;
             }
             else
                 return "登录失败";
