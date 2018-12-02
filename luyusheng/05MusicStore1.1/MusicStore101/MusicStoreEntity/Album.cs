@@ -18,7 +18,7 @@ namespace MusicStoreEntity
         //所属分类
         public virtual Genre Genre { get; set; }
         //分类的主键值
-        public string  GenreId { get; set; }
+        public string GenreId { get; set; }
         //歌手
         public virtual Artist Artist { get; set; }
         //歌手的主键值
@@ -26,7 +26,7 @@ namespace MusicStoreEntity
         //上架时间
         public DateTime PublisherDate { get; set; }
         //专辑的网址
-        public string AlbumArtUr { get; set; }
+        public string AlbumArtUrl { get; set; }
         public Album()
         {
             ID = Guid.NewGuid();

@@ -51,28 +51,28 @@ ul {
     font-size: 14px;
 }
 
-    ul#album-list {
-        list-style: none;
-        margin-left: 0px;
-    }
+ul#album-list{
+    list-style: none;
+    margin-left: 0px;
+}
 
-        ul#album-list li {
-            height: 130px;
-            width: 100px;
-            float: left;
-            margin: 10px;
-            text-align: center;
-        }
+ul#album-list li {
+     height: 130px;
+     width: 100px;
+     float: left;
+     margin: 10px;
+     text-align: center;
+}
 
-            ul#album-list li a, ul#album-list li .button {
-                font-size: 13px;
-                float: left;
-            }
+ul#album-list li a, ul#album-list li .button {
+     font-size: 13px;
+     float: left;
+}
 
-                ul#album-list li a span {
-                    color: #9b9993;
-                    text-decoration: underline;
-                }
+ul#album-list li a span {
+     color: #9b9993;
+     text-decoration: underline;
+}
 
 #cart {
     float: right;
