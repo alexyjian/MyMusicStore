@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MusicStoreEntity.Album>
+
+@{
+    ViewBag.Title = "浏览专辑";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+    var album = Model.FirstOrDefault();
+    var genreName = album;
+}
+
+        <div>
+            <h3><em>@Model.FirstOrDefault().Genre.Name</em>专辑</h3>
+            <ul id="album-list">
+                @foreach(var item in Model)
+                {
+                    <li>
+                        <a href="@Url.Action("detail","Store",new { id=item.ID})">
+                            @item.Title
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
