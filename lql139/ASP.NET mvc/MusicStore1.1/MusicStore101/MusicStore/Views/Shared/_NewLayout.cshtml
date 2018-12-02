@@ -16,14 +16,17 @@
     @Styles.Render("~/bundles/jqueryval")
 </head>
 <body>
-    <div class="header collapse navbar-collapse">
+    <div class="collapse navbar-collapse header " id="myNavbar">
         <h3>
             <br />
-            <a href="#">Number One in the Universe 音乐商店  <samp>- 032c</samp></a>
+            <a href="Views/Shared/_NewLayout.cshtml">Number One in the Universe 音乐商店  <samp>- 032c</samp></a>
         </h3>
         <ul class="nav navbar-nav header-ul">
             <li>
-               <a href="#">主页</a> 
+               <a href="~/Views/Shared/_NewLayout.cshtml">主页</a> 
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Store")">专辑</a>
             </li>
             <li>
               <a href="#">商店</a>  
@@ -31,7 +34,9 @@
             <li>
                <a href="#">登录</a> 
             </li>
+
         </ul>
+
     </div>
     <div class="row">
         <div class="col-md-2">
@@ -51,5 +56,7 @@
     </div>
     @*继承此布局页的页面执行脚本的位置*@
     @RenderSection("scripts", required: false);
+ 
 </body>
 </html>
+

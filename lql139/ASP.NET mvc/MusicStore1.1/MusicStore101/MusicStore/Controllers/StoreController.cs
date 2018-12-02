@@ -18,12 +18,21 @@ namespace MusicStore.Controllers
         public ActionResult Detai(Guid id)
         {
             var detail = _context.Albums.Find(id);
-            return View();
+            return View(detail);
         }
         public ActionResult Browser(Guid id)
         {
             var list = _context.Albums.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublisherDate).ToList();
             return View(list);
+        }
+        public ActionResult Index()
+        {
+            var context = new EntityDbContext();
+            return View(context.Genres.OrderBy(x=>x.Name).ToList());
+        }
+        public ActionResult Login()
+        {
+            return View();
         }
     }
 }

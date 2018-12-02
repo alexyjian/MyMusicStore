@@ -38,7 +38,7 @@ body {
 
 .header-ul {
     float: right;
-    width: 210px;
+    width: 280px;
 }
 
     .header-ul li {
@@ -73,6 +73,9 @@ body {
         font-weight: bolder;
         font-size: 16px;
     }
+        .body-ul a:hover {
+            color:#f6855e;
+        }
 
 .content {
     margin: 10px auto;
@@ -96,14 +99,19 @@ body {
         height: 100px;
         float: left;
         margin-bottom: 20px;
+        text-align: center;
     }
 
         .showcase ul li a {
             text-decoration: none;
+            text-align: center;
         }
 
             .showcase ul li a span {
+                width: 100px;
+              
                 color: black;
+                
             }
 
 .content h3 {
@@ -150,3 +158,26 @@ body {
         .row h4 a:hover {
             color: black;
         }
+
+.albumclass li {
+    float: left;
+    width: 150px;
+    height:100px;
+   
+    border:1px solid #ccc;
+    text-align:center;
+    margin:10px;
+    line-height:50px;
+}
+
+    .albumclass li a {
+        text-decoration: none;
+        color: black;
+         cursor: pointer;
+    }
+        .albumclass li a:hover {
+             color: #f6855e;
+
+        }
+.Login {
+}

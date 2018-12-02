@@ -242,6 +242,9 @@
     <Content Include="Views\Shared\_GetgenreMenu.cshtml" />
     <Content Include="Views\Shared\_FooterLayout.cshtml" />
     <Content Include="Views\Store\Detai.cshtml" />
+    <Content Include="Views\Store\Browser.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Store\Login.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
