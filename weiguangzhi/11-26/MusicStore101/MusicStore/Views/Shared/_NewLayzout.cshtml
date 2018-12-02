@@ -24,8 +24,8 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="http://10.88.91.101:9000/">主页</a></li>
-            <li><a href="http://10.88.91.101:9000/store">商店</a></li>
-            <li><a href="~/Views/Home/login.cshtml"> 登录 </a></li>
+            <li><a href="@Url.Action("Index", "store")">商店</a></li>
+            <li><a href="@Url.Action("Login", "store")"> 登录 </a></li>
         </ul>
         </div>
     <div class="container">

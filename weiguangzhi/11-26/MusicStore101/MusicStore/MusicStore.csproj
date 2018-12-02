@@ -253,6 +253,9 @@
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\Store\Browser.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Store\Login.cshtml" />
+    <Content Include="Views\Store\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">

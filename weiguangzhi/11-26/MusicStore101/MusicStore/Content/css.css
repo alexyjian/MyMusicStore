@@ -59,7 +59,7 @@ div {
 body {
     font-family: Arial,Helvetica,sans-serif;
     font-size: 14px;
-    background-color: #fbf9ef;
+    background-color:rgb(236, 236, 236);
     padding: 0 6%;
 }
 body {
@@ -109,7 +109,6 @@ li {
 .col-md-3 ul li {
 height:25px;
 width:50px;
-border:solid;
 }
 #promotion {
     height: 300px;
@@ -145,4 +144,17 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-
+a:link, a:visited {
+    color: #f6855e;
+    text-decoration: none;
+    font-weight: bold;
+}
+fieldset {
+    border: #ffd400 1px solid;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    clear: left;
+}
+div.editor-field {
+    margin-bottom: 10px;
+}
