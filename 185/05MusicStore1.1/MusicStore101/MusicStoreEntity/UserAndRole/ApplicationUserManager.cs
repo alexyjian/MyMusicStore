@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using MusicStoreEntity.UserAndRole;
 
 namespace MusicStoreEntities.UserAndRole
 {

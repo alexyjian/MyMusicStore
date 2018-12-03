@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using MusicStoreEntities.UserAndRole;
 using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
