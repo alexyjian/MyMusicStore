@@ -15,6 +15,7 @@
             <i class="glyphicon glyphicon-music"></i>
             @Html.ActionLink(item.Name,"Browser","Store",new {id=item.ID},null)
             (@item.Albums.Count)
+
             @*显示前5个该分类的专辑*@
             @if (item.Albums.Count > 0)
             {
