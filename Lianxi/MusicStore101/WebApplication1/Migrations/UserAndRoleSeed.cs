@@ -69,11 +69,11 @@ namespace WebApplication1.Migrations
             };
             var loginUser = new ApplicationUser()
             {
-                UserName = "messi",
-                FirstName = "梅",
-                LastName = "西",
-                ChineseFullName = "梅西",
-                MobileNumber = "13833883388",
+                UserName = "JJ",
+                FirstName = "m",
+                LastName = "m",
+                ChineseFullName = "jm",
+                MobileNumber = "15177715175",
                 Email = "messi@163.com",
                 Person = person1,
             };

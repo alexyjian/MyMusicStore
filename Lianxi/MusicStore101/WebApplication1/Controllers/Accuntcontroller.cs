@@ -11,13 +11,14 @@ using System.Web.Mvc;
 
 namespace WebApplication1.Controllers
 {
-    public class Accuntcontroller : Controller
+    public class AccuntController : Controller
     {
-        // GET: Accuntcontroller
-        public ActionResult Index()
+        // GET: Account
+        public ActionResult Register()
         {
             return View();
         }
+
         /// <summary>
         /// 登录方法
         /// </summary>
@@ -94,4 +95,4 @@ namespace WebApplication1.Controllers
             return View();
         }
     }
-}
+    }
