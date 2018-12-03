@@ -365,6 +365,7 @@
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Login\TestHack.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

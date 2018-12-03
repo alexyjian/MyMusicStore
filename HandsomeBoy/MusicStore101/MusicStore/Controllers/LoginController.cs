@@ -5,6 +5,8 @@ using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -98,6 +100,22 @@ namespace MusicStore.Controllers
                 }
             }
             return View();
+        }
+
+        public ActionResult TestHack() {
+            return View();
+        }
+
+        public async Task<ActionResult> TesthackC()
+        {
+            var chent = new HttpClient();
+            var values = new List<KeyValuePair<string, string>>();
+            values.Add(new KeyValuePair<string, string>("UserName", "admin"));
+            values.Add(new KeyValuePair<string, string>("PassWord", "123.abc"));
+            var content = new FormUrlEncodedContent(values);
+            var resonse = await chent.PostAsync("http://10.88.91.101:9000/account/login",content);
+            var html = await resonse.Content.ReadAsStringAsync();
+            return Json("");
         }
     }
 }
