@@ -7,6 +7,9 @@
 <h2>用户登录</h2>
 <p>如果没有用户名请点我 <a href="@Url.Action("Register","Account")">注册</a></p>
 <form action="/account/login?returnUrl=%2F" method="post">
+
+    @Html.AntiForgeryToken()
+
     <div>
         <fieldset>
             <legend>用户信息</legend>

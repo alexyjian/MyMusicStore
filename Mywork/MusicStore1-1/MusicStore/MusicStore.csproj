@@ -250,6 +250,7 @@
     <Content Include="Views\Store\Login.cshtml" />
     <Content Include="Views\Store\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\TestHack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
