@@ -45,7 +45,7 @@ namespace DBAUtility
         /// </summary>
         public DataSet QueryData(SqlCommand cmd)
         {
-
+            
         }
     }
 }

@@ -78,7 +78,6 @@
     <None Include="obj\Debug\DesktopUI.csproj.GenerateResource.Cache" />
     <None Include="obj\Debug\DesktopUI.csprojAssemblyReference.cache" />
     <None Include="obj\Debug\DesktopUI.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\Release\DesktopUI.csproj.CoreCompileInputs.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,7 +108,6 @@
     <Content Include="obj\Debug\DesktopUI.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
