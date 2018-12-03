@@ -2,15 +2,9 @@
 
  @foreach (var i in Model)
  {
-<<<<<<< HEAD
-    <div class="list-group-item glyphicon glyphicon-music">
-        <h4 class="list-group-item-heading">
-            @Html.ActionLink(i.Name, "", "", i.ID);
-=======
     <div class="list-group-item ">
         <h4 class="list-group-item-heading glyphicon glyphicon-music">
             @Html.ActionLink(i.Name, "Browser", "Store", new { i.ID }, null)
->>>>>>> f2e9cd89e71e23e8a5d503943b3e69fc029add34
         </h4>
     </div>
  }

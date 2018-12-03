@@ -72,21 +72,6 @@ padding-right: 45%;
     text-align:center;
     font-size:14px;
 }
-<<<<<<< HEAD
-/*music-view  end*/
-
-
-/*bottom*/
-.bottom {
-    margin-top:70px;
-    border-bottom:dotted 1px red;
-    border-top:dashed 1px red;
-    height:50px;
-    background-color:gray;
-    text-align:center;
-    line-height:50px;
-=======
 .thumbnail {
     border:0px;
->>>>>>> f2e9cd89e71e23e8a5d503943b3e69fc029add34
 }
