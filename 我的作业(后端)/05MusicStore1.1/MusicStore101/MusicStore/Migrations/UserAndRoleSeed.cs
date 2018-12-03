@@ -67,12 +67,12 @@ namespace MusicStore.Migrations
             };
             var loginUser = new ApplicationUser()
             {
-                UserName = "san",
-                FirstName = "张",
-                LastName = "三",
-                ChineseFullName = "张三",
+                UserName = "messi",
+                FirstName = "梅",
+                LastName = "西",
+                ChineseFullName = "梅西",
                 MobileNumber = "13833883388",
-                Email = "三@163.com",
+                Email = "梅西@163.com",
                 Person = person1,
             };
             //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户

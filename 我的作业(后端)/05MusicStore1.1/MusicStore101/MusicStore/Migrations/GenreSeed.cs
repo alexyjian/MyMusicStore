@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
+using System.Threading;
 
 namespace MusicStore.Migrations
 {
     public class GenreSeed
     {
-        private static readonly  MusicStoreEntity.EntityDBContext _dbContext = new MusicStoreEntity.EntityDBContext();
+        private static readonly MusicStoreEntity.EntityDBContext _dbContext = new MusicStoreEntity.EntityDBContext();
         public static void Seed()
         {
             _dbContext.Database.ExecuteSqlCommand("delete albums");
@@ -25,14 +26,13 @@ namespace MusicStore.Migrations
                 new Genre() {Name="拉丁",Description="Latin" },
                 new Genre() {Name="流行",Description="Pop" },
                 new Genre() {Name="古典",Description="Classical" },
-                new Genre() {Name="t土嗨" ,Description="DJ"},
+                new Genre() {Name="土嗨" ,Description="DJ"},
                 new Genre() {Name="嘻哈",Description="Hip-Hop" },
             };
             foreach (var g in genres)
-            {
                 _dbContext.Genres.Add(g);
 
-                var artists = new List<Artist>()
+            var artists = new List<Artist>()
                 {
                      new Artist() {Name ="孙燕姿",Sex= false,Description="新加坡人，华语流行女歌手，以独特的嗓音和唱腔、扎实的音乐功底著称。2000年签约华纳音乐，发行首张专辑《孙燕姿同名专辑》，以《天黑黑》一曲成名，并获得包括台湾金曲奖在内的亚洲各地15个最佳新人奖，至今仍为华语歌坛之纪录。2003年，发表新专辑《The Moment》，其中《遇见》一曲迅速为听众所熟悉，连年囊括各地颁奖礼最佳女歌手、身处事业巅峰期的她暂别歌坛一年。2004年携《Stefanie》专辑完美复出，并凭此专辑获得2005年第16届金曲奖最佳女歌手，之后又发表《逆光》(2007)、《是时候》(2011)等经典专辑。她的歌积极向上、给人力量，个人风格明显，深受听众喜爱。多次获得各地音乐奖项，六次入围台湾金曲奖最佳女歌手、四次入围最佳专辑、七次获得香港IFPI十大销量国语唱片奖。2014年发行新专辑《克卜勒》，并展开新一轮的克卜勒巡回演唱会" },
                      new Artist() {Name ="华晨宇",Sex = true,Description="1990年2月7日生于湖北十堰 ，中国男歌手，毕业于武汉音乐学院。 2013年，参加湖南卫视《快乐男声》获年度总冠军出道 。2014年1月，首登央视春晚舞台。9月6日-7日，在北京万事达中心连开两场“火星”演唱会 ，随后首张个人专辑《卡西莫多的礼物》发行 ，并凭此专辑获第十五届音乐风云榜年度最受欢迎男歌手等奖项。同年7月31日—8月2日，2015火星演唱会在上海大舞台连开三场。12月，发行第二张专辑《异类》。 2016年7-9月，2016火星演唱会相继在北上深三个城市举办。9月27日，出席亚洲新歌榜2016年度盛典，揽获最佳男歌手奖。10月，加盟东方卫视《天籁之战》。12月2日，获2016MAMA亚洲最佳艺人奖。2017年3月14日，专辑《H》发行。" },
@@ -48,14 +48,42 @@ namespace MusicStore.Migrations
                      new Artist() {Name ="陈粒",Sex = false,Description="陈粒，又名粒粒，1990年7月26日出生于贵州省贵阳市，中国内地民谣女歌手、独立音乐人、唱作人，前空想家乐队主唱，毕业于上海对外经贸大学。2012年，其所在乐队“空想家乐队”获得“Zippo炙热摇滚大赛”上海赛区冠军。2014年，随空想家乐队推出乐队首张EP专辑《万象》；同年，其演唱的歌曲《奇妙能力歌》入围“第四届阿比鹿音乐奖”年度民谣单曲。2015年，推出首张个人音乐专辑《如也》；同年，推出个人民谣单曲《远辰》。2016年1月，获得“第五届阿比鹿音乐奖”最受欢迎音乐人（民谣）；同年3月8日，化身“粒粒”并推出首支单曲《幻期颐》；同年7月26日，推出第二张个人音乐专辑《小梦大半》。" },
                      new Artist() {Name ="吴亦凡",Sex = true,Description="1990年11月06日出生于广东省广州市，华语影视男演员、流行乐歌手。2007年吴亦凡通过S.M. GlobalAudition Canada加入了韩国SM娱乐公司，参加练习生培训。2012年作为EXO组合成员正式出道，担任EXO/EXO-M队长、主Rapper、门面。2014年5月15日，吴亦凡正式向首尔中央地方法院请求判决与SM娱乐公司专属合同无效。之后吴亦凡回归中国国内发展，出演个人首部电影，担任徐静蕾执导的电影《有一个地方只有我们知道》男主角，凭此获得第3届伦敦国际华语电影节最佳新锐男演员奖。2015年发行首张原创制作单曲《Bad Girl》获第6届全球流行音乐金榜年度最受欢迎新人和亚洲新歌榜年度最具影响力男歌手奖。年底主演电影《老炮儿》上映，因饰演小爷谭小飞一角进一步受到广泛关注。2016年1月博柏利160周年，登上博柏利秀场，同年担任博柏利华人全球代言人。7月主演电影《原来你还在这里》累计票房3.37亿创同年青春片票房纪录。8月主演电影《夏有乔木》上映，以总预售超3600万在同题材影片中拔得头筹4天票房累计过亿，凭此获得日中电影节金鹤奖最佳男主角。11月公布首张英文单曲《JULY》。2017年2月主演电影《西游伏妖篇》票房累计突破16亿，吴亦凡在片中饰演男一号唐三藏。同月受邀第59届格莱美颁奖典礼。" },
                 };
-                foreach (var a in artists)
-                    _dbContext.Artists.Add(a);
+            foreach (var a in artists)
+                _dbContext.Artists.Add(a);
+            _dbContext.SaveChanges();
 
+
+            new List<Album>
+            {
+                new Album {Title="aA",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {
+                    Title ="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"
+                },
+            }.ForEach(n => _dbContext.Albums.Add(n));
+            _dbContext.SaveChanges();
+        }
+
+
+            public static void Extend()
+        {
+            var albums = _dbContext.Albums.ToList();
+            foreach(var album in albums)
+            {
+                var item = _dbContext.Albums.Find(album.ID);
+                item.GenreId = item.Genre.ID.ToString();
+                item.ArtistId = item.Artist.ID.ToString();
                 _dbContext.SaveChanges();
-
-
+                Thread.Sleep(3);
+            }
+        }
             }
 
         }
-    }
-}
+    
