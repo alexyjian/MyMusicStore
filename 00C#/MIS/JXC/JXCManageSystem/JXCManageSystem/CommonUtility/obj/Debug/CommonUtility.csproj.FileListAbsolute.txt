@@ -1,7 +1,0 @@
-E:\yjian\JXCManageSystem\CommonUtility\bin\Debug\CommonUtility.dll
-E:\yjian\JXCManageSystem\CommonUtility\bin\Debug\CommonUtility.pdb
-E:\yjian\JXCManageSystem\CommonUtility\bin\Debug\zxing.dll
-E:\yjian\JXCManageSystem\CommonUtility\bin\Debug\zxing.presentation.dll
-E:\yjian\JXCManageSystem\CommonUtility\obj\Debug\CommonUtility.csprojResolveAssemblyReference.cache
-E:\yjian\JXCManageSystem\CommonUtility\obj\Debug\CommonUtility.dll
-E:\yjian\JXCManageSystem\CommonUtility\obj\Debug\CommonUtility.pdb
