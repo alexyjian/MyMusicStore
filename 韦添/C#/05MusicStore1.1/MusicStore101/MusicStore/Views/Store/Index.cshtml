@@ -13,6 +13,7 @@
     @foreach (var item in Model)
     {
         <li>
+
             <i class="glyphicon glyphicon-music"></i>
             @Html.ActionLink(item.Name, "Browser", "Store", new { id = item.ID }, null)
             (@item.Albums.Count)
