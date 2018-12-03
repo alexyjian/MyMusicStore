@@ -1,9 +1,0 @@
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\bin\Debug\CommonUtility.dll
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\bin\Debug\CommonUtility.pdb
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
-E:\yjian\LibraryManagermentSystem\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
