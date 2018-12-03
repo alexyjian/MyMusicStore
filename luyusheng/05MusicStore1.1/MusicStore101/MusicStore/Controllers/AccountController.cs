@@ -33,7 +33,8 @@ namespace MusicStore.Controllers
 
             return View();
         }
-        [HttpPatch]  //此Action用来接收用户提交
+        [HttpPost]  //此Action用来接收用户提交
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model,string returnUrl)
         {
             //判断实体是否校验通过
