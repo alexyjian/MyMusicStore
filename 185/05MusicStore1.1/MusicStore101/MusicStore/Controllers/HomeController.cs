@@ -5,6 +5,8 @@ using MusicStoreEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -39,6 +41,26 @@ namespace MusicStore.Controllers
             }
             else
                 return "登陆失败";
+        }
+        /// <summary>
+        /// 伪造攻击
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TestHack()
+        {
+            return View();
+        }
+
+        public async Task<ActionResult> TesthackC()
+        {
+            var client = new HttpClient();
+            var values = new List<KeyValuePair<string, string>>();
+            values.Add(new KeyValuePair<string, string>("UserName", "admin"));
+            values.Add(new KeyValuePair<string, string>("PassWord", "123.abc"));
+            var content = new FormUrlEncodedContent(values);
+            var respnse = await client.PostAsync("http://localhost:1501/account/login", content);
+            var html = await respnse.Content.ReadAsStringAsync();
+            return Json("");
         }
     }
 }

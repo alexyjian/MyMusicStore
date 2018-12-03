@@ -36,15 +36,18 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]//此Action用来接收用户提交
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
+                //判断实体是否校验通过
                 var loginStatus = new LoginUserStatus()
                 {
                     IsLogin = false,
                     Message = "用户或密码错误"
                 };
+                //登陆处理
                 var userManage =
                     new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
                 var user = userManage.Find(model.UserName, model. PassWord);

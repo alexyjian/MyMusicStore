@@ -262,6 +262,7 @@
     <Content Include="Views\Store\Browser.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\TestHack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
