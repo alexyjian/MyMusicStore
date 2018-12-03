@@ -121,7 +121,7 @@ namespace MusicStore.Migrations
                 Name = "许宣",
                 CredentialsCode = "452220199311155207",
                 Birthday = DateTime.Parse("1980-11-25"),
-                Sex = false,
+                Sex = true,
                 MobileNumber = "1775623478",
                 Email = "12254778@qq.com",
                 CreateDateTime = DateTime.Now,
