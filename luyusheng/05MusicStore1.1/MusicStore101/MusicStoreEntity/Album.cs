@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-   public class Album
+    /// <summary>
+    /// 专辑
+    /// </summary>
+    public class Album
     {
-        /// <summary>
-        /// 专辑
-        /// </summary>
         public Guid ID { get; set; }
-        public string Title { get; set; } //专辑名称
+        //专辑名称
+        public string Title { get; set; } 
         public decimal Price { get; set; }
 
         //所属分类
@@ -27,11 +28,11 @@ namespace MusicStoreEntity
         public DateTime PublisherDate { get; set; }
         //专辑的网址
         public string AlbumArtUrl { get; set; }
+
         public Album()
         {
             ID = Guid.NewGuid();
             PublisherDate = DateTime.Now;
         }
-
     }
 }
