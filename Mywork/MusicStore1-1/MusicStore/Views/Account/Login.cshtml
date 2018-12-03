@@ -29,7 +29,7 @@
             </div>
 
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.PassWord, new { placeeholder = "请输入用户登录密码" })
+                @Html.PasswordFor(x => x.PassWord, new { placeeholder = "请输入用户登录密码" })
                 @Html.ValidationMessageFor(x => x.PassWord)
             </div>
 

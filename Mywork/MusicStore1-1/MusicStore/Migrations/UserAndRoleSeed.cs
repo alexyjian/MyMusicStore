@@ -68,9 +68,9 @@ namespace MusicStore.Migrations
             var loginUser = new ApplicationUser()
             {
                 UserName = "Baiguia",
-                FirstName = "黄",
-                LastName = "影儿",
-                ChineseFullName = "黄影儿",
+                FirstName = "覃",
+                LastName = "哦哦",
+                ChineseFullName = "覃哦哦",
                 MobileNumber = "15252525252",
                 Email = "yinger@163.com",
                 Person = person1,

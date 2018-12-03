@@ -1,4 +1,18 @@
-﻿
+﻿@using MusicStore.ViewModels
+@using MusicStoreEntity.UserAndRole
+@{ 
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车 收藏车
+
+    if (loginUserModel!=null)
+    {
+        if(loginUserModel.User!=null)
+        {
+            user = loginUserModel.User;
+        }
+    }
+}
 
 <!DOCTYPE html>
 
@@ -14,10 +28,12 @@
     @Styles.Render("~/Content/css")
 
     @*绑定脚本库*@
-    @Styles.Render("~/bundles/jquery")
-    @Styles.Render("~/bundles/bootstrap")
-    @Styles.Render("~/bundles/JqueryUI")
-    @Styles.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    
 
 </head>
 <body>
@@ -25,9 +41,29 @@
         @*Logo和菜单*@
         <h1><a href="/">好嗨哟音乐商店</a></h1>
         <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="@Url.Action("index","home")">主页</a></li>
+            <li><a href="@Url.Action("Index","home")">首页</a></li>
+
             <li><a href="@Url.Action("Index2","Store")">商店</a></li>
-            <li><a href="@Url.Action("Login","Account")"> 登录 </a></li>
+            @if(user==null)
+            {
+                <li><a href="@Url.Action("login","account")">登录</a></li>
+            }
+            else
+            {
+                //登录成功显示用户名 点姓名展开向下菜单
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        @user.Person.Name<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("index", "ShoppingCart")">购物车(10)</a></li>
+                        <li><a href="@Url.Action("index", "Oder")">我的订单</a></li>
+                        <li><a href="@Url.Action("index", "My")">设置</a></li>
+                        <li><a href="@Url.Action("loginout", "account")">注销</a></li>
+                    </ul>
+                </li>
+            }
         </ul>
     </div>
     <div class="container">
