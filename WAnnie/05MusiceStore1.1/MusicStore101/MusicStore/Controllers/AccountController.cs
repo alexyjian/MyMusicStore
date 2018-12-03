@@ -36,6 +36,7 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]//此用来接收用户提交 
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewsModel model, string returnUrl)
         {
            //判断实体是否校验通过
