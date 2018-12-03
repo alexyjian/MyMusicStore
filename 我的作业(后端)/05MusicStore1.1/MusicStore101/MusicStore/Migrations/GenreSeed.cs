@@ -56,7 +56,7 @@ namespace MusicStore.Migrations
             new List<Album>
             {
                 new Album {Title="aA",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="BBBBBBB",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
                 new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
                 new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
                 new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
