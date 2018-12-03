@@ -48,33 +48,34 @@ namespace MusicStore.Migrations
 
         public static void AddUsers()
         {
+            _dbContext.Database.ExecuteSqlCommand("delete IdentityManager");
             var idManager = new IdentityManager();
             #region 管理员
             var person1 = new Person()
             {
-                FirstName = "梅",
-                LastName = "西",
-                Name = "梅西",
-                CredentialsCode = "4500002015010112345",
-                Birthday = DateTime.Parse("2015-01-01"),
+                FirstName = "大",
+                LastName = "毛",
+                Name = "大毛",
+                CredentialsCode = "450000199901010101",
+                Birthday = DateTime.Parse("1999-01-01"),
                 Sex = true,
                 MobileNumber = "11111111",
-                Email = "messi@qq.com",
+                Email = "123@.com",
                 CreateDateTime = DateTime.Now,
-                TelephoneNumber = "123456",
+                TelephoneNumber = "123456789",
                 Description = "超级管理员",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
             var loginUser = new ApplicationUser()
             {
-                UserName = "messi",
-                FirstName = "梅",
-                LastName = "西",
-                ChineseFullName = "梅西",
-                MobileNumber = "1111111",
-                Email = "messi@qq.com",
-                Person =person1,
+                UserName = "damao",
+                FirstName = "大",
+                LastName = "毛",
+                ChineseFullName = "大毛",
+                MobileNumber = "11111111",
+                Email = "123@.com",
+                Person =person1
             };
             //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户
             idManager.CreateUser(loginUser, "123.abc");
@@ -86,29 +87,29 @@ namespace MusicStore.Migrations
 
             var person2 = new Person()
             {
-                FirstName = "黄",
-                LastName = "生",
-                Name = "黄生",
-                CredentialsCode = "452222198210090011",
-                Birthday = DateTime.Now,
-                Sex = false,
-                MobileNumber = "13899998888",
-                Email = "978798821@qq.com",
+                FirstName = "二",
+                LastName = "毛",
+                Name = "二毛",
+                CredentialsCode = "450000199901010101",
+                Birthday = DateTime.Parse("1999-01-01"),
+                Sex = true,
+                MobileNumber = "11111111",
+                Email = "123@.com",
                 CreateDateTime = DateTime.Now,
-                TelephoneNumber = "80861688",
-                Description = "",
+                TelephoneNumber = "123456789",
+                Description = "超级管理员",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
             var newUser2 = new ApplicationUser()
             {
-                UserName = "hs",
-                FirstName = "黄",
-                LastName = "生",
-                ChineseFullName = "黄生",
-                MobileNumber = "13899998888",
-                Email = "978798821@qq.com",
-                Person = person2
+                UserName = "ermao",
+                FirstName = "二",
+                LastName = "毛",
+                ChineseFullName = "二毛",
+                MobileNumber = "11111111",
+                Email = "123@.com",
+                Person = person1
             };
             idManager.CreateUser(newUser2, "123.abc");
             idManager.AddUserToRole(newUser2.Id, "RegisterUser");
@@ -117,34 +118,7 @@ namespace MusicStore.Migrations
 
             #region 业务管理
 
-            var person3 = new Person()
-            {
-                FirstName = "许",
-                LastName = "生",
-                Name = "许生",
-                CredentialsCode = "452222198210090011",
-                Birthday = DateTime.Parse("1980-01-01"),
-                Sex = true,
-                MobileNumber = "13899998888",
-                Email = "646495830@qq.com",
-                CreateDateTime = DateTime.Now,
-                TelephoneNumber = "2621688",
-                Description = "",
-                UpdateTime = DateTime.Now,
-                InquiryPassword = "123456",
-            };
-            var newUser3 = new ApplicationUser()
-            {
-                UserName = "xs",
-                FirstName = "许",
-                LastName = "生",
-                ChineseFullName = "许生",
-                MobileNumber = "13899998888",
-                Email = "646495830@qq.com",
-                Person = person3
-            };
-            idManager.CreateUser(newUser3, "123.abc");
-            idManager.AddUserToRole(newUser3.Id, "Manager");
+          
 
             #endregion 业务管理
         }
