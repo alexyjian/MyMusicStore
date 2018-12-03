@@ -76,7 +76,6 @@ namespace MusicStore.Controllers
 
                     //保存登录成功后的信息
                     Session["LoginUserSessionModel"] = loginUserSessionModel;
-                    Session["Username"] = loginUserSessionModel.User.UserName;
 
                     //identity登录处理，创建ASP.NET的登录令牌Token
                     var identity = usermanager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
@@ -92,7 +91,10 @@ namespace MusicStore.Controllers
                     {
                         ViewBag.ReturnUrl = returnUrl;
                     }
+                    ViewBag.LoginUserStatus = loginStatu;
+                    return View();
                 }
+
             }
             if (string.IsNullOrEmpty(returnUrl))
             {
@@ -102,7 +104,7 @@ namespace MusicStore.Controllers
             {
                 ViewBag.ReturnUrl = returnUrl;
             }
-            return View(Session["Username"]);
+            return View();
         }
     }
 }

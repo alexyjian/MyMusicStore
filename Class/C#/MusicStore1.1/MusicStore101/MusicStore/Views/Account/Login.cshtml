@@ -1,15 +1,22 @@
-﻿@model MusicStore.ViewModels.LoginViewModel
+﻿@using MusicStore.ViewModels
+@model MusicStore.ViewModels.LoginViewModel
 @{
     ViewBag.Title = "登录";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+    var msg = "";
+    if(ViewBag.LoginUserStatus != null)
+    {
+        msg = (ViewBag.LoginUserStatus as LoginUserStatus).Message;
+    }
 }
 
 <h3>用户登录</h3>
 <p>如果没有用户名请点击一下<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">这里</a></p>
 <hr />
 <div class="panel-group" id="accordion">
+    @*登录*@
     <div class="panel panel-default  panel-primary">
-        @*登录*@
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion"
@@ -18,7 +25,6 @@
                 </a>
             </h4>
         </div>
-
         <div id="collapseOne" class="panel-collapse collapse in">
             @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "bs-example bs-example-form", role = "form" }))
             {
@@ -34,7 +40,7 @@
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                         @Html.PasswordFor(x => x.PassWord, new { placeholder = "PassWord", @class = "form-control" })
                     </div>
-                    <span class="text-danger">@Html.ValidationMessageFor(x => x.PassWord)</span>
+                    <span class="text-danger">@Html.ValidationMessageFor(x => x.PassWord) @msg</span>
                     <br>
                     <input type="submit" class="btn btn-primary" value="登录" />
                 </div>

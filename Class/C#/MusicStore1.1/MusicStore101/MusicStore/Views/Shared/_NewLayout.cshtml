@@ -1,4 +1,19 @@
-﻿
+﻿@using MusicStore.ViewModels
+@using MusicStoreEntity.UserAndRole
+@{ 
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车 收藏车
+
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        //查询购物车 收藏车
+    }
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,21 +54,31 @@
                     <li><a href="@Url.Action("Store","Home")">商店</a></li>
                     <li>
                         @{
-                            if (Session["Username"] == null)
+                            if (user == null)
                             {
                                 <a href="@Url.Action("Login","Account")">登录</a>
                             }
                             else
                             {
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    @Session["Username"].ToString()
+                                    @user.UserName
                                 <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">购物车</a></li>
-                                    <li><a href="#">我的订单</a></li>
-                                    <li><a href="#">修改密码</a></li>
-                                    <li><a href="#">注销</a></li>
+                                    <li>
+                                        <a href="@Url.Action("Index","ShoppingCart")"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;购物车(0)</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Oder")"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;我的订单</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="@Url.Action("Index","My")"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;修改密码</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="@Url.Action("LoginOut","Account")"><span class="glyphicon glyphicon-off">&nbsp;</span>注销</a>
+                                    </li>
                                 </ul>
                             }
                         }
