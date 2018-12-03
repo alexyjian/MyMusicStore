@@ -15,6 +15,7 @@
                                                              //Post 提交*@
 @using (Html.BeginForm("login","login",new {returnUrl= ViewBag.ReturnUrl},FormMethod.Post))
 {
+    @Html.AntiForgeryToken(); 
 <p>如果没有用户名请点 @Html.ActionLink("注册", "Register")</p>
 <div>
     <fieldset>

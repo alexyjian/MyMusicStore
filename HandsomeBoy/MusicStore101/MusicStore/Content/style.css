@@ -6,7 +6,10 @@
 a,a:hover{
      text-decoration: none;
 }
-
+body {
+   min-width:1000px;
+    min-height:1000px;
+}
 .col-md-6 h1
 {
     float: left;

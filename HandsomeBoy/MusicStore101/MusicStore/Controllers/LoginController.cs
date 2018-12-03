@@ -57,6 +57,7 @@ namespace MusicStore.Controllers
             return View();
         }
         [HttpPost] //此Action用来接收用户提交
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             //判断实体是否校验通过
@@ -98,7 +99,20 @@ namespace MusicStore.Controllers
                     var identity = userManage.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     return Redirect(returnUrl);
                 }
+                else
+                {
+                    if (string.IsNullOrEmpty(returnUrl))
+                        ViewBag.ReturnUrl = Url.Action("index", "home");
+                    else
+                        ViewBag.ReturnUrl = returnUrl;
+                    ViewBag.LoginUserStatus = loginStaus;
+                    return View();
+                }
             }
+            if (string.IsNullOrEmpty(returnUrl))
+                ViewBag.ReturnUrl = Url.Action("index", "home");
+            else
+                ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 

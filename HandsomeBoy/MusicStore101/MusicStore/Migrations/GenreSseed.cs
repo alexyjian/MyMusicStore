@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace MusicStore.Migrations
 {
@@ -12,9 +14,9 @@ namespace MusicStore.Migrations
         private static readonly MusicStoreEntity.EntityDbContext _dbContext = new MusicStoreEntity.EntityDbContext();
         public static void Seed()
         {
-            _dbContext.Database.ExecuteSqlCommand("delete Albuns");
-            _dbContext.Database.ExecuteSqlCommand("delete Genres");
-            _dbContext.Database.ExecuteSqlCommand("delete Artists");
+            //_dbContext.Database.ExecuteSqlCommand("delete Albuns");
+            //_dbContext.Database.ExecuteSqlCommand("delete Genres");
+            //_dbContext.Database.ExecuteSqlCommand("delete Artists");
 
             var genres = new List<Genre>()
             {
