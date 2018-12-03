@@ -47,6 +47,7 @@ namespace MusicStore.Migrations
                 new Artist() {Name ="王力宏",Sex =true,Description ="中国台湾著名女歌手，亚洲流行歌坛重量级天后，台湾原住民歌手。张惠妹于华人世界名气极高,于海外(尤美、日等地)也有一定的知名度,已多项华语圈重要的音乐奖项。也是台湾首位接受美国CNN专访的歌手"},
                 new Artist() {Name ="张学友",Sex =true,Description ="中国台湾著名女歌手，亚洲流行歌坛重量级天后，台湾原住民歌手。张惠妹于华人世界名气极高,于海外(尤美、日等地)也有一定的知名度,已多项华语圈重要的音乐奖项。也是台湾首位接受美国CNN专访的歌手"},
                 new Artist() {Name ="Coldplay",Sex =true,Description ="中国台湾著名女歌手，亚洲流行歌坛重量级天后，台湾原住民歌手。张惠妹于华人世界名气极高,于海外(尤美、日等地)也有一定的知名度,已多项华语圈重要的音乐奖项。也是台湾首位接受美国CNN专访的歌手"},
+                new Artist() {Name = "许嵩", Sex = true, Description = "中国台湾著名女歌手，亚洲流行歌坛重量级天后，台湾原住民歌手。张惠妹于华人世界名气极高，于海外（尤美、日等地）也有一定的知名度，已囊括多项华语圈重要的音乐奖项。也是台湾首位接受美国CNN专访的歌手（并且在2011年第二度接受此媒体《Talk Asia》节目专访）。阿妹在1996年三月被著名台湾音乐人陈志远、陈复明发现并签约丰华唱片。并在同年7月在带自己入行的恩师张雨生的《两伊战争－红色热情》专辑中与张雨生男女对唱《最爱的人伤我最深》。同年12月13日，张惠妹在张雨生的协助下发行第一张个人专辑《姐妹》。1998年 举办第一场个人大型户外售票演唱会“妹力四射”，创下台湾歌手有史以来最快举行大型演唱会的纪录。2009年发行的《阿密特》专辑至今仍是金曲奖史上获得最大成功的作品，曾于第21届时擒下包括专辑、制作人、歌手等六项大奖。代表作品：《姐妹》、《我可以抱你吗》、《记得》、《火》、《如果你也听说》、《掉了》、《我最亲爱的》。"},
                 new Artist() {Name ="莫文蔚",Sex =false,Description ="中国台湾著名女歌手，亚洲流行歌坛重量级天后，台湾原住民歌手。张惠妹于华人世界名气极高,于海外(尤美、日等地)也有一定的知名度,已多项华语圈重要的音乐奖项。也是台湾首位接受美国CNN专访的歌手"},
                 new Artist() {Name ="Justin Bieber",Sex =true,Description ="中国台湾著名女歌手，亚洲流行歌坛重量级天后，台湾原住民歌手。张惠妹于华人世界名气极高,于海外(尤美、日等地)也有一定的知名度,已多项华语圈重要的音乐奖项。也是台湾首位接受美国CNN专访的歌手"},
                 new Artist() {Name ="王菲",Sex =true,Description ="中国台湾著名女歌手，亚洲流行歌坛重量级天后，台湾原住民歌手。张惠妹于华人世界名气极高,于海外(尤美、日等地)也有一定的知名度,已多项华语圈重要的音乐奖项。也是台湾首位接受美国CNN专访的歌手"},
@@ -147,8 +148,6 @@ namespace MusicStore.Migrations
                      Artist = artists.Single(a => a.Name == "谭松韵"),
                      AlbumArtUrl = "/Content/Images/placeholder.gif" },
 
-
-
                  new Album { Title = "Quiet Songs",Genre = genres.Single(g => g.Name == "爵士"), Price = 8.99M,
                      Artist = artists.Single(a => a.Name == "王力宏"),
                      AlbumArtUrl = "/Content/Images/placeholder.gif"},
@@ -175,6 +174,18 @@ namespace MusicStore.Migrations
 
                  new Album { Title = "Audioslave",Genre = genres.Single(g => g.Name == "古风"), Price = 8.99M,
                      Artist = artists.Single(a => a.Name == "周杰伦"),
+                     AlbumArtUrl = "/Content/Images/placeholder.gif"},
+
+                 new Album { Title = "War",Genre = genres.Single(g => g.Name == "摇滚"), Price = 8.99M,
+                     Artist = artists.Single(a => a.Name == "周杰伦"),
+                     AlbumArtUrl = "/Content/Images/placeholder.gif"},
+
+                 new Album { Title ="The Best Of 1980-1990",Genre = genres.Single(g => g.Name == "摇滚"), Price = 8.99M,
+                     Artist = artists.Single(a => a.Name == "周杰伦"),
+                     AlbumArtUrl = "/Content/Images/placeholder.gif"},
+
+                  new Album { Title ="UB40 The Best Of-Volume Two [UK]",Genre = genres.Single(g => g.Name == "流行"), Price = 8.99M,
+                     Artist = artists.Single(a => a.Name == "许嵩"),
                      AlbumArtUrl = "/Content/Images/placeholder.gif"},
 
             }.ForEach(n => _dbContext.Albums.Add(n));
