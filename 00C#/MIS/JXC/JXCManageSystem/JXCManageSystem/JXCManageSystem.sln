@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enity", "Enity\Enity.csproj", "{9F998D6F-365F-4125-8035-A23393B92001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{7435EFD2-2420-4CEE-A337-95F41D6CFA81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BusinessLogicLayer\BusinessLogicLayer.csproj", "{4B274324-4165-4F4F-BDA6-D5FDDFD34E13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUtility", "CommonUtility\CommonUtility.csproj", "{A3802D35-352A-4EB9-AA43-618C6C625C77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JXCMIS", "JXCMIS\JXCMIS.csproj", "{F8753956-8615-4EBF-8D66-F40EEACA6F9A}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.88.91.105:8080/tfs/%E6%95%99%E5%AD%A6%E7%BD%91%E7%AB%99
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BusinessLogicLayer\\BusinessLogicLayer.csproj
+		SccProjectName1 = BusinessLogicLayer
+		SccLocalPath1 = BusinessLogicLayer
+		SccProjectUniqueName2 = CommonUtility\\CommonUtility.csproj
+		SccProjectName2 = CommonUtility
+		SccLocalPath2 = CommonUtility
+		SccProjectUniqueName3 = DataAccessLayer\\DataAccessLayer.csproj
+		SccProjectName3 = DataAccessLayer
+		SccLocalPath3 = DataAccessLayer
+		SccProjectUniqueName4 = Enity\\Enity.csproj
+		SccProjectName4 = Enity
+		SccLocalPath4 = Enity
+		SccProjectUniqueName5 = JXCMIS\\JXCMIS.csproj
+		SccProjectName5 = JXCMIS
+		SccLocalPath5 = JXCMIS
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F998D6F-365F-4125-8035-A23393B92001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F998D6F-365F-4125-8035-A23393B92001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F998D6F-365F-4125-8035-A23393B92001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F998D6F-365F-4125-8035-A23393B92001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7435EFD2-2420-4CEE-A337-95F41D6CFA81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7435EFD2-2420-4CEE-A337-95F41D6CFA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7435EFD2-2420-4CEE-A337-95F41D6CFA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7435EFD2-2420-4CEE-A337-95F41D6CFA81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B274324-4165-4F4F-BDA6-D5FDDFD34E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B274324-4165-4F4F-BDA6-D5FDDFD34E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B274324-4165-4F4F-BDA6-D5FDDFD34E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B274324-4165-4F4F-BDA6-D5FDDFD34E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3802D35-352A-4EB9-AA43-618C6C625C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3802D35-352A-4EB9-AA43-618C6C625C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3802D35-352A-4EB9-AA43-618C6C625C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3802D35-352A-4EB9-AA43-618C6C625C77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8753956-8615-4EBF-8D66-F40EEACA6F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8753956-8615-4EBF-8D66-F40EEACA6F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8753956-8615-4EBF-8D66-F40EEACA6F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8753956-8615-4EBF-8D66-F40EEACA6F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
