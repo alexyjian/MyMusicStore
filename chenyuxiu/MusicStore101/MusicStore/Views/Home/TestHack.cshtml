@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "TestHack";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>Hacker</h2>
+<form name="badForm" method="post" action="~/Views/Account/login.cshtml">
+    <input type="text"name="UserName"id="UserName" value="admin" />
+    <input type="text" name="PassWord" id="PassWord" value="123456" />
+    <input type="submit" value="爆破" />
+</form>

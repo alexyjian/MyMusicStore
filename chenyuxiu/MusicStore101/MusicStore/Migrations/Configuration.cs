@@ -9,21 +9,19 @@ namespace MusicStore.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "MusicStoreEntity.EntityDbContext";
         }
 
         protected override void Seed(MusicStoreEntity.EntityDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
             //UserAndRoleSeed.Addroles();
             //UserAndRoleSeed.AddUsers();
-            //GenreSeed.Seed();
+            GenreSeed.Seed();
 
-            //GenreSeed.Seed();
-            //GenreSeed.Extend();
+            
+            GenreSeed.Extend();
         }
     }
 }
