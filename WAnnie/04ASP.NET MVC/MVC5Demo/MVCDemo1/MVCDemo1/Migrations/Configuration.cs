@@ -20,7 +20,9 @@ namespace MVCDemo1.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
-            context.Database.ExecuteSqlCommand("delete movies");
+            context.Database.ExecuteSqlCommand("delete Moives");
+          
+
             var m1 = new Moive()
             {
                 Titile = "∂ﬂ¿≤A√Œ",

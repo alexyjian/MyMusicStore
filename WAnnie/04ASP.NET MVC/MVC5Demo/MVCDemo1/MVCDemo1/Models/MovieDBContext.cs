@@ -10,6 +10,6 @@ namespace MVCDemo1.Models
     public class MovieDBContext:DbContext
     {
         public DbSet<Moive> Moives { get; set; }
-        
+        public DbSet<Genre> Genres { get; set; }
     }
 }

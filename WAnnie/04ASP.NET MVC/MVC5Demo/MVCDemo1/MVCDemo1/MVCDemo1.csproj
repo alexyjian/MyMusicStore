@@ -126,12 +126,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GenresController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MoivesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Moive.cs" />
     <Compile Include="Models\MovieDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,6 +176,16 @@
     <Content Include="Views\HelloWorld\Index.cshtml" />
     <Content Include="Views\Test\Test1.cshtml" />
     <Content Include="Views\HelloWorld\Welcome.cshtml" />
+    <Content Include="Views\Moives\Index.cshtml" />
+    <Content Include="Views\Moives\Details.cshtml" />
+    <Content Include="Views\Moives\Create.cshtml" />
+    <Content Include="Views\Moives\Edit.cshtml" />
+    <Content Include="Views\Moives\Delete.cshtml" />
+    <Content Include="Views\Genres\Index.cshtml" />
+    <Content Include="Views\Genres\Details.cshtml" />
+    <Content Include="Views\Genres\Create.cshtml" />
+    <Content Include="Views\Genres\Edit.cshtml" />
+    <Content Include="Views\Genres\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
