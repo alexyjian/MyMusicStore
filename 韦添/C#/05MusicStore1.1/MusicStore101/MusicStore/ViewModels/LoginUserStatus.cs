@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MusicStoreEntity.UserAndRole;
 
 namespace MusicStore.ViewModels
 {
+    /// <summary>
+    /// 用户登录时的状态
+    /// </summary>
     public class LoginUserStatus
-    {//登录成否成功
+    {
+        //登录成否成功
         public bool IsLogin { get; set; }
         //登录成功或失败的信息
         public string Message { get; set; }
