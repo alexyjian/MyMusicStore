@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "任务-bin",
+      "appliesTo": "00C#/MIS/ADOdotNETSolution/ConsoleApplication/bin/",
+      "type": "launch"
+    }
+  ]
+}
