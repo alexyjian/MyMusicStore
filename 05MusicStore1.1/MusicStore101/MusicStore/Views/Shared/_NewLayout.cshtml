@@ -1,4 +1,23 @@
-﻿<!DOCTYPE html>
+﻿@using MusicStore.ViewModels
+@using MusicStoreEntity.UserAndRole
+@{
+    //判断用户是否登录，如果ApplicationUser user不为空表示用户登录成功
+
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车  收藏车
+
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        //查询购物车  收藏车
+
+    }
+}
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -24,7 +43,25 @@
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="@Url.Action("index","home")">首页</a></li>
             <li><a href="@Url.Action("Index","Store")">专辑</a></li>
-            <li><a href="@Url.Action("login","account")">登录</a></li>
+            @if (user == null)
+            {
+                <li><a href="@Url.Action("login", "account")">登录</a></li>
+            }
+            else
+            {
+                //登录成功显示用户姓名，点姓名展开向下菜单
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        @user.Person.Name<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("index", "ShoppingCart")">购物车(10)</a></li>
+                        <li><a href="@Url.Action("index", "Oder")">我的订单</a></li>
+                        <li><a href="@Url.Action("index", "My")">设置</a></li>
+                        <li><a href="@Url.Action("loginout", "account")">注销</a></li>
+                    </ul>
+                </li>
+            }
         </ul>
     </div>
     <div class="container"> 
