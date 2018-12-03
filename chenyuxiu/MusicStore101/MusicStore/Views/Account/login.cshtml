@@ -1,0 +1,43 @@
+﻿@model MusicStore.ViewModels.LoginViewModel
+@using MusicStore.ViewModels
+@{
+    ViewBag.Title = "登入";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+    var msg = "";
+    if (ViewBag.LoginUserStatus != null)
+    {
+        msg = (ViewBag.LoginUserStatus as LoginUserStatus).Message;
+    }
+}
+<h2>用户登入</h2><br />
+<p>如果没有用户名请点我 @Html.ActionLink("这里", "Register") 注册</p>
+@*<form></form>*@
+@using (Html.BeginForm("login", "Account", new { returnUrl=ViewBag.ReturnUrl},FormMethod.Post))
+{
+    <div>
+        <fieldset>
+            <legend>用户信息</legend>
+
+            <div class="editor-labe1">
+                @Html.LabelFor(x => x.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.UserName, new { placeholder = "请输入用户登入名" })
+                @Html.ValidationMessageFor(x => x.UserName)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.PassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = "请输入用户密码" })
+                @Html.ValidationMessageFor(x => x.PassWord)
+            </div>
+            <p class="text-danger">
+                @msg
+            </p>
+            <p>
+                <input type="submit" value="登录" class="btn btn-success">
+            </p>
+        </fieldset>
+    </div>
+}
