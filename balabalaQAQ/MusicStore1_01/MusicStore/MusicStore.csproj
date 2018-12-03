@@ -310,6 +310,7 @@
     <Content Include="Views\Store\Browser.cshtml" />
     <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Home\TextHack.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
