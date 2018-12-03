@@ -300,8 +300,8 @@ namespace MusicStore.Migrations
                     AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
                 new Album
-                { 
-            }.ForEach(n => _dbContext.Albums.Add(n));
+                {
+            }.ForEach(n => _dbContext.Albums.Add(n))};
             _dbContext.SaveChanges();
         }
 

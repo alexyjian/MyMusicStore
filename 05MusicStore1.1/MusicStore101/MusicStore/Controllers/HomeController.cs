@@ -40,5 +40,27 @@ namespace MusicStore.Controllers
             else
                 return "登录失败";
         }
+
+        ///<summary>
+        ///伪造攻击
+        ///</summary>
+        ///<returns></returns>
+        public ActionResult TestHack()
+        {
+            return View();
+        }
+
+        public async Task<ActionResult> TesthackC()
+        {
+            var client = new HttpClient();
+            //
+            var values = new List<KeyValuePair<string, string>>();
+            values.Add(new KeyValuePair<string, string>("UserName", "admin"));
+            values.Add(new KeyValuePair<string, string>("PassWord", "123.abc"));
+            var content = new FormUrlEncodedContent(values);
+            var respnse = await client.PostAsync("http://10.88.91.101:9000/account/login", content);
+            var html = await respnse.Content.ReadAsStringAsync();
+            return Json("");
+        }
     }
 }
