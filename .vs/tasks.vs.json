@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "任务-SQL",
+      "appliesTo": "00C#/MIS/SQL/",
+      "type": "launch"
+    }
+  ]
+}
