@@ -7,6 +7,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MusicStoreEntity;
+using System.Text;
+using System.Collections.Specialized;
+using System.Net;
+using System.Net.Http;
 
 namespace MusicStore.Controllers
 {
@@ -39,6 +43,25 @@ namespace MusicStore.Controllers
             }
             else
                 return "登录失败";
+        }
+
+        public ActionResult TestHack()
+        {
+            return View();
+        }
+
+        public async System.Threading.Tasks.Task<ActionResult> TestHackAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                var values = new List<KeyValuePair<string, string>>();
+                values.Add(new KeyValuePair<string, string>("UserName", "admin"));
+                values.Add(new KeyValuePair<string, string>("PassWord ", "123.abc"));
+                var content = new FormUrlEncodedContent(values);
+                var response = await client.PostAsync("http://srs.lzzy.net/account/login", content);
+                var responseString = await response.Content.ReadAsStringAsync();
+                return Redirect("http://srs.lzzy.net/");
+            }
         }
     }
 }
