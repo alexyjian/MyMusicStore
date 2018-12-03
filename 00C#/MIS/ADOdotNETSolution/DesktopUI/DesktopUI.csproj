@@ -50,16 +50,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\DesktopUI.Form1.resources" />
-    <EmbeddedResource Include="obj\Debug\DesktopUI.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -69,15 +64,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="bin\Debug\DesktopUI.exe.config" />
-    <None Include="bin\Debug\DesktopUI.vshost.exe.config" />
-    <None Include="bin\Debug\DesktopUI.vshost.exe.manifest" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\DesktopUI.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\DesktopUI.csproj.GenerateResource.Cache" />
-    <None Include="obj\Debug\DesktopUI.csprojAssemblyReference.cache" />
-    <None Include="obj\Debug\DesktopUI.csprojResolveAssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,19 +82,6 @@
       <Project>{e81a8924-3741-4277-9119-9214fc5a8413}</Project>
       <Name>DBAUtility</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\DBAUtility.dll" />
-    <Content Include="bin\Debug\DBAUtility.pdb" />
-    <Content Include="bin\Debug\DesktopUI.exe" />
-    <Content Include="bin\Debug\DesktopUI.pdb" />
-    <Content Include="bin\Debug\DesktopUI.vshost.exe" />
-    <Content Include="obj\Debug\DesktopUI.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\DesktopUI.exe" />
-    <Content Include="obj\Debug\DesktopUI.pdb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
