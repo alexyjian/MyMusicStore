@@ -18,6 +18,9 @@
 @*BeginForm指  Mvc中的表单*@
 @using (Html.BeginForm("login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
 { 
+    @*令牌处理*@
+    @Html.AntiForgeryToken()
+
 <div>
     <fieldset>
 
