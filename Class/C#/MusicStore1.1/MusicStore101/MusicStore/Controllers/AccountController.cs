@@ -12,8 +12,7 @@ namespace MusicStore.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account
-        public ActionResult Register()
+        public ActionResult Register(LoginViewModel model)
         {
             return View();
         }
