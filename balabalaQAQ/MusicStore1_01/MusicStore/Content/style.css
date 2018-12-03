@@ -36,7 +36,7 @@ padding-right: 45%;
 .music-left{
     width:250px;
     float: left;
-    margin-left: 12px;
+    padding-left: 50px;
 }
 .music-dw{
     color: rgb(80, 144, 240);
@@ -52,41 +52,26 @@ padding-right: 45%;
     float: left;
     margin-left: 30px;
     text-align: center;
+   
 }
 .bg{
     background-color: gray;
 }
 .music-news  {
-  padding: 0;
   padding-bottom: 10px;
-  text-align:center;
- 
+  height:120px;
 }
 /*music-view  end*/
 /*music-store*/
 .music-store h2 {
     text-align:left;
+
 }
 .music-store ul li{
     border:solid 1px black;
     text-align:center;
     font-size:14px;
 }
-<<<<<<< HEAD
-/*music-view  end*/
-
-
-/*bottom*/
-.bottom {
-    margin-top:70px;
-    border-bottom:dotted 1px red;
-    border-top:dashed 1px red;
-    height:50px;
-    background-color:gray;
-    text-align:center;
-    line-height:50px;
-=======
 .thumbnail {
     border:0px;
->>>>>>> f2e9cd89e71e23e8a5d503943b3e69fc029add34
 }
