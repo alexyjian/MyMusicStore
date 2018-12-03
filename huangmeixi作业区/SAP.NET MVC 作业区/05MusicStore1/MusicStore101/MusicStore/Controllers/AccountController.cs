@@ -32,6 +32,7 @@ namespace MusicStore.Controllers
             return View();
          }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
 

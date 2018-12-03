@@ -11,6 +11,7 @@
 
 @using (Html.BeginForm("login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
 <div>
     <fieldset>
         <legend>账户信息</legend>
