@@ -48,7 +48,6 @@ namespace MusicStore.Migrations
             _dbContext.SaveChanges();
             new List<Album>
             {
-                new Album() {Title="dd",Genre =genres.Single(g=>g.Name=="摇滚" ),Artist=artisrt.Single(a=>a.Name=="Taylor Swift"),AlbumArtUrl="~/Content/images/placeholder.gif"},
                 new Album() { Title="The Best Of Men At Work",Genre =genres.Single(g=>g.Name=="摇滚" ),Price=10.8M,Artist=artisrt.Single(a=>a.Name=="Taylor Swift"),AlbumArtUrl="/Content/images/placeholder.gif" },
                 new Album() { Title="A Copland Celebration,",Genre =genres.Single(g=>g.Name=="摇滚" ),Price=3.99M,Artist=artisrt.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/images/placeholder.gif" },
                 new Album() { Title="For Those About To Rock We Salute You",Genre =genres.Single(g=>g.Name=="摇滚" ),Price=4.99M,Artist=artisrt.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/images/placeholder.gif" },
