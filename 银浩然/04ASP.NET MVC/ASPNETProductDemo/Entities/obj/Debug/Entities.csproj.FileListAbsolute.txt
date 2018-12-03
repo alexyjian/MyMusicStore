@@ -1,0 +1,5 @@
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\Entities.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\Entities.pdb
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\Entities\obj\Debug\Entities.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\Entities\obj\Debug\Entities.pdb

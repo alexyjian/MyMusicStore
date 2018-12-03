@@ -1,0 +1,17 @@
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\DataContext.dll.config
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\DataContext.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\DataContext.pdb
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\Entities.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.Extensions.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\MoreLinq.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\System.ValueTuple.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\Entities.pdb
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.xml
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\MoreLinq.xml
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\System.ValueTuple.xml
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\obj\Debug\DataContext.csprojResolveAssemblyReference.cache
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\obj\Debug\DataContext.dll
+C:\Users\yin\Desktop\MyMusicStore\MyMusicStore1.0\04ASP.NET MVC\ASPNETProductDemo\DataContext\obj\Debug\DataContext.pdb
