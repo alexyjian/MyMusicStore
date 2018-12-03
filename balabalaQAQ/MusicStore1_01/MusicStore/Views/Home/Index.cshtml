@@ -2,16 +2,22 @@
 @{
     ViewBag.Title = "首页";
 }
-<div id="promotion"></div>
-@foreach (var item in Model)
-{
-    <div class="music-img">
-        <img src="images/home-showcase.png">
+
+
+    <div class="col-md-12 col-xs-12 thumbnail">
+        <img   src="~/Content/images/home-showcase.png">
+        
     </div>
-    <li class="col-md-2">
-        <a href="@Url.Action("detail","store",new { id=item.ID})"></a>
-        <img alt="@item.Title" src="@item.AlbumArtUrl" /><span>@item.Title</span>
-    </li>
+<h4>新品上架</h4>
+<ul class="row">
+    @foreach (var item in Model)
+    {
+        <li class="col-md-3 col-xs-6 music-news">
+            <a href="@Url.Action("detail","store",new { id=item.ID})">
+                <img alt="@item.Title" src="@item.AlbumArtUrl" /><br />
+                <span>@item.Title</span>
+            </a>
+        </li>
+    }
+</ul>
 
-
-}

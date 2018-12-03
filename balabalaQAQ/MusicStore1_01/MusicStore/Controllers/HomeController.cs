@@ -25,12 +25,15 @@ namespace MusicStore.Controllers
 
             return View();
         }
-
-        public ActionResult Contact()
+        /// <summary>
+        /// 显示所有的分类
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Store()
         {
-            ViewBag.Message = "Your contact page.";
+            var context = new EntityDbContext();
 
-            return View();
+            return View(context.Genres.OrderBy(x=>x.Name).ToList());
         }
 
     }
