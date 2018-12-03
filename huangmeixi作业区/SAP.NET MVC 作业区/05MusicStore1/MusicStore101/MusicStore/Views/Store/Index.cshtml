@@ -21,9 +21,9 @@
             @if (item.Albums.Count > 0)
             {
                 <em>:</em>
-                foreach (var ab in item.Albums)
+                foreach (var ab in item.Albums.Take(5))
                 {
-                    <a href="@Url.Action("Datail",new { id=ab.ID})">
+                    <a href="@Url.Action("Detail",new { id=ab.ID})">
                   <i class="glyphicon glyphicon-cd"></i>
 
                     <span>@(ab.Title) &nbsp;&nbsp;</span>
