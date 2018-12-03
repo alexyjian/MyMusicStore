@@ -32,6 +32,7 @@ namespace MusicStore.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -39,9 +40,9 @@ namespace MusicStore.Controllers
                 var loginStatus = new LoginUserStatus()
                 {
                     Islogin = false,
-                    Message = "用户密码错误"
-            };
-            var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
+                    Message = "用户或密码错误",
+                };
+                var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
             var user = userManage.Find(model.UserName, model.PassWord);
             if (user != null)
             {
@@ -59,17 +60,29 @@ namespace MusicStore.Controllers
                     Session["LoginUserSessionModel"] = loginStatus;
                     var loginUserSessionModel = new LoginUserSessionModel()
                     {
-                        User=user,
-                        Person=user.Person,
-                        RoleName=roleName,
-                    };
-                    Session["LoginUserSessionModl"] = loginUserSessionModel;
+                        User = user,
+                        Person = user.Person,
+                        RoleName = roleName,
+                    };                
+                    Session["LoginUserSessionModel"] = loginUserSessionModel;
 
                     var identity = userManage.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     return Redirect(returnUrl);
-              }
-        
-           }
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(returnUrl))
+                        ViewBag.ReturnUrl = Url.Action("index", "home");
+                    else
+                        ViewBag.ReturnUrl = returnUrl;
+                    ViewBag.LoginUserStatus = loginStatus;
+                    return View();
+                }
+            }
+            if (string.IsNullOrEmpty(returnUrl))
+                ViewBag.ReturnUrl = Url.Action("index", "home");
+            else
+                ViewBag.ReturnUrl = returnUrl;
             return View();
         }
     }

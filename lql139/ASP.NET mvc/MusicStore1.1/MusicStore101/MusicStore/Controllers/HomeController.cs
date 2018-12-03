@@ -5,6 +5,7 @@ using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -35,5 +36,10 @@ namespace MusicStore.Controllers
             else
                 return "登录失败";
         }
+        public ActionResult TestHack()
+        {
+            return View();
+        }
+       
     }
 }

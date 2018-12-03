@@ -1,5 +1,18 @@
-﻿<!DOCTYPE html>
-
+﻿@using MusicStore.ViewModels
+@using MusicStoreEntity.UserAndRole
+@{ 
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+    }
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,11 +22,12 @@
     @Styles.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/JqueryUI")
 
-    @*@Styles.Render("~/bundles/JqueryUI")*@
+    
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
-    @Styles.Render("~/bundles/bootstrap")
-    @Styles.Render("~/bundles/jquery")
-    @Styles.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
 </head>
 <body>
     <div class="collapse navbar-collapse header " id="myNavbar">
@@ -28,12 +42,27 @@
             <li>
                 <a href="@Url.Action("Index", "Store")">专辑</a>
             </li>
-            <li>
-              <a href="#">商店</a>  
-            </li>
-            <li>
-               <a href="@Url.Action("Login", "Account")">登录</a> 
-            </li>
+            @if (user == null)
+            {
+                <li>
+                    <a href="@Url.Action("Login", "Account")">登录</a>
+                </li>
+            }
+            else
+            {
+                <li class="dropdown">
+                    <a href="#"  class="dropdown-toggle"  data-toggle="dropdown"  role="button"
+                       aria-haspopup="true"  aria-expanded="false" >
+                        @user.Person.Name<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu login-ul">
+                        <li ><a  href="@Url.Action("","")">&nbsp;&nbsp;<i class="glyphicon glyphicon-shopping-cart"></i>购物车(0)</a></li>
+                        <li><a  href="@Url.Action("","")">&nbsp;&nbsp;<i  class="glyphicon glyphicon-list-alt"></i>我的订单</a></li>
+                        <li><a  href="@Url.Action("","")">&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"></i>设置</a></li>
+                        <li><a  href="@Url.Action("","")">&nbsp;&nbsp;<i class="glyphicon glyphicon-off"></i>注销</a></li>
+                    </ul>
+              </li>
+            }
 
         </ul>
 
