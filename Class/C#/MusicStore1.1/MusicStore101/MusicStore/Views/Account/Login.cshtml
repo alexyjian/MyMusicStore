@@ -22,6 +22,7 @@
         <div id="collapseOne" class="panel-collapse collapse in">
             @using (Html.BeginForm("Login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "bs-example bs-example-form", role = "form" }))
             {
+                @Html.AntiForgeryToken()
                 <div class="panel-body">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>

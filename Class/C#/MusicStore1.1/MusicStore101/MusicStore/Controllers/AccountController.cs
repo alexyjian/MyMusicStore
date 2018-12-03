@@ -37,6 +37,7 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]      //此Login用来接收用户的提交
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid)
@@ -95,7 +96,7 @@ namespace MusicStore.Controllers
             }
             if (string.IsNullOrEmpty(returnUrl))
             {
-                ViewBag.ReturnUrl = Url.Action("index", "home");
+                ViewBag.ReturnUrl = Url.Action("Index", "Home");
             }
             else
             {
