@@ -24,16 +24,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - 音乐商店</title>
+
     @*绑定样式库*@
-   
+    @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JqueryUI")
 
     @*绑定脚本库*@
-    @Styles.Render("~/bundles/jquery")
-    @Styles.Render("~/bundles/bootstrap")
-    @Styles.Render("~/bundles/JqueryUI")
-    @Styles.Render("~/bundles/jqueryval")
-    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
 </head>
 <body>
     <div class="container" id="header">
@@ -56,28 +57,18 @@
                     }
                     else
                     {
-                       <li  class="dropdown">
-                           @*<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                               登录 <span class="caret"></span>
-                           </a>
-                           <ul class="dropdown-menu">
-                               <li><a href="@Url.Action("index","ShoppingCart")">购物车（）</a></li>
-                               <li><a href="@Url.Action("index","Oder")">我的订单（）</a></li>
-                               <li><a href="@Url.Action("index","My")">设置</a></li>
-                               <li><a href="@Url.Action("loginout","account")">注销</a></li>
-                           </ul>*@
 
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                              aria-haspopup="true" aria-expanded="false">
-                               @user.Person.Name<span class="caret"></span>
-                           </a>
-                           <ul class="dropdown-menu">
-                               <li><a href="@Url.Action("index", "ShoppingCart")">购物车(10)</a></li>
-                               <li><a href="@Url.Action("index", "Oder")">我的订单</a></li>
-                               <li><a href="@Url.Action("index", "My")">设置</a></li>
-                               <li><a href="@Url.Action("loginout", "account")">注销</a></li>
-                           </ul>
-                     </li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" href="#">
+                            登录 <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="@Url.Action("index","ShoppingCart")">购物车（）</a></li>
+                            <li><a href="@Url.Action("index","Oder")">我的订单（）</a></li>
+                            <li><a href="@Url.Action("index","My")">设置</a></li>
+                            <li><a href="@Url.Action("loginout","account")">注销</a></li>
+                        </ul>
+                    </li>
 
                     }
                 </ul>

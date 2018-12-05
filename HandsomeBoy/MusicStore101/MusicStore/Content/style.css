@@ -22,14 +22,15 @@ h1 a,h3{
     color: #5e5b54;
 }
 .nav{
+    
     width: 280px;
     height: 45px;
     float: right;
 }
-.nav li {
+.nav > li {
      float: left;
 }
-.nav li a {
+.nav > li > a {
     font-size: 20px;
     color: #F6855E;
     font-weight: bold;
