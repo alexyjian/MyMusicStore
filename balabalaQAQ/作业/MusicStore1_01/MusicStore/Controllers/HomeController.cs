@@ -1,14 +1,17 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using MusicStore.Models;
-using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using MusicStoreEntity;
+using System.Text;
+using System.Collections.Specialized;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MusicStore.Controllers
 {
@@ -17,8 +20,8 @@ namespace MusicStore.Controllers
         public ActionResult Index()
         {
             var context = new EntityDbContext();
-
-            return View(context.Albums.OrderByDescending(x => x.PublisherDate).Take(20));
+            
+            return View(context.Albums.OrderByDescending(x=>x.PublisherDate).Take(20));
         }
 
         public ActionResult About()
@@ -35,16 +38,17 @@ namespace MusicStore.Controllers
         {
             var context = new EntityDbContext();
 
-            return View(context.Genres.OrderBy(x => x.Name).ToList());
+            return View(context.Genres.OrderBy(x=>x.Name).ToList());
         }
         /// <summary>
-        /// 伪造攻击
+        ///  伪造攻击
         /// </summary>
         /// <returns></returns>
-        public ActionResult TextHack()
+        public ActionResult TestHack()
         {
             return View();
         }
+
         /// <summary>
         /// 用C#进行跨站伪造攻击
         /// </summary>
@@ -55,11 +59,12 @@ namespace MusicStore.Controllers
             //初始化提交的参数
             var values = new List<KeyValuePair<string, string>>();
             values.Add(new KeyValuePair<string, string>("UserName", "admin"));
-            values.Add(new KeyValuePair<string, string>("PassWord", "132.abc"));
+            values.Add(new KeyValuePair<string, string>("PassWord", "123.abc"));
             var content = new FormUrlEncodedContent(values);
             var respnse = await client.PostAsync("http://10.88.91.101:9000/account/login", content);
             var html = await respnse.Content.ReadAsStringAsync();
             return Json("");
         }
     }
+
 }

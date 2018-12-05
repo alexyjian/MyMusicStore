@@ -48,10 +48,10 @@ namespace MusicStore.Migrations
             _dbContext.SaveChanges();
             new List<Album>
             {
-                new Album() {Title="dd",Genre =genres.Single(g=>g.Name=="摇滚" ),Artist=artisrt.Single(a=>a.Name=="Taylor Swift"),AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album() {Title="dd",Genre =genres.Single(g=>g.Name=="摇滚" ),Artist=artisrt.Single(a=>a.Name=="Taylor Swift"),AlbumArtUrl="~/Content/images/placeholder.gif"},
                 new Album() { Title="The Best Of Men At Work",Genre =genres.Single(g=>g.Name=="摇滚" ),Price=10.8M,Artist=artisrt.Single(a=>a.Name=="Taylor Swift"),AlbumArtUrl="/Content/images/placeholder.gif" },
                 new Album() { Title="A Copland Celebration,",Genre =genres.Single(g=>g.Name=="摇滚" ),Price=3.99M,Artist=artisrt.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/images/placeholder.gif" },
-                new Album() { Title="For Those About To Rock We",Genre =genres.Single(g=>g.Name=="摇滚" ),Price=4.99M,Artist=artisrt.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/images/placeholder.gif" },
+                new Album() { Title="For Those About To Rock We Salute You",Genre =genres.Single(g=>g.Name=="摇滚" ),Price=4.99M,Artist=artisrt.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/images/placeholder.gif" },
                 new Album() { Title="Let There Be ",Genre =genres.Single(g=>g.Name=="爵士" ),Price=6.99M,Artist=artisrt.Single(a=>a.Name=="蔡健雅"),AlbumArtUrl="/Content/images/placeholder.gif" },
                 new Album() { Title="Balls to the Wall",Genre =genres.Single(g=>g.Name=="爵士" ),Price=2.99M,Artist=artisrt.Single(a=>a.Name=="王以太"),AlbumArtUrl="/Content/images/placeholder.gif" },
                 new Album() { Title="Restless and Wild",Genre =genres.Single(g=>g.Name=="爵士" ),Price=5.99M,Artist=artisrt.Single(a=>a.Name=="王以太"),AlbumArtUrl="/Content/images/placeholder.gif" },

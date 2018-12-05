@@ -14,12 +14,10 @@
         <li>
             <i class="glyphicon glyphicon-music"></i>
             @Html.ActionLink(item.Name, "Browser", "Store", new { id = item.ID }, null)
-            <span class="badge">
-                (@item.Albums.Count)
-            </span>
+            (@item.Albums.Count)
             @*显示前5个该分类的专辑*@
             @if (item.Albums.Count > 0)
-                {
+            {
                 <b>:</b>
                 foreach (var ab in item.Albums.Take(5))
                 {
