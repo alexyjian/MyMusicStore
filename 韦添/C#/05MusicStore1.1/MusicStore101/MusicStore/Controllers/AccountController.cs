@@ -18,6 +18,14 @@ namespace MusicStore.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            //用户的保存
+            return View();
+        }
+
 
         /// <summary>
         /// 登录方法
