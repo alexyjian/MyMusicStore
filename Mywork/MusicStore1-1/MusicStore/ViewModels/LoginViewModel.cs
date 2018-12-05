@@ -7,7 +7,7 @@ using System.Web;
 namespace MusicStore.ViewModels
 {
     /// <summary>
-    /// 登录师徒模型 用于用户输入的验证以及视图呈现
+    /// 登录视图模型 用于用户输入的验证以及视图呈现
     /// </summary>
     public class LoginViewModel
     {
