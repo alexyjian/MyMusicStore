@@ -30,7 +30,7 @@ namespace MusicStore.Controllers
         /// <param name="username"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public string TestLogin(string username = "admin", string pwd = "123.abc")
+        public string TestLogin(string username = "hs", string pwd = "123.abc")
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
             var user = userManager.Find(username, pwd);
@@ -45,6 +45,7 @@ namespace MusicStore.Controllers
             else
                 return "登录失败";
         }
+
         /// <summary>
         ///  伪造攻击
         /// </summary>
@@ -72,16 +73,3 @@ namespace MusicStore.Controllers
         }
     }
 }
-        //public async System.Threading.Tasks.Task<ActionResult> TestHackAsync()
-        //{
-        //    using (var client = new HttpClient())
-        //    {
-        //        var values = new List<KeyValuePair<string, string>>();
-        //        values.Add(new KeyValuePair<string, string>("UserName", "admin"));
-        //        values.Add(new KeyValuePair<string, string>("PassWord ", "123.abc"));
-        //        var content = new FormUrlEncodedContent(values);
-        //        var response = await client.PostAsync("http://srs.lzzy.net/account/login", content);
-        //        var responseString = await response.Content.ReadAsStringAsync();
-        //        return Redirect("http://srs.lzzy.net/");
-        //    }
-        //}
