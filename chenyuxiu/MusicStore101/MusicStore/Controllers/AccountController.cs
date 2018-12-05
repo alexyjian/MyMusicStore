@@ -16,13 +16,17 @@ namespace MusicStore.Controllers
         private static readonly EntityDbContext _context = new EntityDbContext();
         // GET: Account
         /// <summary>
-        /// 注册
+        /// 填写注册信息
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
 
-        public ActionResult Register()
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(ReadEntityBodyMode model)
         {
+            //用户的保存 Person ApplicaonUser
             //var detail = _context.Albums.Find(id);
             //return View(detail);
             return View();
