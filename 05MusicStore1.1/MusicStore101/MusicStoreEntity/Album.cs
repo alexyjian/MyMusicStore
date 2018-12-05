@@ -35,10 +35,5 @@ namespace MusicStoreEntity
             ID = Guid.NewGuid();
             PublisherDate = DateTime.Now;
         }
-
-        public Album ForEach(Func<object, Album> p)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
