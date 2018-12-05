@@ -13,14 +13,11 @@ namespace MusicStore.Controllers
 {
     public class AccountController : Controller
     {
-        private static readonly EntityDbContext _context = new EntityDbContext();
-        // GET: Account
-        /// <summary>
-        /// 填写注册信息
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-
+/// <summary>
+/// 注册登录
+/// </summary>
+/// <param name="model"></param>
+/// <returns></returns>
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -48,6 +45,7 @@ namespace MusicStore.Controllers
         }
         [HttpPost] //此Action用来接收用户提交
         [ValidateAntiForgeryToken]
+
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             //return Json("OK");
@@ -91,8 +89,20 @@ namespace MusicStore.Controllers
                     var identity = userManage.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     return Redirect(returnUrl);
                 }
+                else
+                {
+                    if (string.IsNullOrEmpty(returnUrl))
+                        ViewBag.ReturnUrl = Url.Action("index", "home");
+                    else
+                        ViewBag.ReturnUrl = returnUrl;
+                    ViewBag.LoginUserStatus = loginStatus;
+                    return View();
+                }
             }
-
+            if (string.IsNullOrEmpty(returnUrl))
+                ViewBag.ReturnUrl = Url.Action("index", "home");
+            else
+                ViewBag.ReturnUrl = returnUrl;
             return View();
         }
     }

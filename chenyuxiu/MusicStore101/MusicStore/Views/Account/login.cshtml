@@ -10,7 +10,7 @@
     }
 }
 <h2>用户登入</h2><br />
-<p>如果没有用户名请点我 @Html.ActionLink("这里", "Register") 注册</p>
+<p>如果没有用户名请点我 @Html.ActionLink("这里", "Register")</p>
 @*<form></form>*@
 @using (Html.BeginForm("login", "Account", new { returnUrl=ViewBag.ReturnUrl},FormMethod.Post))
 {
