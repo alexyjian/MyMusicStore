@@ -1,0 +1,92 @@
+
+*{
+    margin:0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+
+}
+.bottom{
+    width: 400px;
+    height: 400px;
+    margin: 60px auto;
+    background-color: aqua;
+    border:3px solid #999999;/*边框颜色*/
+    border-radius:12px;/*圆角边框*/
+} 
+.two{
+    width: 380px;
+    height: 380px;
+    margin: 6px;
+    background-color:#FAFAFA;
+    border:3px solid #999999;
+}
+.head{
+    width: 360px;
+    height: 75px;
+    margin: 6px;
+    background-color:#999999;
+    border:3px solid #FEB996;
+    text-align:center;
+    line-height: 75px;
+}
+.left{
+    width: 97px;
+    height: 192px;
+    background-color:#999999;
+    border:3px solid #FEB996;
+    margin: 20px;
+    margin-left:-2px;  
+    text-align:center;
+    line-height: 185px;
+}
+
+.right1{
+    width: 240px;
+    height: 58px;
+    background-color:#999999;
+    border:3px solid #FEB996;
+    top:175px;
+    right:580px;
+    float: right;
+    position: absolute;
+    text-align:center;
+    line-height: 70px;
+}
+
+.right2{
+    width: 240px;
+    height: 58px;
+    background-color:#999999;
+    border:3px solid #FEB996;
+    top:243px;
+    right:580px;
+    float: right;
+    position: absolute;
+    text-align:center;
+    line-height: 70px;
+}
+.right3{
+    width: 240px;
+    height: 58px;
+    background-color:#999999;
+    border:3px solid #FEB996;
+    top:311px;
+    right:580px;
+    float: right;
+    position: absolute;
+    text-align:center;
+    line-height: 70px;
+}
+.footer{
+    width: 365px;
+    height: 75px;
+    margin: 6px;
+    background-color:#999999;
+    border:3px solid #FEB996;
+    right:574px;
+    top:370px;
+    position: absolute;
+    text-align:center;
+    line-height:70px;
+}

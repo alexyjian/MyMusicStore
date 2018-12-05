@@ -17,7 +17,7 @@ namespace DBAUtility
         private static readonly string connectionString = ConfigurationManager.ConnectionStrings["DbConnectionString"].ToString();
 
         /// <summary>
-        /// 执行增删改等返回受影响行数的公共方法
+        /// 执行增删改等返回受影响行数的公共方法1
         /// </summary>
         public static int ExeSQL(SqlCommand cmd)
         {

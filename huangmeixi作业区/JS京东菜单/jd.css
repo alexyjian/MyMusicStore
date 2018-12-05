@@ -1,0 +1,127 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #666;
+}
+li {
+	list-style: none;
+}
+body {
+	font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #666;
+	text-align: center;
+	background: fff;
+} /*设置整个页面*/
+#box {
+	width: 100%;
+	text-align: center;
+	background: #999;
+}
+/*导航条*/
+#nav {
+	width: 100%;
+	height: 30px;
+	margin: 0 auto;
+	line-height: 30px;
+}
+/*导航条中每一个信息*/
+#nav a {
+	display: block;
+	width: 90px;
+	height: 30px;
+	text-align: center;
+	color: #FFF;
+}
+
+#nav >ul >li:nth-of-type(1) {
+	width: 800px;
+}
+#nav >ul >li:nth-of-type(2) {
+	border-right: 1px solid #000;
+}
+#nav >ul >li:nth-of-type(3) {
+	border-right: 1px solid #000;
+}
+#nav >ul >li:nth-of-type(4) {
+	border-right: 1px solid #000;
+}
+#nav >ul >li:nth-of-type(5) {
+	border-right: 1px solid #000;
+}
+#nav >ul >li:nth-of-type(6) {
+	border-right: 1px solid #000;
+}
+/*下拉菜单中信息的设置*/
+#nav li ul {
+	display: none;
+	position: absolute;
+	margin-left: -20px;
+	z-index:1;
+}
+#nav li ul li {
+	clear: both;
+}
+#nav li ul a {
+	width: 120px;
+	color:black;
+	text-align: center;
+	background: #FFF;
+}
+/*下拉菜单中信息鼠标经过时的样式：改变背景和字体的颜色*/
+#nav li ul li a:hover {
+		color: #E06FD3;
+}
+/*设置每个信息的浮动*/
+#nav li {
+	float: left;
+}
+/*下部分的设置*/
+.box1 {
+	width: 100%;
+	width: 100%;
+	position: relative;
+}
+img {
+	position: absolute;
+	left: 0;
+	top: 10px;
+}
+.box2 {
+	position: absolute;
+	width: 600px;
+	height: 30px;
+	border: solid 2px red;
+	left: 200px;
+	top: 50px;
+}
+h1 {
+	width: 120px;
+	height: 100%;
+	background: red;
+	color: #fff;
+	float: right;
+	font-size: 18px;
+}
+p {
+	position: absolute;
+	left: 200px;
+	top: 85px;
+}
+.box3 {
+	width: 100px;
+	height: 35px;
+	position: absolute;
+	left: 820px;
+	top: 50px;
+}
+.box4 {
+	width: 100px;
+	height: 35px;
+	position: absolute;
+	left: 950px;
+	top: 50px;
+}

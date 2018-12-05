@@ -1,0 +1,54 @@
+/*全局*/
+*{
+    margin:0;
+    padding:0;
+}
+ul,ol{
+    list-style:none;
+}
+img{
+    display:block
+}
+.wrap{
+    width:500px;
+    height:200px;
+    border: 1px solid #eeeeee;
+    position: relative;
+    padding:5px;
+    margin: 30px auto;
+}
+.qx{
+    width:100%;
+    height: 100%;
+    position:relative;
+    overflow:hidden;
+}
+.qx ul{
+    width: 1000%;
+    position: absolute;
+    top:0;
+    left:0
+}
+.qx ul li {
+   float:left;
+}
+
+.wrap ol{
+    position:absolute;
+    left:80%;
+    margin-left:-65px;
+    bottom:10px;
+}
+.wrap ol li{
+    background-color:white;
+    float:left;
+    width:20px;
+    height:20px;
+    margin-right:10px;
+    text-align:center;
+    line-height:20px;
+    cursor:pointer;
+}
+.wrap ol li.current{
+    background-color:orange;
+}

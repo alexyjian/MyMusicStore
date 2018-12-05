@@ -1,0 +1,67 @@
+.buttom{
+    width: 770px;
+    height: 800px;
+    background-color:#ffffff;
+    margin: auto;  
+    top: 0; left: 0; bottom: 0; right: 0; /*div居中*/
+    margin: 13px  auto;
+}     
+.one{
+    width: 770px;
+    height: 40px;
+    background-color: lightgray;
+    margin: auto;  
+    position: absolute;  
+    top: 0; left: 0; bottom: 0; right: 0; /*div居中*/
+    margin:0px auto;
+  
+
+}
+.pp{
+    padding:0px 90px; /*设置内边距：上下10px，左右30px*/
+    text-align: center;
+    margin-top: 8px;
+    margin-right: 80px;
+    word-spacing: 30px;
+
+}
+.two{
+    background: url(images/logo.png) no-repeat;
+    width: 1000px;
+    height: 40px;
+    margin: 3 auto; 
+    position: absolute; 
+    top: 2px;
+}
+.sree{
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 4000%;
+    max-height: 4000%;
+    position: relative;
+    top: 30px;
+    left: 50%;
+    margin: 6px auto; 
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+}
+
+.tgb{
+    font-size: 25px;
+}
+
+.zxc{
+    width: 770px;
+    height: 200px;
+    background-color:white;
+    margin: 20px  50px 10px 50px auto; 
+
+   
+}
+.lop img{
+        width: 180px;
+        height: 190px;
+        margin: 3px;
+        border-radius:12px;/*圆角边框*/
+
+}
