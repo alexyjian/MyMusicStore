@@ -172,6 +172,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewMoldels\LoginUserStatus.cs" />
     <Compile Include="ViewMoldels\LoginViewModel.cs" />
+    <Compile Include="ViewMoldels\RegisterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -181,6 +182,8 @@
     <Content Include="Content\Images\1.jpg" />
     <Content Include="Content\Images\2.jpg" />
     <Content Include="Content\Images\3.jpg" />
+    <Content Include="Content\Images\4.jpg" />
+    <Content Include="Content\Images\5.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\placeholder.gif" />
