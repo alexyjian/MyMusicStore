@@ -12,8 +12,42 @@ namespace MusicStore.Controllers
 {
     public class AccountController : Controller
     {
-        public ActionResult Register(LoginViewModel model)
+
+        public ActionResult Register()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var idManger = new IdentityManager();
+                
+                var person = new Person()
+                {
+                    FirstName = model.FullName[0].ToString(),
+                    LastName = model.FullName[model.FullName.Length - 1].ToString(),
+                    Name = model.FullName,
+                    Email = model.Email,
+                    Birthday = DateTime.Now
+                };
+
+                var registerUser = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    FirstName = model.FullName[0].ToString(),
+                    LastName = model.FullName[model.FullName.Length - 1].ToString(),
+                    ChineseFullName = model.FullName,
+                    Email = model.Email,
+                    Person = person
+                };
+
+                idManger.CreateUser(registerUser, model.PassWord);
+                idManger.AddUserToRole(registerUser.Id, "RegisterUser");
+            }
             return View();
         }
 
