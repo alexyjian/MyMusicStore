@@ -3,21 +3,31 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using MusicStore.ViewModels;
 using MusicStoreEntity;
 using MusicStorEntity.UserAndRole;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using WebApplication1.ViewModels;
 
 namespace WebApplication1.Controllers
 {
     public class AccuntController : Controller
     {
         // GET: Account
-        public ActionResult Register()
+            /// <summary>
+            /// 填写注册信息
+            /// </summary>
+            /// <returns></returns>
+        public ActionResult Controller()
         {
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            //用户的保存 Person ApplicationUser
+            return View();
+        }
+       
 
         /// <summary>
         /// 登录方法
@@ -34,7 +44,8 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [HttpPost]   //此Action用来接收用户提交
+        [HttpPost]
+        [ValidateAntiForgeryToken]//此Action用来接收用户提交
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             //判断实体是否校验通过

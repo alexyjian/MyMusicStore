@@ -1,15 +1,10 @@
 ﻿using MusicStorEntity.UserAndRole;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
-namespace WebApplication1.Migrations
+namespace MusicStore.Migrations
 {
-    public class UserAndRoleSeed : Controller
+    public class UserAndRoleSeed
     {
-        // GET: UserAndRoleSeed
         private static readonly MusicStoreEntity.EntityDbContext _dbContext = new MusicStoreEntity.EntityDbContext();
 
         /// <summary>
@@ -53,9 +48,9 @@ namespace WebApplication1.Migrations
             #region 管理员
             var person1 = new Person()
             {
-                FirstName = "梁",
-                LastName = "伟",
-                Name = "梁伟杰",
+                FirstName = "梅",
+                LastName = "西",
+                Name = "梅西",
                 CredentialsCode = "4500002015010112345",
                 Birthday = DateTime.Parse("2015-01-01"),
                 Sex = true,
@@ -69,16 +64,16 @@ namespace WebApplication1.Migrations
             };
             var loginUser = new ApplicationUser()
             {
-                UserName = "JJ",
-                FirstName = "m",
-                LastName = "m",
-                ChineseFullName = "jm",
-                MobileNumber = "15177715175",
+                UserName = "j",
+                FirstName = "梅",
+                LastName = "西",
+                ChineseFullName = "梅西",
+                MobileNumber = "13833883388",
                 Email = "messi@163.com",
-                Person = person1,
+                Person =person1,
             };
             //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户
-            idManager.CreateUser(loginUser, "123.abc");
+            idManager.CreateUser(loginUser, "123456789");
             //添加到Admin角色
             idManager.AddUserToRole(loginUser.Id, "Admin");
             #endregion
