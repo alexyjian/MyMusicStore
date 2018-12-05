@@ -1,0 +1,8 @@
+严重性	代码	说明	项目	文件行禁止显示状态
+错误未能找到 CodeDom 提供程序类型“Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”。		F:\20170310084覃添钰\VS\ASP.NET708\Product\Web.config	117	
+
+enable-migrations -StartUpProjectName MusicStore -ProjectName MusicStore -ContextProjectName MusicStoreEntity -ContextTypeName MusicStoreEntity.MusicContext
+
+
+严重性	代码	说明	项目	文件	行	禁止显示状态
+错误	CS0311	类型“MusicStoreEntity.MusicContext”不能用作泛型类型或方法“DbMigrationsConfiguration<TContext>”中的类型参数“TContext”。没有从“MusicStoreEntity.MusicContext”到“System.Data.Entity.DbContext”的隐式引用转换。	MusicStore	F:\20170310084覃添钰\VS\ASP.NET708\MusicStore\MusicStore1_01\MusicStore\Migrations\Configuration.cs	8	活动

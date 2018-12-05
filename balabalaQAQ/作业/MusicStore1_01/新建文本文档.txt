@@ -1,0 +1,2 @@
+
+enable-migrations -StartUpProjectName MusicStore -ProjectName MusicStore -ContextProjectName MusicStoreEntity -ContextTypeName MusicStoreEntity.MusicContext
