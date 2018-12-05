@@ -20,6 +20,15 @@ namespace MusicStore.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Register(RegisterViewModel model)
+        {
+            //用户的保存 Person ApplicationUser
+            return View();
+        }
+
         /// <summary>
         /// 登陆方法
         /// </summary>

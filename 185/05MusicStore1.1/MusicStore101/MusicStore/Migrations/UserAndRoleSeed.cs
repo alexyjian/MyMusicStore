@@ -79,8 +79,37 @@ namespace MusicStore.Migrations
             idManger.CreateUser(loginUser, "123.abc");
             idManger.AddUserToRole(loginUser.Id, "RegisterUser");
 
-         
+
             #endregion
+
+            var person2= new Person()
+            {
+                FirstName = "丑",
+                LastName = "东",
+                Name = "西",
+                CredentialsCode = "450000000321652288",
+                Birthday = DateTime.Parse("2001-03-08"),
+                Sex = true,
+                MobileNumber = "62185121215",
+                Email = "qzs@163.com",
+                CreateDateTime = DateTime.Now,
+                TelephoneNumber = "3154699",
+                Description = "",
+                UpdateTime = DateTime.Now,
+                InquiryPassword = "pig",
+            };
+            var newuser = new ApplicationUser()
+            {
+                UserName = "cdx",
+                FirstName = "东",
+                LastName = "西",
+                ChineseFullName = "东西",
+                MobileNumber = "62185121215",
+                Email = "qzs@163.com",
+                Person = person2,
+            };
+            idManger.CreateUser(newuser, "123.abc");
+            idManger.AddUserToRole(newuser.Id, "RegisterUser");
         }
     }
 }
