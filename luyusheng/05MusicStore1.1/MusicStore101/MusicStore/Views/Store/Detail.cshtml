@@ -8,31 +8,31 @@
 <h2>@Model.Title </h2>
 
 <p>
-    <img alt="@Model .Title" src="@Model.AlbumArtUrl"/>
+    <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
 </p>
 
 <div id="album-details">
     <p>
         <em>
-            发布时间：
+            发布时间:
         </em>
-        @Model.PublisherDate.ToString("yyyy年MM月dd日")；
+        @Model.PublisherDate.ToString("yyyy年MM月dd日");
     </p>
     <p>
         <em>
-            分类：
+            分类:
         </em>
         @Model.Genre.Name
     </p>
     <p>
         <em>
-            歌手：
+            歌手:
         </em>
         @Model.Artist.Name
     </p>
     <p>
         <em>
-            价格：
+            价格:
         </em>
        ￥@String.Format("{0:F}",Model.Price)
     </p>
