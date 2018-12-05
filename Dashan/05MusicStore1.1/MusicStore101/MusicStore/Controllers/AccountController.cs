@@ -13,17 +13,32 @@ namespace MusicStore.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account
+        /// <summary>
+        /// 填写注册信息
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Register()
+        {
+          
+
+            return View();
+        }
+
+
+        [HttpPost] //此Action用来接收用户提交
+        //阻止防止伪造请求的特性
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model )
         {
             return View();
         }
+
+
         /// <summary>
         /// 登录页面
         /// </summary>
         /// <param name="returnUrl">登录成功后跳转地址</param>
         /// <returns></returns>
-
         public ActionResult Login(string returnUrl = null)
         {
             //没有地址就跳转回首页
@@ -73,7 +88,7 @@ namespace MusicStore.Controllers
                     //登录成功后用户信息保存到回话
                     Session["LoginUserSessionModel"] = loginUserSessionModel;
 
-                    //identity 登录处理，登录令牌Tkken
+                    //identity 登录处理，登录令牌Token
                     var identity = userManage.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     return Redirect(returnUrl);
 
