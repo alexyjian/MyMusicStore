@@ -16,7 +16,42 @@ namespace MusicStore.Controllers
         // GET: Account
         public ActionResult Register()
         {
+
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel mode)
+        {
+            if (ModelState.IsValid)
+            { 
+                var person1 = new Person()
+                {
+                    FirstName = mode.FullName[0].ToString(),
+                    LastName = mode.FullName[mode.FullName.Length-1].ToString(),
+                    Name = mode.FullName,
+                    Birthday = DateTime.Parse("2000-2-22"),
+                    Email = mode.Email,
+                    Description = "普通用户注册",
+                };
+                var idManger = new IdentityManager();
+                var loginUser = new ApplicationUser()
+                {
+                    UserName =mode.UserName,
+                    FirstName = mode.FullName[0].ToString(),
+                    LastName = mode.FullName[mode.FullName.Length - 1].ToString(),
+                    ChineseFullName = mode.FullName,
+                    Email = mode.Email,
+                    Person = person1
+                };
+
+                idManger.CreateUser(loginUser, mode.PassWord);
+                idManger.AddUserToRole(loginUser.Id, "Admin");
+                
+            }
+            return Redirect("~/Account/Login");
+         
         }
         /// <summary>
         /// 

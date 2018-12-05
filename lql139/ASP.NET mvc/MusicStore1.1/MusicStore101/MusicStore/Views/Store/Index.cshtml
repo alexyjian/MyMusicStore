@@ -14,15 +14,15 @@
                 <i class="glyphicon glyphicon-cd"></i>
                 <a>@Html.ActionLink(item.Name, "Browser", "Store", new { id = item.ID }, null)</a><br />
                 (@item.Albums.Count)首歌
-                @if (item.Albums.Count > 0)
-                {
-                    <b>:</b>
-                    foreach (var ab in item.Albums.Take(5))
+                @*@if (item.Albums.Count > 0)
                     {
-                        <a href=""></a>
-                        <span>@(ab.Title)</span>
-                    }
-                }
+                        <b>:</b>
+                        foreach (var ab in item.Albums.Take(5))
+                        {
+                            <a href=""></a>
+                            <span>@(ab.Title)</span>
+                        }
+                  }*@
             </li>
         }
        
