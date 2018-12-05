@@ -55,17 +55,22 @@ namespace MusicStore.Migrations
 
             new List<Album>
             {
-                new Album {Title="aA",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {Title="BBBBBBB",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {Title="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
-                new Album {
-                    Title ="A",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"
-                },
+                new Album {Title="逆光",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="孙燕姿"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="烟火里的尘埃",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="华晨宇"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="The Marshall Mathers LP",Genre = genres.Single(g=>g.Name =="嘻哈"),Price=8.99M,Artist=artists.Single(a=>a.Name=="Eminem"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="The Best Damn Thing",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="Avril"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="叶惠美",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="周杰伦"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="Numb",Genre = genres.Single(g=>g.Name =="摇滚"),Price=8.99M,Artist=artists.Single(a=>a.Name=="林肯公园"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="岁月神偷",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="周笔畅"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title="世界に一つだけの花",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="SMAP"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="勇敢",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="张惠妹"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="不为谁而作的歌",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="林俊杰"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="U-87",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="陈奕迅"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="如也",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="陈粒"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="JULY",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="吴亦凡"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="The Eminem Show",Genre = genres.Single(g=>g.Name =="嘻哈"),Price=8.99M,Artist=artists.Single(a=>a.Name=="Eminem"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="依然范特西",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="周杰伦"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="异类",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="华晨宇"), AlbumArtUrl="/Content/images/placeholder.gif"},
             }.ForEach(n => _dbContext.Albums.Add(n));
             _dbContext.SaveChanges();
         }
