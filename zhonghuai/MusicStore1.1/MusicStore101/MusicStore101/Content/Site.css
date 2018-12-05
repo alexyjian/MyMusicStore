@@ -22,8 +22,9 @@ body {
     margin-bottom: 10px;
 }
 
-#header h1 {
-        font-size: 18px;
+#header h2 {
+   
+        font-size: 30px;
         float: left;
         background: url(/content/Images/logo.png) no-repeat;
         padding: 45px 0px 5px 0px;
@@ -56,20 +57,18 @@ ul {
         margin-left: 0px;
     }
 
-        ul#album-list li {
+ul#album-list li {
             height: 130px;
             width: 100px;
             float: left;
             margin: 10px;
             text-align: center;
         }
-
-            ul#album-list li a, ul#album-list li .button {
+ul#album-list li a, ul#album-list li .button {
                 font-size: 13px;
                 float: left;
             }
-
-                ul#album-list li a span {
+ul#album-list li a span {
                     color: #9b9993;
                     text-decoration: none;
                 }
@@ -94,7 +93,7 @@ ul {
     font-weight: bold;
 }
 
-    .button a {
+.button a {
         color: #fff !important;
     }
 
@@ -112,11 +111,10 @@ ul#navlist {
     float: right;
 }
 
-    ul#navlist li {
+ul#navlist li {
         display: inline;
     }
-
-        ul#navlist li a {
+ul#navlist li a {
             border-left: 1px dotted #8A8575;
             padding: 10px;
             margin-top: 10px;
@@ -124,8 +122,7 @@ ul#navlist {
             text-decoration: none;
             float: left;
         }
-
-        ul#navlist li:first-child a {
+ul#navlist li:first-child a {
             border: none;
         }
 
@@ -188,12 +185,12 @@ a:active {
     float: left;
 }
 
-    #categories a:link, #categories a:visited {
+#categories a:link, #categories a:visited {
         color: #9B9993;
         text-decoration: none;
     }
 
-    #categories a:hover {
+#categories a:hover {
         color: #F46739;
     }
 

@@ -1,8 +1,12 @@
-﻿
+﻿@model MusicStore101.ViewModels.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "新用户注册";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<h2>Register</h2>
+<h2>新用户注册</h2>
+@using (Html.BeginForm("register", "account", FormMethod.Post))
+{
+
+}
 
