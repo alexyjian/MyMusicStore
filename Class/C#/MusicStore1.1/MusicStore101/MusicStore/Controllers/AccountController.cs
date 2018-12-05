@@ -48,7 +48,7 @@ namespace MusicStore.Controllers
                 idManger.CreateUser(registerUser, model.PassWord);
                 idManger.AddUserToRole(registerUser.Id, "RegisterUser");
             }
-            return View();
+            return Redirect("~/Index/Home");
         }
 
         /// <summary>
