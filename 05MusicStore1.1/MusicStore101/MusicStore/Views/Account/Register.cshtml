@@ -1,8 +1,57 @@
-﻿
+﻿@model MusicStore.ViewModels.RegisterViewModel
+
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "新用户注册";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<h2>Register</h2>
+<h2>新用户注册</h2>
+@using (Html.BeginForm("register","account",FormMethod.Post))
+{
+    //表单内容
+    @Html.AntiForgeryToken()
 
+    <div>
+        <fieldset>
+            <legend>账户信息</legend>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x=>x.UserName,new {placeholder="请输入用户登录名"})
+                @Html.ValidationMessageFor(x=>x.UserName)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.FullName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.FullName, new { placeholder = "请输入用户姓名" })
+                @Html.ValidationMessageFor(x => x.FullName)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入用户邮箱" })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(x=>x.PassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x=>x.PassWord, new { placeholder = "请输入用户登录密码" })
+                @Html.ValidationMessageFor(x=>x.PassWord)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.ConfirmPassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.ConfirmPassWord, new { placeholder = "再次输入用户登录密码" })
+                @Html.ValidationMessageFor(x => x.ConfirmPassWord)
+            </div>
+            <p>
+                <input type="submit" value="注册" class="btn btn-success" style="width: 70px"/>
+            </p>
+        </fieldset>
+    </div>
+}
