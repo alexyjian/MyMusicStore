@@ -14,32 +14,68 @@ namespace MusicStore.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
+       
         /// <summary>
-        /// 测试登录
+        /// 填写注册信息
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="pwd"></param>
         /// <returns></returns>
-        public string TestLogin(string username = "messi", string pwd = "123.abc")
-        {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
-            var user = userManager.Find(username, pwd);
-            if (user != null)
-            {
-                var roleName = "";
-                var context = new MusicStoreEntity.EntityDbContext();
-                foreach (var role in user.Roles)
-                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + "";
-                return "登录成功,用户属于：" + roleName;
-            }
-            else
-                return "登录失败";
-        }
-
         public ActionResult Register() {
+            //if (string.IsNullOrEmpty(returnUrl))
+
+            //    ViewBag.ReturnUrl = Url.Action("index", "home");
+            //else
+            //    ViewBag.ReturnUrl = returnUrl;
+
             return View();
         }
+        [HttpPost] //此Action用来接收用户提交
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model)
+        {
+
+            //用户
+            if (ModelState.IsValid)
+            {
+                var idManger = new IdentityManager();
+                #region 管理员
+                var person1 = new Person()
+                {
+                    FirstName = model.FullName,
+                    LastName = "西",
+                    Name = model.UserName,
+                    CredentialsCode = "4500002015010112345",
+                    Birthday = DateTime.Parse("2015-01-01"),
+                    Sex = true,
+                    MobileNumber = "13833883388",
+                    Email = model.Email,
+                    CreateDateTime = DateTime.Now,
+                    TelephoneNumber = "3158899",
+                    Description = "超级管理员",
+                    UpdateTime = DateTime.Now,
+                    InquiryPassword = "123456",
+                };
+                var loginUser = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    FirstName = model.FullName,
+                    LastName = "西",
+                    ChineseFullName = "梅西",
+                    MobileNumber = "13833883388",
+                    Email = "messi@163.com",
+                    Person = person1,
+                };
+                //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户
+                idManger.CreateUser(loginUser, model.PassWord);
+                //添加到Admin角色
+                idManger.AddUserToRole(loginUser.Id, "Admin");
+                #endregion
+            }
+            return View();
+        }
+
+          
+        
+
 
         /// <summary>
         /// 登录方法
@@ -130,6 +166,28 @@ namespace MusicStore.Controllers
             var resonse = await chent.PostAsync("http://10.88.91.101:9000/account/login",content);
             var html = await resonse.Content.ReadAsStringAsync();
             return Json("");
+        }
+        // GET: Login
+        /// <summary>
+        /// 测试登录
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        public string TestLogin(string username = "messi", string pwd = "123.abc")
+        {
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
+            var user = userManager.Find(username, pwd);
+            if (user != null)
+            {
+                var roleName = "";
+                var context = new MusicStoreEntity.EntityDbContext();
+                foreach (var role in user.Roles)
+                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + "";
+                return "登录成功,用户属于：" + roleName;
+            }
+            else
+                return "登录失败";
         }
     }
 }
