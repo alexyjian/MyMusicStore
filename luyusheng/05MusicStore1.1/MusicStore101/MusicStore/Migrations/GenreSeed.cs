@@ -117,8 +117,9 @@ namespace MusicStore.Migrations
             {
                  new Album
                  { Title = "The Best Of Men At Work",Genre = genres.Single(g =>g.Name == "摇滚"),Price = 8.99M,
-                   Artist = artists.Single(a => a.Name == "蔡健雅"),
-                   AlbumArtUrl = "/Content/Images/placeholder.gif"},
+                   Artist = artists.Single(a => a.Name == "蔡健雅"),AlbumArtUrl = "/Content/Images/placeholder.gif"
+
+                 },
 
                  new Album {Title = "A Copland Celebration,Vol.1",Genre =genres.Single(g =>g.Name =="爵士"),Price = 8.99M,
                      Artist = artists.Single(a => a.Name == "张惠妹"),
@@ -126,11 +127,11 @@ namespace MusicStore.Migrations
 
                  new Album { Title = "Worlds",Genre = genres.Single(g =>g.Name == "爵士"),Price = 8.99M,
                      Artist = artists.Single(a => a.Name == "王以太"),
-                     AlbumArtUrl = "/Content/Images/placeholder.gif" },
+                     AlbumArtUrl = "/Content/Images/placeholder.gif"},
 
                  new Album {Title = "For Those About To Rock We Salute You",Genre =genres.Single(g =>g.Name == "青春"),Price = 8.99M,
                      Artist = artists.Single(a => a.Name == "苏有朋"),
-                     AlbumArtUrl = "/Content/Images/placeholder.gif" },
+                     AlbumArtUrl = "/Content/Images/placeholder.gif"},
 
                  new Album { Title = "Let There Be Rock ", Genre = genres.Single(g =>g.Name == "摇滚"),Price = 8.99M,
                      Artist = artists.Single(a => a.Name == "徐秉龙"),
@@ -189,7 +190,8 @@ namespace MusicStore.Migrations
                      AlbumArtUrl = "/Content/Images/placeholder.gif"},
 
             }.ForEach(n => _dbContext.Albums.Add(n));
-             _dbContext.SaveChanges();
+            _dbContext.SaveChanges();
+
         }
 
         //给GenreId和AristId赋值
