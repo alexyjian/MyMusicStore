@@ -14,8 +14,47 @@ namespace Music.Controllers
     public class AccountController : Controller
     {
         // GET: Account
+
+        /// <summary>
+        /// 填写注册信息
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Register()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            //用户的保存 person ApplicationUser
+            var idManger = new IdentityManager();
+            var user=new Person()
+            {
+                FirstName = model.FullName,
+                LastName = model.FullName,
+                Name = model.FullName,
+                Sex = true,
+                Email = model.Email,
+                CredentialsCode = "4500002015010112345",
+                Birthday = DateTime.Parse("2015-01-01"),
+                Description = "注册用户组",
+                TelephoneNumber = "3158899",
+                UpdateTime = DateTime.Now,
+                InquiryPassword = model.ConFirmPassWord
+            };
+            var s= new  ApplicationUser()
+            {
+                UserName = model.UserName,
+                FirstName = model.FullName,
+                LastName = model.FullName,
+                ChineseFullName = model.FullName,
+                Email = model.Email,
+                Person =user
+            };
+            idManger.CreateUser(s, model.ConFirmPassWord);
+            idManger.AddUserToRole(s.Id, "RegisterUser");
             return View();
         }
         /// <summary>
