@@ -13,12 +13,21 @@ namespace MusicStore.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account
+        /// <summary>
+        /// 填写注册信息
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Register()
         {
             return View();
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel mode)
+        {
+            //用户的保存 person ApplicationUser
+            return View();
+        }
         /// <summary>
         /// 登录方法
         /// </summary>
