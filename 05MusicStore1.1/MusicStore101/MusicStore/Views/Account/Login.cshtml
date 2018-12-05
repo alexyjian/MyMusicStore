@@ -12,10 +12,13 @@
     }
 }
 
+
 <h2>用户登录</h2>
 <p>如果没有用户名请点一下 @Html.ActionLink("这里","Register")</p>
 @using (Html.BeginForm("login","Account",new {returnUrl = ViewBag.ReturnUrl } ,FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
+
 <div>
     <fieldset>
         <legend>账户信息</legend>
