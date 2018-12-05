@@ -93,5 +93,17 @@ namespace MusicStore.Controllers
                 ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]   //此Action用来接收用户提交
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            //用户的保存person ApplicationUser
+            return View();
+        }
+
     }
 }
