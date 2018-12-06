@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using MusicStoreEntity.UserAndRole;
 using MusicStoreEntity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 namespace MusicStore101.Controllers
 {
@@ -25,6 +26,45 @@ namespace MusicStore101.Controllers
 
         public ActionResult Register(RegisterViewModel model)
         {
+            if(ModelState.IsValid)
+            {
+                var person = new Person()
+                {
+                    FirstName = model.Fullname.Substring(0,1),
+                    LastName= model.Fullname.Substring(1,model.Fullname.Length-1),
+                    Name= model.Fullname,
+                    CredentialsCode= "",
+                    Birthday= DateTime.Now,
+                    Sex= true,
+                    MobileNumber="157123456789",
+                    Email= model.Email,
+                    TelephoneNumber= "157123456789",
+                    Description="",
+                    CreateDateTime= DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    InquiryPassword="未设置",
+
+                };
+                var user = new ApplicationUser()
+                {
+                    UserName= model.UerName,
+                    FirstName=model.Fullname.Substring(0,1),
+                    LastName = model.Fullname.Substring(1, model.Fullname.Length - 1),
+                    ChineseFullName=model.Fullname,
+                    MobileNumber="157123456789",
+                    Email= model.Email,
+                    Person= person,
+
+                };
+                //是否要验证Email
+                var idMaager = new IdentityManager();
+                idMaager.CreateUser(user,model.PassWord);
+                idMaager.AddUserToRole(user.Id,"RegisterUser");
+
+                return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
+            }
+
+
             //用户的保存 Person ApplicationUser
             return View();
         }
