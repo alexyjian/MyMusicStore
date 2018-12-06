@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Design;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -161,6 +162,62 @@ namespace MusicStore.Controllers
             Session.Remove("loginStatus");
             Session.Remove("LoginUserSessionModel");
             return RedirectToAction("index", "Home");
+        }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ChangePassWord()
+        {
+            //判断用户在登录状态下才能修改密码
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login");
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePassWord(ChangePassWordVIewModel model)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                //输入合法，进行修改密码
+                bool changePwdSuccessed;
+                try
+                {
+                    var userManager=
+                        new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicContext()));
+                    var userName = (Session["LoginUserSessionModel"] as LoginUserSessionModel).User.UserName;
+                    //判断原密码是否输入正确
+                    var user = userManager.Find(userName, model.PassWord);
+                    if (user==null)
+                    {
+                        ModelState.AddModelError("","原密码不正确");
+                        return View();
+                    }
+                    else
+                    {
+                        //修改密码
+                        changePwdSuccessed = userManager.ChangePassword
+                            (user.Id, model.PassWord, model.NewPassWord).Succeeded;
+                        if (changePwdSuccessed)
+                            return Content("<script>alert('修改密码成功！');location.href='"+Url.Action("index","home")+"'</script>");
+
+                        else
+
+                       ModelState.AddModelError("","修改密码失败，请重试");
+
+                    }
+                }
+                catch 
+                {
+
+                    ModelState.AddModelError("", "修改密码失败，请重试");
+
+                }
+            }
+            return View(model);
         }
     }
 }
