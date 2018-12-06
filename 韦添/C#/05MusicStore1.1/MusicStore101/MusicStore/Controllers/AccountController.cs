@@ -36,9 +36,9 @@ namespace MusicStore.Controllers
                     CredentialsCode = "",
                     Birthday = DateTime.Now,
                     Sex = true,
-                    MobileNumber = "123456789",
+                    MobileNumber = "18866668888",
                     Email = model.Email,
-                    TelephoneNumber = "123456789",
+                    TelephoneNumber = "18866668888",
                     Description = "",
                     CreateDateTime = DateTime.Now,
                     UpdateTime = DateTime.Now,
@@ -50,7 +50,7 @@ namespace MusicStore.Controllers
                     FirstName = model.FullName.Substring(0, 1),
                     LastName = model.FullName.Substring(1, model.FullName.Length - 1),
                     ChineseFullName = model.FullName,
-                    MobileNumber = "123456789",
+                    MobileNumber = "18866668888",
                     Email = model.Email,
                     Person = person,
                 };
@@ -61,7 +61,7 @@ namespace MusicStore.Controllers
                 idManager.CreateUser(user, model.PassWord);
                 idManager.AddUserToRole(user.Id, "RegisterUser");
 
-                return RedirectToAction("Login");
+                return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
             }
 
             return View();
