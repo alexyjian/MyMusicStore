@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System;
 
 namespace MusicStoreEntity.UserAndRole
 {
@@ -62,6 +63,11 @@ namespace MusicStoreEntity.UserAndRole
             };
             var idResult = um.Create(user, password);
             return idResult.Succeeded;
+        }
+
+        public void CreateUser(ApplicationUser user, object passWord)
+        {
+            throw new NotImplementedException();
         }
 
         public bool AddUserToRole(string userId, string roleName)
