@@ -3,12 +3,6 @@
 @{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
-
-    var msg = "";
-    if (ViewBag.LoginUserStatus != null)
-    {
-        msg = (ViewBag.LoginUserStatus as LoginUserStatus).Message;
-    }
 }
 <h2>新用户注册</h2>
 @using (Html.BeginForm("register", "account", FormMethod.Post))
@@ -65,11 +59,6 @@
                 @Html.PasswordFor(x => x.ConfirmPassWord, new { placeholder = "请输入新密码" })
                 @Html.ValidationMessageFor(x => x.ConfirmPassWord)
             </div>
-
-
-            <p class="text-danger">
-                @msg
-            </p>
 
             <p>
                 <input type="submit" value="注册" class="btn btn-success" style="width: 80px" />
