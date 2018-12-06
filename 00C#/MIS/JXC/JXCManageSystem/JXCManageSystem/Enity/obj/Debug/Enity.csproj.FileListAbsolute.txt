@@ -1,5 +1,0 @@
-E:\yjian\JXCManageSystem\Enity\bin\Debug\Enity.dll
-E:\yjian\JXCManageSystem\Enity\bin\Debug\Enity.pdb
-E:\yjian\JXCManageSystem\Enity\obj\Debug\Enity.dll
-E:\yjian\JXCManageSystem\Enity\obj\Debug\Enity.pdb
-E:\yjian\JXCManageSystem\Enity\obj\Debug\Enity.csprojResolveAssemblyReference.cache

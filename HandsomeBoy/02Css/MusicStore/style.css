@@ -3,6 +3,12 @@
     margin: 0;
     list-style: none;
 }
+.wrapper{
+    margin: 0 auto;
+   position: relative;
+    min-width: 1000px;
+    min-height: 1000px;
+}
 a,a:hover{
      text-decoration: none;
 }
@@ -13,6 +19,14 @@ a,a:hover{
    padding: 48px 0 5px 0 ;
     background: url(Images/logo.png) no-repeat;
     font-weight: bold;
+}
+#header{
+    width: 100%;
+    background-color: aqua;
+}
+.row{
+    width: 80%;
+  margin: 0 auto;
 }
 h1 a,h3{
     color: #5e5b54;
