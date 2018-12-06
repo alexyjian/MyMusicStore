@@ -21,7 +21,7 @@ namespace MusicStore.ViewModels
 
         [Display(Name = "确认密码")]
         [DataType(DataType.Password)]
-        [Compare("PassWord", ErrorMessage = "前后密码要一致")]
+        [Compare("NewPassWord", ErrorMessage = "前后密码要一致")]
         public string ConfirmPassWord { get; set; }
     }
 }
