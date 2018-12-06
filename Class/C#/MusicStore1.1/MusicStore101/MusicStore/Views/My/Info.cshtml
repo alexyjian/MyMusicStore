@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "个人资料";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+    int year = 0;
+    int month = 0;
+    int min = 0;
 }
 
 <h3>个人信息</h3>
@@ -28,18 +31,16 @@
                     <option value="@y">@y</option>
                 }
             </select>
-            年
+            &nbsp;年&nbsp;
             <select class="form-control">
                 @for (int m = 1; m <= 12; m++)
                 {
-                    <option value="@m">@m</option>
+                    <option value="@m" >@m</option>
                 }
-            </select>
-            月
+            </select>&nbsp;月&nbsp;
             <select class="form-control">
                 
-            </select>
-            日
+            </select>&nbsp;日&nbsp;
         </div>
     </div>
     <br />
