@@ -22,13 +22,48 @@ namespace MusicStore.Controllers
         {
             return View();
         }
-
-     
+   
         public ActionResult Register(RegisterViewModel model)
         {
-            //用户的保存 Person ApplicationUser
+            if (ModelState.IsValid)
+            {
+                var person = new Person()
+                {
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    Name = model.FullName,
+                    Birthday = DateTime.Now,
+                    Sex = true,
+                    MobileNumber = "15269842356",
+                    Email = model.Email,
+                    TelephoneNumber = "15269842356",
+                    Description = "",
+                    CreateDateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    InquiryPassword = "未设置",
+                };
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    ChineseFullName = model.FullName,
+                    MobileNumber = "15269842356",
+                    Email = model.Email,
+                    Person = person,
+
+                };
+                //是否要验证Email
+                var idManager = new IdentityManager();
+                idManager.CreateUser(user, model.PassWord);
+                idManager.AddUserToRole(user.Id, "RegisterUser");
+                return Content("<script>alert('亲,您已注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
+            }
             return View();
         }
+
+
+
         /// <summary>
         /// 登录方法
         /// </summary>
@@ -42,7 +77,8 @@ namespace MusicStore.Controllers
                 ViewBag.ReturnUrl = returnUrl;
             return View();
          }
-        [HttpPost]
+
+        [HttpPost]//用来接受用户提交
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
@@ -88,8 +124,28 @@ namespace MusicStore.Controllers
                     var identity = userManage.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     return Redirect(returnUrl);
                 }
+                else
+                {
+                    if (string.IsNullOrEmpty(returnUrl))
+                        ViewBag.ReturnUrl = Url.Action("index", "home");
+                    else
+                        ViewBag.ReturnUrl = returnUrl;
+                    ViewBag.LoginUserStatus = loginStatus;
+                    return View();
+                }
             }
+            if (string.IsNullOrEmpty(returnUrl))
+                ViewBag.ReturnUrl = Url.Action("index", "home");
+            else
+                ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+        public ActionResult LoginOut()
+        {
+            Session.Remove("loginStatus");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("index", "Home");
+
         }
     }
 }
