@@ -8,6 +8,7 @@
 <h2>新用户注册</h2>
 @using (Html.BeginForm("register", "account", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     <div>
         <fieldset>
             <legend>注册信息</legend>
@@ -39,7 +40,7 @@
                 @Html.LabelFor(x => x.PassWord)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.PassWord, new { placeholder = "请输入密码" })
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = "请输入密码" })
                 @Html.ValidationMessageFor(x => x.PassWord)
             </div>
             
@@ -47,7 +48,7 @@
                 @Html.LabelFor(x => x.ConfirmPassword)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.ConfirmPassword, new { placeholder = "请再次输入密码" })
+                @Html.PasswordFor(x => x.ConfirmPassword, new { placeholder = "请再次输入密码" })
                 @Html.ValidationMessageFor(x => x.ConfirmPassword)
             </div>
             
