@@ -9,6 +9,7 @@ body {
     font-size: 14px;
     background-color: #FBF9EF;
     padding: 0px 6%;
+    box-sizing: border-box;
 }
 
 #container {

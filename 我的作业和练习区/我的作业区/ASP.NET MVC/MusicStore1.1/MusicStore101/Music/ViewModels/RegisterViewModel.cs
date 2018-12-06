@@ -20,6 +20,7 @@ namespace Music.ViewModels
         public string FullName { get; set; }
         [Required(ErrorMessage = "邮箱不能为空")]
         [Display(Name="邮箱")]
+        [RegularExpression(@"^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$", ErrorMessage = "请输入正确的Email格式！")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Required(ErrorMessage = "密码不能为空")]

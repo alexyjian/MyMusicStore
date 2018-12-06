@@ -29,32 +29,39 @@ namespace Music.Controllers
         public ActionResult Register(RegisterViewModel model)
         {
             //用户的保存 person ApplicationUser
-            var idManger = new IdentityManager();
-            var user=new Person()
+            if (ModelState.IsValid) 
             {
-                FirstName = model.FullName,
-                LastName = model.FullName,
-                Name = model.FullName,
-                Sex = true,
-                Email = model.Email,
-                CredentialsCode = "4500002015010112345",
-                Birthday = DateTime.Parse("2015-01-01"),
-                Description = "注册用户组",
-                TelephoneNumber = "3158899",
-                UpdateTime = DateTime.Now,
-                InquiryPassword = model.ConFirmPassWord
-            };
-            var s= new  ApplicationUser()
-            {
-                UserName = model.UserName,
-                FirstName = model.FullName,
-                LastName = model.FullName,
-                ChineseFullName = model.FullName,
-                Email = model.Email,
-                Person =user
-            };
-            idManger.CreateUser(s, model.ConFirmPassWord);
-            idManger.AddUserToRole(s.Id, "RegisterUser");
+                var user = new Person()
+                {
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    Name = model.FullName,
+                    CredentialsCode = "4500002015010112345",
+                    Birthday = DateTime.Parse("2015-01-01"),
+                    Sex = true,
+                    Email = model.Email,
+                    TelephoneNumber = "13333158899",
+                    Description = "",
+                    UpdateTime = DateTime.Now,
+                    CreateDateTime = DateTime.Now,
+                    InquiryPassword = model.ConFirmPassWord
+                };
+                var s = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    ChineseFullName = model.FullName,
+                    Email = model.Email,
+                    MobileNumber = "13333158899",
+                    Person = user
+                };
+                var idManger = new IdentityManager();
+                idManger.CreateUser(s, model.ConFirmPassWord);
+                idManger.AddUserToRole(s.Id, "RegisterUser");
+                return Content("<script>alert('恭喜注册成功！');location.href'"+Url.Action("Login","Account")+"'</script>");
+            }
+
             return View();
         }
         /// <summary>
