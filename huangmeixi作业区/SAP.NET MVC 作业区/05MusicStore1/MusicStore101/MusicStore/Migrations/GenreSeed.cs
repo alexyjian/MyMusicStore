@@ -136,7 +136,7 @@ namespace MusicStore.Migrations
              new Album { Title="刚好遇见你",Genre=genres.Single(g=>g.Name=="流行"),Price=9.99M,Artist=artists.Single(a=>a.Name=="李玉刚"),AlbumArtUrl="/Content/Images/placeholder.gif"},
              new Album { Title="雨花石",Genre=genres.Single(g=>g.Name=="流行"),Price=9.99M,Artist=artists.Single(a=>a.Name=="李玉刚"),AlbumArtUrl="/Content/Images/placeholder.gif"},
              new Album { Title="新贵妃醉酒",Genre=genres.Single(g=>g.Name=="流行"),Price=9.99M,Artist=artists.Single(a=>a.Name=="李玉刚"),AlbumArtUrl="/Content/Images/placeholder.gif"},
-             new Album { Title="月光",Genre=genres.Single(g=>g.Name=="慢摇"),Price=9.99M,Artist=artists.Single(a=>a.Name=="胡歌"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+             new Album { Title="月光",Genre=genres.Single(g=>g.Name=="慢摇"),Price=9.99M,Artist=artists.Single(a=>a.Name=="胡歌"),AlbumArtUrl="/Content/images/HG.jpg"},
 
 
 
