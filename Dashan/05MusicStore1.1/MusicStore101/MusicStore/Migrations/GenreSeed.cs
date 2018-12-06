@@ -66,8 +66,9 @@ namespace MusicStore.Migrations
                   new Artist() {Name="王菲",Sex=false,Description = "华宇乐坛著名歌手" },
                    new Artist() {Name="周传雄",Sex=true,Description = "华宇乐坛著名歌手" },
                   new Artist() {Name="许巍",Sex=false,Description = "华宇乐坛著名歌手" },
-
-
+                    new Artist() {Name="张碧晨",Sex=false,Description = "华宇乐坛著名歌手" },
+                      new Artist() {Name="邓紫棋",Sex=false,Description = "华宇乐坛著名歌手" },
+                        new Artist() {Name="那英",Sex=false,Description = "华宇乐坛著名歌手" },
             };
 
             foreach (var a in artists)
@@ -76,6 +77,98 @@ namespace MusicStore.Migrations
 
             new List<Album>
             {
+                   new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "流行"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="张碧晨"),AlbumaArtUrl ="/Content/Images/6.jpg"
+                },
+   new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="张碧晨"),AlbumaArtUrl ="/Content/Images/6.jpg"
+                },
+      new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "拉丁"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="张碧晨"),AlbumaArtUrl ="/Content/Images/6.jpg"
+                },
+
+         new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "摇滚"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="张碧晨"),AlbumaArtUrl ="/Content/Images/6.jpg"
+                },
+            new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "古典"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="张碧晨"),AlbumaArtUrl ="/Content/Images/6.jpg"
+                },
+
+
+
+
+               new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "流行"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="邓紫棋"),AlbumaArtUrl ="/Content/Images/8.jpg"
+                },
+   new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="邓紫棋"),AlbumaArtUrl ="/Content/Images/8.jpg"
+                },
+      new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "拉丁"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="邓紫棋"),AlbumaArtUrl ="/Content/Images/8.jpg"
+                },
+
+         new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "摇滚"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="邓紫棋"),AlbumaArtUrl ="/Content/Images/8.jpg"
+                },
+            new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "古典"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="邓紫棋"),AlbumaArtUrl ="/Content/Images/8.jpg"
+                },
+
+
+
+
+             new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "流行"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="那英"),AlbumaArtUrl ="/Content/Images/7.jpg"
+                },
+   new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="那英"),AlbumaArtUrl ="/Content/Images/7.jpg"
+                },
+      new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "拉丁"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="那英"),AlbumaArtUrl ="/Content/Images/7.jpg"
+                },
+
+         new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "摇滚"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="那英"),AlbumaArtUrl ="/Content/Images/7.jpg"
+                },
+            new Album
+                {
+                    Title = "The Best Of Men At Work", Genre = genres.Single(g => g.Name == "古典"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="那英"),AlbumaArtUrl ="/Content/Images/7.jpg"
+                },
+
+
+
+
+
+
 
                 new Album
                 {
@@ -205,20 +298,34 @@ namespace MusicStore.Migrations
 
                        new Album
                 {
-                    Title = "TheWork", Genre = genres.Single(g => g.Name == "嘻哈"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Title = "TheWork", Genre = genres.Single(g => g.Name == "流行"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/9.jpg"
                 },
                                          new Album
                 {
                     Title = "The Best", Genre = genres.Single(g => g.Name == "爵士"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/9.jpg"
                 },
                         new Album
                 {
                     Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
-                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="许嵩"),AlbumaArtUrl ="/Content/Images/placeholder.gif"
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/9.jpg"
                 },
-
+          new Album
+                {
+                    Title = "TheWork", Genre = genres.Single(g => g.Name == "嘻哈"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/9.jpg"
+                },
+                                         new Album
+                {
+                    Title = "The Best", Genre = genres.Single(g => g.Name == "重金属"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/9.jpg"
+                },
+                        new Album
+                {
+                    Title = " Best Of Men At Work", Genre = genres.Single(g => g.Name == "蓝调"),
+                    Price = 9.33M, Artist = artists.Single(a=>a.Name=="薛之谦"),AlbumaArtUrl ="/Content/Images/9.jpg"
+                },
 
 
 
