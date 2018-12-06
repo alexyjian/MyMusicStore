@@ -33,7 +33,7 @@ namespace MusicStore.ViewMoldels
         [Required(ErrorMessage = "密码不能为空")]
         [Display(Name = "密码")]
         [DataType(DataType.Password )]
-        [StringLength (20,ErrorMessage ="{0}长度不能小于{1}位",MinimumLength = 6)]
+        [StringLength (20,ErrorMessage = "{0}长度不能小于{1}大于{2}位", MinimumLength = 6)]
         public  string PassWord { get; set; }
 
 
