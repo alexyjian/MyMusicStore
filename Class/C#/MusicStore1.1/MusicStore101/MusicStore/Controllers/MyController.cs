@@ -59,5 +59,10 @@ namespace MusicStore.Controllers
             }
             return View(model);
         }
+
+        public ActionResult Info(InfoViewModel model)
+        {
+            return View();
+        }
     }
 }

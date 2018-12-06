@@ -1,0 +1,47 @@
+﻿@model MusicStore.ViewModels.InfoViewModel
+@{
+    ViewBag.Title = "个人资料";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3>个人信息</h3>
+<hr />
+<form  role="form">
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="name">姓氏：</label><input type="text" class="form-control" id="name"
+                   placeholder="First Name">
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-group">
+            <label for="name">名字：</label><input type="text" class="form-control" id="name"
+                   placeholder="Last Name">
+        </div>
+    </div>
+    <br />
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="name">生日：</label>
+            <select class="form-control">
+                @for (int y = 1920; y <= DateTime.Now.Year; y++)
+                {
+                    <option value="@y">@y</option>
+                }
+            </select>
+            年
+            <select class="form-control">
+                @for (int m = 1; m <= 12; m++)
+                {
+                    <option value="@m">@m</option>
+                }
+            </select>
+            月
+            <select class="form-control">
+                
+            </select>
+            日
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-default">保存</button>
+</form>

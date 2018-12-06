@@ -125,7 +125,7 @@ namespace MusicStore.Migrations
                 MobileNumber = "13978015456",
                 Email = "lxx@163.com",
                 CreateDateTime = DateTime.Now,
-                TelephoneNumber = "3158899",
+                TelephoneNumber = "13978015456",
                 Description = "用户注册",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456"
