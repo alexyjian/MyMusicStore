@@ -11,7 +11,7 @@
     width: 100%;
     border-bottom: 1px dotted #5d5a53;
     margin-bottom: 10px;
-    background-color: rgb(158, 134, 134);
+    background-color: rgb(194, 170, 170);
 
 }
 .one{
@@ -66,7 +66,7 @@ body {
     font-size: 14px;
     line-height: 1.428571429;
     color: #333;
-    background-color: rgb(179, 176, 176);
+    background-color: rgb(255, 255, 255);
 }
 .glyphicon {
     position: relative;
@@ -85,10 +85,12 @@ li {
 #categories {
     font-family: Constantia,Georgia,serif;
     list-style-type: none;
-    border-right: #5d5a53 1px dotted;
-    padding-right: 10px;
-    margin: 0 25px 0 0;
+    opacity:0.6;
+    padding-right: 0px;
+    margin: -10px -50px 0 0;
     float: left;
+    background-color: rgb(102, 102, 102);
+    border-radius:0 0 5px 5px;
 }
 #footer {
     clear: both;
@@ -139,5 +141,9 @@ ul#album-list li {
     background: url(../音乐商品/Images/wymc.png) no-repeat;
     width: 18px;
     height: 18px;
+
+}
+#categories li{
+    border:1px #000 solid;
 
 }

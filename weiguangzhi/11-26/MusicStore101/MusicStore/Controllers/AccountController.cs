@@ -11,11 +11,64 @@ using System.Web.Mvc;
 
 namespace MusicStore.Controllers
 {
+    
+
     public class AccountController : Controller
     {
+       
+        /// <summary>
+        /// 填写注册信息
+        /// </summary>
+        /// <returns></returns>
         // GET: Account
         public ActionResult Register()
         {
+                 return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        
+        public ActionResult Register(RwgisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var person = new Person()
+                {
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    Name = model.FullName,
+                    CredentialsCode = "",
+                    Birthday = DateTime.Now,
+                    Sex = true,
+                    MobileNumber = "18866668888",
+                    Email = model.Email,
+                    TelephoneNumber = "18866668888",
+                    Description = "",
+                    CreateDateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    InquiryPassword = "未设置",
+                };
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    ChineseFullName = model.FullName,
+                    MobileNumber = "18866668888",
+                    Email = model.Email,
+                    Person = person,
+                };
+
+                //是否要验证Email
+
+                var idManager = new IdentityManager();
+                idManager.CreateUser(user, model.PassWord);
+                idManager.AddUserToRole(user.Id, "Manger");
+
+                return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
+            }
+
             return View();
         }
 
@@ -35,6 +88,7 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]   //此Action用来接收用户提交
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
             //判断实体是否校验通过
@@ -94,5 +148,68 @@ namespace MusicStore.Controllers
                 ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-    }
+        public ActionResult LoginOut()
+        {
+            Session.Remove("loginStatus");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("index", "Home");
+        }
+
+        public ActionResult EditPw()
+        {
+            //    if (ModelState.IsValid)
+            //    {
+            //        var userManage =new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
+            //        var pass = userManage.Find(model.PassWord, model.NewPassWord);
+            //        if (pass != null)
+            //        {
+
+            //        }
+            //    }
+
+            //用户先得登录才能修改
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login");
+                    return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditPw(EditPwViewModel model)
+        {
+            //判断是否通过验证
+            if (ModelState.IsValid)
+            {
+                //输入合法，进行修改密码
+                bool editpwSuccessed;
+                try
+                {
+                    var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
+                    var userName = (Session["LoginUserSessionModel"] as LoginUserSessionModel).User.UserName;
+                    var user = userManage.Find(userName, model.PassWord);
+                    if (user == null)
+                    {
+                        ModelState.AddModelError("","密码错误");
+                        return View();
+                    }
+                    else
+                    {
+                        //修改密码
+                        editpwSuccessed = userManage.ChangePassword(user.Id, model.PassWord, model.NewPassWord).Succeeded;
+                        if (editpwSuccessed)
+                            return Content("<script>alert('修改成功!');location.href='" + Url.Action("index", "home") + "'</script>");
+                        else
+                           ModelState.AddModelError("", "修改失败，请重试");
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "修改失败，请重试");
+                }
+            }
+            return View();
+
+        }
+            
+            
+            }
 }

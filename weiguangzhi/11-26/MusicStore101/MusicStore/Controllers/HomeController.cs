@@ -53,5 +53,13 @@ namespace MusicStore.Controllers
             else
                 return "登录失败";
         }
+        /// <summary>
+        /// 伪造攻击
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult TesHack()
+        {
+            return View();
+        }
     }
 }

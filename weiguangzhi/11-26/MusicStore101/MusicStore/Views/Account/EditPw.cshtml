@@ -1,0 +1,38 @@
+﻿@model MusicStore.ViewModels.EditPwViewModel
+@{
+    ViewBag.Title = "EditPw";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+}
+
+<h2>修改密码</h2>
+@using (Html.BeginForm("EditPw", "account", FormMethod.Post))
+{
+    @Html.ValidationSummary(true,"密码修改失败，检查输入是否错误")
+    @Html.AntiForgeryToken()
+
+    <div class="editor-label">
+        @Html.LabelFor(x => x.PassWord)
+    </div>
+    <div class="editor-field">
+        @Html.PasswordFor(x => x.PassWord, new { placeholder = "旧登录密码" })
+        @Html.ValidationMessageFor(x => x.PassWord)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(x => x.NewPassWord)
+    </div>
+<div class="editor-field">
+    @Html.PasswordFor(x => x.NewPassWord, new { placeholder = "请新密码" })
+    @Html.ValidationMessageFor(x => x.NewPassWord)
+</div>
+<div class="editor-label">
+    @Html.LabelFor(x => x.NewConfirmPassWord)
+</div>
+<div class="editor-field">
+    @Html.PasswordFor(x => x.NewConfirmPassWord, new { placeholder = "确认新密码" })
+    @Html.ValidationMessageFor(x => x.NewConfirmPassWord)
+</div>
+<p>
+    <input type="submit" value="修改" class="btn btn-success" style="width: 70px" />
+</p>
+}
