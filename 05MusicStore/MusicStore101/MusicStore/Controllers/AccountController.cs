@@ -101,9 +101,92 @@ namespace MusicStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                var person = new Person()
+                {
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    Name = model.FullName,
+                    CredentialsCode = "",
+                    Birthday = DateTime.Now,
+                    Sex = true,
+                    MobileNumber = "18677236403",
+                    Email = model.Email,
+                    TelephoneNumber = "17774867465",
+                    Description="",
+                    CreateDateTime=DateTime.Now,
+                    UpdateTime=DateTime.Now,
+                    InquiryPassword="未设置"
+                };
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    ChineseFullName = model.FullName,
+                    MobileNumber = "15678259485",
+                    Email = model.Email,
+                    Person = person,
+                };
+
+           
+            var idManger = new IdentityManager();
+            idManger.CreateUser(user, model.PassWord);
+            idManger.AddUserToRole(user.Id, "RegisterUser");
+            return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
+            }
             //用户的保存person ApplicationUser
             return View();
         }
+        public ActionResult LoginOut()
+        {
+            Session.Remove("loginStatus");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("Index", "Home");
+        }
 
+        public ActionResult ChangePassWord()
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login");
+            return View();
+        }
+        [HttpPost]   //此Action用来接收用户提交
+        public ActionResult ChangePassWord(ChangePassWordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                bool changePwdSuccessed;
+                try
+                {
+                    var userManager =
+                        new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicContext()));
+                    var userName = (Session["LoginUserSessionModel"] as LoginUserSessionModel).User.UserName;
+                    var user = userManager.Find(userName, model.PassWord);
+                    if (user == null)
+                    {
+                        ModelState.AddModelError("", "原密码不正确");
+                        return View();
+                    }
+                    else
+                    {
+                        changePwdSuccessed = userManager.ChangePassword(user.Id, model.PassWord, model.NewPassWord).Succeeded;
+                        if (changePwdSuccessed)
+                            return Content("<script>alert('修改成功!');location.href='" + Url.Action("index", "home") + "'</script>");
+                        else
+                        {
+                            ModelState.AddModelError("", "修改密码失败，请重试");
+                        }
+                    }
+
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "修改密码失败，请重试");
+                }
+            }
+            return View(model);
+        }
     }
 }
