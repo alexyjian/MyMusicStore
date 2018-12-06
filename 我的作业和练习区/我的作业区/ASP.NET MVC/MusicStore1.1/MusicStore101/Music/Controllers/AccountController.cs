@@ -15,12 +15,62 @@ namespace Music.Controllers
     {
         // GET: Account
 
+        public ActionResult ChangePassWord()
+        {
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassWord(ChangePassWordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //输入合法，进行修改
+                bool changePwdSuccessed;
+                try
+                {
+                    var userManage =
+                        new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
+                    var userName = (Session["loginUserSessionModel"] as LoginUserSessionModel).User.UserName;
+                    var user = userManage.Find(userName, model.PassWord);
+                    if (user == null)
+                    {
+                        ModelState.AddModelError("", "原密码不正确");
+                        return View(model);
+                    }
+                    else
+                    {
+                        //修改密码
+                        changePwdSuccessed = userManage.ChangePassword(user.Id, model.PassWord, model.ConFirmPassWord)
+                            .Succeeded;
+                        if (changePwdSuccessed)
+                            return Content("<script>alert('修改成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
+                        else
+                            ModelState.AddModelError("", "修改密码失败，请重试");
+                      
+                    }
+                }
+                catch 
+                {
+                    ModelState.AddModelError("", "修改密码失败，请重试");
+                }
+            }
+            
+            return View(model);
+        }
+
         /// <summary>
         /// 填写注册信息
         /// </summary>
         /// <returns></returns>
         public ActionResult Register()
-        {
+        {        
+            
             return View();
         }
 
@@ -41,7 +91,8 @@ namespace Music.Controllers
                     Sex = true,
                     Email = model.Email,
                     TelephoneNumber = "13333158899",
-                    Description = "",
+                    MobileNumber = "1383388",
+                    Description = "注册用户组",
                     UpdateTime = DateTime.Now,
                     CreateDateTime = DateTime.Now,
                     InquiryPassword = model.ConFirmPassWord
@@ -56,10 +107,11 @@ namespace Music.Controllers
                     MobileNumber = "13333158899",
                     Person = user
                 };
+
                 var idManger = new IdentityManager();
                 idManger.CreateUser(s, model.ConFirmPassWord);
                 idManger.AddUserToRole(s.Id, "RegisterUser");
-                return Content("<script>alert('恭喜注册成功！');location.href'"+Url.Action("Login","Account")+"'</script>");
+                return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
             }
 
             return View();
@@ -122,8 +174,28 @@ namespace Music.Controllers
                     var identity = userManage.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     return Redirect(returnUrl);
                 }
+                else
+                {
+                    if (string.IsNullOrEmpty(returnUrl))
+                        ViewBag.ReturnUrl = Url.Action("index", "home");
+                    else
+                        ViewBag.ReturnUrl = returnUrl;
+                    ViewBag.LoginUserStatus = loginStatus;
+                    return View();
+                }
             }
+            if (string.IsNullOrEmpty(returnUrl))
+                ViewBag.ReturnUrl = Url.Action("index", "home");
+            else
+                ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        public ActionResult loginout()
+        {
+           Session.Remove("loginStatus");
+            Session.Remove("loginUserSessionModel");
+            return RedirectToAction("index", "Home");
         }
     }
 }

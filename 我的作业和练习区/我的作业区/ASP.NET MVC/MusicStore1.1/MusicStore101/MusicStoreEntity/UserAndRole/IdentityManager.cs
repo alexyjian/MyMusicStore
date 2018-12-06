@@ -95,6 +95,7 @@ namespace MusicStoreEntity.UserAndRole
         {
             var rm = new RoleManager<ApplicationRole>(new RoleStore<ApplicationRole>(new EntityDbContext()));
             var role = rm.FindByName(roleName);
+            
             return role;
         }
 
