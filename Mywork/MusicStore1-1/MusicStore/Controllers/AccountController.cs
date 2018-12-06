@@ -145,5 +145,66 @@ namespace MusicStore.Controllers
                 ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+
+
+        /// <summary>
+        /// 注销
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult LoginOut()
+        {
+            
+            Session.Remove("loginStatus");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("index", "Home");
+        }
+
+
+        //修该密码
+        public ActionResult ChangePassWord()
+        {
+            //用户得先登录才能修改
+            if (Session["LogionUserSessionModel"] == null)
+                return RedirectToAction("Login");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassWord(ChangePassWordViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                bool changePwdSuccessd;
+                try
+                {
+                    var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
+                    var userName = (Session["LoginUserSessionModel"] as LoginUserSessionModel).User.UserName;
+                    //判断原密码是否正确
+                    var user = userManage.Find(userName, model.Password);
+                    if (User == null)
+                    {
+                        ModelState.AddModelError("", "原密码不正确");
+                        return View();
+                    }
+                    else
+                    {
+                        //修改密码
+                        changePwdSuccessd = userManage.ChangePassword(user.Id, model.Password, model.NewPassword)
+                            .Succeeded;
+                        if (changePwdSuccessd)
+                            return Content("<script>alert('恭喜修改密码成功!');location.href='" + Url.Action("index", "home") +
+                                           "'</script>");
+                        else
+                            ModelState.AddModelError("", "修改密码失败，请重试");
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "修改密码失败，请重试");
+                }
+            }
+            return View(model);
+        }
+
     }
 }
