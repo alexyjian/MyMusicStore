@@ -39,7 +39,7 @@
 <body>
     <div id="header">
         @*Logo和菜单*@
-        <h2><a href="/">音乐商店</a></h2>
+        <h2><a href="/">肥肥&音乐商店</a></h2>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="@Url.Action("index","home")">首页</a></li>
             <li><a href="@Url.Action("Index","Store")">专辑</a></li>
@@ -58,7 +58,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("index", "ShoppingCart")">购物车(10)</a></li>
                         <li><a href="@Url.Action("index", "Oder")">我的订单</a></li>
-                        <li><a href="@Url.Action("index", "My")">设置</a></li>
+                        <li><a href="@Url.Action("ChangePassWord", "account")">修改密码</a></li>
                         <li><a href="@Url.Action("loginout", "account")">注销</a></li>
                     </ul>
                 </li>
