@@ -7,6 +7,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MusicStoreEntity;
+using System.Text;
+using System.Collections.Specialized;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MusicStore.Controllers
 {

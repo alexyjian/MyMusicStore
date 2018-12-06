@@ -28,7 +28,6 @@ namespace MusicStore.ViewModels
     {
         public ApplicationUser User { get; set; }   //账户对象
         public Person Person { get; set; }   //个人信息的对象
-
         public string RoleName { get; set; }  //用户角色
 
         //此外还可以定义其它业务对象 购物车  订单 ……
