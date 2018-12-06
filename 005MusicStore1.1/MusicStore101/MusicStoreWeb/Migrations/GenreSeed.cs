@@ -161,6 +161,7 @@ namespace MusicStoreWeb.Migrations
                 new Album { Title ="蒲公英的约定",Genre = genres.Single(g =>g.Name =="嘻哈"),Price = 8.99M,Artist = artists.Single(a =>a.Name =="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"},
                 new Album { Title ="算什么男人",Genre = genres.Single(g =>g.Name =="嘻哈"),Price = 8.99M,Artist = artists.Single(a =>a.Name =="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"},
                 new Album { Title ="我不配",Genre = genres.Single(g =>g.Name =="嘻哈"),Price = 8.99M,Artist = artists.Single(a =>a.Name =="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"},
+                new Album { Title ="千里之外",Genre =genres.Single(g =>g.Name =="流行"),Price = 8.99M,Artist = artists.Single(a =>a.Name =="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"},
             }.ForEach(n => _dbContext.Albums.Add(n));
 
             _dbContext.SaveChanges();
