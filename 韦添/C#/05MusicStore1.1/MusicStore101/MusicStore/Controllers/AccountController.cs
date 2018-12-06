@@ -36,9 +36,9 @@ namespace MusicStore.Controllers
                     CredentialsCode = "",
                     Birthday = DateTime.Now,
                     Sex = true,
-                    MobileNumber = "18866668888",
+                    MobileNumber = "123456789",
                     Email = model.Email,
-                    TelephoneNumber = "18866668888",
+                    TelephoneNumber = "123456789",
                     Description = "",
                     CreateDateTime = DateTime.Now,
                     UpdateTime = DateTime.Now,
@@ -50,7 +50,7 @@ namespace MusicStore.Controllers
                     FirstName = model.FullName.Substring(0, 1),
                     LastName = model.FullName.Substring(1, model.FullName.Length - 1),
                     ChineseFullName = model.FullName,
-                    MobileNumber = "18866668888",
+                    MobileNumber = "123456789",
                     Email = model.Email,
                     Person = person,
                 };
@@ -144,6 +144,13 @@ namespace MusicStore.Controllers
             else
                 ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        public ActionResult LoginOut()
+        {
+            Session.Remove("loginout");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("index", "Home");
         }
     }
 }
