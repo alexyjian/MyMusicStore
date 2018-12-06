@@ -25,21 +25,23 @@ namespace MusicStore.Controllers
         public ActionResult Register(RegisterViewModel mode)
         {
             if (ModelState.IsValid)
-            { 
+            {
                 var person1 = new Person()
                 {
-                    FirstName = mode.FullName[0].ToString(),
-                    LastName = mode.FullName[mode.FullName.Length-1].ToString(),
+                    FirstName = mode.FullName.Substring(1, 0),
+                    LastName = mode.FullName[mode.FullName.Length - 1].ToString(),
                     Name = mode.FullName,
                     Birthday = DateTime.Parse("2000-2-22"),
                     Email = mode.Email,
                     Description = "普通用户注册",
+                    CreateDateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now
                 };
                 var idManger = new IdentityManager();
                 var loginUser = new ApplicationUser()
                 {
-                    UserName =mode.UserName,
-                    FirstName = mode.FullName[0].ToString(),
+                    UserName = mode.UserName,
+                    FirstName = mode.FullName.Substring(1, 0),
                     LastName = mode.FullName[mode.FullName.Length - 1].ToString(),
                     ChineseFullName = mode.FullName,
                     Email = mode.Email,
@@ -48,17 +50,18 @@ namespace MusicStore.Controllers
 
                 idManger.CreateUser(loginUser, mode.PassWord);
                 idManger.AddUserToRole(loginUser.Id, "Admin");
-                
+
             }
-            return Redirect("~/Account/Login");
-         
+            return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
+            //return Redirect("~/Account/Login");
+
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="returnUrl">登录成功后跳的地址</param>
         /// <returns></returns>
-        public ActionResult Login(string returnUrl=null )
+        public ActionResult Login(string returnUrl = null)
         {
             if (string.IsNullOrEmpty(returnUrl))
                 ViewBag.ReturnUrl = Url.Action("index", "home");
@@ -78,15 +81,15 @@ namespace MusicStore.Controllers
                     Message = "用户或密码错误",
                 };
                 var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
-            var user = userManage.Find(model.UserName, model.PassWord);
-            if (user != null)
-            {
-                var roleName = "";
-                var context = new EntityDbContext();
-                foreach (var role in user.Roles)
+                var user = userManage.Find(model.UserName, model.PassWord);
+                if (user != null)
                 {
-                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + ",";
-                }
+                    var roleName = "";
+                    var context = new EntityDbContext();
+                    foreach (var role in user.Roles)
+                    {
+                        roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + ",";
+                    }
                     loginStatus.Islogin = true;
                     loginStatus.Message = "登录成功" + roleName;
                     loginStatus.GotoController = "home";
@@ -98,7 +101,7 @@ namespace MusicStore.Controllers
                         User = user,
                         Person = user.Person,
                         RoleName = roleName,
-                    };                
+                    };
                     Session["LoginUserSessionModel"] = loginUserSessionModel;
 
                     var identity = userManage.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
@@ -118,6 +121,67 @@ namespace MusicStore.Controllers
                 ViewBag.ReturnUrl = Url.Action("index", "home");
             else
                 ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
+        public ActionResult ChangePassword()
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login");
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
+            var userName = (Session["LoginUserSessionModel"] as LoginUserSessionModel).User.UserName;
+            if (ModelState.IsValid)
+            {
+                bool changePwdSuccessed;
+                try
+                {
+
+                    var user = userManage.Find(userName,model.PassWord);
+                    if (user == null)
+                    {
+                        ModelState.AddModelError("", "需要修改的密码错误");
+                        return View();
+                    }
+                    else
+                    {
+                        changePwdSuccessed= userManage.ChangePassword(user.Id, model.PassWord, model.NewPassWord).Succeeded;
+                        if (changePwdSuccessed)
+                            return Content("<script>alert('修改成功!');location.href='" + Url.Action("index", "Home") + "'</script>");
+                        else
+                            ModelState.AddModelError("", "需要修改的密码错误");
+                    }
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "需要修改的密码错误");
+                }
+            }
+            return View(model);
+        }
+        /// <summary>
+        /// 注销
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Loginout()
+        {
+            Session.Remove("loginStatus");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("index", "Home");
+        }
+
+        /// <summary>
+        /// 个人信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult PersonalInformation()
+        {
             return View();
         }
     }

@@ -38,13 +38,11 @@ body {
 
 .header-ul {
     float: right;
-    width: 280px;
+    width: 700px;
 }
 
     .header-ul li {
         float: left;
-        width: 80px;
-        height: 50px;
         line-height: 50px;
         font-size: 16px;
         font-weight: bolder;
@@ -57,7 +55,7 @@ body {
             cursor: pointer;
         }
 
-            .header-ul li a:hover {
+            .header-ul li a .header-ul li:hover {
                 background-color: #ccc;
                 color: black;
             }
