@@ -68,7 +68,7 @@ namespace MusicStore.Controllers
                 idManger.CreateUser(loginUser, model.PassWord);
                 //添加到Admin角色
                 idManger.AddUserToRole(loginUser.Id, "Admin");
-                return Content("<script>alert('恭喜你注册成功)</script>");
+                return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
                 #endregion
             }
             return View();
@@ -198,13 +198,12 @@ namespace MusicStore.Controllers
             Session.Remove("LoginUserSessionModel");
             return RedirectToAction("index", "Home");
         }
-        public ActionResult ChangePassWord(ChangePassWordViewModel model)
+        public ActionResult ChangePassWord()
         {
             //用户先得登录才能修改
-            if (Session[LoginUserSessionModel] == null)
-            {
-                return View("<script>alert('请先登录!'); </script>");
-            }
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login");
+
             return View();
         }
         [HttpPost]
@@ -218,7 +217,7 @@ namespace MusicStore.Controllers
                 try {
                     var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
                     var userName = (Session["LoginUserSessionModel"] as LoginUserSessionModel).User.UserName;
-                    var user = userManager.Find(userName, model.PassWord);
+                    var user = userManager.Find(userName, model.NewPassWord);
                     if (user == null)
                     {
                         ModelState.AddModelError("", "原密码不正确");
@@ -227,20 +226,19 @@ namespace MusicStore.Controllers
                     else
                     {
                         //修改密码
-                        changePwdSuccessed = userManager.ChangePassword(user.Id, model.PassWord, model.ConfirmPassWord).Succeeded;
+                        changePwdSuccessed = userManager.ChangePassword(user.Id, model.NewPassWord, model.ConfirmPassWord).Succeeded;
                         if (changePwdSuccessed)
-                        {
-                            return Content("<script>alert('恭喜修改密码成功);location.href='" + Url.Action("index", "home") + "'</script>");
-                        }
+                            return Content("<script>alert('恭喜修改密码成功!');location.href='" + Url.Action("index", "home") +
+                                        "'</script>");
                         else
-                        {
-                              ModelState.AddModelError("","修改密码失败",)
-                        }
+                            ModelState.AddModelError("", "修改密码失败，请重试");
                     }
                 }
-                catch { }
+                catch {
+                    ModelState.AddModelError("", "修改密码失败，请重试");
+                }
             }
-            return View();
+            return View(model);
         }
     }
 }
