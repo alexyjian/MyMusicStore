@@ -47,7 +47,7 @@
                 @Html.LabelFor(x => x.PassWord)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.PassWord, new { placeholder = "密码" })
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = "密码" })
                 @Html.ValidationMessageFor(x => x.PassWord)
             </div>
 
