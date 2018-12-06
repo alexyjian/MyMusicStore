@@ -25,11 +25,11 @@ namespace MusicStore.Controllers
             if (ModelState.IsValid)
             {
                 var idManger = new IdentityManager();
-                
+
                 var person = new Person()
                 {
                     FirstName = model.FullName[0].ToString(),
-                    LastName = model.FullName[model.FullName.Length - 1].ToString(),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
                     Name = model.FullName,
                     Email = model.Email,
                     Birthday = DateTime.Now
@@ -39,7 +39,7 @@ namespace MusicStore.Controllers
                 {
                     UserName = model.UserName,
                     FirstName = model.FullName[0].ToString(),
-                    LastName = model.FullName[model.FullName.Length - 1].ToString(),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
                     ChineseFullName = model.FullName,
                     Email = model.Email,
                     Person = person
@@ -48,7 +48,7 @@ namespace MusicStore.Controllers
                 idManger.CreateUser(registerUser, model.PassWord);
                 idManger.AddUserToRole(registerUser.Id, "RegisterUser");
             }
-            return Redirect("~/Index/Home");
+            return Content("<script>alert('用户注册成功！');location.href='" + Url.Action("Login", "Account") + "'</script>");
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace MusicStore.Controllers
         {
             if (string.IsNullOrEmpty(returnUrl))
             {
-                ViewBag.ReturnUrl = Url.Action("Index","Home");
+                ViewBag.ReturnUrl = Url.Action("Index", "Home");
             }
             else
             {
@@ -138,6 +138,13 @@ namespace MusicStore.Controllers
                 ViewBag.ReturnUrl = returnUrl;
             }
             return View();
+        }
+
+        public ActionResult LoginOut()
+        {
+            Session.Remove("loginStatus");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
