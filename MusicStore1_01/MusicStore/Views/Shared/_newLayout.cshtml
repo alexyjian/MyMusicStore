@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+@using MusicStore.ViewModels
+@using MusicStoreEntity.UserAndRole
+@{
+    //判断用户是否登录，如果ApplicationUser user不为空表示用户登录成功
+
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车  收藏车
+
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        //查询购物车  收藏车
+
+    }
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - 音乐商店</title>
+    @*绑定样式库*@
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JquertUI")
+    @Styles.Render("~/Content/css")
+
+    @*绑定脚本库*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header ">
+                <img class="navbar-brand" src="~/Content/images/logo.png" />
+                <a class="navbar-brand" href="#">
+                    BalabalaQAQ 音乐商店
+                </a>
+            </div>
+            <div class="top-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("index","home")">主页</a></li>
+                    <li><a href="@Url.Action("Store","Home")">商店</a></li>
+                    @if (user == null)
+            {
+                        <li class="active"><a href="@Url.Action("login","account")">登录</a></li>
+                    }
+                    else
+                    {
+                        //登录成功显示用户姓名，点姓名展开向下菜单
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                                @user.Person.Name<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("index", "ShoppingCart")">购物车(10)</a></li>
+                                <li><a href="@Url.Action("index", "Oder")">我的订单</a></li>
+                                <li><a href="@Url.Action("RevisePwd", "Account")">修改密码</a></li>
+                                <li><a href="@Url.Action("loginout", "account")">注销</a></li>
+                            </ul>
+                        </li>
+                    }
+                  
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <ul class="row">
+            <li class="col-md-3">
+                <div class="music-left">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item  bg">
+                            <h4 class="list-group-item-heading ">
+                                Music List
+                            </h4>
+                        </a>
+                        @*左侧导航*@
+                        @Html.Partial("_GetGenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
+                    </div>
+                    <div class="music-dw">当前位置：</div>
+                </div>
+            </li>
+            <li class="col-md-9">
+                @*操作区*@
+                @RenderBody()
+            </li>
+        </ul>
+        <div class="row">
+
+            @*尾栏*@
+        </div>
+    </div>
+    @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

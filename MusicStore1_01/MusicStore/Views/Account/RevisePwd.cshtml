@@ -1,0 +1,46 @@
+﻿@model MusicStore.ViewModels.RevisePwdViewModelr
+@{
+    ViewBag.Title = "RevisePwd";
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+}
+
+<h2>修改密码</h2>
+
+@using (Html.BeginForm("RevisePwd", "Account", FormMethod.Post))
+{
+    <div>
+        <fieldset>
+            <legend>修改用户密码</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.PassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = "请输入原密码" })
+                @Html.ValidationMessageFor(x => x.PassWord)
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.NewPassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.NewPassWord, new { placeholder = "请输入原密码" })
+                @Html.ValidationMessageFor(x => x.NewPassWord)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.ConfirmnewPassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.ConfirmnewPassWord, new { placeholder = "请再次输入原密码" })
+                @Html.ValidationMessageFor(x => x.ConfirmnewPassWord)
+            </div><br />
+            <p>
+                <input type="submit" value="确认修改" class="btn btn-success" style="width:70px;" />
+            </p>
+
+        </fieldset>
+
+    </div>
+}
