@@ -35,7 +35,7 @@ namespace MusicStore.ViewModels
 
         [Display(Name = "确认密码")]
         [DataType(DataType.Password)]
-        [Compare("NewPassWord", ErrorMessage = "密码两次输入不一致")]
+        [Compare("PassWord", ErrorMessage = "密码两次输入不一致")]
         public string ConfirmPassWord { get; set; }
     }
 }
