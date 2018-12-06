@@ -22,7 +22,7 @@ namespace MusicStore.Controllers
         {
             return View();
         }
-   
+
         public ActionResult Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -69,14 +69,14 @@ namespace MusicStore.Controllers
         /// </summary>
         /// <param name="returnUrl">登录成功后自动跳转地址</param>
         /// <returns></returns>
-        public ActionResult Login(string returnUrl=null)
+        public ActionResult Login(string returnUrl = null)
         {
             if (string.IsNullOrEmpty(returnUrl))
-                ViewBag.ReturnUrl =Url.Action("index", "home");
+                ViewBag.ReturnUrl = Url.Action("index", "home");
             else
                 ViewBag.ReturnUrl = returnUrl;
             return View();
-         }
+        }
 
         [HttpPost]//用来接受用户提交
         [ValidateAntiForgeryToken]
@@ -147,5 +147,15 @@ namespace MusicStore.Controllers
             return RedirectToAction("index", "Home");
 
         }
+        //修改密码
+        public ActionResult ChangePassWord()
+        {
+            //用户先得登录才能修改
+            if (Session["LoginUserSessionMode"] == null)
+                return RedirectToAction("Login");
+            return View();
+
+        }
+
     }
 }
