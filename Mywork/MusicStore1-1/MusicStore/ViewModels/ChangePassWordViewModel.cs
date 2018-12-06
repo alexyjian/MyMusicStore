@@ -23,7 +23,7 @@ namespace MusicStore.ViewModels
 
         [Display(Name = "确认信密码")]//定义字段的呈现名称
         [DataType(DataType.Password)]
-        [Compare("NamePassWord", ErrorMessage = "密码输入两次要一致")]
+        [Compare("NewPassword", ErrorMessage = "密码输入两次要一致")]
         public string ConfirNewPassword { get; set; }
     }
 }

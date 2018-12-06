@@ -164,7 +164,7 @@ namespace MusicStore.Controllers
         public ActionResult ChangePassWord()
         {
             //用户得先登录才能修改
-            if (Session["LogionUserSessionModel"] == null)
+            if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("Login");
             return View();
         }
