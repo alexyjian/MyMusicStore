@@ -96,7 +96,7 @@ namespace MusicStore.Controllers
                 //登录处理
                 var userManage =
                     new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
-                var user = userManage.Find(model.UserName, model.PassWord);
+                var user = userManage.Find(model.UserName,model.PassWord);
                 if(user != null)
                 {
                     var roleName = "";
@@ -140,6 +140,13 @@ namespace MusicStore.Controllers
             else
                 ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        public ActionResult LoginOut()
+        {
+            Session.Remove("loginStatus");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("index","home");
         }
     }
 }
