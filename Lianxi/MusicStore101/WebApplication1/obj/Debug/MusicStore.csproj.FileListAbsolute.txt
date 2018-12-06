@@ -1,4 +1,3 @@
-E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\roslyn\csc.exe
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -62,5 +61,6 @@ E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\WebApplication1.dll
 E:\梁伟杰\MyMusicStore\MyMusicStore\Lianxi\MusicStore101\WebApplication1\obj\Debug\WebApplication1.pdb

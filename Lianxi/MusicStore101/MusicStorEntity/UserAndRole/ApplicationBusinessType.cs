@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MusicStorEntity.UserAndRole
+namespace MusicStoreEntity.UserAndRole
 {
     /// <summary>
     /// 应用类型定义说明

@@ -1,4 +1,4 @@
-﻿using MusicStorEntity.UserAndRole;
+﻿using MusicStoreEntity.UserAndRole;
 using System;
 
 namespace MusicStore.Migrations

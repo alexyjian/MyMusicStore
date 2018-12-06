@@ -2,7 +2,8 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using MusicStore.ViewModels;
 using MusicStoreEntity;
-using MusicStorEntity.UserAndRole;
+using MusicStoreEntity.UserAndRole;
+
 using System.Web.Mvc;
 using WebApplication1.ViewModels;
 
@@ -10,12 +11,12 @@ namespace WebApplication1.Controllers
 {
     public class AccuntController : Controller
     {
-        // GET: Account
+        // GET: Accunt
             /// <summary>
             /// 填写注册信息
             /// </summary>
             /// <returns></returns>
-        public ActionResult Controller()
+        public ActionResult Register()
         {
             return View();
         }

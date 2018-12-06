@@ -148,7 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AccuntController.cs" />
+    <Compile Include="Controllers\Accuntcontroller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,6 +257,7 @@
     <Content Include="Views\Accunt\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Account\" />
     <Folder Include="Views\RegisterViewModel\" />
   </ItemGroup>
   <ItemGroup>

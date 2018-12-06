@@ -1,18 +1,14 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using MusicStorEntity;
-using MusicStorEntity.UserAndRole;
 using MusicStoreEntity;
 using System.Net.Http;
-using System.Collections.Specialized;
+using MusicStoreEntity.UserAndRole;
 
 namespace MusicStore.Controllers
-{ 
+{
     public class HomeController : Controller
 {
     public ActionResult Index()
@@ -57,7 +53,7 @@ namespace MusicStore.Controllers
             values.Add(new KeyValuePair<string, string>("UserName", "admin"));
             values.Add(new KeyValuePair<string, string>("PassWord ", "123.abc"));
             var content = new FormUrlEncodedContent(values);
-            var response = await client.PostAsync("http://srs.lzzy.net/account/login", content);
+            var response = await client.PostAsync("http://srs.lzzy.net/Accunt/login", content);
             var responseString = await response.Content.ReadAsStringAsync();
             return Redirect("http://srs.lzzy.net/");
         }

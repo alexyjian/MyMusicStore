@@ -2477,7 +2477,7 @@ $.extend( $.effects, {
 			cssPosition = element.css( "position" ),
 			position = element.position();
 
-		// Lock in margins first to account for form elements, which
+		// Lock in margins first to Accunt for form elements, which
 		// will change margin if you explicitly set height
 		// see: http://jsfiddle.net/JZSMt/3/ https://bugs.webkit.org/show_bug.cgi?id=107380
 		// Support: Safari
@@ -2495,14 +2495,14 @@ $.extend( $.effects, {
 
 			placeholder = $( "<" + element[ 0 ].nodeName + ">" ).insertAfter( element ).css( {
 
-				// Convert inline to inline block to account for inline elements
+				// Convert inline to inline block to Accunt for inline elements
 				// that turn to inline block based on content (like img)
 				display: /^(inline|ruby)/.test( element.css( "display" ) ) ?
 					"inline-block" :
 					"block",
 				visibility: "hidden",
 
-				// Margins need to be set to account for margin collapse
+				// Margins need to be set to Accunt for margin collapse
 				marginTop: element.css( "marginTop" ),
 				marginBottom: element.css( "marginBottom" ),
 				marginLeft: element.css( "marginLeft" ),
@@ -17370,7 +17370,7 @@ $.widget( "ui.tabs", {
 		options.active = this._initialActive();
 
 		// Take disabling tabs via class attribute from HTML
-		// into account and update option properly.
+		// into Accunt and update option properly.
 		if ( $.isArray( options.disabled ) ) {
 			options.disabled = $.unique( options.disabled.concat(
 				$.map( this.tabs.filter( ".ui-state-disabled" ), function( li ) {
