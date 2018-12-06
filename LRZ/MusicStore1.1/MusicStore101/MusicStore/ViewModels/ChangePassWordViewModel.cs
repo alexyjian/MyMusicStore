@@ -16,12 +16,12 @@ namespace MusicStore.ViewModels
         [Required(ErrorMessage = "新密码不能为空")]
         [Display(Name = "新密码")]
         [DataType(DataType.Password)]
-        [StringLength(20, ErrorMessage = "{0}长度不能小于{2}位", MinimumLength = 6)]
+        [StringLength(20, ErrorMessage = "{0}长度不能小于{1}大于{2}位", MinimumLength = 6)]
         public string NewPassWord { get; set; }
 
         [Display(Name = "确认新密码")]
         [DataType(DataType.Password)]
-        [Compare("PassWord", ErrorMessage = "密码两次输入必须要一致")]
+        [Compare("NewPassWord", ErrorMessage = "密码两次输入要一致")]
         public string ConfirmNewPassWord { get; set; }
     }
 }
