@@ -27,7 +27,44 @@ namespace MusicStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel model)
         {
-            //用户保存Person ApplicationUser
+            if(ModelState.IsValid)
+            {
+                var person = new Person()
+                {
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    Name = model.FullName,
+                    CredentialsCode = "",
+                    Birthday = DateTime.Now,
+                    Sex = true,
+                    MobileNumber = "18866668888",
+                    Email = model.Email,
+                    TelephoneNumber = "18866668888",
+                    Description = "",
+                    CreateDateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    InquiryPassword = "未设置",
+                };
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    FirstName = model.FullName.Substring(0, 1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
+                    ChineseFullName = model.FullName,
+                    MobileNumber = "18866668888",
+                    Email = model.Email,
+                    Person = person,
+                };
+
+                //是否要验证Email
+
+                var idManager = new IdentityManager();
+                idManager.CreateUser(user, model.PassWord);
+                idManager.AddUserToRole(user.Id, "RegisterUser");
+
+                return Content("<script>alert('恭喜注册成功!');location.herf='"+Url.Action("longin","Account")+"'</script>");
+            }
+                    
             return View();
         }
 
