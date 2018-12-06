@@ -147,6 +147,7 @@
     <Compile Include="Migrations\GenreSseed.cs" />
     <Compile Include="Migrations\UserAndRoleSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ChangePassWordViewModel.cs" />
     <Compile Include="ViewModels\LoginUserViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
@@ -369,6 +370,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\Login\TestHack.cshtml" />
+    <Content Include="Views\Login\ChangePassWord.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

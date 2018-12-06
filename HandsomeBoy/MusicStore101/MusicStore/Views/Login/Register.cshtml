@@ -4,7 +4,7 @@
     ViewBag.Title = "注册";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
 }
-@Html.AntiForgeryToken();
+
 <h2>新用户注册</h2>
 @using (Html.BeginForm("Register", "Login", FormMethod.Post))
 {

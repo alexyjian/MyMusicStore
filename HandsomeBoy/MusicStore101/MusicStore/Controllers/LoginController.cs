@@ -40,8 +40,8 @@ namespace MusicStore.Controllers
                 #region 管理员
                 var person1 = new Person()
                 {
-                    FirstName = model.FullName,
-                    LastName = "西",
+                    FirstName = model.FullName.Substring(0,1),
+                    LastName = model.FullName.Substring(1, model.FullName.Length - 1),
                     Name = model.UserName,
                     CredentialsCode = "4500002015010112345",
                     Birthday = DateTime.Parse("2015-01-01"),
@@ -68,6 +68,7 @@ namespace MusicStore.Controllers
                 idManger.CreateUser(loginUser, model.PassWord);
                 //添加到Admin角色
                 idManger.AddUserToRole(loginUser.Id, "Admin");
+                return Content("<script>alert('恭喜你注册成功)</script>");
                 #endregion
             }
             return View();
@@ -188,6 +189,58 @@ namespace MusicStore.Controllers
             }
             else
                 return "登录失败";
+        }
+
+        //注销
+        public ActionResult LoginOut()
+        {
+            Session.Remove("loginStatus");
+            Session.Remove("LoginUserSessionModel");
+            return RedirectToAction("index", "Home");
+        }
+        public ActionResult ChangePassWord(ChangePassWordViewModel model)
+        {
+            //用户先得登录才能修改
+            if (Session[LoginUserSessionModel] == null)
+            {
+                return View("<script>alert('请先登录!'); </script>");
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePassWord(ChangePassWordViewModel model)
+        {
+            //用户先得登录才能修改
+            if (ModelState.IsValid)
+            {
+                //输入合法，进行修改密码
+                bool changePwdSuccessed;
+                try {
+                    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
+                    var userName = (Session["LoginUserSessionModel"] as LoginUserSessionModel).User.UserName;
+                    var user = userManager.Find(userName, model.PassWord);
+                    if (user == null)
+                    {
+                        ModelState.AddModelError("", "原密码不正确");
+                        return View();
+                    }
+                    else
+                    {
+                        //修改密码
+                        changePwdSuccessed = userManager.ChangePassword(user.Id, model.PassWord, model.ConfirmPassWord).Succeeded;
+                        if (changePwdSuccessed)
+                        {
+                            return Content("<script>alert('恭喜修改密码成功);location.href='" + Url.Action("index", "home") + "'</script>");
+                        }
+                        else
+                        {
+                              ModelState.AddModelError("","修改密码失败",)
+                        }
+                    }
+                }
+                catch { }
+            }
+            return View();
         }
     }
 }
