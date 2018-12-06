@@ -7,7 +7,7 @@ using System.Web;
 namespace MusicStore.ViewMoldels
 {
     /// <summary>
-    ///  修改密码实体模型
+    /// 修改密码实体模型
     /// </summary>
     public class ChangePassWordViewModel
     {
