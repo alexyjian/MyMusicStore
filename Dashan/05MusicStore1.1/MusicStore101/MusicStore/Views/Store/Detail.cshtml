@@ -46,3 +46,28 @@
      <div id="msg"></div>
 
 </div>
+
+<script>
+    $("#addcart").click(function () {
+//异步
+        $("#msg").html("<img src = '../../Content/Images/Loading.gif'>添加到购物车，请稍后......");
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShoppingCart/AddCart',
+            data:{id:"@Model.ID"},
+            dataType:'json',
+            success: function (data) {
+                //如果没有登录，跳回登录页
+                if (data == "nologin")
+                    location.href = "@Url.Action("login", "Account", new { returnUrl = Url.Action("Detail","Store",new { id = Model.ID })})";
+                else {
+                    //添加购物车成功后，动画消失
+                    $("#msg").html(data);
+                    //重新刷新此页面
+                    location.reload();
+                }
+            }
+        });
+    });
+</script>
