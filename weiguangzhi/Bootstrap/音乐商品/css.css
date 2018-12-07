@@ -3,17 +3,23 @@
     padding: 0;
     border: none;
     text-decoration:none;
-    color: #000;
+    color:white;
+   
     
 }
+/* /* body{width: 100%;} */
 #header{
     float: left;
     width: 100%;
-    border-bottom: 1px dotted #5d5a53;
+    height: 100px;
+    color:white;
     margin-bottom: 10px;
-    background-color: rgb(194, 170, 170);
+    background: #242424;
+    width: 100%;
+    height: 60px;
 
 }
+
 .one{
     float:right;
 
@@ -22,8 +28,7 @@
     list-style: none;
 }
 #header h1 {
-    font-size: 18px;
-    float: left;
+    font-size: 10px;
     background: url(../音乐商品/Images/logo.png) no-repeat;
     padding: 45px 0 5px 0;
     
@@ -38,12 +43,14 @@
 }
 .navbar-nav {
     margin: 7.5px -15px;
+    color: whitesmoke;
 }
 .nav {
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
     float: right;
+    color: whitesmoke;
 }
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
@@ -56,17 +63,12 @@ div {
     display: block;
 }
 body {
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 14px;
-    background-color: #fbf9ef;
     padding: 0 6%;
-}
-body {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
     line-height: 1.428571429;
-    color: #333;
     background-color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .glyphicon {
     position: relative;
@@ -83,14 +85,23 @@ li {
     text-align: -webkit-match-parent;
 }
 #categories {
+    width: 100%;
     font-family: Constantia,Georgia,serif;
     list-style-type: none;
-    opacity:0.6;
     padding-right: 0px;
     margin: -10px -50px 0 0;
     float: left;
-    background-color: rgb(102, 102, 102);
     border-radius:0 0 5px 5px;
+    z-index: 90;
+    height: 30px;
+    box-sizing: border-box;
+    background-color: #C20C0C;
+    border-bottom: 1px solid #a40011;
+}
+#categories li{
+    float: left;
+    padding-left: 50px;
+    padding-top: 5px;
 }
 #footer {
     clear: both;
@@ -109,7 +120,7 @@ li {
 }
 #promotion {
     height: 300px;
-    width: 700px;
+    width: 100%;
     background: url(../音乐商品/Images/home-showcase.png) no-repeat;
 }
 h3 {
@@ -132,18 +143,7 @@ ul#album-list li {
     font-size: 25px;
     
 }
-.container .row .col-md-3 ul li::before{
-    background: url(../音乐商品/Images/11-29.jpg) no-repeat;
-    width: 15px;
-    height: 15px;
-}
-.glyphicon-music{
-    background: url(../音乐商品/Images/wymc.png) no-repeat;
-    width: 18px;
-    height: 18px;
 
-}
-#categories li{
-    border:1px #000 solid;
 
-}
+
+.container{width: 100%;} */

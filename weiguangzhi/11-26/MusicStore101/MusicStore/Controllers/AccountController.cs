@@ -64,7 +64,7 @@ namespace MusicStore.Controllers
 
                 var idManager = new IdentityManager();
                 idManager.CreateUser(user, model.PassWord);
-                idManager.AddUserToRole(user.Id, "Manger");
+                idManager.AddUserToRole(user.Id, "Admin");
 
                 return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("login", "Account") + "'</script>");
             }

@@ -138,12 +138,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShonppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\GenreSeed.cs" />
+    <Compile Include="Migrations\UserAndRoleSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\EditPwViewModel.cs" />
     <Compile Include="ViewModels\LoginUserStatus.cs" />
@@ -264,6 +266,7 @@
     <Content Include="Views\Home\TesHack.cshtml" />
     <Content Include="Views\Account\LoginOut.cshtml" />
     <Content Include="Views\Account\EditPw.cshtml" />
+    <Content Include="Views\ShonppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
