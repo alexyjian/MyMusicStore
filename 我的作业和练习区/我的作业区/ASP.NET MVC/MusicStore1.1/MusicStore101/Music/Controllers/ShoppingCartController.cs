@@ -69,9 +69,7 @@ namespace Music.Controllers
                 return Json("nologin");
             }
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
-            var cret=_context.Carts.Find()
-            var cit=_context.Carts.Remove()
-            return View(cartItem);
+            return View();
         }
     }
 }
