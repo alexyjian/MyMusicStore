@@ -11,10 +11,11 @@ public     class Cart
     {
         public Guid ID { get; set; }
         public string CartID { get; set; }
-        public int Count { get; set; }
+        public int Count { get; set; }/* = 1;*/
         public DateTime CareateDate{ get; set; }
         public virtual Album Album { get; set; }
-        public string AblumID { get; set; }
+        public string AlbumID { get; set; }
+
         public virtual Person Person { get; set; }
 
 
