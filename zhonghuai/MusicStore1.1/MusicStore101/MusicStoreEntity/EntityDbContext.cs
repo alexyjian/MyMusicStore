@@ -32,5 +32,6 @@ namespace MusicStoreEntity
         public IDbSet<Genre> Genre { get; set; }
         public IDbSet<Artist> Artist { get; set; }
         public IDbSet<Album>Albums { get; set; }
+        public IDbSet<Cart> Carts { get; set; }
     }
 }

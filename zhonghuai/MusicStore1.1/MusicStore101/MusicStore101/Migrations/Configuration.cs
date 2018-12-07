@@ -18,8 +18,8 @@ namespace MusicStore101.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            GenreSeed.Seed();
-            GenreSeed.Extend();
+            //GenreSeed.Seed();
+            //GenreSeed.Extend();
         }
     }
 }
