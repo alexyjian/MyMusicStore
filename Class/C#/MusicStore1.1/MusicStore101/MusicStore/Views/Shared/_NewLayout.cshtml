@@ -1,9 +1,11 @@
 ﻿@using MusicStore.ViewModels
 @using MusicStoreEntity.UserAndRole
+
 @{ 
     var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
     ApplicationUser user = null;
     //查询购物车 收藏车
+    var carts = new List<MusicStoreEntity.Cart>();
 
     if (loginUserModel != null)
     {
@@ -12,6 +14,7 @@
             user = loginUserModel.User;
         }
         //查询购物车 收藏车
+        carts = new MusicStoreEntity.EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
     }
 }
 <!DOCTYPE html>
@@ -66,7 +69,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="@Url.Action("Index","ShoppingCart")"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;购物车(0)</a>
+                                        <a href="@Url.Action("Index","ShoppingCart")"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;购物车(@carts.Count)</a>
                                     </li>
                                     <li>
                                         <a href="@Url.Action("Index","Oder")"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;我的订单</a>

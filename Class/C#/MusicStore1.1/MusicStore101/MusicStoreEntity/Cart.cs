@@ -18,7 +18,7 @@ namespace MusicStoreEntity
         public string CartID { get; set; }
 
         //专辑数量
-        public int Count { get; set; }
+        public int Count { get; set; } = 1;
 
         public DateTime CreateDate { get; set; }
 

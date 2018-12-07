@@ -46,7 +46,9 @@
                     location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
                 }else{
                     $("#mes").html(data);
-                    location.reload();
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
                 }
             }
         });
