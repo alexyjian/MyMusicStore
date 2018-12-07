@@ -54,5 +54,29 @@ namespace MusicStore.Controllers
             }
             return Json(message);
         }
+
+
+        public ActionResult Index()
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account");
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var carts = _Context.Carts.Where(x => x.Person.ID == person.ID).ToList();
+            return View(carts);
+        }
+
+        public ActionResult RemoveCart(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account");
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var cart = _Context.Carts.Where(x=>x.Person.ID == person.ID && x.ID == id);
+            if (cart != null)
+            {
+                
+            }
+            return View();
+        }
     }
 }

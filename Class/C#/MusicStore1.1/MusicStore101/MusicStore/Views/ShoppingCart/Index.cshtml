@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MusicStoreEntity.Cart>
+@{
+    ViewBag.Title = "我的购物车";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+    double sum = 0;
+    foreach (var item in Model)
+    {
+        sum += double.Parse(string.Format("{0:F}", item.Album.Price)) * item.Count;
+    }
+}
+
+<h3><span class="glyphicon glyphicon-shopping-cart"></span>浏览您的购物车</h3>
+<hr />
+<p>
+    <a href="#" class="btn btn-success">马上购买>></a>
+</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>专辑名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Album.Title</td>
+                    <td>￥@string.Format("{0:F}", item.Album.Price)</td>
+                    <td>@item.Count</td>
+                    <td>
+                        <a id="@item.ID" href="#" class="text-danger" onclick="Remove(@item.ID)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                            我不喜欢这个了
+                        </a>
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td>总价</td>
+                <td>
+                    @sum
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function Remove(Id) {
+        $.ajax({
+            type: 'post',
+            async: false,
+            url: '../../ShoppingCart/RemoveCart',
+            data: { id: "Id"},
+            dataType: 'json',
+            success: function (data) {
+                    
+            }
+        });
+    }
+</script>

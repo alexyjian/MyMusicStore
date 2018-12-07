@@ -69,7 +69,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="@Url.Action("Index","ShoppingCart")"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;购物车(@carts.Count)</a>
+                                        <a href="@Url.Action("Index","ShoppingCart",new { id=loginUserModel.Person.ID})"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;购物车(@carts.Count)</a>
                                     </li>
                                     <li>
                                         <a href="@Url.Action("Index","Oder")"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;我的订单</a>

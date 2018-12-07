@@ -257,10 +257,9 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\My\Index.cshtml" />
     <Content Include="Views\My\Info.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Shopping\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
