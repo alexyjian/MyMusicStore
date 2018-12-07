@@ -1,4 +1,5 @@
-﻿@model  IEnumerable<MusicStoreEntity.Genre>
+﻿
+@model  IEnumerable<MusicStoreEntity.Genre>
 
 @{
     ViewBag.Title = "所有音乐分类";
@@ -18,6 +19,11 @@
             @Html.ActionLink(item.Name, "Browser", "Store", new { id = item.ID }, null)
             (@item.Albums.Count )
             @*显示前两个专辑分类*@
+
         </li>
     }
 </ul>
+
+
+   
+
