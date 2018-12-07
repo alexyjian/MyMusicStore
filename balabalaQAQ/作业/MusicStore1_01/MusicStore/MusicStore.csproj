@@ -314,11 +314,12 @@
     <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Account\RevisePwd.cshtml" />
+    <Content Include="Views\ShoppingCart\AddCart.cshtml" />
+    <Content Include="Views\ShoppingCart\ShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\RevisePwd\" />
-    <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
