@@ -9,6 +9,7 @@
 <p>
     <img alt="图片加载失败" src="@Model.AlbumArtUrl" />
 </p>
+
 <div>
     <p>
         <em>歌手：</em>@Model.Artist.Name
@@ -23,8 +24,31 @@
         <em>价格：</em><b>￥@string.Format("{0:F}", Model.Price)</b>
     </p>
     <div id="mes"></div>
+    <br />
     <p>
-        <a class="btn btn-primary">添加到购物车</a>
+        <a href="#" id="addcart" class="btn btn-primary">添加到购物车</a>
         <div id="mes"></div>
     </p>
 </div>
+
+<script>
+    $("#addcart").click(function () {
+        //异步
+        $("#mes").html("<img src='../../Content/Images/ProgressIcon.gif' />添加到购物车，请稍后...");
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShoppingCart/AddCart',
+            data: {id:"@Model.ID"},
+            dataType:'json',
+            success:function(data){
+                if(data == "nologin"){
+                    location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                }else{
+                    $("#mes").html(data);
+                    location.reload();
+                }
+            }
+        });
+    });
+</script>
