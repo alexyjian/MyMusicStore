@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0
+}
+.box {
+    width: 500px;
+    height: 300px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    padding: 5px;
+}
+.button{
+    width: 1024px;
+    height: 1024px;
+    color: gold;
+}
