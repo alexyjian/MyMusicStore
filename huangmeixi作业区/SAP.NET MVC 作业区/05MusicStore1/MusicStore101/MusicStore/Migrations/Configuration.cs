@@ -21,8 +21,8 @@ namespace MusicStore.Migrations
 
             // UserAndRoloSeed.AddRoles();
             // UserAndRoloSeed.AddUsers();
-            GenreSeed.Seed();
-            GenreSeed.Extend();
+           // GenreSeed.Seed();
+           // GenreSeed.Extend();
            
         }
     }
