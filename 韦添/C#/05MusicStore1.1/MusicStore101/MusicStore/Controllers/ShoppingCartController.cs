@@ -20,7 +20,7 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult AddCart(Guid id)
         {
-            Thread.Sleep(1000);   //为了模仿真实网站环境，延时1秒，显示加载的艰苦 
+            Thread.Sleep(1000);   //为了模仿真实网站环境，延时3秒，显示加载的艰苦 
             if (Session["LoginUserSessionModel"] == null)
                 return Json("nologin");
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
