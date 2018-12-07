@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<MusicStoreEntity.Genre>
   
-<ul id="ul_ul">
+<ul id="ul_ul" class="col-xs-12" style="margin-bottom: 200px;">
     @foreach( var item in Model)
     {
-        <li style="word-spacing:10px">
+        <li style="word-spacing:10px" class="col-xs-4 col-md-12">
             <i class="glyphicon glyphicon-music" style="margin-right:30px"></i>
             @Html.ActionLink(item.Name,"browser","Store",new{id=item.ID },null)
         </li>

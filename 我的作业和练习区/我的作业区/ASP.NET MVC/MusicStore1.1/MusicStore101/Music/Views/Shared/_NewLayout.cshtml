@@ -1,16 +1,21 @@
 ﻿@using Music.ViewModels
+@using MusicStoreEntity
 @using MusicStoreEntity.UserAndRole
 @{
     Layout = null;
     //判断用户是否登录，如果ApplicationUser user不为空表示用户登录成功
     var loginUserModel = Session["loginUserSessionModel"] as LoginUserSessionModel;
     ApplicationUser user = null;
+    //查询购物车 收藏车
+    var carts=new List<Cart>();
     if (loginUserModel != null)
     {
         if (loginUserModel.User != null)
         {
             user = loginUserModel.User;
         }
+        //查询购物车
+        carts =new EntityDbContext().Carts.Where(x=>x.Person.ID==user.Person.ID).ToList();
     }
 }
 
@@ -24,9 +29,10 @@
     <title>@ViewBag.Tile-音乐商店</title>
     <link rel="stylesheet" href="/Content/Site.css">
     @*绑定样式库*@
+    @Styles.Render("~/Content/JqueryUI")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/modernizr")
-    @Styles.Render("~/Content/JqueryUI")
+    
 
     @*绑定脚本库*@
     @Scripts.Render("~/bundles/jquery")
@@ -73,7 +79,7 @@
                                 @user.Person.Name <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("index", "ShoppingCart")">购物车</a></li>
+                                <li><a href="@Url.Action("index", "ShoppingCart")">购物车( @carts.Count() )</a></li>
                                 <li><a href="@Url.Action("index", "Oder")">我的菜单</a></li>
                                 <li><a href="@Url.Action("ChangePassWord", "Account")">修改密码</a></li>
                                 <li><a href="@Url.Action("index", "My")">设置</a></li>
