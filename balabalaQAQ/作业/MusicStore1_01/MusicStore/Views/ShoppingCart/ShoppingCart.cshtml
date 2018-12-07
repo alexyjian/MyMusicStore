@@ -1,12 +1,24 @@
-﻿@model IEnumerable<MusicStoreEntity.Cart >
+﻿@model IEnumerable<MusicStoreEntity.Cart>
 
 @{
+    var sum = 0;
     ViewBag.Title = "ShoppingCart";
     Layout = "~/Views/Shared/_newLayout.cshtml";
 }
 
 <h2>购物车</h2>
- @foreach (var l in Model)
- {
-    <p></p>
- }
+@foreach (var l in Model)
+{
+    <p>
+        <span>
+            名称 <a href="@Url.Action("detail","store",new { id=l.AlbumID})">
+                 <span>@l.Album.Title</span>
+            </a>
+        </span>
+        <span>数量 @l.Count</span>
+        <span>单价: ￥@l.Album.Price</span>
+        <a>不喜欢了？ 抛弃！</a>
+    </p>
+    sum += (@l.Count * Convert.ToInt16(@l.Album.Price));
+}
+<div>总价格：@sum</div>

@@ -59,7 +59,6 @@ namespace MusicStore.Controllers
         public ActionResult ShoppingCart()
         {
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
             var list = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
             return View(list);
         }
