@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
@@ -22,18 +21,22 @@ namespace MusicStoreEntity
         }
 
         #region 用户与角色的实体
+
         public IDbSet<ApplicationInformation> ApplicationInformations { get; set; }
         public IDbSet<ApplicationBusinessType> ApplicationBusinessTypes { get; set; }
         public IDbSet<ApplicaitionUserInApplication> ApplicaitionUserInApplications { get; set; }
         public IDbSet<Person> Persons { get; set; }
+
         #endregion
 
-        //音乐商店实体
-        public IDbSet<Genre> Genres { get; set; }
+        #region 音乐商店实体
 
+        public IDbSet<Genre> Genres { get; set; }
+        public IDbSet<Artist> Artists { get; set; }
         public IDbSet<Album> Albums { get; set; }
 
-        public IDbSet<Artist> Artists { get; set; }
+        public IDbSet<Cart> Carts { get; set; }
 
+        #endregion
     }
 }

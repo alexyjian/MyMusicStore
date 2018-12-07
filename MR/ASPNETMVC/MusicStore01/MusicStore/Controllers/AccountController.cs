@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using MusicStore.ViewModels;
 using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
+using UserAndRole;
 
 namespace MusicStore.Controllers
 {

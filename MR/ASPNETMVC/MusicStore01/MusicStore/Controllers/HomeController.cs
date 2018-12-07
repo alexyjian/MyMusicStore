@@ -12,6 +12,7 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using UserAndRole;
 
 namespace MusicStore.Controllers
 {
