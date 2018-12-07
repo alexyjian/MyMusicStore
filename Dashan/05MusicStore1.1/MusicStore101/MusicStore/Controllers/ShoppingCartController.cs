@@ -11,7 +11,12 @@ namespace MusicStore.Controllers
 {
     public class ShoppingCartController : Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
 
+       
         private static readonly EntityDbContext _context = new EntityDbContext();
 
         /// <summary>
@@ -56,5 +61,8 @@ namespace MusicStore.Controllers
             }
             return Json(message);
         }
+
+      
     }
+
 }
