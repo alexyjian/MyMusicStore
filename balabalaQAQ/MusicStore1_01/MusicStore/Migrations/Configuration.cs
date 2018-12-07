@@ -16,17 +16,17 @@ namespace MusicStore.Migrations
         {
 
             //context.Database.ExecuteSqlCommand("delete AspNetUsers");
-            context.Database.ExecuteSqlCommand("delete Albums");
-            context.Database.ExecuteSqlCommand("delete Artists");
-            context.Database.ExecuteSqlCommand("delete Genres");
+            //context.Database.ExecuteSqlCommand("delete Albums");
+            //context.Database.ExecuteSqlCommand("delete Artists");
+            //context.Database.ExecuteSqlCommand("delete Genres");
             // context.Database.ExecuteSqlCommand("delete AspNetUserRoles");
             
 
 
             //UserAndRoleSeed.AddUserAndRoles();
             //UserAndRoleSeed.AddSpecialUser();
-            GenreSeed.Seed();
-            GenreSeed.Extend();
+            //GenreSeed.Seed();
+            //GenreSeed.Extend();
         }
     }
 }
