@@ -55,6 +55,7 @@ namespace MusicStore.Controllers
                 _context.SaveChanges();
                 message = _context.Albums.Find(id).Title + "原来就在购物车中，已为您数量+1！";
             }
+
             return Json(message);
         }
     }
