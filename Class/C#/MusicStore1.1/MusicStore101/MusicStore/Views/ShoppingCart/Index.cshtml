@@ -9,6 +9,21 @@
     }
 }
 
+<script>
+    function Remove(Id) {
+        $.ajax({
+            type: 'post',
+            async: false,
+            url: '../../ShoppingCart/RemoveCart',
+            data: { id: "Id"},
+            dataType: 'json',
+            success: function (data) {
+
+            }
+        });
+    }
+</script>
+
 <h3><span class="glyphicon glyphicon-shopping-cart"></span>浏览您的购物车</h3>
 <hr />
 <p>
@@ -50,18 +65,3 @@
         </tbody>
     </table>
 </div>
-
-<script>
-    function Remove(Id) {
-        $.ajax({
-            type: 'post',
-            async: false,
-            url: '../../ShoppingCart/RemoveCart',
-            data: { id: "Id"},
-            dataType: 'json',
-            success: function (data) {
-                    
-            }
-        });
-    }
-</script>
