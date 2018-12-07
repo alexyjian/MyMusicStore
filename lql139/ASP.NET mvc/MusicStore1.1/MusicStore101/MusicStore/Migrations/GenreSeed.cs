@@ -60,7 +60,7 @@ namespace MusicStore.Migrations
                     Title ="Sad",Price=8.00M,
                     Genre =genres.Single(g=>g.Name=="Emo Rap"),
                     Artist =Artists.Single(a=>a.Name=="XXXTENTACION"),
-                    AlbumArtUrl="~/Content/images/placeholder.gif"
+                    AlbumArtUrl="/Content/images/placeholder.gif"
                 },
                 new Album {
                     Title ="?",Price=8.00M,
