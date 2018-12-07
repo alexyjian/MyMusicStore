@@ -14,7 +14,7 @@ namespace MusicStoreEntity
     {
         public Guid ID { get; set; }
         public string CartID { get; set; }  //购物车内部编号
-        public int Count { get; set; }   //专辑的数量
+        public int Count { get; set; } = 1;  //专辑的数量
         public  DateTime CreateDate { get; set; }
 
         public virtual  Album Album { get; set; }   //关联专辑
