@@ -126,3 +126,11 @@ footer{
     width: 130px;
  height: 110px;
 }
+.btn {
+    display:block;
+    width :108px;
+     height: 40px;
+     background-color:#5E5B54;
+     color:#fff;
+     line-height:30px;
+}

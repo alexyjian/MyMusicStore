@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MusicStoreEntity.Cart>
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+    
+}
+ 
+
+
+    <h2>浏览您的购物车</h2>
+
+    <table>
+        @foreach (var item in Model)
+        {
+            <tr >
+                <td>@item.AlbumID</td>
+                <td>@item.Album.Title</td>
+                <td>@item.Count</td>
+            </tr>
+        }
+       
+    </table>
+
