@@ -243,6 +243,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="MusicStore\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
