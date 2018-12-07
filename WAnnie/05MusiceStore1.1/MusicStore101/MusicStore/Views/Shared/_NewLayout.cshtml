@@ -1,11 +1,12 @@
 ﻿@using MusicStore.ViewsModel
+@using MusicStoreEntity
 @using MusicStoreEntity.UserAndRole
 @{
     //判断用户是否登录，如果 ApplicationUser user不为空表示用户登录成功
     var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
     ApplicationUser user = null;
     //查询购物车  收藏车
-    
+    var carts =new List<Cart>();
 
     if (loginUserModel!=null)
     {
@@ -14,6 +15,7 @@
             user = loginUserModel.User;
         }
         //查询购物车  收藏车
+        carts=new MusicContext().Carts.Where(x=>x.Person.ID==user.Person.ID).ToList();
     }
 }
 <!DOCTYPE html>
@@ -54,7 +56,7 @@
                         @user.Person.Name<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="@Url.Action("index","ShoppingCart")">购物车(10)</a></li>
+                        <li><a href="@Url.Action("index","ShoppingCart")">购物车(@carts.Count)</a></li>
                         <li><a href="@Url.Action("index","Oder")">我的订单</a></li>
                         <li><a href="@Url.Action("index","My")">设置</a></li>
                         <li><a href="@Url.Action("loginout", "account")">注销</a></li>

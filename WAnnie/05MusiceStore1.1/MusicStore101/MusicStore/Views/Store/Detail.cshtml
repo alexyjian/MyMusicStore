@@ -52,7 +52,7 @@
         //异步
         $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍后......");
         $.ajax({
-            tyoe: 'post',
+            type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
             data: { id: "@Model.ID" },
@@ -60,8 +60,7 @@
             success: function(data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin"){
-                    location.href =
-                        "@Url.Action("login","account",
+                    location.href ="@Url.Action("Login", "Account",
                              new {returnUrl=Url.Action
                                  ("Detail","Store",new {id=Model.ID})})";
                 }
@@ -69,7 +68,9 @@
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
                     //重新刷新此区域
-                    location.reload();
+                    setTimeout(function() {
+                        location.reload();
+                    },2000);
                 }
             }
         });

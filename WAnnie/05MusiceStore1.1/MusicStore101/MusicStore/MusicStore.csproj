@@ -273,10 +273,9 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\TestHack.cshtml" />
     <Content Include="Views\Account\ChangePassWord.cshtml" />
+    <Content Include="Views\ShoppingCart\AddCart.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\ShoppingCart\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -20,8 +20,8 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult AddCart(Guid id )
         {
-            //为了模仿真实网站环境，延时3秒，显示加载的艰苦
-            Thread.Sleep(3000);
+            //为了模仿真实网站环境，延时2秒，显示加载的艰苦
+            Thread.Sleep(2000);
 
             if (Session["LoginUserSessionModel"] == null)
                 return Json("nologin");
@@ -44,8 +44,7 @@ namespace MusicStore.Controllers
 
                 };
                 _Context.Carts.Add(cartItem);
-                _Context.SaveChanges()
-                    ;
+                _Context.SaveChanges();
                 message = "添加" + _Context.Ablums.Find(id).Title + "到购物车成功！";
             }
             else
