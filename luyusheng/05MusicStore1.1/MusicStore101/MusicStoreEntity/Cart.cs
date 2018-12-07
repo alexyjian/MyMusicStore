@@ -23,7 +23,9 @@ namespace MusicStoreEntity
 
         public Cart()
         {
+            ID = Guid.NewGuid();
             CreateDate = DateTime.Now;
+
         }
     }
 }
