@@ -1,10 +1,13 @@
 ﻿@using MusicStore.ViewModels
+@using MusicStoreEntity
 @using MusicStoreEntity.UserAndRole
+
 @{ 
     var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
     ApplicationUser user = null;
 
     //查询购物车 收藏车
+    var Carts = new List<Cart>();
     if (loginUserModel != null)
     {
         if (loginUserModel.User != null)
