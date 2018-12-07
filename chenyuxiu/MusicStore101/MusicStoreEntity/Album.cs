@@ -10,7 +10,7 @@ namespace MusicStoreEntity
     /// 专辑
     /// </summary>
     public class Album
-    {
+    {  
         public Guid ID { get; set; }
         public string Title { get; set; }//专辑名称
         public decimal Price { get; set; }
