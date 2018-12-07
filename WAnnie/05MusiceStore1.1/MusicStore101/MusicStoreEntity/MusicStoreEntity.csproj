@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Ablum.cs" />
     <Compile Include="Artist.cs" />
+    <Compile Include="Cart.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="MusicContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
