@@ -255,6 +255,7 @@ namespace MusicStore.Migrations
             _dbContext.SaveChanges();
         }
 
+        //给GenreId和ArtistId赋值
         public static void Extend()
         {
             var albums = _dbContext.Albums.ToList();
