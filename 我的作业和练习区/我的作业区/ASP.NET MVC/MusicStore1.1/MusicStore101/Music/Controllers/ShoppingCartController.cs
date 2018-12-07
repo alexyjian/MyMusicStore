@@ -51,5 +51,16 @@ namespace Music.Controllers
 
             return Json(message);
         }
+
+        public ActionResult Index()
+        {
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return Json("nologin");
+            }
+            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            var cartItem = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
+            return View(cartItem);
+        }
     }
 }

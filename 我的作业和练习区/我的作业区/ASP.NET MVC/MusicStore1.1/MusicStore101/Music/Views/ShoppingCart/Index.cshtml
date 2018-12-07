@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MusicStoreEntity.Cart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<div class="col-xs-12">
+    <ul id="ul_ul" class="col-xs-12 row" style="border: 1px solid #c0c0c0; padding: 0;">
+        <li style="word-spacing:10px;background-color: blanchedalmond;padding:5px;" class="col-xs-4 col-md-12">
+            <span class="col-md-4">专辑名</span>
+            <span class="col-md-2">单价</span>
+            <span class="col-md-2">数量</span>
+            <span class="col-md-4" ">操作</span>
+        </li>
+        @foreach (var item in Model)
+        {
+            <li style="word-spacing:10px;padding: 5px; border-top: 1px solid #c0c0c0" class="col-xs-4 col-md-12">
+                <a class="col-md-4" href="@Url.Action("detail", "store", new {id = item.AlbumID})">
+                    <span>@item.Album.Title</span>
+                </a>
+                <span class="col-md-2">$@item.Album.Price</span>
+                <span class="col-md-2">@item.Count</span>
+                <span class="col-md-4">我不喜欢这个了</span>
+
+            </li>
+        }
+    </ul>
+</div>
+
