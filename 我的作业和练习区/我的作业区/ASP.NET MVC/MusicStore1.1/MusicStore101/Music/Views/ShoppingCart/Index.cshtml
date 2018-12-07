@@ -20,8 +20,9 @@
                 </a>
                 <span class="col-md-2">$@item.Album.Price</span>
                 <span class="col-md-2">@item.Count</span>
-                <span class="col-md-4">我不喜欢这个了</span>
-
+                <a class="col-md-4" href="@Url.Action("delete", "ShoppingCart", new {id = item.AlbumID})">
+                    <span class="col-md-4">我不喜欢这个了</span>
+                </a>
             </li>
         }
     </ul>
