@@ -1,9 +1,11 @@
 ﻿@using MusicStore.ViewModels
+@using MusicStoreEntity
 @using MusicStoreEntity.UserAndRole
 @{ 
     var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
     ApplicationUser user = null;
     //查询购物车 收藏车
+    var carts = new List<Cart>();
 
     if (loginUserModel!=null)
     {
@@ -11,6 +13,8 @@
         {
             user = loginUserModel.User;
         }
+        //查询购物车 收藏车
+        carts = new EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
     }
 }
 
