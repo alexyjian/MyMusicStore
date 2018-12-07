@@ -13,7 +13,7 @@ namespace MusicStore.ViewModels
     {
         public bool IsLogin { get; set; }//登录是否成功
 
-        public string Message { get; set; }//登录成功或失败的信
+        public string Message { get; set; }//登录成功或失败的
 
         public string GotoController { get; set; }//登录成功后跳转到控制器
 
