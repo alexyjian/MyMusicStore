@@ -9,7 +9,7 @@ namespace MusicStore.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "MusicStoreEntity.EntityDbContext";
         }
 
@@ -18,10 +18,10 @@ namespace MusicStore.Migrations
 
             //UserAndRoleSeed.Addroles();
             //UserAndRoleSeed.AddUsers();
-            GenreSeed.Seed();
+            //GenreSeed.Seed();
 
             
-            GenreSeed.Extend();
+            //GenreSeed.Extend();
         }
     }
 }

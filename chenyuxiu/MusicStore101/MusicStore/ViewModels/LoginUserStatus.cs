@@ -23,7 +23,8 @@ namespace MusicStore.ViewModels
     /// <summary>
     /// 用于处理登入成功后的用户会话
     /// </summary>
-    public class LoginUserSeesionModel {
+    public class LoginUserSessionModel
+    {
         public ApplicationUser User { get; set; }//账号的对象
         public Person Person { get; set; }//个人信息的对象
         public string RoleName { get; set; }//用户角色

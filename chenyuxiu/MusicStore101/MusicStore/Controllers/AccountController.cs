@@ -118,7 +118,7 @@ namespace MusicStore.Controllers
                     loginStatus.GotoAction = "index";
                     Session["loginStatus"] = loginStatus;
 
-                    var loginUserSessionModel = new LoginUserSeesionModel()
+                    var loginUserSessionModel = new LoginUserSessionModel()
                     {
                         User = user,
                         Person = user.Person,
@@ -174,7 +174,7 @@ namespace MusicStore.Controllers
                 {
                     var userManage =
                      new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
-                    var userName = (Session["LoginUserSessionModel"] as LoginUserSeesionModel).User.UserName;
+                    var userName = (Session["LoginUserSessionModel"] as LoginUserSessionModel).User.UserName;
                     //判断原密码是否正确
                     var user = userManage.Find(userName, model.PassWord);
                     if (user == null)
