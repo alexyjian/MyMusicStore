@@ -12,7 +12,7 @@ namespace MusicStore.Controllers
     public class ShoppingCartController : Controller
     {
         private static readonly EntityDbContext _context = new EntityDbContext();
-
+           
         /// <summary>
         /// 添加专辑到购物车
         /// </summary>

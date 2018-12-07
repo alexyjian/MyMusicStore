@@ -17,7 +17,7 @@ namespace MusicStore.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         public ActionResult Detail(Guid id)
-        {
+        {             
             var detail = _context.Albums.Find(id);
             return View(detail);
         }

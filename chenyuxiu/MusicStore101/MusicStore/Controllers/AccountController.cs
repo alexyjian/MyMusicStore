@@ -12,7 +12,7 @@ using System.Web.Mvc;
 namespace MusicStore.Controllers
 {
     public class AccountController : Controller
-    {
+    {           
         /// <summary>
         /// 填写注册信息
         /// </summary>
