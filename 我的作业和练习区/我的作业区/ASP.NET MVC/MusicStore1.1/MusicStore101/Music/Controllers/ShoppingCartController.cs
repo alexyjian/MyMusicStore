@@ -62,14 +62,19 @@ namespace Music.Controllers
             var cartItem = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
             return View(cartItem);
         }
-        public ActionResult Delete()
+        [HttpPost]
+        public ActionResult Delete(Guid id)
         {
             if (Session["loginUserSessionModel"] == null)
             {
                 return Json("nologin");
             }
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
-            return View();
+            var caartItem = _context.Carts.SingleOrDefault(x=>x.ID==id);
+            _context.Carts.Remove(caartItem);
+            _context.SaveChanges();
+            var message = "";
+            return Json(message);
         }
     }
 }

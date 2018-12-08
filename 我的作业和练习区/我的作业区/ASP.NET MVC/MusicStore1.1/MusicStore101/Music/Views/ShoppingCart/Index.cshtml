@@ -2,15 +2,20 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+    var Id = 0;
+    Double zongjia = 0;
+    foreach (var a in Model)
+    {
+        zongjia = (a.Count *Double.Parse(a.Album.Price.ToString())) +zongjia;
+    }
 }
-
 <div class="col-xs-12">
-    <ul id="ul_ul" class="col-xs-12 row" style="border: 1px solid #c0c0c0; padding: 0;">
+    <ul id="ul_ul" class="col-xs-12 row ul_ul" style="border: 1px solid #c0c0c0; padding: 0;">
         <li style="word-spacing:10px;background-color: blanchedalmond;padding:5px;" class="col-xs-4 col-md-12">
             <span class="col-md-4">专辑名</span>
             <span class="col-md-2">单价</span>
             <span class="col-md-2">数量</span>
-            <span class="col-md-4" ">操作</span>
+            <span class="col-md-4">操作</span>
         </li>
         @foreach (var item in Model)
         {
@@ -20,11 +25,48 @@
                 </a>
                 <span class="col-md-2">$@item.Album.Price</span>
                 <span class="col-md-2">@item.Count</span>
-                <a class="col-md-4" href="@Url.Action("delete", "ShoppingCart", new {id = item.AlbumID})">
-                    <span class="col-md-4">我不喜欢这个了</span>
+                <a class="col-md-4" id="@item.ID" style="cursor:pointer">
+                    <span class="col-md-12">我不喜欢这个了</span>
                 </a>
             </li>
+
         }
+        <li>
+            <span class="col-md-4"></span>
+            <span class="col-md-2">总价：$@zongjia</span>
+            <span class="col-md-2"></span>
+            <span class="col-md-4"></span>
+        </li>
     </ul>
 </div>
+<script>
+    var ul = document.getElementsByClassName("ul_ul")[0];
+    ul.addEventListener("click", function (ev) {
+        Id = ev.target.parentNode.getAttribute("id");
+        console.log(Id);
+        if (Id != ul_ul && Id != null) {
+            //异步
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../ShoppingCart/Delete',
+                data: { id:Id },
+                dataType: 'json',
+                success: function (data) {
+                    //如果没有登录，跳转到登录页
+                    if (data == "nologin")
+                        location.href = "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","ShoppingCart",new { id= Id })})";
+                    else {
+                        //添加到购物车成功，把动画取消
+                        $("#msg").html(data);
+                        //重新刷新此区域
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1000);
+                    }
+                }
+            });
+        }
+    });
+</script>
 
