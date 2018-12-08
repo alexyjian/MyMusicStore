@@ -154,3 +154,4 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/HandsomeBoy/MusicStore101/.vs/MusicStore101/v15/Server/sqlite3

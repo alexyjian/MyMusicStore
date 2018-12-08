@@ -13,7 +13,7 @@ namespace MusicStoreEntity
         public string CartID { get; set; }//购物车内部编号
         public int Count { get; set; }//专辑数量
         public DateTime CartDate { get; set; } //购物时间
-        public Albun Album { get; set; } //关联专辑
+        public virtual Albun Album { get; set; } //关联专辑
         public string AlbumID { get; set; }   //便于前段编程 
         public virtual Person Person { get; set; } //关联用户
 

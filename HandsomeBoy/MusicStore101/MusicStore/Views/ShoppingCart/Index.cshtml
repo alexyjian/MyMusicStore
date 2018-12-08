@@ -1,23 +1,59 @@
-﻿@model IEnumerable<MusicStoreEntity.Cart>
+﻿@using MusicStoreEntity
+@model IEnumerable<MusicStoreEntity.Cart>
 @{
-    ViewBag.Title = "ShoppingCart";
+    ViewBag.Title = "浏览购物车";
+
+
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
-    
+
+    double sum = 0;
+    Guid[] ShoppingCartDelete = new Guid[Model.Count()];
+    var i = -1;
+    var n = 0;
 }
- 
 
 
-    <h2>浏览您的购物车</h2>
 
-    <table>
+<h2>浏览您的购物车</h2>
+<table class="ShoppingCartView">
+    <tbody>
+        <tr>
+            <th>专辑名称</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>操作</th>
+        </tr>
+    </tbody>
+    <tbody>
         @foreach (var item in Model)
         {
-            <tr >
-                <td>@item.AlbumID</td>
-                <td>@item.Album.Title</td>
+            sum += Convert.ToDouble(item.Album.Price);
+            <tr>
+                <td><a @Url.Action("Detail", "Store", new { id = item.Album.ID })>@item.Album.Title</a></td>
+                <td>@item.Album.Price</td>
                 <td>@item.Count</td>
+                <td><a href="javascript:;" id="@item.ID" onclick="Delete('@item.ID')">我不想要他了</a></td>
             </tr>
+
         }
-       
-    </table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>总价</td>
+            <td>@sum</td>
+        </tr>
+    </tbody>
+</table>
+<script>
+              function Delete(ID) {
+                if (confirm("您确定要删除此类商品么？")) {
+                    url ='../../ShoppingCart/Delete',
+                    parameter = { id:ID};
+                    $.post(url, parameter, function (data) {
+                        alert("删除成功！");
+                        location.reload();
+                    });
+                }
+              }
+</script>
 

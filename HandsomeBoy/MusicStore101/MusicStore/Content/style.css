@@ -134,3 +134,31 @@ footer{
      color:#fff;
      line-height:30px;
 }
+
+.ShoppingCartView {
+    height: auto;
+    border: 1px solid #000;
+   
+ 
+}
+
+    .ShoppingCartView tr {
+        border-bottom:1px solid #000;
+    }
+
+.ShoppingCartView th {
+    background-color: gray;
+   
+}
+    .ShoppingCartView th:first-of-type, .ShoppingCartView th:last-of-type {
+        width: 230px;
+    }
+    .ShoppingCartView th:nth-child(2), .ShoppingCartView th:nth-child(3) {
+        width:100px;
+    }
+td a {
+    color:#f42;
+}
+th, td {
+    padding: 6px;
+}

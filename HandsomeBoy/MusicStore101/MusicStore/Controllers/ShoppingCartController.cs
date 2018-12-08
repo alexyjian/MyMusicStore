@@ -26,6 +26,7 @@ namespace MusicStore.Controllers
             //查询该用户的购物车记录是否包含此专辑
 
             var cartItm = _dbContext.Carts.SingleOrDefault(x => x.Person.ID == x.Person.ID && x.Album.ID == id);
+            var albun = _dbContext.Albuns.Single(x => x.ID == id);
             var message = "";
             if (cartItm == null)
             {
@@ -33,7 +34,8 @@ namespace MusicStore.Controllers
                 cartItm = new Cart()
                 {
                     AlbumID = id.ToString(),
-                    Album = _dbContext.Albuns.Find(id),
+                    //Album = _dbContext.Albuns.Find(id),
+                    Album = albun,
                     Person = _dbContext.Persons.Find(person.ID),
                     Count = 1,
                     CartID = (_dbContext.Carts.Where(x => x.Person.ID == person.ID).ToList().Count() + 1).ToString(),
@@ -49,15 +51,28 @@ namespace MusicStore.Controllers
                 message = _dbContext.Albuns.Find(id).Title + "原来就在购物车里";
             }
             
-            return View(message);
+            return Json(message);
         }
         public ActionResult Index()
         {
             var context = new EntityDbContext();
             //var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var list = context.Carts.OrderByDescending(x => x.CartDate).Take(24).ToList();
-
+            var list = context.Carts.OrderByDescending(x => x.CartDate).ToList();
             return View(list);
+        }
+        [HttpPost]
+        public ActionResult Delete(Guid id)
+        {
+            var cartItm = _dbContext.Carts.SingleOrDefault(x => x.Person.ID == x.Person.ID && x.Album.ID == id);
+            var albuns = _dbContext.Carts.Find(id);
+            if (albuns.Count > 1)
+            {
+                albuns.Count -= 1;            }
+            else {
+               _dbContext.Carts.Remove(albuns);
+            }
+            _dbContext.SaveChanges();
+            return Json("");
         }
     }
 }
