@@ -62,5 +62,24 @@ namespace MusicStore.Controllers
             var list = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
             return View(list);
         }
+        public ActionResult DelCart(Guid id)
+        {
+           
+            var cartItem = _context.Cart.SingleOrDefault(x => x.Person.ID == x.Person.ID && x.Album.ID == id);
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var message = "";
+            var item = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
+            if (cartItem.Count == 1)
+            {
+                _context.SaveChanges();
+            }
+            else
+            {
+                cartItem.Count--;
+                _context.SaveChanges();
+                message = _context.Albums.Find(id).Title + "已为您所选的商品数量-1";
+            }
+            return Json(message);
+        }
     }
 }
