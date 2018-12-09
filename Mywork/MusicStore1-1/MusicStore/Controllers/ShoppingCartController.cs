@@ -80,6 +80,7 @@ namespace MusicStore.Controllers
             //算购物车的总价
             decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
 
+
             //创建视图模型
             var cartVM = new ShoppingCartViewModel()
             {
