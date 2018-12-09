@@ -1,0 +1,41 @@
+@font-face{font-family:BOOM;src:url(font/BOOMBOX.TTF)}
+@font-face{font-family: ONYX;src:url(font/ONYX.TTF)}
+@font-face{font-family: TCM;src:url(font/TCCM____.TTF)}
+
+h2 .z{
+    font-family: BOOM;
+    font-size: 65px;
+}
+h2 .j{
+    font-size: 50px;
+    color: #E1005A
+}
+.TitleONE .z{
+    font-family: ONYX;
+    color: black;
+    font-size: 50px;   
+}
+.TitleONE .j{
+    font-family: TCM;
+    color:#4C9372;
+    font-size: 60px;   
+}
+.TitleTOW .z{
+    font-size: 27px;
+    font-weight: bold;
+    font-style: italic;
+}
+.TitleTOW .j{
+    font-size: 30px;
+}
+.TitleStree  {
+    font-size:30px;
+}
+.TitleStree .z{
+    color: #E1005A;
+    font-size:30px;
+}
+.a{
+    color: rgb(173, 141, 115);
+    font-size: 15px;
+}

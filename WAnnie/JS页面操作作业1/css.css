@@ -1,0 +1,162 @@
+
+/* Begin全局样式设置 */
+body,
+ul,
+input,
+p,
+dl,
+dt,
+dd,
+h1{
+    padding: 0;
+    margin: 0;
+    list-style:none;
+}
+
+body{
+    min-width: 900px;
+    color: #6c6c6c;
+    font-family: "楷体";
+    font-size: 18px;
+}
+a{
+    text-decoration: none;  /* */
+}
+a:hover{
+    text-decoration: none;
+}
+
+.tow{
+    
+    float: right;
+}
+/* END 全局样式 */
+
+/* 用户信息栏 */
+#box{
+    width: 100%;
+    height: 40px;
+    line-height: 50px;
+    border-bottom: 2px solid #ccc;
+    background: #f7f7f7;
+
+}
+.one{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+#box ul{
+    margin: 0 20px;
+}
+
+#box li{
+    float: left;
+    padding: 0px  5px 0px 0px;   
+}
+
+#box .line{
+    color: #ccc;
+}
+
+.tow li{
+    cursor: pointer;
+}
+.tow li span{
+    padding: 0 20px;
+}
+
+/* 下拉菜单 */
+.tow .stree{
+    position: relative;
+}
+
+.tow #div_dorp{
+    width: 150px;
+    /* 默认为隐藏 */
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    border-color: #f7f7f7 ;
+    border: thin;
+    border-color: #eee;
+}
+
+.tow #div_dorp a{
+    display: block;
+    padding: 0 20px;
+    line-height: 30px;
+    color: #6c6c6c;
+}
+
+.tow #div_dorp a:hover{
+    background: #f5f5f5;
+}
+/* END下拉菜单 */
+/* END用户信息栏 */
+
+
+/* 页面首都 */
+#box_1{
+    width: 1280px;
+    margin:  0 auto;
+    padding-top: 40px;
+}
+
+#box_1 .logo{
+    float: left;
+}
+
+#box_1 a{
+    width: 250px;
+    display: block;
+}
+#box_1 #search{
+    float: left;
+    width: 700px;
+    margin-top: 15px;
+}
+
+#box_1 #search input{
+    width: 450px;
+    height: 50px;
+    border: 2px solid red;
+
+}
+
+#box_1 #search .text{
+    float: left;
+}
+
+#box_1 #search .button{
+    width: 100px;
+    height: 54px;
+    background:  red;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+}
+
+#search ul{
+    margin: 20px auto;
+    font-size: 20px;
+}
+.div_1 li{
+    float: left;
+    padding: 0px  5px 0px 0px; 
+}
+
+#box_1 #info{
+    float: left;
+    margin: 20px -100px ;
+}
+#box_1 #info input{
+    width: 150px;
+    height: 50px;
+    border: 1px solid #eee;
+    background-color: #f7f7f7;
+    color: #6c6c6c;
+    margin-right: 15px;
+}
+/* END页面首都 */

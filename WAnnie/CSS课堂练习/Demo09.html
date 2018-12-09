@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* :nth-child 属于其父元素的第二个子元素*/
+    li:nth-child(2)
+    {
+        color:dodgerblue;
+    }
+        /* :nth-last-child 属于其父元素的最后一个子元素*/ 
+    li:nth-last-child(3)
+    {
+        color: fuchsia;
+    }
+
+        /* :nth-of-type(n) 匹配属于父元素的特定类型的第 n 个子元素*/
+    p:nth-of-type(odd)
+    {
+        color:darkslategrey;
+    }     
+    p:nth-of-type(even)
+    {
+        color:darkred;
+    }
+
+    p{
+        height: 35px;
+    }
+    /* 空选择器*/
+    :empty{
+        background-color: brown; 
+    }
+    </style>
+</head>
+<body>
+        动漫
+        <ul>
+            <li>海贼王</li>
+            <li>黑子的篮球</li>
+            <li>海贼王</li>
+            <li>黑子的篮球</li>
+            <li>海贼王</li>
+        </ul>
+        卡通
+        <ul>
+            <li>冰河世纪</li>
+            <li>海贼王</li>
+            <li>黑子的篮球</li>
+        </ul>
+        情感
+        <ul>
+            <li>寻梦环游记</li>
+            <li>梦的海洋</li>
+            <li>海贼王</li>
+            <li>黑子的篮球</li>
+        </ul>
+
+        <p>AAA</p>
+        <p>BBB</p>
+        <p>CCC</p>
+        <p>DDD</p>
+        <p>EEE</p>
+        <p>FFF</p>
+        <p></p>
+        <p>hhhhh</p>
+        <p>sefrf</p>
+        <p></p>
+        
+</body>
+</html>

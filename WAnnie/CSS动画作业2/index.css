@@ -1,0 +1,397 @@
+*{
+    margin: 0;
+    padding: 0px;
+    list-style:none;
+    outline: none;
+}
+ a:link,a:visited{
+    text-decoration: none; /* 设置链接无线*/
+
+}
+img.bg{
+    width: 100%;
+    height: auto;
+    min-width: 1080px;
+    position: fixed;
+    z-index: 1;
+}
+.slider{
+    width: 100%;
+    bottom: 100px;
+    position: absolute;
+    text-align: center;
+    z-index: 9999;
+    /* 让它在最最下层 */
+}
+.slider li {
+    width: 150px;
+    height: 150px;
+    display:inline-block;
+    margin-right: 15px;
+}
+
+.slider a {
+    width: 150px;
+    font-size: 20px;
+    color: #ffffff;
+    display: inline block;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    position: relative;
+    /* 鼠标变手型 */
+    cursor: pointer;
+    /* 阴影效果 */
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1),
+    -2px -2px 2px rgba(0, 0, 0, 0.3),
+    -3px -3px 3px rgba(0, 0, 0, 0.3);
+
+}
+
+/* 天气图标 */
+
+.slider li:nth-child(1) a{
+
+   background-color: #9d907f;
+   
+}
+.slider li:nth-child(2) a{
+
+    background-color: #19425e;
+
+}
+.slider li:nth-child(3) a{
+
+    background-color: #57a180;
+  
+}
+.slider li:nth-child(4) a{
+
+    background-color: #a2c64a;
+    
+}
+.slider li:nth-child(5) a{
+
+    background-color: #fec104;
+}
+      /*  ::伪元素 */
+.slider a::after{
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 5px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -85px;
+    z-index: 9999; /* 设置元素的堆叠顺序 */
+    margin-left: -63px;
+    
+}
+.slider li:nth-of-type(1) ::after{
+   
+    background: url(images/sbg1.jpg) no-repeat center;  
+
+}
+.slider li:nth-of-type(2) ::after{
+
+    background: url(images/sbg2.jpg) no-repeat center;  
+}
+.slider li:nth-of-type(3) ::after{
+
+    background: url(images/sbg3.jpg) no-repeat center;  
+}
+.slider li:nth-of-type(4) ::after{
+
+    background: url(images/sbg4.jpg) no-repeat center;  
+}
+.slider li:nth-of-type(5) ::after{
+
+    background: url(images/sbg5.jpg) no-repeat center;  
+}
+
+.slider a::before{
+    content: "";
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 6px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: -85px;
+    z-index: 9999;
+    margin-left: -63px;
+    background: rgba(0, 0, 0, 0.3);
+}
+.slider a:hover::before{
+     opacity: 0; /* 透明度 */
+}
+.img:target{
+    color: #000;
+}
+
+/* 天气图标结束*/
+
+
+/* 天气切换动画 */
+/* 第一个动画效果 */
+#bg1:target{
+    animation: movebg1 2s; /* 启动动画名称 */
+    z-index: 999;
+    -ms-zoom-animation: movebg1 2s;
+    -o-animation: movebg1 2s;
+    -webkit-animation: movebg1 2s;
+    -moz-animation: movebg1 2s;
+}
+
+@keyframes movebg1{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform:translateX(0);
+    } 
+}
+@-ms-keyframes movebg1{
+    0%{
+        -ms-transform: translateX(-100%);
+    }
+    100%{
+        -ms-transform:translateX(0);
+    } 
+}
+@-o-keyframes movebg1{
+    0%{
+        -o-transform: translateX(-100%);
+    }
+    100%{
+        -o-transform:translateX(0);
+    } 
+}
+@-webkit-keyframes movebg1{
+    0%{
+        -webkit-transform: translateX(-100%);
+    }
+    100%{
+        -webkit-transform:translateX(0);
+    } 
+}
+@-moz-keyframes movebg1{
+    0%{
+        -moz-transform: translateX(-100%);
+    }
+    100%{
+        -moz-transform:translateX(0);
+    } 
+}
+/* 第一个动画效果结束 */
+
+/* 第二个动画效果 */
+#bg2:target{
+    animation: movebg2 2s; 
+    z-index: 999;
+    -ms-zoom-animation: movebg2 2s;
+    -o-animation: movebg2 2s;
+    -webkit-animation: movebg2 2s;
+    -moz-animation: movebg2 2s;
+}
+@keyframes movebg2{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    } 
+}
+@-ms-keyframes movebg2{
+    0%{
+        -ms-transform: translateX(100%);
+    }
+    100%{
+        -ms-transform:translateX(0);
+    } 
+}
+@-o-keyframes movebg2{
+    0%{
+        -o-transform: translateX(100%);
+    }
+    100%{
+        -o-transform:translateX(0);
+    } 
+}
+@-webkit-keyframes movebg2{
+    0%{
+        -webkit-transform: translateX(100%);
+    }
+    100%{
+        -webkit-transform:translateX(0);
+    } 
+}
+@-moz-keyframes movebg2{
+    0%{
+        -moz-transform: translateX(100%);
+    }
+    100%{
+        -moz-transform:translateX(0);
+    } 
+}
+/* 第二个动画效果结束 */
+
+/* 第三个动画效果 */
+#bg3:target{
+    animation: movebg3 2s; 
+    z-index: 999;
+    -ms-zoom-animation: movebg3 2s;
+    -o-animation: movebg3 2s;
+    -webkit-animation: movebg3 2s;
+    -moz-animation: movebg3 2s;
+}
+@keyframes movebg3{
+    0%{
+         transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        transform: none;
+    } 
+}
+@-ms-keyframes movebg3{
+    0%{
+        -ms-transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -ms-transform: none;
+    } 
+}
+@-o-keyframes movebg3{
+    0%{
+        -o-transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -o-transform: none;
+    } 
+}
+@-webkit-keyframes movebg3{
+    0%{
+        -webkit-transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -webkit-transform: none;
+    } 
+}
+@-moz-keyframes movebg3{
+    0%{
+        -moz-transform: scale(0.1); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -moz-transform: none;
+    } 
+}
+/* 第三个动画效果结束 */
+
+/* 第四个动画效果 */
+#bg4:target{
+    animation: movebg4 2s;
+    z-index: 999;
+    -ms-zoom-animation: movebg4 2s;
+    -o-animation: movebg4 2s;
+    -webkit-animation: movebg4 2s;
+    -moz-animation: movebg4 2s;
+}
+@keyframes movebg4{
+    0%{
+        transform: scale(3);
+    }
+    100%{
+        transform: none;
+    } 
+}
+@-ms-keyframes movebg4{
+    0%{
+        -ms-transform: scale(3); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -ms-transform: none;
+    } 
+}
+@-o-keyframes movebg4{
+    0%{
+        -o-transform: scale(3); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -o-transform:none;
+    } 
+}
+@-webkit-keyframes movebg4{
+    0%{
+        -webkit-transform: scale(3); /* scale 设置元素缩放大小 */
+    }
+    100%{
+        -webkit-transform: none;
+    } 
+}
+@-moz-keyframes movebg4{
+    0%{
+        -moz-transform: scale(3);
+    }
+    100%{
+        -moz-transform: none;
+    } 
+}
+/* 第四个动画效果结束 */
+
+/* 第五个动画效果*/
+#bg5:target{
+    z-index: 999;
+    animation: movebg5 2s;
+    -ms-zoom-animation: movebg5 2s;
+    -o-animation: mobebg5 2s;
+    -webkit-animation: movebg5 2s;
+    -moz-animation: movebg5 2s;
+}
+@keyframes movebg5{
+    0%{
+        transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        transform: none;
+    } 
+}
+@-ms-keyframes movebg5{
+    0%{
+        -ms-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        -ms-transform: none;
+    } 
+}
+@-o-keyframes movebg5{
+    0%{
+        -o-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        -o-transform: none;
+    } 
+}
+@-webkit-keyframes movebg5{
+    0%{
+        -webkit-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        -webkit-transform: none;
+    } 
+}
+@-moz-keyframes movebg5{
+    0%{
+        -moz-transform: rotate(-360deg) scale(0.1);
+    }
+    100%{
+        -moz-transform: none;
+    } 
+}
+
+/* 第五 个动画效果结束 */
+
+/* 天气切换动画结束 */

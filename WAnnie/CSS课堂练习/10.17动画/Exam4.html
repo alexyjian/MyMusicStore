@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .da {
+        border: 1px solid #000;
+        margin: 0 auto;
+        box-sizing: content-box;
+        width: 1000px;
+        height: 200px;
+        perspective: 1500px;  /* 透视效果*/
+        transition: all 5s;
+    }
+
+    .da:hover{
+        perspective: 5px;
+    }
+
+    .child1,
+    .child2,
+    .child3 {
+        box-sizing: content-box;
+        width: 300px;
+        height: 300px;
+        float: left;
+        margin-left: 10px;
+        background-color: aqua;
+        transform: rotateY(150deg) translateX(150px);
+    }
+    </style>
+</head>
+<body>
+    <div class="da">
+        <div class="child1"></div>
+        <div class="child2"></div>
+        <div class="child3"></div>
+    </div>
+</body>
+</html>

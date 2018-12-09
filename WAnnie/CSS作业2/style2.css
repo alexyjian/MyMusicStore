@@ -1,0 +1,66 @@
+/* 选择器，伪类 */
+body{
+    font-family: "微软雅黑";
+   text-align: center;
+}
+  
+
+hr{
+    width: 800px;
+    background:#5e2d00;
+    height: 3px;
+}
+
+a{
+    color:#5e2d00;
+    font-size: 25px;
+    text-indent: lem;
+    display: inline-block;
+}
+a:link,a:visited{
+    color:blue;
+    text-decoration: none;
+} 
+a:hover{
+    text-decoration: underline;
+    color: red;
+
+}
+a:nth-child(1)
+{
+    text-indent:0;
+}
+  
+dl{
+    display: none;
+}
+:target{
+    display: block;
+}
+dd::before{
+content:url(Images/11.png);
+}
+
+/*奇数行*/
+dd:nth-child(odd){
+    color:#bda793
+}
+dd:nth-last-child(even){
+    color: #66ccff
+}
+dd{
+    line-height: 40px;
+    font-size: 23px;
+    color:#333
+}
+
+dd:nth-child(2) em{
+    color:#ff0033;
+    font-weight: bold;
+    font-style: normal;
+}
+dd:nth-child(3) em{
+    color: #5e2d00;
+    font-weight: bold;
+    font-style: normal;
+}

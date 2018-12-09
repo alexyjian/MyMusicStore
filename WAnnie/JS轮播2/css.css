@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.box{
+    width: 600px;
+    height: 200px;
+    position: relative;
+    margin: 50px auto;
+    overflow: hidden; /* 隐藏图片*/
+    border: 2px solid lightskyblue;
+}
+.box ul li{
+    float: left;
+}
+.box ul {
+    width: 400%;
+    position: absolute;
+}
+
+img{
+    vertical-align: top;
+}

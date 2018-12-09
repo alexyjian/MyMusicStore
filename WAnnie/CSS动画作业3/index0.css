@@ -1,0 +1,120 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.bg{
+    width: 700px;
+    height: 700px;
+    background-image: linear-gradient(0deg,#3c1d14,#6a3a2f) ;
+    text-align: center;
+    margin: 50px auto;
+    font-family: "微软雅黑";
+    
+}
+h2{
+    width: 700px;
+    padding-top: 50px;
+    font-size: 50px;   
+    color: #b36567;
+    text-shadow: 5px 5px 5px #28020a;  /* 阴影 */
+
+}
+p{
+    width: 700px;
+    padding-top: 50px;
+    font-size: 20px;
+    color: #b36567;
+    text-shadow: 2px 2px 2px #28020a;
+}
+
+
+.bg1{
+    width: 450px;
+    height: 350px;
+    position: relative;
+    margin: 0px auto;
+    top: 25px;   
+    background: white;
+    border-radius: 20px ;
+    box-shadow: 2px 2px 2px #28020a;
+}
+
+.bg1 .cd_bg{
+    width: 150px;
+    height: 350px;
+   
+    position: absolute;   
+    right: 0;
+    border-radius: 0 20px 20px 0;
+    background: url(./播放器/images/fc.png) no-repeat center center;
+    background-color: #A68457;
+    
+}
+
+.bg1 .cd{
+    width: 248px;
+    height: 248px;
+    position: absolute;
+    top: 16%;
+    left: 6%;
+    background: url(./播放器/images/cd.png) no-repeat center center;
+    
+
+    animation: music 20s linear infinite;
+    -moz-animation: music 20s linear infinite;
+    -o-animation: music 20s linear infinite;
+    -webkit-animation: music 20s linear infinite;
+    -moz-animation: music 20s linear infinite;
+}
+
+.bg1 .b{
+    width: 238px;
+    height: 238px;
+    position: absolute;
+    top: 16%;
+    left: 6%;
+    border-radius: 50%;
+    box-shadow: 15px 15px 20px   #333;
+}
+
+
+@keyframes music{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes music{
+    0%{
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-o-keyframes music{
+    0%{
+        -o-transform: rotate(0deg);
+    }
+    100%{
+        -o-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes music{
+    0%{
+        -moz-transform: rotate(0deg);
+    }
+    100%{
+        -moz-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes music{
+    0%{
+        -ms-transform: rotate(0deg);
+    }
+    100%{
+        -ms-transform: rotate(360deg);
+    }
+}

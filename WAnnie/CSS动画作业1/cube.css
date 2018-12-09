@@ -1,0 +1,75 @@
+.container{
+    
+    width: 300px;
+    height: 300px;
+    margin: 100px auto; 
+    border: 5px solid red;
+    border-style: dashed;  /* 虚线边框*/
+    border-radius: 50%;   /* 圆角   */
+    position: relative;  /* 相对定位 */
+    transform-style: preserve-3d;  
+    /* 过渡 */
+    animation: move 5s linear infinite; 
+    -webkit-animation: move 5s linear infinite;
+}
+
+.container:hover{
+   -webkit-transform: rotateX(720deg) translateY(720deg);
+}
+
+.front,
+.back,
+.left,
+.right,
+.top,
+.bottom{
+    width: 300px;
+    height: 300px;
+    line-height: 300px;
+    font-size: 50px;
+    opacity: 0.5;  /*设置 div 元素的不透明级别 */
+    text-align: center;
+    position: absolute;
+}
+.top{
+    background: aqua;
+    -webkit-transform: rotateY(-90deg) translateZ(150px);
+}
+.bottom{
+    background: aqua;
+    -webkit-transform: rotateY(90deg) translateZ(150px);
+}
+.left{
+    background: lawngreen;
+    -webkit-transform: rotateY(180deg) translateZ(150px);
+}
+.right{
+    background: lightcoral;
+    -webkit-transform: rotateY(360deg) translateZ(150px);   
+}
+.front{
+    background: lawngreen;
+    position: absolute;
+    -webkit-transform: rotateX(90deg)  translateZ(150px);
+}
+.back{
+    background: palevioletred;
+    -webkit-transform: rotateX(-90deg) translateZ(150px);
+}
+
+ @keyframes move{
+    0%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+@-webkit-keyframes move{
+    0%{
+        transform:rotateX(0deg) rotateY(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg)
+    }
+}
