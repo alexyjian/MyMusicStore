@@ -22,7 +22,7 @@ namespace MusicStore.ViewModels
 
     }
     /// <summary>
-    /// 用于处理登录成功后的用户会话
+    /// 用于处理登录成功后的用户会话.。。
     /// </summary>
     public class LoginUserSessionModel
 
