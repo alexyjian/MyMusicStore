@@ -59,15 +59,12 @@ namespace MusicStore.Controllers
             }
             return Json(message);
         }
-
-
-
         public ActionResult Index()
         {
 
             //判断用户是否登录
             if (Session["loginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart")});
 
             //查询出当前的登录用户
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
@@ -77,7 +74,7 @@ namespace MusicStore.Controllers
 
             //计算购物车的总价
             //linq 表达式
-            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            decimal? totalPrice = (from item in carts select item.Count* item.Album.Price).Sum();
             //创建视图模型
             //判断是否为空 为空则是它本身，则是所传的值
             var cartVM = new ShoppingCartViewModel()
@@ -87,13 +84,12 @@ namespace MusicStore.Controllers
             };
             return View(cartVM);
         }
-
         /// <summary>
         /// 删除购物车
         /// </summary>
         /// <param name = "id" ></ param >
         /// < returns ></ returns >
-        //[HttpPost]
+        [HttpPost]
         public ActionResult RemoveCart(Guid id)
         {
             //判断用户是否登录
