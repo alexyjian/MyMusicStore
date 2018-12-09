@@ -38,7 +38,7 @@
                     @item.Count
                 </td>
                 <td>
-                    <a href="#"onclick = "removeCart('@item.ID ');"><i class="glyphicon glyphicon-remove"></i>移除购物车 </a>
+                    <a href="#"onclick = "removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除购物车</a>
                 
                 </td>
             </tr>
@@ -53,7 +53,26 @@
     </tbody>
 </table>
 
-
+<script>
+    function removeCart(id) {
+        //异步   ajax 提交到服务器进行购物车项删除
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../ShoppingCart/RemoveCart",
+            data:{id:id },
+            dataType:'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+                //重新刷新此页面
+                setTimeout(function () {
+                    location.reload();
+                },
+                1000);
+            }
+        });
+    }
+</script>
 
 
 

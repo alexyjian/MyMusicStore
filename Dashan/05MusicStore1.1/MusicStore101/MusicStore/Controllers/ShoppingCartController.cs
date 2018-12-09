@@ -14,35 +14,7 @@ namespace MusicStore.Controllers
     /// </summary>
     public class ShoppingCartController : Controller
     {
-        public ActionResult Index()
-        {
-            //判断用户是否登录
-            if (Session["loginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart")});
      
-
-            //查询出当前的登录用户
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-           
-            //查询出该用户的购物车项
-            var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
-
-            //计算购物车的总价
-            //linq 表达式
-            decimal? totalPricce = (from item in carts select item.Count * item.Album.Price).Sum();
-
-            //创建视图模型
-            //判断是否为空 为空则是它本身，则是所传的值
-            var cartVM = new ShoppingCartViewModel()
-            {
-                CartItems = carts,
-                CartTotaPrice = totalPricce ?? decimal.Zero
-
-            };
-            return View(cartVM);
-        }
-
-       
         private static readonly EntityDbContext _context = new EntityDbContext();
 
         /// <summary>
@@ -88,7 +60,71 @@ namespace MusicStore.Controllers
             return Json(message);
         }
 
-      
+
+
+        public ActionResult Index()
+        {
+
+            //判断用户是否登录
+            if (Session["loginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+
+            //查询出当前的登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            //查询出该用户的购物车项
+            var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
+
+            //计算购物车的总价
+            //linq 表达式
+            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            //创建视图模型
+            //判断是否为空 为空则是它本身，则是所传的值
+            var cartVM = new ShoppingCartViewModel()
+            {
+                CartItems = carts,
+                CartTotaPrice = totalPrice ?? decimal.Zero
+            };
+            return View(cartVM);
+        }
+
+        /// <summary>
+        /// 删除购物车
+        /// </summary>
+        /// <param name = "id" ></ param >
+        /// < returns ></ returns >
+        //[HttpPost]
+        public ActionResult RemoveCart(Guid id)
+        {
+            //判断用户是否登录
+            if (Session["loginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            //查询出要处理删除的购物车项
+            var cartItem = _context.Carts.Find(id);
+            if (cartItem.Count > 1)
+                cartItem.Count--;
+            else
+                _context.Carts.Remove(cartItem);
+            _context.SaveChanges();
+
+            //刷新局部视图  生成HTML的元素注入到表格<tbbody>
+            var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += " <td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += " <td>" + item.Count + "</td>";
+                htmlString += " <td>< a href =\"#\"onclick =\"removeCart('" + item.ID + " ');\">< i class=\"glyphicon glyphicon-remove\"></i>移除购物车</a></td></tr>";
+            }
+            htmlString += "<tr>< td ></ td > < td ></ td >< td > 总计 </ td >< td >" + totalPrice.ToString("C") + "</ td ></ tr >";
+            return Json("htmlString");
+
+        }
     }
 
 }
