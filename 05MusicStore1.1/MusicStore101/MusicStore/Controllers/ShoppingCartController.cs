@@ -115,8 +115,8 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<tr>";
                 htmlString += "<td><a href='../store/detail" + item.ID + "'>" + item.Album.Title + "</a></td>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td>" + item.Count + "</td>";
+                htmlString += "<td>" +item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" +item.Count + "</td>";
                 htmlString += "<td><a href=\"#\"onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td>";
             }
 
