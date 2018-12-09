@@ -138,6 +138,7 @@ namespace MusicStore.Controllers
                 ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+        //注销
         public ActionResult LoginOut()
         {
             Session.Remove("loginStatus");
