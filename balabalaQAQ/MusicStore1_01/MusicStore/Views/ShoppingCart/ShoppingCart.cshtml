@@ -20,17 +20,14 @@
                         @Html.ActionLink(l.Album.Title, "detail", "store", new { id = l.Album.ID }, null)
                     </td>
                     <td>
-                       <i class="glyphicon glyphicon-minus"onclick="minus('@l.ID')"></i>  @l.Count  <i class="glyphicon glyphicon-plus" onclick="plus('@l.ID')"></i> 
+                        <i class="glyphicon glyphicon-minus s" onclick="minus('@l.ID')"></i> @l.Count&nbsp;<i class="glyphicon glyphicon-plus s" onclick="plus('@l.ID')"></i> 
                     </td>
                     <td>@l.Album.Price.ToString("C")</td>
                     <td><a href="#" id="del" onclick="removeCart('@l.ID');"> <i class="glyphicon glyphicon-remove"></i>我不喜欢这个了 抛弃！</a></td>
                 </tr>
             }
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>总价格：@Model.CartTotalPrice.ToString("C")</td>
+                <td colspan="4" style="text-align:right">总价格：<span style="color:red"> @Model.CartTotalPrice.ToString("C")</span></td>
             </tr>
         </tbody>
     </table>

@@ -40,7 +40,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse" role="navigation">
+    <nav class="navbar navbar-inverse" role="navigation" id="index">
         <div class="container-fluid">
             <div class="navbar-header ">
                 <img class="navbar-brand" src="~/Content/images/logo.png" />
@@ -106,5 +106,25 @@
     @*继承此布局页的页面执行脚本的位置*@
     @RenderSection("scripts", required: false)
 
+    <script>
+        window.onload = function (){
+            //ajax提交到服务器端进行购物车项的删除
+            setInterval(function () {
+                $.ajax({
+                    type: 'post',
+                    async: true,
+                    url: "../../shoppingcart/removeCart",
+                    data: { id: id },
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#index").html(data);
+                    }
+                });
+            }, 2000);
+       
+    }
+    </script>
 </body>
+
 </html>
+

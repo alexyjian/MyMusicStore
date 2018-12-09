@@ -99,18 +99,22 @@ namespace MusicStore.Controllers
                 {
                     cartItem.Count = 1;
                 }
+                else
+                {
                     cartItem.Count--;
+                }
+
             }
             //数量+1
             if (count == 1)
             {
-                if (cartItem.Count >99)
+                if (cartItem.Count > 99)
                 {
                     cartItem.Count = 99;
                 }
                 cartItem.Count++;
             }
-            if(count==2)
+            if (count == 2)
             {
                 _context.Cart.Remove(cartItem);//删除
             }
@@ -126,11 +130,11 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<tr>";
                 htmlString += "<td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
-                htmlString += "<td> <i class=\"glyphicon glyphicon-minus\" onclick=\"minus('"+item.ID+"');\"></i>&nbsp;"+ item.Count + " &nbsp; <i class=\"glyphicon glyphicon-plus\" onclick=\"plus('" + item.ID + "')\"></i></td> ";
+                htmlString += "<td> <i class=\"glyphicon glyphicon-minus s \" onclick=\"minus('" + item.ID + "');\"></i>&nbsp;" + item.Count + "&nbsp;<i class=\"glyphicon glyphicon-plus s \" onclick=\"plus('" + item.ID + "')\"></i></td> ";
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"> <i class=\"glyphicon glyphicon-remove\" ></i>我不喜欢这个了 抛弃！</a></td></tr>";
             }
-            htmlString += "<tr> <td></td> <td></td> <td></td> <td>总价格：" + totalPrice.ToString("C") + "</td></tr>";
+            htmlString += "<tr><td colspan=\"4\" style=\"text-align:right\">总价格：" + totalPrice.ToString("C") + "</td></tr>";
             return Json(htmlString);
         }
     }
