@@ -9,7 +9,7 @@
     <em>浏览</em>您的购物车
 </h2>
 <p class="button">
-    @Html.ActionLink("马上购买","buy","Order")
+    @Html.ActionLink("马上购买","Buy","Order")
 </p>
 
 
@@ -22,7 +22,7 @@
             <th>操作</th>
         </tr>
 
-    <tbody id="tdCart">
+    <tbody id="tbCart">
         @foreach (var item in Model.CartItems)
         {
             <tr >
@@ -38,7 +38,7 @@
                     @item.Count
                 </td>
                 <td>
-                    <a href="#"onclick = "removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除购物车</a>
+                    <a href="#" onclick = "removeCart ('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除购物车</a>
                 
                 </td>
             </tr>
@@ -60,7 +60,7 @@
             type: 'post',
             async: true,
             url: "../../ShoppingCart/RemoveCart",
-            data:{id:id },
+            data:{ id : id },
             dataType:'json',
             success: function (data) {
                 $("#tbCart").html(data);
