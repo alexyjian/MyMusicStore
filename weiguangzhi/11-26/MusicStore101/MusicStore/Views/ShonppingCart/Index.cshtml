@@ -1,11 +1,68 @@
-﻿@model MusicStoreEntity.Cart
+﻿@model MusicStore.ViewModels.ShonppingCartViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayzout.cshtml";
 }
 
-<h2>购物车</h2>
-<p>
-    @Model.CreateDate.ToString("yyyy年MM月dd日");
-</p>
+<h2>
 
+    购物车
+</h2>
+
+<table>
+    <tr>
+        <th>专辑</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>操作</th>
+    </tr>
+    <tbody id="tbCart">
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
+                </td>
+                <td>
+                    @item.Album.Price.ToString("C")
+                </td>
+                <td>
+                    @item.Count
+                </td>
+                <td>
+                <a href="#" onclick="removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移出购物车</a>
+            </td>
+                
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td>总价</td>
+            <td>@Model.CartTotalPrice.ToString("C")</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function removeCart(id)
+    {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShonppingCart/RemoveCart',
+            data: {id:id},
+            dataType:'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+
+                //局部视图进行刷新
+                setTimeout(function () {
+                    location.reload();
+                },
+                       2000);
+            }
+            });
+    }
+
+</script>

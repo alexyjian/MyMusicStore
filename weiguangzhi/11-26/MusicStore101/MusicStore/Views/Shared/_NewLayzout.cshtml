@@ -1,6 +1,5 @@
 ﻿@using MusicStore.ViewModels
 @using MusicStoreEntity
-@model IEnumerable<MusicStoreEntity.Album>
 @using MusicStoreEntity.UserAndRole
 @{ 
     var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
@@ -55,10 +54,7 @@
                     
                     <ul class="dropdown-menu">
                         
-                            <li><a href="@Url.Action("Index", "ShonppingCart")">购物车(@carts.Count)</a></li>
-                            
-                        
-                        
+                        <li><a href="@Url.Action("Index", "ShonppingCart")">购物车(@carts.Count)</a></li>
                         <li><a href="@Url.Action("","")">我的订单</a></li>
                         <li><a href="@Url.Action("EditPw","Account")">设置</a></li>
                         <li><a href="@Url.Action("loginout","account")">注销</a></li>

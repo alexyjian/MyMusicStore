@@ -53,10 +53,65 @@ namespace MusicStore.Controllers
             return Json(message);
         }
 
-        public ActionResult Index(Guid id)
+        public ActionResult Index()
         {
-            var detail = _context.Carts.Find(id);
-            return View(detail);
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShonppingCart") });
+
+            //查询出当前登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //查询出该用户的购物车项
+            var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
+
+            //算购物车的总价
+            decimal? totalRirce = (from item in carts select item.Count * item.Album.Price).Sum();//linq表达式一句完成
+
+            //    var detail = _context.Carts.Find(id);
+            //return View(detail);
+
+            //创建视图模型
+            var cartVm = new ShonppingCartViewModel()
+            {
+                CartItems=carts,
+                CartTotalPrice= totalRirce??decimal.Zero
+            };
+            return View(cartVm);
+        }
+        [HttpPost]
+        public ActionResult RemoveCart(Guid id)
+        {
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShonppingCart") });
+            //查询出当前登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            //查询出要处理删除的购物车项
+            var cartItrm = _context.Carts.Find(id);
+            //如果购物项数量大于1则减1，如果为1则删除
+            if (cartItrm.Count > 1)
+                cartItrm.Count--;
+            else
+                _context.Carts.Remove(cartItrm);
+            _context.SaveChanges();
+
+            //刷新局部视图 生成html元素注入到<tbody>中
+            var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
+            var totalPrice= (from item in carts select item.Count * item.Album.Price).Sum();//linq表达式一句完成
+            var htmlString = "";
+            foreach (Cart item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += " <td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" + item.Count + "</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+            }
+
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+
+            return Json(htmlString);
         }
     }
 }

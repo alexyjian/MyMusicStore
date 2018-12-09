@@ -5,34 +5,28 @@
     Layout = "~/Views/Shared/_NewLayzout.cshtml";
 }
 
-<h3>共有<em>@Model.Count()</em>分类</h3>
-<div>
-    <ul id="album-list">
-        @foreach (var item in Model)
-        {
-            <li>
-                <i class="glyphicon glyphicon-music"></i>
-                @Html.ActionLink(item.Name, "Browser", "store", new { id = item.ID }, null)
-                (@item.Albums.Count)：
-                @if (item.Albums.Count > 0)
+<h2>所有音乐分类</h2>
+<p>本站共有 @Model.Count() 个分类</p>
+
+<ul class="list-unstyled">
+    @foreach (var item in Model)
+    {
+        <li>
+            <i class="glyphicon glyphicon-music"></i>
+            @Html.ActionLink(item.Name, "Browser", "Store", new { id = item.ID }, null)
+            (@item.Albums.Count)
+            @*显示前5个该分类的专辑*@
+            @if (item.Albums.Count > 0)
+            {
+                <b>:</b>
+                foreach (var ab in item.Albums.Take(5))
                 {
-                    <em>:</em>
-                    foreach (var ab in item.Albums.Take(3))
-                    {
-                        <a href="@Url.Action("Detail", new { id=ab.ID})">
-                            <i class="glyphicon glyphicon-cd"></i>
-                            <span>@(ab.Title) &nbsp; &nbsp;</span>
-                        </a>
-                    }
+                    <a href="@Url.Action("Detail",new {id=ab.ID})">
+                        <i class="glyphicon glyphicon-cd"></i>
+                        <span>@(ab.Title) &nbsp;&nbsp;</span>
+                    </a>
                 }
-
-
-
-
-
-
-            </li>
-        }
-    </ul>
-</div>
-
+            }
+        </li>
+    }
+</ul>
