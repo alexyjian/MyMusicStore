@@ -105,7 +105,6 @@
     </div>
     @*继承此布局页的页面执行脚本的位置*@
     @RenderSection("scripts", required: false)
-
     <script>
         window.onload = function (){
             //ajax提交到服务器端进行购物车项的删除
@@ -121,7 +120,6 @@
                     }
                 });
             }, 2000);
-       
     }
     </script>
 </body>
