@@ -7,7 +7,6 @@ using System.Web.Mvc;
 using MusicStore.ViewModels;
 using MusicStoreEntity;
 
-
 namespace MusicStore.Controllers
 {
     public class ShoppingCartController : Controller
@@ -21,7 +20,7 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult AddCart(Guid id)
         {
-            Thread.Sleep(1000);   
+            Thread.Sleep(1000);   //为了模仿真实网站环境，延时3秒，显示加载的艰苦 
             if (Session["LoginUserSessionModel"] == null)
                 return Json("nologin");
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
@@ -53,16 +52,18 @@ namespace MusicStore.Controllers
             return Json(message);
         }
 
+        /// <summary>
+        /// 查看用户自己的购物车
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             //判断用户是否登录
-            if(Session["LoginUserSessionModel"]==null)
-            {
-                return RedirectToAction("login","Account",new {returnUrl=Url.Action("index","ShoppingCart")});
-            }
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new {returnUrl = Url.Action("index", "ShoppingCart")});
+
             //查询出当前登录用户
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
 
             //查询出该用户的购物车项
             var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
@@ -80,7 +81,7 @@ namespace MusicStore.Controllers
             var cartVM = new ShoppingCartViewModel()
             {
                 CartItems = carts,
-                CartTotalPrice = totalPrice ?? decimal.Zero
+                CartTotalPrice = totalPrice??decimal.Zero
             };
 
             return View(cartVM);
@@ -115,13 +116,13 @@ namespace MusicStore.Controllers
             foreach (var item in carts)
             {
                 htmlString += "<tr>";
-                htmlString += " <td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+                htmlString += " <td><a href='../store/detail/"+item.ID+"'>"+item.Album.Title+"</a></td>";
+                htmlString += "<td>"+item.Album.Price.ToString("C")+"</td>";
+                htmlString += "<td>"+item.Count+"</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('"+item.ID+"');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
             }
 
-            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>"+totalPrice.ToString("C")+"</td ></tr>";
 
             return Json(htmlString);
         }
