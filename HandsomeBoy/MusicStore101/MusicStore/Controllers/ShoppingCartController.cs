@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.UI.WebControls.WebParts;
 
 namespace MusicStore.Controllers
 {
@@ -53,26 +55,137 @@ namespace MusicStore.Controllers
             
             return Json(message);
         }
+        /// <summary>
+        /// 查看用户自己的购物车
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
-            var context = new EntityDbContext();
-            //var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var list = context.Carts.OrderByDescending(x => x.CartDate).ToList();
-            return View(list);
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+            //查询当前登录用户
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var list = _dbContext.Carts.Where(x => x.Person.ID==x.Person.ID).ToList();
+            //算购物车的总价
+            decimal? totalPrice = (from item in list select item.Count * item.Album.Price).Sum();
+
+            //创建视图模型
+            var cartVM = new ShoppingCartViewModel()
+            {
+                CarItems = list,
+                CartTotaIprice = totalPrice ?? decimal.Zero
+
+            };
+            return View(cartVM);
         }
+        //我的写法
+        //[HttpPost]
+        //public ActionResult Delete(Guid id)
+        //{
+
+        //    if (Session["LoginUserSessionModel"] == null)
+        //        return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+
+        //    var cartItem = _dbContext.Carts.Find(id);
+
+        //    if (cartItem.Count > 1)
+        //    {
+        //        cartItem.Count -= 1;            }
+        //    else {
+        //       _dbContext.Carts.Remove(cartItem);
+        //    }
+        //    _dbContext.SaveChanges();
+        //    return Json("");
+        //}
+
+
+        //老师的写法
+
+        //我的写法
         [HttpPost]
         public ActionResult Delete(Guid id)
         {
-            var cartItm = _dbContext.Carts.SingleOrDefault(x => x.Person.ID == x.Person.ID && x.Album.ID == id);
-            var albuns = _dbContext.Carts.Find(id);
-            if (albuns.Count > 1)
+
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+
+            var cartItem = _dbContext.Carts.Find(id);
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            if (cartItem.Count > 1)
             {
-                albuns.Count -= 1;            }
-            else {
-               _dbContext.Carts.Remove(albuns);
+                cartItem.Count -= 1;
+            }
+            else
+            {
+                _dbContext.Carts.Remove(cartItem);
             }
             _dbContext.SaveChanges();
-            return Json("");
+
+            //刷新局部视图  生成html元素注入到<tbody>中
+            var carts = _dbContext.Carts.Where(x => x.Person.ID == person.ID).ToList();
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += " <td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>";
+                htmlString += "<ul class=\"count\">";
+                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\"><a href=\"javascript:; \"  onclick=\"jianCount('" + item.ID + "')\">-</a></span></li>";
+                htmlString += " <li><input type =\"text\" class=\"input-num\" id=\"input-num\" value=" + item.Count + " /></li>";
+                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\"><a href=\"javascript:; \"  onclick=\"jiaCount('" + item.ID + "')\">+</a></span></li>";
+                htmlString += "</ul>";
+                htmlString += "</td>";
+                htmlString += "<td><a href=\"javascript:;\" onclick=\"Delete('" + item.ID + "')\"><i class=\"glyphicon glyphicon-remove\"></i>我不想要他了</a></td><tr>";
+            }
+
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            return Json(htmlString);
+        }
+        [HttpPost]
+        public ActionResult Modified(Guid id,string jj)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var carts = _dbContext.Carts.Where(x => x.Person.ID == person.ID).ToList();
+         
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+       
+            var cartItem = _dbContext.Carts.Find(id);
+            if (jj == "jia")
+            {
+               
+                cartItem.Count++;
+            }
+            else if (jj == "jian")
+            {
+                if (cartItem.Count>=2)
+                    cartItem.Count--;
+            }
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += " <td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>";
+                htmlString += "<ul class=\"count\">";
+                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\"><a href=\"javascript:; \"  onclick=\"jianCount('"+item.ID+"')\">-</a></span></li>";
+                htmlString += " <li><input type =\"text\" class=\"input-num\" id=\"input-num\" value=" + item.Count + " /></li>";
+                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\"><a href=\"javascript:; \"  onclick=\"jiaCount('" + item.ID + "')\">+</a></span></li>";
+                htmlString += "</ul>";
+                htmlString += "</td>";
+                htmlString += "<td><a href=\"javascript:;\" onclick=\"Delete('" + item.ID + "')\"><i class=\"glyphicon glyphicon-remove\"></i>我不想要他了</a></td><tr>";
+            }
+
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            return Json(htmlString);
         }
     }
+
 }

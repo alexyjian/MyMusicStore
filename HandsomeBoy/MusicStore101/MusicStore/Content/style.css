@@ -162,3 +162,18 @@ td a {
 th, td {
     padding: 6px;
 }
+.count li {
+   float:left;
+}
+.count span {
+    text-align:center;
+    display:block;
+    width :25px;
+    height:25px;
+    background-color:#F0EFF0;
+    line-height :25px;
+}
+.input-num {
+    text-align:center;
+width:30px;
+}

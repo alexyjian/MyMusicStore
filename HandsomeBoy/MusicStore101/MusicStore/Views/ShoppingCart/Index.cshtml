@@ -1,5 +1,5 @@
-﻿@using MusicStoreEntity
-@model IEnumerable<MusicStoreEntity.Cart>
+﻿
+@model MusicStore.ViewModels.ShoppingCartViewModel
 @{
     ViewBag.Title = "浏览购物车";
 
@@ -7,14 +7,18 @@
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
 
     double sum = 0;
-    Guid[] ShoppingCartDelete = new Guid[Model.Count()];
-    var i = -1;
-    var n = 0;
+
+
+    Session["Modified"] = null;
+
+
+
 }
 
-
-
-<h2>浏览您的购物车</h2>
+<h2><i class="glyphicon glyphicon-shopping-cart">浏览您的购物车</i></h2>
+<p class="ui-button">
+    @Html.ActionLink("马上购买", "buy", "Order")
+</p>
 <table class="ShoppingCartView">
     <tbody>
         <tr>
@@ -24,15 +28,21 @@
             <th>操作</th>
         </tr>
     </tbody>
-    <tbody>
-        @foreach (var item in Model)
+    <tbody id="tbCart">
+        @foreach (var item in Model.CarItems)
         {
-            sum += Convert.ToDouble(item.Album.Price);
+            //sum += Convert.ToDouble(item.Album.Price);
             <tr>
-                <td><a @Url.Action("Detail", "Store", new { id = item.Album.ID })>@item.Album.Title</a></td>
-                <td>@item.Album.Price</td>
-                <td>@item.Count</td>
-                <td><a href="javascript:;" id="@item.ID" onclick="Delete('@item.ID')">我不想要他了</a></td>
+                <td>@Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)</td>
+                <td>@item.Album.Price.ToString("C")</td>
+                <td> 
+                    <ul class="count">
+                        <li><span id="num-jian" class="num-jian" onclick="jiaCount('@item.ID')">-</span></li>
+                        <li><input type="text" class="input-num" id="input-num" value=@item.Count /></li>
+                        <li><span id="num-jia" class="num-jia" onclick="jiaCount('@item.ID')">+</span></li>
+                    </ul>
+                </td>
+                <td><a href="javascript:;" id="@item.ID" onclick="Delete('@item.ID')"><i class="glyphicon glyphicon-remove"></i>我不想要他了</a></td>
             </tr>
 
         }
@@ -40,20 +50,86 @@
             <td></td>
             <td></td>
             <td>总价</td>
-            <td>@sum</td>
+            <td>@Model.CartTotaIprice.ToString("C").</td>
         </tr>
     </tbody>
 </table>
 <script>
+     //我的写法
+              //function Delete(ID) {
+              //  if (confirm("您确定要删除此类商品么？")) {
+              //      url ='../../ShoppingCart/Delete',
+              //      parameter = { id:ID};
+              //      $.post(url, parameter, function (data) {
+              //          alert("删除成功！");
+              //          location.reload();
+              //      });
+              //  }
+              //}
+
+
+    //老师的写法
+
               function Delete(ID) {
-                if (confirm("您确定要删除此类商品么？")) {
-                    url ='../../ShoppingCart/Delete',
-                    parameter = { id:ID};
-                    $.post(url, parameter, function (data) {
-                        alert("删除成功！");
-                        location.reload();
-                    });
-                }
+                  //ajax 提交到服务器端进行购物车项的删除
+                  $.ajax({
+                  type: 'post',
+                  async: true,
+                  url: '../../ShoppingCart/Delete',
+                  data: { id: ID },
+                  dataType: 'json',
+                  success: function (data) {
+                      //视图中进行局部页面的刷新 <tbody>
+                      $("#tbCart").html(data);
+
+                      setTimeout(function () {
+                          location.reload();
+                      },
+                  1000);
+                  }
+              })
               }
+
+              function jianCount(ID) {
+
+                  //ajax 提交到服务器端进行购物车项的删除
+                  $.ajax({
+                      type: 'post',
+                      async: true,
+                      url: '../../ShoppingCart/Modified',
+                      data: { id: ID,jj:"jian"},
+                      dataType: 'json',
+                      success: function (data) {
+                          //视图中进行局部页面的刷新 <tbody>
+                          $("#tbCart").html(data);
+
+                              setTimeout(function () {
+                                  location.reload();
+                              },
+                      1000);
+                          }
+                      })
+              }
+
+    function jiaCount(ID) {
+
+        //ajax 提交到服务器端进行购物车项的删除
+        $.ajax({
+                    type: 'post',
+            async: true,
+            url: '../../ShoppingCart/Modified',
+            data: { id: ID,jj:"jia" },
+            dataType: 'json',
+            success: function (data) {
+                //视图中进行局部页面的刷新 <tbody>
+                $("#tbCart").html(data);
+
+                            setTimeout(function () {
+                                location.reload();
+                            },
+            1000);
+                        }
+                    })
+    }
 </script>
 
