@@ -138,6 +138,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
@@ -255,6 +256,7 @@
     <Content Include="Views\Home\TestHack.cshtml" />
     <Content Include="Views\Account\ChangePassWord.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Order\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
