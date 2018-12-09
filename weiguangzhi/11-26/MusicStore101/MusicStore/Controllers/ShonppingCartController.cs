@@ -48,9 +48,43 @@ namespace MusicStore.Controllers
             {
                 cartItem.Count++;
                 _context.SaveChanges();
-                message = _context.Albums.Find(id).Title + "原来就在购物车中，已为您数量+1！";
+               message = _context.Albums.Find(id).Title + "原来就在购物车中，已为您数量+1！";
             }
             return Json(message);
+        }
+        public ActionResult Jia(Guid id)
+        {
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShonppingCart") });
+            //查询出当前登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            //查询出要处理删除的购物车项
+            var cartItrm = _context.Carts.Find(id);
+            //如果购物项数量大于1则减1，如果为1则删除
+            if (cartItrm.Count > 0)
+                cartItrm.Count++;
+            else
+                _context.Carts.Add(cartItrm);
+            _context.SaveChanges();
+
+            //刷新局部视图 生成html元素注入到<tbody>中
+            var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();//linq表达式一句完成
+            var htmlString = "";
+            foreach (Cart item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += " <td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" + item.Count + "</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+            }
+
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+
+            return Json(htmlString);
         }
 
         public ActionResult Index()

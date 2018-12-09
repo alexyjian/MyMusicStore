@@ -86,10 +86,10 @@ li {
 #categories {
     font-family: Constantia,Georgia,serif;
     list-style-type: none;
-    border-right: #5d5a53 1px dotted;
+ 
     padding-right: 10px;
     margin: 0 25px 0 0;
-    float: left;
+
 }
 #footer {
     clear: both;
@@ -178,4 +178,14 @@ table {
     color: #666;
     min-width: 500px;
     width: 100%;
+}
+.col-md-3 {
+    width: 100%;
+    background: rebeccapurple;
+    height: 50px;
+    margin-top: 100px;
+}
+.row {
+    margin-right: 75px;
+    margin-left: -15px;
 }
