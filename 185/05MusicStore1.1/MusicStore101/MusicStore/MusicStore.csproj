@@ -151,6 +151,7 @@
     <Compile Include="ViewModels\LoginUserStatus.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -268,6 +269,7 @@
     <Content Include="Views\Home\TestHack.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ChangePassWord.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
@@ -280,7 +282,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\ShoppingCart\" />
     <Folder Include="Views\Storo\" />
   </ItemGroup>
   <PropertyGroup>
