@@ -51,5 +51,40 @@ namespace MusicStore.Controllers
             }
             return Json(message);
         }
+
+        /// <summary>
+        /// 查看用户自己的购物车
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new {returnUrl = Url.Action("index", "ShoppingCart")});
+
+            //查询出当前登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            //查询出该用户的购物车项
+            var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
+            //算购物车的总价
+            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();  //linq表达式 一句完成
+            //decimal? totalPrice2 = 0.00M;
+            //if (carts.Count == 0)
+            //    totalPrice2 = null;
+            //foreach (var item in carts)
+            //{
+            //    totalPrice2 += item.Count * item.Album.Price;
+            //}
+
+            //创建视图模型
+            var cartVM = new ShoppingCartViewModel()
+            {
+                CartItems = carts,
+                CartTotalPrice = totalPrice??decimal.Zero
+            };
+
+            return View(cartVM);
+        }
     }
 }
