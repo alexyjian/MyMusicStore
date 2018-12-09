@@ -48,5 +48,65 @@ namespace MusicStore.Controllers
             }
             return Json(message);
         }
+        /// <summary>
+        /// 查看用户自己的购物车
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
+            //判断是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShoppingCart") });
+            //查询出当前登录用户
+            var person= (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
+            //购物车总价
+            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+
+            var cartVM = new ShoppingCartViewModel()
+            {
+                CartItems = carts,
+                CartTotalPrice = totalPrice ?? decimal.Zero
+            };
+
+            return View(cartVM);
+        }
+        [HttpPost]
+        public ActionResult RemoveCart(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShoppingCart") });
+            //查询出当前登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            
+            //查询出要处理删除的购物车项
+            var cartItem = _context.Carts.Find(id);
+            //如果购物数量大于1则减1，如果为1则删除
+            if (cartItem.Count > 1)
+                cartItem.Count--;
+            else
+                _context.Carts.Remove(cartItem);
+            _context.SaveChanges();
+
+            //刷新局部视图 生成html元素注入到<tbi=ody>中
+            var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
+            var totalPrice= (from item in carts select item.Count * item.Album.Price).Sum();
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += " <td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" + item.Count + "</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+
+            }
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+
+            return Json(htmlString);
+        }
+
+
+      
     }
 }
