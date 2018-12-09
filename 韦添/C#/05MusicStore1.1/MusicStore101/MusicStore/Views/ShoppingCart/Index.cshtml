@@ -1,0 +1,20 @@
+﻿@model MusicStore.ViewModels.ShoppingCartViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2><i class="glyphicon glyphicon-shopping-cart"></i>
+    <em>浏览</em>你的购物车
+    </h2>
+
+<p class="button">
+    @Html.ActionLink("马上购买","buy","Order")
+</p>
+
+<table>
+    <tr>
+        <th></th>
+</tr>
+       
+
