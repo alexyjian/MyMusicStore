@@ -69,7 +69,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="@Url.Action("Index","ShoppingCart",new { id=loginUserModel.Person.ID})"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;购物车(@carts.Count)</a>
+                                        <a id="cart" href="@Url.Action("Index","ShoppingCart",new { id=loginUserModel.Person.ID})"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;购物车(@carts.Count)</a>
                                     </li>
                                     <li>
                                         <a href="@Url.Action("Index","Oder")"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;我的订单</a>
@@ -106,6 +106,6 @@
     <div class="footer text-center">
         <img src="~/Content/Images/login_logo.png" />2017 - @DateTime.Now.Year CopyRight By 2017软件技术1班
     </div>
-    @RenderSection("scripts", required: false);
+    @RenderSection("scripts", required: false)
 </body>
 </html>

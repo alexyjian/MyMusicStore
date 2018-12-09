@@ -89,25 +89,22 @@ namespace MusicStore.Controllers
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             //查询是否有某用户的某购物车单
             var cartItem = _Context.Carts.Find(id);
-            if (cartItem.Count > 1)
-                cartItem.Count--;
-            else
-                _Context.Carts.Remove(cartItem);
+            _Context.Carts.Remove(cartItem);
             _Context.SaveChanges();
 
             var carts = _Context.Carts.Where(x => x.Person.ID == person.ID).ToList();
-            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            decimal totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
 
             var htmlString = "";
             foreach (var item in carts)
             {
-                htmlString += "<tr><td><a href='../../Store/Detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href = '#' class='text-danger' onclick='Remove('"+item.ID+"')'><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
+                htmlString += $"<tr><td><a href='../../Store/Detail/{item.Album.ID}'>{item.Album.Title}</a></td>";
+                htmlString += $"<td>{ item.Album.Price.ToString("C")}</td>";
+                htmlString += "<td><a href = '#' class='glyphicon glyphicon-minus' onclick=" + '"' + "minusCount('" + item.ID + "')" + '"' + "></a>&nbsp;" + item.Count + "&nbsp;<a href = '#' class='glyphicon glyphicon-plus' onclick=" + '"' + "addCount('" + item.ID + "')" + '"' + "></a></td>";
+                htmlString += $"<td><a href = '#' class='text-danger' onclick=" + '"' + "Remove('" + item.ID + "')" + '"' + "><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
             }
 
-            htmlString += "<tr><td></td><td></td><td> 总价 </td><td>"+totalPrice.ToString()+"+ </td></tr>";
+            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ totalPrice.ToString("C")} </td></tr>";
 
             return Json(htmlString);
         }
@@ -129,18 +126,18 @@ namespace MusicStore.Controllers
             _Context.SaveChanges();
 
             var carts = _Context.Carts.Where(x => x.Person.ID == person.ID).ToList();
-            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            decimal totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
 
             var htmlString = "";
             foreach (var item in carts)
             {
-                htmlString += "<tr><td><a href='../../Store/Detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td><a href='#' class='glyphicon glyphicon-minus' onclick='minusCount("+item.ID+")'></a>" + item.Count + "<a href='#' class='glyphicon glyphicon-plus' onclick='addCount("+item.ID+")'></a></td>";
-                htmlString += "<td><a href = '#' class='text-danger' onclick='Remove('" + item.ID + "')'><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
+                htmlString += $"<tr><td><a href='../../Store/Detail/{item.Album.ID}'>{item.Album.Title}</a></td>";
+                htmlString += $"<td>{ item.Album.Price.ToString("C")}</td>";
+                htmlString += "<td><a href = '#' class='glyphicon glyphicon-minus' onclick=" + '"' + "minusCount('" + item.ID + "')" + '"' + "></a>&nbsp;" + item.Count + "&nbsp;<a href = '#' class='glyphicon glyphicon-plus' onclick=" + '"' + "addCount('" + item.ID + "')" + '"' + "></a></td>";
+                htmlString += $"<td><a href = '#' class='text-danger' onclick=" + '"' + "Remove('" + item.ID + "')" + '"' + "><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
             }
 
-            htmlString += "<tr><td></td><td></td><td> 总价 </td><td>" + totalPrice.ToString() + "+ </td></tr>";
+            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ totalPrice.ToString("C")} </td></tr>";
 
             return Json(htmlString);
         }
@@ -160,21 +157,23 @@ namespace MusicStore.Controllers
             var cartItem = _Context.Carts.Find(id);
             if (cartItem.Count > 0)
                 cartItem.Count--;
+            if (cartItem.Count == 0)
+                _Context.Carts.Remove(cartItem);
             _Context.SaveChanges();
 
             var carts = _Context.Carts.Where(x => x.Person.ID == person.ID).ToList();
-            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            decimal totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
 
             var htmlString = "";
             foreach (var item in carts)
             {
-                htmlString += "<tr><td><a href='../../Store/Detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td><a href='#' class='glyphicon glyphicon-minus' onclick='minusCount(" + item.ID + ")'></a>" + item.Count + "<a href='#' class='glyphicon glyphicon-plus' onclick='addCount(" + item.ID + ")'></a></td>";
-                htmlString += "<td><a href = '#' class='text-danger' onclick='Remove('" + item.ID + "')'><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
+                htmlString += $"<tr><td><a href='../../Store/Detail/{item.Album.ID}'>{item.Album.Title}</a></td>";
+                htmlString += $"<td>{ item.Album.Price.ToString("C")}</td>";
+                htmlString += "<td><a href = '#' class='glyphicon glyphicon-minus' onclick=" + '"' + "minusCount('" + item.ID + "')" + '"' + "></a>&nbsp;" + item.Count + "&nbsp;<a href = '#' class='glyphicon glyphicon-plus' onclick=" + '"' + "addCount('" + item.ID + "')" + '"' + "></a></td>";
+                htmlString += $"<td><a href = '#' class='text-danger' onclick=" + '"' + "Remove('" + item.ID + "')" + '"' + "><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
             }
 
-            htmlString += "<tr><td></td><td></td><td> 总价 </td><td>" + totalPrice.ToString() + "+ </td></tr>";
+            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ totalPrice.ToString("C")} </td></tr>";
 
             return Json(htmlString);
         }
