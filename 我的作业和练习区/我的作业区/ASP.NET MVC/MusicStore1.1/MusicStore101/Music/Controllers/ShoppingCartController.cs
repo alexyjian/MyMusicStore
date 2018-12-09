@@ -51,16 +51,30 @@ namespace Music.Controllers
 
             return Json(message);
         }
-
+        /// <summary>
+        /// 查看用户自己的购物车
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
+            //判断用户是否登陆
             if (Session["loginUserSessionModel"] == null)
             {
-                return Json("nologin");
+                return RedirectToAction("login", "Account", new { returnUrl=Url.Action("Index","ShoppingCart")});
             }
+            //查询出当前登陆用户
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
-            var cartItem = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
-            return View(cartItem);
+            //查询出当前该用户的购物车项
+            var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
+            //算购物车的总价
+            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum(); //Linq表达式
+            //创建视图模型
+            var cartVM = new ShoppingCartViewModel()
+            {
+                CartItems = carts,
+                CartTotaLPrice = totalPrice ?? decimal.Zero
+            };
+            return View(cartVM);
         }
         [HttpPost]
         public ActionResult Delete(Guid id)
