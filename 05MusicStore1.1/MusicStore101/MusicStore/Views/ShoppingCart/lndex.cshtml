@@ -53,13 +53,17 @@
 
 <script>
     function removeCart(id) {
-        //ajax 
+        //ajax 提交到服务器端进行购物车项的删除
         $.ajax({
             type: 'post',
             async: true,
             url: "../../ShoppingCart/removeCart",
             data: { id: id },
-            dataType'json':
+            dataType:'json',
+            success:function(data){
+                //
+                $("#tbCart").html(data);
+            }
         });
     }
 </script>
