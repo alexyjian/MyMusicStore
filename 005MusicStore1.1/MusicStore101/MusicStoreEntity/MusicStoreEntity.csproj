@@ -61,7 +61,10 @@
     <Compile Include="Artist.cs" />
     <Compile Include="Cart.cs" />
     <Compile Include="EntityDbContext.cs" />
+    <Compile Include="EnumOrderStatus.cs" />
     <Compile Include="Genre.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserAndRole\ApplicaitionUserInApplication.cs" />
     <Compile Include="UserAndRole\ApplicationBusinessType.cs" />
