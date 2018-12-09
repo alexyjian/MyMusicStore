@@ -1,0 +1,83 @@
+﻿@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "确认下单";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3>确认下单</h3>
+<hr />
+@*收货信息*@
+@using (Html.BeginForm())
+{
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h4 class="panel-title">收货信息</h4>
+    </div>
+    <div class="panel-body">
+        <div class="input-group">
+            <span class="input-group-addon">收件人</span>
+            @Html.TextBoxFor(x=>x.AddressPerson,new { placeholder = "Address Person" ,@class="form-control"})
+        </div>
+        <span>@Html.ValidationMessageFor(x=>x.AddressPerson)</span>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon">收件地址</span>
+            @Html.TextBoxFor(x => x.Address, new { placeholder = "Address", @class = "form-control" })
+        </div>
+        <span>@Html.ValidationMessageFor(x => x.Address)</span>
+        <br />
+        <div class="input-group">
+            <span class="input-group-addon">联系电话</span>
+            @Html.TextBoxFor(x => x.mobilNumber, new { placeholder = "Mobilnumber", @class = "form-control" })
+        </div>
+        <span>@Html.ValidationMessageFor(x => x.mobilNumber)</span>
+        <br />
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>专辑名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tbCart">
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@Html.ActionLink(item.Album.Title, "Detail", "Store", new { id = item.Album.ID }, null)</td>
+                    <td>@item.Album.Price.ToString("C")</td>
+                    <td><a href="#" class="glyphicon glyphicon-minus" onclick="minusCount('@item.ID')"></a>&nbsp;@item.Count&nbsp;<a href="#" class="glyphicon glyphicon-plus" onclick="addCount('@item.ID')"></a></td>
+                    <td><a href="#" class="text-danger" onclick="RemoveDetail('@item.ID')"><span class="glyphicon glyphicon-remove"></span>我不喜欢这个了</a></td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td>总价</td>
+                <td>@Model.TotalPrice.ToString("C")</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        <input type="submit" class="btn btn-success" value="确认购买" />
+    </p>
+</div>
+}
+<script>
+    function RemoveDetail(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Order/RemoveDetail',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>

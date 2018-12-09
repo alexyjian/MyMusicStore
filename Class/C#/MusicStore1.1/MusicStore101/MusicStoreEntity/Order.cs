@@ -1,6 +1,7 @@
 ﻿using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,18 @@ namespace MusicStoreEntity
         public virtual Person Person { get; set; }
 
         //收件人
+        [Required(ErrorMessage = "收件人不能为空")]
+        [Display(Name ="收件人")]
         public string AddressPerson { get; set; }
 
         //收件地址
+        [Required(ErrorMessage = "收件地址不能为空")]
+        [Display(Name = "收件地址")]
         public string Address { get; set; }
 
         //收件人手机号码
+        [Required(ErrorMessage = "联系电话不能为空")]
+        [Display(Name = "联系电话")]
         public string mobilNumber { get; set; }
 
         //总价
