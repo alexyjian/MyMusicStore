@@ -229,3 +229,19 @@ body {
          padding:0;
          line-height: 40px;
     }
+    .Cartdelete{
+        color:black; 
+        cursor:pointer;
+    }
+
+    .totalprice-th {
+        
+        float:right;
+         width:100%;
+    }
+.Cart-tbody-th a {
+    color:black;
+}
+    .Cart-tbody-th a:hover {
+        color: #f6855e;
+    }

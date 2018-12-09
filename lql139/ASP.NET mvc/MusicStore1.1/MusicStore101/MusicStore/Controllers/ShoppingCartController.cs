@@ -49,9 +49,114 @@ namespace MusicStore.Controllers
 
         public ActionResult index()
         {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
+                var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+                var carts = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
+            //购物车总价
+            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+
+            //decimal?totalPrice2= 0.00M;
+            //if (carts.Count == 0)
+            //    totalPrice2 = null;
+            //foreach (var item in carts)
+            //{
+            //    totalPrice2 += item.Count * item.Album.Price;
+            //}
+            var cartVM = new ShoppingCartViewModel()
+            {
+                CartItems=carts,
+                CartTotalPrice=totalPrice??decimal.Zero
+            };
+            return View(cartVM);
+        }
+
+        [HttpPost]
+        public ActionResult RemoveCart(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var carts = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
-            return View(carts);
+
+            var cartItem = _context.Cart.Find(id);//要删除的项
+
+            if (cartItem.Count > 1)//数量大于1减1，为1就删除
+                cartItem.Count--;
+            else
+                _context.Cart.Remove(cartItem);
+            _context.SaveChanges();
+
+            //刷新局部视图
+            var carts = _context.Cart.Where(x => x.Person.ID == x.Person.ID).ToList();
+            var  totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='../store/detail/"+item.ID+"'>"+item.Album.Title+"</a><td/>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") +"</td>";
+                htmlString +="<td>"+item.Count+"</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+
+            }
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            return Json(htmlString);
+        }
+        public ActionResult removeCartAdd(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var cartItem = _context.Cart.Find(id);
+            if (cartItem.Count < 100)
+                cartItem.Count++;
+            else
+                return Content("<script>alert('你的购买数量不能大于100');</script>");
+            _context.SaveChanges();
+
+            //刷新局部视图
+            var carts = _context.Cart.Where(x => x.Person.ID == x.Person.ID).ToList();
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a><td/>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" + item.Count + "</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+
+            }
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            return Json(htmlString);
+        }
+        public ActionResult removeCartSubtract(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var cartItem = _context.Cart.Find(id);
+            if (cartItem.Count > 1)
+                cartItem.Count--;
+            else
+                return Content("<script>alert('你的购买数量不能小于0');</script>");
+            _context.SaveChanges();
+
+            //刷新局部视图
+            var carts = _context.Cart.Where(x => x.Person.ID == x.Person.ID).ToList();
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a><td/>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" + item.Count + "</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+
+            }
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            return Json(htmlString);
         }
     }
 }

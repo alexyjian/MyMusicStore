@@ -1,13 +1,12 @@
-﻿@model  IEnumerable<MusicStoreEntity.Cart> 
+﻿@model MusicStore.Controllers.ShoppingCartViewModel
 @{
     ViewBag.Title = "index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-
 <h2 class="glyphicon glyphicon-shopping-cart">购物车</h2>
 
-
 <table class="table table-hover">
+
     <thead>
         <tr>
             <th>名称</th>
@@ -16,16 +15,79 @@
             <th>编辑</th>
         </tr>
     </thead>
-    @foreach(var item in Model)
-    {
-        <tbody>
+  
+    <tbody>
+        @foreach (var item in Model.CartItems)
+            {
             <tr>
-                <th>@item.Album.Title</th>
-                <th>@item.Album.Price</th>
-                <th>@item.Count</th>
-                <th><a class="glyphicon glyphicon-remove" style="color:black; cursor:pointer;"><span>删除</span></a></th>
+                <th class="Cart-tbody-th">@Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)</th>
+                <th>@item.Album.Price.ToString("C")</th>
+                <th><button class="btn btn-default" onclick="removeCartAdd('@item.ID')">+</button>&nbsp;@item.Count&nbsp;<button class="btn btn-default" onclick="removeCartSubtract('@item.ID')">-</button></th>
+                <th class="Cart-tbody-th">
+                    <a class="glyphicon glyphicon-remove Cartdelete" onclick="removeCart('@item.ID')">
+                        <span>删除</span>
+                    </a>
+                </th>
             </tr>
-        </tbody>
+        }
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="totalprice-th" colspan="4">
+                总价:@Model.CartTotalPrice.ToString("C")
+            </th>
+        </tr>
+    </tbody>
+</table>
+<script>
+    function removeCart(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../shoppingcart/RemoveCart",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+
+                setTimeout(function () {
+                    location.reload();//刷新区域
+                }, 100);
+            }
+        });
+    }
+    function removeCartAdd(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../shoppingcart/removeCartAdd",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+
+                setTimeout(function () {
+                    location.reload();//刷新区域
+                }, 100);
+            }
+        });
+    }
+    function removeCartSubtract(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../shoppingcart/removeCartSubtract",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+
+                setTimeout(function () {
+                    location.reload();//刷新区域
+                }, 100);
+            }
+        });
     }
 
-</table>
+</script>
