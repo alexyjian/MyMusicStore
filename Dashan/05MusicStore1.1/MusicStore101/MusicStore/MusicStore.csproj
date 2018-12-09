@@ -175,6 +175,7 @@
     <Compile Include="ViewMoldels\LoginUserStatus.cs" />
     <Compile Include="ViewMoldels\LoginViewModel.cs" />
     <Compile Include="ViewMoldels\RegisterViewModel.cs" />
+    <Compile Include="ViewMoldels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
