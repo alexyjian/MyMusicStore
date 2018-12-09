@@ -138,6 +138,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
@@ -158,12 +159,28 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\chaoliyi.jpg" />
+    <Content Include="Content\Images\chenwei.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
+    <Content Include="Content\Images\huashe.jpg" />
+    <Content Include="Content\Images\linsiyi.jpg" />
     <Content Include="Content\Images\log.png" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\maobuyi.jpg" />
+    <Content Include="Content\Images\naying.jpg" />
     <Content Include="Content\Images\placeholder.gif" />
     <Content Include="Content\Images\ProgressIcon.gif" />
-    <Content Include="Content\Images\yin.jpg" />
+    <Content Include="Content\Images\shunyan.jpg" />
+    <Content Include="Content\Images\suyoupen.jpg" />
+    <Content Include="Content\Images\tansonyi.jpg" />
+    <Content Include="Content\Images\wangfei.jpg" />
+    <Content Include="Content\Images\wanglihon.jpg" />
+    <Content Include="Content\Images\xugao.jpg" />
+    <Content Include="Content\Images\zhangguoron.jpg" />
+    <Content Include="Content\Images\zhangjie.jpg" />
+    <Content Include="Content\Images\zhangxueyou.jpg" />
+    <Content Include="Content\Images\zhanhuimei.jpg" />
+    <Content Include="Content\Images\zhoujielun.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -253,6 +270,7 @@
     <Content Include="Views\Home\TestHack.cshtml" />
     <Content Include="Views\Account\ChangePassWord.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Order\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
