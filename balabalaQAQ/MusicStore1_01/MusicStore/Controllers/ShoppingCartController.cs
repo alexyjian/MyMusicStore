@@ -64,7 +64,7 @@ namespace MusicStore.Controllers
         {
             //判断用户是否登录如果没有跳转登录，登录成功后跳转回来
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login","Account",new { returnUrl=Url.Action("ShoppingCart", "ShoppingCart")});
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("ShoppingCart", "ShoppingCart") });
             //查出出当前登录用户
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             //查询出该用户的购物车项
@@ -80,24 +80,58 @@ namespace MusicStore.Controllers
             };
             return View(cartVM);
         }
-        public ActionResult DelCart(Guid id)
+        [HttpPost]
+        public ActionResult RemoveCart(Guid id, int count)
         {
-           
-            var cartItem = _context.Cart.SingleOrDefault(x => x.Person.ID == x.Person.ID && x.Album.ID == id);
+            //判断用户是否登录如果没有跳转登录，登录成功后跳转回来
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("ShoppingCart", "ShoppingCart") });
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var message = "";
-            var item = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
-            if (cartItem.Count == 1)
+
+            //要处理要查询出来的购物车项
+            var cartItem = _context.Cart.Find(id);
+
+
+            //数量-1
+            if (count == 0)
             {
-                _context.SaveChanges();
+                if (cartItem.Count == 1)
+                {
+                    cartItem.Count = 1;
+                }
+                    cartItem.Count--;
             }
-            else
+            //数量+1
+            if (count == 1)
             {
-                cartItem.Count--;
-                _context.SaveChanges();
-                message = _context.Albums.Find(id).Title + "已为您所选的商品数量-1";
+                if (cartItem.Count >99)
+                {
+                    cartItem.Count = 99;
+                }
+                cartItem.Count++;
             }
-            return Json(message);
+            if(count==2)
+            {
+                _context.Cart.Remove(cartItem);//删除
+            }
+            _context.SaveChanges();
+
+            //刷新局部视图 生成html元素注入到<tbody>中
+            var carts = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
+            //算购物车的总价
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td> <i class=\"glyphicon glyphicon-minus\" onclick=\"minus('"+item.ID+"');\"></i>&nbsp;"+ item.Count + " &nbsp; <i class=\"glyphicon glyphicon-plus\" onclick=\"plus('" + item.ID + "')\"></i></td> ";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"> <i class=\"glyphicon glyphicon-remove\" ></i>我不喜欢这个了 抛弃！</a></td></tr>";
+            }
+            htmlString += "<tr> <td></td> <td></td> <td></td> <td>总价格：" + totalPrice.ToString("C") + "</td></tr>";
+            return Json(htmlString);
         }
     }
 }

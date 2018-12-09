@@ -9,9 +9,9 @@
     @Html.ActionLink("马上购买", "buy", "Order")
 </p>
 
-<div class="table-responsive">
+<div class="table-responsive " >
     <table class="table table-bordered table-hover">
-        <thead> <tr style="background-color:gray; color:white"><th>专辑名称</th><th>数量</th><th>单价</th><th>操作</th></tr></thead>
+        <thead> <tr style="background-color:gray; color:white"><th>专辑名称</th><th width="150px;">数量</th><th>单价</th><th>操作</th></tr></thead>
         <tbody id="tbCart">
             @foreach (var l in Model.CartItems)
             {
@@ -20,18 +20,63 @@
                         @Html.ActionLink(l.Album.Title, "detail", "store", new { id = l.Album.ID }, null)
                     </td>
                     <td>
-                        @l.Count
+                       <i class="glyphicon glyphicon-minus"onclick="minus('@l.ID')"></i>  @l.Count  <i class="glyphicon glyphicon-plus" onclick="plus('@l.ID')"></i> 
                     </td>
                     <td>@l.Album.Price.ToString("C")</td>
-                    <td><a href="#" id="del" onclick="removeCart('@l.ID');"> <i class="glyphicon glyphicon-remove" ></i>我不喜欢这个了 抛弃！</a></td>
+                    <td><a href="#" id="del" onclick="removeCart('@l.ID');"> <i class="glyphicon glyphicon-remove"></i>我不喜欢这个了 抛弃！</a></td>
                 </tr>
             }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>总价格：@Model.CartTotalPrice.ToString("C")</td>
+            </tr>
         </tbody>
     </table>
-    <div style="text-align:right">
-        总价格：@Model.CartTotalPrice.ToString("C")
-    </div>
+
 </div>
 <script>
-
+    function removeCart(id) {
+        //ajax提交到服务器端进行购物车项的删除
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../shoppingcart/removeCart",
+            data: { id: id,count:2},
+            dataType: 'json',
+            success: function (data) {
+                //视图中进行局部页面的刷新<tbody>
+                $("#tbCart").html(data);
+            }
+        });
+    }
+    function minus(id) {
+        //ajax提交到服务器端进行购物车项的删除
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../shoppingcart/removeCart",
+            data: { id: id ,count:0},
+            dataType: 'json',
+            success: function (data) {
+                //视图中进行局部页面的刷新<tbody>
+                $("#tbCart").html(data);
+            }
+        });
+    }
+    function plus(id) {
+        //ajax提交到服务器端进行购物车项的删除
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../shoppingcart/removeCart",
+            data: { id: id, count: 1 },
+            dataType: 'json',
+            success: function (data) {
+                //视图中进行局部页面的刷新<tbody>
+                $("#tbCart").html(data);
+            }
+        });
+    }
 </script>
