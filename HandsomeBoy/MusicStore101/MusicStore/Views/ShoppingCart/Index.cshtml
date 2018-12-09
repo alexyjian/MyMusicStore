@@ -17,7 +17,7 @@
 
 <h2><i class="glyphicon glyphicon-shopping-cart">浏览您的购物车</i></h2>
 <p class="ui-button">
-    @Html.ActionLink("马上购买", "buy", "Order")
+    @Html.ActionLink("马上购买>>", "buy", "Order")
 </p>
 <table class="ShoppingCartView">
     <tbody>
@@ -102,11 +102,10 @@
                       success: function (data) {
                           //视图中进行局部页面的刷新 <tbody>
                           $("#tbCart").html(data);
-
-                              setTimeout(function () {
-                                  location.reload();
-                              },
-                      1000);
+                          setTimeout(function () {
+                              location.reload();
+                          },
+                                            1000);
                           }
                       })
               }
@@ -124,10 +123,11 @@
                 //视图中进行局部页面的刷新 <tbody>
                 $("#tbCart").html(data);
 
-                            setTimeout(function () {
-                                location.reload();
-                            },
-            1000);
+                setTimeout(function () {
+                    location.reload();
+                },
+                   1000);
+            
                         }
                     })
     }

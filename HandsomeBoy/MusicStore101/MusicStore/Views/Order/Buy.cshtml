@@ -1,0 +1,66 @@
+﻿
+@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+}
+
+
+<h2>新用户注册</h2>
+@using (Html.BeginForm("Register", "Login", FormMethod.Post))
+{
+    <fieldset>
+        <legend>
+            收件信息
+        </legend>
+        @Html.EditorForModel();
+      
+     
+        <table class="ShoppingCartView">
+            <tbody>
+                <tr>
+                    <th>专辑名称</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>操作</th>
+                </tr>
+            </tbody>
+            <tbody id="tbCart">
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)</td>
+                        <td>@item.Album.Price.ToString("C")</td>
+                        <td>
+                            <ul class="count">
+                                <li><span id="num-jian" class="num-jian" onclick="jiaCount('@item.ID')">-</span></li>
+                                <li><input type="text" class="input-num" id="input-num" value=@item.Count /></li>
+                                <li><span id="num-jia" class="num-jia" onclick="jiaCount('@item.ID')">+</span></li>
+                            </ul>
+                        </td>
+                        <td><a href="javascript:;" id="@item.ID" onclick="Delete('@item.ID')"><i class="glyphicon glyphicon-remove"></i>我不想要他了</a></td>
+                    </tr>
+
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>总价</td>
+                    <td>@Model.TotalPrice.ToString("C")</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <input type="submit" value="注册" class="btn btn-success" />
+            <i class="glyphicon glyphicon-shopping-cart">确认购买</i>
+        </p>
+
+    </fieldset>
+
+}
+
+<script>
+
+    //移除订单明细
+    $.ajax()
+</script>

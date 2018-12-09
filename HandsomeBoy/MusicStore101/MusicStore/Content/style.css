@@ -172,8 +172,21 @@ th, td {
     height:25px;
     background-color:#F0EFF0;
     line-height :25px;
+    font-size:21px;
+    font-weight:bold;
 }
 .input-num {
     text-align:center;
 width:30px;
 }
+.ui-button{
+    width:100px;
+    height:30px;
+    background-color:cadetblue;
+    text-align:center;
+    line-height:30px;
+    border-radius:5px;
+}
+    .ui-button a {
+     color :#fff;
+    }

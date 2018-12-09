@@ -134,9 +134,9 @@ namespace MusicStore.Controllers
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td>";
                 htmlString += "<ul class=\"count\">";
-                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\"><a href=\"javascript:; \"  onclick=\"jianCount('" + item.ID + "')\">-</a></span></li>";
+                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\" onclick=\"jianCount('" + item.ID + "')\">-</span></li>";
                 htmlString += " <li><input type =\"text\" class=\"input-num\" id=\"input-num\" value=" + item.Count + " /></li>";
-                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\"><a href=\"javascript:; \"  onclick=\"jiaCount('" + item.ID + "')\">+</a></span></li>";
+                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\" onclick=\"jiaCount('" + item.ID + "')\">+</span></li>";
                 htmlString += "</ul>";
                 htmlString += "</td>";
                 htmlString += "<td><a href=\"javascript:;\" onclick=\"Delete('" + item.ID + "')\"><i class=\"glyphicon glyphicon-remove\"></i>我不想要他了</a></td><tr>";
@@ -175,9 +175,9 @@ namespace MusicStore.Controllers
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td>";
                 htmlString += "<ul class=\"count\">";
-                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\"><a href=\"javascript:; \"  onclick=\"jianCount('"+item.ID+"')\">-</a></span></li>";
+                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\" onclick=\"jianCount('" + item.ID + "')\">-</span></li>";
                 htmlString += " <li><input type =\"text\" class=\"input-num\" id=\"input-num\" value=" + item.Count + " /></li>";
-                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\"><a href=\"javascript:; \"  onclick=\"jiaCount('" + item.ID + "')\">+</a></span></li>";
+                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\" onclick=\"jiaCount('" + item.ID + "')\">+</span></li>";
                 htmlString += "</ul>";
                 htmlString += "</td>";
                 htmlString += "<td><a href=\"javascript:;\" onclick=\"Delete('" + item.ID + "')\"><i class=\"glyphicon glyphicon-remove\"></i>我不想要他了</a></td><tr>";
