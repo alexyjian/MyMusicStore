@@ -1,37 +1,100 @@
+/* 全局 */
+
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
+    list-style: none;
+    outline: none;
 }
- /*主面板样式*/ 
- #container { 
-    width:1280px;
-    margin:0px auto;/*主面板DIV居中*/
+.one{
+    background-color: #B61541;
 }
-/*顶部面板样式*/ 
-#header {
-    width:1280px;
 
-    border:1px #F00 solid;
-    
+header ul{
+    width:1200px;
+    overflow: hidden;
+    margin: 0 auto;
+    background: url(images/logo.png) no-repeat left center;    
+    background-size: 25px;    
+    padding-left: 30px;    
+    box-sizing: border-box;
 }
-.po{
-width: 1290px;
-height: 100px;
+
+
+.ty{
+    background-color: #FDAEB5;
 }
-.po_on
-{
-    width: 100px;
-    height: 100px;
+
+header li{
+    height: 34px;
+    float: left;
+    line-height: 34px;
+    text-align: center;
+    padding: 0 25px;
 }
-/*中间部分面板样式*/ 
-#main {
-    width:100%;
-    height:400px;
-    border:1px #F00 solid;
-} 
-/*底部面板样式*/ 
-#footer {
-    width:100%;
-    height:100px;
-    border:1px #F00 solid;
+
+ul,
+ol {
+    list-style: none;
 }
+
+img {
+    display: block;
+    /* 清除照片的3px的缝隙 */
+}
+
+/* 轮播图片的样式 */
+.slider {
+    width: 2000px;
+    height: 330px;
+    border: 1px solid #ccc;
+    margin: 30px auto;
+    padding: 5px;
+    position: relative;
+}
+
+.zq {
+    width: 100%;
+    height: 100%;
+    background: pink;
+    position: relative;
+    overflow: hidden; 
+}
+
+.zq ul {
+    width: 1000%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.zq ul li {
+    float: left;
+}
+
+/* 编号的样式 */
+.slider ol{
+    position: absolute;
+    left:50%;
+    margin-left: -65px;
+    bottom: 10px;
+}
+
+.slider ol li{
+    background-color: white;
+    float: left;
+    width: 20px;
+    height: 20px;
+    /* 编号间的距离 */
+    margin-right: 10px;  
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;    
+}
+
+.slider ol li.current{
+    background-color: orange;
+}
+
+
+
