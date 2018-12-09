@@ -82,6 +82,7 @@ namespace MusicStore.Controllers
             {
                 CartItems = carts,
                 CartTotalPrice = totalPrice ?? decimal.Zero
+           
             };
 
             return View(cartVM);
