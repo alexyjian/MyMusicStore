@@ -260,6 +260,7 @@
     <Content Include="Views\Home\TestHack.cshtml" />
     <Content Include="Views\Account\ChangPassWord.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Order\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -274,7 +275,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\Shopping\" />
   </ItemGroup>
   <PropertyGroup>
