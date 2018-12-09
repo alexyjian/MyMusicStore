@@ -65,7 +65,10 @@
                     //添加购物车成功后，动画消失
                     $("#msg").html(data);
                     //重新刷新此页面
-                    location.reload();
+                    setTimeout(function () {
+                        location.reload();
+                    },
+                    2000);
                 }
             }
         });
