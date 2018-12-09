@@ -9,7 +9,6 @@ body {
     font-size: 14px;
     background-color: #FBF9EF;
     padding: 0px 6%;
-    box-sizing: border-box;
 }
 
 #container {
@@ -23,18 +22,17 @@ body {
     margin-bottom: 10px;
 }
 
-    #header h1 {
+#header h1 {
         font-size: 18px;
         float: left;
-        background: url(/Content/themes/base/images/logo.PNG) no-repeat;
+        background: url(/content/Images/logo.png) no-repeat;
         padding: 45px 0px 5px 0px;
-    }
+}
 
 #promotion {
-    width: 700px;
     height: 300px;
-    background: url(/Content/themes/base/images/home-showcase.png) no-repeat;
-    background-size: 100% 100%;
+    width: 700px;
+    background: url(/content/Images/home-showcase.png) no-repeat;
 }
 
 ul li a {
@@ -73,7 +71,7 @@ ul {
 
                 ul#album-list li a span {
                     color: #9b9993;
-                    text-decoration: underline;
+                    text-decoration: none;
                 }
 
 #cart {
@@ -281,4 +279,38 @@ th, td {
 
 tr:hover {
     background-color: #fff;
+}
+
+
+.Genre-List:link, .Genre-List:visited {
+    color: #666;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.Genre-List:hover {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.Genre-List:active {
+    color: #5e5b54;
+    text-decoration: none;
+    font-weight: bold;
+}
+#tbCart1{
+    width: 800px;
+}
+#tbCart1>tr{
+    width: 800px;
+}
+#tbCart1>tr>td{
+    width: 300px;
+}
+#tbCart1>tr>td:nth-child(2){
+    width: 100px;
+}
+#tbCart1>tr>td:nth-last-child(2){
+    width: 100px;
 }

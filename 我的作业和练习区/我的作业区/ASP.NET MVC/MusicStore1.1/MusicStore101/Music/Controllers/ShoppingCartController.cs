@@ -77,18 +77,51 @@ namespace Music.Controllers
             return View(cartVM);
         }
         [HttpPost]
-        public ActionResult Delete(Guid id)
+        public ActionResult RemoveCart(Guid id,int ab)
         {
+            //判断用户是否登陆
             if (Session["loginUserSessionModel"] == null)
             {
-                return Json("nologin");
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart")});
             }
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
-            var caartItem = _context.Carts.SingleOrDefault(x=>x.ID==id);
-            _context.Carts.Remove(caartItem);
-            _context.SaveChanges();
-            var message = "";
-            return Json(message);
+            var caartItem = _context.Carts.Find(id);
+            if (ab==1)
+            {
+                caartItem.Count++;
+            }
+
+            else if(ab == 0)
+            {
+                if (caartItem.Count > 1)
+                {
+                    caartItem.Count--;
+                }
+                else
+                {
+                    
+                }
+            }
+            else
+            {
+                _context.Carts.Remove(caartItem);
+            }
+           _context.SaveChanges();
+            
+            //刷新局部视图,生成html元素注入到<tbody>中
+            var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum(); //Linq表达式
+            var htmlString = "";
+            foreach (var item in carts)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='../store/detail/"+item.Album.ID+"'>"+item.Album.Title+"</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString+= "<td><i class=\"glyphicon glyphicon-plus\" onclick=\"plus('" + item.ID + "')\"></i>" + item.Count+ "<i class=\"glyphicon glyphicon-minus\" onclick=\"minus('" + item.ID + "')\"></i></td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeCart('"+item.ID+"');\"><i class=\"glyphicon glyphicon-remove\">移除购物车</i></a></td>";
+            }
+            htmlString += "<tr><td></td><td></td ><td>总价</td><td>"+totalPrice.ToString("C")+"</ td ></ tr >";
+            return Json(htmlString);
         }
     }
 }

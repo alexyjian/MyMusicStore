@@ -15,7 +15,7 @@ namespace Music.ViewModels
         public List<Cart> CartItems { get;set; }
         //总价
         public decimal CartTotaLPrice { get; set; }
-
+        
 
     }
 }

@@ -160,6 +160,7 @@
     <Content Include="Content\logo.png" />
     <Content Include="Content\placeholder.gif" />
     <Content Include="Content\ProgressIcon.gif" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -210,7 +211,6 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
