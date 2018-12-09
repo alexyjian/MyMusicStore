@@ -45,12 +45,13 @@ img {
 
 /* 轮播图片的样式 */
 .slider {
-    width: 2000px;
+    width: 1000px;
     height: 330px;
     border: 1px solid #ccc;
     margin: 30px auto;
     padding: 5px;
     position: relative;
+    
 }
 
 .zq {
