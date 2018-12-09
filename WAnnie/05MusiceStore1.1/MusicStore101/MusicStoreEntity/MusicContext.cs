@@ -36,6 +36,11 @@ namespace MusicStoreEntity
         public IDbSet<Ablum> Ablums { get; set; }
 
         public IDbSet<Cart> Carts { get; set; }
+
+
+        public IDbSet<Order> Orders { get; set; }  // 订单实体
+        public IDbSet<OrderDetail> OrderDetails { get; set; }  // 订单明细
+
         #endregion
     }
 }
