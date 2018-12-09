@@ -1,4 +1,4 @@
-﻿
+﻿@model MusicStore.ViewMoldels.ShoppingCartViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
@@ -9,27 +9,51 @@
     <em>浏览</em>您的购物车
 </h2>
 <p class="button">
-    <a href="#">马上购买</a>
+    @Html.ActionLink("马上购买","buy","Order")
 </p>
-<table class="table">
-    <thead>
+
+
+<table>
+
         <tr>
             <th>专辑名称</th>
             <th>单价</th>
             <th>数量</th>
             <th>操作</th>
         </tr>
-    </thead>
 
-    <tbody>
-        <tr class="active">
-            <td> </td>
-            <td> </td>
-            <td>总价： </td>
-            <td> </td>
+    <tbody id="tdCart">
+        @foreach (var item in Model.CartItems)
+        {
+            <tr >
+                <td>
+                    @Html.ActionLink(item.Album.Title,"detail","Store",new { id = item.Album.ID },null)
+
+                </td>
+                <td>
+                    @item.Album.Price.ToString("C");
+
+                </td>
+                <td>
+                    @item.Count
+                </td>
+                <td>
+                    <a href="#"onclick = "removeCart('@item.ID ');"><i class="glyphicon glyphicon-remove"></i>移除购物车 </a>
+                
+                </td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td> 总计</td>
+            <td>@Model.CartTotaPrice.ToString("C")</td>
         </tr>
+      
     </tbody>
 </table>
+
+
 
 
 
