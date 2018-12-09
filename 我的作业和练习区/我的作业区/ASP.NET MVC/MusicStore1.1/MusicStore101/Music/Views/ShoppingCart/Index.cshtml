@@ -24,7 +24,7 @@
     <tr>
         <td>@Html.ActionLink(item.Album.Title,"detail","Store",new {id=item.Album.ID},null)</td>
         <td>@item.Album.Price.ToString("C")</td>
-        <td><i class="glyphicon glyphicon-plus" onclick="plus('@item.ID')"></i> @item.Count <i class="glyphicon glyphicon-minus" onclick="minus('@item.ID'")></i></td>
+        <td><i style="cursor: pointer" class="glyphicon glyphicon-plus" onclick="plus('@item.ID')"></i> @item.Count <i  style="cursor: pointer" class="glyphicon glyphicon-minus" onclick="minus('@item.ID'")></i></td>
         <td><a href="#" onclick="removeCart('@item.ID');">
             <i class="glyphicon glyphicon-remove">
                 移除购物车

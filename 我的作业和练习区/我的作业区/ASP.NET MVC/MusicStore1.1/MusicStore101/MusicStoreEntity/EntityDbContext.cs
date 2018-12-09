@@ -26,6 +26,7 @@ namespace MusicStoreEntity
         public IDbSet<ApplicaitionUserInApplication> ApplicaitionUserInApplications { get; set; }
         public IDbSet<Person> Persons { get; set; }
 
+
         #endregion
 
         #region 音乐商店实体
@@ -33,6 +34,8 @@ namespace MusicStoreEntity
         public IDbSet<Artist> Artists{get;set;}
         public IDbSet<Album> Albums {get;set;}
         public IDbSet<Cart> Carts { get; set; }
+        public IDbSet<Order> Orders { get; set; }
+        public IDbSet<OrderDetail> OrderDetails { get; set; }
         #endregion
     }
 }

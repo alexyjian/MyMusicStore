@@ -117,7 +117,7 @@ namespace Music.Controllers
                 htmlString += "<tr>";
                 htmlString += "<td><a href='../store/detail/"+item.Album.ID+"'>"+item.Album.Title+"</a></td>";
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString+= "<td><i class=\"glyphicon glyphicon-plus\" onclick=\"plus('" + item.ID + "')\"></i>" + item.Count+ "<i class=\"glyphicon glyphicon-minus\" onclick=\"minus('" + item.ID + "')\"></i></td>";
+                htmlString+= "<td><i  style=\"cursor: pointer\" class=\"glyphicon glyphicon-plus\" onclick=\"plus('" + item.ID + "')\"></i> " + item.Count+ " <i  style=\"cursor: pointer\" class=\"glyphicon glyphicon-minus\" onclick=\"minus('" + item.ID + "')\"></i></td>";
                 htmlString += "<td><a href=\"#\" onclick=\"removeCart('"+item.ID+"');\"><i class=\"glyphicon glyphicon-remove\">移除购物车</i></a></td>";
             }
             htmlString += "<tr><td></td><td></td ><td>总价</td><td>"+totalPrice.ToString("C")+"</ td ></ tr >";

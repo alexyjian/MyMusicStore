@@ -314,3 +314,18 @@ tr:hover {
 #tbCart1>tr>td:nth-last-child(2){
     width: 100px;
 }
+#tbCart{
+    width: 800px;
+}
+#tbCart>tr{
+    width: 800px;
+}
+#tbCart>tr>td{
+    width: 300px;
+}
+#tbCart>tr>td:nth-child(2){
+    width: 100px;
+}
+#tbCart>tr>td:nth-last-child(2){
+    width: 100px;
+}
