@@ -12,6 +12,7 @@ namespace MusicStore.Controllers
     public class ShoppingCartController : Controller
     {
         private static readonly EntityDbContext _context = new EntityDbContext();
+        private decimal? totalPrice;
 
         /// <summary>
         /// 添加专辑到购物车
@@ -50,6 +51,39 @@ namespace MusicStore.Controllers
                 message = _context.Albums.Find(id).Title + "原来就在购物车中，已为您数量+1！";
             }
             return Json(message);
+        }
+
+        /// <summary>
+        /// 查看
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult lndex()
+        {
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index","ShoppingCart" )});
+            //查询出当前登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //查询出该用户的购物车项
+            var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList;
+            //算购物车的总价
+            //decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();//linq表达式一句完成
+            //decimal? totalPrice2 = 0.00M;
+            //if (carts.Count == 0)
+            //   totalPrice2 = null;
+            //foreach (var item in carts)
+            //{
+            //   totalPrice2 += item.Count * item.Album.Price;
+            //}
+
+            //创建视图模型
+            var cartVM = new ShoppingCartViewModel()
+            {
+                CartItems = carts,
+                CartTotalPrice = totalPrice?? decimal.Zero
+            };
+
+            return View(cartVM);
         }
     }
 }
