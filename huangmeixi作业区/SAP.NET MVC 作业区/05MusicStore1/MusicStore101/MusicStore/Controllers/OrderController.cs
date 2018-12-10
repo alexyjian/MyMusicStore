@@ -20,14 +20,14 @@ namespace MusicStore.Controllers
         {
             //确认用户是否登录 是否登录过期
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Accoount", new { returnUrl = Url.Action("Buy", "Order") });
+                return RedirectToAction("login", "Accoount", new { returnUrl = Url.Action("Buy","Order")});
 
             //查询出当前用户Person 查询该用户的购物项
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
 
             //算购物车的总价
-            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            decimal?totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
 
             //创建新Order对象
 
@@ -36,7 +36,7 @@ namespace MusicStore.Controllers
                 AddressPerson = person.Name,
                 MobilNumber = person.MobileNumber,
                 Person = _context.Persons.Find(person.ID),
-                TotalPrice = totalPrice ?? 0.00m,
+                TotalPrice = totalPrice??0.00m,
             };
             //把购物车项导入订单明细
             order.OrderDetails = new List<OrderDetail>();
@@ -54,7 +54,9 @@ namespace MusicStore.Controllers
 
             //将订单和明细在视图呈现，验证用户收件人、地址、电话、供用户选择确认要购买的专辑
 
-            return View();
+            //当前订单未持久化，用会话保存方便用户进行编辑
+            Session["Order"] = order;
+            return View(order);
         }
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
