@@ -9,51 +9,56 @@
 <h2>确认购买</h2>
 @using (Html.BeginForm())
 {
-    <fieldset>
+<fieldset>
 
-        <legend>收货信息</legend>
-        @Html.EditorForModel()
-        <legend>你想购买专辑的列表</legend>
-        <table>
-            <tr>
-                <th>专辑名称</th>
-                <th>单价</th>
-                <th>数量</th>
-                <th>操作</th>
-            </tr>
+    <legend>收货信息</legend>
+    @Html.EditorForModel()
+    <legend>你想购买专辑的列表</legend>
+    <table>
+        <tr>
+            <th>专辑名称</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>操作</th>
+        </tr>
 
-            <tbody id="tdCart">
-                @foreach (var item in Model.OrderDetails)
-                {
-                    <tr>
-                        <td>
-                            @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
-
-                        </td>
-                        <td>
-                            @item.Album.Price.ToString("C");
-
-                        </td>
-                        <td>
-                            @item.Count
-                        </td>
-                        <td>
-                            <a href="#" onclick="removeDetail('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除购物车</a>
-
-                        </td>
-                    </tr>
-                }
+        <tbody id="tbCart">
+            @foreach (var item in Model.OrderDetails)
+            {
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td> 总计</td>
-                    <td>@**@Model.OrderDetails.ToString("C")</td>
+                    <td>
+                        @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
+
+                    </td>
+                    <td>
+                        @item.Album.Price.ToString("C");
+
+                    </td>
+                    <td>
+                        @item.Count
+                    </td>
+                    <td>
+                        <a href="#" onclick="removeDetail('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除购物车</a>
+
+                    </td>
                 </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td> 总计</td>
+                <td>@Model.TotalPrice.ToString("C")</td>
+            </tr>
+        </tbody>
+    </table>
 
-            </tbody>
-        </table>
-
-    </fieldset>
+    <p></p>
+    <p>
+        <button type="submit" class="btn btn-success">
+            <i class="glyphicon glyphicon-shopping-cart">确定购买</i>
+        </button>
+    </p>
+</fieldset>
 }
 
   
