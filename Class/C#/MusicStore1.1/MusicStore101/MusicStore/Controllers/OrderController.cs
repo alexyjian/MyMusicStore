@@ -46,7 +46,7 @@ namespace MusicStore.Controllers
             foreach (var item in carts)
             {
                 var od = new OrderDetail()
-                {
+                { 
                     AlbumID = item.AlbumID,
                     Album = item.Album,
                     Count = item.Count,
@@ -67,16 +67,24 @@ namespace MusicStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Buy(Order oder)
         {
-            if (Session["Order"] == null)
-                return RedirectToAction("Buy", "Order");
+            if (ModelState.IsValid)
+            {
+                if (Session["LoginUserSessionModel"] == null)
+                    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
 
-            var order = Session["Order"] as Order;
-            _Context.Orders.Add(order);
-            foreach (var item in order.OrderDetails)
-                _Context.OrderDetails.Add(item);
-            _Context.SaveChanges();
+                var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
-            return RedirectToAction("");
+                
+                _Context.SaveChanges();
+
+                foreach (var item in (Session["Order"] as Order).OrderDetails)
+                    _Context.OrderDetails.Add(item);
+
+                _Context.SaveChanges();
+                return RedirectToAction("Index","Order");
+            }
+
+            return View();  
         }
 
         /// <summary>
@@ -91,10 +99,10 @@ namespace MusicStore.Controllers
                 return RedirectToAction( "Buy", "Order");
 
             var order = Session["Order"] as Order;
-            //查询是否有某用户的某购物车单
+            //在会话中查询明细
             var delDetail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
             order.OrderDetails.Remove(delDetail);
-            decimal totalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
 
             string htmlString = "";
             foreach (var item in order.OrderDetails)
@@ -104,7 +112,7 @@ namespace MusicStore.Controllers
                 htmlString += "<td><a href = '#' class='glyphicon glyphicon-minus' onclick=" + '"' + "minusCount('" + item.ID + "')" + '"' + "></a>&nbsp;" + item.Count + "&nbsp;<a href = '#' class='glyphicon glyphicon-plus' onclick=" + '"' + "addCount('" + item.ID + "')" + '"' + "></a></td>";
                 htmlString += $"<td><a href = '#' class='text-danger' onclick=" + '"' + "Remove('" + item.ID + "')" + '"' + "><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
             }
-            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ totalPrice.ToString("C")} </td></tr>";
+            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ order.TotalPrice.ToString("C")} </td></tr>";
 
             return Json(htmlString);
         }
@@ -121,10 +129,10 @@ namespace MusicStore.Controllers
                 return RedirectToAction("Buy", "Order");
 
             var order = Session["Order"] as Order;
-            //查询是否有某用户的某购物车单
+            //在会话中查询明细
             var Detail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
             Detail.Count++;
-            decimal totalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
 
             string htmlString = "";
             foreach (var item in order.OrderDetails)
@@ -134,7 +142,7 @@ namespace MusicStore.Controllers
                 htmlString += "<td><a href = '#' class='glyphicon glyphicon-minus' onclick=" + '"' + "minusCount('" + item.ID + "')" + '"' + "></a>&nbsp;" + item.Count + "&nbsp;<a href = '#' class='glyphicon glyphicon-plus' onclick=" + '"' + "addCount('" + item.ID + "')" + '"' + "></a></td>";
                 htmlString += $"<td><a href = '#' class='text-danger' onclick=" + '"' + "Remove('" + item.ID + "')" + '"' + "><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
             }
-            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ totalPrice.ToString("C")} </td></tr>";
+            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ order.TotalPrice.ToString("C")} </td></tr>";
 
             return Json(htmlString);
         }
@@ -151,11 +159,11 @@ namespace MusicStore.Controllers
                 return RedirectToAction("Buy", "Order");
 
             var order = Session["Order"] as Order;
-            //查询是否有某用户的某购物车单
+            //在会话中查询明细
             var Detail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
             if (Detail.Count > 1)
                 Detail.Count--;
-            decimal totalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
 
             string htmlString = "";
             foreach (var item in order.OrderDetails)
@@ -165,7 +173,7 @@ namespace MusicStore.Controllers
                 htmlString += "<td><a href = '#' class='glyphicon glyphicon-minus' onclick=" + '"' + "minusCount('" + item.ID + "')" + '"' + "></a>&nbsp;" + item.Count + "&nbsp;<a href = '#' class='glyphicon glyphicon-plus' onclick=" + '"' + "addCount('" + item.ID + "')" + '"' + "></a></td>";
                 htmlString += $"<td><a href = '#' class='text-danger' onclick=" + '"' + "Remove('" + item.ID + "')" + '"' + "><span class='glyphicon glyphicon-remove'></span> 我不喜欢这个了</a></td></tr>";
             }
-            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ totalPrice.ToString("C")} </td></tr>";
+            htmlString += $"<tr><td></td><td></td><td> 总价 </td><td>{ order.TotalPrice.ToString("C")} </td></tr>";
 
             return Json(htmlString);
         }
