@@ -43,8 +43,9 @@ namespace MusicStoreEntity
         public bool PaySuccess { get; set; }    //是否支付成功
 
         [ScaffoldColumn(false)]
-        public virtual EnumOrderStatus EnumOrderStatus { get; set; }  //订单状态
+        public virtual EnumOrderStatus EnumOrderStatus { get; set; } //订单状态
 
+                                                                    
         //购买专辑明细,EF中的包含关系
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
