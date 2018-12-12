@@ -13,7 +13,7 @@
 
     <legend>收货信息</legend>
     @Html.EditorForModel()
-    <legend>你想购买专辑的列表</legend>
+    <legend>购买专辑列表</legend>
     <table>
         <tr>
             <th>专辑名称</th>
@@ -38,7 +38,8 @@
                         @item.Count
                     </td>
                     <td>
-                        <a href="#" onclick="removeDetail('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除购物车</a>
+                        <a href="#" onclick="RemoveDetail('@item.ID');">
+                        <i class="glyphicon glyphicon-remove"></i>移除购物车</a>
 
                     </td>
                 </tr>
@@ -60,6 +61,23 @@
     </p>
 </fieldset>
 }
+<script>
+
+    function RemoveDetail(id) {
+        //移除订单明细  异步
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Order/RemoveDetail",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>
+
 
   
 

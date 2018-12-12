@@ -65,7 +65,36 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
         {
-            return Json ("");
+
+            //会话为空  buy 重新刷新页面
+            if (Session["Order"] == null)
+                return RedirectToAction("buy");
+
+            // 读取会话中的Order对象
+           var  order = Session["Order"] as Order;
+            var deleteDetail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
+            order.OrderDetails.Remove(deleteDetail);
+
+
+            //根据新的Order对象
+             var htmlString = "";
+            //订单总价
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+            //更新用户编辑到会话
+            Session["Order"] = order;
+            foreach (var item in order.OrderDetails)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='"+Url.Action ("Detail","Store",new { id=item.Album.ID})+"'>"+item.Album.Title+"</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") +"</td>";
+                htmlString += "<td>"+item.Count+"</td>";
+                htmlString += "<td><a href ='#' onclick ='RemoveDetail('"+item.ID+"');'><i class='glyphicon glyphicon-remove'></i>移除购物车</a></td>";
+                htmlString += "</tr>";
+            }
+
+            htmlString += "<tr><td></td><td></td><td>总价</td><td>" +order.TotalPrice .ToString("C")+"</td></tr>";
+            return Json(htmlString);
+  
         }
 
 
@@ -80,7 +109,6 @@ namespace MusicStore.Controllers
         {
             return View();
         }
-
 
 
 
