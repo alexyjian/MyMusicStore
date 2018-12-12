@@ -34,7 +34,7 @@
                         <td>
                             <a href="#" onclick="RemoveDetail('@item.ID');">
                                 <i class="glyphicon glyphicon-remove"></i>
-                             不喜欢
+                            移出购物车
                             </a>
                         </td>
                     </tr>
@@ -58,6 +58,16 @@
 <script>
     function RemoveDetail(id)
     {
-        //移除订单明显
+        //移除订单明细
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Order/RemoveDetail",
+            dara: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
     }
 </script>

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "icecreamEntity", "ice cream\icecreamEntity.csproj", "{47ECB80B-7705-45B2-97DA-669AD33DC8AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47ECB80B-7705-45B2-97DA-669AD33DC8AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47ECB80B-7705-45B2-97DA-669AD33DC8AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47ECB80B-7705-45B2-97DA-669AD33DC8AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47ECB80B-7705-45B2-97DA-669AD33DC8AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
