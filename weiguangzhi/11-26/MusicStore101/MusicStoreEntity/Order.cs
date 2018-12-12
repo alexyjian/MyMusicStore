@@ -35,9 +35,10 @@ namespace MusicStoreEntity
         public string TradeNo { get; set; }//支付流水号
         [ScaffoldColumn(false)]
         public bool PaySuccess { get; set; }//是否支付成功
+
         [ScaffoldColumn(false)]
         public virtual EnumorderStatus EnumOrderStatus { get; set; }
-        //购买专辑明细
+        //购买专辑明
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public Order()
         {

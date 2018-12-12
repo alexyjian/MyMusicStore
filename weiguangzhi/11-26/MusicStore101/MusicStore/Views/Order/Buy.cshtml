@@ -5,7 +5,7 @@
 }
 
 <h2>确认购买</h2>
-@using (Html.BeginForm())
+@using (Html.BeginForm("buy", "Order", FormMethod.Post))
 {
     <fieldset>
         <legend>收件信息</legend>
@@ -62,54 +62,14 @@
         $.ajax({
             type: 'post',
             async: true,
-            url: '../../ShonppingCart/RemoveCart',
+            url: '../../Order/RemoveDetail',
             data: {id:id},
-            dataType:'json',
+            dataType:"json",
             success: function (data) {
                 $("#tbCart").html(data);
 
-                //局部视图进行刷新
-                setTimeout(function () {
-                    location.reload();
-                },
-                       2000);
+                
             }
             });
-    }
-    function jia(id) {
-        $.ajax({
-            type: 'post',
-            async: true,
-            url: '../../ShonppingCart/Jia',
-            data: { id: id },
-            dataType: 'json',
-            success: function (data) {
-                $("#tbCart").html(data);
-
-                //局部视图进行刷新
-                setTimeout(function () {
-                    location.reload();
-                },
-                       100);
-            }
-        });
-    }
-    function jian(id) {
-        $.ajax({
-            type: 'post',
-            async: true,
-            url: '../../ShonppingCart/RemoveCart',
-            data: { id: id },
-            dataType: 'json',
-            success: function (data) {
-                $("#tbCart").html(data);
-
-                //局部视图进行刷新
-                setTimeout(function () {
-                    location.reload();
-                },
-                      100);
-            }
-        });
     }
 </script>

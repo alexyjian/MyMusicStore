@@ -62,7 +62,33 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
         {
-            return Json("");
+            //如果会话为空，则重新刷新页面
+            if (Session["Order"] == null)
+                return RedirectToAction("buy");
+
+            //读取会话中的Order对象
+            var order = Session["Order"] as Order;
+            var deleteDetail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
+            //从订单明细列表中移除明细记录
+            order.OrderDetails.Remove(deleteDetail);
+
+            //根据新的order对象重新生成Html,返回json数据，局部刷新视图
+            var totalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();//linq表达式一句完成
+            //编辑到用户会话
+            Session["Order"] = order;
+            var htmlString = "";
+            foreach (var item in order.OrderDetails)
+            {
+                htmlString += "<tr>";
+                htmlString += " <td><a href='../Store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" + item.Count + "</td>";
+                htmlString += "<td><a href=\"#\" onclick=\"RemoveDetail('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+            }
+
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+
+            return Json(htmlString);
         }
 
         /// <summary>
@@ -73,7 +99,34 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Buy(Order oder)
         {
-            return View();
+            //1 判断用户登录凭据是否过期，如果过期跳转回登录页，登录成功后返回确认购买页
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShonppingCart") });
+            //2 读出当前用户Person
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //3 从会话中读出订单明细列表
+            var cartItrm = _context.OrderDetails;
+            //4 如果表单验证通过，则保存order到数据库（锁定进程），跳转到支付页
+            if (ModelState.IsValid)
+            {
+                var orders = new Order()
+                {
+                    
+                    AddressPerson=oder.AddressPerson,
+                    OrderDateTime = DateTime.Now,
+                    Address=oder.Address,
+                    MobilNumber=oder.MobilNumber,
+                    PaySuccess=true,
+                    EnumOrderStatus=EnumorderStatus.已付款,
+                    TotalPrice=oder.TotalPrice,
+
+                };
+            }
+            //5 如果验证不通过，返回视图
+            else {
+                ViewBag.ReturnUrl = Url.Action("Buy", "Order");
+            }
+                return View();
         }
 
         /// <summary>
