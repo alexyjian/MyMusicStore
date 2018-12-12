@@ -26,6 +26,9 @@ namespace MusicStore
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/style.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/javascript").Include(
+                "~/Content/script.js"));
         }
     }
 }

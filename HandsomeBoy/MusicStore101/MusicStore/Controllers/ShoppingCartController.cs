@@ -153,10 +153,10 @@ namespace MusicStore.Controllers
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
             var carts = _dbContext.Carts.Where(x => x.Person.ID == person.ID).ToList();
-         
-            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
-       
-            var cartItem = _dbContext.Carts.Find(id);
+            
+               var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+        var cartItem =   carts.Where(x => x.ID == id);
+              //var cartItem = _dbContext.Carts.Find(id);
             if (jj == "jia")
             {
                

@@ -42,7 +42,8 @@ namespace MusicStore.Controllers
                     AlbumID = item.AlbumID,
                     Album = _context.Albuns.Find(item.Album.ID),
                     Count = item.Count,
-                    Price = item.Album.Price
+                    Price = item.Album.Price,
+                    CartID = item.ID
                 };
                 order.OrderDetails.Add(detail);
             }
@@ -55,7 +56,37 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
         {
-            return Json("");
+            //如果会话为空，则重新刷新页面
+            if (Session["Order"] == null)
+                return RedirectToAction("buy");
+            //读取会话中的Order对象
+            var order = Session["Order"] as Order;
+
+            var deleteDetail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
+            //从订单明细列表移除明细记录
+            order.OrderDetails.Remove(deleteDetail);
+            //订单总价
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+            //根据新的order对象重新生成html脚本，返回json数据，局部刷新视图
+            var htmlString = "";
+            foreach (var item in order.OrderDetails)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a html='../store/detail/" + item.AlbumID + "'>" + item.Album.Title ;
+                htmlString += "</td></a>";
+                htmlString += "<td>" + item.Album.Price.ToString("C")+"</td>";
+                htmlString += "<td><ul class=\"count\">";
+                htmlString += "<li><span id = \"num-jian\" class=\"num - jian\" onclick=\"jiaCount('"+item.ID+"')\">-</span></li>";
+                htmlString += "<li><input type =\"text\" class=\"input-num\" id=\"input-num\" value="+item.Count+"></li>";
+                htmlString += " <li><span id = \"num - jia\" class=\"num - jia\" onclick=\"jiaCount('"+item.ID+"')\">+</span></li>";
+                htmlString += "</ul></td>";
+                htmlString += "<td><a href=\"javascript:; \" id=\""+item.ID+ "\" onclick=\"RemoveDetail('"+item.ID+"')\"><i class=\"glyphicon glyphicon-remove\"></i>我不想要他了</a></td>";
+                htmlString += "</tr>";
+            }
+            htmlString += "<tr>";
+            htmlString += "<td></td><td></td><td> 总价 </td><td> " + order.TotalPrice.ToString("C") + " </ td >";
+            htmlString += "</ tr >";
+            return Json(htmlString);
         }
         /// <summary>
         /// 处理用户提交下单
@@ -65,6 +96,11 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Buy(Order oder)
         {
+            //1.判断登录是否过期，如果过期跳到登录页，登录成功后返回确认购买页
+
+            //2.读出当前用户Person
+
+            //3.从会话中读出订单明细列表
             return View();
         }
     }

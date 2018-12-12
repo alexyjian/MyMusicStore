@@ -33,12 +33,12 @@
                         <td>@item.Album.Price.ToString("C")</td>
                         <td>
                             <ul class="count">
-                                <li><span id="num-jian" class="num-jian" onclick="jiaCount('@item.ID')">-</span></li>
+                                <li><span id="num-jian" class="num-jian" onclick="jiajianCount('@item.CartID','jian')">-</span></li>
                                 <li><input type="text" class="input-num" id="input-num" value=@item.Count /></li>
-                                <li><span id="num-jia" class="num-jia" onclick="jiaCount('@item.ID')">+</span></li>
+                                <li><span id="num-jia" class="num-jia" onclick="jiajianCount('@item.CartID','jia')">+</span></li>
                             </ul>
                         </td>
-                        <td><a href="javascript:;" id="@item.ID" onclick="Delete('@item.ID')"><i class="glyphicon glyphicon-remove"></i>我不想要他了</a></td>
+                        <td><a href="javascript:;" id="@item.ID" onclick="RemoveDetail('@item.ID')"><i class="glyphicon glyphicon-remove"></i>我不想要他了</a></td>
                     </tr>
 
                 }
@@ -60,7 +60,19 @@
 }
 
 <script>
+    function RemoveDetail(id) {
+        //移除订单明细
+        $.ajax({
+            type: "post",
+            async: true,
+            url: "../../Order/RemoveDetail",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
 
-    //移除订单明细
-    $.ajax()
+  
 </script>

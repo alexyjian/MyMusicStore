@@ -13,7 +13,7 @@ namespace MusicStoreEntity
         public virtual Albun Album {get;set;}//专辑
         public decimal Price { get; set; }
         public int Count { get; set; }
-
+        public Guid  CartID { get; set; }
         public OrderDetail() {
             ID = Guid.NewGuid();
         }

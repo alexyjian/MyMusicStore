@@ -61,7 +61,7 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
         {
-            return Json("");
+                return Json("");
         }
 
         /// <summary>

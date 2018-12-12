@@ -178,6 +178,7 @@
     <Content Include="Content\Images\popmusic.jpg" />
     <Content Include="Content\Images\ProgressIcon.gif" />
     <Content Include="Content\Images\RockMusic.jpg" />
+    <Content Include="Content\script.js" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
