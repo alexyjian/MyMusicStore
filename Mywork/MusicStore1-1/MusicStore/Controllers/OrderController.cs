@@ -72,7 +72,25 @@ namespace MusicStore.Controllers
             //从订单明细列表中移除明细记录
             order.OrderDetails.Remove(deletaDetail);
 
-            return Json("");
+
+            //根据新的order对象重新生成Html脚本 返回ison数据 局部刷新视图
+            var htmlString = "";
+            //订单总价
+            var totalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+            foreach (var item in order.OrderDetails)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='" + Url.Action("Detail", "Store", new {id = item.Album.ID }) + "'>"
+                    + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" + item.Count+"</td>";
+                htmlString += "<td><a href='#' onclick=RemoveDetail("+item.ID+");'><i class='glyphicon-remove'></i>我不要它了</a></td>";
+                htmlString += "</tr>";
+
+            }
+            htmlString += "<tr><td></td><td></td><td>总价</td><td>" + order.TotalPrice.ToString("C") + "</td></tr>";
+
+            return Json(htmlString);
         }
 
         /// <summary>
@@ -83,6 +101,7 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Buy(Order oder)
         {
+            //
             return View();
         }
 
