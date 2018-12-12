@@ -80,4 +80,30 @@
             }
         });
     }
+
+        function addCount(id){
+        $.ajax({
+            type:'post',
+            async:true,
+            url:'../../Order/AddCount',
+            data:{id: id},
+            dataType:'json',
+            success:function (data){
+                $("#tbCart").html(data);
+            }
+        });
+    }
+
+    function minusCount(id){
+        $.ajax({
+            type:'post',
+            async:true,
+            url:'../../Order/MinusCount',
+            data:{id: id},
+            dataType:'json',
+            success:function (data){
+                $("#tbCart").html(data);
+            }
+        });
+    }
 </script>

@@ -155,10 +155,8 @@ namespace MusicStore.Controllers
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var cartItem = _Context.Carts.Find(id);
-            if (cartItem.Count > 0)
+            if (cartItem.Count > 1)
                 cartItem.Count--;
-            if (cartItem.Count == 0)
-                _Context.Carts.Remove(cartItem);
             _Context.SaveChanges();
 
             var carts = _Context.Carts.Where(x => x.Person.ID == person.ID).ToList();
