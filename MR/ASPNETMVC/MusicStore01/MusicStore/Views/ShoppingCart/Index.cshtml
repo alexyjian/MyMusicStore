@@ -7,7 +7,7 @@
 
 <h2>
     <i class="glyphicon glyphicon-shopping-cart"></i>
-    <em>浏览</em>您的购物车
+    <em>浏览</em>购物车
 </h2>
 
 <p class="button">
@@ -35,14 +35,14 @@
                 @item.Count
             </td>
             <td>
-                <a href="#" onclick="removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移出购物车</a>
+                <a href="#" onclick="removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除</a>
             </td>
         </tr>
     }
     <tr>
         <td></td>
         <td></td>
-        <td>总价</td>
+        <td>商品总价</td>
         <td>@Model.CartTotalPrice.ToString("C")</td>
     </tr>
     </tbody>
