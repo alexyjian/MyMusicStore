@@ -256,10 +256,9 @@
     <Content Include="Views\Home\TestHack.cshtml" />
     <Content Include="Views\Account\ChangePassWord.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Order\Buy.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Order\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
