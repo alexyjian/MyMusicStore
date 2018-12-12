@@ -55,15 +55,39 @@ namespace Music.Controllers
             Session["Order"] = order;
             return View(order);
         }
-
+        [HttpPost]
         public ActionResult RemoveDetail(Guid id)
         {
-            if (Session["loginUserSessionModel"] == null)
+            //如果会话为空，则重新刷新页面
+            if (Session["Order"] == null)
             {
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
-
+                return RedirectToAction("buy");
             }
-            return Json("");
+            //读取会话中的Order对象
+            var order = Session["Order"] as Order;
+            var deleteDetail = order.OrderDetails.SingleOrDefault(x=>x.ID==id);
+            //从订单明细列表中移除明细纪录
+            order.OrderDetails.Remove(deleteDetail);
+            
+            //根据新的order对象,重新生成Html脚本，返回json数据，局部刷新视图
+
+
+            //订单总价
+            var totalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum(); //Linq表达式
+            var htmlString = "";
+            //更新保存会话
+            Session["Order"] = order;
+            foreach (var item in order.OrderDetails)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='" +Url.Action("Detail","Store",new {id = item.Album.ID }) + "'>" + item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td><i style=\"cursor: pointer\" class=\"glyphicon glyphicon-plus\" onclick=\"plus('" + item.ID + "')\"></i> " + item.Count + " <i  style=\"cursor: pointer\" class=\"glyphicon glyphicon-minus\" onclick=\"minus('" + item.ID + "')\"></i></td>";
+                htmlString += "<td><a href=\"#\" onclick=\"removeDetail('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\">移除购物车</i></a></td>";
+            }
+            htmlString += "<tr><td></td><td></td ><td>总价</td><td>" + totalPrice.ToString("C") + "</ td ></ tr >";
+
+            return Json(htmlString);
         }
         /// <summary>
         /// 处理用户提交订单
@@ -73,6 +97,34 @@ namespace Music.Controllers
         [HttpPost]
         public ActionResult Buy(Order oder)
         {
+            //1.确认用户是否登陆 是否登陆过期
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+
+            }
+            //2.读出当前用户Person
+
+            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+
+
+            //3.从会话中读出订单明细列表
+
+            var order = Session["Order"] as Order;
+
+            //4.如果表单验证通过，则保存order到数据库()，跳转到Pay/AliPay
+
+            var od = new Order()
+            {
+                AddresPerson = oder.AddresPerson,
+                Mobilnumber = oder.Mobilnumber,
+                Person = person,
+                TotalPrice = order.TotalPrice
+            };
+            _context.Orders.Add(od);
+
+            //5.如果验证不通过，返回视图
+
             return View();
         }
         /// <summary>
