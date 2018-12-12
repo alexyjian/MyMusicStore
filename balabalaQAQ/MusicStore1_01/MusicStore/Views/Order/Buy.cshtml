@@ -10,6 +10,7 @@
     <fieldset>
         <legend>收件信息</legend>
         @Html.EditorForModel()
+        <br/>
         <legend>您想购买的专辑列表</legend>
         <div class="table-responsive ">
             <table class="table table-bordered table-hover">
@@ -25,7 +26,7 @@
                                 @l.Count
                             </td>
                             <td>@l.Album.Price.ToString("C")</td>
-                            <td><a href="#" id="del" onclick="removeDetail('@l.ID');"> <i class="glyphicon glyphicon-remove"></i>我不喜欢这个了 抛弃！</a></td>
+                            <td><a href="#" id="del" onclick="RemoveDetail('@l.ID');"> <i class="glyphicon glyphicon-remove"></i>我不喜欢这个了 抛弃！</a></td>
                         </tr>
                     }
                     <tr>
@@ -55,6 +56,5 @@
                 $("#tbCart").html(data);
             }
         });
-
     }
 </script>

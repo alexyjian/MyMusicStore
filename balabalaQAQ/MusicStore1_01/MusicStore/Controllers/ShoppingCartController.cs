@@ -134,7 +134,7 @@ namespace MusicStore.Controllers
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"> <i class=\"glyphicon glyphicon-remove\" ></i>我不喜欢这个了 抛弃！</a></td></tr>";
             }
-            htmlString += "<tr><td colspan=\"4\" style=\"text-align:right\">总价格：" + totalPrice.ToString("C") + "</td></tr>";
+            htmlString += "<tr><td colspan=\"4\" style=\"text-align:right\">总价格： <span style =\"color:red\">" + totalPrice.ToString("C") + "<span/></td></tr>";
             return Json(htmlString);
         }
     }
