@@ -23,8 +23,8 @@
 
     </tr>
     <tbody id="tbCart">
-        @foreach (var item in Model.CartItems)
-        {
+      @foreach (var item in Model.CartItems)
+      {
             <tr>
                 <td>
                     @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
@@ -33,7 +33,7 @@
                     @item.Album.Price.ToString("C")
                 </td>
                 <td>
-                    @item.Count
+                    @item.Count 
                 </td>
                 <td>
                     <a href="#" onclick="removeCart('@item.ID');">
