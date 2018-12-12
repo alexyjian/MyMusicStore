@@ -19,6 +19,7 @@ namespace MusicStoreEntity
 
 
         //订单时间
+        [ScaffoldColumn(false)]
         public DateTime OrderDateTime { get; set; }
        
      
