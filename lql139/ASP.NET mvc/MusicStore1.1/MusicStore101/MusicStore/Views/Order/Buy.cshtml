@@ -7,10 +7,10 @@
 <h2>结算订单</h2>
 @using (Html.BeginForm())
 {
-    <fieldset>
+   
         <legend>收件信息</legend>
         @Html.EditorForModel()
-        <legend>
+
             <table class="table table-hover">
 
                 <thead>
@@ -30,7 +30,7 @@
                             <th>@item.Album.Price.ToString("C")</th>
                             <th><button class="btn btn-default" onclick="removeCartAdd('@item.ID')">+</button>&nbsp;@item.Count&nbsp;<button class="btn btn-default" onclick="removeCartSubtract('@item.ID')">-</button></th>
                             <th class="Cart-tbody-th">
-                                <a class="glyphicon glyphicon-remove Cartdelete" onclick="removeDetail('@item.ID')">
+                                <a class="glyphicon glyphicon-remove Cartdelete" onclick="RemoveDetail('@item.ID')">
                                     <span>删除</span>
                                 </a>
                             </th>
@@ -46,7 +46,23 @@
                     </tr>
                 </tbody>
             </table>
-        </legend>
-        <button type="submit" class=""><i class="glphicon glyohicon-shopping-cart">确定购买</i></button>
-    </fieldset>
 }
+     <a class="btn btn-default" href="@Url.Action("", "")" role="button" style="float:right;">确认购买</a>
+    
+<script>
+    function RemoveDetail(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Order/RemoveDetail",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+
+              
+            }
+
+        });
+    }
+</script>
