@@ -23,11 +23,15 @@ namespace MusicStoreEntity
         public string Address { get; set; }
         [Display(Name = "手机")]
         [Required(ErrorMessage = "手机不能为空")]
+
         public string MobilNumber { get; set; }
         public decimal TotalPrice { get; set; }
+        [ScaffoldColumn(false)]
         public string TradeNo { get; set; }
         public bool PaySuccess { get; set; }
-       public virtual EnumOrderStatus EnumOrderStatus {get; set; }
+        [ScaffoldColumn(false)]
+        public virtual EnumOrderStatus EnumOrderStatus {get; set; }
+        [ScaffoldColumn(false)]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public Order()
         {

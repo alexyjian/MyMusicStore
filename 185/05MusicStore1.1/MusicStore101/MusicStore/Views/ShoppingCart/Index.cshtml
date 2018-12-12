@@ -51,14 +51,14 @@
 <script >
     function removeCart(id)
     {
-        $.aj({
+        $.ajax({
             type: 'post',
             async: true,
             url: "../../ShoppingCart/RemoveCart",
             data: { id: id },
             dataType: 'json',
             success: function (data) {
-                $("#tbCart").ht(data);
+                $("#tbCart").html(data);
 
                 setTimeout(function () {
                     location.reload();

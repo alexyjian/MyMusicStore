@@ -34,7 +34,7 @@
             <td>
                 <a href="#" onclick="removeCart('@item.ID')">
                     <i class="glyphicon glyphicon-remove"></i>
-                    移除购物车
+                    我不喜欢它了
                 </a>
             </td>
         </tr>
@@ -54,3 +54,20 @@
     </p>
 </fieldset>
 }
+
+<script>
+    //移除订单明细
+    function RemoveDetail(id)
+    {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Order/RemoveDetail",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>
