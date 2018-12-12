@@ -59,7 +59,49 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
         {
-            return Json("");
+            //如果会话为空，则重新刷新页面
+            if(Session["Order"]==null)
+            {
+                return RedirectToAction("buy");
+            }
+
+            var order = Session["Order"] as Order;
+            var deleteDetail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
+            //从订单明细中移除记录
+            order.OrderDetails.Remove(deleteDetail);
+
+            //重新生成HTML脚本，返回JSON数据，局部刷新视图
+            var carts = _context.Carts.Where(x => x.Person.ID == order.ID).ToList();
+            //订单总价
+            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            var htmlString = "";
+            //foreach (var item in carts)
+            //{
+            //    htmlString += "<tr>";
+            //    htmlString += " <td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></td>";
+            //    htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+            //    htmlString += "<td>" + item.Count + "</td>";
+            //    htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+            //}
+            //更新用户编辑到会话
+            Session["Order"] = order;
+            foreach(var item in order.OrderDetails)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a href='" + Url.Action("Detail", "Store", new { id = item.Album.ID }) + "'>"
+                    +item.Album.Title + "</a></td>";
+                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
+                htmlString += "<td>" + item.Count + "</td>";
+                htmlString += "<td><a href='#' onclick='RemoveDetail("+item.ID+"'><i class='glyphicon glyphicon-remove'></i>移除</a></td>";
+                htmlString += "</tr>";
+            }
+
+            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + order.TotalPrice.ToString("C") + "</td ></tr>";
+
+            return Json(htmlString);
+
+
+            //return Json("");
         }
 
         /// <summary>
@@ -70,6 +112,15 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Buy(Order oder)
         {
+            //1.判断用户登录凭据是否过期，如果过期跳转回登录页，登录成功后返回确认购买页
+
+            //2.读出当前用户person
+
+            //3.从会话中读出订单明细列表
+
+            //4.如果表单验证通过，则保存oreder到数据库
+
+            //5.如果验证不成功，返回视图
             return View();
         }
 
