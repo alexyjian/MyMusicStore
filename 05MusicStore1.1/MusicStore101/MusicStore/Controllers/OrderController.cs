@@ -61,6 +61,19 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
         {
+            //如果会话为空，则重新刷新页面
+            if (Session["Order"] == null)
+                return RedirectToAction("buy");
+
+            //读取会话中的Order对象
+            var order = Session["Order"] as Order;
+            var deleteDetail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
+            //从订单明细列表中移除明细记录
+            order.OrderDetails.Remove(deleteDetail);
+
+            //根据新的order对象重新生成Html脚本，返回json数据，局部刷新视图
+
+
             return Json("");
         }
 
