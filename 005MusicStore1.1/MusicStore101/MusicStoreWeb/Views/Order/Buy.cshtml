@@ -33,7 +33,9 @@
                         </td>
                         <td>
                             <a href="#" onclick="RemoveDetail('@item.ID');">
-                            <i class="glyphicon glyphicon-remove"></i>我不喜欢它了</a>
+                                <i class="glyphicon glyphicon-remove"></i>
+                                我不喜欢它了
+                            </a>
                         </td>
                     </tr>
                 }
@@ -48,15 +50,14 @@
         <p></p>
         <p>
             <button type="submit" class="btn btn-success">
-                <i class="glyphicon glyphicon-shopping-cart">确认购买</i>
+                <i class="glyphicon glyphicon-shopping-cart">确定购买</i>
             </button>
         </p>
     </fieldset>
 }
 
 <script>
-    function RemoveDetail(id)
-    {
+    function RemoveDetail(id) {
         //移除订单明细
         $.ajax({
             type: 'post',
@@ -64,11 +65,11 @@
             url: "../../Order/RemoveDetail",
             data: { id: id },
             dataType: "json",
-            success: function (data)
-            {
+            success: function (data) {
                 $("#tbCart").html(data);
             }
-            });
+        });
     }
 </script>
+
 
