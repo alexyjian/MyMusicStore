@@ -138,9 +138,30 @@ namespace MusicStore.Controllers
             htmlString += "<tr><td colspan=\"4\" style=\"text-align:right\">总价格： <span style =\"color:red\">" + totalPrice.ToString("C") + "<span/></td></tr>";
             return Json(htmlString);
         }
+<<<<<<< HEAD
         public ActionResult Index()
         {
             return View();
+=======
+        public ActionResult DelCart(Guid id)
+        {
+           
+            var cartItem = _context.Cart.SingleOrDefault(x => x.Person.ID == x.Person.ID && x.Album.ID == id);
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var message = "";
+            var item = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
+            if (cartItem.Count == 1)
+            {
+                _context.SaveChanges();
+            }
+            else
+            {
+                cartItem.Count--;
+                _context.SaveChanges();
+                message = _context.Albums.Find(id).Title + "已为您所选的商品数量-1";
+            }
+            return Json(message);
+>>>>>>> c751b59c5399a32d3b106544961b394a8d83b1cc
         }
     }
 }
