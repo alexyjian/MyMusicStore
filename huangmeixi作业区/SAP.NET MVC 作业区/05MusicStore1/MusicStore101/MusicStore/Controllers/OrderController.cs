@@ -18,7 +18,7 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Buy()
         {
-            //确认用户是否登录 是否登录过期
+            //确认用户是否登录 是否登录过期.....进行下一步的操作
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Accoount", new { returnUrl = Url.Action("Buy","Order")});
 
