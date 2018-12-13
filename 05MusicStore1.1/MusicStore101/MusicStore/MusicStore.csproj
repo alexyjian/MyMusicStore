@@ -133,17 +133,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlipayHelper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LockedHelp.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\GenreSeed.cs" />
     <Compile Include="Migrations\UserAndRoleSeed.cs" />
@@ -257,6 +260,7 @@
     <Content Include="Views\Account\ChangePassWord.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Order\Buy.cshtml" />
+    <Content Include="Views\Pay\AliPay.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
