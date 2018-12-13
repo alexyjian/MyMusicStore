@@ -100,7 +100,7 @@ namespace MusicStore.Controllers
         {
             //1.判断用户登录凭据是否过期，如果过期跳转登录页，登录成功后返回确认购买项
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+                return RedirectToAction("login", "Account", new {returnUrl = Url.Action("Buy", "Order")});
 
             //2.读出当前用户Person
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
@@ -108,7 +108,7 @@ namespace MusicStore.Controllers
 
 
             //3.从会话中读出订单明细列表
-            order.OrderDetails=new List<OrderDetail>();
+            order.OrderDetails = new List<OrderDetail>();
             var details = (Session["Order"] as Order).OrderDetails;
             foreach (var item in details)
             {
@@ -117,8 +117,8 @@ namespace MusicStore.Controllers
             }
 
             order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Ablum.Price).Sum();
-            
-                                                                    
+
+
             //4.如果表单验证通过，则保存order到数据库（锁定进程），跳转到Pay/AliPay
             if (ModelState.IsValid)
             {
@@ -128,20 +128,25 @@ namespace MusicStore.Controllers
                 {
                     _Context.Orders.Add(order);
                     _Context.SaveChanges();
-
+                }
+                catch
+                {
 
                 }
-                catch {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
                 finally
                 {
-                    LockedHelp.ThreadLocked(order.ID);
+                    LockedHelp.ThreadUnLocked(order.ID );
                 }
 
+                //跳转到支付页Pay/AliPay
                 return RedirectToAction("Alipay", "Pay", new {id = order.ID});
+
             }
+
             //5.如果验证不通过，返回视图
             return View();
         }
+
 
         /// <summary>
         ///   浏览用户订单                                                                                                                                                                                                                                                                                                                                                                                                                                                   
