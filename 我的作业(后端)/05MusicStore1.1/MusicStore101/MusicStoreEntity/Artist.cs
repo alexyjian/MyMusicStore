@@ -19,6 +19,7 @@ namespace MusicStoreEntity
 
         public Artist()
         {
+            
             ID = Guid.NewGuid();
         }
     }
