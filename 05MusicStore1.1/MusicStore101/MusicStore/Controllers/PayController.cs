@@ -43,7 +43,7 @@ namespace MusicStore.Controllers
             }
 
             //查询person
-            if (Session["LogonUserSessionModel"] == null)
+            if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account",
                     new { returnUrl = Url.Action("AliPay", "Pay", new { id = id, url = Url }) });
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
