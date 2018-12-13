@@ -17,7 +17,12 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var orders = _Context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+            return View(orders);
         }
 
         /// <summary>
