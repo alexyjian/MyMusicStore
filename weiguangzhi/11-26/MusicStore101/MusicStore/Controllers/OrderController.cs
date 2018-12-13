@@ -104,26 +104,47 @@ namespace MusicStore.Controllers
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShonppingCart") });
             //2 读出当前用户Person
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            oder.Person = _context.Persons.Find(person.ID);
+            
             //3 从会话中读出订单明细列表
-            var cartItrm = _context.OrderDetails;
+            oder.OrderDetails = new List<OrderDetail>();
+
+            var details = (Session["Order"] as Order).OrderDetails;
+            foreach (var item in details)
+            {
+                item.Album = _context.Albums.Find(item.Album.ID);
+                oder.OrderDetails.Add(item);
+
+            }
+
+            oder.TotalPrice = (from item in oder.OrderDetails select item.Count * item.Album.Price).Sum();//linq表达式一句完成
+
             //4 如果表单验证通过，则保存order到数据库（锁定进程），跳转到支付页
             if (ModelState.IsValid)
             {
-                var orders = new Order()
+                //加锁
+                LockedHelp.Threadlocked(oder.id);
+                try
                 {
-                    
-                    AddressPerson=oder.AddressPerson,
-                    OrderDateTime = DateTime.Now,
-                    Address=oder.Address,
-                    MobilNumber=oder.MobilNumber,
-                    PaySuccess=true,
-                    EnumOrderStatus=EnumorderStatus.已付款,
-                    TotalPrice=oder.TotalPrice,
+                    _context.Orders.Add(oder);
+                    _context.SaveChanges();
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    LockedHelp.ThreadUnLocked(oder.id);
+                }
+                //跳转到支付页Pay/AliPay 
+                return RedirectToAction("Alipay", "Pay", new { id = oder.id });
+                //_context.Database.Delete();
 
-                };
             }
             //5 如果验证不通过，返回视图
             else {
+                
+                
                 ViewBag.ReturnUrl = Url.Action("Buy", "Order");
             }
                 return View();
@@ -135,7 +156,21 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            //查询出当前登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //查询出该用户的购物车项
+            var orders = _context.Orders.Where(x => x.Person.ID == x.Person.ID).ToList();
+
+
+
+            //创建视图模型
+            var cartVm = new OrderViewModel()
+            {
+                orderItems = orders,
+            };
+            return View(cartVm);
+           
         }
+
     }
 }

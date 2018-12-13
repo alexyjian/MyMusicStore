@@ -11,6 +11,7 @@ namespace MusicStoreEntity
     /// </summary>
     public class OrderDetail
     {
+
         public Guid ID { get; set; }
 
         public string AlbumID { get; set; }//专辑的ID

@@ -1,0 +1,44 @@
+﻿@model MusicStore.ViewModels.OrderViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+}
+
+<h2>Index</h2>
+<table>
+    <tr>
+        <th>订单摘要</th>
+        <th>明细</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;总价</th>
+        <th>&nbsp;&nbsp;状态</th>
+    </tr>
+    <tbody id="tbCart">
+        @foreach (var item in Model.orderItems)
+        {
+            <tr>
+                <td>
+                    @item.TradeNo
+                    <br />
+                    @item.AddressPerson
+                    <br />
+                    @item.Address
+                    <br />
+                    @item.MobilNumber
+                    
+                </td>
+                <td>
+                    @item.OrderDetails
+                </td>
+                <td>@Model.OrderTotalPrice.ToString("C")</td>
+                
+                <td>
+                    未付款
+                    <a class="btn btn-success" href="/pay/alipay/b6f3e78d-988d-4fe2-83b7-84fa9eb9982e">立即支付</a>
+                </td>
+
+            </tr>
+        }
+       
+    </tbody>
+</table>
+
