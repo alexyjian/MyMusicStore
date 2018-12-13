@@ -80,7 +80,7 @@ namespace MusicStore.Controllers
                 htmlString += "<td><a href ='" + Url.Action("Detail", "Store", new { id = item.Album.ID }) + "'>" + item.Album.Title + "</a></td>";
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href='#'onclick ='RemoveDtail('"+item.ID+"');'><i class='glyphicon glyphicon-remove'></i>我不喜欢它了</a></td>";
+                htmlString += "<td><a href=\"#\" onclick=\"RemoveDetail('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
                 htmlString += "</tr>";
             }
             htmlString += "<tr><td></td><td></td><td>总价</td><td>" + order.TotalPrice.ToString("C") + "</td></tr>";
