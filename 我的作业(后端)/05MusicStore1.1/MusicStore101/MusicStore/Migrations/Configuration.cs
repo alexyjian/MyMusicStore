@@ -9,15 +9,15 @@ namespace MusicStore.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled =true ;
         }
 
         protected override void Seed(MusicStoreEntity.EntityDBContext context)
         {
-           // UserAndRoleSeed.AddRoles();
+            //UserAndRoleSeed.AddRoles();
             //UserAndRoleSeed.AddUsers();
-        //    GenreSeed.Seed();
-        //    GenreSeed.Extend();
+            //GenreSeed.Seed();
+            //GenreSeed.Extend();
         }
     }
 }

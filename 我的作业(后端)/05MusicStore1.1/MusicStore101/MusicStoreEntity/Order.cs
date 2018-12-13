@@ -10,7 +10,7 @@ using MusicStoreEntity.UserAndRole;
 namespace MusicStoreEntity
 {
     /// <summary>
-    /// 实体订单
+    /// 实体订单+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     /// </summary>
     public class Order
     {

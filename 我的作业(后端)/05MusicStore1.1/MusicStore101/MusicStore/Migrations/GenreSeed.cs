@@ -21,7 +21,7 @@ namespace MusicStore.Migrations
                 new Genre() {Name="摇滚" ,Description="Rock"},
                 new Genre() {Name="民谣",Description="Jazz" },
                 new Genre() {Name="重金属",Description="Metal" },
-                new Genre() {Name="慢摇",Description="DownTempo" },
+                new Genre() {Name="朋克",Description="Punk" },
                 new Genre() {Name="蓝调",Description="Blue" },
                 new Genre() {Name="拉丁",Description="Latin" },
                 new Genre() {Name="流行",Description="Pop" },
@@ -47,6 +47,11 @@ namespace MusicStore.Migrations
                      new Artist() {Name ="陈奕迅",Sex = true,Description="著名实力派粤语流行音乐歌手、演员，香港演艺人协会副会长之一，曾被美国《时代杂志》形容为影响香港乐坛风格的人物，同时也是继许冠杰、张学友之后第三个获得“歌神”称号的香港男歌手。同时他也是继张学友后另一个在台湾获得成功的香港歌手，在2003年他成为了第二个拿到台湾金曲奖“最佳国语男演唱人”的香港歌手。陈奕迅曾被《时代》杂志形容为影响香港乐坛风格的人物。2010年，陈奕迅入选全球华人音乐殿堂华语金曲奖“30年经典评选”，成为1990年代出道歌手唯一代表。陈奕迅曾在多个亚太地区获得多个奖项和提名，包括香港地区的“叱咤乐坛男歌手金奖”、“叱咤乐坛我最喜爱的男歌手奖”、“十大劲歌金曲最受欢迎男歌星奖”。代表作品：《爱情转移》、《十年》、《浮夸》、《K歌之王》" },
                      new Artist() {Name ="吴亦凡",Sex = true,Description="1990年11月06日出生于广东省广州市，华语影视男演员、流行乐歌手。2007年吴亦凡通过S.M. GlobalAudition Canada加入了韩国SM娱乐公司，参加练习生培训。2012年作为EXO组合成员正式出道，担任EXO/EXO-M队长、主Rapper、门面。2014年5月15日，吴亦凡正式向首尔中央地方法院请求判决与SM娱乐公司专属合同无效。之后吴亦凡回归中国国内发展，出演个人首部电影，担任徐静蕾执导的电影《有一个地方只有我们知道》男主角，凭此获得第3届伦敦国际华语电影节最佳新锐男演员奖。2015年发行首张原创制作单曲《Bad Girl》获第6届全球流行音乐金榜年度最受欢迎新人和亚洲新歌榜年度最具影响力男歌手奖。年底主演电影《老炮儿》上映，因饰演小爷谭小飞一角进一步受到广泛关注。2016年1月博柏利160周年，登上博柏利秀场，同年担任博柏利华人全球代言人。7月主演电影《原来你还在这里》累计票房3.37亿创同年青春片票房纪录。8月主演电影《夏有乔木》上映，以总预售超3600万在同题材影片中拔得头筹4天票房累计过亿，凭此获得日中电影节金鹤奖最佳男主角。11月公布首张英文单曲《JULY》。2017年2月主演电影《西游伏妖篇》票房累计突破16亿，吴亦凡在片中饰演男一号唐三藏。同月受邀第59届格莱美颁奖典礼。" },    new Artist() {Name ="陈粒",Sex = false,Description="陈粒，又名粒粒，1990年7月26日出生于贵州省贵阳市，中国内地民谣女歌手、独立音乐人、唱作人，前空想家乐队主唱，毕业于上海对外经贸大学。2012年，其所在乐队“空想家乐队”获得“Zippo炙热摇滚大赛”上海赛区冠军。2014年，随空想家乐队推出乐队首张EP专辑《万象》；同年，其演唱的歌曲《奇妙能力歌》入围“第四届阿比鹿音乐奖”年度民谣单曲。2015年，推出首张个人音乐专辑《如也》；同年，推出个人民谣单曲《远辰》。2016年1月，获得“第五届阿比鹿音乐奖”最受欢迎音乐人（民谣）；同年3月8日，化身“粒粒”并推出首支单曲《幻期颐》；同年7月26日，推出第二张个人音乐专辑《小梦大半》。" },
                      new Artist() {Name ="花粥",Sex = false,Description="花粥是一名优秀的少先队员，英雄联盟召唤师，完全贯彻社会主义核心价值观的神秘地下音乐工作者。" },
+                     new Artist() {Name ="Eisbrecher",Sex = true,Description="是德国金属乐队Megaherz两位前成员Noel Pix和 AlexxWesselsky组建的。“Eisbrecher”在德语中是“破冰船”的意思。他们的歌词和广告经常包含了冰和航行的内容，Alexx也经常在现场演出中穿水手服和军装。" },
+                     new Artist() {Name ="Bring Me the Horizon",Sex = true,Description="是一支来自英国Sheffield，Yorkshire的死核乐队。乐队成立于2004年，音乐风格混合了death metal 和metalcore，通常被认为是死核-虽然他们在最近的专辑融合了更多的metalcore风格." },
+                     new Artist() {Name ="Al Green",Sex = true,Description="是美国灵魂音乐史上还活着的最伟大人物之一。可以说是灵魂乐三大大师之一，是Rhythm and Blues Foundation Pioneer Awards（节奏与布鲁斯开拓者奖）终身成就大奖得主。他的音乐影响了无数的人，也影响了灵魂乐的发展。他的一首let's stay together，可以说是灵魂乐中不能再经典的经典了。" },
+                     new Artist() {Name ="Abel Korzeniowski",Sex = true,Description="波兰配乐师，从2000年开始进入电影配乐领域，2009年凭借《单身男子》(A Single Man)的配乐惊艳乐坛。该作品荣获2010年World Soundtrack Academy Awards的年度发现大奖，并提名年度最佳电影配乐。他的作品结合了传统管弦和现代实验性的电子音乐以及氛围音乐，给人的感觉既有古典音乐的庄重、华丽，又呈现一些迷幻或者极简主义的味道，偶尔点缀的环境音效果更完美地诠释了配乐与电影作品的互动关系。" },
+                     new Artist() {Name ="the tumbled Sea",Sex = true,Description="来自美国马萨诸塞州波士顿的单人团。Sam Lee的个人音乐计划，2008年发行第一张专辑《songs by the tumbled sea》，2009年发行第二张专辑《melody/summer》，2010年Sam Lee和Alex Caplow共同创建了双人组合（后有新成员加入），摇滚乐队Magic Man，并担任乐队吉他手和键盘手。" },
                     };
             foreach (var a in artists)
                 _dbContext.Artists.Add(a);
@@ -72,6 +77,11 @@ namespace MusicStore.Migrations
                 new Album {Title ="《依然范特西》",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="周杰伦"), AlbumArtUrl="/Content/images/placeholder.gif"},
                 new Album {Title ="《异类》",Genre = genres.Single(g=>g.Name =="流行"),Price=8.99M,Artist=artists.Single(a=>a.Name=="华晨宇"), AlbumArtUrl="/Content/images/placeholder.gif"},
                 new Album {Title ="《纸短情长》",Genre = genres.Single(g=>g.Name =="民谣"),Price=8.99M,Artist=artists.Single(a=>a.Name=="花粥"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="《Eiszeit》",Genre = genres.Single(g=>g.Name =="重金属"),Price=8.99M,Artist=artists.Single(a=>a.Name=="Eisbrecher"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="《Drown》",Genre = genres.Single(g=>g.Name =="朋克"),Price=8.99M,Artist=artists.Single(a=>a.Name=="Bring Me the Horizon"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="《Back Up Train》",Genre = genres.Single(g=>g.Name =="蓝调"),Price=8.99M,Artist=artists.Single(a=>a.Name=="Al Green"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="《Copernicus' Star》",Genre = genres.Single(g=>g.Name =="拉丁"),Price=8.99M,Artist=artists.Single(a=>a.Name=="Abel Korzeniowski"), AlbumArtUrl="/Content/images/placeholder.gif"},
+                new Album {Title ="《songs by the tumbled sea》",Genre = genres.Single(g=>g.Name =="古典"),Price=8.99M,Artist=artists.Single(a=>a.Name=="the tumbled Sea"), AlbumArtUrl="/Content/images/placeholder.gif"},
             }.ForEach(n => _dbContext.Albums.Add(n));
             _dbContext.SaveChanges();
         }
