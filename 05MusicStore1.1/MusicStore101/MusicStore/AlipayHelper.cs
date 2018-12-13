@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MusicStore
 {
+    /// <summary>
+    /// 支付宝sdk，自写版本，使用后果自负
+    /// </summary>
     public class AlipayHelper
     {
         public static bool VerifyParameter(string key, NameValueCollection collection)
