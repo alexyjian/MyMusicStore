@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Entity.Common
+namespace MusicStore
 {
     public class AlipayHelper
     {
