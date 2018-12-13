@@ -121,11 +121,12 @@ namespace MusicStore.Controllers
                 //加锁
                 LockedHelp.ThreadLocked(order.ID);
                 try
-                {
+                {  
                     _context.Orders.Add(order);
                     _context.SaveChanges();
 
                     //清空购物车
+
                 }
                 catch
                 {
