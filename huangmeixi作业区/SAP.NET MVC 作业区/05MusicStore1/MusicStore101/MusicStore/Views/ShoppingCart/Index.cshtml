@@ -1,18 +1,19 @@
 ﻿@model MusicStore.ViewModels.ShoppingCartViewModel
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
 <h2>
-    <i class="glyphicon glyphicon-shopping-cart" ></i>
-    <em>浏览</en>您的购物车
+    <i class="glyphicon glyphicon-shopping-cart"></i>
+    <em>浏览</em>您的购物车
 </h2>
 
 <p class="button">
-    @Html.ActionLink("马上购买","buy","Order")
+    @Html.ActionLink("马上购买", "buy", "Order")
+</p>
 
-    </p>
 <table>
     <tr>
         <th>专辑</th>
@@ -20,7 +21,7 @@
         <th>数量</th>
         <th>操作</th>
     </tr>
-    <tbody id="thCart">
+    <tbody id="tbCart">
         @foreach (var item in Model.CartItems)
         {
             <tr>
@@ -34,10 +35,7 @@
                     @item.Count
                 </td>
                 <td>
-                    <a href="#" onclick="removeCart('@item.ID');">
-                        <i class="glyphicon glyphicon-remove"></i>
-                        移出购物车
-                    </a>
+                    <a href="#" onclick="removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移出购物车</a>
                 </td>
             </tr>
         }
@@ -49,29 +47,28 @@
         </tr>
     </tbody>
 </table>
+
+
 <script>
-    function removeCart(id)
-    {
+    function removeCart(id) {
         //ajax 提交到服务器端进行购物车项的删除
         $.ajax({
             type: 'post',
             async: true,
-            url: "../../ShoppingCart/removeCart",
+            url: "../../ShoppingCart/RemoveCart",
             data: { id: id },
             dataType: 'json',
-            success: function (data) {
-                //视图中进行局部页面的刷新，<tbody>
+            success: function(data) {
+                //视图中进行局部页面的刷新,<tbody>
                 $("#tbCart").html(data);
 
                 //2秒后，自动重新刷新此区域
-                setTimeout(function ()
-                {
-                    location.reload();
-                },
-                1000);
+                setTimeout(function () {
+                        location.reload();
+                    },
+                    1000);
             }
         });
     }
 </script>
-
 

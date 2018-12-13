@@ -18,7 +18,7 @@
                 <th>数量</th>
                 <th>操作</th>
             </tr>
-            <tbody id="thCart">
+            <tbody id="tbCart">
                 @foreach (var item in Model.OrderDetails)
                 {
                     <tr>
@@ -63,7 +63,7 @@
             type: 'post',
             async: true,
             url: "../../Order/RemoveDetail",
-            dara: { id: id },
+            data: { id: id },
             dataType: "json",
             success: function (data) {
                 $("#tbCart").html(data);
