@@ -175,11 +175,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LockedHelp.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\GenreSeed.cs" />
     <Compile Include="Migrations\UserAndRoleSeed.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\RevisePwdViewModelr.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -316,6 +319,7 @@
     <Content Include="Views\Account\RevisePwd.cshtml" />
     <Content Include="Views\ShoppingCart\AddCart.cshtml" />
     <Content Include="Views\ShoppingCart\ShoppingCart.cshtml" />
+    <Content Include="Views\Order\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -281,7 +281,21 @@ tr:hover {
     background-color: #fff;
 }
 
-#album-Link {
-    color: #5d5a53;
-    font-size: 12px;
+
+.Genre-List:link, .Genre-List:visited {
+    color: #666;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.Genre-List:hover {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.Genre-List:active {
+    color: #5e5b54;
+    text-decoration: none;
+    font-weight: bold;
 }
