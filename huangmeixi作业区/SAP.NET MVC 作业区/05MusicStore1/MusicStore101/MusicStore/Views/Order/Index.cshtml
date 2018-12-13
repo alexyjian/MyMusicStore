@@ -1,0 +1,31 @@
+﻿@model MusicStore.ViewModels.ShoppingCartViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>我的订单</h2>
+
+<table>
+    <tr>
+        <th>专辑</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>操作</th>
+    </tr>
+    <tbody id="tbCart">
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
+                </td>
+                <td>
+                    @item.Album.Price.ToString("C")
+                </td>
+                <td>
+                    @item.Count
+                </td>
+                <td>
+            </tr>
+｝
