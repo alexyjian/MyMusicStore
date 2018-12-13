@@ -22,12 +22,14 @@ namespace MusicStore.Controllers
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var carts = _context.Cart.Where(x => x.Person.ID == x.Person.ID).ToList();
             decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+
             var orders = new Order() {
-                Address = person.Name,
+                AdderssPerson = person.Name,
                 MobiNumber = person.MobileNumber,
                 Person = _context.Persons.Find(person.ID),
                 TotaPrice=totalPrice??0.00M,
             };
+
             orders.OrderDetails = new List<OrderDetail>();
             foreach (var item in carts)
             {
@@ -117,8 +119,8 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
                 htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
-                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">-</button></th>";
-                htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
+                htmlString += "<th>&nbsp;" + item.Count + "&nbsp;</th>";
+                htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除此项</a></th><tr>";
 
             }
             htmlString += "<tr><th ></th><th></th><th></th><th  class=\"totalprice - th\" colspan=\"4\">总价" + order.TotaPrice.ToString("C") + "</th ></tr>";

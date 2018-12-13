@@ -23,7 +23,7 @@ namespace MusicStore
         {
             _Mutex.WaitOne();
             SemaphoreSlim slim;
-            if (! _Slim.TryGetValue(id,out slim))
+            if (! _Slim.TryGetValue(id, out slim))
             {
                 slim = new SemaphoreSlim(1);
                 _Slim.Add(id,slim);
