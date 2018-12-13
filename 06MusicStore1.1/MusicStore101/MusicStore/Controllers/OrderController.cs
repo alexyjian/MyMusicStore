@@ -98,6 +98,16 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Buy(Order oder)
         {
+            //1.判断用户登录凭据是否过期，如果过期跳转回登录页，登录成功后返回确认购买页
+
+            //2.读出当前用户Person
+
+            //3.从会话中读出订单明细列表
+
+            //4.如果表单验证通过，则保存order到数据库（锁定进程），条转到Pay/AliPay
+
+            //5.如果验证不通过，返回视图
+
             return View();
         }
 
