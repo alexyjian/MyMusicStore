@@ -17,7 +17,8 @@ namespace MusicStore.Controllers
         public ActionResult Index()
         {
             var context = new EntityDbContext();
-            return View(context.Albums.OrderByDescending(x=>x.PublisherDate).Take(20).ToList());
+            var list = context.Albums.OrderByDescending(x => x.PublisherDate).Take(20).ToList();
+            return View(list);
         }
 
         
