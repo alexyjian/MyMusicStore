@@ -138,5 +138,9 @@ namespace MusicStore.Controllers
             htmlString += "<tr><td colspan=\"4\" style=\"text-align:right\">总价格： <span style =\"color:red\">" + totalPrice.ToString("C") + "<span/></td></tr>";
             return Json(htmlString);
         }
+        public ActionResult Index()
+        {
+            return View();
+        }
     }
 }
