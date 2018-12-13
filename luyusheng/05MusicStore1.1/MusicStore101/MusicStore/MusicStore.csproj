@@ -257,7 +257,7 @@
     <Content Include="Views\Account\ChangePassWord.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Order\Buy.cshtml" />
-    <Content Include="Views\Order\Pay\AliPay.cshtml" />
+    <Content Include="Views\Pay\AliPay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
