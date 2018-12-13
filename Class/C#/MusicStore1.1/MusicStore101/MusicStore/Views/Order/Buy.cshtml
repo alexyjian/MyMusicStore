@@ -7,7 +7,7 @@
 <h3>确认下单</h3>
 <hr />
 @*收货信息*@
-@using (Html.BeginForm("Buy","Order",new { order = Model },FormMethod.Post))
+@using (Html.BeginForm())
 {
 @Html.AntiForgeryToken()
 <div class="panel panel-info">

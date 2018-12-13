@@ -27,7 +27,7 @@ namespace MusicStore.Controllers
         public ActionResult Buy()
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var carts = _Context.Carts.Where(x => x.Person.ID == person.ID).ToList();
@@ -46,7 +46,7 @@ namespace MusicStore.Controllers
             foreach (var item in carts)
             {
                 var od = new OrderDetail()
-                { 
+                {
                     AlbumID = item.AlbumID,
                     Album = item.Album,
                     Count = item.Count,
@@ -61,30 +61,52 @@ namespace MusicStore.Controllers
         /// <summary>
         /// 处理用户提交下单
         /// </summary>
-        /// <param name="oder"></param>
+        /// <param name="order"></param>
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Buy(Order oder)
+        public ActionResult Buy(Order order)
         {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            order.Person = _Context.Persons.Find(person.ID);
+            order.OrderDetails = new List<OrderDetail>();
+
+            foreach (var item in (Session["Order"] as Order).OrderDetails)
+            {
+                item.Album = _Context.Albums.Find(item.Album.ID);
+                order.OrderDetails.Add(item);
+            }
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+
             if (ModelState.IsValid)
             {
-                if (Session["LoginUserSessionModel"] == null)
-                    return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+                LockHelp.ThreadLocked(order.ID);
+                try
+                {
+                    //订单数据持久化
+                    _Context.Orders.Add(order);
+                    _Context.SaveChanges();
 
-                var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
-                
-                _Context.SaveChanges();
-
-                foreach (var item in (Session["Order"] as Order).OrderDetails)
-                    _Context.OrderDetails.Add(item);
-
-                _Context.SaveChanges();
-                return RedirectToAction("Index","Order");
+                    //清空购物车
+                    foreach (var item in order.OrderDetails)
+                    {
+                        var removecart = _Context.Carts.SingleOrDefault(x => x.Album.ID == item.Album.ID);
+                        _Context.Carts.Remove(removecart);
+                    }
+                    _Context.SaveChanges();
+                }
+                catch { }
+                finally
+                {
+                    LockHelp.ThreadUnLocked(order.ID);
+                }
+                return RedirectToAction("Alipay", "Pay", new { id = order.ID });
             }
-
-            return View();  
+            return View();
         }
 
         /// <summary>
@@ -96,7 +118,7 @@ namespace MusicStore.Controllers
         public ActionResult RemoveDetail(Guid id)
         {
             if (Session["Order"] == null)
-                return RedirectToAction( "Buy", "Order");
+                return RedirectToAction("Buy", "Order");
 
             var order = Session["Order"] as Order;
             //在会话中查询明细
