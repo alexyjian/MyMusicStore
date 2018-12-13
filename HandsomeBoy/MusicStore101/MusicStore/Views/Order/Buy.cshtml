@@ -7,7 +7,7 @@
 
 
 <h2>新用户注册</h2>
-@using (Html.BeginForm("Register", "Login", FormMethod.Post))
+@using (Html.BeginForm())
 {
     <fieldset>
         <legend>
@@ -38,7 +38,7 @@
                                 <li><span id="num-jia" class="num-jia" onclick="jiajianCount('@item.CartID','jia')">+</span></li>
                             </ul>
                         </td>
-                        <td><a href="javascript:;" id="@item.ID" onclick="RemoveDetail('@item.ID')"><i class="glyphicon glyphicon-remove"></i>我不想要他了</a></td>
+                        <td><a href="javascript:;" id="@item.ID" onclick="RemoveDetail('@item.ID','@item.Album.Title')"><i class="glyphicon glyphicon-remove"></i>我不想要他了</a></td>
                     </tr>
 
                 }
@@ -60,18 +60,22 @@
 }
 
 <script>
-    function RemoveDetail(id) {
-        //移除订单明细
-        $.ajax({
-            type: "post",
-            async: true,
-            url: "../../Order/RemoveDetail",
-            data: { id: id },
-            dataType: "json",
-            success: function (data) {
-                $("#tbCart").html(data);
-            }
-        });
+    function RemoveDetail(id,Title) {
+        if (confirm("您确定要删除《" + Title + "》专辑么？"))
+        {
+            //移除订单明细
+            $.ajax({
+                type: "post",
+                async: true,
+                url: "../../Order/RemoveDetail",
+                data: { id: id },
+                dataType: "json",
+                success: function (data) {
+                    $("#tbCart").html(data);
+                }
+            });
+       }
+      
     }
 
   

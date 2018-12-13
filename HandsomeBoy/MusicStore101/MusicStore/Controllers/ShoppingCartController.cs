@@ -113,14 +113,14 @@ namespace MusicStore.Controllers
 
             var cartItem = _dbContext.Carts.Find(id);
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            if (cartItem.Count > 1)
-            {
-                cartItem.Count -= 1;
-            }
-            else
-            {
+            //if (cartItem.Count > 1)
+            //{
+            //    cartItem.Count -= 1;
+            //}
+            //else
+            //{
                 _dbContext.Carts.Remove(cartItem);
-            }
+            //}
             _dbContext.SaveChanges();
 
             //刷新局部视图  生成html元素注入到<tbody>中
@@ -134,9 +134,9 @@ namespace MusicStore.Controllers
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td>";
                 htmlString += "<ul class=\"count\">";
-                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\" onclick=\"jianCount('" + item.ID + "')\">-</span></li>";
+                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\" onclick=\"jiajianCount('" + item.ID + "','jian')\">-</span></li>";
                 htmlString += " <li><input type =\"text\" class=\"input-num\" id=\"input-num\" value=" + item.Count + " /></li>";
-                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\" onclick=\"jiaCount('" + item.ID + "')\">+</span></li>";
+                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\" onclick=\"jiajianCount('" + item.ID + "','jia')\">+</span></li>";
                 htmlString += "</ul>";
                 htmlString += "</td>";
                 htmlString += "<td><a href=\"javascript:;\" onclick=\"Delete('" + item.ID + "')\"><i class=\"glyphicon glyphicon-remove\"></i>我不想要他了</a></td><tr>";
@@ -153,20 +153,26 @@ namespace MusicStore.Controllers
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
             var carts = _dbContext.Carts.Where(x => x.Person.ID == person.ID).ToList();
-            
+          
                var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
-        var cartItem =   carts.Where(x => x.ID == id);
-              //var cartItem = _dbContext.Carts.Find(id);
-            if (jj == "jia")
+        
+
+            foreach (var item in carts)
             {
-               
-                cartItem.Count++;
+                if (item.ID == id)
+                {
+                    if (jj == "jia")
+                    {
+                        item.Count++;
+                    }
+                    else if (jj == "jian")
+                    {
+                        if (item.Count >= 2)
+                            item.Count--;
+                    }
+                }
             }
-            else if (jj == "jian")
-            {
-                if (cartItem.Count>=2)
-                    cartItem.Count--;
-            }
+
             var htmlString = "";
             foreach (var item in carts)
             {
@@ -175,9 +181,9 @@ namespace MusicStore.Controllers
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td>";
                 htmlString += "<ul class=\"count\">";
-                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\" onclick=\"jianCount('" + item.ID + "')\">-</span></li>";
+                htmlString += " <li><span id =\"num - jian\" class=\"num - jian\" onclick=\"jiajianCount('" + item.ID + "','jian')\">-</span></li>";
                 htmlString += " <li><input type =\"text\" class=\"input-num\" id=\"input-num\" value=" + item.Count + " /></li>";
-                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\" onclick=\"jiaCount('" + item.ID + "')\">+</span></li>";
+                htmlString += "<li><span id = \"num -jia\" class=\"num-jia\" onclick=\"jiajianCount('" + item.ID + "','jia')\">+</span></li>";
                 htmlString += "</ul>";
                 htmlString += "</td>";
                 htmlString += "<td><a href=\"javascript:;\" onclick=\"Delete('" + item.ID + "')\"><i class=\"glyphicon glyphicon-remove\"></i>我不想要他了</a></td><tr>";

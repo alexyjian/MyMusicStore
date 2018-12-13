@@ -10,13 +10,7 @@ function jiajianCount(ID,jj) {
         dataType: 'json',
         success: function (data) {
             //视图中进行局部页面的刷新 <tbody>
-            $(".count input").html(data);
-
-            setTimeout(function () {
-                location.reload();
-            },
-               1000);
-
+            $("#tbCart").html(data);
         }
     })
 }

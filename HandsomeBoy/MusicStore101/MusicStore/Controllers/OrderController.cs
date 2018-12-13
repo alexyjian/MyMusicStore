@@ -76,9 +76,9 @@ namespace MusicStore.Controllers
                 htmlString += "</td></a>";
                 htmlString += "<td>" + item.Album.Price.ToString("C")+"</td>";
                 htmlString += "<td><ul class=\"count\">";
-                htmlString += "<li><span id = \"num-jian\" class=\"num - jian\" onclick=\"jiaCount('"+item.ID+"')\">-</span></li>";
+                htmlString += "<li><span id = \"num-jian\" class=\"num - jian\" onclick=\"jiajianCount('" + item.ID+"','jian')\">-</span></li>";
                 htmlString += "<li><input type =\"text\" class=\"input-num\" id=\"input-num\" value="+item.Count+"></li>";
-                htmlString += " <li><span id = \"num - jia\" class=\"num - jia\" onclick=\"jiaCount('"+item.ID+"')\">+</span></li>";
+                htmlString += " <li><span id = \"num - jia\" class=\"num - jia\" onclick=\"jiajianCount('" + item.ID+ "','jia')\">+</span></li>";
                 htmlString += "</ul></td>";
                 htmlString += "<td><a href=\"javascript:; \" id=\""+item.ID+ "\" onclick=\"RemoveDetail('"+item.ID+"')\"><i class=\"glyphicon glyphicon-remove\"></i>我不想要他了</a></td>";
                 htmlString += "</tr>";
@@ -94,13 +94,54 @@ namespace MusicStore.Controllers
         /// <param name="oder"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Buy(Order oder)
+        public ActionResult Buy(Order order)
         {
             //1.判断登录是否过期，如果过期跳到登录页，登录成功后返回确认购买页
-
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
             //2.读出当前用户Person
-
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            order.Person = _context.Persons.Find(person.ID);
             //3.从会话中读出订单明细列表
+            order.OrderDetails = new List<OrderDetail>();
+           
+            var details = (Session["Order"] as Order).OrderDetails;
+            foreach (var item in details)
+            {
+                item.Album = _context.Albuns.Find(item.Album.ID);
+                order.OrderDetails.Add(item);
+            }
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+            //4.如果表单验证通过，则保存 order到数据库（锁定进程），跳转到Pay/Alipay
+            if (ModelState.IsValid)
+            {
+                //加锁
+                LockedHelp.ThreadLocked(order.ID);
+                try
+                {
+                    _context.Orders.Add(order);
+                    _context.SaveChanges();
+                    //移除购物车
+                    _context.Database.ExecuteSqlCommand("delete Carts");
+                }
+                catch
+                { }
+                finally
+                {
+                    LockedHelp.ThreadUnLocked(order.ID);
+                }
+                //跳转到支付页
+                return RedirectToAction("Alipay", "Pay", new { id = order.ID });
+            }
+            return View();
+        }
+
+        /// <summary>
+        /// 浏览用户订单列表
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Index()
+        {
             return View();
         }
     }
