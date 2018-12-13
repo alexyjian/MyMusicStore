@@ -11,7 +11,7 @@ namespace MusicStore
     /// </summary>
     public class LockedHelp
     {
-        public static Mutex Mutex = new Mutex();
+        public static Mutex _Mutex = new Mutex();
         private static readonly Dictionary<Guid, SemaphoreSlim> _Slim = new Dictionary<Guid, SemaphoreSlim>();
         private static readonly Dictionary<Guid, int> _Count = new Dictionary<Guid, int>();
 
