@@ -71,7 +71,7 @@ namespace MusicStore.Controllers
             //从订单明细列表中移除明细记录
             order.OrderDetails.Remove(deleteDetail);
 
-            //根据新的order对象重新生成Html脚本，返回json数据，局部刷新视图
+            //根据新的order对象重新生成Html脚本，返回json数据，局部刷新视图1
             var htmlString = "";
             //订单总价
             order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
