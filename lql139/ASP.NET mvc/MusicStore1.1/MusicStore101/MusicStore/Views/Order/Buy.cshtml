@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="tbCart">
                     @foreach (var item in Model.OrderDetails)
                     {
                         <tr>
@@ -47,22 +47,24 @@
                 </tbody>
             </table>
 }
-     <a class="btn btn-default" href="@Url.Action("", "")" role="button" style="float:right;">确认购买</a>
+    <button type="submit" class="btn btn-default"  style="float:right;">确认购买</button>
     
 <script>
     function RemoveDetail(id) {
+     
         $.ajax({
             type: 'post',
             async: true,
             url: "../../Order/RemoveDetail",
             data: { id: id },
-            dataType: 'json',
+            dataType: "json",
             success: function (data) {
                 $("#tbCart").html(data);
 
-              
+                //setTimeout(function () {
+                //    location.reload();//刷新区域
+                //}, 100);
             }
-
         });
     }
 </script>

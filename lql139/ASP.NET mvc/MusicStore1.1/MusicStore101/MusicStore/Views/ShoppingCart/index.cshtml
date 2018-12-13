@@ -16,7 +16,7 @@
         </tr>
     </thead>
   
-    <tbody>
+    <tbody id="tbCart">
         @foreach (var item in Model.CartItems)
             {
             <tr>
@@ -52,9 +52,9 @@
             success: function (data) {
                 $("#tbCart").html(data);
 
-                setTimeout(function () {
-                    location.reload();//刷新区域
-                }, 100);
+                //setTimeout(function () {
+                //    location.reload();//刷新区域
+                //}, 100);
             }
         });
     }

@@ -33,8 +33,8 @@ namespace MusicStore.Controllers
             {
                 var detail = new OrderDetail() {
                     AlbumID = item.AlbumID,
-                    Album = item.Album,
-                    Count=item.Count,
+                    Album = _context.Albums.Find(item.Album.ID),
+                    Count =item.Count,
                     Price=item.Album.Price
                 };
                 orders.OrderDetails.Add(detail);
@@ -44,16 +44,47 @@ namespace MusicStore.Controllers
         }
       
         [HttpPost]
-        public ActionResult Buy(Order oder)
+        public ActionResult Buy(Order order)
         {
             //判断用户凭据是否过期
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
+                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("Buy", "Order") });
+
             //读出当前用户
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            order.Person = _context.Persons.Find(person.ID);
+
             //读出订单明细列表
+            order.OrderDetails = new List<OrderDetail>();
+            order.TotaPrice = 0.00M;
+            var details = (Session["Order"] as Order).OrderDetails;
+            foreach (var item in details)
+            {
+                item.Album = _context.Albums.Find(item.Album.ID);
+                order.OrderDetails.Add(item);
+            }
+            order.TotaPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
 
             //验证通过，保存到数据库，跳转到Pay/Alipay
+            if (ModelState.IsValid)
+            {
+                //加锁
+                LockedHelp.ThreadUnLocked(order.ID);
+                try
+                {
+                    _context.Orders.Add(order);
+                    _context.SaveChanges();
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    LockedHelp.ThreadUnLocked(order.ID);
+                }
+                return RedirectToAction("Alipay","Pay",new { id=order.ID});
+            }
 
             //不通过验证返回视图
             return View();
@@ -73,24 +104,24 @@ namespace MusicStore.Controllers
                 return RedirectToAction("buy");
 
             var order = Session["Order"] as Order;
+            var deleteDetail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
 
-            var deleDetail = order.OrderDetails.SingleOrDefault(x => x.ID == id);
-            order.OrderDetails.Remove(deleDetail);
+            order.OrderDetails.Remove(deleteDetail);
+
             var htmlString = "";
-            order.TotaPrice = (from item in order.OrderDetails
-                              select item.Count * item.Album.Price).Sum();
-            Session["Order"] = order;
+
+            order.TotaPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+
+            Session["Order"] = order; 
             foreach (var item in order.OrderDetails)
             {
-                htmlString += "<tr>";
-                htmlString += "<td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a><td/>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+                htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
+                htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
+                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">-</button></th>";
+                htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
 
             }
-            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + order.TotaPrice.ToString("C") + "</td ></tr>";
-
+            htmlString += "<tr><th ></th><th></th><th></th><th  class=\"totalprice - th\" colspan=\"4\">总价" + order.TotaPrice.ToString("C") + "</th ></tr>";
             return Json(htmlString);
         }
     }

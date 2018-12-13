@@ -92,14 +92,13 @@ namespace MusicStore.Controllers
             var htmlString = "";
             foreach (var item in carts)
             {
-                htmlString += "<tr>";
-                htmlString += "<td><a href='../store/detail/"+item.ID+"'>"+item.Album.Title+"</a><td/>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") +"</td>";
-                htmlString +="<td>"+item.Count+"</td>";
-                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+                htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
+                htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
+                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('"+item.ID+"')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">-</button></th>";
+                htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
 
             }
-            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            htmlString += "<tr><th ></th><th></th><th></th><th  class=\"totalprice - th\" colspan=\"4\">总价" + totalPrice.ToString("C") + "</th ></tr>";
             return Json(htmlString);
         }
         public ActionResult removeCartAdd(Guid id)
@@ -120,14 +119,13 @@ namespace MusicStore.Controllers
             var htmlString = "";
             foreach (var item in carts)
             {
-                htmlString += "<tr>";
-                htmlString += "<td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a><td/>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+                htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
+                htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
+                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">-</button></th>";
+                htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
 
             }
-            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            htmlString += "<tr><th ></th><th></th><th></th><th  class=\"totalprice - th\" colspan=\"4\">总价" + totalPrice.ToString("C") + "</th ></tr>";
             return Json(htmlString);
         }
         public ActionResult removeCartSubtract(Guid id)
@@ -148,14 +146,13 @@ namespace MusicStore.Controllers
             var htmlString = "";
             foreach (var item in carts)
             {
-                htmlString += "<tr>";
-                htmlString += "<td><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a><td/>";
-                htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
-                htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+                htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
+                htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
+                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">-</button></th>";
+                htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
 
             }
-            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + totalPrice.ToString("C") + "</td ></tr>";
+            htmlString += "<tr><th ></th><th></th><th></th><th  class=\"totalprice - th\" colspan=\"4\">总价" + totalPrice.ToString("C") + "</th ></tr>";
             return Json(htmlString);
         }
     }
