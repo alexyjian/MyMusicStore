@@ -25,6 +25,7 @@ namespace MusicStoreEntity
         [Required(ErrorMessage = "手机不能为空")]
 
         public string MobilNumber { get; set; }
+        [ScaffoldColumn(false)]
         public decimal TotalPrice { get; set; }
         [ScaffoldColumn(false)]
         public string TradeNo { get; set; }
