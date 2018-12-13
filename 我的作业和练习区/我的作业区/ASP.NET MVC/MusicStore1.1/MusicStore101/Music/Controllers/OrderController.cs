@@ -162,7 +162,21 @@ namespace Music.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            return View();
+            //1.确认用户是否登陆 是否登陆过期
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+
+            }
+            //2.读出当前用户Person
+
+            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            //3.读出订单明细
+
+            var orders = _context.Orders.Where(x => x.Person.ID == person.ID ).ToList();
+            
+            return View(orders);
         }
     }
 }

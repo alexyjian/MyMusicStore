@@ -44,7 +44,7 @@ namespace MusicStoreEntity
         {
             ID=Guid.NewGuid();
             OrderDateTime=DateTime.Now;
-            TradeNo = OrderDateTime.ToString("yyyyMMMMddhhmmssffff");
+            TradeNo = OrderDateTime.ToString("yyyyMMddhhmmssffff");
         }
     }
 }
