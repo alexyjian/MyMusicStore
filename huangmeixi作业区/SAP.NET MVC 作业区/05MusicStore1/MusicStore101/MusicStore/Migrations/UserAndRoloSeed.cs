@@ -144,6 +144,7 @@ namespace MusicStore.Migrations
             idManager.CreateUser(newUser3, "123.abc");
             idManager.AddUserToRole(newUser3.Id, "Manager");
 
+
             #endregion 业务管理
         }
     }
