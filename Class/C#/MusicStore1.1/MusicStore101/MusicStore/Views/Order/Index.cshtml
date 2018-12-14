@@ -56,7 +56,7 @@
                             }
                         </td>
                         <td>
-                            <a href="#" class="btn btn-success">立即支付</a>
+                            @Html.ActionLink("立即支付","Alipay","Pay",new { id = item.ID},new { @class = "btn btn-success"})
                         </td>
                     </tr>
                     }

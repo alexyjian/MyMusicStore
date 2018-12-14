@@ -31,3 +31,12 @@ body {
     color:yellow;
     background-color:red;
 }
+
+.mobilenumber {
+    font-size:10px;
+    color:#9b9b9b;
+}
+
+.address {
+    font-size:13px;
+}

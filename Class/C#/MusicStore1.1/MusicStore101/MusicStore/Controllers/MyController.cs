@@ -12,6 +12,7 @@ namespace MusicStore.Controllers
 {
     public class MyController : Controller
     {
+        private static readonly MusicStoreEntity.EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
         /// <summary>
         /// 修改密码视图
         /// </summary>
@@ -60,8 +61,50 @@ namespace MusicStore.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// 我的信息
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public ActionResult Info(InfoViewModel model)
         {
+            return View();
+        }
+
+        /// <summary>
+        /// 收件地址信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddressInfo()
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("AddressInfo", "My") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var ars = _context.PeopleAddress.Where(x => x.Person.ID == person.ID).ToList();
+
+            return View(ars);
+        }
+
+        [HttpPost]
+        public ActionResult AddressInfo()
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("AddressInfo", "My") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var ars = _context.PeopleAddress.Where(x => x.Person.ID == person.ID).ToList();
+
+            return View(ars);
+        }
+
+        public ActionResult Addaddress()
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Addaddress", "My") });
+            
             return View();
         }
     }
