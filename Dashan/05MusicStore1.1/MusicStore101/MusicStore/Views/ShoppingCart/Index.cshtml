@@ -8,13 +8,12 @@
     <i class="glyphicon glyphicon-shopping-cart"></i>
     <em>浏览</em>您的购物车
 </h2>
-<p class="button">
+<p class="btn btn-info btn-sm">
     @Html.ActionLink("马上购买","Buy","Order")
 </p>
-
+<p></p>
 
 <table>
-
         <tr>
             <th>专辑名称</th>
             <th>单价</th>
@@ -28,18 +27,15 @@
             <tr >
                 <td>
                     @Html.ActionLink(item.Album.Title,"detail","Store",new { id = item.Album.ID },null)
-
                 </td>
                 <td>
                     @item.Album.Price.ToString("C");
-
                 </td>
                 <td>
                     @item.Count
                 </td>
                 <td>
                     <a href="#" onclick = "removeCart ('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除购物车</a>
-                
                 </td>
             </tr>
         }
@@ -52,6 +48,7 @@
       
     </tbody>
 </table>
+<p></p>
 
 <script>
     function removeCart(id) {
