@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using MusicStore.ViewModels;
+using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
@@ -87,25 +88,94 @@ namespace MusicStore.Controllers
             return View(ars);
         }
 
+        /// <summary>
+        /// 收件地址信息
+        /// </summary>
+        /// <param name="peopleaddress"></param>
+        /// <returns></returns>
         [HttpPost]
-        public ActionResult AddressInfo()
+        [ValidateAntiForgeryToken]
+        public ActionResult AddressInfo(PeopleAddress peopleaddress)
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("AddressInfo", "My") });
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
-            var ars = _context.PeopleAddress.Where(x => x.Person.ID == person.ID).ToList();
-
-            return View(ars);
+            var info = new PeopleAddress()
+            {
+                Address = peopleaddress.Address,
+                MobileNumber = peopleaddress.MobileNumber,
+                Name = peopleaddress.Name
+            };
+            info.Person = _context.Persons.Find(person.ID);
+            _context.PeopleAddress.Add(info);
+            _context.SaveChanges();
+            return RedirectToAction("AddressInfo", "My");
         }
 
+        /// <summary>
+        /// 添加收获地址页面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Addaddress()
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Addaddress", "My") });
             
             return View();
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Remove(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("AddressInfo", "My") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var del = _context.PeopleAddress.Find(id);
+            _context.PeopleAddress.Remove(del);
+            _context.SaveChanges();
+            var ads = _context.PeopleAddress.Where(x => x.Person.ID == person.ID).ToList();
+            var htmlString = "";
+            foreach (var item in ads)
+            {
+                htmlString += "<tr><td>" + item.Name + "&nbsp; &nbsp;<span class='mobilenumber'>" + item.MobileNumber + "</span><br /><span class='address'>" + item.Address + "</span></td>";
+                htmlString += "<td class='mobilenumber'><a href='@Url.Action('EditAddress','My',new{id="+item.ID+"})'>编辑</a>&nbsp;&nbsp;<a href = '#' onclick=" + '"' + "remove('" + item.ID + "')" + '"' + "> 删除 </ a ></ td > ";
+                htmlString += "</tr>";
+            }
+            return Json(htmlString);
+        }
+
+        /// <summary>
+        /// 修改页面
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult EditAddress(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("AddressInfo", "My") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var ad = _context.PeopleAddress.Find(id);
+            return View(ad);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAddress(PeopleAddress peopleaddress)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("EditAddress", "My") }); 
+            _context.SaveChanges();
+            return RedirectToAction("AddressInfo", "My");
         }
     }
 }

@@ -31,6 +31,7 @@ namespace MusicStoreEntity
         public PeopleAddress()
         {
             ID = Guid.NewGuid();
+            IsClick = false;
         }
     }
 }

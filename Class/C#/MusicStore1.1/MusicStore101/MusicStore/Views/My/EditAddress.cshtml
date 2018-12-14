@@ -1,17 +1,17 @@
 ﻿@model MusicStoreEntity.PeopleAddress
 @{
-    ViewBag.Title = "添加地址";
+    ViewBag.Title = "修改地址";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<h3>地址信息</h3>
+<h3>修改</h3>
 <hr />
-@using (Html.BeginForm("AddressInfo", "My", new { peopleaddress = Model},FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm("EditAddress", "My", new {peopleaddress = Model}, FormMethod.Post, new { role = "form" }))
 {
     @Html.AntiForgeryToken()
     <div class="input-group">
         <span class="input-group-addon">收件人</span>
-        @Html.TextBoxFor(x=>x.Name,new { @class="form-control", placeholder="PeopleAddress"})
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "PeopleAddress" })
     </div>
     <span class="text-danger">@Html.ValidationMessageFor(x => x.Name)</span>
     <br />

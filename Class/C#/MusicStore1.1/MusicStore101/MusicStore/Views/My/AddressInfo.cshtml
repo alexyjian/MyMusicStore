@@ -23,7 +23,8 @@
                         <span class="address">@item.Address</span>
                     </td>
                     <td class="mobilenumber">
-                        @Html.ActionLink("编辑", "EditAddress", "My", null)
+                        <a href="@Url.Action("EditAddress","My",new { id=item.ID})">编辑</a>
+                        <a href="#" onclick="remove('@item.ID')">删除</a>
                     </td>
                 </tr>
                 }
@@ -31,3 +32,17 @@
         </table>
     </div>
 </div>
+<script>
+    function remove(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../My/Remove',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>

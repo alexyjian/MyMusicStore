@@ -40,12 +40,14 @@ namespace MusicStore.Controllers
             var order = new Order()
             {
                 Person = person,
-                AddressPerson = person.Name,
-                mobilNumber = person.TelephoneNumber,
                 TotalPrice = (from item in carts select item.Count * item.Album.Price).Sum(),
                 PaySuccess = false,
-                EnumOrderStatus = EnumOrderStatus.未付款
+                EnumOrderStatus = EnumOrderStatus.未付款,
+                PeopleAddress = _Context.PeopleAddress.SingleOrDefault(x => x.Person.ID == person.ID && x.IsClick == true)
             };
+            order.AddressPerson = order.PeopleAddress.Name;
+            order.Address = order.PeopleAddress.Address;
+            order.mobilNumber = order.PeopleAddress.MobileNumber;
 
             order.OrderDetails = new List<OrderDetail>();
             foreach (var item in carts)
@@ -70,7 +72,7 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Buy(Order order)
+        public ActionResult Buy(Order order)  
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Buy", "Order") });

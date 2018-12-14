@@ -46,6 +46,8 @@ namespace MusicStoreEntity
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
+        public virtual PeopleAddress PeopleAddress { get; set; }
+
         public Order()
         {
             ID = Guid.NewGuid();
