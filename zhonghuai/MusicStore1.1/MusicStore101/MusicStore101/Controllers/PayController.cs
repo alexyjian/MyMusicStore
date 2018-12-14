@@ -157,7 +157,7 @@ namespace MusicStore101.Controllers
             }
 
             return Json(state);
-        }
+        } 
 
         public ActionResult Confirm(Guid id)
         {
