@@ -31,7 +31,7 @@ namespace MusicStore.Controllers
         /// <param name="username"></param>
         /// <param name="pwd"></param>
         /// <returns></returns>
-        public string TestLogin(string username,string pwd)
+        public string TestLogin(string username ="hs",string pwd = "123.abc")
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
             var user = userManager.Find(username, pwd);
