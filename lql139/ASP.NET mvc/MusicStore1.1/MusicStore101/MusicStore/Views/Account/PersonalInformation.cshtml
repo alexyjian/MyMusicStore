@@ -3,7 +3,8 @@
     ViewBag.Title = "PersonalInformation";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-<div class="panel panel-primary">
+@using (Html.BeginForm()) {
+<div class="panel panel-primary" id="tbCart" style="height:280px;">
     <div class="panel-heading">
         <h3 class="panel-title">个人信息</h3>
     </div>
@@ -16,14 +17,27 @@
     <div class="panel-body">
         <label>邮箱:@Model.Email</label>
     </div>
-    <button onclick="CompilePersonal('@Model.ID')" type="submit" class="btn btn-default" style="float:right;">编辑</button>
+    <button  onclick="CompilePersonal('@Model.ID')" type="submit" class="btn btn-default" style="float:right; margin-right:10px;">编辑</button>
 </div>
+}
 <script>
     function CompilePersonal(id) {
         $.ajax({
             type: 'post',
             async: true,
-            url: "../../Order/CompilePersonal",
+            url: "../../Account/CompilePersonal",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+    function UpdatePersonal(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Account/UpdatePersonal",
             data: { id: id },
             dataType: "json",
             success: function (data) {

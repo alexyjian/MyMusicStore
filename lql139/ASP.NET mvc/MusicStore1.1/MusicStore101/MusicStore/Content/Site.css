@@ -245,3 +245,6 @@ body {
     .Cart-tbody-th a:hover {
         color: #f6855e;
     }
+    .CompilePersonal-text{
+        width:300px;
+    }
