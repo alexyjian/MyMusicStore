@@ -1,60 +1,3 @@
-<<<<<<< HEAD
-﻿@model IEnumerable<MusicStoreEntity.Cart>
-@{
-    double sum = 0;
-    ViewBag.Title = "ShoppingCart";
-    Layout = "~/Views/Shared/_newLayout.cshtml";
-}
-<h2>购物车</h2>
-<div class="table-responsive">
-    <table class="table table-bordered table-hover">
-        <thead> <tr style="background-color:gray; color:white"><th>商品名称</th><th>数量</th><th>单价</th><th>操作</th></tr></thead>
-        @foreach (var l in Model)
-        {
-            <tr>
-                <td>
-                    <a href="@Url.Action("detail","store",new { id=l.AlbumID})"> @l.Album.Title  </a>
-                </td>
-                <td>
-                    @l.Count
-                </td>
-                <td>￥@l.Album.Price</td>
-                <td><a href="#" id="del"> 不喜欢了？ 抛弃！</a></td>
-            </tr>
-            sum += (@l.Count * Convert.ToDouble(@l.Album.Price));
-        }
-    </table>
-</div>
-<span style="text-align:right;">总价格：￥@sum</span>
-<script>
-    $("#del").click(function () {
-        //异步
-        $("#msg").html("<img src ='../../content/images/loading.gif'>添加购物车请稍后...");
-        $.ajax({
-            type: 'post',
-            async: true,
-            url: '../../ShoppingCart/ShoppingCart',
-            data: { id: "@Model.ID" },
-            dataType: 'json',
-            success: function (data) {
-                //如果没有登录,跳转到登录页
-                if (data == "nologin")
-                    location.href = "@Url.Action("login","Account",new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
-                else {
-                    //添加到购物车成功，把动画取消
-
-                    $("#msg").html(data);
-                    //2S后，重新刷新此区域
-                    setTimeout(function () {
-                        location.reload();
-                    }, 2000);
-
-                }
-            }
-        });
-    });
-
-=======
 ﻿@model MusicStore.ViewModels.ShoppingCartViewModel
 @{
     ViewBag.Title = "ShoppingCart";
@@ -135,5 +78,4 @@
             }
         });
     }
->>>>>>> 169a1dc5ec953bec41b43f553b60109f91cc1e9e
 </script>

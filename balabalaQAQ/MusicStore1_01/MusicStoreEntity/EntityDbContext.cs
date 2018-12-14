@@ -50,5 +50,6 @@ namespace MusicStoreEntity
 
         public IDbSet<Order> Order { get; set; }
         public IDbSet<OrdelDetail> OrdelDetail { get; set; }
+        public IDbSet<PerAddress> PerAddress { get; set; }
     }
 }

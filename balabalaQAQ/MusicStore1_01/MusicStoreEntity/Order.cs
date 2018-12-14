@@ -32,6 +32,7 @@ namespace MusicStoreEntity
         [Required(ErrorMessage = "电话不能为空")]
         [Display(Name = "收件人电话")]
         public string MobiNumber { get; set; }//收件人的手机
+
         [ScaffoldColumn(false)]
         public decimal TotalPrice { get; set; }//总价
         [ScaffoldColumn(false)]
