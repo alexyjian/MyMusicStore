@@ -1,31 +1,43 @@
-﻿@model MusicStore.ViewModels.ShoppingCartViewModel
+﻿@model  IEnumerable<MusicStoreEntity.Order>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
 <h2>我的订单</h2>
-
-<table>
-    <tr>
-        <th>专辑</th>
-        <th>单价</th>
-        <th>数量</th>
-        <th>操作</th>
-    </tr>
-    <tbody id="tbCart">
-        @foreach (var item in Model.CartItems)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
-                </td>
-                <td>
-                    @item.Album.Price.ToString("C")
-                </td>
-                <td>
-                    @item.Count
-                </td>
-                <td>
-            </tr>
-｝
+<fieldset>
+    <legend>我的订单</legend>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead><tr style="background-color:lawngreen;color:violet;">
+                <th>订单摘要</th><th>明细</th><th>总价</th><th>状态</th></tr></thead>
+           <tbody id="tbCart">
+               @foreach(var Q in Model)
+               {
+                   <tr>
+                       <td>
+                           订单号：@Q.TradeNo<br/>
+                           收件人: @Q.AddressPerson<br/>
+                           收件地址：@Q.Address<br />
+                           电话：@Q.MobilNumber<br />
+                        </td>
+                       <td>
+                           @foreach(var q in Q.OrderDetails)
+                           {
+                               <p>专辑名：@q.Album.Title &nbsp;共 @q.Count 张</p>
+                           }
+                           </td>
+                       <td style="line-height:100px;color:slategray;">@Q.TotalPrice.ToString("C")</td>
+                       <td style="line-height:100px;">
+                           @Q.EnumOrderStatus
+                           @*@Q.EnumOrderStatus**@
+                           <button type="submit" class="btn btn-success" style="width:100px">
+                               <q class="glyphicon glyphicon-shopping-cart">立即支付</q>
+                           </button>
+                       </td>
+                       </tr>
+               }
+               </tbody>
+            </table>
+        </div>
+</fieldset>

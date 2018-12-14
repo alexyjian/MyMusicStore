@@ -11,7 +11,7 @@
 </h2>
 
 <p class="button">
-    @Html.ActionLink("马上购买", "buy", "Order")
+    @Html.ActionLink("立即购买", "buy", "Order")
 </p>
 
 <table>
@@ -32,7 +32,7 @@
                     @item.Album.Price.ToString("C")
                 </td>
                 <td>
-                    @item.Count
+                    &nbsp;&nbsp;<a href="#" onclick="jian('@item.ID');"><i class="glyphicon glyphicon-minus"></i></a>&nbsp; @item.Count&nbsp;&nbsp;&nbsp;<a href="#" onclick="jia('@item.ID');"><i class="glyphicon glyphicon-plus"></i></a>&nbsp;&nbsp;
                 </td>
                 <td>
                     <a href="#" onclick="removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移出购物车</a>

@@ -84,7 +84,7 @@ namespace MusicStore.Controllers
                     + item.Album.Title + "</a></td>";
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href=\"#\" onclick=\"RemoveDetail('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
+                htmlString += "<td><a href=\"#\" onclick=\"RemoveDetail('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>不喜欢</a></td><tr>";
                 htmlString += "</tr>";
             }
 
@@ -148,12 +148,19 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
-        /// 浏览用户订单
+        /// 浏览用户订单列表
         /// </summary>
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new {returnUrl = Url.Action("Index", "Order") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var Order = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+
+            return View(Order);
         }
     }
 }

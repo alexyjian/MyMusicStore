@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "icecreamEntity", "ice cream\icecreamEntity.csproj", "{47ECB80B-7705-45B2-97DA-669AD33DC8AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcecreamStore", "..\IcecreamStore\IcecreamStore.csproj", "{F93F9D2D-191F-4B5E-B03B-D5249C6B85F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{47ECB80B-7705-45B2-97DA-669AD33DC8AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47ECB80B-7705-45B2-97DA-669AD33DC8AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47ECB80B-7705-45B2-97DA-669AD33DC8AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93F9D2D-191F-4B5E-B03B-D5249C6B85F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93F9D2D-191F-4B5E-B03B-D5249C6B85F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93F9D2D-191F-4B5E-B03B-D5249C6B85F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93F9D2D-191F-4B5E-B03B-D5249C6B85F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
