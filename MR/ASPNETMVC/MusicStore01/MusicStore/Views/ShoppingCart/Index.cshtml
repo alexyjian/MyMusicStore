@@ -7,7 +7,7 @@
 
 <h2>
     <i class="glyphicon glyphicon-shopping-cart"></i>
-    <em>浏览</em>您的购物车
+    <em>浏览</em>购物车
 </h2>
 
 <p class="button">
@@ -22,32 +22,29 @@
         <th>操作</th>
     </tr>
     <tbody id="tbCart">
-        @foreach(var item in Model.CartItems)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.Album.Title,"detail","Store",new { id = item.Album.ID },null)
-                </td>
-                <td>
-                    @item.Album.Price.ToString("C")
-                </td>
-                <td>
-                    @item.Count                    
-                </td>
-                <td>
-                    <a href="#" onclick="removeCart('@item.ID');">
-                        <i class="glyphicon glyphicon-remove"></i>
-                        移除
-                    </a>
-                </td>
-            </tr>
-        }
+    @foreach (var item in Model.CartItems)
+    {
         <tr>
-            <td></td>
-            <td></td>
-            <td>总价</td>
-            <td>@Model.CartTotalPrice.ToString("C")</td>
+            <td>
+                @Html.ActionLink(item.Album.Title, "detail", "Store", new {id = item.Album.ID}, null)
+            </td>
+            <td>
+                @item.Album.Price.ToString("C")
+            </td>
+            <td>
+                @item.Count
+            </td>
+            <td>
+                <a href="#" onclick="removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移除</a>
+            </td>
         </tr>
+    }
+    <tr>
+        <td></td>
+        <td></td>
+        <td>商品总价</td>
+        <td>@Model.CartTotalPrice.ToString("C")</td>
+    </tr>
     </tbody>
 </table>
 
@@ -64,9 +61,12 @@
             success: function(data) {
                 //视图中进行局部页面的刷新,<tbody>
                 $("#tbCart").html(data);
-                 //2秒后，自动重新刷新此区域
+
+                //2秒后，自动重新刷新此区域
                 setTimeout(function () {
-                        location.reload();},1000);
+                        location.reload();
+                    },
+                    1000);
             }
         });
     }

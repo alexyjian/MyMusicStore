@@ -37,6 +37,9 @@ namespace MusicStoreEntity.UserAndRole
         [StringLength(100)]
         public string Email { get; set; } // 电子邮箱
 
+        [StringLength(100)]
+        public string Address { get; set; } // 收货地址
+
         public DateTime Birthday { get; set; } // 出生日期
 
         [StringLength(26)]
