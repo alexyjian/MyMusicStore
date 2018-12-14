@@ -27,6 +27,9 @@ namespace MusicStore.Controllers
             //2.查询出当前用户Person 查询该用户的购物项
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var carts = _context.Carts.Where(x => x.Person.ID == x.Person.ID).ToList();
+
+
+
             //算购物车的总价
             decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
             //3.创建新Orde对象 ，验证用户收件人.地址.电话
