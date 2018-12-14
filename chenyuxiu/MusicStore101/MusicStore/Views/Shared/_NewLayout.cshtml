@@ -46,16 +46,18 @@
 <body>
     <div id="header">
         @*Logo和菜单*@
-        <h1><a href="/">黄子涛音乐商店</a></h1>
+        <h1><a href="/">黄子韬音乐商店</a></h1>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="@Url.Action("index","home")">主页</a>
             <li><a href="@Url.Action("Index", "Store")">商店</a></li>
             @if (user == null)
             {
+            
                 <li><a href="@Url.Action("login", "account")">登录</a></li>
             }
             else
             {
+
                 //登入成功显示用户名字，点名字能展开向下的菜单
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
