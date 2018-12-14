@@ -60,6 +60,7 @@
     <Compile Include="EnumOrderStatus.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="MusicContext.cs" />
+    <Compile Include="MyAddressee.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

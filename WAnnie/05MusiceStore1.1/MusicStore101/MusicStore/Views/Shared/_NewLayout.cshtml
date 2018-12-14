@@ -46,15 +46,18 @@
             <li><a href="@Url.Action("Index","Store")">专辑</a></li>
             @if (user == null)
             {
-                <li><a href="@Url.Action("login", "account")">登录</a> </li>
+                <li><a href="@Url.Action("login", "account")" class="glyphicon glyphicon-grain">登录</a> </li>
             }
             else
             {
                 <li class="dropdown">
+                    <span><img src="~/Content/Images/33333.jpg" width="50" /></span>
                     <a href="#" class="dropdown-toggle"data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="False">
                         @user.Person.Name<span class="caret"></span>
+                        
                     </a>
+                    
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("index","ShoppingCart")">购物车(@carts.Count)</a></li>
                         <li><a href="@Url.Action("index","order")">我的订单</a></li>

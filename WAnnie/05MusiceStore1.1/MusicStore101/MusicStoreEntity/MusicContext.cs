@@ -41,6 +41,8 @@ namespace MusicStoreEntity
         public IDbSet<Order> Orders { get; set; }  // 订单实体
         public IDbSet<OrderDetail> OrderDetails { get; set; }  // 订单明细
 
+
+        public IDbSet<MyAddressee> MyAddressees { get; set; } //收货地址
         #endregion
     }
 }
