@@ -111,6 +111,7 @@ namespace MusicStore.Controllers
 
             //3.从会话中读出订单明细列表
             order.OrderDetails = new List<OrderDetail>();
+            order.TotalPrice = 0.00M;
 
             var details = (Session["Order"] as Order).OrderDetails;
             foreach (var item in details)
@@ -153,11 +154,12 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
+            //1.确认用户是否登录 是否登录过期
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("Login", "Account", new {returnUrl = Url.Action("Index", "Order") });
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
 
+            //2.查询出当前用户Person 查询该用户的购物项
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
             var Order = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
 
             return View(Order);
