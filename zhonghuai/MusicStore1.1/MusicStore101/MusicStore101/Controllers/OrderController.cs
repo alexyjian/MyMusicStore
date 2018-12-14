@@ -94,7 +94,7 @@ namespace MusicStore101.Controllers
                 htmlString += "<td><a href='#' onclick='RemoveDetail('" + item.ID + "');'><i class='glyphicon glyphicon-remove'></i>我不喜欢它了</a></td>";
                 htmlString += "</tr>";
             }
-
+               
             htmlString += "<tr><td></td><td></td><td>总价</td><td>" + order.TotalPrice.ToString("C") + "</td></tr>";
 
             return Json(htmlString);
