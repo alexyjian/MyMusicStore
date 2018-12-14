@@ -1,0 +1,26 @@
+﻿@model MusicStoreEntity.UserAndRole.Person
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>我的信息</h2>
+@using (Html.BeginForm("index", "My", FormMethod.Post))
+{
+    //表单内容
+    @Html.AntiForgeryToken()
+
+    <div>
+        <fieldset>
+            <legend>账户信息</legend>
+            @Html.EditorForModel()
+
+            <p>
+                <input type="submit" value="保存" class="btn btn-success" style="width: 70px" />
+            </p>
+        </fieldset>
+    </div>
+
+}
+
+
