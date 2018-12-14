@@ -47,22 +47,22 @@
 
             @if (user == null)
             {
-                <li><a href="@Url.Action("Login","account")">登录</a></li>
+                <li><a href="@Url.Action("Login","Account")">登录</a></li>
             }
             else
             {
                 //登录成功后显示用户姓名 ，点姓名下拉菜单展开内容
-                <li class=" dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                <li class="dropdown">
+                    <a href="#" class="glyphicon glyphicon-user" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false">
                         @user.Person.Name<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("Index","ShoppingCart")">购物车(@carts.Count)</a></li>
                         <li><a href="@Url.Action("Index","Oder")">我的订单</a></li>
-                        <li><a href="@Url.Action("Index","My")">设置收件人地址</a></li>
+                        <li><a href="@Url.Action("Index","My")">收件地址</a></li>
                         <li><a href="@Url.Action("ChangePassWord", "Account")">重置密码</a></li>
-                        <li><a href="@Url.Action("loginout","account")">注销</a></li>
+                        <li><a href="@Url.Action("Loginout","Account")">注销</a></li>
                     </ul>
                 </li>
             }
