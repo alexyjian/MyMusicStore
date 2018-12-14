@@ -1,0 +1,39 @@
+﻿@model MusicStoreEntity.MyAddressUrl
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+<h2>修改收货地址</h2>
+<fieldset>
+    <legend>我的收货</legend>
+    <div>
+        <div class="editor-label">
+            @Html.LabelFor(x => x.AddressPerson)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.AddressPerson, new { placeholder = "用户名不能为空" })
+            @Html.ValidationMessageFor(x => x.AddressPerson)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Address)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入地址" })
+            @Html.ValidationMessageFor(x => x.Address)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.MobilNumber)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.MobilNumber, new { placeholder = "请填写电话号码" })
+            @Html.ValidationMessageFor(x => x.MobilNumber)
+        </div>
+    </div>
+    <input type="submit" value="保存" class="btn btn-success" style="width: 80px" />
+    <p></p>
+</fieldset>
+

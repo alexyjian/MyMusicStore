@@ -1,4 +1,5 @@
 ﻿using MusicStore.ViewMoldels;
+using MusicStoreEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,20 @@ namespace MusicStore.Controllers
         public ActionResult Index()
         {
             return View();
-        }  
+        }
+        public ActionResult My(MusicStoreEntity.MyAddressUrl model)
+        {
+            var user = new MyAddressUrl()
+            {
+
+                AddressPerson = model.AddressPerson,
+                Address= model.Address,
+                MobilNumber = "18346464645",
+            };
+            return View();
+           
+        }
+
+
     }
 }
