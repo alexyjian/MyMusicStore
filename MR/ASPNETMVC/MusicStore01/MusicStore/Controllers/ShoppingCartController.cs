@@ -122,7 +122,7 @@ namespace MusicStore.Controllers
                 htmlString += "<td><a href=\"#\" onclick=\"removeCart('"+item.ID+"');\"><i class=\"glyphicon glyphicon-remove\"></i>移出购物车</a></td><tr>";
             }
 
-            htmlString += "<tr><td ></td><td></td><td>总价</td><td>"+totalPrice.ToString("C")+"</td ></tr>";
+            htmlString += "<tr><td></td><td></td><td>总价</td><td>"+totalPrice.ToString("C")+"</td></tr>";
 
             return Json(htmlString);
         }

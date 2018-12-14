@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MusicStoreEntity.Order>
+@{
+    ViewBag.Title = "我的订单";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+@*<h2>我的订单</h2>*@
+<div class="box">
+    @Html.AntiForgeryToken()
+    <fieldset style="margin-top: 30px;">
+        <legend>我的订单</legend>
+        <table id="table2">
+            <tr>
+                <th>订单摘要</th>
+                <th>明细</th>
+                <th>总价</th>
+                <th>状态</th>
+            </tr>
+
+            <tbody id="tbCart">
+                @foreach (var order in Model)
+            {
+                    <tr>
+                        <td>
+                            <p>@order.TradeNo</p>
+                            <p>收件人:@order.AddressPerson</p>
+                            <p>收件地址:@order.Address</p>
+                            <p>电话:@order.MobilNumber</p>
+                        </td>
+                        <td>
+                            @foreach (var item in order.OrderDetails)
+                            {
+                                <p>@item.Album.Title</p>
+                            }
+                        </td>
+                        <td>$@order.TotalPrice</td>
+                        <td>
+                            @order.EnumOrderStatus
+                            <p class="btn btn-default">
+                                @Html.ActionLink("马上购买", "AliPay", "pay", new { id = order.ID }, null)
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </fieldset>
+</div>

@@ -14,12 +14,11 @@ namespace MusicStore.Migrations
 
         protected override void Seed(MusicStoreEntity.EntityDbContext context)
         {
-            //UserAndRoleSeed.AddRoles();
-            //UserAndRoleSeed.AddUsers();
+ 
             GenreSeed.Seed();
             GenreSeed.Extend();
-            //UserAndRoleSeed.AddRoles();
-            //UserAndRoleSeed.AddUsers();
+            UserAndRoleSeed.AddRoles();
+            UserAndRoleSeed.AddUsers();
         }
     }
 }

@@ -73,7 +73,7 @@ namespace MusicStore.Controllers
             //重新生成HTML脚本，返回JSON数据，局部刷新视图
             var carts = _context.Carts.Where(x => x.Person.ID == order.ID).ToList();
             //订单总价
-            var totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
             var htmlString = "";
             //foreach (var item in carts)
             //{
@@ -89,14 +89,14 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<tr>";
                 htmlString += "<td><a href='" + Url.Action("Detail", "Store", new { id = item.Album.ID }) + "'>"
-                    +item.Album.Title + "</a></td>";
+                    + item.Album.Title + "</a></td>";
                 htmlString += "<td>" + item.Album.Price.ToString("C") + "</td>";
                 htmlString += "<td>" + item.Count + "</td>";
-                htmlString += "<td><a href='#' onclick='RemoveDetail("+item.ID+"'><i class='glyphicon glyphicon-remove'></i>移除</a></td>";
+                htmlString += "<td><a href='#' onclick=\"RemoveDetail(' "+item.ID+ "');\"><i class='glyphicon glyphicon-remove'></i>移除</a></td>";
                 htmlString += "</tr>";
             }
 
-            htmlString += "<tr><td ></td><td></td><td>总价</td><td>" + order.TotalPrice.ToString("C") + "</td ></tr>";
+            htmlString += "<tr><td></td><td></td><td>总价</td><td>" + order.TotalPrice.ToString("C") + "</td></tr>";
 
             return Json(htmlString);
 
@@ -162,7 +162,41 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+
+
+            //1.确认用户是否登录 是否登录过期
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+            //2.查询出当前用户、购物项
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //订单明细
+            var orderItem = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+
+            var orderList = new List<Order>();
+            foreach (var item in orderItem)
+            {
+                //创建新order对象 
+                var order = new Order()
+                {
+                    ID = item.ID,
+                    AddressPerson = item.AddressPerson,
+                    Address = item.Address,
+                    MobilNumber = item.MobilNumber,
+                    Person = item.Person,
+                    TradeNo = item.TradeNo,
+                    EnumOrderStatus = item.EnumOrderStatus,
+                    TotalPrice = item.TotalPrice,
+                    OrderDateTime = item.OrderDateTime
+                };
+                //把购物项导入订单明细
+                order.OrderDetails = item.OrderDetails;
+
+                orderList.Add(order);
+            }
+            return View(orderList);
+
+
+
         }
     }
 }
