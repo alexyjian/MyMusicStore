@@ -11,6 +11,6 @@ namespace MusicStoreEntity
     /// </summary>
   public  enum  EnumOrderStatus
     {
-        已付款
+        未付款
     }
 }
