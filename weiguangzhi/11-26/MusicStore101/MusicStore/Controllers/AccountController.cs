@@ -15,7 +15,8 @@ namespace MusicStore.Controllers
 
     public class AccountController : Controller
     {
-       
+        private static readonly EntityDbContext _context = new EntityDbContext();
+
         /// <summary>
         /// 填写注册信息
         /// </summary>
@@ -209,6 +210,21 @@ namespace MusicStore.Controllers
             return View();
 
         }
+
+        public ActionResult Index()
+        {
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //3.创建新Order对象
+            var order = new Order()
+            {
+                AddressPerson = person.Name,
+                MobilNumber = person.MobileNumber,
+                Person = _context.Persons.Find(person.ID),
+               
+            };
+            return View(order);
+        }
+
             
             
             }

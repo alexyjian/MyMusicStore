@@ -161,14 +161,7 @@ namespace MusicStore.Controllers
             //查询出该用户的购物车项
             var orders = _context.Orders.Where(x => x.Person.ID == x.Person.ID).ToList();
 
-
-
-            //创建视图模型
-            var cartVm = new OrderViewModel()
-            {
-                orderItems = orders,
-            };
-            return View(cartVm);
+            return View(orders);
            
         }
 

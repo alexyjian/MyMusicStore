@@ -1,4 +1,4 @@
-﻿@model MusicStore.ViewModels.OrderViewModel
+﻿@model IEnumerable<MusicStoreEntity.Order>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayzout.cshtml";
@@ -13,7 +13,7 @@
         <th>&nbsp;&nbsp;状态</th>
     </tr>
     <tbody id="tbCart">
-        @foreach (var item in Model.orderItems)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -27,9 +27,16 @@
                     
                 </td>
                 <td>
-                    @item.OrderDetails
+
+                    @foreach (var i in item.OrderDetails)
+                    {
+                        <p>@i.Album.Title  @i.Count</p>
+                    }
+
                 </td>
-                <td>@Model.OrderTotalPrice.ToString("C")</td>
+                <td>
+
+                @item.TotalPrice.ToString("C")</td>
                 
                 <td>
                     未付款

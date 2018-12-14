@@ -1,0 +1,16 @@
+﻿@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+}
+
+<h2>收件人地址</h2>
+
+<fieldset>
+    <legend>收件信息</legend>
+    @Html.EditorForModel()
+
+</fieldset>
+<p>
+    <input type="submit" value="修改" class="btn btn-success" style="width: 70px" />
+</p>

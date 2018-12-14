@@ -154,7 +154,6 @@
     <Compile Include="ViewModels\EditPwViewModel.cs" />
     <Compile Include="ViewModels\LoginUserStatus.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\RwgisterViewModel.cs" />
     <Compile Include="ViewModels\ShonppingCartViewModel.cs" />
   </ItemGroup>
@@ -276,6 +275,7 @@
     <Content Include="Views\Order\Buy.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
