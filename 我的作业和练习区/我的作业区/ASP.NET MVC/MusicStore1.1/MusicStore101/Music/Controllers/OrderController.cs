@@ -53,6 +53,14 @@ namespace Music.Controllers
             //将订单和明细在视图呈现，验证用户收件人、地址、电话，供用户选择确认要购买专辑
             //当前订单未持久化，用户会话保存方便用户进行编辑
             Session["Order"] = order;
+
+            var con = _context.Persons.Find(person.ID);
+            var selectItemList = new List<SelectListItem>() {
+                new SelectListItem(){Value="0",Text="全部",Selected=true}
+            };
+            var selectList = new SelectList(con.PersonAddresss.ToList(), "AddresPerson", "AddresPerson");
+            selectItemList.AddRange(selectList);
+            ViewBag.database = selectItemList;
             return View(order);
         }
         [HttpPost]
@@ -95,7 +103,7 @@ namespace Music.Controllers
         /// <param name="oder"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Buy(Order order)
+        public ActionResult Buy(Order order,string dr)
         {
            
             //1.确认用户是否登陆 是否登陆过期
@@ -110,7 +118,7 @@ namespace Music.Controllers
             order.Person = _context.Persons.Find(person.ID);
 
             //3.从会话中读出订单明细列表
-
+          
             order.OrderDetails = new List<OrderDetail>();
             var details = (Session["Order"] as Order).OrderDetails;
             foreach (var item in details)

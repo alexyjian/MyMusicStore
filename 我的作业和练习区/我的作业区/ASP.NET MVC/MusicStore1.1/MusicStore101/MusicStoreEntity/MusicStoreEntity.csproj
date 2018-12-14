@@ -79,6 +79,7 @@
     <Compile Include="UserAndRole\ApplicationUserManager.cs" />
     <Compile Include="UserAndRole\IdentityManager.cs" />
     <Compile Include="UserAndRole\Person.cs" />
+    <Compile Include="UserAndRole\PersonAddress.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

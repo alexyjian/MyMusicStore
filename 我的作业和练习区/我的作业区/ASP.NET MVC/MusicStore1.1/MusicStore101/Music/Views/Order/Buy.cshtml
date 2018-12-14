@@ -1,15 +1,17 @@
-﻿@model MusicStoreEntity.Order
+﻿@model  MusicStoreEntity.Order
 @{
     ViewBag.Title = "Buy";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
 <h2>确认购买</h2>
-@using (Html.BeginForm())
+@using (Html.BeginForm("buy","Order",new {}))
 {
     <fieldset>
         <legend>收件信息</legend>
+
         @Html.EditorForModel()
+        @Html.DropDownList("database-dropdownlist", ViewBag.database as IEnumerable<SelectListItem>, new { @class = "btn btn-success dropdown-toggle form-control" })
         <legend>您想购买的专辑列表</legend>
         <table id="tbCart1">
             <tr>
@@ -18,18 +20,19 @@
                 <td>数量</td>
                 <td>操作</td>
             </tr>
-            <tbody  id="tbCart">
+            <tbody id="tbCart">
             @foreach (var item in Model.OrderDetails)
             {
                 <tr>
-                    <td>@Html.ActionLink(item.Album.Title,"detail","Store",new {id=item.Album.ID},null)</td>
+                    <td>@Html.ActionLink(item.Album.Title, "detail", "Store", new {id = item.Album.ID}, null)</td>
                     <td>@item.Album.Price.ToString("C")</td>
                     <td> @item.Count </td>
-                    <td><a href="#" onclick="removeDetail('@item.ID');">
-                        <i class="glyphicon glyphicon-remove">
-                            移除购物车
-                        </i>
-                    </a></td>
+                    <td>
+                        <a href="#" onclick="removeDetail('@item.ID');">
+                            <i class="glyphicon glyphicon-remove">
+                                移除购物车
+                            </i>
+                        </a></td>
                 </tr>
             }
             <tr>

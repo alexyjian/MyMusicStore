@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MusicStoreEntity.UserAndRole.PersonAddress>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>我的收货地址</h2>
+<a href="@Url.Action("Add","My")"><button class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i>添加新的收件地址</button></a> 
+<table id="tbCart1" style="margin-top: 20px;margin-bottom: 20px;">
+    <tr>
+        <td style="width: 100px">收件人</td>
+        <td style="width: 400px">收货地址</td>
+        <td style="width: 100px">电话</td>
+        <td style="width:200px"></td>
+    </tr>
+
+    <tbody id="tbCart">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td  style="width: 250px">
+                收件人： @item.AddresPerson
+            </td>
+            <td  style="width: 400px">
+                收货地址： @item.Address
+            </td>
+            <td  style="width: 100px">
+                @item.MobileNumber
+            </td>
+            <td  style="width: 100px">
+                <button onclick="removeAddres('@item.ID')" class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i>删除</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<script>
+    function removeAddres(id) {
+        //移除订单明细
+        $.ajax({
+            type: "post",
+            async: true,
+            url: "../../My/Remove",
+            data: { id: id},
+            dataType: 'json',
+            success: function (data) {
+                //视图中tbody进行局部页面的刷新，<tbody>
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>
+
+

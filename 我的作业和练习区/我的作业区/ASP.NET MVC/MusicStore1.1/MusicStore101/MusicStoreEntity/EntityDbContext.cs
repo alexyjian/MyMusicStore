@@ -25,6 +25,7 @@ namespace MusicStoreEntity
         public IDbSet<ApplicationBusinessType> ApplicationBusinessTypes { get; set; }
         public IDbSet<ApplicaitionUserInApplication> ApplicaitionUserInApplications { get; set; }
         public IDbSet<Person> Persons { get; set; }
+        public IDbSet<PersonAddress> PersonAddresss { get; set; }
 
 
         #endregion

@@ -17,6 +17,7 @@ namespace MusicStoreEntity
         public Guid ID { get; set; }
         [ScaffoldColumn(false)]
         public  DateTime OrderDateTime { get; set; }//订单的时间
+        
         public  virtual  Person Person { get; set; }//所属用户
 
         [Display(Name = "收件人")]
