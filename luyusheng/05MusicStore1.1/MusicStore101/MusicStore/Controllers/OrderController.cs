@@ -52,6 +52,7 @@ namespace MusicStore.Controllers
 
             //将订单和明细在视图呈现,验证用户收件人、地址、电话,供用户选项确认要购买专辑
 
+
             //当前订单未持久化,用会话保存方便用户进行编辑
             Session["Order"] = order;
             return View(order);
@@ -131,6 +132,7 @@ namespace MusicStore.Controllers
                 }
                 finally
                 {
+                    //解锁
                     LockedHelp.ThreadUnLocked(order.ID);
                 }
                 //跳转到支付页Pay/AliPay
@@ -148,7 +150,12 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account",new { returnUrl = Url.Action("Index","Order")});
+         
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var Order = _context.Orders.Where(x =>x.Person.ID ==person.ID).ToList();
+            return View(Order);
         }
     }
 }
