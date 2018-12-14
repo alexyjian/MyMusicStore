@@ -119,7 +119,7 @@ namespace MusicStore.Controllers
                     //清空购物车
                     //_context.Database.ExecuteSqlCommand("delete Cart");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                 }
                 finally
@@ -139,7 +139,13 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            //1.判断用户登陆凭据是否过期，如果过期跳转回登录，
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var Order = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+            return View(Order);
         }
     }
 }

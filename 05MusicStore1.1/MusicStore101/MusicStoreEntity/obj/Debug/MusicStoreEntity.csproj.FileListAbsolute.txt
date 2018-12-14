@@ -1,0 +1,14 @@
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll.config
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MusicStoreEntity.pdb
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.dll
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.dll
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.xml
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
+E:\2015\MyMusicStore\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
