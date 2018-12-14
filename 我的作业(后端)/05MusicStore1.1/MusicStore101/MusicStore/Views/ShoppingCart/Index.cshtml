@@ -11,7 +11,7 @@
 </h2>
 
 <p class="button">
-    @Html.ActionLink("马上购买", "Buy", "Order")
+    @Html.ActionLink("立即购买", "buy", "Order")
 </p>
 
 <table>
@@ -51,7 +51,7 @@
 
 <script>
     function removeCart(id) {
-        //ajax 提交到服务器端进行购物车项的删除
+        //提交到服务器端进行购物车项的删除
         $.ajax({
             type: 'post',
             async: true,
