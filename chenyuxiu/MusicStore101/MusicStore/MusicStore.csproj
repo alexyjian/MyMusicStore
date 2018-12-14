@@ -264,7 +264,7 @@
     <Content Include="Views\Account\ChangPassWord.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Order\Buy.cshtml" />
-    <Content Include="Views\Order\Pay\AliPay.cshtml" />
+    <Content Include="Views\Pay\AliPay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
