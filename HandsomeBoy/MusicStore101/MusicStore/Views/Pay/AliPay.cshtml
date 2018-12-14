@@ -9,8 +9,7 @@
     values.Add("partner", "2088021994748781"); //支付宝唯一编号，必填
     values.Add("seller_id", "2088021994748781"); //支付宝商户号，必填
     values.Add("_input_charset", "utf-8");
-    values.Add("service", "create_direct_pa
-        y_by_user"); //服务器地址
+    values.Add("service", "create_direct_pay_by_user"); //服务器地址
     values.Add("payment_type", "1"); //支付方式，1为直接到账
     values.Add("notify_url", Request.Url.Scheme + "://" + Request.Url.Authority + Url.Action("NotifyAsync", "Pay", new { returnUrl = ViewBag.ReturnUrl })); //返回URL。交易付款完成以后，当前页面自动跳转返回商户的网址。该商户的网址即是该参数指定的URL。
     values.Add("return_url", Request.Url.Scheme + "://" + Request.Url.Authority + Url.Action("ReturnAsync", "Pay", new { returnUrl = ViewBag.ReturnUrl }));

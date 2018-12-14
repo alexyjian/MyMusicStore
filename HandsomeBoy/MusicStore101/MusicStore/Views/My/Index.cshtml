@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MusicStoreEntity.My>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+}
+
+<h2>收货地址</h2>
+
+@using (Html.BeginForm())
+{
+
+    <fieldset>
+        <legend>
+            账户信息
+        </legend>
+        <p><span>收货人：</span><input type="text" /></p>
+        <p><span>所在地区：</span><input type="text" /></p>
+        <p><span>街道地址：</span><input type="text" /></p>
+        <p><span>邮编：</span><input type="text" /></p>
+        <p><span>手机：</span><input type="text" /></p>
+        <p><span>操作：</span><input type="text" /></p>
+    </fieldset>
+
+
+    <p>
+        <span>设为默认地址：</span>
+        <span><input type="checkbox" />设置为默认收货地址</span>
+    </p>
+
+    <div class="My_save">
+        <input type="submit" value="保存"/>
+    </div>
+
+    <h4>已保存的有效地址</h4>
+    <table class="ShoppingCartView">
+        <tbody>
+            <tr>
+                <th>收货人</th>
+                <th>所在地区</th>
+                <th>街道地址</th>
+                <th>邮编</th>
+                <th>手机</th>
+                <th>操作</th>
+            </tr>
+        </tbody>
+        <tbody id="tbCart">
+            @foreach(var item in Model)
+                {
+                <tr>
+                    <td>@item.AddressPerson</td>
+                    <td>@item.Area</td>
+                    <td>@item.Address</td>
+                    <td>@item.Email</td>
+                    <td>@item.MobiNumber</td>
+                </tr>
+            }
+           
+        </tbody>
+    </table>
+}
+

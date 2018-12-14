@@ -121,6 +121,7 @@ namespace MusicStore.Controllers
                 {
                     _context.Orders.Add(order);
                     _context.SaveChanges();
+
                     //移除购物车
                     _context.Database.ExecuteSqlCommand("delete Carts");
                 }
@@ -142,7 +143,11 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+            var list = _context.Orders.OrderBy(x => x.OrderDateTime).ToList();
+
+            return View(list);
         }
     }
 }
