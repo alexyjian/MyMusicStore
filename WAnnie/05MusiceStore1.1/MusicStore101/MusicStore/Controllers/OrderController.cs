@@ -154,7 +154,10 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+
+            var list = _Context.Orders.OrderByDescending(x => x.OrderDateTime).ToList();
+                                
+            return View(list);
         }
     }
 }
