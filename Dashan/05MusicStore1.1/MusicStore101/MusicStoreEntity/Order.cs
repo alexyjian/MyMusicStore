@@ -30,7 +30,6 @@ namespace MusicStoreEntity
         public string AddressPerson { get; set; }// 收件人
 
 
-
         [Display(Name = "收件人地址")]
         [Required(ErrorMessage = "收件人地址不能为空")]
         public string Address { get; set; }// 收件人地址
@@ -40,7 +39,6 @@ namespace MusicStoreEntity
         [Required(ErrorMessage = "收件人号码不能为空")]
         public string  MobilNumber{ get; set; }//收件人电话号码
        
-
 
         [ScaffoldColumn(false)]
         public decimal TotalPrice { get; set; }//总价
