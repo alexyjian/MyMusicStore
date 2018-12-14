@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MusicStore.ViewModels
 {
-    public class OrderViewModel
+    public class MyViewModel
     {
         public List<Order> CartItems { get; set; }
         public decimal CartTotalPrice { get; set; }
