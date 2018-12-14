@@ -71,7 +71,7 @@ namespace MusicStore.Controllers
             if (ModelState.IsValid)
             {
                 //加锁
-                LockedHelp.ThreadUnLocked(order.ID);
+                LockedHelp.ThreadLock(order.ID);
                 try
                 {
                     _context.Orders.Add(order);
@@ -85,7 +85,7 @@ namespace MusicStore.Controllers
                 {
                     LockedHelp.ThreadUnLocked(order.ID);
                 }
-                return RedirectToAction("Alipay","Pay",new { id=order.ID});
+                return RedirectToAction("Index", "Pay",new { id=order.ID});
             }
 
             //不通过验证返回视图

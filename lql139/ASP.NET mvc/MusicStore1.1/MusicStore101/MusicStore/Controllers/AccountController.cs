@@ -131,7 +131,11 @@ namespace MusicStore.Controllers
 
             return View();
         }
-
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordViewModel model)
         {
@@ -180,9 +184,16 @@ namespace MusicStore.Controllers
         /// 个人信息
         /// </summary>
         /// <returns></returns>
+        private readonly EntityDbContext _context = new EntityDbContext();
         public ActionResult PersonalInformation()
         {
-            return View();
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+           // var carts = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+
+            return View(person);
         }
     }
 }

@@ -13,14 +13,19 @@ namespace MusicStore.Controllers
     public class PayController : Controller
     {
         private readonly EntityDbContext _context = new EntityDbContext();
+        /// <summary>
+        /// 我的订单视图页
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var carts = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
 
-            return View();
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var carts = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+
+            return View(carts);
         }
         #region 阿里支付
 

@@ -60,8 +60,9 @@
                     </a>
                     <ul class="dropdown-menu login-ul">
                         <li><a  href="@Url.Action("index","ShoppingCart")">&nbsp;&nbsp;<i class="glyphicon glyphicon-shopping-cart"></i>购物车(@carts.Count)</a></li>
-                        <li><a  href="@Url.Action("","")">&nbsp;&nbsp;<i  class="glyphicon glyphicon-cog"></i>个人信息</a></li>
-                        <li><a  href="@Url.Action("ChangePassword","Account")">&nbsp;&nbsp;<i class="glyphicon glyphicon-list-alt"></i>修改密码</a></li>
+                        <li><a  href="@Url.Action("Index","Pay")">&nbsp;&nbsp;<i  class="glyphicon glyphicon-list-alt"></i>我的订单</a></li>
+                        <li><a href="@Url.Action("PersonalInformation","Account")">&nbsp;&nbsp;<i class="glyphicon glyphicon-user"></i>个人信息</a></li>
+                        <li><a  href="@Url.Action("ChangePassword","Account")">&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"></i>修改密码</a></li>
                         <li><a  href="@Url.Action("Loginout","Account")">&nbsp;&nbsp;<i class="glyphicon glyphicon-off"></i>注销</a></li>
                     </ul>
               </li>

@@ -1,14 +1,34 @@
-﻿
+﻿@model MusicStoreEntity.UserAndRole.Person
 @{
     ViewBag.Title = "PersonalInformation";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-
-<div class="panel panel-default login" >
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">个人信息</h3>
+    </div>
     <div class="panel-body">
-        个人信息
+       <label>名称:@Model.Name</label>
     </div>
-    <div class="panel-footer login-pane">
-      
+    <div class="panel-body">
+        <label>电话:@Model.MobileNumber</label>
     </div>
+    <div class="panel-body">
+        <label>邮箱:@Model.Email</label>
+    </div>
+    <button onclick="CompilePersonal('@Model.ID')" type="submit" class="btn btn-default" style="float:right;">编辑</button>
 </div>
+<script>
+    function CompilePersonal(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Order/CompilePersonal",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>
