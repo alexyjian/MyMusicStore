@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-   public  class Order
+    /// <summary>
+    /// 订单明细实体
+    /// </summary>
+   public  class  Order
     {
 
         [ScaffoldColumn(false)]
@@ -18,19 +21,25 @@ namespace MusicStoreEntity
         [ScaffoldColumn(false)]
         public DateTime OrderDateTime { get; set; }//订单的时间
 
-        [ScaffoldColumn(false)]
+
         public virtual Person Person { get; set; }//所属用户
+
 
         [Display(Name ="收件人")]
         [Required(ErrorMessage = "收件人不能为空")]
         public string AddressPerson { get; set; }// 收件人
-        public string Address { get; set; }// 收件人地址
+
+
+
         [Display(Name = "收件人地址")]
         [Required(ErrorMessage = "收件人地址不能为空")]
-        public string  MobilNumber{ get; set; }//收件人电话号码
+        public string Address { get; set; }// 收件人地址
+       
 
-        [Display(Name = "收件人电话号码")]
+        [Display(Name = "电话号码")]
         [Required(ErrorMessage = "收件人号码不能为空")]
+        public string  MobilNumber{ get; set; }//收件人电话号码
+       
 
 
         [ScaffoldColumn(false)]
