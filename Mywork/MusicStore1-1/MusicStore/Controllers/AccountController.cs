@@ -206,5 +206,24 @@ namespace MusicStore.Controllers
             return View(model);
         }
 
+
+        //收件信息
+        public ActionResult Information()
+        {
+            EntityDbContext _context = new EntityDbContext();
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var order = new Order()
+            {
+                AddressPerson = person.Name,
+                MobilNumber = person.MobileNumber,
+                Person = _context.Persons.Find(person.ID),
+                
+            };
+
+            return View(order);
+        }
+
     }
 }

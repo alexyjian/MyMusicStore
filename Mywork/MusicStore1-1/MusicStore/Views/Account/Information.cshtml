@@ -1,0 +1,21 @@
+﻿@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "Information";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>收件人信息</h2>
+
+@using (Html.BeginForm("Information","Account",FormMethod.Post))
+{
+    <fieldset>
+        <legend>收件信息</legend>
+        @Html.EditorForModel()
+
+        <p>
+            <button type="submit" class="btn btn-success">
+                <i class="glyphicon glyphicon-shopping-cart">信息确认</i>
+            </button>
+        </p>
+    </fieldset>
+}
