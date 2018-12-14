@@ -33,8 +33,11 @@
                         </td>
                         <td style="line-height:100px;color:red;">@l.TotalPrice.ToString("C")</td>
                         <td style="line-height:100px;">
-                            @l.EnumOrderStatus
-                            @*@l.EnumOrderStatus*@
+
+                            <button type="submit" class="btn btn-success" style="width:100px">
+                                <i class="glyphicon glyphicon-shopping-cart">未付款</i>
+                            </button>               
+                                       
                             <button type="submit" class="btn btn-success" style="width:100px">
                                 <i class="glyphicon glyphicon-shopping-cart">立即支付</i>
                             </button>
