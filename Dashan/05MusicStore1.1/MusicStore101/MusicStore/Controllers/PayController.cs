@@ -87,7 +87,7 @@ namespace MusicStore.Controllers
             {
                 order.TradeNo = trade_no;
                 order.PaySuccess = true;
-                order.EnumOrderStatus = EnumOrderStatus.已付款;
+                order.EnumOrderStatus = EnumOrderStatus.未付款;
                 _context.SaveChanges();
             }
             finally
@@ -119,7 +119,7 @@ namespace MusicStore.Controllers
             {
                 order.TradeNo = trade_no;
                 order.PaySuccess = true;
-                order.EnumOrderStatus = EnumOrderStatus.已付款;
+                order.EnumOrderStatus = EnumOrderStatus.未付款;
                 _context.SaveChanges();
             }
             finally
@@ -146,7 +146,7 @@ namespace MusicStore.Controllers
 
             var order = _context.Orders.Find(id);
 
-            if (order.EnumOrderStatus == EnumOrderStatus.已付款)
+            if (order.EnumOrderStatus == EnumOrderStatus.未付款)
             {
                 Session["AlipayOrderID"] = null;
                 state.ID = id;
