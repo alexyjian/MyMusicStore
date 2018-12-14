@@ -32,18 +32,21 @@
                         电话号码：@item.MobilNumber
                     </td>
 
-   @foreach (var items in item.OrderDetails)
-
+@foreach (var items in item.OrderDetails)
 {
-                    <td> @items.Album.Title ,1张</td>
-            }
+                    <td><br />@items.Album.Title ,1张</td>
+}
                    
                     <td>@item.TotalPrice</td>
                     <td>@item.EnumOrderStatus</td>
-                    <td><a class="btn btn-success" href="/Pay/AliPay">立即支付</a></td>
+                    <td><a href="/AliPay/Pay"  class="btn btn-info btn-um">
+                     <span  class="glyphicon glyphicon-headphones">
+                     </span>
+                        立即支付
+                        </a></td>
                 </tr>   
         </tbody>
-   }
+}
     </table>
     <p></p>
 </fieldset>
