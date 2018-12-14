@@ -20,7 +20,8 @@
                 {
                     <tr>
                         <td>
-                            订单号：@l.TradeNo<br/>
+                            <span class="text-warning">
+                            订单号：@l.TradeNo</span><br/>
                             收件人：@l.AddressPerson<br />
                             收货地址：@l.Address<br />
                             收件人电话：@l.MobilNumber<br />
@@ -28,19 +29,19 @@
                         <td>
                             @foreach(var i in l.OrderDetails)
                             {
-                                <p>专辑名：@i.Album.Title &nbsp:共 @i.Count 张</p>
+                                <span class="text-primary">专辑名：@i.Album.Title &nbsp:共 @i.Count 张</span><br/>
                             }
                         </td>
-                        <td style="line-height:100px;color:red;">@l.TotalPrice.ToString("C")</td>
-                        <td style="line-height:100px;">
-
-                            <button type="submit" class="btn btn-success" style="width:100px">
-                                <i class="glyphicon glyphicon-shopping-cart">未付款</i>
-                            </button>               
-                                       
-                            <button type="submit" class="btn btn-success" style="width:100px">
-                                <i class="glyphicon glyphicon-shopping-cart">立即支付</i>
-                            </button>
+                        <td style="line-height:100px;color:red;">
+                            @l.TotalPrice.ToString("C")
+                        </td>
+                        <td style="line-height:100px;">  
+                            @l.EnumOrderStatus  
+                               
+                            @if(l.EnumOrderStatus ==MusicStoreEntity.EnumOrderStatus.未付款)
+                            {
+                            <a class="btn btn-success" href="@Url.Action("alipay","pay",new {id=l.ID})">立即支付</a>
+                            }
                         </td>
                     </tr>
                 }
