@@ -265,6 +265,7 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Order\Buy.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
