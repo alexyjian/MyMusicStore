@@ -138,7 +138,7 @@ namespace MusicStore.Controllers
                 }
                 //跳转到支付页Pay/AliPay 
                 return RedirectToAction("Alipay", "Pay", new { id = oder.id });
-                //_context.Database.Delete();
+                
 
             }
             //5 如果验证不通过，返回视图

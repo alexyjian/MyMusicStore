@@ -5,7 +5,9 @@ using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,8 +17,7 @@ namespace MusicStore.Controllers
 
     public class AccountController : Controller
     {
-        private static readonly EntityDbContext _context = new EntityDbContext();
-
+       
         /// <summary>
         /// 填写注册信息
         /// </summary>
@@ -173,6 +174,24 @@ namespace MusicStore.Controllers
                 return RedirectToAction("Login");
                     return View();
         }
+        /// <summary>
+        /// 处理用户提交下单
+        /// </summary>
+        /// <param name="oder"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Index(Order oder)
+        {
+            EntityDbContext _context = new EntityDbContext();
+
+            if(ModelState.IsValid)
+            {
+                _context.Entry(oder).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(oder);
+        }
 
         [HttpPost]
         public ActionResult EditPw(EditPwViewModel model)
@@ -211,20 +230,27 @@ namespace MusicStore.Controllers
 
         }
 
-        public ActionResult Index()
+        public ActionResult Index(Guid? id)
         {
+            EntityDbContext _context = new EntityDbContext();
+
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var orders = Session["Order"] as Order;
             //3.创建新Order对象
             var order = new Order()
             {
+                //Address = orders.Address,
                 AddressPerson = person.Name,
                 MobilNumber = person.MobileNumber,
                 Person = _context.Persons.Find(person.ID),
-               
-            };
-            return View(order);
-        }
 
+            };
+
+            return View(order);
+
+
+        }
+    
             
             
             }

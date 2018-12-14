@@ -25,6 +25,7 @@ namespace MusicStoreEntity.UserAndRole
         public string MobileNumber { get; set; }
 
         public virtual Person Person { get; set; }
+        
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

@@ -14,6 +14,9 @@ body {
 #container {
     float: left;
 }
+.container{
+    margin-top: 10px;
+}
 
 #header {
     float: left;
@@ -21,12 +24,21 @@ body {
     border-bottom: 1px dotted #5D5A53;
     margin-bottom: 10px;
 }
+#one {
+    padding:30px;
+}
+#two {
 
-#header h1 {
-        font-size: 18px;
+       padding-left:100px;
+}
+
+h1 {
+         font-size:50px;
+         padding: 0px 80px;
+        /*font-size: 18px;
         float: left;
         background: url(/content/Images/logo.png) no-repeat;
-        padding: 45px 0px 5px 0px;
+        padding: 45px 0px 5px 0px;*/
 }
 
 #promotion {
@@ -187,6 +199,24 @@ a:active {
     margin: 0 25px 0 0;
     float: left;
 }
+/*#categories {
+    width: 100%;
+    font-family: Constantia,Georgia,serif;
+    list-style-type: none;
+    padding-right: 0px;
+    margin: -10px -50px 0 0;
+    float: left;
+    border-radius: 0 0 5px 5px;
+    z-index: 90;
+    height: 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #a40011;
+}
+#categories li {
+    float: left;
+    padding-left: 50px;
+    padding-top: 5px;
+}*/
 
     #categories a:link, #categories a:visited {
         color: #9B9993;
