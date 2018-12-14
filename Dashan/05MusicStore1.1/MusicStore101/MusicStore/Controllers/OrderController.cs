@@ -8,7 +8,6 @@ using System.Web.Mvc;
 
 namespace MusicStore.Controllers
 {
-    
 
     public class OrderController : Controller
     {
@@ -59,13 +58,11 @@ namespace MusicStore.Controllers
             //
             Session["Order"] = order;
             return View(order);
-            
-
         }
+        
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
         {
-
             //会话为空  buy 重新刷新页面
             if (Session["Order"] == null)
                 return RedirectToAction("buy");
@@ -80,7 +77,7 @@ namespace MusicStore.Controllers
              var htmlString = "";
             //订单总价
             order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
-            //更新用户编辑到会话
+            //更新用户编辑到会话   生成HTML的元素注入到表格<tbbody>
             Session["Order"] = order;
             foreach (var item in order.OrderDetails)
             {
@@ -98,15 +95,57 @@ namespace MusicStore.Controllers
         }
 
 
-
         /// <summary>
-        /// 处理提交下单
+        /// 处理用户提交下单
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
         [HttpPost]
         public ActionResult Buy(Order order)
         {
+            //判断用户是否登录凭证过期，则跳回登录页重新登录
+            if (Session["loginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+
+            //读取当前用户的Person 
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            order.Person = _context.Persons.Find(person.ID);
+
+
+            //从会话中读取订单明细列表
+            order.OrderDetails = new List<OrderDetail>();
+            var details = (Session["Order"] as Order).OrderDetails;
+            foreach(var item in details)
+            {
+                item.Album = _context.Albums.Find(item.Album.ID);
+                order.OrderDetails.Add(item);
+            }
+            // 再计算订单的总价
+            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+
+            //如果表单验证通过，则保存order到数据库（锁定进程）
+            if (ModelState.IsValid)
+            {
+                //加锁
+                LockedHelp.ThreadLocked(order.ID);
+                try
+                {
+                    _context.Orders.Add(order);
+                    _context.SaveChanges();
+
+                    //清空购物车
+
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    LockedHelp.ThreadUnLocked(order.ID);
+                }
+                //跳转到支付页  Alipay/Pay
+                return RedirectToAction("Alipay", "Pay", new { id = order.ID });
+            }
             return View();
         }
 
@@ -118,7 +157,9 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            //显示订单明细
+            var list = _context.Orders.OrderByDescending(x =>x.OrderDateTime).Take(20).ToList();
+            return View(list);
         }
     }
 }
