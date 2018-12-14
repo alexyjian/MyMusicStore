@@ -1,12 +1,12 @@
-﻿@model MusicStoreEntity.Order
-@{
-    ViewBag.Title = "Index";
+﻿
+@model IEnumerable<MusicStoreEntity.Order>
+@{ 
+    ViewBag.Title = "订单明细";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
 <fieldset>
-
-    <legend>订单列表</legend>
+    <legend>我的订单</legend>
     <table>
         <tbody>
             <tr>
@@ -14,25 +14,38 @@
                 <th>明细</th>
                 <th>总价</th>
                 <th>状态</th>
+                <th></th>
             </tr>
         </tbody>
 
+@foreach (var item in Model)
+      {
         <tbody>
-            <tr >
-                <td>
+                <tr>
+                    <td>
+                        @item.TradeNo
+                        <br />
+                        收件人: @item.AddressPerson
+                        <br />
+                        收件地址：@item.Address
+                        <br />
+                        电话号码：@item.MobilNumber
+                    </td>
 
-                </td>
+   @foreach (var items in item.OrderDetails)
 
-                <td>
-
-                </td>
-                <td>
-
-                </td>
-                <!--<td><a  class="btn btn-success" href="/Pay/AliPay">立即支付</a></td>-->
-            </tr>
+{
+                    <td> @items.Album.Title ,1张</td>
+            }
+                   
+                    <td>@item.TotalPrice</td>
+                    <td>@item.EnumOrderStatus</td>
+                    <td><a class="btn btn-success" href="/Pay/AliPay">立即支付</a></td>
+                </tr>   
         </tbody>
+   }
     </table>
+    <p></p>
 </fieldset>
 
 
