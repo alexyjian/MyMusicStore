@@ -105,7 +105,7 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
-        /// 处理用户提交下单
+        /// 处理用户下单
         /// </summary>
         /// <param name="oder"></param>
         /// <returns></returns>

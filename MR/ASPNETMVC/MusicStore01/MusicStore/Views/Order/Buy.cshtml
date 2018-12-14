@@ -58,17 +58,18 @@
 
 <script>
     function RemoveDetail(id) {
+        alert("1");
         //移除订单明细
         $.ajax({
-            tepe:'post',
+            type: 'post',
             async: true,
             url: '../../Order/RemoveDetail',
             data: { id: id },
-            dataType:"Json",
+            dataType: "Json",
             success: function (data) {
                 $("#tbCart").html(data);
             }
-        })
+        });
     }
 </script>
 
