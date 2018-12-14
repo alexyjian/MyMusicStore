@@ -204,3 +204,19 @@ width:30px;
 .td_order {
    border-bottom:1px solid #000;
 }
+.Buy_my {
+    width: 630px;
+    height: 200px;
+}
+
+    .Buy_my li {
+        margin: 0 auto;
+        height: 100px;
+       float:left;
+        text-align: center;
+        font-size: 16px;
+        width: 300px;
+        border: 15px solid #ccc;
+        border-image: url(http://img.mukewang.com/52e22a1c0001406e03040221.jpg) 15 repeat;
+        opacity: 0.5;
+    }

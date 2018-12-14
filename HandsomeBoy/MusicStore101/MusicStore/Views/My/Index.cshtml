@@ -17,8 +17,6 @@
 
 @using (Html.BeginForm("Add", "My", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
 {
-
-
     <fieldset>
         <legend>
             用户信息
@@ -54,7 +52,6 @@
             <table class="ShoppingCartView">
                 <tbody>
                     <tr>
-                        <th>默认地址</th>
                         <th>收货人</th>
                         <th>所在地区</th>
                         <th>邮编</th>
@@ -66,11 +63,10 @@
                     @foreach (var item in mya)
                     {
                         <tr>
-                            <td><input type="radio" name="moren" value="@Session["ID"]=@item.ID"/></td>
-                            <td>@item.AddressPerson</td>
-                            <td>@item.Area</td>
-                            <td>@item.Email</td>
-                            <td>@item.MobiNumber</td>
+                            <td>收货人：@item.AddressPerson</td>
+                            <td>所在地区：@item.Area</td>
+                            <td>邮编：@item.Email</td>
+                            <td>手机：@item.MobiNumber</td>
                             <td><span>@Html.ActionLink("修改", "Update", "My", new { id = item.ID }, null)|</span><span>@Html.ActionLink("删除", "Remove", "My", new { id = item.ID }, null)</span></td>
                         </tr>
                     }

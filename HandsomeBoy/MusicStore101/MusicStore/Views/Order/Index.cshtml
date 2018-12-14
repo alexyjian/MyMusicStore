@@ -23,10 +23,10 @@
             <tbody class="td_order">
                 <tr>
                     <td>
-                        <p>@item.TradeNo</p>
-                        <p>@item.AddressPerson</p>
-                        <p>@item.Address</p>
-                        <p>@item.MobiNumber</p>
+                        <p>编号：@item.TradeNo</p>
+                        <p>收件人：@item.Mys.AddressPerson</p>
+                        <p>收件地址：@item.Mys.Area</p>
+                        <p>手机：@item.Mys.MobiNumber</p>
                     </td>
                     <td>
                         @foreach (var Detail in item.OrderDetails)

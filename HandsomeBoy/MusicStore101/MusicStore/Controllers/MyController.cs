@@ -31,7 +31,7 @@ namespace MusicStore.Controllers
             //Session["MyAdd"] = my;
             _context.Mys.Add(my);
             _context.SaveChanges();
-            return Content("<script>alert('添加地址成功!');location.href='" + Url.Action("Buy", "Order") + "'</script>");
+            return Content("<script>alert('添加地址成功!');location.href='" + Url.Action("Index", "My") + "'</script>");
         }
         /// <summary>
         /// 删除

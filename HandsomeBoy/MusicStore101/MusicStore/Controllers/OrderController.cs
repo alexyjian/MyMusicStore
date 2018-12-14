@@ -29,8 +29,6 @@ namespace MusicStore.Controllers
             //3.创建Order对象
             var order = new Order()
             {
-                AddressPerson = person.Name,
-                MobiNumber = person.MobileNumber,
                 Person = _context.Persons.Find(person.ID),
                 TotalPrice = totalPrice??0.00M,
             };
@@ -94,8 +92,15 @@ namespace MusicStore.Controllers
         /// <param name="oder"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Buy(Order order)
+        public ActionResult Buy(string id,Order order)
         {
+            if (id != null)
+            {
+                Session["ID"] = id;
+                return Json("");
+            }
+                
+        
             //1.判断登录是否过期，如果过期跳到登录页，登录成功后返回确认购买页
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
@@ -111,7 +116,9 @@ namespace MusicStore.Controllers
                 item.Album = _context.Albuns.Find(item.Album.ID);
                 order.OrderDetails.Add(item);
             }
+            Guid guid =Guid.Parse(Session["ID"].ToString());
             order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+            order.Mys = _context.Mys.Find(guid);
             //4.如果表单验证通过，则保存 order到数据库（锁定进程），跳转到Pay/Alipay
             if (ModelState.IsValid)
             {
