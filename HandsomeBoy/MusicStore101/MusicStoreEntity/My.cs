@@ -19,6 +19,7 @@ namespace MusicStoreEntity
         
         public string AddressPerson { get; set; }
 
+        [ScaffoldColumn(false)]
         /// <summary>
         /// 所在地区
         /// </summary>
@@ -27,12 +28,9 @@ namespace MusicStoreEntity
 
         public string Area { get; set; }//所在地区
 
-        /// <summary>
-        /// 街道地址
-        /// </summary>
-        [Required(ErrorMessage = "街道地址")]//必填
-        [Display(Name = "街道地址")]//显示的中文名
-        public string Address { get; set; }//街道地址
+        [ScaffoldColumn(false)]
+   
+    
 
         /// <summary>
         /// 手机
@@ -51,7 +49,7 @@ namespace MusicStoreEntity
        
         public string Email { get; set; }
 
-
+      
         public My()
         {
             ID = Guid.NewGuid();

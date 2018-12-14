@@ -1,20 +1,31 @@
-﻿
+﻿@using MusicStoreEntity;
 @model MusicStoreEntity.Order
 @{
     ViewBag.Title = "Buy";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
-}
+    EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
+   
+    var ID = Session["ID"];
+   var   mya = _context.Mys.Find(ID);
+
+    }
 
 
-<h2>新用户注册</h2>
+<h2>购买专辑</h2>
 @using (Html.BeginForm())
 {
     <fieldset>
         <legend>
             收件信息
         </legend>
-        @Html.EditorForModel();
+        @Html.EditorForModel()
       
+        <a href="../My/Index/">
+            <p>@mya.AddressPerson <span>@mya.MobiNumber</span></p>
+            <p><span>默认</span>@mya.Area</p>
+       </a>
+       
+       
      
         <table class="ShoppingCartView">
             <tbody>

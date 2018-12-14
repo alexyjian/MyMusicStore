@@ -18,6 +18,7 @@
         //查询购物车  收藏车
         carts = new EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
     }
+
 }
 <!DOCTYPE html>
 
@@ -62,9 +63,10 @@
                     {
 
                     <li class="dropdown">
-                        <a data-toggle="dropdown" href="#">
-                            登录 <span class="caret"></span>
-                        </a>
+                         
+                            <a data-toggle="dropdown" href="#">
+                                <img width="50" src="~/Content/Images/DJ.jpg" />  <span class="caret"></span>
+                            </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             <li><a href="@Url.Action("index","ShoppingCart")">购物车(@carts.Count)</a></li>
                             <li><a href="@Url.Action("index","Order")">我的订单</a></li>

@@ -1,62 +1,83 @@
-﻿@model IEnumerable<MusicStoreEntity.My>
+﻿@using MusicStoreEntity;
+@model MusicStoreEntity.My
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
+    EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
+    var mya = new List<My>();
+    mya = _context.Mys.ToList();
 }
 
 <h2>收货地址</h2>
 
-@using (Html.BeginForm())
+    <h5 style="font-weight:bold">收件人信息：</h5>
+
+
+
+@using (Html.BeginForm("Add", "My", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
 {
+
 
     <fieldset>
         <legend>
-            账户信息
+            用户信息
         </legend>
-        <p><span>收货人：</span><input type="text" /></p>
-        <p><span>所在地区：</span><input type="text" /></p>
-        <p><span>街道地址：</span><input type="text" /></p>
-        <p><span>邮编：</span><input type="text" /></p>
-        <p><span>手机：</span><input type="text" /></p>
-        <p><span>操作：</span><input type="text" /></p>
+        <div class="editor-label">
+            @Html.LabelFor(x => x.AddressPerson) :@Html.TextBoxFor(x => x.AddressPerson, new { placeholder = "请输入收件人姓名" })
+            @Html.ValidationMessageFor(x => x.AddressPerson)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Area) :@Html.TextBoxFor(x => x.Area, new { placeholder = "请输入所在地区" })
+            @Html.ValidationMessageFor(x => x.Area)
+        </div>
+
+      
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.MobiNumber) :@Html.TextBoxFor(x => x.MobiNumber, new { placeholder = "请输入手机号" })
+            @Html.ValidationMessageFor(x => x.MobiNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Email) :@Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮政编号" })
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+
+        <div class="My_save">
+            <input type="submit" value="保存" class="btn btn-success" />
+        </div>
+
+        <h4>已保存的有效地址</h4>
+            <table class="ShoppingCartView">
+                <tbody>
+                    <tr>
+                        <th>默认地址</th>
+                        <th>收货人</th>
+                        <th>所在地区</th>
+                        <th>邮编</th>
+                        <th>手机</th>
+                        <th>操作</th>
+                    </tr>
+                </tbody>
+                <tbody id="tbCart">
+                    @foreach (var item in mya)
+                    {
+                        <tr>
+                            <td><input type="radio" name="moren" value="@Session["ID"]=@item.ID"/></td>
+                            <td>@item.AddressPerson</td>
+                            <td>@item.Area</td>
+                            <td>@item.Email</td>
+                            <td>@item.MobiNumber</td>
+                            <td><span>@Html.ActionLink("修改", "Update", "My", new { id = item.ID }, null)|</span><span>@Html.ActionLink("删除", "Remove", "My", new { id = item.ID }, null)</span></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
     </fieldset>
 
-
-    <p>
-        <span>设为默认地址：</span>
-        <span><input type="checkbox" />设置为默认收货地址</span>
-    </p>
-
-    <div class="My_save">
-        <input type="submit" value="保存"/>
-    </div>
-
-    <h4>已保存的有效地址</h4>
-    <table class="ShoppingCartView">
-        <tbody>
-            <tr>
-                <th>收货人</th>
-                <th>所在地区</th>
-                <th>街道地址</th>
-                <th>邮编</th>
-                <th>手机</th>
-                <th>操作</th>
-            </tr>
-        </tbody>
-        <tbody id="tbCart">
-            @foreach(var item in Model)
-                {
-                <tr>
-                    <td>@item.AddressPerson</td>
-                    <td>@item.Area</td>
-                    <td>@item.Address</td>
-                    <td>@item.Email</td>
-                    <td>@item.MobiNumber</td>
-                </tr>
-            }
-           
-        </tbody>
-    </table>
 }
 

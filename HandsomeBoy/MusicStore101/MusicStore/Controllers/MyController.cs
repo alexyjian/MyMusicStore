@@ -13,24 +13,45 @@ namespace MusicStore.Controllers
         // GET: My
         public ActionResult Index()
         {
-            var list = _context.Mys.OrderBy(x => x.AddressPerson).ToList();
-            return View(list);
+            //var list = _context.Mys.OrderBy(x => x.Address).ToList();
+            //Session["Order"] = list;
+            return View();
         }
 
         [HttpPost]
-        public ActionResult add(MusicStoreEntity.My model)
+        public ActionResult Add(MusicStoreEntity.My model)
         {
             var my = new My()
             {
                 AddressPerson = model.AddressPerson,
-                Address =model.Address,
                 Area = model.Area,
                 MobiNumber = model.MobiNumber,
                 Email = model.Email
             };
+            //Session["MyAdd"] = my;
             _context.Mys.Add(my);
             _context.SaveChanges();
-             return Json("<script> alert(添加成功)</script>");
+            return Content("<script>alert('添加地址成功!');location.href='" + Url.Action("Buy", "Order") + "'</script>");
+        }
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Remove(Guid id)
+        {
+
+            return View();
+        }
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Update(Guid id)
+        {
+
+            return View();
         }
     }
 }
