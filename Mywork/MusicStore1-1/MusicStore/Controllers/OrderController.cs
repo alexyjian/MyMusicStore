@@ -143,7 +143,7 @@ namespace MusicStore.Controllers
                 }
 
                 //5 跳转到支付页Pay/AliPay 
-                return RedirectToAction("Alipay", "Pay", new { id = order.ID });
+                return RedirectToAction("AliPay","Pay",new{id = order.ID});
             }
 
 
@@ -159,7 +159,11 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var order = _context.Orders.Where(x => x.Person.ID == x.Person.ID).ToList();
+            return View(order);
         }
     }
 }

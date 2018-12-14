@@ -263,10 +263,10 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\LoginOut.cshtml" />
     <Content Include="Views\Account\ChangePassWord.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index3.cshtml" />
     <Content Include="Views\Order\Buy.cshtml" />
-    <Content Include="Views\Pay\Pay.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Pay\AliPay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">

@@ -1,7 +1,6 @@
-﻿
-@model MusicStoreEntity.Order
+﻿@model MusicStoreEntity.Order
 @{
-    ViewBag.Title = "立即支付";
+    ViewBag.Title = "AliPay";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 
     Dictionary<string, string> values = new Dictionary<string, string>();
@@ -21,7 +20,7 @@
     values.Add("show_url", ViewBag.ReturnUrl);
     string sign = AlipayHelper.SignParameter("q12vmic8884u68lgvgczye89ga4bizli", values);
 }
-<h2>立即支付</h2>
+h2>立即支付</h2>
 <div id="album-details">
     <p>
         <em>订单:</em>
