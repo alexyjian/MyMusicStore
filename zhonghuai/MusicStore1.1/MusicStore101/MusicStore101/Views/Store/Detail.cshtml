@@ -65,11 +65,11 @@
                 else {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
-                    //2秒后，自动重新刷新此区域
+                    //1秒后，自动重新刷新此区域
                     setTimeout(function () {
-                        location.reload();
-                    },
-                        2000);
+                            location.reload();
+                        },
+                        1000);
                 }
             }
         });

@@ -22,9 +22,8 @@ body {
     margin-bottom: 10px;
 }
 
-#header h2 {
-   
-        font-size: 30px;
+#header h1 {
+        font-size: 18px;
         float: left;
         background: url(/content/Images/logo.png) no-repeat;
         padding: 45px 0px 5px 0px;
@@ -52,10 +51,10 @@ ul {
     font-size: 14px;
 }
 
-    ul#album-list {
+ul#album-list {
         list-style: none;
         margin-left: 0px;
-    }
+}
 
 ul#album-list li {
             height: 130px;
@@ -63,11 +62,12 @@ ul#album-list li {
             float: left;
             margin: 10px;
             text-align: center;
-        }
+ }
 ul#album-list li a, ul#album-list li .button {
                 font-size: 13px;
                 float: left;
             }
+
 ul#album-list li a span {
                     color: #9b9993;
                     text-decoration: none;
@@ -114,6 +114,7 @@ ul#navlist {
 ul#navlist li {
         display: inline;
     }
+
 ul#navlist li a {
             border-left: 1px dotted #8A8575;
             padding: 10px;
@@ -122,11 +123,12 @@ ul#navlist li a {
             text-decoration: none;
             float: left;
         }
+
 ul#navlist li:first-child a {
             border: none;
         }
 
-        ul#navlist li a:hover {
+ul#navlist li a:hover {
             color: #F6855E;
         }
 
@@ -185,12 +187,12 @@ a:active {
     float: left;
 }
 
-#categories a:link, #categories a:visited {
+    #categories a:link, #categories a:visited {
         color: #9B9993;
         text-decoration: none;
     }
 
-#categories a:hover {
+    #categories a:hover {
         color: #F46739;
     }
 
@@ -276,4 +278,23 @@ th, td {
 
 tr:hover {
     background-color: #fff;
+}
+
+
+.Genre-List:link, .Genre-List:visited {
+    color: #666;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.Genre-List:hover {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.Genre-List:active {
+    color: #5e5b54;
+    text-decoration: none;
+    font-weight: bold;
 }
