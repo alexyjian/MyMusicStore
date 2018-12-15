@@ -18,6 +18,11 @@ namespace MusicStore.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel model)
@@ -55,7 +60,10 @@ namespace MusicStore.Controllers
 
                 idManager.CreateUser(newUser, model.PassWord);
                 idManager.AddUserToRole(newUser.Id, "RegisterUser");
-                return Content("<script>alert('恭喜注册成功！');location.href='" + Url.Action("Account", "login") + "'+<script/>");
+
+                return Content("<script>alert('恭喜注册成功!');location.href='" + Url.Action("Account", "login") +
+                               "'</script>");
+               
             }
             else { return View(); }
         }

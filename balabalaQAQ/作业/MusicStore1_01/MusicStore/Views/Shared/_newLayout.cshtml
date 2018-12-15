@@ -40,7 +40,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse" role="navigation">
+    <nav class="navbar navbar-inverse" role="navigation" id="index">
         <div class="container-fluid">
             <div class="navbar-header ">
                 <img class="navbar-brand" src="~/Content/images/logo.png" />
@@ -66,7 +66,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="@Url.Action("ShoppingCart", "ShoppingCart")">购物车 @cart.Count()</a></li>
-                                <li><a href="@Url.Action("index", "Oder")">我的订单</a></li>
+                                <li><a href="@Url.Action("index", "Order")">我的订单</a></li>
+                                <li><a href="@Url.Action("index", "AddressPerson")">设置收件人</a></li>
                                 <li><a href="@Url.Action("RevisePwd", "Account")">修改密码</a></li>
                                 <li><a href="@Url.Action("loginout", "account")">注销</a></li>
                             </ul>
@@ -105,6 +106,24 @@
     </div>
     @*继承此布局页的页面执行脚本的位置*@
     @RenderSection("scripts", required: false)
-
+    <script>
+        window.onload = function (){
+            //ajax提交到服务器端进行购物车项的删除
+            setInterval(function () {
+                $.ajax({
+                    type: 'post',
+                    async: true,
+                    url: "../../shoppingcart/removeCart",
+                    data: { id: id },
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#index").html(data);
+                    }
+                });
+            }, 2000);
+    }
+    </script>
 </body>
+
 </html>
+

@@ -28,6 +28,5 @@ namespace MusicStore.Controllers
             return View(list);
         }
 
-
     }
 }

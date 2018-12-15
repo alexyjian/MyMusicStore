@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MusicStoreEntity.PerAddress>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+}
+
+
+<fieldset>
+    <legend>设置收货人</legend>
+
+
+    <a href="../AddressPerson/AddressPerson">
+        添加收货人
+    </a>
+    <br />
+    <div class="table-responsive ">
+        <table class="table table-bordered table-hover">
+            <thead> <tr style="background-color:gray; color:white;"><th> 收件人：</th><th>  收货地址：</th><th>收件人电话：</th><th>操作</th></tr></thead>
+            <tbody id="tbCart">
+                @foreach (var l in Model)
+                {
+                    <tr>
+                        <td style="line-height:40px;">
+                            @l.AddressPerson
+                        </td>
+                        <td style="line-height:40px;">
+                            @l.Address
+                        </td>
+                        <td style="line-height:40px;">@l.MobiNumber</td>
+                        <td style="line-height:40px;">
+                            <a href="@Url.Action("EidtAddressPerson","AddressPerson",new { id=l.ID})">修改 </a>
+                            &nbsp;
+                            <a href="#" ; id="del" onclick="RemoveDetail('@l.ID');">
+                                删除
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</fieldset>
+
+<script>
+    function RemoveDetail(id) {
+        //移除
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../AddressPerson/RemoveAddperson",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                //视图中进行局部页面的刷新<tbody>
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>
