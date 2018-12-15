@@ -170,5 +170,14 @@ namespace MusicStore.Controllers
 
             return View(Order);
         }
+        [HttpPost]
+        public ActionResult Index(Guid orderid)
+        {
+            //1.确认用户是否登录 是否登录过期
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+
+            return RedirectToAction("Alipay", "Pay", new { id = orderid });
+        }
     }
 }
