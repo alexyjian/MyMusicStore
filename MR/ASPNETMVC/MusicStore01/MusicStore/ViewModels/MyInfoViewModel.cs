@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicStoreEntity.UserAndRole;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -35,7 +36,10 @@ namespace MusicStore.ViewModels
         [Display(Name = "生日")]
         public DateTime Birthay { get; set; }
 
-
-
+        public void UpdetePerson(Person person)
+        {
+            throw new NotImplementedException();
+        }
     }
+   
 }

@@ -46,6 +46,7 @@ namespace MusicStore.Migrations
             idManger.CreateRole(role3);
         }
 
+
         public static void AddUsers()
         {
             _dbContext.Database.ExecuteSqlCommand("delete IdentityManager");
