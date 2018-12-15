@@ -110,23 +110,24 @@ namespace MusicStore.Migrations
                 _dbContext.Albuns.Add(a);
             _dbContext.SaveChanges();
 
-            var my = new My()
-            {
-                AddressPerson = "黄学明",
-                Area = "广西南宁市马山县",
-                MobiNumber = "18877213447",
-                Email = "530615"
-            };
-            var my1 = new My()
-            {
-                AddressPerson = "周仁发",
-                Area = "广西南宁市123马山县",
-                MobiNumber = "18877213447",
-                Email = "53023615"
-            };
-            _dbContext.Mys.Add(my);
-            _dbContext.Mys.Add(my1);
-            _dbContext.SaveChanges();
+            //var my = new My()
+            //{
+            //    AddressPerson = "黄学明",
+            //    Area = "广西南宁市马山县",
+            //    MobiNumber = "18877213447",
+            //    Email = "530615",
+               
+            //};
+            //var my1 = new My()
+            //{
+            //    AddressPerson = "周仁发",
+            //    Area = "广西南宁市123马山县",
+            //    MobiNumber = "18877213447",
+            //    Email = "53023615"
+            //};
+            //_dbContext.Mys.Add(my);
+            //_dbContext.Mys.Add(my1);
+            //_dbContext.SaveChanges();
         }
 
         public static void Extend()

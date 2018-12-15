@@ -220,3 +220,19 @@ width:30px;
         border-image: url(http://img.mukewang.com/52e22a1c0001406e03040221.jpg) 15 repeat;
         opacity: 0.5;
     }
+.btn {
+   
+    width: 100px;
+    height: 30px;
+    background-color: cadetblue;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 5px;
+}
+.btn-danger {
+    margin-left: 400px;
+}
+.btn-primary {
+  margin-top:-30px;
+  margin-right:20px;
+}

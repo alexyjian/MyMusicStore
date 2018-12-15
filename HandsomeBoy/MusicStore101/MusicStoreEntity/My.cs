@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicStoreEntity.UserAndRole;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -49,7 +50,7 @@ namespace MusicStoreEntity
        
         public string Email { get; set; }
 
-      
+        public virtual Person Person { get; set; }//所属用户
         public My()
         {
             ID = Guid.NewGuid();

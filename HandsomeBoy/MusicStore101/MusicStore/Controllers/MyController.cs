@@ -1,4 +1,5 @@
-﻿using MusicStoreEntity;
+﻿using MusicStore.ViewModels;
+using MusicStoreEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace MusicStore.Controllers
         // GET: My
         public ActionResult Index()
         {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
             //var list = _context.Mys.OrderBy(x => x.Address).ToList();
             //Session["Order"] = list;
             return View();
@@ -21,12 +24,15 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Add(MusicStoreEntity.My model)
         {
+           
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var my = new My()
             {
                 AddressPerson = model.AddressPerson,
                 Area = model.Area,
                 MobiNumber = model.MobiNumber,
-                Email = model.Email
+                Email = model.Email,
+ Person = _context.Persons.Find(person.ID)
             };
             //Session["MyAdd"] = my;
             _context.Mys.Add(my);

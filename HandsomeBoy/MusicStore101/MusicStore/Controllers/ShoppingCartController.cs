@@ -67,7 +67,7 @@ namespace MusicStore.Controllers
             //查询当前登录用户
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var list = _dbContext.Carts.Where(x => x.Person.ID==x.Person.ID).ToList();
+            var list = _dbContext.Carts.Where(x => x.Person.ID== person.ID).ToList();
             //算购物车的总价
             decimal? totalPrice = (from item in list select item.Count * item.Album.Price).Sum();
 

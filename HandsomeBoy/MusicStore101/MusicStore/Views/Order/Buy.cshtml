@@ -1,12 +1,22 @@
 ﻿@using MusicStoreEntity;
+@using MusicStore.ViewModels;
 @model MusicStoreEntity.Order
 @{
     ViewBag.Title = "Buy";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
     EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
+    var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+    var mya = new List<My>();
+    try
+    {
+         mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
+    }
+    catch
+    {
+        mya = null;
+    }
 
 
-    var mya = _context.Mys.ToList();
 
     }
 
@@ -19,19 +29,23 @@
         收件信息
     </legend>
     @*@Html.EditorForModel()*@
-     
-    
+
+
+    <p>如果没有收货地址 请点 @Html.ActionLink("这里", "index", "my")</p>
+
+
     <ul class="Buy_my">
         @foreach (var item in mya)
         {
-            
-            <li class="ccz"id="@item.ID">
+
+            <li class="ccz" id="@item.ID">
                 <p>收件人：@item.AddressPerson <span>手机号：@item.MobiNumber</span></p>
                 <p><span>地址：</span>@item.Area</p>
-           </li>
+            </li>
         }
     </ul>
-
+    <p>上传图片没得。随便找个地方试试而已请勿点击</p>
+    <input type="file" name="file1" />
     <table class="ShoppingCartView">
         <tbody>
             <tr>

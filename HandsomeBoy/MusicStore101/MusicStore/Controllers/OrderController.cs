@@ -109,7 +109,17 @@ namespace MusicStore.Controllers
             order.Person = _context.Persons.Find(person.ID);
             //3.从会话中读出订单明细列表
             order.OrderDetails = new List<OrderDetail>();
-           
+
+            //上传图片
+            if (Request.Files.Count > 0)
+            {
+                HttpPostedFileBase f = Request.Files["file1"];
+                f.SaveAs(@"D:\" + f.FileName);
+            }
+
+          
+       
+
             var details = (Session["Order"] as Order).OrderDetails;
             foreach (var item in details)
             {
@@ -152,7 +162,8 @@ namespace MusicStore.Controllers
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
-            var list = _context.Orders.OrderBy(x => x.OrderDateTime).ToList();
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var list = _context.Orders.Where(x => x.Person== person).ToList();
 
             return View(list);
         }
