@@ -117,22 +117,22 @@ namespace MusicStore.Migrations
             {
                  new Album
                  { Title = "断桥残雪",
-                   Genre = genres.Single(g =>g.Name == "摇滚"),Price = 909M,
+                   Genre = genres.Single(g =>g.Name == "摇滚"),Price = 9.9M,
                    Artist = artists.Single(a => a.Name == "许嵩"),
                    AlbumArtUrl = "/Content/Images/placeholder.gif"},
 
                  new Album {Title = "姐妹",
-                     Genre =genres.Single(g =>g.Name =="爵士"),Price = 790M,
+                     Genre =genres.Single(g =>g.Name =="爵士"),Price = 100M,
                      Artist = artists.Single(a => a.Name == "张惠妹"),
                      AlbumArtUrl = "/Content/Images/placeholder.gif"},
 
                  new Album { Title = "Will Power",
-                     Genre = genres.Single(g =>g.Name == "爵士"),Price = 600M,
+                     Genre = genres.Single(g =>g.Name == "爵士"),Price = 60M,
                      Artist = artists.Single(a => a.Name == "陈伟霆"),
                      AlbumArtUrl = "/Content/Images/placeholder.gif"},
 
                  new Album {Title = "夏日炎炎",
-                     Genre =genres.Single(g =>g.Name == "青春"),Price = 599M,
+                     Genre =genres.Single(g =>g.Name == "青春"),Price = 79M,
                      Artist = artists.Single(a => a.Name == "苏有朋"),
                      AlbumArtUrl = "/Content/Images/placeholder.gif"},
 
