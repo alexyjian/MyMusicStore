@@ -192,6 +192,8 @@
     <Content Include="Content\Images\35.jpg" />
     <Content Include="Content\Images\36.jpg" />
     <Content Include="Content\Images\66.jpg" />
+    <Content Include="Content\Images\boy.jpg" />
+    <Content Include="Content\Images\gary.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\placeholder.gif" />
