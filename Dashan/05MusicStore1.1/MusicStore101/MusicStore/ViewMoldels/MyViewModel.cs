@@ -12,8 +12,6 @@ namespace MusicStore.ViewMoldels
     /// </summary>
     public class MyViewModel
     {
-
-
         [Display(Name = "收件人")]
         [Required(ErrorMessage = "用户名不能为空")]
         public string Name { get; set; }// 收件人
