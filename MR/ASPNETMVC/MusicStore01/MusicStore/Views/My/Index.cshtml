@@ -1,0 +1,58 @@
+﻿@model MusicStore.ViewModels.MyViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>Index</h2>
+<from enctype="multipart/form-date" actions="" method="post">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(x=>x.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x=>x.Name,new { placeholder="请输入姓名"})
+                @Html.ValidationMessageFor(x=>x.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入姓名" })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.TelePhoneNumber)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.TelePhoneNumber, new { placeholder = "请输入" })
+                @Html.ValidationMessageFor(x => x.TelePhoneNumber)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入姓名" })
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Avarda)
+            </div>
+            <div class="editor-field">
+               <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
+                @Html.TextBoxFor(x => x.Avarda, new { type ="file"})
+            </div>
+            <p>
+                <input type="submit" value="保存" class="btn btn-success" style="width: 70px" />
+            </p>
+        </fieldset>
+    </div>
+</from>
