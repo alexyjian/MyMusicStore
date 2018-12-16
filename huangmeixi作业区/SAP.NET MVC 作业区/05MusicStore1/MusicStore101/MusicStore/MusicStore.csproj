@@ -165,10 +165,12 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\boy.jpg" />
     <Content Include="Content\images\DD.jpg" />
     <Content Include="Content\images\DZQ.jpg" />
     <Content Include="Content\images\EE.jpg" />
     <Content Include="Content\images\FF.jpg" />
+    <Content Include="Content\images\G.jpg" />
     <Content Include="Content\images\HCY.jpg" />
     <Content Include="Content\images\HG.jpg" />
     <Content Include="Content\images\home-showcase.png" />
@@ -312,7 +314,7 @@
     <Content Include="Views\Order\Buy.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
-    <Content Include="Views\MySetup\MySetup.cshtml" />
+    <Content Include="Views\My\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -327,7 +329,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\MySetup\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

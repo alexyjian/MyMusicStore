@@ -1,29 +1,27 @@
-﻿using System;
+﻿using MusicStore.ViewModels;
+using MusicStoreEntity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MusicStoreEntity;
-using MusicStoreEntity.UserAndRole;
-using MusicStore.ViewModels;
 
 namespace MusicStore.Controllers
 {
-    public class MySetupController : Controller
+    public class MyController : Controller
     {
-        private static EntityDbContext _context = new EntityDbContext();
-       
+        private static MusicStoreEntity.EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
         public ActionResult Index()
         {
-            //当前登录验证
+
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
-            //当前用户
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
-
-            return View("MySetup");
+                return RedirectToAction("Login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+             return View();
         }
-
+        [HttpPost]
+        public ActionResult Add(MusicStoreEntity.UserAdd model)
+        {
+            return View();
+        }
     }
 }
