@@ -40,7 +40,7 @@
                                
                             @if(l.EnumOrderStatus ==MusicStoreEntity.EnumOrderStatus.未付款)
                             {
-                            <a class="btn btn-success" href="@Url.Action("alipay","pay",new {id=l.ID})">立即支付</a>
+                            <a style="color:white" class="btn btn-success" href="@Url.Action("alipay","pay",new {id=l.ID})">立即支付</a>
                             }
                         </td>
                     </tr>
