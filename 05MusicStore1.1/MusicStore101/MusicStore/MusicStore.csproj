@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="ViewModels\ChangePassWordViewModel.cs" />
     <Compile Include="ViewModels\LoginUserStatus.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MyViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
@@ -162,6 +164,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\boy.jpg" />
+    <Content Include="Content\Images\girl.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\placeholder.gif" />
@@ -261,8 +265,12 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Order\Buy.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\My\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Upload\Avarda\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
