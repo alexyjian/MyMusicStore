@@ -55,8 +55,9 @@
                 </div>
                 <div class="editor-field">
                     @*<input type="date" value="1998-01-01" name="Birthay"/>*@
-                    @Html.TextBoxFor(x => x.Birthay, new {type= "datetimepicker" })
-                    @Html.ValidationMessageFor(x => x.Birthay)
+                    @*@Html.TextBoxFor(x => x.Birthay, new {type= "datetimepicker" })
+                    @Html.ValidationMessageFor(x => x.Birthay)*@
+                    @Html.TextBoxFor(x=>x.Birthay,new{ type="date"})
                 </div> 
             <p>
                 <input type="submit" value="保存" class="btn btn-success" style="width: 70px" />

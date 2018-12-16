@@ -34,7 +34,8 @@ namespace MusicStore.ViewModels
 
         //生日     
         [Display(Name = "生日")]
-        public DateTime Birthay { get; set; }
+        //public DateTime Birthay { get; set; }
+        public string Birthay { get; set; }
 
         public MyInfoViewModel()
         {
@@ -46,7 +47,7 @@ namespace MusicStore.ViewModels
             this.sex = person.Sex;
             this.TelePhoneNumber = person.TelephoneNumber;
             this.Email = person.Email;
-            this.Birthay = person.Birthday;
+            this.Birthay =person.Birthday.ToString("yyyy-MM-dd");
         }
 
     }

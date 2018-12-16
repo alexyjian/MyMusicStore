@@ -22,19 +22,29 @@ namespace MusicStore.Controllers
             var persons = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var context = new EntityDbContext();
             var person = context.Persons.Find(persons.ID);
+            MyInfoViewModel retPerson = new MyInfoViewModel();
             if (ModelState.IsValid)
             {
                 person.Address = myinfo.Address;
-                person.Birthday = myinfo.Birthay;
+                person.Birthday = Convert.ToDateTime(myinfo.Birthay);
                 person.Email = myinfo.Email;
                 person.Name = myinfo.Name;
                 person.Sex = myinfo.sex;
                 person.TelephoneNumber = myinfo.TelePhoneNumber;
-
+                
                 context.SaveChanges();
             }
-            var p = new MyInfoViewModel(person);
-            return View(p);
+            else
+            {
+                retPerson.Address = person.Address;
+                retPerson.Birthay = person.Birthday.ToString("yyyy-MM-dd");
+                retPerson.Email = person.Email;
+                retPerson.Name = person.Name;
+                retPerson.sex = person.Sex;
+                retPerson.TelePhoneNumber = person.TelephoneNumber;
+            }
+            //var p = new MyInfoViewModel(person);
+            return View(retPerson);
 
         }
     }
