@@ -1,48 +1,47 @@
 ﻿@model IEnumerable<MusicStoreEntity.Order>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "我的订单";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<h2>完成订单</h2>
+<h2>我的订单</h2>
 
 <table>
     <tr>
         <th>订单摘要</th>
         <th>明细</th>
-        <th>&nbsp;&nbsp;&nbsp;&nbsp;总价</th>
-        <th>&nbsp;&nbsp;状态</th>
+        <th>总价</th>
+        <th>状态</th>
     </tr>
     <tbody id="tbCart">
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @item.TradeNo
-                    <br />
-                    @item.AddressPerson
-                    <br />
-                    @item.Address
-                    <br />
-                    @item.MobilNumber
-
+                    <span class="text-warning">@item.TradeNo</span><br/>
+                    收件人:@item.AddressPerson<br/>
+                    收货地址:@item.Address<br/>
+                    电话:@item.MobilNumber<br/>
                 </td>
                 <td>
 
                     @foreach (var i in item.OrderDetails)
                     {
-                        <p>@i.Album.Title  @i.Count</p>
+                        <span class="text-primary">@i.Album.Title,@i.Count 哦</span><br/>
                     }
 
                 </td>
                 <td>
-
-                    @item.TotalPrice.ToString("C")
+                    $@item.TotalPrice.ToString("C")
                 </td>
 
                 <td>
-                    未付款
-                    <a class="btn btn-success" href="/pay/alipay/b6f3e78d-988d-4fe2-83b7-84fa9eb9982e">立即支付</a>
+                    @item.EnumOrderStatus
+                    @if (item.EnumOrderStatus ==MusicStoreEntity.EnumOrderStatus.未付款)
+                    {
+                        <a style="color:yellow" class="btn btn-success" href="@Url.Action("alipay","Pay",new { id=item.ID})"><i class="glyphicon glyphicon-usd"></i> 立即支付</a>
+                    }
+                        
                 </td>
 
             </tr>
