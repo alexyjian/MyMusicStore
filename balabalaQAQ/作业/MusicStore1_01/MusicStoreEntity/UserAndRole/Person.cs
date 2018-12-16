@@ -50,6 +50,9 @@ namespace MusicStoreEntity.UserAndRole
         public string InquiryPassword { get; set; } // 查询密码，仅仅用于查询是否已经已经建立数据
         public virtual ICollection<PerAddress> PerAddress { get; set; }
 
+        [DataType(DataType.ImageUrl)]
+        public string Avarda { get; set; } = "/content/images/boys.jpg";
+
         public Person()
         {
             this.ID = Guid.NewGuid();

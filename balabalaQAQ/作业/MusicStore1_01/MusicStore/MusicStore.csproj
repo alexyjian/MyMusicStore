@@ -177,6 +177,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressPersonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\myController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\LoginUserViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MYviewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\RevisePwdViewModelr.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
@@ -204,6 +206,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.js" />
+    <Content Include="Content\images\boy.jpg" />
+    <Content Include="Content\images\boys.jpg" />
+    <Content Include="Content\images\girl.jpg" />
     <Content Include="Content\images\home-showcase.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\placeholder.gif" />
@@ -329,9 +334,11 @@
     <Content Include="Views\AddressPerson\Index.cshtml" />
     <Content Include="Views\AddressPerson\EidtAddressPerson.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
+    <Content Include="Views\my\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Upload\Avarda\" />
     <Folder Include="Views\RevisePwd\" />
   </ItemGroup>
   <ItemGroup>

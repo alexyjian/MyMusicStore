@@ -1,0 +1,96 @@
+﻿@model MusicStore.ViewModels.MYviewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+}
+
+<h2>Index</h2>
+<form enctype="multipart/form-data" action="" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <fieldset>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入姓名" })
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.MobileNumber)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.MobileNumber, new { placeholder = "请输入电话" })
+                @Html.ValidationMessageFor(x => x.MobileNumber)
+            </div>
+
+            <div class="editor-field">
+                @Html.RadioButtonFor(x => x.Sex, true, new { @nane = "sex" })
+                @Html.RadioButtonFor(x => x.Sex, false, new { @nane = "sex" })
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Avarda)
+            </div>
+
+            <div class="editor-field">
+                <img id="imgAvarda" src="@ViewBag.AvardaUrl" style="height:100px;width:100px; border-radius:50%;" />
+
+                @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.MobileNumber)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.MobileNumber, new { placeholder = "请输入电话" })
+                @Html.ValidationMessageFor(x => x.MobileNumber)
+            </div>
+
+            <p>生日: <input type="text" id="datepicker"></p>
+            <br />
+            <p>
+                <input type="submit" value="保存" class="btn btn-success" style="width:100px" ; />
+            </p>
+        </fieldset>
+    </div>
+</form>
+<script src="https://cdn.bootcss.com/datepicker/0.5.4/i18n/datepicker.zh-CN.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+    $(function () {
+
+        $("#datepicker").datepicker();
+
+        $.datepicker.regional["zh-CN"] = { closeText: "关闭", prevText: "&#x3c;上月", nextText: "下月&#x3e;", currentText: "今天", monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"], monthNamesShort: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"], dayNames: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"], dayNamesShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"], dayNamesMin: ["日", "一", "二", "三", "四", "五", "六"], weekHeader: "周", dateFormat: "yy-mm-dd", firstDay: 1, isRTL: !1, showMonthAfterYear: !0, yearSuffix: "年" }
+
+        $.datepicker.setDefaults($.datepicker.regional["zh-CN"]);
+
+        var datePicker = $("#ctl00_BodyMain_txtDate").datepicker({
+
+            showOtherMonths: true,
+
+            selectOtherMonths: true
+
+        });
+
+        $("#Avarda").on("change", function () {
+            var file = this.files[0];
+            //判断是不是图片
+            if (!/image\/\w+/.test(file.type)) {
+                alert('文件必须为图片！');
+                return false;
+            }
+            //读文件内容，读物理地址，让img的标签src属性重新复制
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                $("#imgAvarda").attr('src', this.result);
+            }
+        });
+    });
+
+</script>
