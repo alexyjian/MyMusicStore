@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MusicStoreEntity.Order>
+@{
+    ViewBag.Title = "我的订单";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+<fieldset>
+    <h2>我的订单</h2>
+    <table>
+        <tr>
+            <th>订单摘要</th>
+            <th>订单明细</th>
+            <th>总价</th>
+            <th>状态</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <span class="text-warning">@item.TradeNo</span><br/>
+                        收货人:@item.AddressPerson<br/>
+                        收货地址:@item.Address<br/>
+                        电话：@item.MobilNumber<br/>
+                    </td>
+                    <td>
+                        ￥@item.TotalPrice.ToString("C")
+                    </td>
+                    <td>
+                        @item.EnumOrderStatus
+                        @if (item.EnumOrderStatus == MusicStoreEntity.EnumOrderStatus.未付款)
+                        {
+                            <a style="color:white" class="btn btn-success" href="@Url.Action("alipay","Pay",new { id=item.ID})"><i class="glyphicon glyphicon-usd">马上购买</i></a> 
+                        }
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <p></p>
+</fieldset>
