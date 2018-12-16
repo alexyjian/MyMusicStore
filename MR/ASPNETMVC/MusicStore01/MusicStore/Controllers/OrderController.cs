@@ -33,6 +33,7 @@ namespace MusicStore.Controllers
             {
                 AddressPerson = person.Name,
                 MobilNumber = person.MobileNumber,
+                Address = person.Address,
                 Person = _context.Persons.Find(person.ID),
                 TotalPrice = totalPrice ?? 0.00M,
             };
