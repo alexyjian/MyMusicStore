@@ -81,5 +81,47 @@ namespace Music.Controllers
          
             return View(address);
         }
+        /// <summary>
+        /// 查看个人信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult MyIndex()
+        {
+            //1.确认用户是否登陆 是否登陆过期
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+
+            }
+            var persons = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            return View(persons);
+        }
+        /// <summary>
+        /// 修改个人信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult UpMy()
+        {
+            //1.确认用户是否登陆 是否登陆过期
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+
+            }
+            var persons = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            return View(persons);
+        }
+        [HttpPost]
+        public ActionResult UpMy(Guid id)
+        {
+            //1.确认用户是否登陆 是否登陆过期
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+
+            }
+            var persons = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            return View(persons);
+        }
     }
 }

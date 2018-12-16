@@ -76,11 +76,12 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="False">
-                                <img src="@user.Person.Avarda" alt="头像" style="border-radius: 50%; width: 26px; height: 26px;">
+                                <img src="@user.Person.Avarda" alt="头像" style="border-radius: 50%; width: 25px; height: 25px;">
                                 @user.Person.Name <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="@Url.Action("index", "ShoppingCart")">购物车( @carts.Count() )</a></li>
+                                <li><a href="@Url.Action("MyIndex", "My")">个人信息</a></li>
                                 <li><a href="@Url.Action("index", "Order")">我的订单</a></li>
                                 <li><a href="@Url.Action("index", "My")">设置收件地址</a></li>
                                 <li><a href="@Url.Action("ChangePassWord", "Account")">修改密码</a></li>

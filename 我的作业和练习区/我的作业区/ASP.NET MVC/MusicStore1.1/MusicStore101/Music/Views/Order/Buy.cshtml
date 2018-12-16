@@ -6,15 +6,34 @@
 }
 
 <h2>确认购买</h2>
+<script>
+    function changeValue() {
+        var obj = document.getElementById('Person'); //定位id
+        var index = obj.selectedIndex; // 选中索引
+        id = obj.options[index].value; // 选中值
+        $.ajax({
+            type: "post",
+            async: true,
+            url: "../../Order/Buy",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                //视图中tbody进行局部页面的刷新，<tbody>
+                $("#tbCart1").html(data);
+            }
+        });
+
+    }
+</script>
 
 <fieldset>
     
     <legend>收件信息</legend>
-    @Html.DropDownList("database-dropdownlist", new SelectList(ViewBag.Person, "Value", "Text"), new { @class = "btn btn-success dropdown-toggle form-control", @id = "Person"})
+    @Html.DropDownList("database-dropdownlist", new SelectList(ViewBag.Person, "Value", "Text"), new { @class = "btn btn-success dropdown-toggle form-control", @id = "Person" })
     <legend>您想购买的专辑列表</legend>
     @using (Html.BeginForm())
     {
-                
+       
         <table id="tbCart1">
             <tr>
                 <td>专辑名</td>
@@ -70,20 +89,6 @@
         });
     }
 
-    function changeValue() {
-        var obj = document.getElementById('Person'); //定位id
-        var index = obj.selectedIndex; // 选中索引
-         id = obj.options[index].value; // 选中值
-        $.ajax({
-            type: "post",
-            async: true,
-            url: "../../Order/Buy",
-            data: { id: id },
-            dataType: 'json',
-            success: function (data) {
-            }
-        });
-
-    }
+  
 </script>
 

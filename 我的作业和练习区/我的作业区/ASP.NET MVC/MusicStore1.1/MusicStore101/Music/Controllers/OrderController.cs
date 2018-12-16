@@ -60,9 +60,7 @@ namespace Music.Controllers
             {
                 selectItemList.Add(new SelectListItem() { Value = it.ID.ToString(), Text = "收件人：" + it.AddresPerson + "，收货地址：" + it.Address + "，手机号：" + it.MobileNumber, Selected = true });
             }
-
-            Session["addres_perons"] = selectItemList;
-            ViewBag.Person = selectItemList; 
+            ViewBag.Person =selectItemList;
             return View(order);
         }
         [HttpPost]
@@ -168,14 +166,23 @@ namespace Music.Controllers
                         LockedHelp.ThreadUnlocked(order.ID);
                     }
                     //跳转到支付页Pay/AliPay
-                    return RedirectToAction("Alipay", "Pay", new { id = order.ID });
+                    ViewBag.OrderID = order.ID;
+                    var url = "<script>location.href='" + Url.Action("Alipay", "Pay", new { id = Guid.Parse(@ViewBag.OrderID.ToString())}) + "'</script>";
+                    return Json(url);
+                    // return RedirectToAction("Alipay", "Pay", new { id = order.ID });
                 }
                 //5.如果验证不通过，返回视图
-
+                return Content("<script>alert('购买失败!');location.href='" + Url.Action("index", "home") + "'</script>");
             }
-           
-            ViewBag.Person = Session["addres_perons"] as SelectListItem;
-            return Content("<script>alert('购买失败!');location.href='" + Url.Action("index", "home") + "'</script>"); 
+            var addre = _context.Persons.Find(person.ID).PersonAddresss.ToList();
+            var selectItemList = new List<SelectListItem>();
+            foreach (var it in addre)
+            {
+                selectItemList.Add(new SelectListItem() { Value = it.ID.ToString(), Text = "收件人：" + it.AddresPerson + "，收货地址：" + it.Address + "，手机号：" + it.MobileNumber, Selected = true });
+            }
+            ViewBag.Person = selectItemList;
+            var orders= Session["Order"];
+            return View(orders);
         }
         /// <summary>
         /// 浏览用户订单

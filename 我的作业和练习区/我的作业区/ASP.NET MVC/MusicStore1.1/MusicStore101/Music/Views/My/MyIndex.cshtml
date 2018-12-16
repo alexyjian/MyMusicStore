@@ -1,0 +1,27 @@
+﻿@model MusicStoreEntity.UserAndRole.Person
+@{
+    ViewBag.Title = "MyIndex";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>个人信息</h2>
+
+
+<fieldset style="padding:10px">
+    <label>姓名:@Model.Name</label><br/>
+    <label>生日：@Model.Birthday</label><br />
+    <label>手机：@Model.MobileNumber</label><br />
+    @if (Model.Sex)
+    {
+        <label> 性别：男</label><br />
+    }
+    else
+    {
+        <label> 性别：女</label><br />
+    }
+  
+    <label>邮箱：@Model.Email</label><br />
+    <label>头像：<img src="@Model.Avarda" width="50px" height="50px"/></label><br />
+    <a href="@Url.Action("UpMy","My")" style="margin-bottom: 20px;margin-top: 20px"><button class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i>修改个人信息</button></a> 
+</fieldset>
+
