@@ -60,7 +60,6 @@
     <Compile Include="EntityDbContext.cs" />
     <Compile Include="EnumOrderStatus.cs" />
     <Compile Include="Genre.cs" />
-    <Compile Include="MyAddressUrl.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
