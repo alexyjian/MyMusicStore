@@ -9,15 +9,12 @@
 <h3>确认下单</h3>
 <hr />
 @*收货信息*@
-@using (Html.BeginForm("Buy","Order",new { Value= "" },FormMethod.Post))
-{
-@Html.AntiForgeryToken()
 <div class="panel panel-info">
     <div class="panel-heading">
         <h4 class="panel-title">收货地址</h4>
     </div>
     <div class="panel-body list-address">
-        @Html.DropDownList("Addresses", new SelectList(ViewBag.Addresses,"Value","Text"),new {@class= "btn btn-default form-control" })
+        @Html.DropDownList("Addresses", new SelectList(ViewBag.Addresses,"Value","Text"),new {@class= "btn btn-default form-control", id = "Ad"})
     </div>
 </div>
 <div class="table-responsive">
@@ -49,10 +46,10 @@
         </tbody>
     </table>
     <p>
-        <input type="submit" class="btn btn-success" value="确认购买" />
+        <input type="submit" class="btn btn-success" value="确认购买" onclick="commit()" />
     </p>
 </div>
-}
+
 <script>
     function RemoveDetail(id) {
         $.ajax({
@@ -89,6 +86,21 @@
             dataType:'json',
             success:function (data){
                 $("#tbCart").html(data);
+            }
+        });
+    }
+
+    function commit() {
+        var id = $("#Ad").val();
+        console.debug(id);
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Order/Buy',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data){
+                location.href = "../../Pay/AliPay/" + data + "";
             }
         });
     }

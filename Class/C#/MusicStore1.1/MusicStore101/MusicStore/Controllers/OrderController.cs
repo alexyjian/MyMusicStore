@@ -77,19 +77,19 @@ namespace MusicStore.Controllers
         /// <param name="order"></param>
         /// <returns></returns>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Buy(Order order,string Value)  
+        public ActionResult Buy(Guid id)  
         {
-            var Addressid = Guid.Parse(Value);
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
+            Order order = new Order();
+
             order.Person = _Context.Persons.Find(person.ID);
             order.OrderDetails = new List<OrderDetail>();
 
-            order.PeopleAddress = _Context.PeopleAddress.SingleOrDefault(x => x.Person.ID == person.ID && x.ID == Addressid);
+            order.PeopleAddress = _Context.PeopleAddress.SingleOrDefault(x => x.Person.ID == person.ID && x.ID == id);
             order.Address = order.PeopleAddress.Address;
             order.AddressPerson = order.PeopleAddress.Name;
             order.mobilNumber = order.PeopleAddress.MobileNumber;
@@ -123,7 +123,7 @@ namespace MusicStore.Controllers
                 {
                     LockHelp.ThreadUnLocked(order.ID);
                 }
-                return RedirectToAction("Alipay", "Pay", new { id = order.ID });
+                return Json(order.ID);
             }
             return View();
         }
@@ -218,5 +218,6 @@ namespace MusicStore.Controllers
 
             return Json(htmlString);
         }
+
     }
 }
