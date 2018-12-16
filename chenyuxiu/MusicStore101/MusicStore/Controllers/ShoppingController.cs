@@ -25,6 +25,7 @@ namespace MusicStore.Controllers
                 return Json("nologin");
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             //添加购物车：如果购物车中没有当前专辑，直接添加，数量为1；如果购物车中存在此专辑，数量+1
+                      
             //查询该用户的购物车记录是否包含此专辑
             var cartItem = _context.Carts.SingleOrDefault(x => x.Person.ID == x.Person.ID && x.Album.ID == id);
             var message = "";
