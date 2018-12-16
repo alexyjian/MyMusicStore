@@ -177,9 +177,17 @@ namespace MusicStore.Controllers
         public ActionResult Index()
         {
 
-            var list = _Context.Orders.OrderByDescending(x => x.OrderDateTime).ToList();
-                                
-            return View(list);
+            //var list = _Context.Orders.OrderByDescending(x => x.OrderDateTime).ToList();                
+            //return View(list);
+
+            
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var order = _Context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+
+            return View(order);
         }
     }
 }
