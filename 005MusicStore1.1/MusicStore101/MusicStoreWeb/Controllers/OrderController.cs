@@ -169,14 +169,20 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            //1.判断用户登录凭据是否过期，如果过期跳转回登录页，登录成功后返回确认购买页
+            ////1.判断用户登录凭据是否过期，如果过期跳转回登录页，登录成功后返回确认购买页
+            //if (Session["LoginUserSessionModel"] == null)
+            //    return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+
+            //var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //var order = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+
+            //是否登录
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
-
+            //查询该用户的订单列表
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var order = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
-
-            return View(order);
+            var orders = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+            return View(orders);
         }
     }
 }
