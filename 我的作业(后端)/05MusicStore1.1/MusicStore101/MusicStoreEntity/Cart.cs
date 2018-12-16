@@ -7,6 +7,9 @@ using MusicStoreEntity.UserAndRole;
 
 namespace MusicStoreEntity
 {
+    /// <summary>
+    /// 购物车实体
+    /// </summary>
     public  class Cart
     {
         public Guid ID { get; set; }

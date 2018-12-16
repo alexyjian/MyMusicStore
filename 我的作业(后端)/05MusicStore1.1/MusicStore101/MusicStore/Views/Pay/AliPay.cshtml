@@ -17,7 +17,7 @@
     values.Add("out_trade_no", Model.ID.ToString()); //外部交易号
     values.Add("subject", "音乐专辑" + Model.TotalPrice.ToString("C")); //商品名称
     values.Add("total_fee", Model.TotalPrice.ToString("0.00"));
-    values.Add("body", "向Alex支付￥" + Model.TotalPrice.ToString("C")); //商品描述
+    values.Add("body", "向摸鸟鸟支付￥" + Model.TotalPrice.ToString("C")); //商品描述
     values.Add("show_url", ViewBag.ReturnUrl);
     string sign = AlipayHelper.SignParameter("q12vmic8884u68lgvgczye89ga4bizli", values);
 }

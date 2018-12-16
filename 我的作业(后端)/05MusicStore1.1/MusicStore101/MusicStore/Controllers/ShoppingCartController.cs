@@ -47,7 +47,7 @@ namespace MusicStore.Controllers
             {
                 cartItem.Count++;
                 _context.SaveChanges();
-                message = _context.Albums.Find(id).Title + "原来就在购物车中，已为您数量+1！";
+                message = _context.Albums.Find(id).Title + "已存在购物车中，已为您数量+1！";
             }
             return Json(message);
         }
