@@ -162,8 +162,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AddressUrlController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
@@ -179,15 +179,21 @@
     <Compile Include="ViewMoldels\ChangePassWordViewModel.cs" />
     <Compile Include="ViewMoldels\LoginUserStatus.cs" />
     <Compile Include="ViewMoldels\LoginViewModel.cs" />
+    <Compile Include="ViewMoldels\MyViewModel.cs" />
     <Compile Include="ViewMoldels\RegisterViewModel.cs" />
     <Compile Include="ViewMoldels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\00.jpg" />
+    <Content Include="Content\Images\01.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\1.jpg" />
+    <Content Include="Content\Images\10.jpg" />
+    <Content Include="Content\Images\11.jpg" />
+    <Content Include="Content\Images\12.jpg" />
     <Content Include="Content\Images\2.jpg" />
     <Content Include="Content\Images\3.jpg" />
     <Content Include="Content\Images\4.jpg" />
@@ -197,6 +203,7 @@
     <Content Include="Content\Images\8.jpg" />
     <Content Include="Content\Images\9.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
+    <Content Include="Content\Images\log1.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\placeholder.gif" />
     <Content Include="Content\Images\Loading.gif" />
@@ -247,7 +254,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
+    <Content Include="Views\ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -289,7 +296,7 @@
     <Content Include="Views\Order\Buy.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
-    <Content Include="Views\AddressUrl\Index.cshtml" />
+    <Content Include="Views\My\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">
@@ -310,7 +317,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Upload\Avarda\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
