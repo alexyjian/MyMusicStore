@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+img{
+    display: block;
+    /* 清除照片的3px缝隙 */
+}
+
+.slider{
+    width: 500px;
+    height: 200px;
+    border: 1px solid #ccc;
+    margin: 50px auto;
+    position: relative;
+    padding: 5px;
+}
+
+/*编号的样式*/
+.slider ol{
+    position: absolute;
+    right: 65px;
+    margin-right: -65px;
+    bottom: 10px;
+}
+
+.slider ol li{
+    background-color: white;
+    float: left;
+    width: 20px;
+    height: 20px;
+    /*编号的间距*/
+    margin-right: 10px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+
+.wrap{
+    height: 200px;
+    width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+        
+.wrap ul{
+    position: absolute;
+}
+        
+.wrap ul li{
+    height: 200px;
+}
+        
+.wrap ol{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+        
+.wrap ol li{
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
+    float:left;
+    line-height: 20px;
+    text-align: center;
+}
+        
+.slider ol li.active{
+    background-color: orange;
+}
