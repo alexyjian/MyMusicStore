@@ -293,3 +293,8 @@ tr:hover {
     color: lightskyblue;
     font-size: 12px;
 }
+
+#avarda{
+    height: 35px;
+    border-radius: 50%;
+}
