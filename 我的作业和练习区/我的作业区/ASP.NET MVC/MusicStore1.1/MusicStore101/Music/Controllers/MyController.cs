@@ -78,14 +78,7 @@ namespace Music.Controllers
             }
             var persons = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
             var address = _context.Persons.Find(persons.ID).PersonAddresss.ToList();
-            var con = _context.Persons.Find(persons.ID);
-            var selectItemList = new List<SelectListItem>();
-            foreach (var it in con.PersonAddresss.ToList())
-            {
-                selectItemList.Add(new SelectListItem() { Value = it.ID.ToString(), Text = "收件人：" + it.AddresPerson + "，收货地址：" + it.Address + "，手机号：" + it.MobileNumber, Selected = true });
-            }
-
-            Session["addres_perons"] = selectItemList;
+         
             return View(address);
         }
     }

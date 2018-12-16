@@ -48,7 +48,7 @@ namespace MusicStoreEntity.UserAndRole
 
         [ScaffoldColumn(false)]
         [DataType(DataType.ImageUrl)]
-        public string Avarda { get; set; } = "~/Content/Images/boy.jpg";//头像
+        public string Avarda { get; set; } = "/Content/Images/moren.png";//头像
 
         [StringLength(50)]
         public string InquiryPassword { get; set; } // 查询密码，仅仅用于查询是否已经已经建立数据

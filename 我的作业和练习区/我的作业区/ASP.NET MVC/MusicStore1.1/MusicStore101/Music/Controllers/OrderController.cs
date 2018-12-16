@@ -27,6 +27,7 @@ namespace Music.Controllers
 
             //2.查询出当前用户Person 查询该用户的购物项
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            var addre = _context.Persons.Find(person.ID).PersonAddresss.ToList();
             var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
             //计算购物车的总价
             decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum(); //Linq表达式
@@ -54,15 +55,14 @@ namespace Music.Controllers
             //将订单和明细在视图呈现，验证用户收件人、地址、电话，供用户选择确认要购买专辑
             //当前订单未持久化，用户会话保存方便用户进行编辑
             Session["Order"] = order;
-            
-            var con = _context.Persons.Find(person.ID);
             var selectItemList = new List<SelectListItem>();
-            foreach (var it in con.PersonAddresss.ToList())
+            foreach (var it in addre)
             {
-                selectItemList.Add(new SelectListItem() { Value =it.ID.ToString(), Text ="收件人："+it.AddresPerson+"，收货地址："+it.Address+"，手机号："+it.MobileNumber, Selected = true });
+                selectItemList.Add(new SelectListItem() { Value = it.ID.ToString(), Text = "收件人：" + it.AddresPerson + "，收货地址：" + it.Address + "，手机号：" + it.MobileNumber, Selected = true });
             }
-            ViewBag.Person = selectItemList;
 
+            Session["addres_perons"] = selectItemList;
+            ViewBag.Person = selectItemList; 
             return View(order);
         }
         [HttpPost]
