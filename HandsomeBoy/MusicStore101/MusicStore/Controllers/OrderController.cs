@@ -128,7 +128,7 @@ namespace MusicStore.Controllers
             }
             Guid guid =Guid.Parse(Session["ID"].ToString());
             order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
-            order.Mys = _context.Mys.Find(guid);
+            //order.Mys = _context.Mys.Find(guid);
             //4.如果表单验证通过，则保存 order到数据库（锁定进程），跳转到Pay/Alipay
             if (ModelState.IsValid)
             {

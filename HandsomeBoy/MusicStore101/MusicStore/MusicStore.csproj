@@ -157,6 +157,7 @@
     <Compile Include="ViewModels\ConfirmTheOrderModel.cs" />
     <Compile Include="ViewModels\LoginUserViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MyViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
@@ -169,6 +170,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\boy.jpg" />
     <Content Include="Content\Images\country.jpg" />
     <Content Include="Content\Images\DJ.jpg" />
     <Content Include="Content\Images\DY.jpg" />
@@ -315,10 +317,14 @@
     <Content Include="Views\Order\Buy.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\My\Address.cshtml" />
+    <Content Include="Views\My\AddressUpdate.cshtml" />
     <Content Include="Views\My\Index.cshtml" />
-    <Content Include="Views\My\Update.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Avarda\" />
+    <Folder Include="Upload\Avarda\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

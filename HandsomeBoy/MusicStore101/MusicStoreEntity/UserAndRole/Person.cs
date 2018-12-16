@@ -50,6 +50,8 @@ namespace MusicStoreEntity.UserAndRole
         public string InquiryPassword { get; set; } // 查询密码，仅仅用于查询是否已经已经建立数据
 
         public string Avarda { get; set; } = "/contet/Images/boy.jpg";
+
+        //public virtual My Mys {get;set;}
         public Person()
         {
             this.ID = Guid.NewGuid();

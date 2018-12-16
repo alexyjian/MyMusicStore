@@ -2,6 +2,7 @@
 using MusicStoreEntity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,21 +12,80 @@ namespace MusicStore.Controllers
     public class MyController : Controller
     {
         private static MusicStoreEntity.EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
-        // GET: My
-        //显示和添加个人地址
         public ActionResult Index()
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
-            var mya = new List<My>();
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
-            Session["asdasd"] = mya;
+            var myVM = new MyViewModel()
+            {
+                Name = person.Name,
+                Sex = person.Sex,
+                TelephoneNumber = person.TelephoneNumber,
+                MobileNumber = person.MobileNumber,
+                Email = person.Email,
+                Birthday =Convert.ToDateTime(person.Birthday.ToString("yyyy-MM-dd'T'HH:mm:ss")),
+                CredentialsCode = person.CredentialsCode
+            };
+            ViewBag.AvardaUrl = person.Avarda;
+            return View(myVM);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(MyViewModel model)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+
+            //用户原来的头像
+            var oldAvarda = person.Avarda;
+            if (ModelState.IsValid)
+            {
+                //保存头像
+                if (model.Avarda != null)
+                {
+                    var uploadDir = "~/Upload/Avarda/";
+                    //取后缀名
+                    var fileLastName = model.Avarda.FileName.Substring(model.Avarda.FileName.LastIndexOf(".") + 1,
+                        (model.Avarda.FileName.Length - model.Avarda.FileName.LastIndexOf(".") - 1));
+                    var imagePath = Path.Combine(Server.MapPath(uploadDir), person.ID + ".jpg");//将网站的虚拟路径转化为真实 的物理路径
+                    model.Avarda.SaveAs(imagePath);
+                    oldAvarda = "/Upload/Avarda/" + person.ID + ".jpg";
+                }
+
+                person.Name = model.Name;
+                person.Sex = model.Sex;
+                person.TelephoneNumber = model.TelephoneNumber;
+                person.MobileNumber = model.MobileNumber;
+                person.Email = model.Email;
+                person.Birthday = model.Birthday;
+                person.CredentialsCode = model.CredentialsCode;
+                person.FirstName = person.Name.Substring(0, 1);
+                person.Avarda = oldAvarda;
+                person.LastName = person.Name.Substring(1, person.Name.Length - 1);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.AvardaUrl = oldAvarda;
+            return View();
+
+        }
+        // GET: My
+        //显示和添加个人地址
+        public ActionResult Address()
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+            //var mya = new List<My>();
+            //var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
+            //Session["asdasd"] = mya;
             return View();
         }
         //添加个人地址
         [HttpPost]
-        public ActionResult Add(MusicStoreEntity.My model)
+        public ActionResult Address(MusicStoreEntity.My model)
         {
            
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
@@ -40,22 +100,22 @@ namespace MusicStore.Controllers
             //Session["MyAdd"] = my;
             _context.Mys.Add(my);
             _context.SaveChanges();
-            return Content("<script>alert('添加地址成功!');location.href='" + Url.Action("Index", "My") + "'</script>");
+            return Content("<script>alert('添加地址成功!');location.href='" + Url.Action("Address", "My") + "'</script>");
         }
         /// <summary>
-        /// 删除
+        /// 删除Address
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Remove(Guid id)
+        public ActionResult AddressRemove(Guid id)
         {
             var htmlString = "";
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             //var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
             var may1 = _context.Mys.Find(id);
-           var order = _context.Orders.Where(x => x.Mys.ID == id).ToList();
+            var order = _context.Orders.Where(x => x.Mys.ID == id).ToList();
 
             if (order.Count > 0)
             {
@@ -65,9 +125,6 @@ namespace MusicStore.Controllers
             var mays = _context.Mys.Find(id);
                 _context.Mys.Remove(mays);
                 _context.SaveChanges();
-           
-
-          
           
             //刷新局部视图  生成html元素注入到<tbody>中
             var may = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
@@ -92,16 +149,16 @@ namespace MusicStore.Controllers
 
               
             }
-            htmlString += " <tr>< td ></td ><td></td ><td></td> <td></td><td></td></tr> ";
+            htmlString += " <tr><td></td ><td></td ><td></td><td></td><td></td></tr> ";
 
             return Json(htmlString);
         }
         /// <summary>
-        /// 修改
+        /// 修改Address
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public ActionResult Update(Guid id)
+        public ActionResult AddressUpdate(Guid id)
         {
             var mays = _context.Mys.Find(id);
             My model = new My()
@@ -114,7 +171,7 @@ namespace MusicStore.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult Update(MusicStoreEntity.My model)
+        public ActionResult AddressUpdate(MusicStoreEntity.My model)
         {
             My mays = new My()
             {
@@ -124,7 +181,7 @@ namespace MusicStore.Controllers
                 MobiNumber = model.MobiNumber,
             };
             _context.SaveChanges();
-            return Content("<script>alert('地址修改成功!');location.href='" + Url.Action("Index", "My") + "'</script>");
+            return Content("<script>alert('地址修改成功!');location.href='" + Url.Action("Address", "My") + "'</script>");
         }
     }
 }

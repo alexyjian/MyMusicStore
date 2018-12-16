@@ -1,113 +1,110 @@
-﻿@using MusicStoreEntity;
-@using MusicStore.ViewModels
-@model MusicStoreEntity.My
-
+﻿@model MusicStore.ViewModels.MyViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "我的";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
-    EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
-    var mya = new List<My>();
-    var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-    try
-    {
-        mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
-    }
-    catch { }
-
-
 }
 
-<h2>收货地址</h2>
+<h2>个人信息</h2>
+<form enctype="multipart/form-data" action="" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入姓名" })
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
 
-@using (Html.BeginForm("Add", "My", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
-{
-    <fieldset>
-        <legend>
-            用户信息
-        </legend>
-        <div class="editor-label">
-            @Html.LabelFor(x => x.AddressPerson) :@Html.TextBoxFor(x => x.AddressPerson, new { placeholder = "请输入收件人姓名" })
-            @Html.ValidationMessageFor(x => x.AddressPerson)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Sex)
+            </div>
+            <div class="editor-field">
+             @Html.RadioButtonFor(Model => Model.Sex, true, new { @id = "Statusradio0", @name = "Status" })<label id="tr">男</label>
+
+            @Html.RadioButtonFor(Model => Model.Sex, false, new { @id = "Statusradio1", @name = "Status" })<label id="tr">女</label>
+                @Html.ValidationMessageFor(x => x.Sex)
+            </div>
 
 
-        <div class="editor-label">
-            @Html.LabelFor(x => x.Area) :@Html.TextBoxFor(x => x.Area, new { placeholder = "请输入所在地区" })
-            @Html.ValidationMessageFor(x => x.Area)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.TelephoneNumber)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.TelephoneNumber, new { placeholder = "请输入电话号码" })
+                @Html.ValidationMessageFor(x => x.TelephoneNumber)
+            </div>
 
-      
+            <div class="editor-label">
+                @Html.LabelFor(x => x.MobileNumber)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.MobileNumber, new { placeholder = "请输入手机号码" })
+                @Html.ValidationMessageFor(x => x.MobileNumber)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(x => x.MobiNumber) :@Html.TextBoxFor(x => x.MobiNumber, new { placeholder = "请输入手机号" })
-            @Html.ValidationMessageFor(x => x.MobiNumber)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入电子邮箱" })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(x => x.Email) :@Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮政编号" })
-            @Html.ValidationMessageFor(x => x.Email)
-        </div>
+            @*<div class="editor-label">
+                @Html.LabelFor(x => x.Birthday)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Birthday, new { placeholder = "请输入出生日期" })
+                @Html.ValidationMessageFor(x => x.Birthday)
+            </div>*@
+            <div>
+                 <span>生日日期：</span>@Html.TextBoxFor(x => x.Birthday, new { type = "datetime-local" })
+            </div>
+              
+                <div class="editor-label">
+                    @Html.LabelFor(x => x.CredentialsCode)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(x => x.CredentialsCode, new { placeholder = "请输入身份证编号" })
+                    @Html.ValidationMessageFor(x => x.CredentialsCode)
+                </div>
 
-        <div class="My_save">
-            <input type="submit" value="保存" class="btn btn-success" />
-        </div>
 
-        <h4>已保存的有效地址</h4>
-            <table class="ShoppingCartView">
-                <tbody>
-                    <tr>
-                        <th>收货人</th>
-                        <th>所在地区</th>
-                        <th>邮编</th>
-                        <th>手机</th>
-                        <th>操作</th>
-                    </tr>
-                </tbody>
-                <tbody id="tbCart">
-                    @foreach (var item in mya)
-                    {
-                    <tr>
-                        <td>收货人：@item.AddressPerson</td>
-                        <td>所在地区：@item.Area</td>
-                        <td>邮编：@item.Email</td>
-                        <td>手机：@item.MobiNumber</td>
-                        <td><span><a href='../my/update/@item.ID'>修改</a>|<a href='javascript:;' class="delete" onclick="Remove('@item.ID')">删除</a></span></td>
-                       
-                    </tr>
-                    }
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    
-            </table>
-    </fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(x => x.Avarda)
+                </div>
+                <div class="editor-field">
+                    <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
+                    @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
+                </div>
 
-}
+                <p>
+                    <input type="submit" value="保存" class="btn btn-success" style="width:100px" />
+                </p>
+</fieldset>
+    </div>
+</form>
+
 <script>
-    function Remove(ID) {
-        if (confirm("您确定要删除该地址么？")) {      //ajax 提交到服务器端进行购物车项的删除
-            $.ajax({
-                type: 'post',
-                async: true,
-                url: '../../My/Remove',
-                data: { id: ID },
-                dataType: 'json',
-                success: function (data) {
-                    if (data == "无法删除有冲突") {
-                        alert("无法删除。因为该订单地址正在使用");
-                    }
-                    else {
-                        //视图中进行局部页面的刷新 <tbody>
-                        $("#tbCart").html(data);
-                    }
-                   
-                }
-            })
-        }
+    $(function () {
+        $("#Avarda").on("change",
+       function () {
+           var file = this.files[0];
+           //判断是不是图片
+           if (!/image\/\w+/.test(file.type))
+           {
+               alert('文件必须为图片');
+               return false;
+           }
+           //读文件内容,读物理地址,让img标签的src属性重新赋值
+           var reader = new FileReader();
+           reader.readAsDataURL(file);//读取地址
+           reader.onload = function (e) {
+               $("#imgAvarda").attr('src', this.result);
+           }
+       });
+    })
 
-    }
 </script>
