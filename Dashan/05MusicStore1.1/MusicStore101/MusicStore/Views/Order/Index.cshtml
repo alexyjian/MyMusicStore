@@ -23,8 +23,7 @@
         <tbody>
                 <tr>
                     <td>
-                        @item.TradeNo
-                        <br />
+                        <span class="text-warning">@item.TradeNo</span><br />
                         收件人: @item.AddressPerson
                         <br />
                         收件地址：@item.Address
@@ -34,12 +33,14 @@
 
 @foreach (var items in item.OrderDetails)
 {
-                    <td><br />@items.Album.Title ,1张</td>
+                    <td><span class="text-primary">@items.Album.Title, @items.Count , 1张</span></td>
+                    
 }
                    
-                    <td>@item.TotalPrice</td>
+                    <td>@item.TotalPrice.ToString("C")</td>
                     <td>@item.EnumOrderStatus</td>
-                    <td><a href="/AliPay/Pay"  class="btn btn-info btn-um">
+                    <td>
+                    <a href="/AliPay/Pay"  class="btn btn-info btn-um">
                      <span  class="glyphicon glyphicon-headphones">
                      </span>
                         立即支付
