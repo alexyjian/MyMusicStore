@@ -94,7 +94,7 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
                 htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
-                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('"+item.ID+"')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">-</button></th>";
+                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('"+item.ID+"')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartSubtract('" + item.ID + "')\">-</button></th>";
                 htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
 
             }
@@ -121,7 +121,7 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
                 htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
-                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">-</button></th>";
+                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartSubtract('" + item.ID + "')\">-</button></th>";
                 htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
 
             }
@@ -148,7 +148,7 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
                 htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
-                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">-</button></th>";
+                htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('" + item.ID + "')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartSubtract('" + item.ID + "')\">-</button></th>";
                 htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
 
             }

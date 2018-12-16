@@ -24,8 +24,9 @@
                 <th>@item.Album.Price.ToString("C")</th>
                 <th><button class="btn btn-default" onclick="removeCartAdd('@item.ID')">+</button>&nbsp;@item.Count&nbsp;<button class="btn btn-default" onclick="removeCartSubtract('@item.ID')">-</button></th>
                 <th class="Cart-tbody-th">
-                    <a class="glyphicon glyphicon-remove Cartdelete" onclick="removeCart('@item.ID')">
-                        <span>删除</span>
+                    <a class="Cartdelete" onclick="removeCart('@item.ID')">
+                        <i class="glyphicon glyphicon-remove"></i>
+                        删除
                     </a>
                 </th>
             </tr>
@@ -52,9 +53,9 @@
             success: function (data) {
                 $("#tbCart").html(data);
 
-                //setTimeout(function () {
-                //    location.reload();//刷新区域
-                //}, 100);
+                setTimeout(function () {
+                    location.reload();//刷新区域
+                }, 100);
             }
         });
     }
@@ -67,10 +68,6 @@
             dataType: 'json',
             success: function (data) {
                 $("#tbCart").html(data);
-
-                setTimeout(function () {
-                    location.reload();//刷新区域
-                }, 100);
             }
         });
     }
@@ -83,10 +80,6 @@
             dataType: 'json',
             success: function (data) {
                 $("#tbCart").html(data);
-
-                setTimeout(function () {
-                    location.reload();//刷新区域
-                }, 100);
             }
         });
     }

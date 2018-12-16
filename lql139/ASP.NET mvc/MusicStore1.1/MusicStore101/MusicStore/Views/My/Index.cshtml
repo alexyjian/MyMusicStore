@@ -1,0 +1,56 @@
+﻿@model MusicStoreEntity.UserAndRole.Person
+@{
+    ViewBag.Title = "个人信息";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <div class="panel panel-primary" id="tbCart" style="height:400px;">
+        <div class="panel-heading">
+            <h3 class="panel-title">个人信息</h3>
+        </div>
+        
+        <a class="list-group-item">
+            头像:<img src="@Model.Avarda" class="Avarda" alt="头像" />
+            </a>
+
+        <a class="list-group-item">名称:@Model.Name</a>
+           
+
+       <a class="list-group-item">电话:@Model.MobileNumber</a>
+
+
+        <a class="list-group-item">邮箱:@Model.Email</a>
+
+
+        <a class="list-group-item">地址:@Model.Address</a>
+
+        <button type="button"  class="btn btn-default" style="float:right; margin-right:10px; margin-top:100px;" onclick="CompilePersonal('@Model.ID')">编辑</button>
+</div>
+}
+<script>
+    function CompilePersonal(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../My/CompilePersonal",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+    function UpdatePersonal(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../My/UpdatePersonal",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>

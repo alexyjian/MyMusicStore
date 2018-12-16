@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
@@ -164,6 +165,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\stern_logo.png" />
+    <Content Include="Content\images\touxiang.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\images\home-showcase.png" />
     <Content Include="Content\images\logo.png" />
@@ -264,6 +266,7 @@
     <Content Include="Views\ShoppingCart\index.cshtml" />
     <Content Include="Views\Order\Buy.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
+    <Content Include="Views\My\Index.cshtml" />
     <Content Include="Views\Pay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />

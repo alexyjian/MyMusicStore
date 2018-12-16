@@ -28,6 +28,7 @@ namespace MusicStore.Controllers
                 MobiNumber = person.MobileNumber,
                 Person = _context.Persons.Find(person.ID),
                 TotaPrice=totalPrice??0.00M,
+                Address=person.Address,
             };
 
             orders.OrderDetails = new List<OrderDetail>();
@@ -76,6 +77,21 @@ namespace MusicStore.Controllers
                 {
                     _context.Orders.Add(order);
                     _context.SaveChanges();
+
+                    //清空购物车
+                    var carts = _context.Cart.Where(x => x.Person.ID == x.Person.ID).ToList();
+                    foreach(var cart in carts)
+                    {
+                        _context.Cart.Remove(cart);
+                    }
+                    _context.SaveChanges();
+                    var p = _context.Persons.Find(person.ID);
+                    p.MobileNumber = order.MobiNumber;
+                    p.Address = order.Address;
+                    p.Name = order.AdderssPerson;
+                    p.FirstName = p.Name.Substring(0, 1);
+                    p.LastName = p.LastName.Substring(1, p.Name.Length - 1);
+                    _context.SaveChanges();
                 }
                 catch
                 {
@@ -85,7 +101,7 @@ namespace MusicStore.Controllers
                 {
                     LockedHelp.ThreadUnLocked(order.ID);
                 }
-                return RedirectToAction("Index", "Pay",new { id=order.ID});
+                return RedirectToAction("AliPay", "Pay", new { id = order.ID });
             }
 
             //不通过验证返回视图
@@ -97,7 +113,7 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Pay");
         }
         [HttpPost]
         public ActionResult RemoveDetail(Guid id)
@@ -121,7 +137,6 @@ namespace MusicStore.Controllers
                 htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
                 htmlString += "<th>&nbsp;" + item.Count + "&nbsp;</th>";
                 htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除此项</a></th><tr>";
-
             }
             htmlString += "<tr><th ></th><th></th><th></th><th  class=\"totalprice - th\" colspan=\"4\">总价" + order.TotaPrice.ToString("C") + "</th ></tr>";
             return Json(htmlString);
