@@ -26,8 +26,9 @@ namespace MusicStore.Controllers
             var my = new MYviewModel()
             {
                 MobileNumber = person.MobileNumber,
-                Name=person.Name,
-                
+                Name = person.Name,
+                Sex = person.Sex,
+                Birthday =person.Birthday
             };
             ViewBag.AvardaUrl = person.Avarda;
             return View(my);
@@ -56,9 +57,17 @@ namespace MusicStore.Controllers
                     oldAvarad = "/Upload/Avarda/" + person.ID + ".jpg";
                 }
                 //保存个人信息
-                person.Avarda = oldAvarad;
-                person.Name = model.Name;
+                var AddPerson = _context.Persons.SingleOrDefault(x => x.ID == person.ID);
+
+                AddPerson.Avarda = oldAvarad;
+                AddPerson.Name = model.Name;
+                AddPerson.MobileNumber = model.MobileNumber;
+                AddPerson.Sex = model.Sex;
+                AddPerson.Birthday = model.Birthday;
+                //model.Avarda.SaveAs(AddPerson.Avarda);
                 _context.SaveChanges();
+
+                return View();
             }
             ViewBag.AvardaUrl = oldAvarad;
             return View();

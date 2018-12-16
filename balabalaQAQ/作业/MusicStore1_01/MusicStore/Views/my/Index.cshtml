@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_newLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>个人信息</h2>
 <form enctype="multipart/form-data" action="" method="post">
     @Html.AntiForgeryToken()
     <div>
@@ -26,32 +26,35 @@
                 @Html.ValidationMessageFor(x => x.MobileNumber)
             </div>
 
-            <div class="editor-field">
-                @Html.RadioButtonFor(x => x.Sex, true, new { @nane = "sex" })
-                @Html.RadioButtonFor(x => x.Sex, false, new { @nane = "sex" })
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Sex)
             </div>
+            <div class="editor-field">
+               男： @Html.RadioButtonFor(x => x.Sex, true, new { @nane = "sex" }) &nbsp;
+               女： @Html.RadioButtonFor(x => x.Sex, false, new { @nane = "sex" })
+                @Html.ValidationMessageFor(x => x.Sex)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Birthday)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x=>x.Birthday , new {type= "text" ,@id= "datepicker" })  
+                @Html.ValidationMessageFor(x => x.Birthday )
+            </div>
+
             <div class="editor-label">
                 @Html.LabelFor(x => x.Avarda)
             </div>
-
             <div class="editor-field">
                 <img id="imgAvarda" src="@ViewBag.AvardaUrl" style="height:100px;width:100px; border-radius:50%;" />
 
                 @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
             </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(x => x.MobileNumber)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(x => x.MobileNumber, new { placeholder = "请输入电话" })
-                @Html.ValidationMessageFor(x => x.MobileNumber)
-            </div>
-
-            <p>生日: <input type="text" id="datepicker"></p>
             <br />
             <p>
-                <input type="submit" value="保存" class="btn btn-success" style="width:100px" ; />
+                <input type="submit" value="保存" class="btn btn-success" style="width:100px;text-align:center" ; />
             </p>
         </fieldset>
     </div>
