@@ -5,6 +5,7 @@ using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,50 +14,56 @@ namespace MusicStore.Controllers
 {
     public class MyController : Controller
     {
-        private readonly EntityDbContext _context = new EntityDbContext();
+        private static readonly EntityDbContext _context = new EntityDbContext();
         // GET: My
         public ActionResult Index()
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            // var carts = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
 
-            return View(person);
+            var upv = new UpdatePersonalViewModel()
+            {
+                Name = person.Name,
+                Address = person.Address,
+                MobileNumber = person.MobileNumber,
+                Email=person.Email,
+            };
+            ViewBag.AvardaUrl = person.Avarda;
+            return View(upv);
+
         }
         [HttpPost]
-        public ActionResult CompilePersonal(Guid id)
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(UpdatePersonalViewModel model)
         {
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var htmlString = "";
 
-            htmlString += "<div class=\"panel-heading\"><h3 class=\"panel-title\">个人信息</h3></div>";
-            htmlString += "<div class=\"panel-body\"><div class=\"input-group CompilePersonal-text\"><span class=\"input-group-addon\">名称:</span><input type = \"text\" class=\"form-control\" placeholder=\"name\" value=" + person.Name + "></div></div>";
-            htmlString += "<div class=\"panel-body\"><div class=\"input-group CompilePersonal-text\"><span class=\"input-group-addon\">电话:</span><input type = \"text\" class=\"form-control\" placeholder=\"phone\" value=" + person.MobileNumber + "></div></div>";
-            htmlString += "<div class=\"panel-body\"><div class=\"input-group CompilePersonal-text\"><span class=\"input-group-addon\">邮箱:</span><input type = \"text\" class=\"form-control\" placeholder=\"Email\" value=" + person.Email + "></div></div>";
-            htmlString += "<div class=\"panel-body\"><div class=\"input-group CompilePersonal-text\"><span class=\"input-group-addon\">地址:</span><input type = \"text\" class=\"form-control\" placeholder=\"Email\" value=" + person.Address + "></div></div>";
-            htmlString += "<button onclick=\"UpdatePersonal('" + person.ID + "')\" type=\"submit\" class=\"btn btn-default\" style=\"float:right; margin-right:10px; margin-top:50px;\">保存</button>";
-            return Json(htmlString);
-        }
-        public ActionResult UpdatePersonal(UpdatePersonalViewModel model)
-        {
-            var userManage = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntityDbContext()));
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
-            if (ModelState.IsValid)
+            var oldAvarda = person.Avarda;
+            if(ModelState.IsValid)
             {
-                var htmlString = "";
-
-                htmlString += "<div class=\"panel-heading\"><h3 class=\"panel-title\">个人信息</h3></div>";
-                htmlString += "<div class=\"panel-body\"><div class=\"input-group CompilePersonal-text\"><span class=\"input-group-addon\">名称:</span><input type = \"text\" class=\"form-control\" placeholder=\"name\" value=" + person.Name + "></div></div>";
-                htmlString += "<div class=\"panel-body\"><div class=\"input-group CompilePersonal-text\"><span class=\"input-group-addon\">电话:</span><input type = \"text\" class=\"form-control\" placeholder=\"phone\" value=" + person.MobileNumber + "></div></div>";
-                htmlString += "<div class=\"panel-body\"><div class=\"input-group CompilePersonal-text\"><span class=\"input-group-addon\">邮箱:</span><input type = \"text\" class=\"form-control\" placeholder=\"Email\" value=" + person.Email + "></div></div>";
-                htmlString += "<div class=\"panel-body\"><div class=\"input-group CompilePersonal-text\"><span class=\"input-group-addon\">地址:</span><input type = \"text\" class=\"form-control\" placeholder=\"Email\" value=" + person.Address + "></div></div>";
-                htmlString += "<button onclick=\"UpdatePersonal('" + person.ID + "')\" type=\"submit\" class=\"btn btn-default\" style=\"float:right; margin-right:10px;\">编辑</button>";
-                return Json(htmlString);
+                if(model.Avarda!=null)
+                {
+                    var uploadDir = "~/Upload/Avarda/";
+                    //取后缀名
+                    var fileLastName = model.Avarda.FileName.Substring(model.Avarda.FileName.LastIndexOf(".") + 1,
+                        (model.Avarda.FileName.Length - model.Avarda.FileName.LastIndexOf(".") - 1));
+                    var imagePath = Path.Combine(Server.MapPath(uploadDir), person.ID + fileLastName);
+                    model.Avarda.SaveAs(imagePath);
+                    oldAvarda = "/Upload/Avarda/" + person+".jpg";
+                }
+                person.MobileNumber = model.MobileNumber;
+                person.Address = model.Address;
+                person.Name = model.Name;
+                person.FirstName = person.Name.Substring(0, 1);
+                person.LastName = person.LastName.Substring(1, person.Name.Length - 1);
+                person.Avarda = oldAvarda;
+                _context.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return View(model);
+            ViewBag.AvardaUrl = oldAvarda;
+            return View();
         }
     }
 }
