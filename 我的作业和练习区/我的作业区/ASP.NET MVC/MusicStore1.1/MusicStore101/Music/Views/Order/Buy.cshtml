@@ -2,17 +2,19 @@
 @{
     ViewBag.Title = "Buy";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+    
 }
 
 <h2>确认购买</h2>
-@using (Html.BeginForm("buy","Order",new {}))
-{
-    <fieldset>
-        <legend>收件信息</legend>
 
-        @Html.EditorForModel()
-        @Html.DropDownList("database-dropdownlist", ViewBag.database as IEnumerable<SelectListItem>, new { @class = "btn btn-success dropdown-toggle form-control" })
-        <legend>您想购买的专辑列表</legend>
+<fieldset>
+    
+    <legend>收件信息</legend>
+    @Html.DropDownList("database-dropdownlist", new SelectList(ViewBag.Person, "Value", "Text"), new { @class = "btn btn-success dropdown-toggle form-control", @id = "Person"})
+    <legend>您想购买的专辑列表</legend>
+    @using (Html.BeginForm())
+    {
+                
         <table id="tbCart1">
             <tr>
                 <td>专辑名</td>
@@ -21,41 +23,45 @@
                 <td>操作</td>
             </tr>
             <tbody id="tbCart">
-            @foreach (var item in Model.OrderDetails)
-            {
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)</td>
+                        <td>@item.Album.Price.ToString("C")</td>
+                        <td> @item.Count </td>
+                        <td>
+                            <a href="#" onclick="removeDetail('@item.ID');">
+                                <i class="glyphicon glyphicon-remove">
+                                    移除购物车
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                }
                 <tr>
-                    <td>@Html.ActionLink(item.Album.Title, "detail", "Store", new {id = item.Album.ID}, null)</td>
-                    <td>@item.Album.Price.ToString("C")</td>
-                    <td> @item.Count </td>
-                    <td>
-                        <a href="#" onclick="removeDetail('@item.ID');">
-                            <i class="glyphicon glyphicon-remove">
-                                移除购物车
-                            </i>
-                        </a></td>
+                    <td></td>
+                    <td></td>
+                    <td>总价</td>
+                    <td>@Model.TotalPrice.ToString("C")</td>
                 </tr>
-            }
-            <tr>
-                <td></td>
-                <td></td>
-                <td>总价</td>
-                <td>@Model.TotalPrice.ToString("C")</td>
-            </tr>
             </tbody>
         </table>
         <p>
-            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i>确定购买</button>
+            <button type="submit" class="btn btn-success" onclick="changeValue()"><i class="glyphicon glyphicon-shopping-cart"></i>确定购买</button>
         </p>
-    </fieldset>
-}
+
+    }
+</fieldset>
+
 <script>
+    var id;
     function removeDetail(id) {
         //移除订单明细
         $.ajax({
             type: "post",
             async: true,
             url: "../../Order/RemoveDetail",
-            data: { id: id},
+            data: { id: id },
             dataType: 'json',
             success: function (data) {
                 //视图中tbody进行局部页面的刷新，<tbody>
@@ -63,4 +69,21 @@
             }
         });
     }
+
+    function changeValue() {
+        var obj = document.getElementById('Person'); //定位id
+        var index = obj.selectedIndex; // 选中索引
+         id = obj.options[index].value; // 选中值
+        $.ajax({
+            type: "post",
+            async: true,
+            url: "../../Order/Buy",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+            }
+        });
+
+    }
 </script>
+

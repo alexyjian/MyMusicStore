@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MusicStoreEntity;
 using Music.ViewModels;
+using MusicStoreEntity.UserAndRole;
 
 namespace Music.Controllers
 {
@@ -53,14 +54,15 @@ namespace Music.Controllers
             //将订单和明细在视图呈现，验证用户收件人、地址、电话，供用户选择确认要购买专辑
             //当前订单未持久化，用户会话保存方便用户进行编辑
             Session["Order"] = order;
-
+            
             var con = _context.Persons.Find(person.ID);
-            var selectItemList = new List<SelectListItem>() {
-                new SelectListItem(){Value="0",Text="全部",Selected=true}
-            };
-            var selectList = new SelectList(con.PersonAddresss.ToList(), "AddresPerson", "AddresPerson");
-            selectItemList.AddRange(selectList);
-            ViewBag.database = selectItemList;
+            var selectItemList = new List<SelectListItem>();
+            foreach (var it in con.PersonAddresss.ToList())
+            {
+                selectItemList.Add(new SelectListItem() { Value =it.ID.ToString(), Text ="收件人："+it.AddresPerson+"，收货地址："+it.Address+"，手机号："+it.MobileNumber, Selected = true });
+            }
+            ViewBag.Person = selectItemList;
+
             return View(order);
         }
         [HttpPost]
@@ -103,7 +105,7 @@ namespace Music.Controllers
         /// <param name="oder"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Buy(Order order,string dr)
+        public ActionResult Buy(string id)
         {
            
             //1.确认用户是否登陆 是否登陆过期
@@ -113,55 +115,67 @@ namespace Music.Controllers
 
             }
             //2.读出当前用户Person
-
             var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
-            order.Person = _context.Persons.Find(person.ID);
-
-            //3.从会话中读出订单明细列表
-          
-            order.OrderDetails = new List<OrderDetail>();
-            var details = (Session["Order"] as Order).OrderDetails;
-            foreach (var item in details)
+            if (id != null)
             {
+                Session["address"]= _context.PersonAddresss.Find(Guid.Parse(id));
+                var addres = Session["address"] as PersonAddress;
+                var order = new Order();
+                
 
-                item.Album = _context.Albums.Find(item.Album.ID);
-                order.OrderDetails.Add(item);
-            }
-            order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum(); //Linq表达式;
+                order.Person = _context.Persons.Find(person.ID);
 
-            //4.如果表单验证通过，则保存order到数据库()，跳转到Pay/AliPay
+                order.Addders = addres.Address;
+                order.AddresPerson = addres.AddresPerson;
+                order.Mobilnumber = addres.MobileNumber;
+                //3.从会话中读出订单明细列表
 
-            if (ModelState.IsValid)
-            {
-                //加锁
-                LockedHelp.ThreadLocked(order.ID);
-                try
+                order.OrderDetails = new List<OrderDetail>();
+                var details = (Session["Order"] as Order).OrderDetails;
+                foreach (var item in details)
                 {
-                    _context.Orders.Add(order);
 
-                    //清空购物车
-                    var carts = _context.Carts.Where(x=>x.Person.ID==order.Person.ID);
-                    foreach (var item in order.OrderDetails)
+                    item.Album = _context.Albums.Find(item.Album.ID);
+                    order.OrderDetails.Add(item);
+                }
+                order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum(); //Linq表达式;
+
+                //4.如果表单验证通过，则保存order到数据库()，跳转到Pay/AliPay
+
+                if (ModelState.IsValid)
+                {
+                    //加锁
+                    LockedHelp.ThreadLocked(order.ID);
+                    try
                     {
+                        _context.Orders.Add(order);
 
-                        _context.Carts.Remove(carts.FirstOrDefault(x => x.Album.ID == item.Album.ID));
+                        //清空购物车
+                        var carts = _context.Carts.Where(x => x.Person.ID == order.Person.ID);
+                        foreach (var item in order.OrderDetails)
+                        {
+
+                            _context.Carts.Remove(carts.FirstOrDefault(x => x.Album.ID == item.Album.ID));
+                        }
+
+                        _context.SaveChanges();
                     }
+                    catch
+                    {
+                    }
+                    finally
+                    {
+                        LockedHelp.ThreadUnlocked(order.ID);
+                    }
+                    //跳转到支付页Pay/AliPay
+                    return RedirectToAction("Alipay", "Pay", new { id = order.ID });
+                }
+                //5.如果验证不通过，返回视图
 
-                    _context.SaveChanges();
-                }
-                catch
-                {
-                }
-                finally
-                {
-                    LockedHelp.ThreadUnlocked(order.ID);
-                }
-                //跳转到支付页Pay/AliPay
-                return RedirectToAction("Alipay", "Pay", new {id= order.ID});
             }
-            //5.如果验证不通过，返回视图
-
-            return View();
+           
+            ViewBag.Person = Session["addres_perons"] as SelectListItem;
+            return Content("<script>alert('购买失败!');location.href='" + Url.Action("index", "home") + "'</script>"); 
         }
         /// <summary>
         /// 浏览用户订单
