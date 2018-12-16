@@ -140,7 +140,12 @@ namespace MusicStore.Controllers
                     _context.SaveChanges();
 
                     //移除购物车
-                    _context.Database.ExecuteSqlCommand("delete Carts");
+                  
+                    var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
+                    foreach (var cart in carts)
+                    {
+                        _context.Carts.Remove(cart);
+                    }
                 }
                 catch
                 { }
@@ -163,7 +168,7 @@ namespace MusicStore.Controllers
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var list = _context.Orders.Where(x => x.Person== person).ToList();
+            var list = _context.Orders.Where(x => x.Person.ID== person.ID).ToList();
 
             return View(list);
         }

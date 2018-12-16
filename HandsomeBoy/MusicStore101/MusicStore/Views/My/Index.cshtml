@@ -10,7 +10,7 @@
     var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
     try
     {
-        mya = _context.Mys.Where(x => x.Person == person).ToList();
+        mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
     }
     catch { }
 
@@ -18,10 +18,6 @@
 }
 
 <h2>收货地址</h2>
-
-   
-
-
 
 @using (Html.BeginForm("Add", "My", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
 {
@@ -75,7 +71,7 @@
                         <td>所在地区：@item.Area</td>
                         <td>邮编：@item.Email</td>
                         <td>手机：@item.MobiNumber</td>
-                        <td><span>@Html.ActionLink("修改", "Update", "My", new { id = item.ID }, null)|</span><span>@Html.ActionLink("删除", "Remove", "My", new { id = item.ID }, null)</span></td>
+                        <td><span><a href='../my/update/@item.ID'>修改</a>|<a href='javascript:;' class="delete" onclick="Remove('@item.ID')">删除</a></span></td>
                        
                     </tr>
                     }
@@ -91,4 +87,27 @@
     </fieldset>
 
 }
+<script>
+    function Remove(ID) {
+        if (confirm("您确定要删除该地址么？")) {      //ajax 提交到服务器端进行购物车项的删除
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../My/Remove',
+                data: { id: ID },
+                dataType: 'json',
+                success: function (data) {
+                    if (data == "无法删除有冲突") {
+                        alert("无法删除。因为该订单地址正在使用");
+                    }
+                    else {
+                        //视图中进行局部页面的刷新 <tbody>
+                        $("#tbCart").html(data);
+                    }
+                   
+                }
+            })
+        }
 
+    }
+</script>

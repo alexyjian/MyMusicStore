@@ -316,6 +316,7 @@
     <Content Include="Views\Pay\AliPay.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\My\Index.cshtml" />
+    <Content Include="Views\My\Update.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

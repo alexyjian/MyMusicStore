@@ -11,7 +11,6 @@ namespace MusicStoreEntity
    public class My
     {
         public Guid ID { get; set; }
-
         /// <summary>
         /// /收件人
         /// </summary>
@@ -28,10 +27,6 @@ namespace MusicStoreEntity
         [Display(Name = "所在地区")]//显示的中文名
 
         public string Area { get; set; }//所在地区
-
-        [ScaffoldColumn(false)]
-   
-    
 
         /// <summary>
         /// 手机

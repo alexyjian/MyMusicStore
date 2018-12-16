@@ -31,7 +31,7 @@
                     <td>
                         @foreach (var Detail in item.OrderDetails)
                         {
-                            @Html.ActionLink(Detail.Album.Title +"×"+ Detail.Count+"，","Detail","Store",new { id = Detail.Album.ID },null)
+                           @Html.ActionLink(Detail.Album.Title +"×"+ Detail.Count+"，","Detail","Store",new { id = Detail.Album.ID },null)
                         }
                     </td>
                     <td>@item.TotalPrice</td>
