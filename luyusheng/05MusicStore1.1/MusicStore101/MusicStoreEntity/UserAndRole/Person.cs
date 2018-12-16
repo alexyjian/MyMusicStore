@@ -54,7 +54,7 @@ namespace MusicStoreEntity.UserAndRole
         public string Address { get; set; } = "未填写";
 
         //个人头像
-        public string AAvarda { get; set; } = "/content/images/boy.jpg";
+        public string Avarda { get; set; } = "/content/images/boy.jpg";
 
         public Person()
         {
