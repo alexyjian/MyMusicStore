@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-    public class UserAdd
+    public class My
     {
         
         public Guid ID { get; set; }
@@ -22,8 +22,9 @@ namespace MusicStoreEntity
 
         public string MobilNumber { get; set; }//收件人电话号码
 
+
         public string  Email { get; set; }
-        public UserAdd()
+        public My()
         {
             ID = Guid.NewGuid();
 

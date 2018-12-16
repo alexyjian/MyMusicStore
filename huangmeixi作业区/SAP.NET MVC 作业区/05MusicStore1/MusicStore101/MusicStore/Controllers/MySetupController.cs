@@ -19,7 +19,7 @@ namespace MusicStore.Controllers
              return View();
         }
         [HttpPost]
-        public ActionResult Add(MusicStoreEntity.UserAdd model)
+        public ActionResult Add(MusicStoreEntity.My model)
         {
             return View();
         }
