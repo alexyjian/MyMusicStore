@@ -284,7 +284,11 @@ tr:hover {
     color:red;
     font-size:12px;
 }
-#Avarde{
+#userAvarde{
     height:25px;
+    border-radius:50%;
+}
+#imgAvarde{
+    height:100px;
     border-radius:50%;
 }
