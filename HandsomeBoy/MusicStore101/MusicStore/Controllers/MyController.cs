@@ -1,5 +1,6 @@
 ﻿using MusicStore.ViewModels;
 using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,18 +17,18 @@ namespace MusicStore.Controllers
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var myVM = new MyViewModel()
-            {
-                Name = person.Name,
-                Sex = person.Sex,
-                TelephoneNumber = person.TelephoneNumber,
-                MobileNumber = person.MobileNumber,
-                Email = person.Email,
-                Birthday =Convert.ToDateTime(person.Birthday.ToString("yyyy-MM-dd'T'HH:mm:ss")),
-                CredentialsCode = person.CredentialsCode
-            };
-            ViewBag.AvardaUrl = person.Avarda;
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+               var myVM = new MyViewModel()
+                {
+                    Name = person.Name,
+                    Sex = person.Sex,
+                    TelephoneNumber = person.TelephoneNumber,
+                    MobileNumber = person.MobileNumber,
+                    Email = person.Email,
+                    Birthday = person.Birthday.ToString("yyyy-MM-dd"),
+                    CredentialsCode = person.CredentialsCode
+                };
+                ViewBag.AvardaUrl = person.Avarda;
             return View(myVM);
         }
         [HttpPost]
@@ -59,14 +60,17 @@ namespace MusicStore.Controllers
                 person.TelephoneNumber = model.TelephoneNumber;
                 person.MobileNumber = model.MobileNumber;
                 person.Email = model.Email;
-                person.Birthday = model.Birthday;
+                person.Birthday =DateTime.Parse(model.Birthday);
                 person.CredentialsCode = model.CredentialsCode;
                 person.FirstName = person.Name.Substring(0, 1);
                 person.Avarda = oldAvarda;
                 person.LastName = person.Name.Substring(1, person.Name.Length - 1);
                 _context.SaveChanges();
+              
+                  
                 return RedirectToAction("Index");
             }
+           
             ViewBag.AvardaUrl = oldAvarda;
             return View();
 

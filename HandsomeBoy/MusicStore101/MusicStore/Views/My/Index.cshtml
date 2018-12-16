@@ -21,9 +21,9 @@
                 @Html.LabelFor(x => x.Sex)
             </div>
             <div class="editor-field">
-             @Html.RadioButtonFor(Model => Model.Sex, true, new { @id = "Statusradio0", @name = "Status" })<label id="tr">男</label>
+                @Html.RadioButtonFor(Model => Model.Sex, true, new { @id = "Statusradio0", @name = "Status" })<label id="tr">男</label>
 
-            @Html.RadioButtonFor(Model => Model.Sex, false, new { @id = "Statusradio1", @name = "Status" })<label id="tr">女</label>
+                @Html.RadioButtonFor(Model => Model.Sex, false, new { @id = "Statusradio1", @name = "Status" })<label id="tr">女</label>
                 @Html.ValidationMessageFor(x => x.Sex)
             </div>
 
@@ -52,38 +52,32 @@
                 @Html.ValidationMessageFor(x => x.Email)
             </div>
 
-            @*<div class="editor-label">
-                @Html.LabelFor(x => x.Birthday)
+            <div>
+                <span>生日日期：</span>@Html.TextBoxFor(x => x.Birthday, new { type = "date" })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.CredentialsCode)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Birthday, new { placeholder = "请输入出生日期" })
-                @Html.ValidationMessageFor(x => x.Birthday)
-            </div>*@
-            <div>
-                 <span>生日日期：</span>@Html.TextBoxFor(x => x.Birthday, new { type = "datetime-local" })
+                @Html.TextBoxFor(x => x.CredentialsCode, new { placeholder = "请输入身份证编号" })
+                @Html.ValidationMessageFor(x => x.CredentialsCode)
             </div>
-              
-                <div class="editor-label">
-                    @Html.LabelFor(x => x.CredentialsCode)
-                </div>
-                <div class="editor-field">
-                    @Html.TextBoxFor(x => x.CredentialsCode, new { placeholder = "请输入身份证编号" })
-                    @Html.ValidationMessageFor(x => x.CredentialsCode)
-                </div>
 
 
-                <div class="editor-label">
-                    @Html.LabelFor(x => x.Avarda)
-                </div>
-                <div class="editor-field">
-                    <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
-                    @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
-                </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Avarda)
+            </div>
+            <div class="editor-field">
+               
+                <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
+                @Html.TextBoxFor(x => x.Avarda, new { type = "file"})
+            </div>
 
-                <p>
-                    <input type="submit" value="保存" class="btn btn-success" style="width:100px" />
-                </p>
-</fieldset>
+            <p>
+                <input type="submit" value="保存" class="btn btn-success" style="width:100px" />
+            </p>
+        </fieldset>
     </div>
 </form>
 

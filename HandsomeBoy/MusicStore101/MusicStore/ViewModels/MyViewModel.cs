@@ -32,7 +32,7 @@ namespace MusicStore.ViewModels
 
         [Required(ErrorMessage = "出生日期")]
         [Display(Name = "出生日期：")]//出生日期
-        public DateTime Birthday { get; set; } // 出生日期
+        public string Birthday { get; set; } // 出生日期
 
         [Required(ErrorMessage = "身份证编号")]
         [Display(Name = "身份证编号：")]//身份证编号
