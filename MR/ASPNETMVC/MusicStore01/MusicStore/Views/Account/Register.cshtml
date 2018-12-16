@@ -1,0 +1,62 @@
+﻿@model MusicStore.ViewModels.RegisterViewModel
+
+@{
+    ViewBag.Title = "新用户注册";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>注册</h2>
+@using (Html.BeginForm("register","account",FormMethod.Post))
+{
+    //表单内容
+    @Html.AntiForgeryToken()
+
+    <div>
+        <fieldset>
+            <legend>填写注册信息</legend>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x=>x.UserName,new {placeholder="输入登录名"})
+                @Html.ValidationMessageFor(x=>x.UserName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.FullName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.FullName, new { placeholder = "输入姓名" })
+                @Html.ValidationMessageFor(x => x.FullName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "输入用户邮箱" })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x=>x.PassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x=>x.PassWord, new { placeholder = "输入登录密码" })
+                @Html.ValidationMessageFor(x=>x.PassWord)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.ConfirmPassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.ConfirmPassWord, new { placeholder = "确认密码" })
+                @Html.ValidationMessageFor(x => x.ConfirmPassWord)
+            </div>
+
+            <p>
+                <input type="submit" value="注册" class="btn btn-success" style="width: 70px"/>
+            </p>
+        </fieldset>
+    </div>
+}

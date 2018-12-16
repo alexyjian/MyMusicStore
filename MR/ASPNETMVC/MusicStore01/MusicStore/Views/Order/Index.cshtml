@@ -1,0 +1,91 @@
+﻿@model IEnumerable<MusicStoreEntity.Order>
+@using MusicStoreEntity
+@{
+    ViewBag.Title = "我的订单";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+@*<h2>我的订单</h2>*@
+@*<div class="box">
+    @Html.AntiForgeryToken()
+    <fieldset style="margin-top: 30px;">
+        <legend>我的订单</legend>
+        <table id="table2">
+            <tr>
+                <th>订单摘要</th>
+                <th>明细</th>
+                <th>总价</th>
+                <th>状态</th>
+            </tr>
+
+            <tbody id="tbCart">
+                @foreach (var order in Model)
+            {
+                    <tr>
+                        <td>
+                            <p>@order.TradeNo</p>
+                            <p>收件人:@order.AddressPerson</p>
+                            <p>收件地址:@order.Address</p>
+                            <p>电话:@order.MobilNumber</p>
+                        </td>
+                        <td>
+                            @foreach (var item in order.OrderDetails)
+                            {
+                                <p>@item.Album.Title</p>
+                            }
+                        </td>
+                        <td>$@order.TotalPrice</td>
+                        <td>
+                            @order.EnumOrderStatus
+                            <p class="btn btn-default">
+                                @Html.ActionLink("马上购买", "AliPay", "pay", new { id = order.ID }, null)
+                            </p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </fieldset>
+</div>*@
+
+<fieldset>
+    <legend>我的订单</legend>
+    <table>
+        <tr>
+            <th>订单摘要</th>
+            <th>订单明细</th>
+            <th>总价</th>
+            <th>状态</th>
+        </tr>
+
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        <span class="text-warning">@item.TradeNo</span><br/>
+                        收件人:@item.AddressPerson<br/>
+                        收货地址:@item.Address<br/>
+                        电话:@item.MobilNumber<br/>
+                    </td>
+                    <td>
+                        @foreach(var d in item.OrderDetails)
+                        {
+                            <span class="text-primary">@d.Album.Title,@d.Count 张</span><br/>
+                        }
+                    </td>
+                    <td>
+                        ￥@item.TotalPrice.ToString("C")
+                    </td>
+                    <td>
+                        @item.EnumOrderStatus
+                        @if(item.EnumOrderStatus == EnumOrderStatus.未付款)
+                        {
+                            <a class="btn btn-success" href="@Url.Action("alipay","pay",new {id=item.ID})"><i class="glyphicon glyphicon-usd"></i>马上付款</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</fieldset>
