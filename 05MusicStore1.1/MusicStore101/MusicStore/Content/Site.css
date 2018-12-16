@@ -299,3 +299,13 @@ tr:hover {
     text-decoration: none;
     font-weight: bold;
 }
+
+#userAvarda {
+    height: 25px;
+    border-radius: 50%;
+}
+
+#imgAvarda {
+    height: 100px;
+    border-radius: 50%;
+}
