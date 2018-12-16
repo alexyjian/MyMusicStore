@@ -1,39 +1,43 @@
-﻿@model MusicStoreEntity.MyAddressee
+﻿@using MusicStore.ViewsModel
+@using MusicStoreEntity
+@model MusicStoreEntity.MyAddressee 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+
 }
 
 <h2>收货地址</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "My", FormMethod.Post))
 {
     <fieldset>
         <legend>收货地址</legend>
         <div class="editor-label">
             @Html.LabelFor(x=>x.AddressPerson)
-            @Html.TextBoxFor(x => x.AddressPerson)
+            @Html.TextBoxFor(x => x.AddressPerson, new { placeholder = "请输入收件人" })
             @Html.ValidationMessageFor(x=>x.AddressPerson)
         </div>
-
+        
         <div class="editor-field">
             @Html.LabelFor(x=>x.Address)
-            @Html.TextBoxFor(x=>x.Address)
+            @Html.TextBoxFor(x=>x.Address, new { placeholder = "请输入收件人地址" })
             @Html.ValidationMessageFor(x=>x.Address)
         </div>
         
         <div class="editor-field">
             @Html.LabelFor(x => x.MobilNumber)
-            @Html.TextBoxFor(x => x.MobilNumber)
+            @Html.TextBoxFor(x => x.MobilNumber, new { placeholder = "请输入收件人手机号" })
             @Html.ValidationMessageFor(x=>x.MobilNumber)
         </div>
         
         <div class="editor-field">
             @Html.LabelFor(x => x.Email)
-            @Html.TextBoxFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮政编码" })
             @Html.ValidationMessageFor(x=>x.Email)
         </div>
-        
+        <input type="file" name="pic" />
+
         <p>
            
             <input type="submit" value="保存" class="btn btn-warning" style="width: 80px"/>
