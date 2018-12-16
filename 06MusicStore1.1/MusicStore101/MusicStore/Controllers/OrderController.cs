@@ -131,7 +131,7 @@ namespace MusicStore.Controllers
 
                     //清空购物车
                     var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
-                    foreach(var cart in carts)
+                    foreach (var cart in carts)
                     {
                         _context.Carts.Remove(cart);
                     }
@@ -168,7 +168,15 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Index()
         {
-            return View();
+            //是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+
+            //查询该用户的订单列表
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var orders = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+
+            return View(orders);
         }
     }
 }
