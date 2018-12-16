@@ -164,6 +164,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\boy.jpg" />
+    <Content Include="Content\Images\girl.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\login_logo.png" />
     <Content Include="Content\Images\logo.png" />
@@ -270,7 +272,9 @@
     <Content Include="Views\My\Addaddress.cshtml" />
     <Content Include="Views\My\EditAddress.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Upload\Avarda\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

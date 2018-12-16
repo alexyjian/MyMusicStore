@@ -19,5 +19,12 @@ namespace MusicStore.ViewModels
         public DateTime BrithDay { get; set; }
 
         public bool Sex { get; set; }
+
+        public HttpPostedFileBase Avarda { get; set; }
+
+        public InfoViewModel()
+        {
+            ChineseFullName = FirstName + LastName;
+        }
     }
 }

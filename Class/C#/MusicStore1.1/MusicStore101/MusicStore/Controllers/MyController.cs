@@ -67,9 +67,43 @@ namespace MusicStore.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public ActionResult Info(InfoViewModel model)
+        public ActionResult Info()
         {
-            return View();
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Info", "My") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var yearList = new List<SelectListItem>();
+            var monthList = new List<SelectListItem>();
+            var dayList = new List<SelectListItem>();
+            //year
+            for (int i = 1900; i <= DateTime.Now.Year; i++)
+                yearList.Add(new SelectListItem { Value = i.ToString(), Text = i.ToString() });
+
+            //month
+            for (int i = 1; i <= 12; i++)
+                monthList.Add(new SelectListItem { Value = i.ToString(), Text = i.ToString() });
+            
+            //day
+            for (int i = 1; i <= 31; i++)
+                dayList.Add(new SelectListItem { Value = i.ToString(), Text = i.ToString() });
+
+            ViewBag.years = yearList;
+            ViewBag.months = monthList;
+            ViewBag.days = dayList;
+
+            var InfoModel = new InfoViewModel()
+            {
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                ChineseFullName = person.Name,
+                BrithDay = person.Birthday,
+                MobileNumber = person.MobileNumber,
+                Sex = person.Sex
+            };
+            ViewBag.AvardaUrl = person.Avarda;
+            return View(InfoModel);
         }
 
         /// <summary>
@@ -181,22 +215,6 @@ namespace MusicStore.Controllers
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("EditAddress", "My") }); 
             _context.SaveChanges();
             return RedirectToAction("AddressInfo", "My");
-        }
-
-        public void DateTimer()
-        {
-            var yearList = new List<SelectListItem>();
-            var monthList = new List<SelectListItem>();
-            var dayList = new List<SelectListItem>();
-            for (int y = 1900; y <= DateTime.Now.Year; y++)
-            {
-                yearList.Add(new SelectListItem() { Text = y.ToString(), Value = y.ToString() });
-            }
-
-            for (int m = 1; m <= 12; m++)
-            {
-                if()
-            }
         }
     }
 }
