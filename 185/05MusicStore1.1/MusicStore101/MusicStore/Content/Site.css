@@ -285,7 +285,11 @@ tr:hover {
     font-size:12px;
 }
 
-#Avarda {
-   height:25px;
-   border-radius:50%;
+#userAvarda {
+    height: 25px;
+    border-radius: 50%;
+}
+#imgAvarda {
+    height: 100px;
+    border-radius: 50%;
 }
