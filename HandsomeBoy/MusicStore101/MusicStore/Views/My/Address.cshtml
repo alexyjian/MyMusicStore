@@ -5,14 +5,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
-    EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
-    var mya = new List<My>();
-    var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-    try
-    {
-        mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
-    }
-    catch { }
+    var mya = ViewBag.mya;
 
 
 }
@@ -64,26 +57,37 @@
                     </tr>
                 </tbody>
                 <tbody id="tbCart">
-                    @foreach (var item in mya)
+                    @try
                     {
-                    <tr>
-                        <td>收货人：@item.AddressPerson</td>
-                        <td>所在地区：@item.Area</td>
-                        <td>邮编：@item.Email</td>
-                        <td>手机：@item.MobiNumber</td>
-                        <td><span><a href='../my/update/@item.ID'>修改</a>|<a href='javascript:;' class="delete" onclick="Remove('@item.ID')">删除</a></span></td>
-                       
-                    </tr>
+                        foreach (var item in mya)
+                        {
+                            <tr>
+                                <td>收货人：@item.AddressPerson</td>
+                                <td>所在地区：@item.Area</td>
+                                <td>邮编：@item.Email</td>
+                                <td>手机：@item.MobiNumber</td>
+                                <td><span><a href='../my/AddressUpdate/@item.ID'>修改</a>|<a href='javascript:;' class="delete" onclick="Remove('@item.ID')">删除</a></span></td>
+
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                     }
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    
-            </table>
+                    catch
+                    {
+
+                    }
+
+
+
+
+
+</table>
     </fieldset>
 
 }

@@ -66,9 +66,9 @@ namespace MusicStore.Controllers
                 person.Avarda = oldAvarda;
                 person.LastName = person.Name.Substring(1, person.Name.Length - 1);
                 _context.SaveChanges();
-              
-                  
-                return RedirectToAction("Index");
+
+
+                return Content("<script>alert('修改个人信息成功!');location.href='" + Url.Action("index", "My") + "'</script>");
             }
            
             ViewBag.AvardaUrl = oldAvarda;
@@ -76,15 +76,19 @@ namespace MusicStore.Controllers
 
         }
         // GET: My
-        //显示和添加个人地址
+        //显示和个人地址
         public ActionResult Address()
         {
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
-            //var mya = new List<My>();
-            //var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            //mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
-            //Session["asdasd"] = mya;
+            var mya = new List<My>();
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            try
+            {
+                mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
+                ViewBag.mya=mya;
+            }
+            catch { }
             return View();
         }
         //添加个人地址
@@ -146,7 +150,7 @@ namespace MusicStore.Controllers
 
                 htmlString += "<td> 手机：" + item.MobiNumber + " </td>";
 
-                htmlString += "  <td><span><a href = '../my/update/" + item.ID + "'> 修改 </a>";
+                htmlString += "  <td><span><a href = '../my/AddressUpdate/" + item.ID + "'> 修改 </a>";
                 htmlString += " |<a href = 'javascript:;' class=\"delete\"onclick=\"Remove('" + item.ID + "')\">删除</a></span></td>";
 
                 htmlString += " </tr>";
@@ -177,13 +181,14 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult AddressUpdate(MusicStoreEntity.My model)
         {
-            My mays = new My()
-            {
-                AddressPerson = model.AddressPerson,
-                Area = model.Area,
-                Email = model.Email,
-                MobiNumber = model.MobiNumber,
-            };
+            var mays = _context.Mys.Find(model.ID);
+
+          
+                mays.AddressPerson = model.AddressPerson;
+            mays.Area = model.Area;
+                mays.Email = model.Email;
+            mays.MobiNumber = model.MobiNumber;
+
             _context.SaveChanges();
             return Content("<script>alert('地址修改成功!');location.href='" + Url.Action("Address", "My") + "'</script>");
         }

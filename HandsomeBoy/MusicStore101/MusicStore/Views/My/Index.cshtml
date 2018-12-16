@@ -64,14 +64,18 @@
                 @Html.ValidationMessageFor(x => x.CredentialsCode)
             </div>
 
+            <div class="editor-label">
+                <span>我的地址: <a href="../My/Address">我的地址</a> </span>
+</div>
+         
 
             <div class="editor-label">
                 @Html.LabelFor(x => x.Avarda)
             </div>
             <div class="editor-field">
-               
+
                 <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
-                @Html.TextBoxFor(x => x.Avarda, new { type = "file"})
+                @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
             </div>
 
             <p>
