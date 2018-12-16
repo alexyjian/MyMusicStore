@@ -23,7 +23,7 @@
                 @Html.LabelFor(x => x.Email)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入姓名" })
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮箱" })
                 @Html.ValidationMessageFor(x => x.Email)
             </div>
 
@@ -31,16 +31,8 @@
                 @Html.LabelFor(x => x.TelePhoneNumber)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.TelePhoneNumber, new { placeholder = "请输入" })
+                @Html.TextBoxFor(x => x.TelePhoneNumber, new { placeholder = "请输入电话号码" })
                 @Html.ValidationMessageFor(x => x.TelePhoneNumber)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(x => x.Name)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入姓名" })
-                @Html.ValidationMessageFor(x => x.Name)
             </div>
 
             <div class="editor-label">
@@ -50,9 +42,30 @@
                <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
                 @Html.TextBoxFor(x => x.Avarda, new { type ="file"})
             </div>
+
             <p>
                 <input type="submit" value="保存" class="btn btn-success" style="width: 70px" />
             </p>
         </fieldset>
     </div>
 </from>
+
+<script>
+    $(function() {
+        $("#Avarda").on("change",
+            function () {
+                var file = this.files[0];
+                //判断是不是图片
+                if (!/image\/\W+/.test(file.type)) {
+                    alert("文件必须为图片！");
+                    return false;
+                }
+                //读文件内容，读物理地址，把IMG标签的SRC属性重新赋值
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function (e) {
+                $("#imgAvarda").attr('src', this.result);
+                }
+            });
+    });
+</script>
