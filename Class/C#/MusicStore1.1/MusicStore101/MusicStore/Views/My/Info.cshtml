@@ -25,22 +25,9 @@
     <div class="form-inline">
         <div class="form-group">
             <label for="name">生日：</label>
-            <select class="form-control">
-                @for (int y = 1920; y <= DateTime.Now.Year; y++)
-                {
-                    <option value="@y">@y</option>
-                }
-            </select>
             &nbsp;年&nbsp;
-            <select class="form-control">
-                @for (int m = 1; m <= 12; m++)
-                {
-                    <option value="@m" >@m</option>
-                }
-            </select>&nbsp;月&nbsp;
-            <select class="form-control">
-                <option>1</option>
-            </select>&nbsp;日&nbsp;
+            &nbsp;月&nbsp;
+            &nbsp;日&nbsp;
         </div>
     </div>
     <br />

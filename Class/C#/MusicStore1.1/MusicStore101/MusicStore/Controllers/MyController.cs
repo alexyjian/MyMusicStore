@@ -168,6 +168,11 @@ namespace MusicStore.Controllers
             return View(ad);
         }
 
+        /// <summary>
+        /// 修改地址信息
+        /// </summary>
+        /// <param name="peopleaddress"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditAddress(PeopleAddress peopleaddress)
@@ -176,6 +181,22 @@ namespace MusicStore.Controllers
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("EditAddress", "My") }); 
             _context.SaveChanges();
             return RedirectToAction("AddressInfo", "My");
+        }
+
+        public void DateTimer()
+        {
+            var yearList = new List<SelectListItem>();
+            var monthList = new List<SelectListItem>();
+            var dayList = new List<SelectListItem>();
+            for (int y = 1900; y <= DateTime.Now.Year; y++)
+            {
+                yearList.Add(new SelectListItem() { Text = y.ToString(), Value = y.ToString() });
+            }
+
+            for (int m = 1; m <= 12; m++)
+            {
+                if()
+            }
         }
     }
 }
