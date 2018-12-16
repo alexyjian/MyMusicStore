@@ -20,8 +20,6 @@ namespace MusicStoreEntity
         [Display(Name = "联系电话")]
         public string MobileNumber { get; set; }//联系手机
 
-        public bool IsClick { get; set; }//是否选择
-
         [Required(ErrorMessage = "收件地址不能为空")]
         [Display(Name = "收件地址")]
         public string Address { get; set; }//收件地址
@@ -31,7 +29,6 @@ namespace MusicStoreEntity
         public PeopleAddress()
         {
             ID = Guid.NewGuid();
-            IsClick = false;
         }
     }
 }

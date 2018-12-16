@@ -37,18 +37,16 @@ namespace MusicStore.Controllers
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var carts = _Context.Carts.Where(x => x.Person.ID == person.ID).ToList();
 
+            //订单信息
             var order = new Order()
             {
                 Person = person,
                 TotalPrice = (from item in carts select item.Count * item.Album.Price).Sum(),
                 PaySuccess = false,
-                EnumOrderStatus = EnumOrderStatus.未付款,
-                PeopleAddress = _Context.PeopleAddress.SingleOrDefault(x => x.Person.ID == person.ID && x.IsClick == true)
+                EnumOrderStatus = EnumOrderStatus.未付款
             };
-            order.AddressPerson = order.PeopleAddress.Name;
-            order.Address = order.PeopleAddress.Address;
-            order.mobilNumber = order.PeopleAddress.MobileNumber;
 
+            //明细
             order.OrderDetails = new List<OrderDetail>();
             foreach (var item in carts)
             {
@@ -61,6 +59,14 @@ namespace MusicStore.Controllers
                 };
                 order.OrderDetails.Add(od);
             }
+
+            //收货地址
+            var ads = new List<SelectListItem>();
+            foreach (var item in _Context.PeopleAddress.Where(x => x.Person.ID == person.ID).ToList())
+            {
+                ads.Add(new SelectListItem() { Value = item.ID.ToString(), Text = @"收货人："+item.Name + "，收货地址：" + item.Address + "，联系电话：" + item.MobileNumber });
+            }
+            ViewBag.Addresses = ads;
             Session["Order"] = order;
             return View(order);
         }
@@ -72,8 +78,9 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Buy(Order order)  
+        public ActionResult Buy(Order order,string Value)  
         {
+            var Addressid = Guid.Parse(Value);
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
 
@@ -81,6 +88,11 @@ namespace MusicStore.Controllers
 
             order.Person = _Context.Persons.Find(person.ID);
             order.OrderDetails = new List<OrderDetail>();
+
+            order.PeopleAddress = _Context.PeopleAddress.SingleOrDefault(x => x.Person.ID == person.ID && x.ID == Addressid);
+            order.Address = order.PeopleAddress.Address;
+            order.AddressPerson = order.PeopleAddress.Name;
+            order.mobilNumber = order.PeopleAddress.MobileNumber;
 
             foreach (var item in (Session["Order"] as Order).OrderDetails)
             {
