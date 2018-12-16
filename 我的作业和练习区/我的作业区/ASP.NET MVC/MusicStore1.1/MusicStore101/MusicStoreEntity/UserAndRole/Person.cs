@@ -62,6 +62,7 @@ namespace MusicStoreEntity.UserAndRole
 
         [ScaffoldColumn(false)]
         public DateTime CreateDateTime { get; set; } // 创建日期
+        public string Address { get; set; }
 
         [ScaffoldColumn(false)]
         [DataType(DataType.ImageUrl)]
