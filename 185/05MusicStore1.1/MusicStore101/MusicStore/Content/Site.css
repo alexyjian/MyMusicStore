@@ -284,3 +284,8 @@ tr:hover {
     color:antiquewhite ;
     font-size:12px;
 }
+
+#Avarda {
+   height:25px;
+   border-radius:50%;
+}

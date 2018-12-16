@@ -117,7 +117,21 @@ namespace MusicStore.Controllers
                     _context.Orders.Add(order);
                     _context.SaveChanges();
                     //清空购物车
-                    //_context.Database.ExecuteSqlCommand("delete Cart");
+                    var carts = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
+                    foreach (var cart in carts)
+                    {
+                        _context.Cart.Remove(cart);
+                  
+                    }
+                    _context.SaveChanges();
+
+                    var p = _context.Persons.Find(person.ID);
+                    p.MobileNumber = order.MobilNumber;
+                    p.Address = order.Address;
+                    p.Name = order.AddressPerson;
+                    p.FirstName = p.Name.Substring(0, 1);
+                    p.LastName = p.Name.Substring(1, p.Name.Length - 1);
+                    _context.SaveChanges();
                 }
                 catch (Exception ex)
                 {

@@ -48,6 +48,11 @@ namespace MusicStoreEntities.UserAndRole
 
         [StringLength(50)]
         public string InquiryPassword { get; set; } // 查询密码，仅仅用于查询是否已经已经建立数据
+        //收件人地址
+        public string Address { get; set; }
+        //个人头像
+        [DataType(DataType.ImageUrl)]
+        public string Avarda { get; set; } = "/Content/images/1.jpeg";
         
         public Person()
         {
