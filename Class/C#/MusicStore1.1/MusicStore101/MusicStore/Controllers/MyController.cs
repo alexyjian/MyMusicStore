@@ -106,6 +106,11 @@ namespace MusicStore.Controllers
             return View(InfoModel);
         }
 
+        public ActionResult Info(InfoViewModel model)
+        {
+            return View();
+        }
+
         /// <summary>
         /// 收件地址信息
         /// </summary>
