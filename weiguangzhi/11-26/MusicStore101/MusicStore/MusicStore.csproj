@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PayController.cs" />
     <Compile Include="Controllers\ShonppingCartController.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="ViewModels\EditPwViewModel.cs" />
     <Compile Include="ViewModels\LoginUserStatus.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MyViewModel.cs" />
     <Compile Include="ViewModels\RwgisterViewModel.cs" />
     <Compile Include="ViewModels\ShonppingCartViewModel.cs" />
   </ItemGroup>
@@ -166,8 +168,18 @@
     <Content Include="Content\Images\11-29.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\lufeis.jpg" />
     <Content Include="Content\Images\placeholder.gif" />
     <Content Include="Content\Images\ProgressIcon.gif" />
+    <Content Include="Content\Images\touxiang.jpeg" />
+    <Content Include="Content\Images\touxiang2.jpeg" />
+    <Content Include="Content\Images\zj.jpg" />
+    <Content Include="Content\Images\zj1.jpg" />
+    <Content Include="Content\Images\zj2.jpg" />
+    <Content Include="Content\Images\zj3.jpg" />
+    <Content Include="Content\Images\zj4.jpg" />
+    <Content Include="Content\Images\zj5.jpg" />
+    <Content Include="Content\Images\zj6.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -220,6 +232,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\Images\lufei.psd" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -276,6 +289,7 @@
     <Content Include="Views\Pay\AliPay.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\My\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">

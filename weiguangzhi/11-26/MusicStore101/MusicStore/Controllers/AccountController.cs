@@ -183,12 +183,28 @@ namespace MusicStore.Controllers
         public ActionResult Index(Order oder)
         {
             EntityDbContext _context = new EntityDbContext();
+            //1 判断用户登录凭据是否过期，如果过期跳转回登录页，登录成功后返回确认购买页
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShonppingCart") });
+            //2 读出当前用户Person
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            oder.Person = _context.Persons.Find(person.ID);
 
-            if(ModelState.IsValid)
+            //3 从会话中读出订单明细列表
+            oder.OrderDetails = new List<OrderDetail>();
+
+            if (ModelState.IsValid)
             {
-                _context.Entry(oder).State = EntityState.Modified;
+                //把订单中的收件人信息保存带person中
+                var p = _context.Persons.Find(person.ID);
+                p.MobileNumber = oder.MobilNumber;
+                p.Address = oder.Address;
+                p.Name = oder.AddressPerson;
+                p.FirstName = p.Name.Substring(0, 1);
+                p.LastName = p.Name.Substring(1, p.Name.Length - 1);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+
+               
             }
             return View(oder);
         }
@@ -230,7 +246,7 @@ namespace MusicStore.Controllers
 
         }
 
-        public ActionResult Index(Guid? id)
+        public ActionResult Index()
         {
             EntityDbContext _context = new EntityDbContext();
 

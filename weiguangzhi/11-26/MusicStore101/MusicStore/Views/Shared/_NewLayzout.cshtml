@@ -37,7 +37,7 @@
 
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="containers">
         <div class="row clearfix">
             <div class="col-md-12 column">
                 <div class="row clearfix">
@@ -56,15 +56,18 @@
                             </li>
 @if (user == null)
 {
-                            <li>
-                                <a href="@Url.Action("Login", "Account")"> 登录 </a>
-                            </li>
+    <li>
+        <a href="@Url.Action("Login", "Account")"> 登录 </a>
+    </li>
 }
 else
 {
-                            <li class="dropdown pull-right">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@user.Person.Name<span class="caret"></span></a>
+                            <li class="dropdown"> 
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img src="@user.Person.Avarda" alt="头像" id="userAvarda" />@user.Person.Name<span class="caret"></span>
+                               </a>
                                 <ul class="dropdown-menu">
+                                    
                                     <li>
                                         <a href="@Url.Action("Index", "ShonppingCart")">购物车(@carts.Count)</a>
                                     </li>
@@ -72,7 +75,7 @@ else
                                         <a href="@Url.Action("index","Order")">我的订单</a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("index","Account")">收件人信息</a>
+                                        <a href="@Url.Action("index","my")">收件人信息</a>
                                     </li>
                                     <li class="divider">
                                     </li>
@@ -121,13 +124,12 @@ else
             <img alt="140x140" src="/content/Images/home-showcase.png" />
         </div>
     </div>*@
+    
+    
     <div class="container">
+        
         <div class="row">
-            <div class="col-md-3">
-                @*左侧导航*@
-                @Html.Partial("_GetGenreMenu",new MusicStoreEntity.EntityDbContext().Genres.ToList())
-                </div>
-            <div class="col-md-9">
+            <div class="col-md-12">
                 @*@Html.Partial("LoginLayout")*@
                     @RenderBody()
                 </div>
@@ -142,5 +144,7 @@ else
     
     @*继承此布局页的页面执行脚本的位置*@
     @RenderSection("scripts",required:false)
+
+   
 </body>
 </html>

@@ -45,6 +45,13 @@ namespace MusicStoreEntity.UserAndRole
         public DateTime UpdateTime { get; set; } // 信息更新时间
 
         public DateTime CreateDateTime { get; set; } // 创建日期
+
+        //收件人地址
+        public string Address { get; set; } = "未填写";
+
+        //个人头像
+        [DataType(DataType.ImageUrl)]
+        public string Avarda { get; set; } = "/content/images/touxiang.jpeg";
         
 
         [StringLength(50)]

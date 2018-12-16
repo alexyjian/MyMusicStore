@@ -1,3 +1,4 @@
+/*===============================================全局 body css=======================================*/
 * {
     margin: 0px;
     padding: 0px;
@@ -7,23 +8,59 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    background-color: #FBF9EF;
+    background-color:white;
     padding: 0px 6%;
+    margin-left:150px;
+}
+ul {
+    list-style-type: square;
+    margin-left: 25px;
+    font-size: 14px;
 }
 
-#container {
-    float: left;
+ul li a {
+    font-size: 16px;
 }
+/*------------------------------------------------------------------------------------------------------*/
+
+/*====================================================顶部Css==============================================*/
+
+
+
+
+#userAvarda {
+height:60px;
+border-radius:50%;
+}
+#containers {
+width:100%;
+}
+.dropdown a {
+line-height:0px;
+}
+/*------------------------------------------------------------------------------------------------------*/
+
+#promotion {
+    height: 300px;
+    width: 700px;
+    background: url(/content/Images/home-showcase.png) no-repeat;
+}
+
+/*导航css*/
+.daohangli {
+ color:black;
+}
+
+
+/*------------------------------------------------------------------------------------------------------*/
 .container{
     margin-top: 10px;
+    width:100%;
+    
 }
 
-#header {
-    float: left;
-    width: 100%;
-    border-bottom: 1px dotted #5D5A53;
-    margin-bottom: 10px;
-}
+
+
 #one {
     padding:30px;
 }
@@ -32,23 +69,18 @@ body {
        padding-left:100px;
 }
 
-h1 {
-         font-size:50px;
-         padding: 0px 80px;
-        /*font-size: 18px;
-        float: left;
-        background: url(/content/Images/logo.png) no-repeat;
-        padding: 45px 0px 5px 0px;*/
+
+
+/*--------------首页----------------*/
+
+.img-responsive {
+width:300px;
+height:200px;
 }
 
-#promotion {
-    height: 300px;
-    width: 700px;
-    background: url(/content/Images/home-showcase.png) no-repeat;
-}
-
-ul li a {
-    font-size: 16px;
+#imgAvarda {
+width:300px;
+height:400px;
 }
 
 #main {
@@ -57,11 +89,7 @@ ul li a {
     float: left;
 }
 
-ul {
-    list-style-type: square;
-    margin-left: 25px;
-    font-size: 14px;
-}
+
 
     ul#album-list {
         list-style: none;
@@ -172,7 +200,7 @@ h3 {
     }
 
 a:link, a:visited {
-    color: #F6855E;
+    color:black;
     text-decoration: none;
     font-weight: bold;
 }
