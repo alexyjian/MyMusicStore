@@ -269,7 +269,9 @@
     <Content Include="Views\MyInfo\Index.cshtml" />
     <Content Include="Views\My\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Upload\Avarda\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

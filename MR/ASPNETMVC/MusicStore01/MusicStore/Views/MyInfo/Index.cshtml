@@ -24,8 +24,10 @@
                     @Html.LabelFor(x => x.sex)
                 </div>
                 <div class="editor-field" id="checked">
-                    <input type="radio" value="true" name="sex" checked="checked" />男
-                    <input type="radio" value="false" name="sex" checked="checked" />女
+                    @*<input type="radio" value="true" name="sex" checked="checked" />男
+                    <input type="radio" value="false" name="sex" checked="checked" />女*@
+                    @Html.RadioButtonFor(x=>x.sex,"True")男
+                    @Html.RadioButtonFor(x => x.sex, "False")女
                 </div>
                 <div class="editor-label">
                     @Html.LabelFor(x => x.TelePhoneNumber)
@@ -52,9 +54,10 @@
                     @Html.LabelFor(x => x.Birthay)
                 </div>
                 <div class="editor-field">
-                    <input type="date" value="1998-01-01" name="Birthay"/>
+                    @*<input type="date" value="1998-01-01" name="Birthay"/>*@
+                    @Html.TextBoxFor(x => x.Birthay, new {type= "datetimepicker" })
                     @Html.ValidationMessageFor(x => x.Birthay)
-                </div>
+                </div> 
             <p>
                 <input type="submit" value="保存" class="btn btn-success" style="width: 70px" />
             </p>

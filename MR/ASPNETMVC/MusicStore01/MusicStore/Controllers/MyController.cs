@@ -29,7 +29,7 @@ namespace MusicStore.Controllers
                 TelePhoneNumber = person.TelephoneNumber
 
             };
-            ViewBag.AVARDAuRL = person.Avarda;
+            ViewBag.AvardaUrl = person.Avarda;
 
             return View(myVM);
         }
@@ -58,7 +58,7 @@ namespace MusicStore.Controllers
                     //网站虚拟路径转化为真实的物理路径
                     var imagePath = Path.Combine(Server.MapPath(uploadDir), person.ID + ".jpg");
                     model.Avarda.SaveAs(imagePath);
-                    oldAvarda= "/Upload/Avarda" + person.ID + "/";
+                    oldAvarda= "/Upload/Avarda" + person.ID + "/"+fileLaseName;
                 }
                 //保存个人信息
                 person.TelephoneNumber = model.TelePhoneNumber;
@@ -67,6 +67,7 @@ namespace MusicStore.Controllers
                 person.FirstName = person.Name.Substring(0, 1);
                 person.LastName = person.Name.Substring(1, person.Name.Length - 1);
                 person.Avarda = oldAvarda;
+
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");
