@@ -15,6 +15,7 @@ body {
     float: left;
 }
 
+
 #header {
     float: left;
     width: 100%;
@@ -290,4 +291,9 @@ th, td {
 
 tr:hover {
     background-color: #fff;
+}
+
+#Avarda{
+    height:28px;
+    border-radius:50%;
 }
