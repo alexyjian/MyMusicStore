@@ -298,3 +298,8 @@ tr:hover {
     text-decoration: none;
     font-weight: bold;
 }
+
+#Avarda {
+    height:25px;
+    border-radius:70%;
+}
