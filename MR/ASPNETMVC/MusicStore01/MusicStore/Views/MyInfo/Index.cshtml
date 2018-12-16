@@ -23,13 +23,10 @@
                 <div class="editor-label">
                     @Html.LabelFor(x => x.sex)
                 </div>
-                <div class="editor-field">
+                <div class="editor-field" id="checked">
                     <input type="radio" value="true" name="sex" checked="checked" />男
                     <input type="radio" value="false" name="sex" checked="checked" />女
-            @*@Html(x => x.Name, new { placeholder = "请输入姓名" })
-                @Html.ValidationMessageFor(x => x.Name)*@
-            @*@Html.RadioButton(x=>x.sex,)*@
-            </div>
+                </div>
                 <div class="editor-label">
                     @Html.LabelFor(x => x.TelePhoneNumber)
                 </div>
@@ -48,14 +45,14 @@
                     @Html.LabelFor(x => x.Address)
                 </div>
                 <div class="editor-field">
-                    @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入姓名" })
+                    @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入收货地址" })
                     @Html.ValidationMessageFor(x => x.Address)
                 </div>
                 <div class="editor-label">
                     @Html.LabelFor(x => x.Birthay)
                 </div>
                 <div class="editor-field">
-                    <input type="date" value="1998-01-01" name="Birthay"/>
+                    <input type="date" value=x.Birthay name="Birthay" max=Date()/>
                     @Html.ValidationMessageFor(x => x.Birthay)
                 </div>
             <p>
@@ -64,4 +61,5 @@
         </fieldset>
     </div>
 }
+
 

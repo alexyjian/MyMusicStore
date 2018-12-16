@@ -36,10 +36,19 @@ namespace MusicStore.ViewModels
         [Display(Name = "生日")]
         public DateTime Birthay { get; set; }
 
-        public void UpdetePerson(Person person)
+        public MyInfoViewModel()
         {
-            throw new NotImplementedException();
         }
+        public MyInfoViewModel(Person person)
+        {
+            this.Name = person.Name;
+            this.Address = person.Address;
+            this.sex = person.Sex;
+            this.TelePhoneNumber = person.TelephoneNumber;
+            this.Email = person.Email;
+            this.Birthay = person.Birthday;
+        }
+
     }
    
 }

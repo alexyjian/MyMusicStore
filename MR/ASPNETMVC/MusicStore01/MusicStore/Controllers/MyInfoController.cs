@@ -31,11 +31,10 @@ namespace MusicStore.Controllers
                 person.Sex = myinfo.sex;
                 person.TelephoneNumber = myinfo.TelePhoneNumber;
 
-                //context.Persons.Add(person);
                 context.SaveChanges();
             }
-           
-            return View();
+            var p = new MyInfoViewModel(person);
+            return View(p);
 
         }
     }

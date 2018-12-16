@@ -51,6 +51,7 @@ namespace MusicStoreEntity.UserAndRole
 
         [StringLength(50)]
         public string InquiryPassword { get; set; } // 查询密码，仅仅用于查询是否已经已经建立数据
+
         
         public Person()
         {
