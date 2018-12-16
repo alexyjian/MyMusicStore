@@ -54,9 +54,9 @@ namespace MusicStoreEntity.UserAndRole
 
         //public byte[] photo { get; set; }//数据流图片
 
-        //public string Avarda { get; set; }//图片路径地址
+        public string Avarda { get; set; }//图片路径地址
 
-        
+
         public Person()
         {
             this.ID = Guid.NewGuid();
