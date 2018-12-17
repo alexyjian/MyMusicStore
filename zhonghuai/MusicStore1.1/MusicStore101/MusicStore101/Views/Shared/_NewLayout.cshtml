@@ -57,15 +57,20 @@
                        aria-haspopup="true" aria-expanded="false">
                         <img src="@user.Person.Avarda" alt="头像" id="userAvarda" />
 
+                        @*百度地图定位*@
+                        <span id="city" class="glyphicon glyphicon-map-marker">定位中..</span><span id="district"></span>
+
                         @user.Person.Name<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("index", "ShoppingCart")">购物车</a></li>
                         <li><a href="@Url.Action("index", "Order")">订单</a></li>
-                        <li><a href="@Url.Action("index", "My")">设置收件人</a></li>
+                        <li><a href="@Url.Action("index", "My")">我的</a></li>
                         <li><a href="@Url.Action("ChangePassWord", "account")">修改密码</a></li>
                         <li><a href="@Url.Action("loginout", "account")">注销</a></li>
                     </ul>
+
+                    
                 </li>
             }
         </ul>
@@ -93,3 +98,11 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=scGIdulu0gWIgw1Voe0QoRPmztTZT6g5"></script>
+
+<script>
+    
+
+</script>
+  
