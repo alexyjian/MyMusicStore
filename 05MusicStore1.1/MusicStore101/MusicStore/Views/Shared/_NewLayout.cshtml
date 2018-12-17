@@ -53,14 +53,20 @@
             {
                 //登录成功显示用户姓名，点姓名展开向下菜单
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">
-                        @user.Person.Name<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="@user.Person.Avarda" alt="头像" id="userAvarda"/>
+                        
+                        @*百度地图定位*@
+                        <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
+
+                        @user.Person.Name
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("index", "ShoppingCart")">购物车(@carts.Count)</a></li>
-                        <li><a href="@Url.Action("index", "Oder")">我的订单</a></li>
-                        <li><a href="@Url.Action("index", "My")">设置收件人</a></li>
-                        <li><a href="@Url.Action("ChangePassWord", "Account")">设置密码</a></li>
+                        <li><a href="@Url.Action("index", "Order")">订单</a></li>
+                        <li><a href="@Url.Action("index", "My")">我的</a></li>
+                        <li><a href="@Url.Action("ChangePassWord", "Account")">修改密码</a></li>
                         <li><a href="@Url.Action("loginout", "account")">注销</a></li>
                     </ul>
                 </li>
@@ -90,3 +96,28 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT"></script>
+<script>
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            lng = r.point.lng;
+            lat = r.point.lat;
+            console.log(r);
+            //显示百度地图查询结果 地区
+            if (r.address.district != "") {
+                document.getElementById('district').innerHTML = r.address.district;
+            }
+            //显示百度地图查询结果 城市
+            if (r.address.city != "") {
+                document.getElementById('city').innerHTML = r.address.city;
+            }
+        } else {
+                document.getElementById('city').innerHTML = "无法定位";
+        }
+        },
+        { enableHighAccuracy: true });
+</script>
+
+
