@@ -49,8 +49,8 @@ namespace MusicStore.Controllers
                 {
                     var uploadDir = "~/Upload/Avarda/";
                     //
-                    //var fileLastName = model.Avarda.FileName.Substring(model.Avarda.FileName.LastIndexOf(".") + 1,
-                    //    (model.Avarda.FileName.Length - model.Avarda.FileName.LastIndexOf(".") - 1));
+                    var fileLastName = model.Avarda.FileName.Substring(model.Avarda.FileName.LastIndexOf(".") + 1,
+                        (model.Avarda.FileName.Length - model.Avarda.FileName.LastIndexOf(".") -1));
 
                     //将网站虚拟路径转化为真实的物理路径
                     var imagePath = Path.Combine(Server.MapPath(uploadDir),person.ID + ".jpg");
@@ -62,8 +62,8 @@ namespace MusicStore.Controllers
                 person.MobileNumber = model.MobilNumber;
                 person.Address = model.Address;
                 person.Name = model.Name;
-                person.FirstName = person.Name.Substring(0, 1);
-                person.LastName = person.Name.Substring(1, person.Name.Length - 1);
+                person.FirstName = person.Name.Substring(0,1);
+                person.LastName = person.Name.Substring(1,person.Name.Length -1);
                 person.Avarda = oldAvarda;
                 _context.SaveChanges();
 
