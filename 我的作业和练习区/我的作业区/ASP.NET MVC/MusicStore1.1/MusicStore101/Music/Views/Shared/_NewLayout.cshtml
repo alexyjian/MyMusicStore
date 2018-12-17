@@ -7,7 +7,7 @@
     var loginUserModel = Session["loginUserSessionModel"] as LoginUserSessionModel;
     ApplicationUser user = null;
     //查询购物车 收藏车
-    var carts=new List<Cart>();
+    var carts = new List<Cart>();
     if (loginUserModel != null)
     {
         if (loginUserModel.User != null)
@@ -15,7 +15,7 @@
             user = loginUserModel.User;
         }
         //查询购物车
-        carts =new EntityDbContext().Carts.Where(x=>x.Person.ID==user.Person.ID).ToList();
+        carts = new EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
     }
 }
 
@@ -25,14 +25,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    
+
     <title>@ViewBag.Tile-音乐商店</title>
     <link rel="stylesheet" href="/Content/Site.css">
     @*绑定样式库*@
     @Styles.Render("~/Content/JqueryUI")
     @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/modernizr")
-    
+
 
     @*绑定脚本库*@
     @Scripts.Render("~/bundles/jquery")
@@ -40,14 +40,15 @@
     @Scripts.Render("~/bundles/JqueryUI")
     @Scripts.Render("~/bundles/jqueryval")
     <style media="(min-width:750px)">
-        #ul_ul{
-            list-style:none;border-right:1px dotted black;
+        #ul_ul {
+            list-style: none;
+            border-right: 1px dotted black;
         }
     </style>
     <style media="(max-width:750px)">
-        #ul_ul{
-            border:none;
-            list-style:none;
+        #ul_ul {
+            border: none;
+            list-style: none;
         }
     </style>
 </head>
@@ -95,9 +96,12 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-xs-12" >
+            <div class="col-md-3 col-xs-12">
                 @*左侧导航*@
                 @Html.Partial("_GetGenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
+                @*百度定位*@
+                <span id="city" class="glyphicon glyphicon-map-marker" style="float: right; transform: translateX(-80px) translateY(20px)">定位中...</span>
+                <span id="district"></span>
             </div>
             <div class="col-md-9 col-xs-12">
                 @*操作区*@
@@ -115,3 +119,25 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7wqKQ8gZ9dZXNWh3371HmkG4gNBx29ea"></script>
+
+<script type="text/javascript">
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            //显示百度地图查询结果 地区
+            if (r.address.district != "") {
+                document.getElementById('district').innerText =r.address.district;
+            }
+            //显示百度地图查询结果 城市
+            if (r.address.city != "") {
+                document.getElementById("city").innerHTML = "当前位置：" + r.address.city;
+            }
+        }
+        else {
+            document.getElementById("city").innerHTML = "无法定位！";
+        }
+    }, { enableHighAccuracy: true })
+
+</script>
