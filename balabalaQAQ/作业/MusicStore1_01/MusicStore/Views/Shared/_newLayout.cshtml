@@ -48,7 +48,7 @@
                     BalabalaQAQ 音乐商店
                 </a>
             </div>
-            <div class="top-nav">
+            <div class="top-nav" >
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="@Url.Action("index","home")">主页</a></li>
                     <li><a href="@Url.Action("Store","Home")">商店</a></li>
@@ -62,12 +62,15 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">
+                                <img src="@user.Person.Avarda" style= "height:25px;width:25px; border-radius:50%;" />
                                 @user.Person.Name<span class="caret"></span>
                             </a>
+                         
                             <ul class="dropdown-menu">
                                 <li><a href="@Url.Action("ShoppingCart", "ShoppingCart")">购物车 @cart.Count()</a></li>
                                 <li><a href="@Url.Action("index", "Order")">我的订单</a></li>
                                 <li><a href="@Url.Action("index", "AddressPerson")">设置收件人</a></li>
+                                <li><a href="@Url.Action("index", "my")">个人信息</a></li>
                                 <li><a href="@Url.Action("RevisePwd", "Account")">修改密码</a></li>
                                 <li><a href="@Url.Action("loginout", "account")">注销</a></li>
                             </ul>

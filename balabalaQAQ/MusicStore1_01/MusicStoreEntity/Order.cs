@@ -20,6 +20,7 @@ namespace MusicStoreEntity
         [ScaffoldColumn(false)]
         public virtual Person Person { get; set; }//所属用户
 
+
         [Required(ErrorMessage = "收件人不能为空")]
         [Display(Name = "收件人")]
         public string AddressPerson { get; set; }//收件人
