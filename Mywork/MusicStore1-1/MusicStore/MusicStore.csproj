@@ -275,8 +275,8 @@
     <Content Include="Views\Order\Buy.cshtml" />
     <Content Include="Views\Pay\AliPay.cshtml" />
     <Content Include="Views\Account\Information.cshtml" />
-    <Content Include="Views\My\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\My\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MusicStoreEntity\MusicStoreEntity.csproj">

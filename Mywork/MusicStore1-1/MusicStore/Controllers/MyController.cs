@@ -9,16 +9,17 @@ using System.Web.Mvc;
 
 namespace MusicStore.Controllers
 {
-    public class MyController:Controller
+    public class MyController: Controller
     {
         private static readonly EntityDbContext _context = new EntityDbContext();
 
+        // 修改个人信息
         public ActionResult Index()
         {
-            if (Session["LoginUserSessionModel"]==null)
-                return RedirectToAction("login","Account",new{returnUrl=Url.Action("Index","My")});
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
 
-        var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
             var myVM = new MyViewModel()
             {
@@ -32,7 +33,6 @@ namespace MusicStore.Controllers
             return View(myVM);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(MyViewModel model)
@@ -44,8 +44,9 @@ namespace MusicStore.Controllers
             //用户原来的头像
             var oldAvarda = person.Avarda;
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
+                //保存头像
                 if (model.Avarda != null)
                 {
                     var uploadDir = "~/Upload/Avarda/";
@@ -63,16 +64,17 @@ namespace MusicStore.Controllers
                 person.Name = model.Name;
                 person.FirstName = person.Name.Substring(0, 1);
                 person.LastName = person.Name.Substring(1, person.Name.Length - 1);
-                person.Sex = person.Sex;
-                person.Birthday = person.Birthday;
                 person.Avarda = oldAvarda;
 
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
+
             ViewBag.AvardaUrl = oldAvarda;
             return View();
         }
     }
 }
+
+    

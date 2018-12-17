@@ -23,7 +23,7 @@
                 @Html.LabelFor(x => x.Sex)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Sex, new { placeholder = "请输入收货性别" })
+                @Html.TextBoxFor(x => x.Sex, new { placeholder = "请输入性别" })
                 @Html.ValidationMessageFor(x => x.Sex)
             </div>
 
@@ -73,7 +73,7 @@
                 var file = this.files[0];
                 //判断是不是图片
                 if (!/image\/\w+/.test(file.type)) {
-                    alert('文件必须为图片！');
+                    alert('只能是图片！');
                     return false;
                 }
                 //读文件内容，读物理地址，把img标签的src属性重新赋值
@@ -85,4 +85,3 @@
             });
     });
 </script>
-
