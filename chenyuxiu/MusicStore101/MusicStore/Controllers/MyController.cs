@@ -21,7 +21,7 @@ namespace MusicStore.Controllers
             {
                 Name = person.Name,
                 Address = person.Address,
-                MobilNumber = person.MobileNumber
+                MobilNumber = person.MobileNumber,
             };
             ViewBag.AvardaUrl = person.Avarda;
 
