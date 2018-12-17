@@ -50,6 +50,11 @@
                 <a class="navbar-brand" href="@Url.Action("Index","Home")">
                     ChaoPiPi音乐商店
                 </a>
+                @*百度定位*@
+                <span class="text-danger">
+                    <span class="glyphicon glyphicon-map-marker" ></span>
+                    <span id="city"></span>
+                </span>
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -113,3 +118,16 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT&services=&t=20181212102423"></script>
+<script>
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (r.address.city != "") {
+            document.getElementById('city').innerHTML = r.address.city;
+        } else if (r.address.district != "") {
+            document.getElementById('city').innerHTML = r.address.district;
+        } else {
+            docu.getElementById('city').innerHTML = "定位中...";
+        }
+    }, { enableHighAccuracy: true })
+</script>

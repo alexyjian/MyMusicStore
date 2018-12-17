@@ -270,7 +270,6 @@
     <Content Include="Views\Pay\AliPay.cshtml" />
     <Content Include="Views\My\AddressInfo.cshtml" />
     <Content Include="Views\My\Addaddress.cshtml" />
-    <Content Include="Views\My\EditAddress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Upload\Avarda\" />

@@ -5,6 +5,7 @@ using MusicStoreEntity;
 using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -97,7 +98,6 @@ namespace MusicStore.Controllers
             {
                 FirstName = person.FirstName,
                 LastName = person.LastName,
-                ChineseFullName = person.Name,
                 BrithDay = person.Birthday,
                 MobileNumber = person.MobileNumber,
                 Sex = person.Sex
@@ -106,9 +106,41 @@ namespace MusicStore.Controllers
             return View(InfoModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Info(InfoViewModel model)
         {
-            return View();
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Info", "My") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var oldAvarda = person.Avarda;
+
+            if (ModelState.IsValid)
+            {
+                if (model.Avarda != null)
+                {
+                    var uploadDir = "~/Upload/Avarda";
+                    var fileLastName = model.Avarda.FileName.Substring(model.Avarda.FileName.LastIndexOf(".") + 1,
+                        (model.Avarda.FileName.Length - model.Avarda.FileName.LastIndexOf(".") - 1));
+                    var imagePath = Path.Combine(Server.MapPath(uploadDir), person.ID + "." + fileLastName);  //将网站虚拟路径转化为真实的物理路径
+                    model.Avarda.SaveAs(imagePath);
+                    oldAvarda = "/Upload/Avarda/" + person.ID + "." + fileLastName;
+                }
+
+                person.MobileNumber = model.MobileNumber;
+                person.FirstName = model.FirstName;
+                person.LastName = model.LastName;
+                person.Name = model.FirstName + model.LastName;
+                person.Avarda = oldAvarda;
+                var date = model.BrithDay.Year;
+                person.Sex = model.Sex;
+
+                _context.SaveChanges();
+                return RedirectToAction("Index", "My");
+            }
+            ViewBag.AvardaUrl = oldAvarda;
+            return RedirectToAction("Info", "My");
         }
 
         /// <summary>
@@ -185,41 +217,10 @@ namespace MusicStore.Controllers
             foreach (var item in ads)
             {
                 htmlString += "<tr><td>" + item.Name + "&nbsp; &nbsp;<span class='mobilenumber'>" + item.MobileNumber + "</span><br /><span class='address'>" + item.Address + "</span></td>";
-                htmlString += "<td class='mobilenumber'><a href='@Url.Action('EditAddress','My',new{id="+item.ID+"})'>编辑</a>&nbsp;&nbsp;<a href = '#' onclick=" + '"' + "remove('" + item.ID + "')" + '"' + "> 删除 </ a ></ td > ";
+                htmlString += "<td class='mobilenumber'><a href = '#' onclick=" + '"' + "remove('" + item.ID + "')" + '"' + "> 删除 </ a ></ td > ";
                 htmlString += "</tr>";
             }
             return Json(htmlString);
-        }
-
-        /// <summary>
-        /// 修改页面
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public ActionResult EditAddress(Guid id)
-        {
-            if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("AddressInfo", "My") });
-
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
-            var ad = _context.PeopleAddress.Find(id);
-            return View(ad);
-        }
-
-        /// <summary>
-        /// 修改地址信息
-        /// </summary>
-        /// <param name="peopleaddress"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditAddress(PeopleAddress peopleaddress)
-        {
-            if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("EditAddress", "My") }); 
-            _context.SaveChanges();
-            return RedirectToAction("AddressInfo", "My");
         }
     }
 }

@@ -10,24 +10,19 @@ namespace MusicStore.ViewModels
     {
         [Required(ErrorMessage = "姓氏不能为空")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "姓氏不能为空")]
+
+        [Required(ErrorMessage = "名字不能为空")]
         public string LastName { get; set; }
 
-        public string ChineseFullName { get; set; }
 
-        [Required(ErrorMessage = "姓氏不能为空")]
+        [Required(ErrorMessage = "电话不能为空")]
         public string MobileNumber { get; set; }
 
-        [Required(ErrorMessage = "姓氏不能为空")]
+        [Required(ErrorMessage = "生日不能为空")]
         public DateTime BrithDay { get; set; }
 
         public bool Sex { get; set; }
 
         public HttpPostedFileBase Avarda { get; set; }
-
-        public InfoViewModel()
-        {
-            ChineseFullName = FirstName + LastName;
-        }
     }
 }

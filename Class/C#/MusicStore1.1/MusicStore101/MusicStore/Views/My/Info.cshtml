@@ -7,6 +7,7 @@
 <h3>个人信息</h3>
 <hr />
 <form enctype="multipart/form-data" action="" method="post" role="form">
+    @Html.AntiForgeryToken()
     <div class="form-inline">
         <div class="form-group">
             <label for="name">姓氏：</label>
@@ -15,7 +16,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="form-group">
             <label for="name">名字：</label>
-            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Last Name" })
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Last Name"})
         </div>
     </div>
     <br />
