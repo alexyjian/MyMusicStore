@@ -25,7 +25,9 @@ namespace MusicStore.Controllers
                 Name = person.Name,
                 Address = person.Address,
                 MobilNumber = person.MobileNumber,
-                Email = person.Email
+                Email = person.Email,
+                Sex = person.Sex,
+                Birthday = person.Birthday.ToString("yyyy-MM-dd")
             };
 
             ViewBag.AvardaUrL = person.Avarda;
@@ -59,7 +61,7 @@ namespace MusicStore.Controllers
                     var imagesPath = Path.Combine(Server.MapPath(upload), person.ID + "." + fileLastName);
 
                     model.Avarda.SaveAs(imagesPath);
-                    oldAvarda = "//Upload/Avarda/" + person.ID + "." + fileLastName;
+                    oldAvarda = "/Upload/Avarda/" + person.ID + "." + fileLastName;
 
                 }
 
@@ -71,11 +73,12 @@ namespace MusicStore.Controllers
                 person.FirstName = person.Name.Substring(0, 1);
                 person.LastName = person.Name.Substring(1, person.Name.Length - 1);
                 person.Avarda = oldAvarda;
-
+                person.Sex = model.Sex;
+                person.Birthday=DateTime.Parse(model.Birthday);
 
                 _Context.SaveChanges();
 
-                return RedirectToAction("Index");
+                return Content("<script>alert('修改个人信息成功!');location.href='" + Url.Action("index", "My") + "'</script>");
             }
 
 

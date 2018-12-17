@@ -18,6 +18,16 @@ namespace MusicStore.ViewsModel
         [Required(ErrorMessage = "地址不能为空")]
         public string Address { get; set; }
 
+        //性别
+        [Display(Name = "性别")]
+        [Required(ErrorMessage = "性别不能为空")]
+        public bool Sex { get; set; }
+
+        //生日
+        [Display(Name = "生日")]
+        [Required(ErrorMessage = "生日不能为空")]
+        public string Birthday { get; set; }
+
         //手机号码
         [Display(Name = "手机号")]
         [Required(ErrorMessage = "手机号不能为空")]
