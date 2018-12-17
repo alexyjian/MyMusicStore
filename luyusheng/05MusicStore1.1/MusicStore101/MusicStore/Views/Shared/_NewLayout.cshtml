@@ -57,8 +57,9 @@
                        aria-haspopup ="true" aria-expanded="false">         
                     <img src="@user.Person.Avarda" alt="头像" id="userAvarda"/>
                          
-                        //
-                        <span id="city" class="glyphicon glyphicon-magnet"></span><span id="district"></span>
+                        @*百度地图定位*@
+                        <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
+
                         @user.Person.Name
                     <span class="caret"></span>
                     </a>
