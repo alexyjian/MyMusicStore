@@ -26,7 +26,9 @@ namespace Music
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/Site.css"));
-
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/Style.css"));
             //绑定JqueryUI的样式库
             bundles.Add(new StyleBundle("~/Content/JqueryUI").Include(
                 "~/Content/themes/base/jquery-ui.css"

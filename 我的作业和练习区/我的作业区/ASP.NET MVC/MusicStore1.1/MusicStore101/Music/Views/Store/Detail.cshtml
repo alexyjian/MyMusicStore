@@ -4,11 +4,14 @@
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<h2>@Model.Title</h2>
-<p>
-    <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
-</p>
 <div id="album-details">
+    <div id="detail">
+    <h2>@Model.Title</h2>
+    <p>
+        <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
+    </p>
+
+
     <p>
         <em>
             发布时间：
@@ -33,11 +36,61 @@
         </em>
         ￥ @string.Format("{0:F}", (@Model.Price))
     </p>
-    <div id="msg" ></div>
+    <div id="msg"></div>
     <p class="button">
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
+</div>
+    <div id="bg1" onclick="CD()">
+        <span id="a"></span>
+        <span id="b"></span>
+        <span id="cd"></span>
+        <span id="cd_bg"></span>
+    </div>
+
+</div>
+<div class="pinl" id="album-details">
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺：</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p>这首歌太快了了</p></div>
+    </div>
+    <div id="User_pinl">
+        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+        <div id="div_User2"><p id="pl_user">这首歌太快了了</p></div>
+    </div>
 </div>
 <script>
     $("#addcart").click(function(){
@@ -64,4 +117,9 @@
             }
         });
     });
+
+    function CD() {
+        var cd = document.getElementById("cd");
+        cd.style.transform = "rotate(660deg);";
+    }
 </script>
