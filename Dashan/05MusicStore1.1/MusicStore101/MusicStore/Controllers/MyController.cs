@@ -62,7 +62,7 @@ namespace MusicStore.Controllers
                         (model.Avarda.FileName.Length - model.Avarda.FileName.LastIndexOf(".") - 1));
                     var imagePath = Path.Combine(Server.MapPath(uploadDir), person.ID + "." + fileLastName);
                     model.Avarda.SaveAs(imagePath);
-                    oldAvarda = " /Upload/Avarda/ " + person.ID + "." + fileLastName;
+                    oldAvarda = "/Upload/Avarda/" + person.ID + "." + fileLastName;
                 }
 
                 // 保存个人信息
