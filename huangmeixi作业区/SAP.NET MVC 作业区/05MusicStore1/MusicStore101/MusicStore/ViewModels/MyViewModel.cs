@@ -23,8 +23,15 @@ namespace MusicStore.ViewModels
             [Required(ErrorMessage = "收件人手机不能为空")]
             public string MobilNumber { get; set; }
 
+
             [Display(Name = "头像")]
             [DataType(DataType.Upload)]
             public HttpPostedFileBase Avarda { get; set; }
-}
+
+
+        
+
+
+
+    }
 }

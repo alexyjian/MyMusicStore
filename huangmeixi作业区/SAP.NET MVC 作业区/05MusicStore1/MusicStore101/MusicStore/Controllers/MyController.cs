@@ -23,9 +23,10 @@ namespace MusicStore.Controllers
 
             var myVM = new MyViewModel()
             {
-                Name = person.Name,
-                Address = person.Address,
-                MobilNumber = person.MobileNumber
+                Name = person.Name,//姓名
+                Address = person.Address,//收货地址
+                MobilNumber = person.MobileNumber,//手机号码
+     
             };
 
             ViewBag.AvardaUrl = person.Avarda;
