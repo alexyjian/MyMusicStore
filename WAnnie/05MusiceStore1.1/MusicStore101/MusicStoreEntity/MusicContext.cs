@@ -42,7 +42,7 @@ namespace MusicStoreEntity
         public IDbSet<OrderDetail> OrderDetails { get; set; }  // 订单明细
 
 
-        public IDbSet<MyAddressee> MyAddressees { get; set; } //收货地址
+       
         #endregion
     }
 }

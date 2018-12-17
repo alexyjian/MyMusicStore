@@ -179,6 +179,7 @@
     <Compile Include="ViewsModel\ChangePassWordVIewModel.cs" />
     <Compile Include="ViewsModel\LoginUserStatus.cs" />
     <Compile Include="ViewsModel\LoginViewsModel.cs" />
+    <Compile Include="ViewsModel\MyViewsModel.cs" />
     <Compile Include="ViewsModel\RegisterViewModel.cs" />
     <Compile Include="ViewsModel\ShoppingCartVIewModel.cs" />
   </ItemGroup>
