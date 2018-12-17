@@ -112,7 +112,7 @@ namespace MusicStore.Controllers
         /// <param name="oder"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Buy(string id)
+        public ActionResult Buy(Guid id)
         {
             //1.判断用户登录凭据是否过期，如果过期跳转回登录页，登录成功后返回确认购买页
             if (Session["LoginUserSessionModel"] == null)
@@ -120,6 +120,9 @@ namespace MusicStore.Controllers
 
             //2.读出当前用户Person
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var peraddress = person.PerAddress.SingleOrDefault(x => x.ID == id);
+
             var order = new Order();
             order.Person = _context.Persons.Find(person.ID);
 
@@ -151,7 +154,10 @@ namespace MusicStore.Controllers
                     {
                         _context.Cart.Remove(_context.Cart.SingleOrDefault(x => x.Album.ID == item.Album.ID));
                     }
-
+                    order.AddressPerson = peraddress.AddressPerson;
+                    order.Address = peraddress.Address;
+                    order.MobiNumber = peraddress.MobiNumber;
+                    
                     _context.SaveChanges();
                    
                 }
@@ -192,6 +198,8 @@ namespace MusicStore.Controllers
             //1.确认用户是否登录 是否登录过期
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+
+            
 
             return RedirectToAction("Alipay", "Pay", new { id = orderid });
         }
