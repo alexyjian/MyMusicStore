@@ -1,123 +1,96 @@
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-}
+
+/*背景*/
 body{
-    background: rgb(251, 249, 239);
+    background-color: #FBF9EF;
 }
-/* 头部 */
-#logo{
-    background: url(../img/logo.PNG) no-repeat left top;   
-}
-#logo>a{
-    position: relative;
-    top: 25px;
-    left: -10px;
-}
-#example-navbar-collapse{
+#bg1{
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    margin: 0 auto;
     position: absolute;
-    right: 10px;
+    border: 2px solid #c0c0c0;
+    top: 15px;
+    right:35px;
 }
-#nav-div{
-    margin: 0 auto;
-    padding-bottom: 20px;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px dotted black;
-    width: 90%;
-    background: rgb(251, 249, 239);
+/*唱机*/
+#cd_bg{
+    width: 240px;
+    height: 240px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    border-radius: 50%;
+    box-shadow: 20px 20px 60px black;
 }
-#header_ul>li{
-    width: 50px;
-    margin-right: 20px;
-    line-height: 50px;
-    font-size: 18px;
-    text-align: center;
-    font-weight: bold;
-    color: orangered;
-    z-index: 2;
+#cd{
+    width: 248px;
+    height: 248px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    background:url(/content/Images/cd.png) no-repeat center center;
+    z-index: 999;
+    border-radius: 50%; 
+    animation: move 15s linear infinite;  
 }
-#header_ul>li:hover{
-    background-color: #eee;
-    cursor: pointer;
-    color: black;
+#a{
+   width: 100px;
+   height: 300px;
+   position: absolute;
+   right: 0;
+   top: 0;
+   background: url(/content/Images/fc.png) no-repeat center;
+   z-index: 999;
 }
-
-/* 中间 */
-
-#min{
-    margin: 0 auto;
-    width: 90%;    
+#b{
+    width: 100px;
+    height: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgb(169, 134, 89);
 }
-#min>div:nth-child(1){
-    padding-top: 10px;
-    float: right;
-}
-#min>div:nth-child(2){
-    float: right;
-}
-#min>div:nth-child(2)>ul{
-    float: right;
-    margin-top: 10px;
-    border-right: 1px dotted black;
-}
-#min>div:nth-child(2)>ul>li{
-    text-align: center;
-}
-#min>div:nth-child(2)>ul>li:nth-last-child(1){
+.pinl{
+    width: 800px;
+    height: 400px;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 50px;
     margin-top: 20px;
-   
- }
- #min>div:nth-child(1)>div{
-     display: inline;
-     text-align: center;
-}
-#min>div:nth-child(1)>div>img{
-    width: 90%;    
-}
-#min_1{   
-    margin: 0 auto;
-    width: 90%;
-}
-#min_1>div{
-    float: right;
-}
-#min_1_ul>li{
+    border: 2px solid #c0c0c0;
+    border-radius: 5px;
+    overflow:auto; 
     position: relative;
-    height: 105px;
 }
-#min_1_ul>li>div>p{
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width: 102px;
+#detail{
+    border: 2px solid #c0c0c0;
+    padding: 10px;
+    border-radius: 5px;
 }
-#min_1_ul>li>div{
-    margin: 0 auto;
-    width: 87px;
+#User_name{
+    float: left;
 }
-#min_1>div>h4{
-    margin-left: 15px;
+#div_User{
+    width: 100%;
+    height: 20px;
 }
-/* 底部 */
-#footer{
-    width: 90%;
-    position:absolute;
-    bottom:20px;
-    margin: 0 auto;  
-    margin-top: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;  
-    border-bottom: 1px dotted black;
-    border-top: 1px dotted black;
+#div_User2{
+    width: 100%;
+    padding: 0;
+    height: 20px;
 }
-#footer>p>img{
-    height: 30px;
-    width: 120px;
+#div_User2>p{
+    line-height: 20px;
+    text-align: left;
+    margin:0;
+    width: 100%;
+    height: 20px;
 }
-#footer>p{
-   text-align: center;
+#User_pinl{
+    margin: 10px 0;
+    height: 60px;
+    border-bottom: 1px solid #c0c0c0;
 }
