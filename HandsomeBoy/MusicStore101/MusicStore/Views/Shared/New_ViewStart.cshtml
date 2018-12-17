@@ -27,7 +27,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - 音乐商店</title>
-
+   
     @*绑定样式库*@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/modernizr")
@@ -52,12 +52,18 @@
                 </h1>
             </div>
             <div class="col-md-6">
+                @*百度地图定位*@
+                <span id="city" class=""></span>
                 <ul class="nav">
+                  
+                    
                     <li><a href="@Url.Action("index","home")">主页</a></li>
                     <li><a href="@Url.Action("index","Store")">商店</a></li>
+                
                     @if (user == null)
                     {
                     <li><a href="@Url.Action("Login", "Login")">登录</a></li>
+                
                     }
                     else
                     {
@@ -89,6 +95,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-12">
                @Html.Partial("_GetGenreMonu",new MusicStoreEntity.EntityDbContext().Genres);
+               
             </div>
             <div class="col-md-9">
                     @*操作区*@
@@ -111,3 +118,18 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=W8uXfhFkBXmSiuEyPfnYj0lAgdNDRbUm"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398, 39.897445);
+    map.centerAndZoom(point, 12);
+
+    function myFun(result) {
+        var cityName = result.name;
+        map.setCenter(cityName);
+        alert("当前定位城市:" + cityName);
+    }
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+</script>
