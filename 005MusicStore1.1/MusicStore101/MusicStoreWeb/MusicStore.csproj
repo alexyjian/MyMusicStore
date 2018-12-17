@@ -167,6 +167,16 @@
     <Content Include="Content\Images\boy.jpg" />
     <Content Include="Content\Images\girl.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
+    <Content Include="Content\Images\LLprint1.jpg" />
+    <Content Include="Content\Images\LLprint10.jpg" />
+    <Content Include="Content\Images\LLprint2.jpg" />
+    <Content Include="Content\Images\LLprint3.jpg" />
+    <Content Include="Content\Images\LLprint4.jpg" />
+    <Content Include="Content\Images\LLprint5.jpg" />
+    <Content Include="Content\Images\LLprint6.jpg" />
+    <Content Include="Content\Images\LLprint7.jpg" />
+    <Content Include="Content\Images\LLprint8.jpg" />
+    <Content Include="Content\Images\LLprint9.jpg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\placeholder.gif" />
     <Content Include="Content\Images\loading.gif" />
