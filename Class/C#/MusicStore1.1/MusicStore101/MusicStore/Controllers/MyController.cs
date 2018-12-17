@@ -75,30 +75,11 @@ namespace MusicStore.Controllers
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
-            var yearList = new List<SelectListItem>();
-            var monthList = new List<SelectListItem>();
-            var dayList = new List<SelectListItem>();
-            //year
-            for (int i = 1900; i <= DateTime.Now.Year; i++)
-                yearList.Add(new SelectListItem { Value = i.ToString(), Text = i.ToString() });
-
-            //month
-            for (int i = 1; i <= 12; i++)
-                monthList.Add(new SelectListItem { Value = i.ToString(), Text = i.ToString() });
-            
-            //day
-            for (int i = 1; i <= 31; i++)
-                dayList.Add(new SelectListItem { Value = i.ToString(), Text = i.ToString() });
-
-            ViewBag.years = yearList;
-            ViewBag.months = monthList;
-            ViewBag.days = dayList;
-
             var InfoModel = new InfoViewModel()
             {
                 FirstName = person.FirstName,
                 LastName = person.LastName,
-                BrithDay = person.Birthday,
+                BrithDay = person.Birthday.ToString("yyyy-MM-dd"),
                 MobileNumber = person.MobileNumber,
                 Sex = person.Sex
             };
@@ -113,7 +94,7 @@ namespace MusicStore.Controllers
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Info", "My") });
 
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             var oldAvarda = person.Avarda;
 
             if (ModelState.IsValid)
@@ -133,14 +114,14 @@ namespace MusicStore.Controllers
                 person.LastName = model.LastName;
                 person.Name = model.FirstName + model.LastName;
                 person.Avarda = oldAvarda;
-                var date = model.BrithDay.Year;
+                person.Birthday = DateTime.Parse(model.BrithDay);
                 person.Sex = model.Sex;
-
+                ViewBag.AvardaUrl = oldAvarda;
                 _context.SaveChanges();
-                return RedirectToAction("Index", "My");
+                return Content("<script>alert('修改成功！');location.href='../../Home/Index'</script>");
             }
             ViewBag.AvardaUrl = oldAvarda;
-            return RedirectToAction("Info", "My");
+            return Content("<script>alert('修改失败！');location.href='../../Home/Index'</script>");
         }
 
         /// <summary>

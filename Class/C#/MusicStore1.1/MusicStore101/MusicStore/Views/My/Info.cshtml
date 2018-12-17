@@ -23,19 +23,14 @@
     <div class="form-inline">
         <div class="form-group">
             <label for="name">生日：</label>
-            @Html.DropDownListFor(x=>x.BrithDay.Year, new SelectList(ViewBag.years, "Value", "Text"), new { @class = "btn btn-default" })
-            &nbsp;年&nbsp;
-            @Html.DropDownListFor(x => x.BrithDay.Month, new SelectList(ViewBag.months, "Value", "Text"), new { @class = "btn btn-default" })
-            &nbsp;月&nbsp;
-            @Html.DropDownListFor(x => x.BrithDay.Day, new SelectList(ViewBag.days, "Value", "Text"), new { @class = "btn btn-default" })
-            &nbsp;日&nbsp;
+            @Html.TextBoxFor(x => x.BrithDay, new { type="date" , @class="form-control"})
         </div>
     </div>
     <br />
     <div class="form-inline">
         <label for="name">性别：</label>
-        @Html.RadioButtonFor(x=>x.Sex,"Ture",new { })男&nbsp;&nbsp;&nbsp;&nbsp;
-        @Html.RadioButtonFor(x => x.Sex, "False", new { })女
+        @Html.RadioButtonFor(x=>x.Sex,true ,new { })男&nbsp;&nbsp;&nbsp;&nbsp;
+        @Html.RadioButtonFor(x => x.Sex, false, new { })女
     </div>
     <br />
     <div class="form-inline">

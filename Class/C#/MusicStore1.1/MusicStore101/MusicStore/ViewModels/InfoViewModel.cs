@@ -19,7 +19,7 @@ namespace MusicStore.ViewModels
         public string MobileNumber { get; set; }
 
         [Required(ErrorMessage = "生日不能为空")]
-        public DateTime BrithDay { get; set; }
+        public string BrithDay { get; set; }
 
         public bool Sex { get; set; }
 
