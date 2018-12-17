@@ -52,13 +52,13 @@ namespace MusicStore.Controllers
                 //保存头像
                 if(model.Avarda!=null)
                 {
-                    var uploadDir = "~/Upload/Avarda";
+                    var uploadDir = "~/Upload/Avarda/";
                     var fileLaseName = model.Avarda.FileName.Substring(model.Avarda.FileName.LastIndexOf(".")+1,
                         (model.Avarda.FileName.Length-model.Avarda.FileName.LastIndexOf(".")-1));
                     //网站虚拟路径转化为真实的物理路径
                     var imagePath = Path.Combine(Server.MapPath(uploadDir), person.ID + ".jpg");
                     model.Avarda.SaveAs(imagePath);
-                    oldAvarda= "/Upload/Avarda" + person.ID + "/"+fileLaseName;
+                    oldAvarda= "/Upload/Avarda/" + person.ID + "."+fileLaseName;
                 }
                 //保存个人信息
                 person.TelephoneNumber = model.TelePhoneNumber;
