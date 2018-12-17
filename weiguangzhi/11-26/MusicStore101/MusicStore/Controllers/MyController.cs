@@ -42,17 +42,16 @@ namespace MusicStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(MyViewModel model)
         {
-            //判断用户是否登录
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "my") });
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
+
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
-
-
+            //用户原来的头像
             var oldAvarda = person.Avarda;
 
             if (ModelState.IsValid)
             {
-                //保存头像
+                ////保存头像
                 if (model.Avarda != null)
                 {
                     var uploadDir = "~/Upload/Avarda/";
@@ -65,7 +64,7 @@ namespace MusicStore.Controllers
                 }
 
                 //把订单中的收件人信息保存带person中
-               
+
                 person.MobileNumber = model.MobilNumber;
                 person.Address = model.Address;
                 person.Name = model.Name;
@@ -79,6 +78,13 @@ namespace MusicStore.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.AvardaUrl = oldAvarda;
+            return View();
+        }
+
+
+        public ActionResult Map()
+        {
+          
             return View();
         }
     }
