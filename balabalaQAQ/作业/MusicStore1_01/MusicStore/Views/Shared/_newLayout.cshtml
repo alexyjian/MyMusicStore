@@ -111,21 +111,7 @@
     @*继承此布局页的页面执行脚本的位置*@
     @RenderSection("scripts", required: false)
     <script>
-        window.onload = function () {
-            //ajax提交到服务器端进行购物车项的删除
-            setInterval(function () {
-                $.ajax({
-                    type: 'post',
-                    async: true,
-                    url: "../../shoppingcart/removeCart",
-                    data: { id: id },
-                    dataType: 'json',
-                    success: function (data) {
-                        $("#index").html(data);
-                    }
-                });
-            }, 2000);
-        }
+
 
         //百度地图
         var map = new BMap.Map("citymap");

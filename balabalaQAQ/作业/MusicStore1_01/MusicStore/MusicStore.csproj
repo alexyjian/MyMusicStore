@@ -208,11 +208,14 @@
     <Content Include="Content\bootstrap.min.js" />
     <Content Include="Content\images\boy.jpg" />
     <Content Include="Content\images\boys.jpg" />
+    <Content Include="Content\images\cd.png" />
+    <Content Include="Content\images\fc.png" />
     <Content Include="Content\images\girl.jpg" />
     <Content Include="Content\images\home-showcase.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\placeholder.gif" />
     <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\ProgressIcon.gif" />
     <Content Include="Content\jquery-1.12.4.js" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\accordion.css" />

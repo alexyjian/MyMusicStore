@@ -1,83 +1,117 @@
-*{
+* {
     margin: 0 auto;
     padding: 0;
 }
-body{
+
+body {
     margin: auto;
     width: 100%;
     height: 100%;
 }
-li{
-    list-style: none;}
-a{
-    text-decoration: none;
+
+li {
+    list-style: none;
 }
-a:hover{
+
+a {
     text-decoration: none;
 }
 
+    a:hover {
+        text-decoration: none;
+    }
+
 /*nav*/
-.navbar-header{
-padding-right: 45%;
+.navbar-header {
+    padding-right: 45%;
 }
-.top-nav ul li a{
-    margin-right:20px;
+
+.top-nav ul li a {
+    margin-right: 20px;
 }
-.navbar-header img{
+
+.navbar-header img {
     float: left;
     padding-right: 10px;
-    padding-top:5px;
+    padding-top: 5px;
 }
 /*nav end*/
 /*Music List*/
-.list-group-item{
+.list-group-item {
     padding-top: 15px;
 }
-.music-left{
-    width:250px;
+
+.music-left {
+    width: 250px;
     float: left;
     margin-left: 12px;
 }
-.music-dw{
+
+.music-dw {
     color: rgb(80, 144, 240);
     text-align: center;
 }
-.btn{
+
+.btn {
     width: 100%;
     text-align: left;
     height: 40px;
 }
 /*music-view*/
-.music-view{
+.music-view {
     float: left;
     margin-left: 30px;
     text-align: center;
 }
-.bg{
+
+.bg {
     background-color: gray;
 }
-.music-news  {
-  padding: 0;
-  padding-bottom: 10px;
-  text-align:center;
- 
+
+.music-news {
+    padding: 0;
+    padding-bottom: 10px;
+    text-align: center;
 }
 /*music-view  end*/
 /*music-store*/
 .music-store h2 {
-    text-align:left;
+    text-align: left;
 }
-.music-store ul li{
-    border:solid 1px black;
-    text-align:center;
-    font-size:14px;
+
+.music-store ul li {
+    border: solid 1px black;
+    text-align: center;
+    font-size: 14px;
 }
+
 .thumbnail {
-    border:0px;
+    border: 0px;
 }
+
 .s {
-    cursor:pointer;
+    cursor: pointer;
+}
+/*Music-Jukebox*/
+
+#Music-Jukebox {
+    height: 180px;
+    width: 180px;
+    background: url(images/cd.png) no-repeat;
+    background-size: 180px;
+    margin-top: 30px;
 }
 
+.Music-box {
+    height: 300px;
+}
 
+@keyframes Jukebox {
+    0% {
+        transform: rotate(0deg);
+    }
 
+    100% {
+        transform: rotate(360deg);
+    }
+}
