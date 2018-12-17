@@ -1,0 +1,13 @@
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll.config
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\MusicStoreEntity.dll
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\MusicStoreEntity.pdb
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\EntityFramework.dll
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.dll
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\EntityFramework.xml
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb

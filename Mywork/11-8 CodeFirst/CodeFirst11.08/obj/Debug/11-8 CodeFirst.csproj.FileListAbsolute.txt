@@ -1,0 +1,19 @@
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\CodeFirst11.08.exe.config
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\CodeFirst11.08.exe
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\CodeFirst11.08.pdb
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\EntityFramework.dll
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\EntityFramework.SqlServer.dll
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\EntityFramework.xml
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\EntityFramework.SqlServer.xml
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\obj\Debug\CodeFirst11.08.exe
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\obj\Debug\CodeFirst11.08.pdb
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\EntityFramework.Extended.dll
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\MoreLinq.dll
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\System.ValueTuple.dll
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\EntityFramework.Extended.xml
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\MoreLinq.xml
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\bin\Debug\System.ValueTuple.xml
+F:\VS作业提交\MyMusicStore\Mywork\CodeFirst11.08\CodeFirst11.08\obj\Debug\11-8 CodeFirst.csprojResolveAssemblyReference.cache
+F:\VS作业提交\MyMusicStore\Mywork\11-8 CodeFirst\CodeFirst11.08\bin\Debug\CodeFirst11.08.exe.config
+F:\VS作业提交\MyMusicStore\Mywork\11-8 CodeFirst\CodeFirst11.08\obj\Debug\CodeFirst11.08.exe
+F:\VS作业提交\MyMusicStore\Mywork\11-8 CodeFirst\CodeFirst11.08\obj\Debug\CodeFirst11.08.pdb

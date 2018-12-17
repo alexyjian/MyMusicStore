@@ -1,0 +1,20 @@
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\Entities.dll.config
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\Entities.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\Entities.pdb
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\EntityFramework.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\EntityFramework.SqlServer.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\EntityFramework.xml
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\bin\Debug\EntityFramework.SqlServer.xml
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\obj\Debug\Entities.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\obj\Debug\Entities.pdb
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\bin\Debug\Entities.dll.config
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\bin\Debug\Entities.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\bin\Debug\Entities.pdb
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\bin\Debug\EntityFramework.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\bin\Debug\EntityFramework.SqlServer.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\bin\Debug\EntityFramework.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\bin\Debug\EntityFramework.SqlServer.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\obj\Debug\Entities.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\Entities\obj\Debug\Entities.pdb

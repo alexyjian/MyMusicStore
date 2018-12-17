@@ -1,0 +1,2 @@
+F:\11-4\MyMusicStore\Mywork\11.4\11.4\bin\Debug\11.4.exe.config
+F:\VS作业提交\MyMusicStore\Mywork\11.4\11.4\bin\Debug\11.4.exe.config
