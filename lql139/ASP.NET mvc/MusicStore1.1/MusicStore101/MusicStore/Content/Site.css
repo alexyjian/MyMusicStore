@@ -264,3 +264,24 @@ input-group CompilePersonal-text{
     margin-bottom:10px;
     margin-top:10px;
 }
+.cd{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background: url("images/cd.png") no-repeat center center;
+    background-size: 150px;
+    position: relative;
+    top: 0;
+    left: 70px;
+    border-radius: 50%;
+    animation: move 10s linear infinite;
+    padding-bottom:10px;
+}
+@keyframes move{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

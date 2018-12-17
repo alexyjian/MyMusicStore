@@ -36,7 +36,7 @@
     <div class="collapse navbar-collapse header " id="myNavbar">
         <h3>
             <br />
-            <a href="@Url.Action("Index", "Home")">Number One in the Universe 音乐商店  <samp>- 032c</samp></a>
+            <a href="@Url.Action("Index", "Home")">Number One in the Universe 音乐商店  <samp> -  <span id="city" class="glyphicon "></span></samp></a>
         </h3>
         <ul class="nav navbar-nav header-ul " >
             <li>
@@ -62,7 +62,7 @@
                     <ul class="dropdown-menu login-ul">
                         <li><a  href="@Url.Action("index","ShoppingCart")">&nbsp;&nbsp;<i class="glyphicon glyphicon-shopping-cart"></i>购物车(@carts.Count)</a></li>
                         <li><a  href="@Url.Action("Index","Pay")">&nbsp;&nbsp;<i  class="glyphicon glyphicon-list-alt"></i>我的订单</a></li>
-                        <li><a href="@Url.Action("Index","My")">&nbsp;&nbsp;<i class="glyphicon glyphicon-user"></i>个人信息</a></li>
+                        <li><a  href="@Url.Action("Index","My")">&nbsp;&nbsp;<i class="glyphicon glyphicon-user"></i>个人信息</a></li>
                         <li><a  href="@Url.Action("ChangePassword","Account")">&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"></i>修改密码</a></li>
                         <li><a  href="@Url.Action("Loginout","Account")">&nbsp;&nbsp;<i class="glyphicon glyphicon-off"></i>注销</a></li>
                     </ul>
@@ -94,3 +94,20 @@
 </body>
 </html>
 
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kfGVGU4CP7RUXboBQljxIMab8y0ZthNz"></script>
+<script>
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            if (r.address.district != "city") {
+                document.getElementById("city").innerHTML = r.address.district;
+            }
+            if (r.address.city != "") {
+                document.getElementById('city').innerHTML = r.address.city;
+            }
+        }
+        else {
+            document.getElementById('city').innerHTML = "";
+        }
+    }, { enableHighAccuracy: true })
+</script>

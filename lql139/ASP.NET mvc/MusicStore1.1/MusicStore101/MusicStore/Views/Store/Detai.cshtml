@@ -7,37 +7,46 @@
 
  <h2>歌曲名称:@Model.Title</h2>
 
-<p>
-    <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
-</p>
-<div>
-    <p>
-        <em>
-            分类：
-        </em>
-        @Model.Genre.Name
-    </p>
-    <p>
-        <em>
-            歌手：
-        </em>
-        @Model.Artist.Name
-    </p>
-    <p>
-        <em>
-            价格：
-        </em>
-        $@string.Format("{0:F}",Model.Price)
-    </p>
-    <p>
-        <em>
-            发行时间：
-        </em>
-        @Model.PublisherDate.ToString("yyyy年MM月dd日");
-    </p>
-    <button id="addcart" type="submit" class="btn btn-primary">添加到购物车</button>
-    <div id="msg"></div>
+
+ <div class="row">
+    <div class="col-md-6">
+        <span class="cd"></span></br>
+        <audio controls="controls"></audio>
+    </div>
+    <div class="col-md-6">
+        <p>
+            <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
+        </p>
+        <p>
+            <em>
+                分类：
+            </em>
+            @Model.Genre.Name
+        </p>
+        <p>
+            <em>
+                歌手：
+            </em>
+            @Model.Artist.Name
+        </p>
+        <p>
+            <em>
+                价格：
+            </em>
+            $@string.Format("{0:F}", Model.Price)
+        </p>
+        <p>
+            <em>
+                发行时间：
+            </em>
+            @Model.PublisherDate.ToString("yyyy年MM月dd日");
+        </p>
+        <button id="addcart" type="submit" class="btn btn-primary">添加到购物车</button>
+        <div id="msg"></div>
+
+    </div>
 </div>
+
 <script>
     $("#addcart").click(function () {
         //异步

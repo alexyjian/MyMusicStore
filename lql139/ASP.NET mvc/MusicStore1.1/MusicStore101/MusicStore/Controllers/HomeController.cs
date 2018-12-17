@@ -13,14 +13,20 @@ namespace MusicStore.Controllers
 {
     public class HomeController : Controller
     {
+        //public ActionResult Index()
+        //{
+        //    var context = new EntityDbContext();
+            
+        //    return View(context.Albums.OrderByDescending(x=>x.PublisherDate).Take(20).ToList());
+        //}
         public ActionResult Index()
         {
             var context = new EntityDbContext();
-            
-            return View(context.Albums.OrderByDescending(x=>x.PublisherDate).Take(20).ToList());
+
+            return View(context.Albums.OrderByDescending(x => x.PublisherDate).Take(20).ToList());
         }
 
-     
+
         public string Testlogin(string username = "xianren", string pwd = "123.abc")
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));

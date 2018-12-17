@@ -164,6 +164,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\cd.png" />
     <Content Include="Content\images\stern_logo.png" />
     <Content Include="Content\images\touxiang.jpg" />
     <Content Include="Content\Site.css" />
@@ -251,7 +252,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\Shared\_GetgenreMenu.cshtml" />
     <Content Include="Views\Shared\_FooterLayout.cshtml" />
@@ -268,6 +268,7 @@
     <Content Include="Views\Pay\AliPay.cshtml" />
     <Content Include="Views\My\Index.cshtml" />
     <Content Include="Views\Pay\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -35,7 +35,7 @@ namespace MusicStore.Controllers
 
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Index(UpdatePersonalViewModel model)
         {
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
