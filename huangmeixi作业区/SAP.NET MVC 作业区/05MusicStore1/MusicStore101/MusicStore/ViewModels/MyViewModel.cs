@@ -15,9 +15,19 @@ namespace MusicStore.ViewModels
             [Required(ErrorMessage = "收件人姓名不能为空")]
             public string Name { get; set; }
 
+           [Display(Name = "性别")]
+           [Required(ErrorMessage = "性别不能为空")]
+           public bool Sex { get; set; }
+
             [Display(Name = "收货地址")]
             [Required(ErrorMessage = "收货地址不能为空")]
             public string Address { get; set; }
+
+
+            [Display(Name = "生日")]
+            [Required(ErrorMessage = "生日不能为空")]
+            public string Birthday { get; set; }
+
 
             [Display(Name = "收件人手机")]
             [Required(ErrorMessage = "收件人手机不能为空")]

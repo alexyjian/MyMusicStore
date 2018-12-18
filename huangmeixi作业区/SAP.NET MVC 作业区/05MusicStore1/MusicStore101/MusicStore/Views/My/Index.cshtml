@@ -18,6 +18,20 @@
                 @Html.ValidationMessageFor(x => x.Name)
             </div>
 
+      
+     
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Sex)
+            </div>
+            <div class="editor-field">
+                @Html.RadioButtonFor(Model => Model.Sex, true,new { @id="Statusradio1",@name="Status"})<label id="tr">男</label>
+                @Html.RadioButtonFor(Model => Model.Sex, true, new { @id = "Statusradio1", @name = "Status" })<label id="tr">女</label>
+                @Html.ValidationMessageFor(x => x.Sex)
+            </div>
+
+
+       
+            
             <div class="editor-label">
                 @Html.LabelFor(x => x.Address)
             </div>
@@ -25,6 +39,9 @@
                 @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入收货地址" })
                 @Html.ValidationMessageFor(x => x.Address)
             </div>
+
+          
+
 
             <div class="editor-label">
                 @Html.LabelFor(x => x.MobilNumber)

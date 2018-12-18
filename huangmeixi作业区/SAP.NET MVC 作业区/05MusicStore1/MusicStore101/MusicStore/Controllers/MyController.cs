@@ -1,5 +1,6 @@
 ﻿using MusicStore.ViewModels;
 using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +12,7 @@ namespace MusicStore.Controllers
 {
     public class MyController : Controller
     {
-        private static readonly EntityDbContext _context = new EntityDbContext();
+        private static readonly EntityDbContext _context = new MusicStoreEntity. EntityDbContext();
 
         // 修改个人信息
         public ActionResult Index()
@@ -24,6 +25,8 @@ namespace MusicStore.Controllers
             var myVM = new MyViewModel()
             {
                 Name = person.Name,//姓名
+                Sex = person.Sex,//性别
+                Birthday = person.Birthday.ToString("yyyy-MM-dd"),//生日
                 Address = person.Address,//收货地址
                 MobilNumber = person.MobileNumber,//手机号码
      
@@ -44,7 +47,6 @@ namespace MusicStore.Controllers
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             //用户原来的头像
             var oldAvarda = person.Avarda;
-
             if (ModelState.IsValid)
             {
                 //保存头像
@@ -61,6 +63,8 @@ namespace MusicStore.Controllers
 
                 //保存个人信息
                 person.MobileNumber = model.MobilNumber;
+                person.Sex = model.Sex;
+                person.Birthday = DateTime.Parse(model.Birthday);
                 person.Address = model.Address;
                 person.Name = model.Name;
                 person.FirstName = person.Name.Substring(0, 1);
@@ -75,7 +79,9 @@ namespace MusicStore.Controllers
             ViewBag.AvardaUrl = oldAvarda;
             return View();
         }
+
     }
 
 
 }
+

@@ -6,7 +6,15 @@
 
 <h2>所有的音乐分类</h2>
 <p>本站共有 @Model.Count()个分类</p>
+@*通用音乐*@
+<body>
 
+    <audio controls>
+        <source src="http://www.ytmp3.cn/down/49723.mp3">
+        <embed height="50" width="100" src="http://www.ytmp3.cn/down/49723.mp3">
+    </audio>
+
+</body>
 
 <ul class="list-unstyled">
     @foreach (var item in Model)
