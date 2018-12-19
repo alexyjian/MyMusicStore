@@ -26,9 +26,11 @@ namespace MusicStoreEntity
         public string ArtistId { get; set; }
 
         public DateTime PublisherDate { get; set; }
-
+   
         public string AlbumaArtUrl { get; set; }
 
+     //试听网址
+        public string MusicUrl { get; set; } ="/Music/1.mp3";
         public Album()
         {
             ID = Guid.NewGuid();
