@@ -40,6 +40,8 @@ namespace MusicStoreEntity
         public IDbSet<Order> Orders { get; set; }
         public IDbSet<OrderDetail> OrderDetails { get; set; }
         public IDbSet<My> Mys { get; set; }
+        public IDbSet<Reply> Replys { get; set; }
+        
     }
 
 }

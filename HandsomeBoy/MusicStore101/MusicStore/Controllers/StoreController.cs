@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicStore.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,8 +18,15 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         public ActionResult Detail(Guid id)
         {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
             var detail = _context.Albuns.Find(id);
-            return View(detail);
+            ViewBag.detail = detail;
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            try { ViewBag.Reply = _context.Replys.Where(x => x.Album.ID == id && x.Person.ID == person.ID).ToList(); }
+            catch { }
+           
+            return View();
         }
         //
         public ActionResult browser(Guid id)
@@ -29,11 +37,19 @@ namespace MusicStore.Controllers
 
         public ActionResult Index()
         {
+
             var list = _context.Genres.OrderByDescending(x => x.Name).ToList();
             var list1 = _context.Albuns.OrderByDescending(x => x.PublsherDate).ToList();
-            
+          
             return View(list);
 
+        }
+
+        [HttpPost]
+        public ActionResult Reply(MusicStoreEntity.Reply model)
+        {
+            
+            return View();
         }
     }
 }

@@ -184,6 +184,9 @@
     <Content Include="Content\Images\popmusic.jpg" />
     <Content Include="Content\Images\ProgressIcon.gif" />
     <Content Include="Content\Images\RockMusic.jpg" />
+    <Content Include="Music\bg.png" />
+    <Content Include="Music\cd_img.jpg" />
+    <Content Include="Music\ycyy.mp3" />
     <Content Include="Content\script.js" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -230,6 +233,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Music\yinfu.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -254,6 +258,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Music\MD.ttf" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.4.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />

@@ -29,6 +29,7 @@ namespace MusicStore.Controllers
                     CredentialsCode = person.CredentialsCode
                 };
                 ViewBag.AvardaUrl = person.Avarda;
+           
             return View(myVM);
         }
         [HttpPost]

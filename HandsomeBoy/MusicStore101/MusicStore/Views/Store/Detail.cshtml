@@ -1,45 +1,82 @@
-﻿@model MusicStoreEntity.Albun
+﻿@model MusicStoreEntity.Reply
+  
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
+    var Reply = ViewBag.Reply;
+    var detail = ViewBag.detail;
 }
 
-<h2>@Model.Title</h2>
+<h2>@detail.Title</h2>
 
- <p>
-     <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
-<p> 
-    <em>
-        分类：
-    </em>
-    @Model.Genre.Name
-</p>
-<p>
-    <em>
-        发布时间：
-    </em>
-    @Model.PublsherDate.ToString("yyyy年MM月dd日");
-</p>
-<p>
-    <em>
-        歌手：
-    </em>
-    @Model.Artist.Name
-</p>
+<div class="Detail_box">
+    <p>
+        <img alt="@detail.Title" src="@detail.AlbumArtUrl" />
+    <p>
+        <em>
+            分类：
+        </em>
+        @detail.Genre.Name
+    </p>
+    <p>
+        <em>
+            发布时间：
+        </em>
+        @detail.PublsherDate.ToString("yyyy年MM月dd日");
+    </p>
+    <p>
+        <em>
+            歌手：
+        </em>
+        @detail.Artist.Name
+    </p>
 
 
-<p>
-    <em>
-        价格：
-    </em>
-    @string.Format("{0:F}",Model.Price)
-</p>
+    <p>
+        <em>
+            价格：
+        </em>
+        @string.Format("{0:F}", detail.Price)
+    </p>
 
-<div id="msg"></div>
-<p>
-    <a class="btn" id="addcart">添加到购物车</a>
     <div id="msg"></div>
-</p>
+    <p>
+        <a class="btn" id="addcart">添加到购物车</a>
+        <div id="msg"></div>
+    </p>
+
+
+
+    @*@foreach (var item in Reply)
+    {
+        <div class="comment">
+            <p></p>
+            <p>07-01 01：55</p>
+            <p>浪费</p>
+         </div>
+    }*@
+    @using (Html.BeginForm("Reply", "My", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+
+        <div class="editor-label">
+            <div>
+              <textare ></textare>
+            </div>
+            <input type="submit" value="评论"/>
+        </div>
+    }
+    <div id="box_video">
+        <div class="cd">
+            <div class="center">
+                <audio src="../Music/ycyy.mp3" controls autoplay loop></audio>
+            </div>
+            <div class="song">
+                @*<h2>云城烟雨</h2>*@
+
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $("#addcart").click(function () {
         $("#msg").html("<img src='../../content/Images/ProgressIcon.gif'>添加到购物车,请稍后...")
@@ -47,13 +84,13 @@
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
-            data: {id:"@Model.ID"},
+            data: {id:"@detail.ID"},
             dataType:'json',
             success:function(data){
                 //如果没有登录，跳转到登录页
                 if(data == "nologin")
                 {
-                    location.href = " @Url.Action("Login", "Login", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                    location.href = " @Url.Action("Login", "Login", new { returnUrl = Url.Action("Detail", "Store", new { id = detail.ID }) })";
                 }
                 else{
                     $("#msg").html(data);
