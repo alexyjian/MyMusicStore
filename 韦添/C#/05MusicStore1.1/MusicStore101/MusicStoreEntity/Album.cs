@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-  public   class Album
+    /// <summary>
+    /// 专辑
+    /// </summary>
+    public class Album
     {
         public Guid ID { get; set; }
         public string Title { get; set; }  //专辑名称
@@ -26,6 +29,9 @@ namespace MusicStoreEntity
 
         //专辑的网址
         public string AlbumArtUrl { get; set; }
+
+        //试听网址
+        public string MusucUrl { get; set; }
 
         public Album()
         {
