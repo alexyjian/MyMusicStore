@@ -1,4 +1,5 @@
-﻿@model MusicStoreEntity.Album
+﻿
+@model MusicStoreEntity.Album
 @{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
@@ -6,47 +7,57 @@
 <h2>@Model.Title</h2>
 
 <p>
-    <img alt="@Model.Title" src="@Model.AlbumaArtUrl"/>
+   <img alt="@Model.Title" src="@Model.AlbumaArtUrl" />
 </p>
 
-<div id="album-details">
-    <p>
+<div id="box-video">
+    <div class="cd" style="background: url@(Model.AlbumaArtUrl)no-repeat; ">
+        <div class="cd-center">
+            <audio src="@Model.MusicUrl" controls autoplay loop></audio>
+        </div>
+    </div>
+</div>
 
-        <em>
-            发布时间：
-        </em>
-        @Model.PublisherDate.ToString("yyyy年MM月dd日");
-    </p>
+    <div id="album-details">
+        <p>
+            <em>
+                发布时间：
+            </em>
+            @Model.PublisherDate.ToString("yyyy年MM月dd日");
+        </p>
 
-    <p>
+        <p>
+            <em>
+                分类：
+            </em>
+            @Model.Genre.Name
+        </p>
 
-        <em>
-            分类：
-        </em>
-        @Model.Genre.Name
-    </p>
+        <p>
 
-    <p>
+            <em>
+                歌手：
+            </em>
+            @Model.Artist.Name
+        </p>
+        <p>
 
-        <em>
-            歌手：
-        </em>
-        @Model.Artist.Name
-    </p>
-    <p>
+            <em>
+                价格：
+            </em>
+            @String.Format("{0:F}", Model.Price)
+        </p>
 
-        <em>
-            价格：
-        </em>
-        @String.Format("{0:F}",Model.Price)
-    </p>
+        <div id="msg"></div>
+        <p class="btn btn-info btn-lg" id="addcart">
+            添加购物车
+        </p>
+        <div id="msg"></div>
 
-    <div id="msg"></div>
-    <p class="btn btn-info btn-lg" id="addcart">
-        添加购物车
-    </p>
-     <div id="msg"></div>
-
+        <textarea></textarea><br />
+        <p class="btn btn-info btn-sm">
+            <span class="glyphicon glyphicon-filter">发送评论</span>
+           </p>
 </div>
 
 <script>
