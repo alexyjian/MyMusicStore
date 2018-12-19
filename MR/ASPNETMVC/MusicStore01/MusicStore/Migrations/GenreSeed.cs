@@ -13,10 +13,9 @@ namespace MusicStore.Migrations
 
         public static void Seed()
         {
-            _dbContext.Database.ExecuteSqlCommand("delete AspNetUserRoles");
-            _dbContext.Database.ExecuteSqlCommand("delete artists");
+
             _dbContext.Database.ExecuteSqlCommand("delete albums");
-            
+            _dbContext.Database.ExecuteSqlCommand("delete artists");
             _dbContext.Database.ExecuteSqlCommand("delete genres");
 
             var genres = new List<Genre>()
