@@ -197,6 +197,9 @@ a:active {
         color: #F46739;
     }
 
+div#album-details {
+    min-height: 500px;
+}
 div#album-details p {
     margin-bottom: 5px;
     color: #5e5b54;
@@ -298,4 +301,60 @@ tr:hover {
     color: #5e5b54;
     text-decoration: none;
     font-weight: bold;
+}
+
+#userAvarda {
+    height: 25px;
+    border-radius: 50%;
+}
+
+#imgAvarda {
+    height: 100px;
+    border-radius: 50%;
+}
+
+#album-banner {
+    width: 100px;
+    height: 75px;
+}
+
+.cd {
+    width: 422px;
+    height: 422px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    border-radius: 50%;
+    border: 10px solid white;
+    z-index: 2;
+    box-shadow: 5px 5px 15px black;
+}
+
+.cd-center {
+    width: 100px;
+    height: 100px;
+    background-image: black;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    border: 5px solid white;
+    background-image: url(/content/images/yinfu.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 3;
+    background-color: black;
+}
+
+#box-video audio{
+    position: absolute;
+    left: -100px;
+    bottom: -70px;
+}
+
+#box-video {
+    position: absolute;
+    left: 400px;
 }
