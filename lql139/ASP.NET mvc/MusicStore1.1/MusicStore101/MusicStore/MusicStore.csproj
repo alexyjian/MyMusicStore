@@ -224,6 +224,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Music\1.mp3" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
@@ -270,7 +271,9 @@
     <Content Include="Views\Pay\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Upload\Avarda\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

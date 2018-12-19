@@ -5,7 +5,7 @@
 }
 
 <form enctype="multipart/form-data" action="" method="post">
-    @*@Html.AntiForgeryToken()*@
+     @Html.AntiForgeryToken()
 
         <div class="panel panel-primary row" id="tbCart" style="height:400px;">
             <div class="panel-heading">
@@ -15,27 +15,39 @@
             <div class="col-md-6">
                 <div class="input-group CompilePersonal-text" style="margin-top:20px;">
                     <span class="input-group-addon">名称:</span>
-                    <input type="text" class="form-control" placeholder="名称" value="@Model.Name" />
+                    @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入名称", @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Name)
                 </div>
 
                 <div class="input-group CompilePersonal-text" style="margin-top:20px;">
                     <span class="input-group-addon">电话号码:</span>
-                    <input type="text" class="form-control" placeholder="电话号码" value="@Model.MobileNumber" />
+                    @Html.TextBoxFor(x => x.MobileNumber, new { placeholder = "请输入电话号码", @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.MobileNumber)
                 </div>
 
                 <div class="input-group CompilePersonal-text" style="margin-top:20px;">
                     <span class="input-group-addon">收件人地址:</span>
-                    <input type="text" class="form-control" placeholder="收件人地址" value="@Model.Address" />
+                    @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入收件人地址", @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Address)
                 </div>
 
                 <div class="input-group CompilePersonal-text" style="margin-top:20px;">
                     <span class="input-group-addon">邮箱:</span>
-                    <input type="text" class="form-control" placeholder="邮箱" value="@Model.Email" />
+                    @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮箱", @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Email)
                 </div>
+                <div class="input-group CompilePersonal-text" style="margin-top:20px;">
+                    <span class="input-group-addon">出生日期:</span>
+                    @Html.TextBoxFor(x => x.Birthday, new { placeholder = "选择出生日期", @class = "form-control" ,@id= "date_yy-mm-dd" })
+                </div>
+                <div class="input-group CompilePersonal-text" style="margin-top:20px;">
+                   @Html.RadioButton(x=>x.Sex,new { })
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 男
+                    
+                    
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">女
+                    
+                  </div>
             </div>
             <div class="col-md-6">
                 头像:<img style="margin:20px 0 10px 0;" src="@ViewBag.AvardaUrl" class="Avarda-My"  id="Avarda-My" />
@@ -60,5 +72,12 @@
                     $("#Avarda-My").attr('src', this.result);
                 }
             });
+    });
+
+    $("#date_yy-mm-dd").prop("readonly", true).datepicker({
+        changeMonth: true,
+        dateFormat: "yy-mm-dd",
+        onClose: function (selectedDate) {
+        }
     });
 </script>

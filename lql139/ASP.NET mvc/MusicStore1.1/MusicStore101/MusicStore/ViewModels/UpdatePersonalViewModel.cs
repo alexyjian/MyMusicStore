@@ -30,5 +30,12 @@ namespace MusicStore.ViewModels
         [Display(Name = "邮箱")]
         [Required(ErrorMessage = "邮箱不能为空")]
         public string Email { get; set; }
+
+        [Display(Name = "出生日期")]
+        [Required(ErrorMessage = "出生日期不能为空")]
+        public DateTime Birthday { get; set; }
+
+        [Display(Name = "性别")]
+        public bool Sex { get; set; }
     }
 }
