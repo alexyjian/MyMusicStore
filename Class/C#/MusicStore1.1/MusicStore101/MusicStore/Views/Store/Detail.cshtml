@@ -45,7 +45,7 @@
     <div>
         <strong>精彩评论</strong>
         <hr class="jcpl-hr" />
-        @foreach (var item in Model.Commentarys)
+        @foreach (var item in Model.Commentarys.OrderByDescending(x=>x.PublisherDate).ToList())
         {
         <div class="pl-list">
             <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
@@ -65,17 +65,6 @@
     $("#Count").change(function () {
         $("#font-count").html(140 - $("#Count").val().length);
     });
-
-    $("#zan").click(function (id) {
-        $.ajax({
-            type: 'post',
-            async: true,
-            url: '../../Store/Zan',
-            data: { id: id },
-            dataType: 'json',
-            
-        })
-    })
 
     $("#addcart").click(function () {
         //异步

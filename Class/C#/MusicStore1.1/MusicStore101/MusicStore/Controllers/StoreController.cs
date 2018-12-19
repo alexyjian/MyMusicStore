@@ -15,14 +15,8 @@ namespace MusicStore.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _dbContext.Albums.Find(id);
-            if (Session["LoginUserSessionModel"] == null)
-            {
-                ViewBag.AvardaUrl = "/Content/Images/Body.jpg";
-            }
-            else
-            {
-                ViewBag.AvardaUrl = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.Avarda;
-            }
+            ViewBag.AvardaUrl = Session["LoginUserSessionModel"] == null ? "/Content/Images/Body.jpg": (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.Avarda;
+
             return View(detail);
         }
 
@@ -32,10 +26,24 @@ namespace MusicStore.Controllers
             return View(list);
         }
 
-        [HttpPost]
-        public ActionResult Zan(Guid id)
+        public ActionResult Commit(string content)
         {
             return View();
+        }
+
+        public ActionResult Zan(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Order") });
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var commentary = _dbContext.Commentarys.Find(id);
+            commentary.ThumbsUp++;
+            _dbContext.SaveChanges();
+            var htmlString = "";
+            htmlString = "<span class='glyphicon glyphicon-thumbs - up'></span>&nbsp;&nbsp;( " + commentary.ThumbsUp + " )";
+            return Json(htmlString);
         }
     }
 }
