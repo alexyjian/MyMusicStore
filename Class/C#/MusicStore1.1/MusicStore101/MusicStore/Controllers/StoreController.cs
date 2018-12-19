@@ -1,4 +1,5 @@
-﻿using MusicStoreEntity;
+﻿using MusicStore.ViewModels;
+using MusicStoreEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,14 @@ namespace MusicStore.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _dbContext.Albums.Find(id);
+            if (Session["LoginUserSessionModel"] == null)
+            {
+                ViewBag.AvardaUrl = "/Content/Images/Body.jpg";
+            }
+            else
+            {
+                ViewBag.AvardaUrl = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.Avarda;
+            }
             return View(detail);
         }
 
@@ -21,6 +30,12 @@ namespace MusicStore.Controllers
         {
             var list = _dbContext.Albums.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublisherDate).ToList();
             return View(list);
+        }
+
+        [HttpPost]
+        public ActionResult Zan(Guid id)
+        {
+            return View();
         }
     }
 }

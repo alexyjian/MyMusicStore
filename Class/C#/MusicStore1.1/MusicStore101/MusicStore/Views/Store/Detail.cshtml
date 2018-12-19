@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<h4>歌曲 - @Model.Title</h4>
+<h4>单曲 - @Model.Title</h4>
 <hr />
 <p>
     <img alt="图片加载失败" src="@Model.AlbumArtUrl" />
@@ -30,8 +30,53 @@
         <div id="mes"></div>
     </p>
 </div>
-
+<div>
+    <div class="pl-hd">
+        <span class="pl">评论</span><span class="text-muted">共 @Model.Commentarys.Count 条评论</span>
+    </div>
+    <div class="plText">
+        <img class="pl-Avarda MyAvarda" src="@ViewBag.AvardaUrl" />
+        <textarea id="Count" maxlength="140" placeholder="评论"></textarea>
+        <p class="text-right">
+            <span id="font-count" class="text-muted">140</span>&nbsp;&nbsp;
+            <a href="#" class="btn btn-success">评论</a>
+        </p>
+    </div>
+    <div>
+        <strong>精彩评论</strong>
+        <hr class="jcpl-hr" />
+        @foreach (var item in Model.Commentarys)
+        {
+        <div class="pl-list">
+            <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
+            <div class="pl-user">
+                <a href="#">@item.Person.Name</a>：
+                @item.Context
+            </div>
+            <p class="user-ment text-right">
+                <a id="zan" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
+                <span class="text-muted time">@item.PublisherDate</span>
+            </p>
+        </div>
+        }
+    </div>
+</div>
 <script>
+    $("#Count").change(function () {
+        $("#font-count").html(140 - $("#Count").val().length);
+    });
+
+    $("#zan").click(function (id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Store/Zan',
+            data: { id: id },
+            dataType: 'json',
+            
+        })
+    })
+
     $("#addcart").click(function () {
         //异步
         $("#mes").html("<img src='../../Content/Images/ProgressIcon.gif' />添加到购物车，请稍后...");
@@ -39,12 +84,12 @@
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
-            data: {id:"@Model.ID"},
-            dataType:'json',
-            success:function(data){
-                if(data == "nologin"){
+            data: { id: "@Model.ID" },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "nologin") {
                     location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
-                }else{
+                } else {
                     $("#mes").html(data);
                     setTimeout(function () {
                         location.reload();

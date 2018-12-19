@@ -32,6 +32,11 @@ namespace MusicStoreEntity
         //专辑网址
         public string AlbumArtUrl { get; set; }
 
+        //音乐地址
+        public string MusicUrl { get; set; }
+
+        public virtual ICollection<Commentary> Commentarys { get; set; }
+
         public Album()
         {
             ID = Guid.NewGuid();

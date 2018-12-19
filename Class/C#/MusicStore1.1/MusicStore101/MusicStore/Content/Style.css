@@ -50,3 +50,61 @@ body {
     width:25px;
     border-radius:50%;
 }
+
+.pl {
+    font-size:18px;
+    margin-right:20px;
+}
+
+.pl-hd {
+    border-bottom:2px solid red;
+    margin:50px 0px 20px;
+}
+
+.pl-Avarda {
+    height:60px;
+    width:60px;
+}
+
+.plText {
+    position:relative;
+}
+
+.MyAvarda {
+    position:absolute;
+}
+
+textarea {
+     resize:none;
+     font-size:12px;
+     width:92%;
+     height:60px;
+     margin-left:70px;
+     margin-bottom:5px;
+}
+
+.jcpl-hr {
+    border:0.5px solid #cdcdcd;
+    margin-top:0px;
+}
+
+.pl-user {
+     margin-left:70px;
+     margin-bottom:5px;
+     width:92%;
+     height:60px;
+     font-size:12px;
+}
+
+.user-ment {
+    margin-top:10px;
+}
+
+.pl-list {
+    border-bottom:1px dashed #cdcdcd;
+}
+
+.time {
+    font-size:12px;
+    margin-left:20px;
+}

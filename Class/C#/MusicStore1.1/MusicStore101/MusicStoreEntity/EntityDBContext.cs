@@ -42,6 +42,8 @@ namespace MusicStoreEntity
         public IDbSet<OrderDetail> OrderDetails { get; set; }
 
         public IDbSet<PeopleAddress> PeopleAddress { get; set; }
+
+        public IDbSet<Commentary> Commentarys { get; set; }
         #endregion
     }
 }
