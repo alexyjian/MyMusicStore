@@ -148,10 +148,13 @@ a {
     border:1px solid gray;
     width:100%;
 }
+<<<<<<< HEAD
 .Reply-title{
     height: 50px;
     border-bottom: 2px solid #4d2503;
 }
+=======
+>>>>>>> 29d8700cee3591227703f6f0bf5388af01349405
 .Reply-time{
     padding-top:70px;
     text-align:right;
@@ -162,9 +165,12 @@ a {
     height:30px;
     border:1px solid blue;
 }
+<<<<<<< HEAD
 .Reply-user {
     margin-top:30px;
 }
+=======
+>>>>>>> 29d8700cee3591227703f6f0bf5388af01349405
 /*END*/
 @keyframes Jukebox {
     0% {

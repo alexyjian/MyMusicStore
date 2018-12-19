@@ -155,41 +155,6 @@ namespace MusicStore.Controllers
             return View();
         }
         /// <summary>
-        /// 添加收货人
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult AddressPerson(PerAddress PerAdd)
-        {
-            //1.确认用户是否登录 是否登录过期
-            if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("AddressPerson", "Order") });
-
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
-            if (PerAdd.Address != null)
-            {
-                var peradd = new PerAddress()
-                {
-                    Address = PerAdd.Address,
-                    AddressPerson = PerAdd.AddressPerson,
-                    MobiNumber = PerAdd.MobiNumber
-                };
-                var personadd = _context.Persons.SingleOrDefault(x => x.ID == person.ID);
-
-                personadd.PerAddress.Add(peradd);
-                //_context.Order.Add(orders);
-                _context.SaveChanges();
-            }
-            else
-            {
-                return View();
-            }
-
-            return Content("<script>alert('恭喜添加收件人成功!');location.href='" + Url.Action("AddressPerson", "Order") +
-                                           "'</script>");
-        }
-
-        /// <summary>
         /// 游览用户订单
         /// </summary>
         /// <returns></returns>
