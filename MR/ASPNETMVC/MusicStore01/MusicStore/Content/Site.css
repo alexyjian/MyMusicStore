@@ -308,6 +308,11 @@ tr:hover {
     height:75px;
 }
 
+#album-banner{
+    width:100px;
+    height:75px;
+}
+
 .cd {
     width: 422px;
     height: 422px;
@@ -320,7 +325,7 @@ tr:hover {
     box-shadow: 5px 5px 15px black;
 }
 
-.center {
+.cd-center {
     width: 100px;
     height: 100px;
     background-image: black;
