@@ -308,3 +308,13 @@ tr:hover {
     height:100px;
     border-radius:70%;
 }
+
+#album-banner{
+    width :100px;
+    height:75px;
+}
+
+.cd{
+    width:422px;
+    height:422px;
+}
