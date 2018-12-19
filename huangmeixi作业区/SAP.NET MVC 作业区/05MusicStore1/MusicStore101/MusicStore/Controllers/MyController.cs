@@ -79,9 +79,6 @@ namespace MusicStore.Controllers
             ViewBag.AvardaUrl = oldAvarda;
             return View();
         }
-
     }
-
-
 }
 

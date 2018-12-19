@@ -166,7 +166,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\boy.jpg" />
+    <Content Include="Content\images\cd_img.jpg" />
     <Content Include="Content\images\DD.jpg" />
     <Content Include="Content\images\DZQ.jpg" />
     <Content Include="Content\images\EE.jpg" />
@@ -193,6 +195,7 @@
     <Content Include="Content\images\WSL.jpg" />
     <Content Include="Content\images\WYT.jpg" />
     <Content Include="Content\images\XZQ.jpg" />
+    <Content Include="Content\images\yinfu.gif" />
     <Content Include="Content\images\ZJL.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -238,6 +241,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Music\1.mp3" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
