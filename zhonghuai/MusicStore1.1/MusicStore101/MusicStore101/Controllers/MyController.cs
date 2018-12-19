@@ -45,7 +45,7 @@ namespace MusicStore101.Controllers
             var oldAvarda = person.Avarda;
 
             if (ModelState.IsValid)
-            {
+            {   
                 //保存头像
                 if (model.Avarda != null)
                 {
