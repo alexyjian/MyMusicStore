@@ -5,11 +5,17 @@
     ViewBag.Title = "专辑明细";
 }
 <div class="row">
-    <div class="col-md-5 Music-box">
-        <div id="Music-Jukebox"></div>
+    <div class="col-md-6 Music-box">
+        <div id="Music-Jukebox">
+            <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
+            <div class="Music-white"></div>
+        </div>
     </div>
-    <div id="album-details" class="col-md-7">
+    <div id="album-details" class="col-md-6">
         <h2>@Model.Title</h2>
+        <p>
+            <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
+        </p>
         <p>
             <em>
                 发布时间：
@@ -40,7 +46,22 @@
             <a class="btn" id="addcart">添加到购物车</a>
             <div id="msg"></div>
         </p>
-
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="Music-Reply">
+           啊啊啊啊啊啊啊啊啊啊啊啊
+            <div class="Reply-time">发表时间：</div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<div class="row">
+    <div class="Reply-btn">
+        <input type="button" value="评论" />
     </div>
 </div>
 <script>

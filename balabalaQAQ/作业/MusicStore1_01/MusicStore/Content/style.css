@@ -73,6 +73,11 @@ a {
     padding-bottom: 10px;
     text-align: center;
 }
+
+    .music-news a img {
+        height: 100px;
+        width: 150px;
+    }
 /*music-view  end*/
 /*music-store*/
 .music-store h2 {
@@ -95,17 +100,65 @@ a {
 /*Music-Jukebox*/
 
 #Music-Jukebox {
-    height: 180px;
-    width: 180px;
+    height: 350px;
+    width: 350px;
     background: url(images/cd.png) no-repeat;
-    background-size: 180px;
+    background-size: 300px;
     margin-top: 30px;
-}
 
+}
+#Music-Jukebox img {
+    position:relative;
+    left:85px;
+    top:85px;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+     z-index:3;
+  }
+.Music-white {
+    height:20px;
+    width:20px;
+    background-color:white;
+    opacity:0.8;
+    position:relative;
+    left:-25px;
+    border-radius:50%;
+    top:5px;
+    z-index:666;
+}
+/*END*/
+/*album-details*/
+#album-details {
+    margin-top:30px;
+    padding-left:50px;
+}
+#album-details p img {
+    height: 100px;
+    width: 150px;
+}
 .Music-box {
     height: 300px;
 }
-
+/*END*/
+/*Music-Reply*/
+.Music-Reply {
+    position:absolute;
+    line-height:30px;
+    border:1px solid gray;
+    width:100%;
+}
+.Reply-time{
+    padding-top:70px;
+    text-align:right;
+}
+.Reply-btn input{
+    background-color:dodgerblue;
+    color:white;
+    height:30px;
+    border:1px solid blue;
+}
+/*END*/
 @keyframes Jukebox {
     0% {
         transform: rotate(0deg);
