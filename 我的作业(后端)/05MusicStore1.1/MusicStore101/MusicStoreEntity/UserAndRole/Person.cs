@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity.UserAndRole
 {
+    /// <summary>
+/// 个人信息的实体
+/// </summary>
     public class Person
     {
         public Guid ID { get; set; }
@@ -53,7 +56,7 @@ namespace MusicStoreEntity.UserAndRole
         public string Address { get; set; } = "未填写";
         //个人头像
         [DataType(DataType.ImageUrl)]
-        public string Avarda { get; set; } = "/content/images/A3.PNG";
+        public string Avarda { get; set; } = "/MyImages/Girl.jpg";
         public Person()
         {
             this.ID = Guid.NewGuid();

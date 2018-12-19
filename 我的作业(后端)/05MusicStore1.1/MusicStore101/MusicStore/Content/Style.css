@@ -301,6 +301,11 @@ th, td {
     padding-left: 5px;
 }
 
+#userAvarda{
+    height:25px;
+    border-radius:50%;
+}
+
 tr:hover {
     background-color: #fff;
 }
