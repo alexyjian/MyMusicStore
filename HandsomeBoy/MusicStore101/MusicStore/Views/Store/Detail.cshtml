@@ -1,5 +1,5 @@
 ﻿@model MusicStoreEntity.Reply
-  
+
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
@@ -46,25 +46,33 @@
     </p>
 
 
-
-    @*@foreach (var item in Reply)
+    @try
     {
-        <div class="comment">
-            <p></p>
-            <p>07-01 01：55</p>
-            <p>浪费</p>
-         </div>
-    }*@
-    @using (Html.BeginForm("Reply", "My", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
-    {
-
-        <div class="editor-label">
-            <div>
-              <textare ></textare>
-            </div>
-            <input type="submit" value="评论"/>
-        </div>
+        foreach (var item in Reply)
+        {
+    <div class="comment">
+        <p>@item.Person.Name</p>
+        <p>@item.CreateDateTime</p>
+        <p>@item.Content</p>
+    </div>
+        }
     }
+    catch
+    {
+
+    }
+
+
+
+
+    <div>
+        <div class="editor-field">
+            <textarea class="Content"></textarea>
+        </div>
+    </div>
+    <input type="button" onclick="Contentpoth()" class="content_btn" value="评论" />
+
+
     <div id="box_video">
         <div class="cd">
             <div class="center">
@@ -77,6 +85,7 @@
         </div>
     </div>
 </div>
+
 <script>
     $("#addcart").click(function () {
         $("#msg").html("<img src='../../content/Images/ProgressIcon.gif'>添加到购物车,请稍后...")
@@ -105,5 +114,20 @@
 
             )
     });
+
+    function Contentpoth(){
+        var Content = $(".Content")[0].value;
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Store/Reply',
+            data: { id: "@detail.ID", Content },
+            dataType: 'json',
+            success: function (data) {
+                $("#comment").html(data);
+            }
+        }
+            )
+              }
     //异步
 </script>
