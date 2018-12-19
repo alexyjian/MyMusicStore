@@ -336,6 +336,7 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Music\" />
     <Folder Include="Upload\Avarda\" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,6 +1,7 @@
-﻿@model IEnumerable<MusicStoreEntity.Album>
+﻿@using System.Runtime.InteropServices
+@model IEnumerable<MusicStoreEntity.Album>
 @{
-    ViewBag.Title = "Browser";
+    ViewBag.Title = "浏览专辑";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 
     var album = Model.FirstOrDefault();
@@ -21,7 +22,7 @@
         {
             <li>
                 <a href="@Url.Action("detail","Store",new { id=item.ID})">
-                    <img alt="@item.Title" src="@item.AlbumArtUrl" />
+                    <img style="height:100px;width:80px;" alt="@item.Title" src="@item.AlbumArtUrl" id="album-banner" /> <br/>
                     <span>@item.Artist.Name</span>
                     <span>@item.Title</span>
             </a>
