@@ -26,7 +26,10 @@ namespace MusicStoreEntity
         //上架时间
         public DateTime PublisherDate { get; set; }
         //专辑的网址
-        public string AlbumArtUrl { get; set; }
+        public string AlbumArtUrl { get; set; } = "/music/1.mp3";
+
+        //试听网址
+        public string MusicUrl { get; set; }
         public Album()
         {
             ID = Guid.NewGuid();
