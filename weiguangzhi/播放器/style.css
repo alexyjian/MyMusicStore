@@ -5,7 +5,7 @@
 .bg{
     height: 450px;
     width: 500px;
-    background: crimson;
+    background: rgb(112, 97, 100);
     position: relative;
     margin: 0 auto;
     margin-top: 100px;
@@ -82,7 +82,7 @@ p{
 0%{
     transform: rotateZ(0deg);
 }
-100%{
+0%{
     transform: rotateZ(360deg);
 }
 }

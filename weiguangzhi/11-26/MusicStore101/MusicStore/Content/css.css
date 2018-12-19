@@ -8,9 +8,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    background-color:white;
-    padding: 0px 6%;
-    margin-left:150px;
+    /*background:url(/Content/Images/bg.jpg) no-repeat;*/
 }
 ul {
     list-style-type: square;
@@ -34,17 +32,21 @@ border-radius:50%;
 }
 #containers {
 width:100%;
+background-color:rgb(158, 145, 145);
 }
 .dropdown a {
 line-height:0px;
 }
+
+#imusic {
+padding-left:200px;
+}
+#one {
+    padding:30px;
+}
+
 /*------------------------------------------------------------------------------------------------------*/
 
-#promotion {
-    height: 300px;
-    width: 700px;
-    background: url(/content/Images/home-showcase.png) no-repeat;
-}
 
 /*µ¼º½css*/
 .daohangli {
@@ -54,20 +56,12 @@ line-height:0px;
 
 /*------------------------------------------------------------------------------------------------------*/
 .container{
-    margin-top: 10px;
     width:100%;
     
 }
 
 
 
-#one {
-    padding:30px;
-}
-#two {
-
-       padding-left:100px;
-}
 
 
 
@@ -87,6 +81,11 @@ height:400px;
     overflow: hidden;
     padding: 0 0 15px 10px;
     float: left;
+}
+
+.row clearfix {
+
+
 }
 
 
@@ -356,4 +355,56 @@ tr:hover {
     color: #5e5b54;
     text-decoration: none;
     font-weight: bold;
+}
+
+.cd {
+    width: 422px;
+    height: 422px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    border-radius: 50%;
+    border: 10px solid white;
+    z-index: 2;
+    box-shadow: 5px 5px 15px black;
+}
+
+.cd-center {
+    width: 100px;
+    height: 100px;
+    background-image: black;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    border: 5px solid white;
+    background-image: url(/content/images/yinfu.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 3;
+    background-color: black;
+}
+
+#box-video audio{
+    position: absolute;
+    left: -100px;
+    bottom: -70px;
+}
+
+#box-video {
+    position: absolute;
+    left: 400px;
+}
+div#album-details {
+    min-height: 500px;
+}
+#browser {
+ height:200px;
+ width:300px;
+}
+
+div.album-browser {
+    min-height: 500px;
 }

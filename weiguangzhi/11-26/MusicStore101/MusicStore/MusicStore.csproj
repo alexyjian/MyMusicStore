@@ -166,6 +166,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css.css" />
     <Content Include="Content\Images\11-29.jpg" />
+    <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\lufeis.jpg" />
@@ -173,6 +174,7 @@
     <Content Include="Content\Images\ProgressIcon.gif" />
     <Content Include="Content\Images\touxiang.jpeg" />
     <Content Include="Content\Images\touxiang2.jpeg" />
+    <Content Include="Content\Images\yinfu.gif" />
     <Content Include="Content\Images\zj.jpg" />
     <Content Include="Content\Images\zj1.jpg" />
     <Content Include="Content\Images\zj2.jpg" />
@@ -221,6 +223,8 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\themes\player.css" />
+    <Content Include="music\1.mp3" />
     <Content Include="Views\Shared\favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
