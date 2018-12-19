@@ -228,6 +228,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Music\1.mp3" />
+    <Content Include="Music\jj.mp3" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.4.js" />
