@@ -59,6 +59,8 @@ namespace MusicStore.Controllers
                 //保存个人信息
                 var AddPerson = _context.Persons.SingleOrDefault(x => x.ID == person.ID);
 
+                person = AddPerson;
+
                 AddPerson.Avarda = oldAvarad;
                 AddPerson.Name = model.Name;
                 AddPerson.MobileNumber = model.MobileNumber;
@@ -67,7 +69,8 @@ namespace MusicStore.Controllers
                 //model.Avarda.SaveAs(AddPerson.Avarda);
                 _context.SaveChanges();
 
-                return View();
+                return Content("<script>alert('修改成功!');location.href='" + Url.Action("index", "home") +
+                             "'</script>");
             }
             ViewBag.AvardaUrl = oldAvarad;
             return View();
