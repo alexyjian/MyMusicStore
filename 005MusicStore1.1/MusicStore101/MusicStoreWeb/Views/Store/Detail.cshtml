@@ -8,9 +8,13 @@
 
 <h2>@Model.Title</h2>
 
-<p>
-    <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
-</p>
+<div id="box-video">
+    <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
+        <div class="cd-center">
+            <audio src="@Model.MusucUrl" controls autoplay loop></audio>
+        </div>
+    </div>
+</div>
 
 <div id="album-details">
     <p>
@@ -42,6 +46,41 @@
     <p class="button">
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
+    </p>
+
+    <p>
+        <em>
+            发表时间：
+        </em>
+        一楼：好好听哦！！！
+        </p>
+    <p>
+        <em>
+            发表时间：
+        </em>
+        二楼：此曲只应天上有,人间能得听几回！！！
+        </P>
+    <p>
+        <em>
+            发表时间：
+        </em>
+        三楼：耳朵要怀孕了！！！
+        </P>
+    <p>
+        <em>
+            发表时间：
+        </em>
+        四楼：啊啊啊！！！
+        </p>
+    <p>
+        <em>
+            发表时间：
+        </em>
+        五楼：好好听哦！！！
+    </p>
+    <p>
+        <textarea id="reply" rows="4" cols="29"></textarea>
+        <button class="btn btn-primary" id="btnreply">评论</button>
     </p>
 
 </div>

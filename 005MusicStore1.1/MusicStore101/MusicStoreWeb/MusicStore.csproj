@@ -164,7 +164,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\bg.png" />
     <Content Include="Content\Images\boy.jpg" />
+    <Content Include="Content\Images\cd_img.jpg" />
     <Content Include="Content\Images\girl.jpg" />
     <Content Include="Content\Images\home-showcase.png" />
     <Content Include="Content\Images\LLprint1.jpg" />
@@ -180,6 +182,7 @@
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\placeholder.gif" />
     <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\Images\yinfu.gif" />
     <Content Include="Content\Images\ZHMprint1.jpg" />
     <Content Include="Content\Images\ZHMprint2.jpg" />
     <Content Include="Content\Images\ZHMprint3.jpg" />
@@ -255,6 +258,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Music\1.mp3" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
