@@ -32,7 +32,9 @@ namespace MusicStoreEntity
         #region  音乐商店实体
         public IDbSet<Genre> Genres { get; set; }
         public IDbSet<Artist> Artist { get; set; }
-        public IDbSet<Album> Album { get; set; } 
+        public IDbSet<Album> Album { get; set; }
+        public IDbSet<Reply> Replies { get; set; }
+
 
         public IDbSet<Cart> Cart { get; set; }
         public IDbSet <Order> Orders { get; set; }

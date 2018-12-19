@@ -23,7 +23,9 @@
                 @Html.RadioButtonFor(Model => Model.Sex, false, new { @id = "Statusradio1", @name = "Status" })<label id="tr">女</label>
                 @Html.ValidationMessageFor(x => x.Sex)
             </div>
-
+            <div>
+                <span>生日日期：</span>@Html.TextBoxFor(x => x.Birthday, new { type = "date" })
+            </div>
             <div class="editor-label">
                 @Html.LabelFor(x => x.Address)
             </div>
