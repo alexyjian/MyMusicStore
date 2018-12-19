@@ -198,7 +198,7 @@ a:active {
     }
 
 div#album-details{
-  min-height:500px;
+    min-height:500px;
 }
 div#album-details p {
     margin-bottom: 5px;
@@ -317,8 +317,8 @@ tr:hover {
     width: 422px;
     height: 422px;
     position: absolute;
-    top: 25%;
-    left: 10%;
+    top: 2%;
+    left: 35%;
     border-radius: 50%;
     border: 10px solid white;
     z-index: 2;
