@@ -19,7 +19,7 @@
             </div>
 
       
-     
+                @*性别*@
             <div class="editor-label">
                 @Html.LabelFor(x => x.Sex)
             </div>
@@ -29,7 +29,13 @@
                 @Html.ValidationMessageFor(x => x.Sex)
             </div>
 
-
+            @*出生日期*@
+            <div>
+                @Html.LabelFor(x=> x.Birthday)
+                <br/>
+                @Html.TextBoxFor(x => x.Birthday,new{ type="date"})
+             </div>
+     
        
             
             <div class="editor-label">

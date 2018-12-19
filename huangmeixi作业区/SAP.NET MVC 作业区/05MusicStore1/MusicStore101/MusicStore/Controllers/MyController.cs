@@ -36,7 +36,6 @@ namespace MusicStore.Controllers
 
             return View(myVM);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(MyViewModel model)
