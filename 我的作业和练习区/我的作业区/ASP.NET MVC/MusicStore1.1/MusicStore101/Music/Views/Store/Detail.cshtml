@@ -6,120 +6,143 @@
 
 <div id="album-details">
     <div id="detail">
-    <h2>@Model.Title</h2>
-    <p>
-        <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
-    </p>
+        <h2>@Model.Title</h2>
+        <p>
+            <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
+        </p>
 
 
-    <p>
-        <em>
-            发布时间：
-        </em>
-        @Model.PublisherDate.ToString("yyyy年MM月dd日");
-    </p>
-    <p>
-        <em>
-            分类:
-        </em>
-        @Model.Genre.Name
-    </p>
-    <p>
-        <em>
-            歌手：
-        </em>
-        @Model.Artist.Name
-    </p>
-    <p>
-        <em>
-            价格：
-        </em>
-        ￥ @string.Format("{0:F}", (@Model.Price))
-    </p>
-    <div id="msg"></div>
-    <p class="button">
-        <a class="btn" id="addcart">添加到购物车</a>
+        <p>
+            <em>
+                发布时间：
+            </em>
+            @Model.PublisherDate.ToString("yyyy年MM月dd日");
+        </p>
+        <p>
+            <em>
+                分类:
+            </em>
+            @Model.Genre.Name
+        </p>
+        <p>
+            <em>
+                歌手：
+            </em>
+            @Model.Artist.Name
+        </p>
+        <p>
+            <em>
+                价格：
+            </em>
+            ￥ @string.Format("{0:F}", (@Model.Price))
+        </p>
         <div id="msg"></div>
-    </p>
-</div>
-    <div id="bg1" onclick="CD()">
+        <p class="button">
+            <a class="btn" id="addcart">添加到购物车</a>
+            <div id="msg"></div>
+        </p>
+    </div>
+    <div id="bg1">
         <span id="a"></span>
         <span id="b"></span>
-        <span id="cd"></span>
+        <span id="cd">
+            <span id="cd_1"></span>
+            <span id="cd_2"></span>
+        </span>
         <span id="cd_bg"></span>
+        <audio src="" id="audio1"></audio>
+    </div>
+    <div class="pinl" id="album-details">
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺：</p><span></span><span></span></div>
+            <div id="div_User2">这首歌太快了了</div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p>这首歌太快了了</p></div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p>这首歌太快了了</p></div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p>这首歌太快了了</p></div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p>这首歌太快了了</p></div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p>这首歌太快了了</p></div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p>这首歌太快了了</p></div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p>这首歌太快了了</p></div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p>这首歌太快了了</p></div>
+        </div>
+        <div id="User_pinl">
+            <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
+            <div id="div_User2"><p id="pl_user">这首歌太快了了</p></div>
+        </div>
     </div>
 
 </div>
-<div class="pinl" id="album-details">
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺：</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p>这首歌太快了了</p></div>
-    </div>
-    <div id="User_pinl">
-        <div id="div_User"><p id="User_name">花无缺</p><span></span><span></span></div>
-        <div id="div_User2"><p id="pl_user">这首歌太快了了</p></div>
-    </div>
-</div>
-<script>
-    $("#addcart").click(function(){
-        //异步
-        $("#msg").html("<img src='../../content/images/loading.gif'/>添加到购物车，请稍候...");
-        $.ajax({
-            type: 'post',
-            async: true,
-            url: '../../ShoppingCart/AddCart',
-            data:{id:"@Model.ID" },
-            dataType: 'json',
-            success: function(data) {
-                //如果没有登录，跳转到登录页
-                if (data == "nologin")
-                    location.href = "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
-                else {
-                    //添加到购物车成功，把动画取消
-                    $("#msg").html(data);
-                    //重新刷新此区域
-                    setTimeout(function() {
-                        location.reload();
-                    },1000);
+
+  
+    <script>
+        $("#addcart").click(function () {
+            //异步
+            $("#msg").html("<img src='../../content/images/loading.gif'/>添加到购物车，请稍候...");
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../ShoppingCart/AddCart',
+                data: { id: "@Model.ID" },
+                dataType: 'json',
+                success: function (data) {
+                    //如果没有登录，跳转到登录页
+                    if (data == "nologin")
+                        location.href = "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                    else {
+                        //添加到购物车成功，把动画取消
+                        $("#msg").html(data);
+                        //重新刷新此区域
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1000);
+                    }
                 }
-            }
+            });
         });
-    });
-
-    function CD() {
-        var cd = document.getElementById("cd");
-        cd.style.transform = "rotate(660deg);";
-    }
-</script>
+        var time;
+        var jis = 0;
+        var ji = 0;
+        var myVideo = document.getElementById("audeo1");
+        function CDip() {
+            ji++;
+            var cd = document.getElementById("cd");
+            cd.style.transform = 'rotate(' + ji/4 + 'deg' + ')';
+        }
+        $("#bg1").click(function () {
+            jis++;
+            if (jis == 1) {
+                time = setInterval(CDip, 1);
+                myVideo.play();
+            }
+            else {
+                clearInterval(time);
+                myVideo.pause();
+                jis = 0;
+            }
+           
+        });
+   </script>
