@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-6 Music-box">
         <div id="Music-Jukebox">
-            <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
+            <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
             <div class="Music-white"></div>
         </div>
     </div>
@@ -49,43 +49,49 @@
     </div>
 </div>
 <br />
+
+<div class="Reply-title"><span style="font-size:30px;">评论</span>  共&条评论</div>
+<div class="row Reply-user">
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+        <textarea rows="2" cols="80" placeholder="期待你的神评论！" style="padding:0;"></textarea>
+        <div class="Reply-btn">
+            <input type="button" value="评论" />
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <div class="Music-Reply">
-           啊啊啊啊啊啊啊啊啊啊啊啊
+            啊啊啊啊啊啊啊啊啊啊啊啊
             <div class="Reply-time">发表时间：</div>
         </div>
     </div>
     <div class="col-md-2"></div>
 </div>
-<div class="row">
-    <div class="Reply-btn">
-        <input type="button" value="评论" />
-    </div>
-</div>
 <script>
 
-    $("#Music-Jukebox").click(function ()
-    {
+    $("#Music-Jukebox").click(function () {
         $("#Music-Jukebox").style += "animation:Jukebox";
     });
-    
-    $("#addcart").click(function ()
-    {
+
+    $("#addcart").click(function () {
         //异步
         $("#msg").html("<img src ='../../content/images/loading.gif'>添加购物车请稍后...");
         $.ajax({
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
-            data: {id:"@Model.ID"},
-            dataType:'json',
-            success:function(data){
+            data: { id: "@Model.ID" },
+            dataType: 'json',
+            success: function (data) {
                 //如果没有登录,跳转到登录页
-                if(data =="nologin")
-                    location.href="@Url.Action("login","Account",new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
-                else{
+                if (data == "nologin")
+                    location.href = "@Url.Action("login","Account",new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                else {
                     //添加到购物车成功，把动画取消
 
                     $("#msg").html(data);

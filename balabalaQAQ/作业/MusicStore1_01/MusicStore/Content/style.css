@@ -148,6 +148,10 @@ a {
     border:1px solid gray;
     width:100%;
 }
+.Reply-title{
+    height: 50px;
+    border-bottom: 2px solid #4d2503;
+}
 .Reply-time{
     padding-top:70px;
     text-align:right;
@@ -157,6 +161,9 @@ a {
     color:white;
     height:30px;
     border:1px solid blue;
+}
+.Reply-user {
+    margin-top:30px;
 }
 /*END*/
 @keyframes Jukebox {
