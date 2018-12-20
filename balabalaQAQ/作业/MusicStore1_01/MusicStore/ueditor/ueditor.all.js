@@ -6901,7 +6901,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     '.view{padding:0;word-wrap:break-word;cursor:text;height:90%;}\n' +
                     //设置默认字体和字号
                     //font-family不能呢随便改，在safari下fillchar会有解析问题
-                    'body{margin:8px;font-family:sans-serif;font-size:16px;}' +
+                    'body{margin:8px;font-family:sans-serif;font-size:14px;}' +
                     //设置段落间距
                     'p{margin:5px 0;}</style>' +
                     ( options.iframeCssUrl ? '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + utils.unhtml(options.iframeCssUrl) + '\'/>' : '' ) +
@@ -10457,7 +10457,7 @@ UE.plugins['autotypeset'] = function(){
         textAlign:"left",               //段落的排版方式，可以是 left,right,center,justify 去掉这个属性表示不执行排版
         imageBlockLine: 'center',       //图片的浮动方式，独占一行剧中,左右浮动，默认: center,left,right,none 去掉这个属性表示不执行排版
         pasteFilter: false,             //根据规则过滤没事粘贴进来的内容
-        clearFontSize: false,           //去掉所有的内嵌字号，使用编辑器默认的字号
+        clearFontSize: true,           //去掉所有的内嵌字号，使用编辑器默认的字号
         clearFontFamily: false,         //去掉所有的内嵌字体，使用编辑器默认的字体
         removeEmptyNode: false,         // 去掉空节点
         //可以去掉的标签
@@ -28622,28 +28622,32 @@ UE.ui = baidu.editor.ui = {};
                 setCount(this,me);
             });
             function setCount(editor,ui) {
-                editor.setOpt({
-                    wordCount:true,
-                    maximumWords:10000,
-                    wordCountMsg:editor.options.wordCountMsg || editor.getLang("wordCountMsg"),
-                    wordOverFlowMsg:editor.options.wordOverFlowMsg || editor.getLang("wordOverFlowMsg")
-                });
-                var opt = editor.options,
-                    max = opt.maximumWords,
-                    msg = opt.wordCountMsg ,
-                    errMsg = opt.wordOverFlowMsg,
-                    countDom = ui.getDom('wordcount');
-                if (!opt.wordCount) {
-                    return;
-                }
-                var count = editor.getContentLength(true);
-                if (count > max) {
-                    countDom.innerHTML = errMsg;
-                    editor.fireEvent("wordcountoverflow");
-                } else {
-                    countDom.innerHTML = msg.replace("{#leave}", max - count).replace("{#count}", count);
-                }
-            }
+                                editor.setOpt({
+                                    wordCount:true,
+                                    maximumWords:10000,
+                                    wordCountMsg:editor.options.wordCountMsg || editor.getLang("wordCountMsg"),
+                                    wordOverFlowMsg:editor.options.wordOverFlowMsg || editor.getLang("wordOverFlowMsg")
+                                });
+                                var opt = editor.options,
+                                    max = opt.maximumWords,
+                                    msg = opt.wordCountMsg ,
+                                    errMsg = opt.wordOverFlowMsg,
+                                    countDom = ui.getDom('wordcount');
+                                if (!opt.wordCount) {
+                                    return;
+                                }
+                                var count = editor.getContentLength(true);
+                                if (count > max) {
+                //                    countDom.innerHTML = errMsg;
+                //                    editor.fireEvent("wordcountoverflow");
+                                    debugger;
+                                    var content = editor.getContentTxt();
+                                    editor.setContent(content.substring(0,max));
+                                    editor.focus(true);
+                                } else {
+                                    countDom.innerHTML = msg.replace("{#leave}", max - count).replace("{#count}", count);
+                                }
+                            }
 
             editor.addListener('selectionchange', function () {
                 if (editor.options.elementPathEnabled) {

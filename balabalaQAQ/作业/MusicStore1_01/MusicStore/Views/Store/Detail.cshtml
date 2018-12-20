@@ -7,16 +7,8 @@
 <div class="row">
     <div class="col-md-6 Music-box">
         <div id="Music-Jukebox">
-<<<<<<< HEAD
             <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
-=======
-<<<<<<< HEAD
-            <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
-=======
-            <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
->>>>>>> 29d8700cee3591227703f6f0bf5388af01349405
->>>>>>> c5c9d573321e79bf95459efef9f87a5ed3e80052
-            <div class="Music-white"></div>
+            @*<div class="Music-white"></div>*@
         </div>
     </div>
     <div id="album-details" class="col-md-6">
@@ -58,41 +50,85 @@
 </div>
 <br />
 
-
-<div class="Reply-title"><span style="font-size:30px;">评论</span>  共&条评论</div>
-<div class="row Reply-user">
-    <div class="col-md-1"></div>
-    <div class="col-md-8">
-        <textarea rows="2" cols="80" placeholder="期待你的神评论！" style="padding:0;"></textarea>
-        <div class="Reply-btn">
-            <input type="button" value="评论" />
+<div id="Reply">
+    <div class="Reply-title"><span style="font-size:30px;">评论</span>  共&条评论</div>
+    <div class="row Reply-user">
+        <div class="col-md-1"></div>
+        <div class="col-md-9 Reply-ueditor">
+            <script id="container" name="content" type="text/plain">
+            </script>
+            <input type="button" value="发表评论" id="Reply-btn" />
         </div>
+        <div class="col-md-2"></div>
     </div>
-    <div class="col-md-3"></div>
+
+
+    @*<div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <div class="Music-Reply">
+                    <div class="Reply-time">发表时间：</div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>*@
 </div>
 
+<!-- 配置文件 -->
+<script type="text/javascript" src="~/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="~/ueditor/ueditor.all.js"></script>
+<!--<script type="text/javascript" charset="utf-8" src="~/ueditor/lang/zh-cn/zh-cn.js"></script>-->
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+    //var ue = UE.getContent();
+    //对编辑器的操作最好在编辑器ready之后再做
+    
+        //设置编辑器的内容
+        //ue.setContent('hello');
+        //获取html内容，返回: <p>hello</p>
+       // var html = ue.getContent();
+        //获取纯文本内容，返回: hello
 
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <div class="Music-Reply">
-            <div class="Reply-time">发表时间：</div>
-        </div>
-    </div>
-    <div class="col-md-2"></div>
-
-</div>
-
+        /*评论*/
+        $("#Reply-btn").click(function () {
+            var txt = ue.getContentTxt();
+           
+            var html = ue.getContent();
+            alert(html);
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../Ueditor/Index',
+                data: { id: "@Model.ID", reply: txt },
+                dataType: 'json',
+                success: function (data) {
+                    //如果没有登录,跳转到登录页
+                    if (data == "nologin")
+                        location.href = "@Url.Action("login","Account",new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                    else {
+                        //添加评论成功
+                        $("#Reply").html(data);
+                        //2S后，重新刷新此区域
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    }
+                }
+            });
+        });
+  
+</script>
 <script>
+
 
     $("#Music-Jukebox").click(function () {
         $("#Music-Jukebox").style += "animation:Jukebox";
     });
 
-
-    $("#addcart").click(function ()
-    {
-
+    /*添加*/
+    $("#addcart").click(function () {
         //异步
         $("#msg").html("<img src ='../../content/images/loading.gif'>添加购物车请稍后...");
         $.ajax({
@@ -117,4 +153,8 @@
             }
         });
     });
+
+
 </script>
+
+

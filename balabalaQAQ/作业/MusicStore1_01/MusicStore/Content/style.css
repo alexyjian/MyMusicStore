@@ -148,41 +148,32 @@ a {
     border:1px solid gray;
     width:100%;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c5c9d573321e79bf95459efef9f87a5ed3e80052
+
 .Reply-title{
     height: 50px;
     border-bottom: 2px solid #4d2503;
 }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 29d8700cee3591227703f6f0bf5388af01349405
->>>>>>> c5c9d573321e79bf95459efef9f87a5ed3e80052
 .Reply-time{
     padding-top:70px;
     text-align:right;
 }
-.Reply-btn input{
-    background-color:dodgerblue;
+#Reply-btn{
+    background-color:#1098e6;
     color:white;
     height:30px;
     border:1px solid blue;
+    position:absolute;
+    right:16px;
+    top:0px;
+    z-index:1000;
+    width:60px;
+    border-radius:5px;
 }
-<<<<<<< HEAD
+
 .Reply-user {
     margin-top:30px;
 }
-=======
-<<<<<<< HEAD
-.Reply-user {
-    margin-top:30px;
-}
-=======
->>>>>>> 29d8700cee3591227703f6f0bf5388af01349405
->>>>>>> c5c9d573321e79bf95459efef9f87a5ed3e80052
+
 /*END*/
 @keyframes Jukebox {
     0% {
