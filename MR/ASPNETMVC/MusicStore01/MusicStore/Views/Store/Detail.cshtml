@@ -47,6 +47,24 @@
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain" style="width:300px;">
+       
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="~/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="~/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container',{
+            toolbars: [
+        [
+            'simpleupload', 'emotion',
+        ]],
+        autoHeightEnabled: true,
+            autoFloatEnabled: true});
+    </script>
 </div>
 
 <script>
