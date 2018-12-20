@@ -44,6 +44,15 @@ namespace MusicStore.Controllers
             return View(genre);
         }
 
-        
+        /// <summary>
+        /// 评论
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public ActionResult Commit(string content)
+        {
+            return View();
+        }
+
     }
 }

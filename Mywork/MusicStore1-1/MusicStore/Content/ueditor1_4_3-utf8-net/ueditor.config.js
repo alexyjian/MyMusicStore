@@ -50,7 +50,7 @@
     ['bold', 'italic', 'underline', 'fontborder', 'emotion', 'imagecenter', 'superscript',
         'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain',
         '|', 'forecolor', 'fontfamily', 'backcolor', 'insertorderedlist', 'background', 'selectall',
-        'cleardoc']
+        'time', 'date']
     ]
         
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
