@@ -274,6 +274,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Music\End.mp3" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\MusicStore.csprojResolveAssemblyReference.cache" />
     <Content Include="bin\MusicStore.dll.config" />
