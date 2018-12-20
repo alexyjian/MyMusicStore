@@ -20,7 +20,6 @@ namespace MusicStore.Controllers
         {
             var detail = _dbContext.Albums.Find(id);
             ViewBag.AvardaUrl = Session["LoginUserSessionModel"] == null ? "/Content/Images/Body.jpg": (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.Avarda;
-
             return View(detail);
         }
 
@@ -40,9 +39,34 @@ namespace MusicStore.Controllers
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
-        public ActionResult Commit(string content)
+        [HttpPost]
+        public ActionResult Commit(string id,string str)
         {
-            return View();
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            Commentary com = new Commentary()
+            {
+                Album = _dbContext.Albums.Find(Guid.Parse(id)),
+                Context = str,
+                Person = person
+            };
+            
+
+            var plList = _dbContext.Commentarys.Where(x => x.Album.ID == com.Album.ID).OrderByDescending(x => x.PublisherDate).ToList();
+            string htmlString = "";
+            foreach (var item in plList)
+            {
+                htmlString += "<div class='pl - list'>";
+                htmlString += "<img class='pl - Avarda MyAvarda' src='" + @item.Person.Avarda + "' />";
+                htmlString += "<div class='pl - user'>";
+                htmlString += "<a href='#'>" + @item.Person.Name + "</a>：" + @item.Context + "</div>";
+                htmlString += "<p class='user - ment text - right'>";
+                htmlString += "<a id=" + @item.ID + " href ='#' onclick=" + '"' + "zan('" + @item.ID + "')" + '"' + "><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( " + @item.ThumbsUp + " )</a>";
+                htmlString += "<span class='text - muted time'>" + @item.PublisherDate + "</span></p></div>";
+            }
+            return Json(htmlString);
         }
 
         /// <summary>

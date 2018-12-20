@@ -36,31 +36,32 @@
     </div>
     <div class="plText">
         <img class="pl-Avarda MyAvarda" src="@ViewBag.AvardaUrl" />
-        @*<textarea id="Count" maxlength="140" placeholder="评论"></textarea>*@
         <script id="container" name="content" type="text/plain">
             
         </script>
         <p class="text-right">
-            <a href="#" class="btn btn-success">评论</a>
+            <a id="btn-pl" href="#" class="btn btn-success">评论</a>
         </p>
     </div>
     <div>
         <strong>精彩评论</strong>
         <hr class="jcpl-hr" />
-        @foreach (var item in Model.Commentarys.OrderByDescending(x=>x.PublisherDate).ToList())
-        {
-        <div class="pl-list">
-            <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
-            <div class="pl-user">
-                <a href="#">@item.Person.Name</a>：
-                @item.Context
+        <div id="pl-all-list">
+            @foreach (var item in Model.Commentarys.OrderByDescending(x=>x.PublisherDate).ToList())
+            {
+            <div class="pl-list">
+                <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
+                <div class="pl-user">
+                    <a href="#">@item.Person.Name</a>：
+                    @item.Context
+                </div>
+                <p class="user-ment text-right">
+                    <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
+                    <span class="text-muted time">@item.PublisherDate</span>
+                </p>
             </div>
-            <p class="user-ment text-right">
-                <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
-                <span class="text-muted time">@item.PublisherDate</span>
-            </p>
+            }
         </div>
-        }
     </div>
 </div>
 <!-- 配置文件 -->
@@ -80,7 +81,7 @@
                 dataType:'json',
                 success: function (data) {
                     if (data == "nologin") {
-                        location.href = "@Url.Action("Login","Account")";
+                        location.href = "@Url.Action("Login","Account",new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
                     } else {
                         $("#" + id + "").html(data);
                         $("#" + id + "").addClass("text-danger");
@@ -117,4 +118,25 @@
     });
     //实例化编辑器
     var ue = UE.getEditor('container');
+    $('#btn-pl').click(function(str,id){
+        str = ue.getContentTxt();
+        if(str == ""){
+            alert('请输出内容！');
+        }else {
+            $.ajax({
+                type:'post',
+                async:true,
+                url:'../../Store/Commit',
+                data:{str:str,id:"@Model.ID"},
+                dataType:'json',
+                success:function(data){
+                    if (data == "nologin") {
+                        location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                    } else {
+                        $("#pl-all-list").html(data);
+                    }
+                }
+            })
+        }
+    });
 </script>
