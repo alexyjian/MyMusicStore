@@ -54,7 +54,7 @@
                 @item.Context
             </div>
             <p class="user-ment text-right">
-                <a id="zan" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
+                <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
                 <span class="text-muted time">@item.PublisherDate</span>
             </p>
         </div>
@@ -65,6 +65,19 @@
     $("#Count").change(function () {
         $("#font-count").html(140 - $("#Count").val().length);
     });
+
+    function zan(id){
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Store/Zan',
+            data: {id:id},
+            dataType:'json',
+            success:function(data){
+                $("#"+id+"").html(data);
+            }
+        })
+    }
 
     $("#addcart").click(function () {
         //异步
