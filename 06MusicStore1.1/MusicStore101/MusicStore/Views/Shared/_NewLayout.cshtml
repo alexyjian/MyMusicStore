@@ -79,6 +79,11 @@
                 @*左侧导航*@
                 @Html.Partial("_GetGenreMenu",
                     new MusicStoreEntity.EntityDbContext().Genres.ToList())
+
+                <div class="text-danger text-center user-ment">
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                    当前位置：<span id="city"></span>
+                </div>
             </div>
             <div class="col-md-9">
                 @*操作区*@

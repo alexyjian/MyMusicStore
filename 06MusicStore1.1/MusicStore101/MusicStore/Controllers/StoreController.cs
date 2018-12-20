@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MusicStoreEntity;
+using MusicStore.ViewModels;
 
 namespace MusicStore.Controllers
 {
@@ -42,5 +43,35 @@ namespace MusicStore.Controllers
             var genres = _context.Genres.OrderBy(x => x.Name).ToList();
             return View(genres);
         }
+        ///// <summary>
+        ///// 评论页
+        ///// </summary>
+        ///// <param name="content"></param>
+        ///// <returns></returns>
+        //public ActionResult Commit(string content)
+        //{
+        //    return View();
+        //}
+
+        ///// <summary>
+        ///// 点赞
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //[HttpPost]
+        //public ActionResult Zan(Guid id)
+        //{
+        //    if (Session["LoginUserSessionModel"] == null)
+        //        return Json("nologin");
+
+        //    var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+        //    var commentary = _context.Commentarys.Find(id);
+        //    commentary.ThumbsUp++;
+        //    _context.SaveChanges();
+        //    var htmlString = "";
+        //    htmlString = "<span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( " + commentary.ThumbsUp + " )";
+        //    return Json(htmlString);
+        //}
     }
 }

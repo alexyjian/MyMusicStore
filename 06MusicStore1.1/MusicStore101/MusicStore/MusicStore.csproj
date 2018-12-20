@@ -278,6 +278,7 @@
     <Content Include="Views\My\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ueditor1_4_3-utf8-net\" />
     <Folder Include="Upload\Avarde\" />
   </ItemGroup>
   <ItemGroup>
