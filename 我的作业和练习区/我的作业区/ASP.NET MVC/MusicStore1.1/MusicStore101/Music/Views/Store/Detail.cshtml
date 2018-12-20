@@ -8,7 +8,7 @@
     <div id="detail">
         <h2>@Model.Title</h2>
         <p>
-            <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
+            <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
         </p>
 
 
@@ -36,22 +36,31 @@
             </em>
             ￥ @string.Format("{0:F}", (@Model.Price))
         </p>
+        <div id="Music_div"><audio src="@Model.MusicUrl" controls="controls" id="audeo1"></audio></div>
         <div id="msg"></div>
         <p class="button">
             <a class="btn" id="addcart">添加到购物车</a>
             <div id="msg"></div>
         </p>
+
     </div>
     <div id="bg1">
         <span id="a"></span>
         <span id="b"></span>
-        <span id="cd">
+        <div id="cd">
             <span id="cd_1"></span>
-            <span id="cd_2"></span>
-        </span>
+            <img src="@Model.AlbumArtUrl" id="cd_2" />
+        </div>
         <span id="cd_bg"></span>
-        <audio src="" id="audio1"></audio>
     </div>
+    <h2>评论</h2>
+    <div class="pinl_pinl">
+        <div id="pinl_textarea">
+            <script id="editor" type="text/plain" style="width:100%;height:75%;"></script>
+        </div>
+        <a href="#" id="pinl_bt">发表评论</a>
+    </div>
+    <h4 style="color:#5e5b54;margin-top: 30px"><em>全部评论</em></h4>
     <div class="pinl" id="album-details">
         <div id="User_pinl">
             <div id="div_User"><p id="User_name">花无缺：</p><span></span><span></span></div>
@@ -94,55 +103,80 @@
             <div id="div_User2"><p id="pl_user">这首歌太快了了</p></div>
         </div>
     </div>
-
 </div>
 
-  
-    <script>
-        $("#addcart").click(function () {
-            //异步
-            $("#msg").html("<img src='../../content/images/loading.gif'/>添加到购物车，请稍候...");
-            $.ajax({
-                type: 'post',
-                async: true,
-                url: '../../ShoppingCart/AddCart',
-                data: { id: "@Model.ID" },
-                dataType: 'json',
-                success: function (data) {
-                    //如果没有登录，跳转到登录页
-                    if (data == "nologin")
-                        location.href = "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
-                    else {
-                        //添加到购物车成功，把动画取消
-                        $("#msg").html(data);
-                        //重新刷新此区域
-                        setTimeout(function () {
-                            location.reload();
-                        }, 1000);
-                    }
+
+<!-- 配置文件 -->
+<script src="~/UE/ueditor.config.js" type="text/javascript"></script>
+<!-- 编辑器源码文件 -->
+<script src="~/UE/ueditor.all.min.js" type="text/javascript"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('editor',{scaleEnabled: true});
+</script>
+<script>
+    $("#addcart").click(function () {
+        //异步
+        $("#msg").html("<img src='../../content/images/loading.gif'/>添加到购物车，请稍候...");
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShoppingCart/AddCart',
+            data: { id: "@Model.ID" },
+            dataType: 'json',
+            success: function (data) {
+                //如果没有登录，跳转到登录页
+                if (data == "nologin")
+                    location.href = "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                else {
+                    //添加到购物车成功，把动画取消
+                    $("#msg").html(data);
+                    //重新刷新此区域
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1000);
                 }
-            });
+            }
         });
-        var time;
-        var jis = 0;
-        var ji = 0;
-        var myVideo = document.getElementById("audeo1");
-        function CDip() {
+    });
+    var time;
+    var jis = 0;
+    var ji = 0;
+    var jj = 0;
+    var myVideo = document.getElementById("audeo1");
+    var a = document.getElementById("a");
+    function CDip() {
+
+        var cd = document.getElementById("cd");
+
+        if (jj < 216) {
+            jj++;
+            a.style.transform = 'rotate(' + jj / 4 + 'deg' + ')';
+        } else {
             ji++;
-            var cd = document.getElementById("cd");
-            cd.style.transform = 'rotate(' + ji/4 + 'deg' + ')';
+            cd.style.transform = 'rotate(' + ji / 4 + 'deg' + ')';
+            myVideo.play();
         }
-        $("#bg1").click(function () {
-            jis++;
-            if (jis == 1) {
-                time = setInterval(CDip, 1);
-                myVideo.play();
-            }
-            else {
-                clearInterval(time);
-                myVideo.pause();
-                jis = 0;
-            }
-           
-        });
-   </script>
+    }
+    $("#bg1").click(function () {
+        jis++;
+        if (jis == 1) {
+            time = setInterval(CDip, 1);
+
+        }
+        else {
+            clearInterval(time);
+            myVideo.pause();
+            jj = 0;
+            a.style.transform = 'rotate(0deg)';
+            jis = 0;
+        }
+
+    });
+
+    /*评论*/
+
+   
+
+</script>
+
