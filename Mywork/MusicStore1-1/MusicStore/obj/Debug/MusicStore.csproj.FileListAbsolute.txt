@@ -55,3 +55,4 @@ F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\zh-Hans\Syste
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.dll
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.pdb
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\Newtonsoft.Json.pdb
