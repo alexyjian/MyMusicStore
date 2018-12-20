@@ -1,5 +1,6 @@
 ﻿using MusicStore.ViewModels;
 using MusicStoreEntity;
+using System;
 using System.IO;
 using System.Web.Mvc;
 
@@ -14,15 +15,19 @@ namespace MusicStore.Controllers
             //检查用户是否登录，登录是否过期
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
-
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+           
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
 
             var myVM = new MyViewModel()
             {
                 Name = person.Name,
+                Sex=person.Sex,
+                Birthday = person.Birthday.ToString("yyyy-MM-dd"),
                 Address = person.Address,
                 MobilNumber = person.MobileNumber,
             };
+
+
             ViewBag.AvardaUrl = person.Avarda;
 
             return View(myVM);
@@ -61,6 +66,8 @@ namespace MusicStore.Controllers
                 person.FirstName = person.Name.Substring(0, 1);
                 person.LastName = person.Name.Substring(1, person.Name.Length - 1);
                 person.Avarda = oldAvarda;
+                person.Sex = model.Sex;
+                person.Birthday = DateTime.Parse(model.Birthday);
 
                 _context.SaveChanges();
 
