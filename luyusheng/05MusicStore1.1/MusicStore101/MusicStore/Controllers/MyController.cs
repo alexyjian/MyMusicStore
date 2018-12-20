@@ -20,10 +20,12 @@ namespace MusicStore.Controllers
             if (Session["LoginUserSessionModel"] ==null)
                 return RedirectToAction("login","Account",new {returUrl =Url.Action("Index","My")});
 
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var person =_context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             var myVM = new MyViewModel()
             {
                 Name = person.Name,
+                Sex =person.Sex,
+                Birthday =person.Birthday.ToString("yyyy-MM-dd"),
                 Address = person.Address,
                 MobilNumber = person.MobileNumber
             };
@@ -65,6 +67,8 @@ namespace MusicStore.Controllers
                 person.FirstName = person.Name.Substring(0,1);
                 person.LastName = person.Name.Substring(1,person.Name.Length -1);
                 person.Avarda = oldAvarda;
+                person.Sex = model.Sex;
+                person.Birthday = DateTime.Parse(model.Birthday);
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");
