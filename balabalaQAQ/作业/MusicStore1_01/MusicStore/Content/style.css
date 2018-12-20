@@ -100,8 +100,8 @@ a {
 /*Music-Jukebox*/
 
 #Music-Jukebox {
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
     background: url(images/cd.png) no-repeat;
     background-size: 300px;
     margin-top: 30px;
@@ -114,8 +114,13 @@ a {
     width:130px;
     height:130px;
     border-radius:50%;
-     z-index:3;
+    z-index:3;
   }
+#myMusic { 
+          position:absolute;
+          left:60px;
+          top:350px;
+    }
 .Music-white {
     height:20px;
     width:20px;
@@ -142,6 +147,9 @@ a {
 }
 /*END*/
 /*Music-Reply*/
+#Reply {
+    margin-top:50px;
+}
 .Music-Reply {
     position:absolute;
     line-height:30px;
@@ -175,12 +183,20 @@ a {
 }
 
 /*END*/
-@keyframes Jukebox {
-    0% {
-        transform: rotate(0deg);
-    }
 
-    100% {
-        transform: rotate(360deg);
-    }
-}
+/*“Ù¿÷≥™∆¨∂Øª≠*/
+	.rotate
+	{animation:rot 10s linear infinite;}
+	@keyframes rot
+	{
+		from
+		{
+			transform:rotate(0);
+		}
+		to
+		{
+			transform:rotate(360deg);
+		}
+
+	}
+/*∂Øª≠END*/
