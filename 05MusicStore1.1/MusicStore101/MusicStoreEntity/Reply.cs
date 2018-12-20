@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
+    /// <summary>
+    /// 回复
+    /// </summary>
     public class Reply
     {
         public Guid ID { get; set; }
