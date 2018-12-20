@@ -18,7 +18,7 @@
                 <th>数量</th>
                 <th>操作</th>
             </tr>
-            <tbody id="thCart">
+            <tbody id="tbCart">
                 @foreach (var item in Model.OrderDetails)
                 {
                     <tr>
@@ -34,7 +34,7 @@
                         <td>
                             <a href="#" onclick="RemoveDetail('@item.ID');">
                                 <i class="glyphicon glyphicon-remove"></i>
-                             不喜欢
+                            不喜欢
                             </a>
                         </td>
                     </tr>
@@ -58,6 +58,16 @@
 <script>
     function RemoveDetail(id)
     {
-        //移除订单明显
+        //移除订单明细
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Order/RemoveDetail",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
     }
 </script>

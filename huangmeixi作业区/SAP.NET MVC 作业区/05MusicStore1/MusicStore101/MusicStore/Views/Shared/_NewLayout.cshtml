@@ -55,11 +55,18 @@
                <li class="dropdown">
                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                       aria-haspopup="true" aria-expanded="false">
-                       @user.Person.Name<span class="caret"></span>
+                     <img src="@user.Person.Avarda" alt="头像" id="Avarda"/>
+                      
+                       @*定位**@
+                       <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
+                     
+                         @user.Person.Name
+                       <span class="caret"></span>
                    </a>
                    <ul class="dropdown-menu">
                        <li><a href="@Url.Action("index", "ShoppingCart")">购物车(@carts.Count)</a></li>
-                       <li><a href="@Url.Action("index", "Oder")">我的订单</a></li>
+                       <li><a href="@Url.Action("index", "Order")">我的订单</a></li>
+                       <li><a href="@Url.Action("index", "My")">设置</a></li>
                        <li><a href="@Url.Action("ChangePassWord", "Account")">修改密码</a></li>
                        <li><a href="@Url.Action("loginout", "account")">注销</a></li>
                        </ul>
@@ -89,5 +96,34 @@
     </div>
         @*继承此布局页的页面执行脚本的位置*@
         @RenderSection("scripts", required: false)
+
 </body>
 </html>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT"></script>
+<script>
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r)
+    {
+        if (this.getStatus()== BMap_STATUS_SUCCESS) {
+            Ing = r.point.Ing;
+            lat = r.point.lat;
+            console.log(r);
+            //显示
+            if (r.address.district != "") {
+                document.getElementById('district').innerHTML = r.address.district;
+
+            }
+            //显示
+            if (r.address.district != "") {
+                document.getElementById('city').innerHTML = r.address.city;
+            }
+        }
+        else
+        {
+            document.getElementById('city').innerHTML = "无法定位";
+
+        }
+    },
+    {enableHighAccuracy:true});
+</script>
+

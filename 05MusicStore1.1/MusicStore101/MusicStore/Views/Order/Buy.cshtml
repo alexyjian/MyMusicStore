@@ -59,6 +59,16 @@
 <script>
     function RemoveDetail(id) {
         //移除订单明细
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Order/RemoveDetail",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
     }
 </script>
 

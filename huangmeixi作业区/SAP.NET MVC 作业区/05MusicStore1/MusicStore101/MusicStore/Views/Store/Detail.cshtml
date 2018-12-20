@@ -5,11 +5,24 @@
     ViewBag.Title = "专辑明细";
 }
 
-<h2>@Model.Title</h2>
+@*唱片*@
+<div id="box-video">
+    <div class="cd" style="background:url(@(Model.AlbumArtUrl)) no-repeat;">
+        <div class="cd-center">
+            <audio src="@Model.MusicUrl" controls autoplay loop></audio>
+        </div>
+    </div>
+</div>
 
+
+@*评论*@
 <p>
-    <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
-</p>
+    <textarea id="reply" rows="4" cols="3"></textarea>
+    <button class="btn btn-primary" id="btnreply">评论</button>
+
+ </p>
+
+
 
 <div id="album-details">
     <p>
@@ -43,6 +56,7 @@
         <div id="msg"></div>
     </p>
 
+    
 </div>
 
 <script>
@@ -71,4 +85,5 @@
             }
         });
     });
+
 </script>

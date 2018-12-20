@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity.UserAndRole
 {
+    /// <summary>
+    ///个人信息
+    /// </summary>
     public class Person
     {
         public Guid ID { get; set; }
@@ -46,9 +49,15 @@ namespace MusicStoreEntity.UserAndRole
 
         public DateTime CreateDateTime { get; set; } // 创建日期
 
+
         [StringLength(50)]
         public string InquiryPassword { get; set; } // 查询密码，仅仅用于查询是否已经已经建立数据
-        
+
+
+        public string Address { get; set; } = "未填写";
+        [DataType(DataType.ImageUrl)]
+        public string Avarda { get; set; } = "/content/images/boy.jpg";
+
         public Person()
         {
             this.ID = Guid.NewGuid();
