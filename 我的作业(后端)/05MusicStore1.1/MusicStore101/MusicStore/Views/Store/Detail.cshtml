@@ -4,11 +4,14 @@
     ViewBag.Title = "专辑明细";
 }
 
-<h2>个人专辑</h2>
-
-<p>
-    <img alt="@Model.Title" src="@Model.AlbumArtUrl "/>
-</p>
+<h2>@Model.Title</h2>
+<div id="box-video">
+    <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
+        <div class="cd-center">
+            <audio src="@Model.MusucUrl" controls autoplay loop></audio>
+        </div>
+    </div>
+</div>
 
 <div id="album-details">
     <p>
@@ -41,6 +44,60 @@
          <a class="btn" id="addcart">添加到购物车</a>
           <div id="msg"></div>
       </p>
+
+    <p>
+        <em>
+            发表时间:
+        </em>
+        评论1：哎呀呀太好听啦！！！
+    </p>
+
+    <p>
+        <em>
+            发表时间:
+        </em>
+        评论2：听了死而无憾！！！
+    </p>
+
+    <p>
+        <em>
+            发表时间:
+        </em>
+        评论3：楼上太假了
+    </p>
+
+    <p>
+        <em>
+            发表时间:
+        </em>
+        评论4：3楼不懂欣赏，垃圾
+    </p>
+
+    <p>
+        <em>
+            发表时间:
+        </em>
+        评论5：4楼tm是水军吧
+    </p>
+
+    <p>
+        <em>
+            发表时间:
+        </em>
+        评论6：好久没听过这么垃圾的歌了
+    </p>
+
+    <p>
+        <em>
+            发表时间:
+        </em>
+        评论7：楼上吔屎了！
+    </p>
+
+    <p>
+        <textarea id="reply"rows="6"cols="26"></textarea>
+        <button  class="btn btn-primary" id="btnreply">评论</button>
+    </p>
 </div>
 
 <script>
