@@ -15,14 +15,6 @@
 </div>
 
 
-@*评论*@
-<p>
-    <textarea id="reply" rows="4" cols="3"></textarea>
-    <button class="btn btn-primary" id="btnreply">评论</button>
-
- </p>
-
-
 
 <div id="album-details">
     <p>
@@ -56,8 +48,33 @@
         <div id="msg"></div>
     </p>
 
+    @*评论*@
+    <hr/>
+    <div>
+    <input id="submit" type="button" value="评论">
+        <!-- 加载编辑器的容器 -->
+        <script id="container" name="content" type="text/plain">
+        </script>
+    </div>
+
+
     
+        这里写你的初始化内容
+ 
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="~/Ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="~/Ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+    
+
+
 </div>
+
+
 
 <script>
     $("#addcart").click(function () {
@@ -85,5 +102,13 @@
             }
         });
     });
+
+
+
+
+    @*评论*@
+    $("#submint").click(function () {
+    })
+
 
 </script>

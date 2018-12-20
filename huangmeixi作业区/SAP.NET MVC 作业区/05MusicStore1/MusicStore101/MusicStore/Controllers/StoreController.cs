@@ -1,4 +1,5 @@
-﻿using MusicStoreEntity;
+﻿using MusicStore.ViewModels;
+using MusicStoreEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace MusicStore.Controllers
             var detail = _context.Albums.Find(id);
             return View(detail);
         }
+
+
         /// <summary>
         /// 按分类显示专辑页
         /// </summary>

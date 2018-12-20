@@ -65,6 +65,8 @@
                 @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
             </div>
 
+
+
             <p>
                 <input type="submit" value="保存" class="btn btn-success" style="width:100px" />
             </p>
@@ -73,9 +75,9 @@
 </form>
 
 <script>
-    $(function() {
+    $(function () {
         $("#Avarda").on("change",
-            function() {
+            function () {
                 var file = this.files[0];
                 //判断是不是图片
                 if (!/image\/\w+/.test(file.type)) {
