@@ -341,3 +341,10 @@ tr:hover {
 div#album-details {
 min-height:500px;
 }
+
+#script-container {
+widows:100px;
+height :70px;
+ left: 50%;
+ margin-left: -50px;
+}

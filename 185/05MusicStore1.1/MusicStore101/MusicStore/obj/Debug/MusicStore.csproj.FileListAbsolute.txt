@@ -112,3 +112,4 @@ E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStore\bin\zh-Hans\Sy
 E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStore\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStore\obj\Debug\MusicStore.dll
 E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStore\obj\Debug\MusicStore.pdb
+E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStore\bin\Newtonsoft.Json.pdb
