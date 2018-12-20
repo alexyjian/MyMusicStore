@@ -56,19 +56,29 @@
         <em>
             发表时间:
         </em>
-        回复2: 好听
+        回复1: 好听
     </p>
     <p>
         <em>
             发表时间:
         </em>
-        回复3: 很经典的一首歌
+        回复1: 很经典的一首歌
     </p>
     <p>
-        <textarea id="reply" rows="4" cols="3"></textarea>
+        @*<textarea id="reply" rows="4" cols="3"></textarea>*@
         <button class="btn btn-primary" id="btnreply">评论</button>
     </p>
 </div>
+<body>
+    <!--加载编辑器的容器-->
+    <script id="container" name ="content" type="text/plain">这里写你的初始化内容</script>
+    <!--配置文件-->
+    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
+    <!--编辑器源码文件-->
+    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
+    <!--实例化编辑器-->
+    <script type="text/javascript">var ue = UE.getEditor('container');</script>
+</body>
 
 <script>
      $("#addcart").click(function() {
@@ -78,13 +88,13 @@
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
-            data:{id:"@Model.ID" },
+            data:{id:"@Model.ID"},
             dataType: 'json',
             success: function(data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
-                    location.href = "@Url.Action("login", "Account",
-                                         new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
+                    location.href = "@Url.Action("login","Account",
+                      new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
                 }
                 else {
                     //添加到购物车成功，把动画取消
