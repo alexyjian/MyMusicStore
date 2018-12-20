@@ -33,6 +33,9 @@ namespace MusicStoreEntity
 
         //试听
         public string musicArtUrl { get; set; } = "/music/1.mp3";
+
+        //回复
+        public virtual ICollection<Reply> Replys { get; set; }
         public Album()
         {
             ID = Guid.NewGuid();

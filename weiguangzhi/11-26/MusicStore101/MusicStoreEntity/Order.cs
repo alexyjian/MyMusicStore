@@ -40,6 +40,9 @@ namespace MusicStoreEntity
         public virtual EnumorderStatus EnumOrderStatus { get; set; }
         //购买专辑明
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        
+
         public Order()
         {
             id = Guid.NewGuid();

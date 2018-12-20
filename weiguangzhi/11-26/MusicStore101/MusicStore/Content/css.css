@@ -32,7 +32,6 @@ border-radius:50%;
 }
 #containers {
 width:100%;
-background-color:rgb(158, 145, 145);
 }
 .dropdown a {
 line-height:0px;
@@ -358,13 +357,13 @@ tr:hover {
 }
 
 .cd {
-    width: 422px;
-    height: 422px;
+    width: 300px;
+    height: 300px;
     position: absolute;
     top: 25%;
-    left: 10%;
+    left:-250px;
     border-radius: 50%;
-    border: 10px solid white;
+    border: 5px solid white;
     z-index: 2;
     box-shadow: 5px 5px 15px black;
 }
@@ -379,7 +378,7 @@ tr:hover {
     top: 50%;
     margin-left: -50px;
     margin-top: -50px;
-    border: 5px solid white;
+    border: 2px solid white;
     background-image: url(/content/images/yinfu.gif);
     background-position: center center;
     background-repeat: no-repeat;
@@ -397,6 +396,7 @@ tr:hover {
     position: absolute;
     left: 400px;
 }
+
 div#album-details {
     min-height: 500px;
 }
@@ -408,3 +408,11 @@ div#album-details {
 div.album-browser {
     min-height: 500px;
 }
+#album-details p img {
+width:300px;
+height:200px;
+border-radius:5px;
+}
+
+
+

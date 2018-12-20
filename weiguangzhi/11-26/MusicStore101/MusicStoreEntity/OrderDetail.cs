@@ -23,6 +23,8 @@ namespace MusicStoreEntity
 
         public int Count { get; set; }
 
+        
+
         public OrderDetail()
         {
             ID = Guid.NewGuid();
