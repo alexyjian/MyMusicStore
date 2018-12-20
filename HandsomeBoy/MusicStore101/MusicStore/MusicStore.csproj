@@ -311,7 +311,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_GetGenreMonu.cshtml" />
     <Content Include="Views\Shared\New_ViewStart.cshtml" />
-    <Content Include="Views\Store\Detail.cshtml" />
     <Content Include="Views\Store\browser.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
@@ -325,6 +324,7 @@
     <Content Include="Views\My\Address.cshtml" />
     <Content Include="Views\My\AddressUpdate.cshtml" />
     <Content Include="Views\My\Index.cshtml" />
+    <Content Include="Views\Store\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Avarda\" />

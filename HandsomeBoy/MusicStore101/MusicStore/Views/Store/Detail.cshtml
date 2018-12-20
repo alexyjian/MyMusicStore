@@ -45,25 +45,24 @@
         <div id="msg"></div>
     </p>
 
-
-    @try
-    {
-        foreach (var item in Reply)
+    <div id="comment_box">
+        @try
         {
-    <div class="comment">
-        <p>@item.Person.Name</p>
-        <p>@item.CreateDateTime</p>
-        <p>@item.Content</p>
-    </div>
+            foreach (var item in Reply)
+            {
+                <div class="comment">
+                    <span>@item.Person.Name:</span>
+                    <span>@item.Content</span>
+                    <p>@item.CreateDateTime</p>
+                    <a href="javascript:;">回复</a>
+                </div>
+            }
         }
-    }
-    catch
-    {
+        catch
+        {
 
-    }
-
-
-
+        }
+    </div>
 
     <div>
         <div class="editor-field">
@@ -85,6 +84,8 @@
         </div>
     </div>
 </div>
+
+
 
 <script>
     $("#addcart").click(function () {
@@ -117,17 +118,36 @@
 
     function Contentpoth(){
         var Content = $(".Content")[0].value;
+       
         $.ajax({
             type: 'post',
             async: true,
             url: '../../Store/Reply',
-            data: { id: "@detail.ID", Content },
+            data: { id: "@detail.ID", Content},
             dataType: 'json',
             success: function (data) {
-                $("#comment").html(data);
+                $("#comment_box").html(data);
+                $(".Content")[0].value = "";
             }
         }
             )
               }
-    //异步
+    @*//异步
+    function Reply() {
+        var Content = $(".Content")[0].value;
+       $(".content_btn")[0].value = "";
+        $(".Content")[0].value = "";
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Store/Reply',
+            data: { id: "@detail.ID", Content},
+                    dataType: 'json',
+                    success: function (data) {
+                        $(".comment")[0].html(data);
+                    }
+        }
+            )
+    }*@  
+    
 </script>

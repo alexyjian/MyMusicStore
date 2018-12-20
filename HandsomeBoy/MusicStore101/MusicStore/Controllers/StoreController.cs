@@ -24,7 +24,7 @@ namespace MusicStore.Controllers
             var detail = _context.Albuns.Find(id);
             ViewBag.detail = detail;
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
-            try { ViewBag.Reply = _context.Replys.Where(x => x.Album.ID == id && x.Person.ID == person.ID).ToList(); }
+            try { ViewBag.Reply = _context.Replys.Where(x => x.Album.ID == id).OrderBy(x=>x.CreateDateTime).ToList(); }
             catch { }
 
             return View();
@@ -49,15 +49,36 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Reply(Guid id, string content)
         {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
             var reply = new Reply()
             {
                 Content = content,
                 Album = _context.Albuns.Find(id),
                  Person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID),
-        };
-            _context.Replys.Add(reply);
+               
+            };
+            //reply.ParentReply = reply;
+          _context.Replys.Add(reply);
             _context.SaveChanges();
-            return View(123);
+            var list  = new  List<Reply>();
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            try { list = _context.Replys.Where(x => x.Album.ID == id).OrderBy(x => x.CreateDateTime).ToList(); }
+            catch { }
+
+            var htmlString = "";
+            foreach (var item in list)
+            {
+                htmlString+= "<div class=\"comment\">";
+                   htmlString += "<span>" + item.Person.Name+ "</span>";
+                htmlString += " <span>" + item.Content + "</span>";
+                htmlString += "<p>" + item.CreateDateTime + "</p>";
+               
+                htmlString += "<a href=\"javascript:; \" >回复</a>";
+                htmlString += "</div>";
+            }
+           
+            return Json(htmlString);
         }
     }
 }
