@@ -20,6 +20,18 @@ namespace Music.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
+            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).ToList();
+            var cartVM = new DetailReply()
+            {
+                ID = detail.ID,
+                Title = detail.Title,
+                Price =detail.Price,
+                PublisherDate = detail.PublisherDate,
+                AlbumArtUrl = detail.AlbumArtUrl,
+                MusicUrl = detail.MusicUrl,
+                Replys = reply
+
+            };
             return View(detail);
         }
         /// <summary>
@@ -41,6 +53,12 @@ namespace Music.Controllers
             var genres = _context.Genres.OrderBy(x=>x.Name).ToList();
 
             return View(genres);
+        }
+        public ActionResult Reply(Guid id,string content)
+        {
+           
+
+            return View();
         }
     }
 }

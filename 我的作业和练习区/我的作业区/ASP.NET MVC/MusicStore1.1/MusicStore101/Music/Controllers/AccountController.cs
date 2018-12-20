@@ -193,7 +193,7 @@ namespace Music.Controllers
 
         public ActionResult loginout()
         {
-           Session.Remove("loginStatus");
+            Session.Remove("loginStatus");
             Session.Remove("loginUserSessionModel");
             return RedirectToAction("index", "Home");
         }

@@ -153,6 +153,7 @@
     <Compile Include="Migrations\UserAndRoleSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ChangePassWordViewModel.cs" />
+    <Compile Include="ViewModels\DetailReply.cs" />
     <Compile Include="ViewModels\LoginUserStatus.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MyViewModel.cs" />
