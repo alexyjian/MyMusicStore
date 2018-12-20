@@ -54,7 +54,7 @@ namespace MusicStore.Controllers
         public ActionResult Zan(Guid id)
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Home") });
+                return Json("nologin");
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 

@@ -36,7 +36,10 @@
     </div>
     <div class="plText">
         <img class="pl-Avarda MyAvarda" src="@ViewBag.AvardaUrl" />
-        <textarea id="Count" maxlength="140" placeholder="评论"></textarea>
+        @*<textarea id="Count" maxlength="140" placeholder="评论"></textarea>*@
+        <script id="container" name="content" type="text/plain">
+            这里写你的初始化内容
+        </script>
         <p class="text-right">
             <span id="font-count" class="text-muted">140</span>&nbsp;&nbsp;
             <a href="#" class="btn btn-success">评论</a>
@@ -61,24 +64,42 @@
         }
     </div>
 </div>
+<!-- 配置文件 -->
+<script type="text/javascript" src="~/ueditor1_4_3_3-utf8-asp/utf8-asp/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="~/ueditor1_4_3_3-utf8-asp/utf8-asp/ueditor.all.js"></script>
 <script>
+    /*
     $("#Count").change(function () {
         $("#font-count").html(140 - $("#Count").val().length);
-    });
+    });*/
 
-    function zan(id){
-        $.ajax({
-            type: 'post',
-            async: true,
-            url: '../../Store/Zan',
-            data: {id:id},
-            dataType:'json',
-            success:function(data){
-                $("#"+id+"").html(data);
-            }
-        })
+    //点赞
+    var i = 0;
+    function zan(id) {
+        if(i==0){
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../Store/Zan',
+                data: {id:id},
+                dataType:'json',
+                success: function (data) {
+                    if (data == "nologin") {
+                        location.href = "@Url.Action("Login","Account")";
+                    } else {
+                        $("#" + id + "").html(data);
+                        $("#" + id + "").addClass("text-danger");
+                        i++;
+                    }
+                }
+            })
+        }else {
+            alert("今日点赞已达上限！");
+        }
     }
 
+    //添加至购物车
     $("#addcart").click(function () {
         //异步
         $("#mes").html("<img src='../../Content/Images/ProgressIcon.gif' />添加到购物车，请稍后...");
@@ -100,4 +121,6 @@
             }
         });
     });
+    //实例化编辑器
+    var ue = UE.getEditor('container');
 </script>

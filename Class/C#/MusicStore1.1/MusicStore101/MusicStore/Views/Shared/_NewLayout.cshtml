@@ -51,10 +51,6 @@
                     ChaoPiPi音乐商店
                 </a>
                 @*百度定位*@
-                <span class="text-danger">
-                    <span class="glyphicon glyphicon-map-marker" ></span>
-                    <span id="city"></span>
-                </span>
             </div>
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -106,6 +102,10 @@
         <div class="row">
             <div class="col-xs-3">
                 @Html.Partial("_GetGenreMenu",new MusicStoreEntity.EntityDbContext().Genres.ToList())
+                <div class="text-danger text-center user-ment">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        当前位置：<span id="city"></span>
+                </div>
             </div>
             <div class="col-xs-9">
                 @RenderBody()
