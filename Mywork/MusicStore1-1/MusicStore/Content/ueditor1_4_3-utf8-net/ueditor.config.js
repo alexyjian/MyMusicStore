@@ -19,6 +19,18 @@
      * 因此，UEditor提供了针对不同页面的编辑器可单独配置的根路径，具体来说，在需要实例化编辑器的页面最顶部写上如下代码即可。当然，需要令此处的URL等于对应的配置。
      * window.UEDITOR_HOME_URL = "/xxxx/xxxx/";
      */
+
+    //var ue = UE.getContent();
+    ////对编辑器的操作最好在编辑器ready之后再做
+    //ue.ready(function () {
+    //    //设置编辑器的内容
+    //    ue.setContent('hello');
+    //    //获取html内容，返回: <p>hello</p>
+    //    var html = ue.getContent();
+    //    //获取纯文本内容，返回: hello
+    //    var txt = ue.getContentTxt();
+    //});
+
     var URL = window.UEDITOR_HOME_URL || getUEBasePath();
 
     /**
@@ -33,19 +45,14 @@
         , serverUrl: URL + "net/controller.ashx"
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
-        , toolbars: [[
-            'fullscreen', 'source', '|', 'undo', 'redo', '|',
-            'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
-            'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
-            'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
-            'directionalityltr', 'directionalityrtl', 'indent', '|',
-            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
-            'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
-            'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'gmap', 'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background', '|',
-            'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
-            'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
-            'print', 'preview', 'searchreplace', 'help', 'drafts'
-        ]]
+        ,toolbars: [
+    ['fullscreen', 'source', 'undo', 'redo'],
+    ['bold', 'italic', 'underline', 'fontborder', 'emotion', 'imagecenter', 'superscript',
+        'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain',
+        '|', 'forecolor', 'fontfamily', 'backcolor', 'insertorderedlist', 'background', 'selectall',
+        'cleardoc']
+    ]
+        
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{
         //    'anchor':'', 'undo':''
