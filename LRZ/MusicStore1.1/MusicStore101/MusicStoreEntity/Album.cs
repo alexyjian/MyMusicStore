@@ -12,7 +12,7 @@ namespace MusicStoreEntity
     public class Album
     {
         public Guid ID { get; set; }
-        public string Title { get; set; }//专辑名称
+        public string Title { get; set; }  //专辑名称
         public decimal Price { get; set; }
 
         //所属分类
@@ -29,6 +29,9 @@ namespace MusicStoreEntity
 
         //专辑的网址
         public string AlbumArtUrl { get; set; }
+
+        //试听网址
+        public string MusicUrl { get; set; } = "/music/1.mp3";
 
         public Album()
         {

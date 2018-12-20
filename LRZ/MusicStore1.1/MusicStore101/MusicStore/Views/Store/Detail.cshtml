@@ -5,11 +5,16 @@
     ViewBag.Title = "专辑明细";
 }
 
+
 <h2>@Model.Title</h2>
 
-<p>
-    <img alt="@Model.Title" src="@Model.AlbumArtUrl"/>
-</p>
+<div id="box-video">
+    <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
+        <div class="cd-center">
+            <audio src="@Model.MusicUrl" controls autoplay loop></audio>
+        </div>
+    </div>
+</div>
 
 <div id="album-details">
     <p>
@@ -42,13 +47,12 @@
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
-
 </div>
 
 <script>
     $("#addcart").click(function() {
         //异步
-        $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车中，请稍候...");
+        $("#msg").html("<img src='../../content/images/loading.gif'>添加到购物车，请稍候...");
         $.ajax({
             type: 'post',
             async: true,
@@ -59,15 +63,15 @@
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
                     location.href = "@Url.Action("login", "Account",
-                                    new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
+                                         new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
                 }
                 else {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
                     //2秒后，自动重新刷新此区域
                     setTimeout(function () {
-                        location.reload();
-                    },
+                            location.reload();
+                        },
                         2000);
                 }
             }
