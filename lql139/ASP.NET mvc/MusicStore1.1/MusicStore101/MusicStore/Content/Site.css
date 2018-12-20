@@ -277,11 +277,21 @@ input-group CompilePersonal-text{
     margin-top:20px;
 
 }
-@keyframes move{
+/*@keyframes move{
     from{
         transform: rotate(0deg);
     }
     to{
         transform: rotate(360deg);
     }
+}*/
+.Goodcomments{
+    font-size:20px;
+    font-size:18px;
+    font-weight:500;
+}
+.comments{
+    width:50px;
+    height:50px;
+    float:left;
 }

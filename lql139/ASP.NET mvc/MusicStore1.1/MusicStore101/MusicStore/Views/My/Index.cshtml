@@ -41,12 +41,8 @@
                     @Html.TextBoxFor(x => x.Birthday, new { placeholder = "选择出生日期", @class = "form-control" ,@id= "date_yy-mm-dd" })
                 </div>
                 <div class="input-group CompilePersonal-text" style="margin-top:20px;">
-                   @Html.RadioButton(x=>x.Sex,new { })
-                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 男
-                    
-                    
-                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">女
-                    
+                    男:&nbsp;@Html.RadioButtonFor(x => x.Sex, true, new { @name = "sex", @checked = "checked" })  &nbsp;
+                    女:&nbsp;@Html.RadioButtonFor(x => x.Sex, false, new { @name = "sex" })
                   </div>
             </div>
             <div class="col-md-6">

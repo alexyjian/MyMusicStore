@@ -60,6 +60,7 @@
     <Compile Include="Album.cs" />
     <Compile Include="Artist.cs" />
     <Compile Include="Cart.cs" />
+    <Compile Include="Comments.cs" />
     <Compile Include="EntityDbContext.cs" />
     <Compile Include="EnumOrderStatus.cs" />
     <Compile Include="Genre.cs" />

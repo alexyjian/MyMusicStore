@@ -34,6 +34,7 @@ namespace MusicStoreEntity
         public IDbSet<Cart> Cart { get; set; }
         public IDbSet<Order> Orders { get; set; }
         public IDbSet<OrderDetail> OrderDetails { get; set; }
+        public IDbSet<Comments> Commentss { get; set; }
         #endregion
     }
 }
