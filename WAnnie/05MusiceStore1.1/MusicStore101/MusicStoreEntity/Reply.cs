@@ -15,9 +15,9 @@ namespace MusicStoreEntity
     {
         public Guid ID { get; set; }
 
-        [Display(Name = "标题")]
-        [Required]
-        public virtual string Title { get; set; }
+        //[Display(Name = "标题")]
+        //[Required]
+        //public virtual string Title { get; set; }
 
         [Display(Name = "内容")]
         [Required]
@@ -30,8 +30,8 @@ namespace MusicStoreEntity
         public  virtual Person Person { get; set; }
 
         //上级回复
-        [Required]
-        public virtual Reply ParentReply { get; set; }
+        //[Required]
+        //public virtual Reply ParentReply { get; set; }
 
 
         //回复时间

@@ -1,8 +1,10 @@
-﻿@model MusicStoreEntity.Ablum
+﻿@using MusicStoreEntity
+@model MusicStoreEntity.Ablum
 
 @{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
     ViewBag.Title = "专辑明细";
+    var Reply = ViewBag.Reply;
 }
 
 <h2>@Model.Title</h2>
@@ -43,13 +45,52 @@
 
 
     <div id="msg"></div>
-        <p class="button">
-            <a class="btn" id="addcrt">添加到购物车</a>
-            <div id="msg"></div>
-        </p>
+    <p class="button">
+        <a class="btn" id="addcrt">添加到购物车</a>
+        <div id="msg"></div>
+    </p>
+    <div id="paryed">
+        @try
+        {
+            foreach (var item in Reply)
+            {
+                <div class="paryed">
+                    <span>@item.Person.Name:</span>
+                    <span>@item.Content:</span>
+                    <p>@item.CreateDateTime</p>
+                </div>
+            }
+        }
+        catch
+        {
+        }
+        
+    </div>
+    
+    <div>
+        <div class="editor-field">
+            <textarea class="pary"></textarea>
+        </div>
+    </div>
+    
+    
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+
+    <input type="button" onclick="paryted()" class="pary-btn" value="评论" />
+    
 
 </div>
-
 
 <script>
     $("#addcrt").click(function () {
@@ -80,4 +121,18 @@
         });
     });
 
+    function paryted() {
+        var pary = $(".pary")[0].value;
+        $.ajax({
+            type: 'post',
+            asyne: true,
+            url: '../../Store/Reply',
+            data: { id: "@Model.ID", pary },
+            dataType: 'json',
+            success: function(data) {
+                $("#paryed").html(data);
+                $(".pary-btn")[0].value = "";
+            }
+        });
+    }
 </script>
