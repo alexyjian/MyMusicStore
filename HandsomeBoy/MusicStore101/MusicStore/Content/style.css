@@ -245,6 +245,7 @@ width:30px;
 #imgAvarda {
     height: 100px;
     border-radius: 50%;
+    
 }
 
 
@@ -266,8 +267,8 @@ width:30px;
     width:500px;
     height:500px;
     position: absolute;
-    top:0;
-    right:10px;
+    top:-40px;
+    right:120px;
     overflow: hidden;
 }
 #box_video video
@@ -332,5 +333,8 @@ width:30px;
     margin-left: 50px;
 }*/
 .Detail_box {
-       height:700px;
+       height:auto;
+}
+#comment_box {
+    margin-top:200px;
 }
