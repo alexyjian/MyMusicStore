@@ -319,17 +319,30 @@ tr:hover {
     height: 75px;
 }
 
-
-
 .cd {
-    width: 422px;
-    height: 422px;
+    width: 350px;
+    height: 350px;
     position: absolute;
-    top: 25%;
+    top: 40%;
     left: 10%;
-    border-radius: 50%;
+    border-radius: 70%;
     border: 10px solid white;
     z-index: 2;
+    box-shadow: 5px 5px 15px black;
+}
+
+.cd {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    border-radius: 70%;
+    border: 10px solid white;
+    background-image: url(/Content/images/cd_img.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 3;
     box-shadow: 5px 5px 15px black;
 }
 
@@ -353,7 +366,7 @@ tr:hover {
 
 #box-video audio {
     position: absolute;
-    left: -100px;
+    left: -90px;
     bottom: -70px;
 }
 
