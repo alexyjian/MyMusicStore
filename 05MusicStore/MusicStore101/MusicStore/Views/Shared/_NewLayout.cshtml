@@ -77,7 +77,7 @@
             @**左侧导航*@
             @Html.Partial("_GetGenreMenu",new MusicStoreEntity.MusicContext().Genres.ToList())
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" style="height:770px">
             @*操作区*@
             @RenderBody()
         </div>
