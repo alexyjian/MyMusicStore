@@ -11,7 +11,7 @@
 <div id="box-video">
     <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
         <div class="cd-center">
-            <audio src="@Model.MusicUrl" controls autoplay loop></audio>
+            <audio src="@Model.MusucUrl" controls autoplay loop></audio>
         </div>
     </div>
 </div>
@@ -47,6 +47,40 @@
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
+    <p>
+        <em>
+            发表时间：
+        </em>
+       周星驰  回复：求BGM！！！
+    </p>
+    <p>
+        <em>
+            发表时间：
+        </em>
+        彭于晏  回复：太TM地好听了！！！
+    </p>
+    <p>
+        <em>
+            发表时间：
+        </em>
+        谢霆锋  回复：好听！！
+    </p>
+    
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+
+
+
 </div>
 
 <script>
