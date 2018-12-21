@@ -20,7 +20,34 @@ namespace MusicStore.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
+         
+
             return View(detail);
+        }
+
+        [HttpPost]
+        public ActionResult Detail(RepViewModel model)
+        {
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShonppingCart") });
+            //查询出当前登录用户
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            if (ModelState.IsValid)
+            {
+                var rep = new Reply()
+                {
+                    Content=model.Content,
+                    Person=model.Person,
+                    Album=model.Album,
+                    CreateDateTime= DateTime.Now,
+                };
+                _context.SaveChanges();
+            }
+
+
+                return View();
         }
 
         public ActionResult Browser(Guid id)
@@ -35,44 +62,50 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult RemoveDetail(Guid id)
+
+        public ActionResult RemoveDetail(Guid id,string content)
         {
-            //如果会话为空，则重新刷新页面
-            if (Session["Album"] == null)
-                return RedirectToAction("detail");
-
-            //读取会话中的Order对象
-            var order = Session["Album"] as Album;
-
-            //读取会话中的Order对象
-            Session["Order"] = order;
-            var htmlString = "";
-            foreach (var item in order.Replys)
+            //判断用户是否登陆
+            if (Session["loginUserSessionModel"] == null)
             {
-
-                htmlString +="<p>"+ @item.Person.LastName+"</p>";
-                htmlString += "<p>" + "内容:" + @item.Content + "</p>";
-                htmlString += "<p>" + "标题" + @item.CreateDateTime + "</p>";
-                htmlString += "<hr />";
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
             }
+            //查询出当前登陆用户
+            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
 
-          
+            var replys = new Reply()
+            {
+               
+                Content = content,
+                Person = _context.Persons.Find(person.ID),
+                Album = _context.Albums.Find(id)
+            };
+            
+            _context.Replys.Add(replys);
+            _context.SaveChanges();
+            var reps = _context.Replys.Where(x => x.Album.ID == id).OrderByDescending(x => x.CreateDateTime);
+            var htmlString = "";
+            foreach (var item in reps)
+            {
+                htmlString += "<div id='demo' class='table - responsive collapse'>";
+                htmlString += "<table class='table table-hover '>";
+                htmlString += "<tbody>";
+                htmlString += "<tr>";
+
+                htmlString += "<td>" + "<img src = " + @item.Person.Avarda + "/>" + @item.Person.LastName + "</td>";
+                htmlString += "<td>" + @item.Content + "</td>";
+                htmlString += "<td>" + @item.CreateDateTime + "</td>";
+                htmlString += "<a href=\"javascript:; \" >回复</a>";
+                htmlString += "</tr>";
+                htmlString += "</tbody>";
+                htmlString += "</table>";
+                htmlString += "</div>";
+            }
 
             return Json(htmlString);
 
-        }
-        [HttpPost]
-        public ActionResult HuiFui(Guid id)
-        {
-            //判断用户是否登录
-            if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("index", "ShonppingCart") });
-            //查询出当前登录用户
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
-           
-
-            return View();
         }
+       
         }
 }

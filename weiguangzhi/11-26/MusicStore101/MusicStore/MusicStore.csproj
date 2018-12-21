@@ -164,6 +164,7 @@
     <Compile Include="ViewModels\LoginUserStatus.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MyViewModel.cs" />
+    <Compile Include="ViewModels\RepViewModel.cs" />
     <Compile Include="ViewModels\RwgisterViewModel.cs" />
     <Compile Include="ViewModels\ShonppingCartViewModel.cs" />
   </ItemGroup>

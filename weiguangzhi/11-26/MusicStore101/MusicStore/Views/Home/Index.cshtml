@@ -3,14 +3,18 @@
     ViewBag.Title = "首页";
 }
 
-<div class="daohang">
+<div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            @*左侧导航*@
-            @Html.Partial("_GetGenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
+            <ul class="nav nav-pills"  id="daohang">
+                <li class="active">@Html.Partial("_GetGenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())</li>
+                
+            </ul>
+            
         </div>
     </div>
 </div>
+
 
 @*---轮播图---*@
 
@@ -58,7 +62,7 @@
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
                        href="#collapseOne">
-                        查看更多
+                        点击看
                     </a>
                 </h4>
             </div>
@@ -198,7 +202,7 @@
             cursor: pointer;
             position: relative;
             top: 345px;
-            left: 350px;
+            left: 400px;
             margin-left: 10px;
             border: 5px;
             border-radius: 50%;
