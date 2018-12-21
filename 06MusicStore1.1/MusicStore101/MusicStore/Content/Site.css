@@ -333,7 +333,7 @@ tr:hover {
 .cd-center {
     width: 100px;
     height: 100px;
-    background-image: black;
+    background-image:none;
     border-radius: 50%;
     position: absolute;
     left: 50%;
