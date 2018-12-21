@@ -19,6 +19,6 @@ namespace Music.ViewModels
         public string MusicUrl { get; set; }
         public virtual Genre Genre { get; set; }
         public virtual Artist Artist { get; set; }
-        public List<Reply> Replys { get; set; }
+        public string Replys { get; set; }
     }
 }

@@ -20,7 +20,21 @@ namespace Music.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
-            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).ToList();
+            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).OrderByDescending(x=>x.CreateDateTime).ToList();
+            var htmlString = "";
+            foreach (var item in reply)
+            {
+                htmlString += "<div id='pinl_main'>";
+                htmlString += "<div>";
+                htmlString += "<img src=" + item.Person.Avarda + ">";
+                htmlString += "</div>";
+                htmlString += "<div>";
+                htmlString += "<p>" + item.Title + "</p>";
+                htmlString += "<p>" + item.CreateDateTime + "</p>";
+                htmlString += "<p>" + item.Content + "</p>";
+                htmlString += "</div>";
+                htmlString += "</div>";
+            }
             var cartVM = new DetailReply()
             {
                 ID = detail.ID,
@@ -28,11 +42,12 @@ namespace Music.Controllers
                 Price =detail.Price,
                 PublisherDate = detail.PublisherDate,
                 AlbumArtUrl = detail.AlbumArtUrl,
+                Genre=detail.Genre,
+                Artist=detail.Artist,
                 MusicUrl = detail.MusicUrl,
-                Replys = reply
-
+                Replys = htmlString
             };
-            return View(detail);
+            return View(cartVM);
         }
         /// <summary>
         /// 按分类显示专辑
@@ -54,11 +69,44 @@ namespace Music.Controllers
 
             return View(genres);
         }
-        public ActionResult Reply(Guid id,string content)
-        {
-           
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Reply(Guid id, string content)
+         {
+            //判断用户是否登陆
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+            }
+            //查询出当前登陆用户
+            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
 
-            return View();
+            var replys= new Reply()
+            {
+                Title=person.Name,
+                Content = content,
+                Person=_context.Persons.Find(person.ID),
+                Album=_context.Albums.Find(id)
+            };
+             replys.ParentReply = replys;
+            _context.Replys.Add(replys);
+            _context.SaveChanges();
+            var reps = _context.Replys.Where(x=>x.Album.ID==id).OrderByDescending(x => x.CreateDateTime);
+            var htmlString = "";
+            foreach (var item in reps)
+            {
+                htmlString += "<div id='pinl_main'>";
+                htmlString += "<div>";
+                htmlString += "<img src=" + item.Person.Avarda + ">";
+                htmlString += "</div>";
+                htmlString += "<div>";
+                htmlString += "<p>" + item.Title + "</p>";
+                htmlString += "<p>" + item.CreateDateTime + "</p>";
+                htmlString += "<p>" + item.Content + "</p>";
+                htmlString += "</div>";
+                htmlString += "</div>";
+            }
+            return Json(htmlString);
         }
     }
 }
