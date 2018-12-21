@@ -11,8 +11,6 @@ namespace MusicStoreEntity
     /// </summary>
     public class discuss
     {
-        //专辑的封面
-        public string coverPhoto { get; set; }
         public Guid ID { get; set; }
         //通过用户ID去检索评论人的信息
         public Guid personID { get; set; }

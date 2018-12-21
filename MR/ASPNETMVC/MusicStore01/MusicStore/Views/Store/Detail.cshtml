@@ -48,6 +48,7 @@
         <div id="msg"></div>
     </p>
     <!-- 加载编辑器的容器 -->
+    <div>
     <script id="container" name="content" type="text/plain" style="width:300px;">
        
     </script>
@@ -63,8 +64,13 @@
             'simpleupload', 'emotion',
         ]],
         autoHeightEnabled: true,
-            autoFloatEnabled: true});
+        autoFloatEnabled: true,
+        wordCount: false,
+        elementPathEnabled: false
+        });
     </script>
+        <input type="button" id="submit" value="评论" />
+    </div>
 </div>
 
 <script>
