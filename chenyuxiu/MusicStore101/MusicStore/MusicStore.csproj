@@ -226,6 +226,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\11.jpg" />
+    <Content Include="Content\Images\9.jpg" />
     <Content Include="Content\Images\bg.png" />
     <Content Include="Content\Images\boy.jpg" />
     <Content Include="Content\Images\cd_img.jpg" />
@@ -595,6 +596,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Upload\Avarda\98402db1-e0b8-491b-af86-32064edcb69c.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -639,7 +641,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Upload\Avarda\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

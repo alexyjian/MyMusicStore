@@ -6,15 +6,18 @@
 <h2>@Model.Title</h2>
 
 <div id="box-video">
-    <div class="cd"style="background:url(@(Model.AlbumArtUrl))no-repeat;">
+    @*@(Model.AlbumArtUrl*@
+    <div class="cd" style="background:url(@(Model.AlbumArtUrl))no-repeat;">
         <div class="cd-center">
             <audio src="~/Music/1.mp3" controls autoplay loop></audio>
-            </div>
         </div>
     </div>
+</div>
 <div id="album-details">
     <p>
-        <em>发布时间</em>
+        <em>
+            发布时间
+        </em>
         @Model.PublisherDate.ToString("yyyy年MM月dd日");
     </p>
     <p>
@@ -27,19 +30,20 @@
     </p>
     <p>
         <em>价格</em>
-        ￥@string.Format("{0:F}",Model.Price)
+        ￥@string.Format("{0:F}", Model.Price)
     </p>
     <div id="msg"></div>
     <p>
         <a class="btn" id="addcart">添加到购物车</a>
-        <div id="msg"></div>
+        <div id="msg">
+        </div>
     </p>
     <p>
         <em>
             发表的时间：
-            </em>
+        </em>
         回复1：黄子韬好棒呀呀呀！！！！
-        </p>
+    </p>
     <p>
         <em>
             发表的时间：
@@ -65,8 +69,11 @@
         回复1：黄子韬好棒呀呀呀(*╹▽╹*)！！！！
     </p>
     @*<textarea id="reply" rows="4" cols="3"></textarea>*@
-    <button  class="btn btn-primary"id="bthreply">评论</button>
+
+    @*<button class="btn btn-primary" id="bthreply">评论</button>*@
+
 </div>
+
 <body>
 
     <form action="server.php" method="post">
@@ -85,29 +92,32 @@
     </script>
 
 </body>
+<button class="btn btn-primary" id="bthreply">评论</button>
 <script>
+
+
     $("#addcart").click(function () {
         //异步
         $("#msg").html("<img src='../../Content/Images/loading.gif'>添加到购物车,请稍后...");
-      $.ajax({
+        $.ajax({
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
-            data:{id:"@Model.ID" },
+            data: { id: "@Model.ID" },
             dataType: 'json',
-            success: function(data) {
+            success: function (data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
                     location.href = "@Url.Action("login", "Account",
-                                         new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
+                                             new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
                 }
                 else {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
                     //2秒后，自动重新刷新此区域
-                    setTimeout(function() {
-                            location.reload();
-                        },
+                    setTimeout(function () {
+                        location.reload();
+                    },
                         2000);
                 }
             }
