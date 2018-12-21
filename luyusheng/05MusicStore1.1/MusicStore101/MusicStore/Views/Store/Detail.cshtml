@@ -8,7 +8,7 @@
 <h2>@Model.Title </h2>
 
 <div id="box-video">
-    <div class="cd" style="background:url(@(Model.AlbumArtUrl))no-repeat;">
+    <div class="cd" style="background:url@(Model.AlbumArtUrl)no-repeat;">
         <div class="cd-center">
             <audio src="@Model.MusicUrl" controls autoplay loop></audio>
         </div>
@@ -65,7 +65,7 @@
         回复1: 很经典的一首歌
     </p>
     <p>
-        @*<textarea id="reply" rows="4" cols="3"></textarea>*@
+        <textarea id="reply" rows="4" cols="3"></textarea>
         <button class="btn btn-primary" id="btnreply">评论</button>
     </p>
 </div>
