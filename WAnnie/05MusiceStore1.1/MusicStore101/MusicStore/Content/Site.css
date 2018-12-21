@@ -316,8 +316,8 @@ tr:hover {
 
 
 .cd {
-    width: 422px;
-    height: 422px;
+    width: 390px;
+    height: 390px;
     position: absolute;
     top: 25%;
     left: 10%;
@@ -349,12 +349,26 @@ tr:hover {
 
 
 #box-video audio{
+    width: 260px;
     position: relative;
-    left: -100px;
+    left: -75px;
     bottom: -120px;
     
 }
 #box-video{
     position: absolute;
-    left: 400px;
+    left: 480px;
+}
+
+.pary-btn{
+    width: 60px;
+    height: 50px;
+    bottom: -80px;
+}
+
+#pinglun{
+    height: 200px;
+    width: 200px;
+    top: 30px;
+    bottom: -180px;
 }
