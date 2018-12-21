@@ -38,7 +38,7 @@ body {
 }
 
 .address {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .imgAvarda {
@@ -96,7 +96,6 @@ body {
     margin: 10px 0px;
 }
 
-.time {
-    font-size:12px;
-    margin-left:20px;
+.hf {
+    margin:0px 20px;
 }

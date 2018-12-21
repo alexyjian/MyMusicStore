@@ -36,9 +36,7 @@
     </div>
     <div class="plText">
         <img class="pl-Avarda MyAvarda" src="@ViewBag.AvardaUrl" />
-        <script id="container" name="content" type="text/plain">
-            
-        </script>
+        <script id="container" name="content" type="text/plain"></script>
         <p class="text-right">
             <a id="btn-pl" href="#" class="btn btn-success">评论</a>
         </p>
@@ -57,7 +55,8 @@
                 </div>
                 <p class="user-ment text-right">
                     <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
-                    <span class="text-muted time">@item.PublisherDate</span>
+                    <a href="#" class="hf">回复</a>
+                    <span class="text-muted  address">@item.PublisherDate</span>
                 </p>
             </div>
             }
