@@ -40,6 +40,7 @@ namespace MusicStore.Controllers
         /// <param name="content"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Commit(string id, string str)
         {
             if (Session["LoginUserSessionModel"] == null)

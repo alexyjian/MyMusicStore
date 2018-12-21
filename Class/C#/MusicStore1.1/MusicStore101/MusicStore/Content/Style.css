@@ -74,18 +74,9 @@ body {
     position:absolute;
 }
 
-textarea {
-     resize:none;
-     font-size:12px;
-     width:92%;
-     height:60px;
-     margin-left:70px;
-     margin-bottom:5px;
-}
-
 .jcpl-hr {
     border:0.5px solid #cdcdcd;
-    margin-top:0px;
+    margin:0px 0px;
 }
 
 .pl-user {
@@ -102,6 +93,7 @@ textarea {
 
 .pl-list {
     border-bottom:1px dashed #cdcdcd;
+    margin: 10px 0px;
 }
 
 .time {
