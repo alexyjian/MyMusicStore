@@ -10,7 +10,7 @@
 <h2>@Model.Title</h2>
  
 <div id="box-video">
-    <div class="cd" style="background: url(@(Model.AlbumArtUrl));" >
+    <div class="cd" style="background: url(@(Model.AlbumArtUrl))no-repeat; background-size: 100%;" >
         <div class="cd-center">
             <audio src="@Model.MusucUrl" controls autoplay loop></audio>
         </div>
@@ -18,6 +18,9 @@
 </div>
 
 <div id="album-details">
+    <p>
+        <img src="@Model.AlbumArtUrl"/>
+    </p>
     <p>
         <em>
             发布时间：
@@ -40,7 +43,7 @@
         <em>
             价格：
         </em>
-        ￥@String.Format("{0:F}",Model.Price)
+        ￥@String.Format("{0:F}", Model.Price)
     </p>
 
 
@@ -55,45 +58,46 @@
             foreach (var item in Reply)
             {
                 <div class="paryed">
+                    <img style="width: 80px;border-radius: 50%;" src="@item.Person.Avarda"/>
                     <span>@item.Person.Name:</span>
-                    <span>@item.Content:</span>
+                    <span>@item.Content</span>
                     <p>@item.CreateDateTime</p>
+                    
                 </div>
             }
         }
         catch
         {
         }
-        
+
     </div>
-    
-    <div>
+
+    @*<div>
         <div class="editor-field">
             <textarea class="pary"></textarea>
         </div>
+    </div>*@
+
+            <!-- 加载编辑器的容器 -->
+            <script id="container" name="content" type="text/plain"></script>                 
+            <!-- 配置文件 -->
+            <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
+            <!-- 编辑器源码文件 -->
+            <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
+            <!-- 实例化编辑器 -->
+            <script type="text/javascript">
+                var ue = UE.getEditor('container');
+            </script>
+
+
+        <div id="pinglun">
+            <input type="button" onclick="paryted()" class="btn btn-success " value="评论"/>
+        </div>
     </div>
-    
-    
-    <!-- 加载编辑器的容器 -->
-    <script id="container" name="content" type="text/plain">
-        这里写你的初始化内容
-    </script>
-    <!-- 配置文件 -->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
-    <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('container');
-    </script>
 
-    <input type="button" onclick="paryted()" class="pary-btn" value="评论" />
-    
-
-</div>
 
 <script>
-    $("#addcrt").click(function () {
+    $("#addcrt").click(function() {
         //异步
         $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍后......");
         $.ajax({
@@ -101,28 +105,29 @@
             async: true,
             url: '../../ShoppingCart/AddCart',
             data: { id: "@Model.ID" },
-            dataType:'json',
+            dataType: 'json',
             success: function(data) {
                 //如果没有登录，跳转到登录页
-                if (data == "nologin"){
-                    location.href ="@Url.Action("Login", "Account",
+                if (data == "nologin") {
+                    location.href = "@Url.Action("Login", "Account",
                              new {returnUrl=Url.Action
                                  ("Detail","Store",new {id=Model.ID})})";
-                }
-                else {
+                } else {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
                     //重新刷新此区域
                     setTimeout(function() {
-                        location.reload();
-                    },2000);
+                            location.reload();
+                        },
+                        2000);
                 }
             }
         });
     });
 
     function paryted() {
-        var pary = $(".pary")[0].value;
+        //var pary = $(".pary")[0].value;
+        var pary = ue.getContentTxt();
         $.ajax({
             type: 'post',
             asyne: true,
@@ -131,7 +136,7 @@
             dataType: 'json',
             success: function(data) {
                 $("#paryed").html(data);
-                $(".pary-btn")[0].value = "";
+                $(".btn btn-success")[0].value = "";
             }
         });
     }

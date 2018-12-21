@@ -85,6 +85,7 @@ namespace MusicStore.Controllers
             foreach (var item in list)
             {
                 htmlString += "<div class=\"pary\">";
+                htmlString += "<img style=\"width: 80px; border-radius: 50%;\" src="+item.Person.Avarda+">";
                 htmlString += "<p>"+item.Person.Name+"</p>";
                 htmlString += "<p>"+item.CreateDateTime+"</p>";
                 htmlString += "<p>"+item.Content+"</p>";
