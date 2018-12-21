@@ -555,6 +555,7 @@
     <Content Include="utf8-asp\third-party\video-js\font\vjs.svg" />
     <Content Include="utf8-asp\third-party\video-js\font\vjs.ttf" />
     <Content Include="utf8-asp\third-party\video-js\font\vjs.woff" />
+    <Content Include="Views\Store\Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Upload\Avarda\" />

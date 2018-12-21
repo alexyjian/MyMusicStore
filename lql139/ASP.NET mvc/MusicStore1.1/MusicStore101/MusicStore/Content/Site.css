@@ -295,3 +295,8 @@ input-group CompilePersonal-text{
     height:50px;
     float:left;
 }
+.comments-foreach-div{
+    margin-left:70px;
+    position:relative;
+    top:-7px;
+}

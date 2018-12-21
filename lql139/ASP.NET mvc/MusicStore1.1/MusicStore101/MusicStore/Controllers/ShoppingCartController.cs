@@ -54,7 +54,7 @@ namespace MusicStore.Controllers
                 var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
                 var carts = _context.Cart.Where(x => x.Person.ID == person.ID).ToList();
             //购物车总价
-            decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
+               decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum();
 
             //decimal?totalPrice2= 0.00M;
             //if (carts.Count == 0)
@@ -96,7 +96,6 @@ namespace MusicStore.Controllers
                 htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
                 htmlString += "<th><button class=\"btn btn-default\" onclick=\"removeCartAdd('"+item.ID+"')\">+</button>&nbsp;" + item.Count + "&nbsp;<button class=\"btn btn-default\" onclick=\"removeCartSubtract('" + item.ID + "')\">-</button></th>";
                 htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除</a></th><tr>";
-
             }
             htmlString += "<tr><th ></th><th></th><th></th><th  class=\"totalprice - th\" colspan=\"4\">总价" + totalPrice.ToString("C") + "</th ></tr>";
             return Json(htmlString);

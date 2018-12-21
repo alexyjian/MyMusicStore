@@ -14,7 +14,7 @@ namespace MusicStoreEntity
         public virtual Album Album { get; set; }
         public virtual Person Person { get; set; }
         public DateTime publisheddate { get; set; }
-        Comments()
+       public Comments()
         {
             ID = Guid.NewGuid();
             publisheddate = DateTime.Now;

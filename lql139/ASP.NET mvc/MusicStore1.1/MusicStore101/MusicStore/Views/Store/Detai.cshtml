@@ -1,5 +1,4 @@
-﻿
-@model MusicStoreEntity.Album
+﻿@model MusicStoreEntity.Album
 @{ 
     Layout = "~/Views/Shared/_NewLayout.cshtml";
     ViewBag.Title = "专辑明细";
@@ -46,37 +45,11 @@
 
     </div>
 </div>
-    <br />
-    <h2 >评论</h2> <hr />
+    
 
-<div style="margin-bottom:40px;">
-    <img class="comments" src="~/Content/images/comments.jpg"/>
-    <!-- 加载编辑器的容器 -->
-    <textarea id="container" name="content" type="text/plain" placeholder="说点什么吧....">
-    </textarea>
-    <!-- 配置文件 -->
-    <script type="text/javascript" src="~/utf8-asp/ueditor.config.js"></script>
-    <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="~/utf8-asp/ueditor.all.js"></script>
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('container', {
-            toolbars: [
-            ['emotion', 'spechars', ]
-            ],
-            elementPathEnabled: false　　//是否启用元素路径，默认是true显示
-            , wordCount: true                      //是否开启字数统计
-            , autoHeightEnabled: false　　// 编辑器内容，是否自动长高,默认true
-            , fullscreen: false                   //是否开启初始化时即全屏，默认关闭
-            ,initialFrameWidth : 700
-           , initialFrameHeight: 90
-        });
-    </script>
-    <button style="float:right;margin-top:5px;margin-bottom:30px;" type="button" class="btn btn-success">发表评论</button>
-</div>
-<div>
-    <small class="Goodcomments" style="">精彩评论</small><hr />
-</div>
+
+@Html.Partial("Comments", new MusicStoreEntity.EntityDbContext().Commentss.ToList())
+
 <script>
     $("#addcart").click(function () {
         //异步
@@ -95,6 +68,30 @@
                 else
                 {
                     $("#msg").html(data);//添加成功 动画取消
+                    setTimeout(function(){
+                        location.reload();//刷新区域
+                    },1000);
+                }
+            }
+        });
+    });
+    $("#comments").click(function () {
+        //异步
+     //   $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>发布评论中,请稍后...");
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Store/Commentsadd',
+            data: {id:"@Model.ID"},
+            dataType:'json',
+            success:function(data){
+                if (data == "nologin")
+                {
+                    location.href="@Url.Action("Login", "Account",new {returnUrl = Url.Action("Detai", "Store", new {id = Model.ID})})";
+                }
+                else
+                {
+                   // $("#msg").html(data);//添加成功 动画取消
                     setTimeout(function(){
                         location.reload();//刷新区域
                     },1000);
