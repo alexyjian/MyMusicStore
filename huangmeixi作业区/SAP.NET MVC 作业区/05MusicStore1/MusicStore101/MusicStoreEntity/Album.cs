@@ -21,7 +21,7 @@ namespace MusicStoreEntity
         
         public string GenreId { get; set; }//分类的主键值
         
-       public virtual Artist Artist { get; set; }//歌手
+        public virtual Artist Artist { get; set; }//歌手
 
         public string ArtistId { get; set; }//歌手的主键值
 

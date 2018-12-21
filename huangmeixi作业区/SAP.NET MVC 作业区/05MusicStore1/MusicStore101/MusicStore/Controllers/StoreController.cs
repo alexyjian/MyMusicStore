@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace MusicStore.Controllers
 {
     public class StoreController : Controller
@@ -25,6 +26,42 @@ namespace MusicStore.Controllers
         }
 
 
+
+        //评论
+        //public ActionResult Content(string str, Guid ID)
+        //{
+        //    if (Session["LoginUserSessionModel"] == null)
+        //        return Json("nologin");
+        //    if (str == "")
+        //        return Json("");
+
+        //    var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+        //    var album = _context.Albums.Find(ID);
+
+        //    添加评论
+        //    var text = new Reply()
+        //    {
+        //        Person = _context.Persons.Find(person.ID),
+        //        Content = str
+
+        //    };
+        //    album.AlbumArtUrl.Add(text);
+        //    _context.SaveChanges();
+
+
+        //    显示评论
+        //    var albumSay = _context.Albums.Find(ID).Reply.OrderByDescending(x => x.CreateDateTime).Tolis();
+        //    var htmlString = "";
+
+        //    foreach (var item in albumSay)
+        //    {
+        //        htmlString += "<p>" + item.Person.Name + ":" + item.Content + "<br/>";
+        //        htmlString += "<em>" + item.CreateDateTime + "</em></p>";
+
+        //    }
+        //    return Json(htmlString);
+
+        //}
         /// <summary>
         /// 按分类显示专辑页
         /// </summary>

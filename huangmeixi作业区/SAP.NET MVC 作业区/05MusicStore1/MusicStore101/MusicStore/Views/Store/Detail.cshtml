@@ -57,6 +57,8 @@
         </script>
     </div>
 
+ 
+
 
     
         这里写你的初始化内容
@@ -108,7 +110,30 @@
 
     @*评论*@
     $("#submint").click(function () {
-    })
 
+        var txt = ue.getPlainTxt();
+        alert(txt);
 
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Store/Content',
+            data: { str: txt, id: "@Model.ID" },
+                dataType: 'json',
+                success: function (data) {
+                    //是否登录
+                    if (data != "nologin") {
+                        if (data != "")
+                            $("#albumComment").html(data);
+                    }
+                    else {
+                        alert("需要先登录！")
+                        location.href = "@Url.Action("login", "Account",
+
+                       new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                    }
+                }
+            });
+        document.getElementById("container").value="";
+    });
 </script>
