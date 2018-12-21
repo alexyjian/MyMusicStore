@@ -13,6 +13,7 @@ namespace MusicStore.Controllers
         private static readonly EntityDbContext _context = new EntityDbContext();
         // GET: Ueditor
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Index(Guid id,string Reply)
         {
             if (Session["LoginUserSessionModel"] == null)
@@ -21,8 +22,17 @@ namespace MusicStore.Controllers
             //查出出当前登录用户
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
 
-            var carts = _context.Reply.Where(x => x.Person.ID == person.ID).ToList();
-            return View();
+
+            var reply = new Reply()
+            {
+                Album = _context.Albums.Find(id),
+                Person = _context.Persons.Find(person.ID),
+                Content = Reply
+            };
+
+            _context.Reply.Add(reply);
+            _context.SaveChanges();
+            return View(reply);
         }
     }
 }

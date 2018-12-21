@@ -149,21 +149,17 @@ a {
 /*Music-Reply*/
 #Reply {
     margin-top:50px;
+    width:90%;
 }
-.Music-Reply {
-    position:absolute;
-    line-height:30px;
-    border:1px solid gray;
-    width:100%;
+#Musicuser_img{
+   width:90px;
+   height:100px; 
+   border:solid 2px #245974;
 }
-
 .Reply-title{
     height: 50px;
     border-bottom: 2px solid #4d2503;
-}
-.Reply-time{
-    padding-top:70px;
-    text-align:right;
+    text-align:center;
 }
 #Reply-btn{
     background-color:#1098e6;
@@ -172,16 +168,32 @@ a {
     border:1px solid blue;
     position:absolute;
     right:16px;
-    top:0px;
+    top:10px;
     z-index:1000;
     width:60px;
     border-radius:5px;
 }
-
-.Reply-user {
-    margin-top:30px;
+.Music-Reply {
+    border-top:solid 1px gray;
+    border-bottom:solid 1px gray;
+    margin-top:10px;
 }
-
+.Reply-user {
+    margin-top:15px;
+}
+.Music-Reply img {
+    height:50px;
+    width:50px;
+}
+.Music-Reply p {
+    display:inline-block;
+}
+.Reply-time {
+    text-align:right;
+}
+.Reply-ueditor {
+    padding-top:10px;
+}
 /*END*/
 
 /*“Ù¿÷≥™∆¨∂Øª≠*/

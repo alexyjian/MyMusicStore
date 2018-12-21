@@ -199,6 +199,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MYviewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\ReplyViewModel.cs" />
     <Compile Include="ViewModels\RevisePwdViewModelr.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
@@ -624,12 +625,12 @@
     <Content Include="ueditor\third-party\video-js\font\vjs.svg" />
     <Content Include="ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="ueditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="Views\Ueditor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Upload\Avarda\" />
     <Folder Include="Views\RevisePwd\" />
-    <Folder Include="Views\Ueditor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

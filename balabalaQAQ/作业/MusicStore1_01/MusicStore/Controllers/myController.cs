@@ -25,7 +25,7 @@ namespace MusicStore.Controllers
 
             var my = new MYviewModel()
             {
-                MobileNumber = person.MobileNumber,
+                MobileNumber = person.MobileNumber,  
                 Name = person.Name,
                 Sex = person.Sex,
                 Birthday =person.Birthday

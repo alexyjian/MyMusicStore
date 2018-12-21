@@ -30,6 +30,8 @@ namespace MusicStoreEntity
         //专辑的网址
         public string AlbumArtUrl { get; set; }
 
+        public virtual ICollection<Reply> Reply { get; set; }
+
         //试听网址
         public string MusicUrl { get; set; } = "/music/1.mp3";
         public Album()

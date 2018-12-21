@@ -12,7 +12,6 @@
         </div>
     </div>
     <audio src="@Model.MusicUrl" id="myMusic" controls="controls"></audio>
-
     <div id="album-details" class="col-md-6">
         <h2>@Model.Title</h2>
         <p>
@@ -55,25 +54,25 @@
 <div id="Reply">
     <div class="Reply-title"><span style="font-size:30px;">评论</span>  共&条评论</div>
     <div class="row Reply-user">
-        <div class="col-md-1"></div>
-        <div class="col-md-9 Reply-ueditor">
+        <div class="col-md-2"><span style="text-align:right;">@ViewBag.name</span><img alt="加载失败" src="@ViewBag.img" id="Musicuser_img" /></div>
+        <div class="col-md-10 Reply-ueditor">
             <script id="container" name="content" type="text/plain">
             </script>
             <input type="button" value="发表评论" id="Reply-btn" />
         </div>
-        <div class="col-md-2"></div>
+      
     </div>
+     <br/>
+    <br /> 
+        @foreach (var i in Model.Reply.OrderByDescending(x=>x.ReplyTime))
+       {
+       <div class="Music-Reply">
+           <img src="@i.Person.Avarda" alt="加载失败"  />
+           <p> @i.Person.Name：@Html.Raw(i.Content)</p>
+           <div class="Reply-time">发表时间：@i.ReplyTime</div>
+       </div>
+       }
 
-
-    @*<div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-9">
-                <div class="Music-Reply">
-                    <div class="Reply-time">发表时间：</div>
-                </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div>*@
 </div>
 
 <!-- 配置文件 -->
@@ -95,10 +94,12 @@
 
     /*评论*/
     $("#Reply-btn").click(function () {
+        //设置编辑器的内容
+        //ue.setContent('hello');
         var txt = ue.getContentTxt();
 
         var html = ue.getContent();
-        alert(html);
+
         $.ajax({
             type: 'post',
             async: true,
@@ -107,15 +108,21 @@
             dataType: 'json',
             success: function (data) {
                 //如果没有登录,跳转到登录页
-                if (data == "nologin")
+                if (data == "nologin") {
                     location.href = "@Url.Action("login","Account",new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                    ue.setContent(txt);
+                }
                 else {
                     //添加评论成功
                     $("#Reply").html(data);
+                    //清空内容
+                    ue.setContent('');
+
+                    alert('评论成功！');
                     //2S后，重新刷新此区域
                     setTimeout(function () {
                         location.reload();
-                    }, 2000);
+                    }, 1000);
                 }
             }
         });
