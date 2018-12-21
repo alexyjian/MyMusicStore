@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
     var Reply = ViewBag.Reply;
     var detail = ViewBag.detail;
+ 
 }
 
 <h2>@detail.Title</h2>
@@ -46,22 +47,27 @@
     </p>
 
     <div id="comment_box">
-        @try
-        {
-            foreach (var item in Reply)
+        <div id="Refresh">
+            @try
             {
-                <div class="comment">
-                    <span>@item.Person.Name:</span>
-                    <span>@item.Content</span>
-                    <p>@item.CreateDateTime</p>
-                    <a href="javascript:;">回复</a>
-                </div>
-            }
-        }
-        catch
-        {
+                foreach (var item in Reply)
+                {
+                    <div class="comment">
+                       <img src="@item.Person.Avarda"/>
+                        <span>@item.Person.Name:</span>
+                        <span>@item.Content</span>
+                        <p>@item.CreateDateTime</p>
+                        <a href="javascript:;">回复</a>
+                    </div>
+                }
 
-        }
+            }
+            catch
+            {
+
+            }
+        </div>
+      
 
         <!-- 加载编辑器的容器 -->
         <script id="container" name="content" type="text/plain">
@@ -73,18 +79,14 @@
         <script type="text/javascript" src="~/Ueditor/ueditor.all.js"></script>
         <!-- 实例化编辑器 -->
         <script type="text/javascript">
-            var ue = UE.getEditor('container');
+            var ue = UE.getEditor('container', {
+                autoHeight: false
+            });
+
         </script>
     </div>
 
-    <div>
-        <div class="editor-field">
-            <textarea class="Content"></textarea>
-        </div>
-    </div>
-    <input type="button" onclick="Contentpoth()" class="content_btn" value="评论" />
-
-
+     <input type="button" onclick="Contentpoth()" class="content_btn" value="评论" />
     <div id="box_video">
         <div class="cd">
             <div class="center">
@@ -92,7 +94,6 @@
             </div>
             <div class="song">
                 @*<h2>云城烟雨</h2>*@
-
             </div>
         </div>
     </div>
@@ -102,7 +103,7 @@
 
 
 
-
+<script src="~/Ueditor/ueditor.parse.js"></script>
 
 <script>
     $("#addcart").click(function () {
@@ -134,21 +135,27 @@
     });
 
     function Contentpoth(){
-        var Content = $(".Content")[0].value;
-
+        //var Content = $(".Content")[0].value;
+        //var html = ue.getContent();
+        //ue.setContent();
+        //获取html内容，返回: <p>hello</p>
+        //var html = ue.getContent();
+        var Content = ue.getContentTxt();
+        var con = $(".view p")[1].innerText;
         $.ajax({
             type: 'post',
             async: true,
             url: '../../Store/Reply',
-            data: { id: "@detail.ID", Content},
+            data: { id: "@detail.ID", Content, con},
             dataType: 'json',
             success: function (data) {
-                $("#comment_box").html(data);
-                $(".Content")[0].value = "";
+                $("#Refresh").html(data);
+                $("#container").value = "";
             }
         }
             )
-              }
+    }
+
     @*//异步
     function Reply() {
         var Content = $(".Content")[0].value;
@@ -166,5 +173,7 @@
         }
             )
     }*@
-
+    uParse('.content', {
+        rootPath: '../'
+    })
 </script>

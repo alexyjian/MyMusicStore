@@ -38,7 +38,8 @@ namespace MusicStore.Controllers
 
         public ActionResult Index()
         {
-
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
             var list = _context.Genres.OrderByDescending(x => x.Name).ToList();
             var list1 = _context.Albuns.OrderByDescending(x => x.PublsherDate).ToList();
 
@@ -47,8 +48,9 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult Reply(Guid id, string content)
+        public ActionResult Reply(Guid id,string content,string html)
         {
+           
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
             var reply = new Reply()
@@ -70,7 +72,8 @@ namespace MusicStore.Controllers
             foreach (var item in list)
             {
                 htmlString+= "<div class=\"comment\">";
-                   htmlString += "<span>" + item.Person.Name+ "</span>";
+                htmlString += " <img src="+item.Person.Avarda+">";
+                    htmlString += "<span>" + item.Person.Name+ "</span>";
                 htmlString += " <span>" + item.Content + "</span>";
                 htmlString += "<p>" + item.CreateDateTime + "</p>";
                
