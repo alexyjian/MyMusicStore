@@ -187,6 +187,10 @@ a {
 .Music-Reply p {
     display:inline-block;
 }
+.Music-Reply p img{
+    height:35px;
+    width:35px;
+}
 .Music-Reply p span {
     color:blue;
 }
