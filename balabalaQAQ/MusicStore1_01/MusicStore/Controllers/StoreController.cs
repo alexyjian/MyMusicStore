@@ -1,4 +1,5 @@
-﻿using MusicStoreEntity;
+﻿using MusicStore.ViewModels;
+using MusicStoreEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,26 @@ namespace MusicStore.Controllers
     {
         private static readonly EntityDbContext _context = new EntityDbContext();
         // GET: Store
+
         public ActionResult Detail(Guid id)
         {
-            var detail = _context.Albums.Find(id);
-            return View(detail);
+          
+            if ((Session["LoginUserSessionModel"] as LoginUserSessionModel) == null)
+            {
+                ViewBag.img = "/Content/images/boys.jpg";
+                ViewBag.name = "请登录";
+            }
+            else
+            {
+                ViewBag.img = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.Avarda;
+                ViewBag.name = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.Name;
+            }
+
+            var Albums = _context.Albums.SingleOrDefault(x =>x.ID == id);
+            return View(Albums);
+           // return Json(Albums, JsonRequestBehavior.AllowGet);
         }
+
         /// <summary>
         /// 按分类显示专辑
         /// </summary>

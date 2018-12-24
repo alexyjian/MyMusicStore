@@ -1,0 +1,34 @@
+﻿@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "AddressPerson";
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+}
+
+<h2>设置收货人</h2>
+@using (Html.BeginForm())
+{
+    <div class="editor-label">
+        @Html.LabelFor(x => x.AddressPerson)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(x => x.AddressPerson, new { placeholder = "请输入收货人" })
+        @Html.ValidationMessageFor(x => x.AddressPerson)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(x => x.Address)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入收货地址" })
+        @Html.ValidationMessageFor(x => x.Address)
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(x => x.MobiNumber)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(x => x.MobiNumber, new { placeholder = "请输入收货人电话" })
+        @Html.ValidationMessageFor(x => x.MobiNumber)
+    </div>
+    <p>
+        <input type="submit" value="确认" class="btn btn-success" style="width:70px;text-align:center;margin-left:30px;margin-top:30px;" />
+    </p>
+}

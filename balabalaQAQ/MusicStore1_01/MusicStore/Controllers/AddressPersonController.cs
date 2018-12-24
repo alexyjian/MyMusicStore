@@ -46,13 +46,13 @@ namespace MusicStore.Controllers
                 personadd.PerAddress.Add(peradd);
                 //_context.Order.Add(orders);
                 _context.SaveChanges();
+                return Content("<script>alert('恭喜添加收货人成功!');location.href='" + Url.Action("index", "AddressPerson") + "'</script>");
             }
             else
             {
                 return View();
             }
-
-            return Content("<script>alert('恭喜添加收货人成功!');location.href='" + Url.Action("AddressPerson", "AddressPerson"));                           "'</script>");
+        
         }
         /// <summary>
         /// 修改收货人
@@ -61,19 +61,46 @@ namespace MusicStore.Controllers
         /// <param name="count"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult EidtAddressPerson(Guid id)
+        public ActionResult EidtAddressPerson(PerAddress PerAdd)
         {
             //判断用户是否登录如果没有跳转登录，登录成功后跳转回来
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("EidtAddressPerson", "AddressPerson") });
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var personadd = _context.PerAddress.SingleOrDefault(x => x.ID == id);
             //修改
-             _context.SaveChanges();
+            if (PerAdd.Address != null)
+            {
+                var personadd = _context.PerAddress.SingleOrDefault(x => x.ID == PerAdd.ID);
+                personadd.AddressPerson = PerAdd.AddressPerson;
+                personadd.Address = PerAdd.Address;
+                personadd.MobiNumber = PerAdd.MobiNumber;
+                //_context.Order.Add(orders);
+                _context.SaveChanges();
+                return Content("<script>alert('恭喜修改收货人成功!');location.href='" + Url.Action("index", "AddressPerson") + "'</script>");
+            }
+            else
+            {
+                return View();
+            }
 
-            return View();
         }
+   
+        public ActionResult EidtAddressPerson(Guid id)
+        {
+            //判断用户是否登录如果没有跳转登录，登录成功后跳转回来
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("EidtAddressPerson", "AddressPerson") });
+
+            var personadd = _context.PerAddress.SingleOrDefault(x => x.ID == id);
+            //将选中的收货人信息传给 EidtAddressPerson
+            return View(personadd);
+        }
+        /// <summary>
+        /// 删除收货人
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult RemoveAddperson(Guid id)
         {
@@ -84,7 +111,21 @@ namespace MusicStore.Controllers
 
             _context.SaveChanges();
 
-            return View();
+
+            //重新生成Html脚本，返回json数据，局部刷新视图
+            var htmlString = "";
+
+            foreach (var item in person.PerAddress)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td style=\"line-height:40px;\"> "+ item.AddressPerson + "</td>";
+                htmlString += "<td style=\"line-height:40px;\"> " + item.Address + "</td>";
+                htmlString += "<td style=\"line-height:40px;\"> " + item.MobiNumber + "</td>";
+              
+                htmlString += "<td style=\"line-height:40px;\"> <a href='../EidtAddressPerson/AddressPerson/" + item.ID + "'> 修改</a> &nbsp; <a href=\"#\" onclick=\"RemoveDetail('" + item.ID + "');\"> </a> </td>";         
+            }
+            return Json(htmlString);
+       
         }
     }
 }

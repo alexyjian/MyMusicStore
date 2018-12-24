@@ -62,18 +62,21 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">
+                                <img src="@user.Person.Avarda" style="height:25px;width:25px; border-radius:50%;" />
                                 @user.Person.Name<span class="caret"></span>
                             </a>
+
                             <ul class="dropdown-menu">
                                 <li><a href="@Url.Action("ShoppingCart", "ShoppingCart")">购物车 @cart.Count()</a></li>
                                 <li><a href="@Url.Action("index", "Order")">我的订单</a></li>
                                 <li><a href="@Url.Action("index", "AddressPerson")">设置收件人</a></li>
+                                <li><a href="@Url.Action("index", "my")">个人信息</a></li>
                                 <li><a href="@Url.Action("RevisePwd", "Account")">修改密码</a></li>
                                 <li><a href="@Url.Action("loginout", "account")">注销</a></li>
                             </ul>
                         </li>
                     }
-                  
+
                 </ul>
             </div>
         </div>
@@ -91,7 +94,7 @@
                         @*左侧导航*@
                         @Html.Partial("_GetGenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
                     </div>
-                    <div class="music-dw">当前位置：</div>
+                    <div class="music-dw"><span id="citymap" class="glyphicon glyphicon-map-marker" style="height:20px;">定位中...</span></div>
                 </div>
             </li>
             <li class="col-md-9">
@@ -104,26 +107,36 @@
             @*尾栏*@
         </div>
     </div>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=rBrUWwYbVSQ9xeF36i4obqT13IzxiDkF"></script>
     @*继承此布局页的页面执行脚本的位置*@
     @RenderSection("scripts", required: false)
     <script>
-        window.onload = function (){
-            //ajax提交到服务器端进行购物车项的删除
-            setInterval(function () {
-                $.ajax({
-                    type: 'post',
-                    async: true,
-                    url: "../../shoppingcart/removeCart",
-                    data: { id: id },
-                    dataType: 'json',
-                    success: function (data) {
-                        $("#index").html(data);
-                    }
-                });
-            }, 2000);
-    }
+
+
+        //百度地图
+        var map = new BMap.Map("citymap");
+        //  var point = new BMap.Point(116.331398, 39.897445);
+        //  map.centerAndZoom(point, 12);
+
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                function myFun(result) {
+
+                    var cityName = result.name;
+                    map.setCenter(cityName);
+                    document.getElementById('citymap').innerHTML = "当前位置：" + cityName;
+                }
+                var myCity = new BMap.LocalCity();
+
+                myCity.get(myFun);
+            }
+            else {
+                document.getElementById('citymap').innerHTML = "定位失败！";
+            }
+        });
     </script>
+
 </body>
-
 </html>
-
