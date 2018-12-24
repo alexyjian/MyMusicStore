@@ -15,7 +15,7 @@ namespace MusicStore.Controllers
 
         public ActionResult Detail(Guid id)
         {
-            _context.ContextOptions.ProxyCreationEnabled = false;
+          
             if ((Session["LoginUserSessionModel"] as LoginUserSessionModel) == null)
             {
                 ViewBag.img = "/Content/images/boys.jpg";
@@ -28,8 +28,8 @@ namespace MusicStore.Controllers
             }
 
             var Albums = _context.Albums.SingleOrDefault(x =>x.ID == id);
-         
-            return Json(Albums, JsonRequestBehavior.AllowGet);
+            return View(Albums);
+           // return Json(Albums, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>

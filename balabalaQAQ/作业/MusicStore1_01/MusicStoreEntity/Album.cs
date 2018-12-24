@@ -30,7 +30,7 @@ namespace MusicStoreEntity
         //专辑的网址
         public string AlbumArtUrl { get; set; }
 
-        [JsonIgnore]
+         
         public virtual ICollection<Reply> Reply { get; set; }
 
         //试听网址
