@@ -54,7 +54,7 @@
 <div id="Reply">
     <div class="Reply-title"><span style="font-size:30px;">评论</span>  共&条评论</div>
     <div class="row Reply-user">
-        <div class="col-md-2"><span style="text-align:right;">@ViewBag.name</span><img alt="加载失败" src="@ViewBag.img" id="Musicuser_img" /></div>
+        <div class="col-md-2 Reply-text"><span style="text-align:center;">@ViewBag.name</span><img alt="加载失败" src="@ViewBag.img" id="Musicuser_img" /></div>
         <div class="col-md-10 Reply-ueditor">
             <script id="container" name="content" type="text/plain">
             </script>
@@ -68,7 +68,7 @@
        {
        <div class="Music-Reply">
            <img src="@i.Person.Avarda" alt="加载失败"  />
-           <p> @i.Person.Name：@Html.Raw(i.Content)</p>
+           <p> <span>@i.Person.Name</span>：@Html.Raw(i.Content)</p>
            <div class="Reply-time">发表时间：@i.ReplyTime</div>
        </div>
        }
@@ -117,7 +117,6 @@
                     $("#Reply").html(data);
                     //清空内容
                     ue.setContent('');
-
                     alert('评论成功！');
                     //2S后，重新刷新此区域
                     setTimeout(function () {

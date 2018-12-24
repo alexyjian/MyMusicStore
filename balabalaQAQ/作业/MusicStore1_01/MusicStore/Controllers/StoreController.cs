@@ -12,8 +12,10 @@ namespace MusicStore.Controllers
     {
         private static readonly EntityDbContext _context = new EntityDbContext();
         // GET: Store
+
         public ActionResult Detail(Guid id)
         {
+            _context.ContextOptions.ProxyCreationEnabled = false;
             if ((Session["LoginUserSessionModel"] as LoginUserSessionModel) == null)
             {
                 ViewBag.img = "/Content/images/boys.jpg";
@@ -25,8 +27,9 @@ namespace MusicStore.Controllers
                 ViewBag.name = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.Name;
             }
 
-            var Albums = _context.Albums.SingleOrDefault(x => x.ID == id);
-            return View(Albums);
+            var Albums = _context.Albums.SingleOrDefault(x =>x.ID == id);
+         
+            return Json(Albums, JsonRequestBehavior.AllowGet);
         }
 
         /// <summary>

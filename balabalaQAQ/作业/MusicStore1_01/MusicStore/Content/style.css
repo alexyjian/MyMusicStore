@@ -152,14 +152,14 @@ a {
     width:90%;
 }
 #Musicuser_img{
-   width:90px;
-   height:100px; 
+   width:60px;
+   height:70px; 
    border:solid 2px #245974;
 }
 .Reply-title{
     height: 50px;
     border-bottom: 2px solid #4d2503;
-    text-align:center;
+    text-align:left;
 }
 #Reply-btn{
     background-color:#1098e6;
@@ -175,7 +175,6 @@ a {
 }
 .Music-Reply {
     border-top:solid 1px gray;
-    border-bottom:solid 1px gray;
     margin-top:10px;
 }
 .Reply-user {
@@ -188,11 +187,23 @@ a {
 .Music-Reply p {
     display:inline-block;
 }
+.Music-Reply p span {
+    color:blue;
+}
 .Reply-time {
     text-align:right;
+    font-size:12px;
 }
 .Reply-ueditor {
     padding-top:10px;
+}
+.Reply-text{
+    padding-top:20px;
+    padding-left:30px;
+    text-align:center;
+}
+.Reply-ueditor {
+    padding-left:0px;
 }
 /*END*/
 
