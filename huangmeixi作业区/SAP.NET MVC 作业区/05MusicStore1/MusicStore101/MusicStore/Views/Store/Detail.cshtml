@@ -9,7 +9,7 @@
 <div id="box-video">
     <div class="cd" style="background:url(@(Model.AlbumArtUrl)) no-repeat;">
         <div class="cd-center">
-            <audio src="@Model.MusicUrl" controls autoplay loop></audio>
+            <audio src="@Model.MusicUrl" controls  loop></audio>@*autoplay*@
         </div>
     </div>
 </div>
@@ -54,26 +54,12 @@
     <input id="submit" type="button" value="评论">
         <!-- 加载编辑器的容器 -->
         <script id="container" name="content" type="text/plain">
+            点评内容：
         </script>
     </div>
+    <div id="albumComment">
 
- 
-
-
-    
-        这里写你的初始化内容
- 
-    <!-- 配置文件 -->
-    <script type="text/javascript" src="~/Ueditor/ueditor.config.js"></script>
-    <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="~/Ueditor/ueditor.all.js"></script>
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('container');
-    </script>
-    
-
-
+    </div>
 </div>
 
 
@@ -109,10 +95,10 @@
 
 
     @*评论*@
-    $("#submint").click(function () {
+    $("#submit").click(function () {
 
         var txt = ue.getPlainTxt();
-        alert(txt);
+        //alert(txt);
 
         $.ajax({
             type: 'post',
@@ -136,4 +122,13 @@
             });
         document.getElementById("container").value="";
     });
+</script>
+
+<!-- 配置文件 -->
+<script type="text/javascript" src="~/Ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="~/Ueditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+        var ue = UE.getEditor('container');
 </script>

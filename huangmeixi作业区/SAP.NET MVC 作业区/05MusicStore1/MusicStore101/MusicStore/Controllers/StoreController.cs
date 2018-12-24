@@ -27,41 +27,49 @@ namespace MusicStore.Controllers
 
 
 
-        //评论
-        //public ActionResult Content(string str, Guid ID)
-        //{
-        //    if (Session["LoginUserSessionModel"] == null)
-        //        return Json("nologin");
-        //    if (str == "")
-        //        return Json("");
+        /// <summary>
+        /// 评论
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="ID"></param>
+        /// <returns></returns>
+        public ActionResult Content(string str, Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+            if (str == "")
+                return Json("");
 
-        //    var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
-        //    var album = _context.Albums.Find(ID);
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            var album = _context.Albums.Find(id);
 
-        //    添加评论
-        //    var text = new Reply()
-        //    {
-        //        Person = _context.Persons.Find(person.ID),
-        //        Content = str
+            //添加评论
+            var txt = new Reply()
+            {
+                Title = str,
+                Person = _context.Persons.Find(person,id).Name,
+                Content = str,
+                Album = album,
+            };
+            _context.Replys.Add(txt);
+            _context.SaveChanges();
 
-        //    };
-        //    album.AlbumArtUrl.Add(text);
-        //    _context.SaveChanges();
 
+            // 显示评论
+            var albumSay = _context.Albums.Find(id).Reply.OrderByDescending(x => x.CreateDateTime).ToList();
+            var htmlString = "";
 
-        //    显示评论
-        //    var albumSay = _context.Albums.Find(ID).Reply.OrderByDescending(x => x.CreateDateTime).Tolis();
-        //    var htmlString = "";
+            foreach (var item in albumSay)
+            {
+               //htmlString += "<p>" + item.Person.Name + ":" + item.Content + "<br/>";
+                htmlString += "<em>" + item.CreateDateTime + "</em></p>";
 
-        //    foreach (var item in albumSay)
-        //    {
-        //        htmlString += "<p>" + item.Person.Name + ":" + item.Content + "<br/>";
-        //        htmlString += "<em>" + item.CreateDateTime + "</em></p>";
+            }
+            return Json(htmlString);
+ 
+        }
 
-        //    }
-        //    return Json(htmlString);
-
-        //}
+  
         /// <summary>
         /// 按分类显示专辑页
         /// </summary>
