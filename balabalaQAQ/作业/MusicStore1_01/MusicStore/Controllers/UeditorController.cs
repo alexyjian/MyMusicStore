@@ -32,7 +32,20 @@ namespace MusicStore.Controllers
 
             _context.Reply.Add(reply);
             _context.SaveChanges();
-            return View(reply);
+            var Albums = _context.Albums.SingleOrDefault(x => x.ID == id);
+
+            var HtmlString = "";
+            foreach (var item in Albums.Reply)
+            {
+                HtmlString += " <div class=\"Music - Reply\">";
+                HtmlString += " < img src = \""+ item.Person.Avarda + "\" alt = 加载失败 />";
+                HtmlString += "<p> <span> " + item.Person.Name + "</ span >：@Html.Raw(" + item.Content + ") </p>";
+                HtmlString += "  <div class=\"Reply - time\">发表时间："+ item.ReplyTime+"</div>";
+                HtmlString += " </div>";
+            }
+
+                // return Json(reply, JsonRequestBehavior.AllowGet);
+            return Json(HtmlString);
         }
     }
 }

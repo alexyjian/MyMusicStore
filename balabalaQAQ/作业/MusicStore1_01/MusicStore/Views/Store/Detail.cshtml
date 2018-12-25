@@ -64,15 +64,16 @@
     </div>
      <br/>
     <br /> 
-        @foreach (var i in Model.Reply.OrderByDescending(x=>x.ReplyTime))
-       {
-       <div class="Music-Reply">
-           <img src="@i.Person.Avarda" alt="加载失败"  />
-           <p> <span>@i.Person.Name</span>：@Html.Raw(i.Content)</p>
-           <div class="Reply-time">发表时间：@i.ReplyTime</div>
-       </div>
-       }
-
+    <div id="Person-Reply">
+        @foreach (var i in Model.Reply.OrderByDescending(x => x.ReplyTime))
+        {
+            <div class="Music-Reply">
+                <img src="@i.Person.Avarda" alt="加载失败" />
+                <p> <span>@i.Person.Name</span>：@Html.Raw(i.Content)</p>
+                <div class="Reply-time">发表时间：@i.ReplyTime</div>
+            </div>
+        }
+    </div>
 </div>
 
 <!-- 配置文件 -->
@@ -114,14 +115,13 @@
                 }
                 else {
                     //添加评论成功
-                    $("#Reply").html(data);
+                    $("#Person-Reply").html(data);
                     //清空内容
                     ue.setContent('');
                     alert('评论成功！');
-                    //2S后，重新刷新此区域
-                    setTimeout(function () {
-                        location.reload();
-                    }, 1000);
+                    //重新刷新此区域
+                    location.reload();
+                   
                 }
             }
         });

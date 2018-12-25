@@ -29,7 +29,7 @@ namespace MusicStore.Controllers
 
             var Albums = _context.Albums.SingleOrDefault(x =>x.ID == id);
             return View(Albums);
-           // return Json(Albums, JsonRequestBehavior.AllowGet);
+        
         }
 
         /// <summary>
