@@ -9,7 +9,7 @@
 <h2>@Model.Title</h2>
 
 <div id="box-video">
-    <div class="cd"  style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
+    <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
         <div class="cd-center">
             <audio src="@Model.MusicUrl" controls autoplay loop></audio>
         </div>
@@ -47,32 +47,65 @@
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
+    <div style="height:40px"></div>
+    <p>
+        <em>小呆：</em>兜里有钱
+    </p>
+
+    <p>
+        <em>小青：</em>肚里有墨
+    </p>
+
+    <p>
+        <em>小莫：</em>嘴里有糖
+    </p>
+
+    <p>
+        <em>小沐：</em>怀里有你
+    </p>
+
+    <p>
+        <em>小雨：</em>足矣
+    </p>
+
+ <div style="height:120px"></div>
+    <script id="container" name="content" type="text/plain">
+    这里写你的初始化内容
+</script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
 </div>
 
 <script>
-    $("#addcart").click(function() {
+    $("#addcart").click(function () {
         //异步
-        $("#msg").html("<img src='../../content/images/loading.gif'>添加到购物车，请稍候...");
+        $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍候...");
         $.ajax({
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
-            data:{id:"@Model.ID" },
+            data: { id: "@Model.ID" },
             dataType: 'json',
-            success: function(data) {
+            success: function (data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
-                    location.href = "@Url.Action("login", "Account", 
+                    location.href = "@Url.Action("login", "Account",
                                          new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
                 }
                 else {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
                     //2秒后，自动重新刷新此区域
-                    setTimeout(function () {
-                            location.reload();
-                        },
-                        2000);
+                    //setTimeout(function () {
+                    //    location.reload();
+                    //},
+                    //    2000);
                 }
             }
         });

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
 namespace MusicStore.Migrations
 {
     public class UserAndRoleSeed
@@ -73,13 +72,14 @@ namespace MusicStore.Migrations
                 ChineseFullName = "梅西",
                 MobileNumber = "13833883388",
                 Email = "messi@163.com",
-                Person =person1,
+                Person = person1,
             };
             //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户
             idManager.CreateUser(loginUser, "123.abc");
             //添加到Admin角色
             idManager.AddUserToRole(loginUser.Id, "Admin");
-            #endregion
+
+            #endregion 
 
             #region 注册用户
 
@@ -99,7 +99,7 @@ namespace MusicStore.Migrations
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
-            var newUser2 = new ApplicationUser()
+            var newUser2 = new ApplicationUser() 
             {
                 UserName = "hs",
                 FirstName = "黄",

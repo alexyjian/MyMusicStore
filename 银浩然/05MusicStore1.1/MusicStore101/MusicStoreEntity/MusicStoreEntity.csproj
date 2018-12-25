@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{79BAD7EB-BCC7-42FC-966C-38AE70C9E6B3}</ProjectGuid>
+    <ProjectGuid>{B93544BC-0125-4E79-8467-19AFA59DA6C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MusicStoreEntity</RootNamespace>
-    <AssemblyName>MusicStoreEntity</AssemblyName>
+    <RootNamespace>MucicStoreEntity</RootNamespace>
+    <AssemblyName>MucicStoreEntity</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -60,9 +60,9 @@
     <Compile Include="Album.cs" />
     <Compile Include="Artist.cs" />
     <Compile Include="Cart.cs" />
-    <Compile Include="EntityDbContext.cs" />
     <Compile Include="EnumOrderStatus.cs" />
     <Compile Include="Genre.cs" />
+    <Compile Include="EntityDbContext.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +82,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

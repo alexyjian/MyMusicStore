@@ -1,14 +1,17 @@
 ﻿@using System.Runtime.InteropServices
 @model IEnumerable<MusicStoreEntity.Album>
+@{
+    ViewBag.Title = "浏览专辑";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
 
 @{
     ViewBag.Title = "浏览专辑";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 
     var album = Model.FirstOrDefault();
-    var genreName = album != null? album.Genre.Name: "找不到";   
+    var genreName = album != null ? album.Genre.Name : "找不到";
 }
-
 <div class="genre">
     <h3><em>@genreName</em>专辑</h3>
     <ul id="album-list">
@@ -16,11 +19,12 @@
         {
             <li>
                 <a href="@Url.Action("detail", "Store", new {id = item.ID})">
-                    <img alt ="@item.Title" src="@item.AlbumArtUrl" id="album-banner"/>
-                    <span>@item.Artist.Name</span><br/>
+                    <img alt="@item.Title" src="@item.AlbumArtUrl" id="album-banner"/>
+                    <span>@item.Artist.Name</span>
                     <span>@item.Title</span>
                 </a>
             </li>
         }
     </ul>
 </div>
+

@@ -9,10 +9,10 @@ namespace MusicStoreEntity
     /// <summary>
     /// 订单的状态
     /// </summary>
-    public enum EnumOrderStatus
+   public enum EnumOrderStatus
     {
         未付款,
         已付款,
-        交易关闭
+        交易关闭,
     }
 }

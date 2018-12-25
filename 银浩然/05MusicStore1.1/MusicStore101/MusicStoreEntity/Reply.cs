@@ -1,17 +1,17 @@
-﻿using MusicStoreEntity.UserAndRole;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MusicStoreEntity.UserAndRole;
 
 namespace MusicStoreEntity
 {
     /// <summary>
     /// 回复
     /// </summary>
-    public class Reply
+    public  class Reply
     {
         public Guid ID { get; set; }
 
@@ -30,9 +30,9 @@ namespace MusicStoreEntity
         public virtual Album Album { get; set; }
 
         [Required]
-        public virtual Reply ParentReply { get; set; }   //上级回复
-        
-        public DateTime CreateDateTime { get; set; }  //回复时间
+        public virtual Reply ParentReply { get; set; }
+
+        public DateTime CreateDateTime { get; set; }
 
         public Reply()
         {

@@ -197,9 +197,6 @@ a:active {
         color: #F46739;
     }
 
-div#album-details {
-    min-height: 500px;
-}
 div#album-details p {
     margin-bottom: 5px;
     color: #5e5b54;
@@ -284,29 +281,16 @@ tr:hover {
     background-color: #fff;
 }
 
-
-.Genre-List:link, .Genre-List:visited {
-    color: #666;
-    text-decoration: none;
-    font-weight: normal
-}
-
-.Genre-List:hover {
-    color: #333333;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.Genre-List:active {
-    color: #5e5b54;
-    text-decoration: none;
-    font-weight: bold;
+#album-List{
+    color: red;
+    font-size: 10px;
 }
 
 #userAvarda {
     height: 25px;
     border-radius: 50%;
 }
+
 
 #imgAvarda {
     height: 100px;
