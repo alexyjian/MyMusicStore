@@ -61,13 +61,15 @@ namespace MusicStore.Controllers
 
             foreach (var item in albumSay)
             {
-               //htmlString += "<p>" + item.Person.Name + ":" + item.Content + "<br/>";
+                htmlString += "<p>" + item.Person + ":" + item.Content + "<br/>";
                 htmlString += "<em>" + item.CreateDateTime + "</em></p>";
 
             }
             return Json(htmlString);
  
         }
+
+
 
   
         /// <summary>

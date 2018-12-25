@@ -364,3 +364,21 @@ tr:hover {
     height:180px;
     position:relative;
 }
+#display em{
+    color:#77788e;
+    font-size:12px;
+}
+
+#Reply_content{
+    position:relative;
+    padding-left:50px;
+    padding-top:5px;
+    border:1px dashed #fffff0;
+    margin-bottom:5px;
+
+}
+
+#Reply_content i {
+    cursor:pointer;
+    color:#3170a7;
+}

@@ -60,9 +60,24 @@
     <div id="albumComment">
 
     </div>
-</div>
 
 
+    @*显示 *@
+<div id="display">
+
+    @foreach (var item in Model.Reply.OrderByDescending(x => x.CreateDateTime))
+    {
+        if (item.ParentReply == null)
+        {
+            <div id="Reply_content">
+                <p>
+                    @item.Person.@item.Content<br>
+                    <em>@item.CreateDateTime</em><br/>
+                </p>
+                </div>
+           }
+        }
+ </div>
 
 <script>
     $("#addcart").click(function () {
