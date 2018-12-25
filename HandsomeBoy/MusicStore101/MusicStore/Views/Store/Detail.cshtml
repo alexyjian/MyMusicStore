@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
     var Reply = ViewBag.Reply;
     var detail = ViewBag.detail;
- 
+    var ParentReply = ViewBag.ParentReply;
 }
 
 <h2>@detail.Title</h2>
@@ -48,45 +48,137 @@
 
     <div id="comment_box">
         <div id="Refresh">
-            @try
-            {
-                foreach (var item in Reply)
+            <ul class="comment">
+                @try
                 {
-                    <div class="comment">
-                       <img src="@item.Person.Avarda"/>
-                        <span>@item.Person.Name:</span>
-                        <span>@item.Content</span>
-                        <p>@item.CreateDateTime</p>
-                        <a href="javascript:;">回复</a>
+                    foreach (var item in Reply)
+                    {
+
+                <li class="comments_item">
+
+
+                    <div class="comments_item_bd">
+                        <img class="replyImg" src="@item.Person.Avarda" />
+                        <span> @item.Person.Name  @item.Title</span>
+                        <span>  @Html.Raw(item.Content)</span>
+                        <p> @item.CreateDateTime </p>
+                        <a href="javascript:;" id="@item.ID">回复</a>
                     </div>
+                    <div class="mod_comments_sub">
+                        <ol>
+                            @foreach (var rtem in ParentReply)
+                            {
+
+                                if (item.ID == rtem.ParentReply.ID)
+                                {
+
+
+                                    <li class="comments_item_ol_li">
+
+                                        <img class="replyImg" src="@rtem.Person.Avarda" />
+                                        <span> @rtem.Person.Name @rtem.Title @rtem.ParentReply.Person.Name</span>
+                                        <span>  @Html.Raw(rtem.Content)</span>
+                                        <p> @rtem.CreateDateTime </p>
+                                        <a href="javascript:;" id="@item.ID">回复</a>
+
+                                    </li>
+
+
+                                }
+
+
+                            }
+                        </ol>
+                    </div>
+
+
+
+                    </li>
+                    }
+                }
+                catch
+                {
+
+                }
+            </ul>
+        </div>
+
+        <script src="~/Ueditor/ueditor.parse.js"></script>
+        <!-- 加载编辑器的容器 -->
+        <div class="ReplyInputBox">
+            <div id="ReplyInput" class="ReplyInput">
+                <script id="container" name="content" type="text/plain">
+                    @*<span class="conbtn">
+
+                </span>*@
+                </script>
+                <input type="button" onclick="Contentpoth()" class="content_btn" value="发表" />
+            </div>
+        </div>
+            <!-- 配置文件 -->
+            <script type="text/javascript" src="~/Ueditor/ueditor.config.js"></script>
+            <!-- 编辑器源码文件 -->
+            <script type="text/javascript" src="~/Ueditor/ueditor.all.js"></script>
+            <!-- 实例化编辑器 -->
+            <script type="text/javascript">
+                var ue = UE.getEditor('container', { scaleEnabled: true });
+                sessionStorage.setItem("title", "评论");
+            
+                for (var i = 0; i < $(".comments_item_bd").length; i++) {
+                    //点击回复的时候，文本框随之出现
+                    (function (n) {
+                        $(".comments_item_bd a")[n].onclick = function () {
+                            var clonedNode = $(".ReplyInput")[0].cloneNode(true); // 克隆节点
+                            //var input1 = document.createElement('input');
+                            for (var j = 0; j < $(".comments_item_bd").length; j++) {
+                                //$("#container").remove();
+                                $(".ReplyInput").remove();
+                            }
+                            sessionStorage.setItem("Replyid", $(".comments_item_bd a")[n].id);
+                            sessionStorage.setItem("title","回复")
+                            //$(".content_btn").defaultValue=("回复");
+                            $(".comments_item_bd")[n].appendChild(clonedNode);
+
+
+
+                      
+                            console.log("a");
+                        }
+                    }(i));
+
                 }
 
-            }
-            catch
-            {
 
-            }
-        </div>
+                for (var i = 0; i < $(".comments_item_ol_li").length; i++) {
+                    //点击回复的时候，文本框随之出现
+                    (function (n) {
+                        $(".comments_item_ol_li a")[n].onclick = function () {
+                            var clonedNode = $(".ReplyInput")[0].cloneNode(true); // 克隆节点
+                            //var input1 = document.createElement('input');
+                            for (var j = 0; j < $(".comments_item_ol_li").length; j++) {
+                                //$("#container").remove();
+                                $(".ReplyInput").remove();
+                            }
+                            sessionStorage.setItem("Replyid", $(".comments_item_ol_li a")[n].id);
+                            sessionStorage.setItem("title", "回复")
+                            //$(".content_btn").defaultValue=("回复");
+                            $(".comments_item_ol_li")[n].appendChild(clonedNode);
+
+
+
+
+                            console.log("a");
+                        }
+                    }(i));
+
+                }
+  
+
+            </script>
       
-
-        <!-- 加载编辑器的容器 -->
-        <script id="container" name="content" type="text/plain">
-
-        </script>
-        <!-- 配置文件 -->
-        <script type="text/javascript" src="~/Ueditor/ueditor.config.js"></script>
-        <!-- 编辑器源码文件 -->
-        <script type="text/javascript" src="~/Ueditor/ueditor.all.js"></script>
-        <!-- 实例化编辑器 -->
-        <script type="text/javascript">
-            var ue = UE.getEditor('container', {
-                autoHeight: false
-            });
-
-        </script>
     </div>
 
-     <input type="button" onclick="Contentpoth()" class="content_btn" value="评论" />
+   
     <div id="box_video">
         <div class="cd">
             <div class="center">
@@ -94,6 +186,7 @@
             </div>
             <div class="song">
                 @*<h2>云城烟雨</h2>*@
+              
             </div>
         </div>
     </div>
@@ -106,6 +199,7 @@
 <script src="~/Ueditor/ueditor.parse.js"></script>
 
 <script>
+    //添加购物车
     $("#addcart").click(function () {
         $("#msg").html("<img src='../../content/Images/ProgressIcon.gif'>添加到购物车,请稍后...")
         $.ajax({
@@ -134,19 +228,21 @@
             )
     });
 
+    //评论传值
     function Contentpoth(){
-        //var Content = $(".Content")[0].value;
-        //var html = ue.getContent();
-        //ue.setContent();
-        //获取html内容，返回: <p>hello</p>
-        //var html = ue.getContent();
-        var Content = ue.getContentTxt();
-        var con = $(".view p")[1].innerText;
+       
+        var arr = UE.getEditor('container').getPlainTxt().toString();
+        if (!ue.hasContents()) {
+            alert("不能为空");
+            return;
+        }
+        var Replyid = sessionStorage.getItem("Replyid");
+        var Title = sessionStorage.getItem("title");
         $.ajax({
             type: 'post',
             async: true,
             url: '../../Store/Reply',
-            data: { id: "@detail.ID", Content, con},
+            data: { id: "@detail.ID", content: arr,Title,Replyid},
             dataType: 'json',
             success: function (data) {
                 $("#Refresh").html(data);
@@ -156,24 +252,58 @@
             )
     }
 
-    @*//异步
-    function Reply() {
-        var Content = $(".Content")[0].value;
-       $(".content_btn")[0].value = "";
-        $(".Content")[0].value = "";
+
+    //回复传值
+    function ReplyPoth(id){
+        var arr = UE.getEditor('container').getPlainTxt().toString();
         $.ajax({
             type: 'post',
             async: true,
-            url: '../../Store/Reply',
-            data: { id: "@detail.ID", Content},
-                    dataType: 'json',
-                    success: function (data) {
-                        $(".comment")[0].html(data);
-                    }
+            url: '../../Store/ParentReply',
+            data: { id: "@detail.ID", content: arr, ParentReplyid:id},
+            dataType: 'json',
+            success: function (data) {
+                $("#Refresh").html(data);
+                $("#container").value = "";
+            }
         }
             )
-    }*@
+    }
+
+    //window.onload = function () {
+    //    //随机出现的文本框，当用户失去他们的焦点时，会自动回归原来的样子
+    //    $("#ReplyInput").addEventListener("click", function () {
+    //        var clonedNode = $(".ReplyInput")[0].cloneNode(true); // 克隆节点
+           
+    //        for (var j = 0; j < $(".comments_item a").length; j++) {
+    //            //$("#container").remove();
+    //            $(".ReplyInput").remove();
+    //        }
+    //        $(".ReplyInputBox")[0].appendChild(clonedNode);
+    //    }
+    //    );
+    //}
+
+    window.onload = function () {
+    
+    };
+
     uParse('.content', {
         rootPath: '../'
     })
 </script>
+
+
+      @*//document.addEventListener("click", function () {
+                            //    var clonedNode = $(".ReplyInput")[0].cloneNode(true); // 克隆节点
+
+                            //    for (var j = 0; j < $(".comments_item a").length; j++) {
+                            //        //$("#container").remove();
+                            //        $(".ReplyInput").remove();
+                            //    }
+                            //    $(".ReplyInputBox")[0].appendChild(clonedNode);
+                            //});
+                            //document.getElementById("ReplyInput").addEventListener("click", function (event) {
+                            //    event = event || window.event;
+                            //    event.stopPropagation();
+                            //});*@ 

@@ -338,3 +338,17 @@ width:30px;
 #comment_box {
     margin-top:200px;
 }
+.replyImg {
+  width:50px;
+}
+.conbtn {
+    display:block;
+ width:auto;
+ height:auto;
+}
+.ReplyInput {
+ width:500px;
+}
+.mod_comments_sub {
+    margin-left:50px;
+}

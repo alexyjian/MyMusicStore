@@ -16,7 +16,7 @@ namespace MusicStore.Controllers
         public ActionResult Index()
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
                var myVM = new MyViewModel()
                 {
@@ -37,7 +37,7 @@ namespace MusicStore.Controllers
         public ActionResult Index(MyViewModel model)
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
 
             //用户原来的头像
@@ -81,7 +81,7 @@ namespace MusicStore.Controllers
         public ActionResult Address()
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "ShoppingCart") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
             var mya = new List<My>();
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             try

@@ -21,6 +21,8 @@ namespace MusicStoreEntity
         public string ArtistId { get; set; }
         //上架时间
         public DateTime PublsherDate { get; set; }
+
+      
         public string AlbumArtUrl { get; set; }
         public Albun() {
             ID = Guid.NewGuid();
