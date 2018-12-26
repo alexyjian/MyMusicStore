@@ -1,5 +1,6 @@
 ﻿using MusicStore.ViewModels;
 using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,49 +28,43 @@ namespace MusicStore.Controllers
 
 
 
-        /// <summary>
-        /// 评论
-        /// </summary>
-        /// <param name="str"></param>
-        /// <param name="ID"></param>
-        /// <returns></returns>
-        public ActionResult Content(string str, Guid id)
+       //评论
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult AddCmt(string id, string cmt, string reply)
         {
+            //判断是否登录
             if (Session["LoginUserSessionModel"] == null)
                 return Json("nologin");
-            if (str == "")
-                return Json("");
 
-            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
-            var album = _context.Albums.Find(id);
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
+              LoginUserSessionModel).Person.ID);
+            var album = _context.Albums.Find(Guid.Parse(id));
 
-            //添加评论
-            var txt = new Reply()
+            //创建回复对象
+
+            var r = new Reply()
             {
-                Title = str,
-                Person = _context.Persons.Find(person,id).Name,
-                Content = str,
                 Album = album,
+                Person = person,
+                Content = cmt,
+                Title = ""
             };
-            _context.Replys.Add(txt);
-            _context.SaveChanges();
-
-
-            // 显示评论
-            var albumSay = _context.Albums.Find(id).Reply.OrderByDescending(x => x.CreateDateTime).ToList();
-            var htmlString = "";
-
-            foreach (var item in albumSay)
+            //父级回复
+            if (string.IsNullOrEmpty(reply))
             {
-                htmlString += "<p>" + item.Person + ":" + item.Content + "<br/>";
-                htmlString += "<em>" + item.CreateDateTime + "</em></p>";
+                //顶级回复
+                r.ParentReply = null;
 
             }
-            return Json(htmlString);
- 
+            else
+            {
+                r.ParentReply = _context.Replys.Find(Guid.Parse(reply));
+            }
+            _context.Replys.Add(r);
+            _context.SaveChanges();
+            return Json("OK");
         }
-
-
 
   
         /// <summary>
