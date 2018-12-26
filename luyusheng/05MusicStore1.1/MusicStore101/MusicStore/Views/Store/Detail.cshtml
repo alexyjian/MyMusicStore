@@ -46,39 +46,34 @@
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
-    <p>
-        <em>
-            发表时间:
-        </em>
-        回复1: 好听,我喜欢它！！！
-    </p>
-    <p>
-        <em>
-            发表时间:
-        </em>
-        回复1: 好听
-    </p>
-    <p>
-        <em>
-            发表时间:
-        </em>
-        回复1: 很经典的一首歌
-    </p>
-    <p>
-        <textarea id="reply" rows="4" cols="3"></textarea>
-        <button class="btn btn-primary" id="btnreply">评论</button>
-    </p>
 </div>
-<body>
-    <!--加载编辑器的容器-->
-    <script id="container" name ="content" type="text/plain">这里写你的初始化内容</script>
-    <!--配置文件-->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
-    <!--编辑器源码文件-->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
-    <!--实例化编辑器-->
-    <script type="text/javascript">var ue = UE.getEditor('container');</script>
-</body>
+
+    @*百度ueditor的呈现*@
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <textarea id="editor" name="editor"></textarea>
+            </div>
+            <button id="btnCmt"type="button"class="btn btn-success"></button>
+        </div>
+    </div>
+   
+    <script>
+        //百度编辑器调用
+        var editor = new baidu.editor.ui.Editor({
+            //配置编辑器的路径
+            UEDITOR_HOME_URL: '/ueditor/',
+            //自定义样式路径
+            iframeCssUrl: '/ueditor/themes/iframe.css',
+            //初始内容
+            initialContent: '五星好评',
+            //亮度是否自适应
+            autoHeightEnabled: true,
+            //编辑器最小的高度
+            minFrameHeight: 500
+        });
+        editor.render('editor');
+    </script>
 
 <script>
      $("#addcart").click(function() {
