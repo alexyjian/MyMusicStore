@@ -21,7 +21,15 @@ namespace MusicStore.Controllers
             var detail = _context.Albums.Find(id);
             return View(detail);
         }
+        [HttpPost]
+        [ValidateInput(false)] //关闭验证
+        public ActionResult AddCmt(string id,string cmt,string reply)
+        {
+            //if(Session["LoginUserSessionMdel"]==null)
+            return Json("nologin");
 
+            //var person = _context.Persons.Find((Session["LoginUserSessionMdel"]as LoginUserSessionMdel).Person.ID);
+        }
         /// <summary>
         /// 按分类显示专辑
         /// </summary>
