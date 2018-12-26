@@ -34,6 +34,13 @@ namespace MusicStore.Controllers
             return View(list);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddCmt(string id,string cmt,string reply)
+        {
+            return Json("OK");
+        }
+
         /// <summary>
         /// 显示所有分类
         /// </summary>

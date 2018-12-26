@@ -52,19 +52,9 @@
     </div>
 
 
-<div>
-    <div class="comment-pl">
-        <span class="pl">评论</span><span class="text-muted"></span>
-    </div>
-    <div class="comment-Text">       
-        <p class="text-right">
-            <span id="font-count" class="text-muted">140</span>&nbsp;&nbsp;
-            <a href="#" class="btn btn-success">评论</a>
-        </p>
-    </div>
-</div>
 
-    <div id="ueditor">
+
+    @*<div id="ueditor">
         <!-- 加载编辑器的容器 -->
         <script id="container" name="content" type="text/plain">
             这里写你的初始化内容
@@ -77,11 +67,60 @@
         <script type="text/javascript">
             var ue = UE.getEditor('container');
         </script>
+    </div>*@
+
+@*百度ueditor呈现*@
+<div class="row">
+    <div class="col-pl">
+        <div class="form-group">
+            <textarea id="editor" name="editor"></textarea>
+        </div>
+        <button id="btnCmt" type="button"  class="btn btn-success">评论</button>
     </div>
+</div>
 
+<script>
+    @*百度编辑调用*@
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/ueditor/',//配置编辑器路径
+        iframeCssUrl: '/ueditor/themes/iframe.css',//
+        initialContent: '五星好评',//初始内容
+        autoHeigheEnabled: true,//高度是否自适应
+        minFrameHeight: 500 //编辑器最小高度
+    });
+    editor.render('editor');
+    
+    //提交回复
+    $("#btnCmt").click(function () {
+        //获得编辑器中的内容
+        UE.getEditor('editor');
+        var content = UE.getEditor('editor').getActionUrl();
+        //console.log(content);
+        //ajax提交
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("AddCmt", "Store")',
+            data: {
+                "id":"@Model.ID",
+                "cmt": content,
+                "reply":""
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologon') {
+                    //如果没登录
+                    location.href = "@Url.Action("login", "Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID })})";
+                }
+                else if(data=="OK"){
+                    alert("发表成功!");
+                    //局部刷新
+                }
+            }
+        })
+    })
 
-
-    <script>
+    
         $("#addcart").click(function () {
             //异步
             $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍候...");

@@ -34,6 +34,9 @@ namespace MusicStoreEntity
 
         public DateTime CreateDateTime { get; set; }  //回复时间
 
+        public int like { get; set; } = 0; //赞
+        public int Hate { get; set; } = 0;//踩
+
         public Reply()
         {
             ID = Guid.NewGuid();

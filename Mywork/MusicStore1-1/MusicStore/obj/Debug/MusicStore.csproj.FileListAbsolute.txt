@@ -44,6 +44,7 @@ F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\System.Web.We
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\System.Web.WebPages.Deployment.xml
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\System.Web.WebPages.Razor.xml
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\Antlr3.Runtime.pdb
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\Newtonsoft.Json.pdb
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\Newtonsoft.Json.xml
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\zh-Hans\System.Web.Helpers.resources.dll
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\zh-Hans\System.Web.Mvc.resources.dll
@@ -55,4 +56,3 @@ F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\zh-Hans\Syste
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.dll
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.pdb
-F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\Newtonsoft.Json.pdb

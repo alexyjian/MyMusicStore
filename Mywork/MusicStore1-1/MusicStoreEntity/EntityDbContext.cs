@@ -39,6 +39,8 @@ namespace MusicStoreEntity
         public IDbSet<Order> Orders { get; set; }
         public IDbSet<OrderDetail> OrderDetails { get; set; }
 
+        public IDbSet<Reply> Reoly { get; set; }
+
 
         #endregion
     }

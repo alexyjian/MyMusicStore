@@ -11,4 +11,3 @@ F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\M
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
-F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache
