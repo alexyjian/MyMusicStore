@@ -108,6 +108,8 @@
     }
     var s = 0;//用于判断点击次数
     var ID;
+
+    //添加输入框
     function ADD(obj) {
         var iD = obj.parentNode.id;
         ID = iD;
@@ -124,6 +126,7 @@
             s = 0;           
         }
     }
+    //子回复传值
     function Reply() {
       
         var arr = UE.getEditor('editor1').getPlainTxt().toString();
@@ -140,6 +143,12 @@
                  $(".pinl").html(data);
             }
         });
+    }
+    //查看所有回复
+    function openmain(obj) {
+       
+        var d = document.getElementById('pinl_main_second');
+        d.style.display = "block";
     }
 </script>
 <script>

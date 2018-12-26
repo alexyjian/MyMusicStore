@@ -261,7 +261,7 @@ body {
 #pinl_main_second {
     width: 80%;
     float: right;
-    /*display: none;*/
+    display: none;
 }
 hr {
     clear: both;

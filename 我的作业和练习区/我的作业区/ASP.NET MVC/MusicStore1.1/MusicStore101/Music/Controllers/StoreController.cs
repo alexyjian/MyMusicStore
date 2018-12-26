@@ -77,6 +77,10 @@ namespace Music.Controllers
 
                 }
                 htmlString += "</div>";//第二层回复结束
+                if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count > 0)
+                {
+                    htmlString += "<p onclick='openmain(this)' style='clear:both;'>查看所有回复</p>";
+                }
                 htmlString += "<hr>";
                 htmlString += "</div>";
             }
@@ -213,6 +217,10 @@ namespace Music.Controllers
 
                 }
                 htmlString += "</div>";//第二层回复结束
+                if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count > 0)
+                {
+                    htmlString += "<p onclick='openmain(this)' style='clear:both;'>查看所有回复</p>";
+                }
                 htmlString += "<hr>";
                 htmlString += "</div>";
             }
