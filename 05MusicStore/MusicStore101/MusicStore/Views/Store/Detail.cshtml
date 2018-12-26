@@ -32,40 +32,62 @@
     <div id="msg"></div>
     <p class="button">
         <a class="btn" id="addcart">添加到购物车</a>
-        <div id="msg"></div>
+        <div id="msg">
+
+        </div>
     </p>
-    <br/>
-    <p>
-        <em>南宫婉：</em>天籁之音！
-    </p>
-    <p>
-        <em>韩立：</em>真好听！
-    </p>
-    <p>
-        <em>东方月初：</em>这也太好听了吧!
-    </p>
-    <p>
-        <em>南宫婉 </em> 回复<em>韩立:</em>同道中人
-    </p>
-    <form action="server.php" method="post">
-        <!-- 加载编辑器的容器 -->
-        <script id="container" name="content" type="text/plain" style="width:350px;height:70px;">
-            这里写你的初始化内容
-        </script>
-      
-        <p >
-            <a class="btn" style="background-color:lawngreen;">评论</a>
-        </p>
-</form>
-    <!-- 配置文件 -->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
-    <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('container');
-    </script>
 </div>
+<div class="row">
+    <div class="col-md-10">
+        <div class="form-group">
+            <textarea id="editor" name="editor"></textarea>
+        </div>
+
+        <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+    </div>
+</div>
+   <script>
+       //百度编辑器调用
+       var editor = new baidu.editor.ui.Editor({
+           UEDITOR_HOME_URL: '/ueditor/',
+           iframeCssUrl: '/Content/ueditor1_4_3-utf8-net/themes/iframe.css/',
+           initialContent: '五星好评',
+           autoHeightEnabled: true,
+           minFrameHeight: 500
+
+
+       });
+       editor.render('editor');
+       //提交回复
+       $("#btnCmt").click(function () {
+           UE.getEditor("editor");
+           var content = UE.getEditor("editor").getContent();
+           $.ajax({
+               type: 'post',
+               asyn: true,
+               url:@Url.Action("AddCmt","Store"),
+               data:{
+               "id":"@Model.ID",
+                   "cmt":content,
+                   "reply":""
+               },
+               dataType:'json',
+               success:function(data){
+                   if(data=='nologon'){
+                       //如果没登录
+                       location.href="@Url.Action("login","Account",
+                       new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                   }
+                   else if(data=="OK"){
+                       alert('发表成功!');
+                       //局部刷新
+                   }
+               }
+           })
+       })
+   </script>
+
+
 <script>
     $("#addcart").click(function () {
         //异步
