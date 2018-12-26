@@ -82,10 +82,17 @@
             type: 'post',
             async: true,
              url: '../../Store/Reply',
-             data: { id: "@Model.ID", content: arr, },
+             data: { id: "@Model.ID", replyID: "00000000-0000-0000-0000-000000000000", content: arr },
              dataType: 'json',
              success: function (data) {
-                 $(".pinl").html(data);
+                 if (data == "OK") {
+                     location.href =
+                         "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                 } else {
+                     $(".pinl").html(data);
+                 }
+             
+
             }
         });
     }
@@ -120,6 +127,9 @@
     function Reply() {
       
         var arr = UE.getEditor('editor1').getPlainTxt().toString();
+
+        UE.getEditor('editor1', { scaleEnabled: true }).destroy();
+        s = 0;
          $.ajax({
             type: 'post',
             async: true,

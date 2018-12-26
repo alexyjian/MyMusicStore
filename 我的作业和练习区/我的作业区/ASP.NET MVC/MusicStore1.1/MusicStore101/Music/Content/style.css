@@ -208,6 +208,7 @@ body {
 }
 
 #pinl_main_main {
+    clear: both;
     width: 100%;
     margin-bottom: 40px;
     padding: 5px;
@@ -260,7 +261,7 @@ body {
 #pinl_main_second {
     width: 80%;
     float: right;
-    display: none;
+    /*display: none;*/
 }
 hr {
     clear: both;
