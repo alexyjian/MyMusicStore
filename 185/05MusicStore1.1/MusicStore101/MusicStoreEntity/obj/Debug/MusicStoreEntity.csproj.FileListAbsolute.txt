@@ -25,4 +25,3 @@ E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debu
 E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
 E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
-E:\2015\MyMusicStore\185\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache

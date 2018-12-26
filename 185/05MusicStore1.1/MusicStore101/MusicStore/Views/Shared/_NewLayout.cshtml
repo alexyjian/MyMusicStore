@@ -26,19 +26,21 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title -音乐商店</title>
     @*绑定样式库*@
-
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Ueditor/Css")
     @Styles.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/JqueryUI")
-    @Styles.Render("~/Content/css")
+  
 
     @*绑定脚本库*@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/JqueryUI")
     @Scripts.Render("~/bundles/jqueryval")
-</head>
-<body>
-        <div id="header">
+    @Scripts.Render("~/bundles/Ueditor")
+</head >
+<body >
+        <div id = "header" >
             @*Logo和菜单*@
             <h1><a href="/">陈氏集团音乐商店</a></h1>
             <ul class="nav navbar-nav navbar-right">
