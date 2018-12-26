@@ -1,5 +1,6 @@
 ﻿using MusicStore.ViewModels;
 using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -105,6 +106,39 @@ namespace MusicStore.Controllers
             return Json(htmlString);
 
 
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]//关闭验证
+        public ActionResult AddCmt(string id, string cmt, string reply)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+            var person=_context.Persons.Find((Session["LoginUserSessionModel"]as LoginUserSessionModel).Person.ID);
+            var album = _context.Albums.Find(Guid.Parse(id));
+
+            //创建回复对象
+            var r = new Reply()
+            {
+                Album = album,
+                Person = person,
+                Content = cmt,
+                Title = ""
+            };
+            //父级回复
+            if (string.IsNullOrEmpty(reply))
+            {
+                //顶级回复
+                r.ParentReply = null;
+            }
+            else
+            {
+                r.ParentReply = _context.Replys.Find(Guid.Parse(reply));
+            }
+            _context.Replys.Add(r);
+            _context.SaveChanges();
+
+                return Json("OK");
         }
        
         }

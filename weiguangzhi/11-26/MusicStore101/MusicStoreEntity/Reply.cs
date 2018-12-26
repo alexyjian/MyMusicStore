@@ -15,9 +15,9 @@ namespace MusicStoreEntity
     {
         public Guid ID { get; set; }
 
-        //[Display(Name = "标题")]
-        //[Required]
-        //public virtual string Title { get; set; }
+        [Display(Name = "标题")]
+        [Required]
+        public virtual string Title { get; set; }
 
         [Display(Name = "内容")]
         [Required]
@@ -29,9 +29,16 @@ namespace MusicStoreEntity
         [Required]
         public virtual Album Album { get; set; }
 
-       
+        [Required]
+        public virtual Reply ParentReply { get; set; }
 
         public DateTime CreateDateTime { get; set; }  //回复时间
+
+        //赞
+        public int Like { get; set; } = 0;
+
+        //踩
+        public int Hate { get; set; } = 0;
 
         public Reply()
         {

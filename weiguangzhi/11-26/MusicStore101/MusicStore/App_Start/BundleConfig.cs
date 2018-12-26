@@ -36,6 +36,16 @@ namespace MusicStore
                "~/Content/themes/base/jquery-ui-{version}.js"
 
                ));
+
+            //绑定Ueditor的样式
+            bundles.Add(new StyleBundle("~/ueditor/css").Include("~/ueditor/themes/iframe"));
+
+            //绑定Ueditor的脚本
+            bundles.Add(new ScriptBundle("~/bundles/Ueditor").Include(
+                "~/ueditor/ueditor.config.js",
+                "~/ueditor/ueditor.all.js",
+                "~/ueditor/ueditor.all.min.js"
+                ));
         }
     }
 }

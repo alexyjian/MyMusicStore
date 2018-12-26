@@ -70,14 +70,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Replys)
+                        @*@foreach (var item in Model.Replys)
                         {
                             <tr>
                                 <td><img src="@item.Person.Avarda" style="width:35px;height:35px;" />&nbsp;@item.Person.LastName</td>
                                 <td>@item.Content</td>
                                 <td>@item.CreateDateTime</td>
                             </tr>
-                        }
+                        }*@
                     </tbody>
                 </table>
             </div>
@@ -88,55 +88,14 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
+            <div class="form-group">
+                <textarea id="editor" name="editor"></textarea>
+            </div>
+           
+               
+                <button id="btnCmt" type="button" class="btn btn-success">评论</button>
 
-            @*@using (Html.BeginForm("detail", "store", FormMethod.Post))
-            {
-                <fieldset>
-                    <div class="editor-label">
-                        @Html.LabelFor(x => x.Reply.Content)
-                    </div>
-                    <div class="editor-field">
-                        @Html.TextBoxFor(x => x.Reply.Content, new { placeholder = "请输入回复内容" })
-                        @Html.ValidationMessageFor(x => x.Reply.Content)
-                    </div>
-                    <p>
-                        <button type="submit" class="btn btn-success">
-                            <i class="glyphicon glyphicon-fire"></i>
-                        </button>
-                    </p>
-                </fieldset>
-
-
-            }*@
-            <div>
-                    <!-- 加载编辑器的容器 -->
-                    <script id="container" name="content" type="text/plain">
-
-                    </script>
-                    <!-- 配置文件 -->
-                    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
-                    <!-- 编辑器源码文件 -->
-                    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
-                    <!-- 实例化编辑器 -->
-                    <script type="text/javascript">
-                        var ue = UE.getEditor('container');
-                        var ue = UE.getContent();
-                        //对编辑器的操作最好在编辑器ready之后再做
-                        ue.ready(function () {
-                            //设置编辑器的内容
-                            ue.setContent('hello');
-                            //获取html内容，返回: <p>hello</p>
-                            var html = ue.getContent();
-                            //获取纯文本内容，返回: hello
-                            var txt = ue.getContentTxt();
-                        });
-                    </script>
-                    <p>
-                        <a class="btn" id="addcart" style="background:#808080">回复</a>
-
-                    </p>
-
-                </div>
+                
         </div>
     </div>
 </div>
@@ -145,6 +104,48 @@
 
 
 <script>
+
+    @*百度编辑调用*@
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/ueditor/',//配置编辑器路径
+        iframeCssUrl: '/ueditor/themes/iframe.css',//
+        initialContent: '五星好评',//初始内容
+        autoHeigheEnabled: true,//高度是否自适应
+        minFrameHeight: 500 //编辑器最小高度
+    });
+    editor.render('editor');
+
+    //提交回复
+    $("#btnCmt").click(function () {
+        //获得编辑器中的内容
+        UE.getEditor('editor');
+        var content = UE.getEditor('editor').getActionUrl();
+        //console.log(content);
+        //ajax提交
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("AddCmt", "Store")',
+            data: {
+                "id":"@Model.ID",
+                "cmt": content,
+                "reply":""
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologon') {
+                    //如果没登录
+                    location.href = "@Url.Action("login", "Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID })})";
+                }
+                else if(data=="OK"){
+                    alert("发表成功!");
+                    //局部刷新
+                }
+            }
+        })
+    })
+
+
     $("#addcart").click(function () {
         //异步
         $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍后...")
