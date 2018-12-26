@@ -50,9 +50,9 @@ namespace MusicStore.Controllers
             }
             else
             {
-                r.ParentReoly = _context.Replies.Find(Guid.Parse(reply));
+                r.ParentReoly = _context.Reply.Find(Guid.Parse(reply));
             }
-            _context.Replies.Add(r);
+            _context.Reply.Add(r);
             _context.SaveChanges();
             return Json("OK");
 
