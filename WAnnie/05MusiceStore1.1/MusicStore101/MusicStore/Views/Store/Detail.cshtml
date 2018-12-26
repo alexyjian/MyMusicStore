@@ -52,7 +52,7 @@
         <a class="btn" id="addcrt">添加到购物车</a>
         <div id="msg"></div>
     </p>
-    <div id="paryed">
+    @*<div id="paryed">
         @try
         {
             foreach (var item in Reply)
@@ -70,33 +70,78 @@
         {
         }
 
-    </div>
-
-    @*<div>
-        <div class="editor-field">
-            <textarea class="pary"></textarea>
-        </div>
     </div>*@
-
-            <!-- 加载编辑器的容器 -->
-            <script id="container" name="content" type="text/plain"></script>                 
-            <!-- 配置文件 -->
-            <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
-            <!-- 编辑器源码文件 -->
-            <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
-            <!-- 实例化编辑器 -->
-            <script type="text/javascript">
-                var ue = UE.getEditor('container');
-            </script>
-
-
+    @*<!-- 加载编辑器的容器 -->
+                <script id="container" name="content" type="text/plain"></script>
+                <!-- 配置文件 -->
+                <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
+                <!-- 编辑器源码文件 -->
+                <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
+                <!-- 实例化编辑器 -->
+                <script type="text/javascript">
+                    var ue = UE.getEditor('container');
+                </script>
         <div id="pinglun">
-            <input type="button" onclick="paryted()" class="btn btn-success " value="评论"/>
+            <input type="button" onclick="paryted()" class="btn btn-success " value="评论" />
+        </div>*@
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <textarea id="editor" name="editor"></textarea>
+            </div> 
+            <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+
         </div>
     </div>
-
+</div>
 
 <script>
+    //百度编辑器调用
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/ueditor/', //配置编辑器的路径
+        iframeCssUrl: '/ueditor/themes/iframe.css', //自定义样式路径
+        initialContent: '五星好评', //初始化内容
+        autoHeightEnabled: true, //高度是否自适应
+        minFrameHeight: 500 //编辑器最小的高度
+    });
+    editor.render('editor');
+
+    //提交回复
+    $("#btnCmt").click(function() {
+        //获取编辑器中的内容
+        UE.getEditor('editor');
+        var content = UE.getEditor('editor').getContent();
+        console.log(content);
+        //ajax提交
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("AddCmt","Store")',
+            data: {
+                "id": "@Model.ID",
+                "cmt": content,
+                "reply": ""
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                                        new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else if (data == "OK") {
+                    alert('发表成功!');
+                    //局部刷新
+                    setTimeout(function () {
+                            location.reload();
+                        },
+                        2000);
+                }
+            }
+        });
+    });
+
+    //添加购物车
     $("#addcrt").click(function() {
         //异步
         $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍后......");
@@ -125,7 +170,7 @@
         });
     });
 
-    function paryted() {
+    @*function paryted() {
         //var pary = $(".pary")[0].value;
         var pary = ue.getContentTxt();
         $.ajax({
@@ -138,6 +183,6 @@
                 $("#paryed").html(data);
                 $(".btn btn-success")[0].value = "";
             }
-        });
-    }
+        });*@
+    //}
 </script>
