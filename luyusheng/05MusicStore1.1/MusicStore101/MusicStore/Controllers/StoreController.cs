@@ -21,6 +21,14 @@ namespace MusicStore.Controllers
             return View(detail);
         }
 
+        [HttpPost]
+        [ValidateInput(false)] //关闭验证
+        public ActionResult AddCmt(string id,string cmt,string reply)
+        {
+
+            return Json("OK");
+        }
+
         /// <summary>
         /// 按分类显示专辑
         /// </summary>
