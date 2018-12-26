@@ -38,45 +38,65 @@
         <div id="msg">
         </div>
     </p>
-    <p>
-        <em>
-            发表的时间：
-        </em>
-        回复1：黄子韬好棒呀呀呀！！！！
-    </p>
-    <p>
-        <em>
-            发表的时间：
-        </em>
-        回复1：黄子韬好棒呀呀呀！！！！
-    </p>
-    <p>
-        <em>
-            发表的时间：
-        </em>
-        回复1：黄子韬好棒呀呀呀！！！！
-    </p>
-    <p>
-        <em>
-            发表的时间：
-        </em>
-        回复1：黄子韬好棒呀呀呀！！！！
-    </p>
-    <p>
-        <em>
-            发表的时间：
-        </em>
-        回复1：黄子韬好棒呀呀呀(*╹▽╹*)！！！！
-    </p>
-    @*<textarea id="reply" rows="4" cols="3"></textarea>*@
+    </div>
 
-    @*<button class="btn btn-primary" id="bthreply">评论</button>*@
+@*百度ueditor的呈现*@
+<div class="row">
+    <div class="col-md-10">
+        <div class="form-group">
+            <textarea id="editor"name="editor"></textarea>
+            </div>
+        </div>
+    </div>
 
-</div>
+<script>
+    //百度编辑器调用
+    var editor=new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL:'/ueditor/',//配置编辑器的路径
+        iframeCssUrl:'/ueditor/themes/iframe.css',//自定义样式路径
+        initialContent:'五星好评',//初始内容
+        autoHeightEnabled:true,//高度是否只适应
+        minFrameHeight:500//编辑器最小高度
+    });
+    editor.render('editor');
 
+
+    //提交回复
+    $("#bthCmt").click(function () {
+        //获得编辑器中的内容
+        UE.getEditor('editor');
+        var comtent = UE.getEditor('editor').getContent();
+        console.log(content);
+        //ajax提交
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url:'@Url.Action("AddCmt","Store")',
+            data:{
+                "id":"@Model.ID",
+                "cmt":content,
+                "reply":""
+            },
+        dataType:'json',
+        success:function(data){
+            if (data=='nologon'){
+                //如果没登录
+                location.href="@Url.Action("login", "Account",
+    new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID })});
+            }
+            else if (data=="ok"){
+
+                alert('发表成功')
+                //局部刷新
+            }
+        }
+    });
+    });
+
+    </script>
 <body>
 
-    <form action="server.php" method="post">
+    @*<form action="server.php" method="post">
         <!-- 加载编辑器的容器 -->
         <script id="container" name="content" type="text/plain">
             这里写你的初始化内容
@@ -89,7 +109,7 @@
     <!-- 实例化编辑器 -->
     <script type="text/javascript">
         var editor = UE.getEditor('container');
-    </script>
+    </script>*@
 
 </body>
 <button class="btn btn-primary" id="bthreply">评论</button>

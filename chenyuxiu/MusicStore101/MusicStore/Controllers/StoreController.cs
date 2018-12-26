@@ -1,4 +1,6 @@
-﻿using MusicStoreEntity;
+﻿using MusicStore.ViewModels;
+using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,42 @@ namespace MusicStore.Controllers
             var detail = _context.Albums.Find(id);
             return View(detail);
         }
+        [HttpPost]
+        [ValidateInput(false )] //关闭验证
+        public ActionResult AddCmt(string id,string cmt,string  reply)
+        {
+
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
+          LoginUserSessionModel).Person.ID);
+            var alnum = _context.Albums.Find(Guid.Parse(id));
+
+            //创建回复对象
+            var r = new Reply()
+            {
+                Album = alnum,
+                Person =person,
+                Content=cmt,
+            };
+            //父级回复
+            if(string .IsNullOrEmpty(reply))
+            {
+                //顶级回复
+                r.ParentReoly = null;
+            }
+            else
+            {
+                r.ParentReoly = _context.Replies.Find(Guid.Parse(reply));
+            }
+            _context.Replies.Add(r);
+            _context.SaveChanges();
+            return Json("OK");
+
+        }
+
+
         /// <summary>
         /// 按分类显示专辑
         /// </summary>

@@ -66,6 +66,7 @@
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reply.cs" />
     <Compile Include="UserAndRole\ApplicaitionUserInApplication.cs" />
     <Compile Include="UserAndRole\ApplicationBusinessType.cs" />
     <Compile Include="UserAndRole\ApplicationInformation.cs" />
