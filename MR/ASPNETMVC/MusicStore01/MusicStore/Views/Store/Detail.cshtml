@@ -47,7 +47,18 @@
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg"></div>
     </p>
-    <!-- 加载编辑器的容器 -->
+
+    @*百度富文本编辑器的呈现*@
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <textarea id="editor" name="editor"></textarea>
+            </div>
+            <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+        </div>
+    </div>
+
+    @*<!-- 加载编辑器的容器 -->
     <div>
     <script id="container" name="content" type="text/plain" style="width:300px;">
        
@@ -70,10 +81,52 @@
         });
     </script>
         <input type="button" id="submit" value="评论" />
-    </div>
+    </div>*@
 </div>
 
 <script>
+    //百度编辑器调用
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: "/ueditor/",//配置编辑器的路径
+        iframeCssUrl: "/ueditor/themes/iframe.css",//自定义样式路径
+        initialContent: "五星好评",//出事内容
+        autoHeightEnabled: true,//高度自适应
+        minFrameHeight:500 //编辑器最小的高度
+    });
+    editor.render("editor");
+
+    //提交回复
+    $("#btnCmt").click(function(){
+        //获得编辑器的内容
+        UE.getEditor("editor");
+        var content = UE.getEditor("editor").getContent();
+        //ajax提交
+        $.ajax({
+            type:'post',
+            asyn:true,
+            url:'@Url.Action("AddCmt","Store")',
+            data:{
+                "id": "@Model.ID",
+                "cmt": content,
+                "reply": ""
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                                  new{returnUrl=Url.Action("Detail","Store",new { id=Model.ID})})";
+                }
+                else if (data == "OK") {
+                    alert("评论成功");
+                    //局部刷新
+                }
+            }
+        });
+    });
+
+
+    //添加购物车
     $("#addcart").click(function() {
         //异步
         $("#msg").html("<img src='../../content/images/loading.gif'>添加到购物车，请稍候...");

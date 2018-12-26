@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
+using MusicStore.ViewModels;
 
 namespace MusicStore.Controllers
 {
@@ -19,6 +21,31 @@ namespace MusicStore.Controllers
         {
             var detail = _context.Albums.Find(id);
             return View(detail);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult AddCmt(string id,string cmt,string reply)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
+                LoginUserSessionModel).ID);
+
+            var album = _context.Albums.Find(Guid.Parse(id));
+            //创造回复对象
+            var r = new Reply()
+            {
+                Album = album,
+                Person = person,
+                Content = cmt,
+                Title = ""
+            };
+            //父级回复
+            if(string.IsNullOrEmpty(reply))
+            {
+                //顶级回复
+            }
+            return Json("OK");
         }
 
         /// <summary>
