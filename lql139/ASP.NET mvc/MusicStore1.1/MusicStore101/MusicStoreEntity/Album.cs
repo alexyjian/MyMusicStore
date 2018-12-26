@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MusicStoreEntity
 {
     /// <summary>
-    /// 歌曲专辑
+    /// 歌曲
     /// </summary>
    public class Album
     {

@@ -1,4 +1,5 @@
-﻿using MusicStoreEntity.UserAndRole;
+﻿using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,8 @@ namespace MusicStore.ViewModels
         public Person Person { get; set; }//个人信息的对象
 
         public string RoleName { get; set; }
+
+        public Album Album { get; set; }
+
     }
 }

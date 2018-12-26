@@ -75,23 +75,24 @@
             }
         });
     });
+
     $("#comments").click(function () {
-        //异步
-     //   $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>发布评论中,请稍后...");
+        UE.getEditor('container');
+        var content = UE.getEditor('container').getContent();
+        //提交
         $.ajax({
             type: 'post',
             async: true,
             url: '../../Store/Commentsadd',
-            data: {id:"@Model.ID"},
+            data: {id:"@Model.ID","cmt":content,"reply":""},
             dataType:'json',
-            success:function(data){
+            success: function (data) {
                 if (data == "nologin")
                 {
                     location.href="@Url.Action("Login", "Account",new {returnUrl = Url.Action("Detai", "Store", new {id = Model.ID})})";
                 }
                 else
                 {
-                   // $("#msg").html(data);//添加成功 动画取消
                     setTimeout(function(){
                         location.reload();//刷新区域
                     },1000);

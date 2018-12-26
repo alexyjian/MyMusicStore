@@ -33,31 +33,38 @@ namespace MusicStore.Controllers
         }
         public ActionResult Comments()
         {
-            
-          
             //获取当前用户ID
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var Commentss = _context.Commentss.Where(x => x.Person.ID == x.Person.ID).ToList();
-         
+            var Commentss = _context.Commentss.Where(x => x.Person.ID == x.Person.ID && x.Album.ID == x.Album.ID).ToList();
             return View(Commentss);
         }
         [HttpPost]
-        public ActionResult Commentsadd(Guid id)
+        [ValidateInput(false)]
+        public ActionResult Commentsadd(string id,string cmt, string reply)
         {
             //判断是否登录
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
+                return Json("nologin");
             //获取当前用户ID
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var album = _context.Albums.Find(Guid.Parse(id));
 
-           
-            var Comments = _context.Commentss.SingleOrDefault(x => x.Person.ID == x.Person.ID && x.Album.ID == id);
-            Comments = new Comments() {
-                Album = _context.Albums.Find(id),
-                Person = _context.Persons.Find(person.ID),
-                content = "11111111aaaaaaaa",
+            var r = new Reply()
+            {
+                Album =album,
+                Person=person,
+                Content=cmt,
+                
             };
-            _context.Commentss.Add(Comments);
+            if(string.IsNullOrEmpty(reply))
+            {
+                r.ParentReply = null;
+            }
+            else
+            {
+                //r.ParentReply=_context.
+            }
+            _context.Commentss.Add(r);
             _context.SaveChanges();
             
             return Content("< script > alert('评论成功!') </ script >");
