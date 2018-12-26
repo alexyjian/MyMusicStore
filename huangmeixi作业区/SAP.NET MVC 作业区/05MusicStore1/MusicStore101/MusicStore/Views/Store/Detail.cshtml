@@ -95,7 +95,7 @@
             },
             dataType: 'json',
             success: function (data) {
-                if (data == 'nologon') {
+                if (data == 'nologin') {
                     //
                     location.href = "@Url.Action("login","Account",
                                   new { returnUrl=Url.Action("Detail","Store",new { id=Model.ID})})";
