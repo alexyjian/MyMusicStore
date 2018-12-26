@@ -28,6 +28,8 @@ namespace MusicStoreEntity
 
         public int ThumbsUp { get; set; } = 0;
 
+        public virtual Commentary commentary { get; set; }
+
         public Commentary()
         {
             ID = Guid.NewGuid();

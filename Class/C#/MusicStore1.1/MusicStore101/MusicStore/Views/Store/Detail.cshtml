@@ -36,7 +36,8 @@
     </div>
     <div class="plText">
         <img class="pl-Avarda MyAvarda" src="@ViewBag.AvardaUrl" />
-        <script id="container" name="content" type="text/plain"></script>
+        <script id="container" name="content" type="text/plain">
+        </script>
         <p class="text-right">
             <a id="btn-pl" href="#" class="btn btn-success">评论</a>
         </p>
@@ -45,20 +46,20 @@
         <strong>最新评论</strong>
         <hr class="jcpl-hr" />
         <div id="pl-all-list">
-            @foreach (var item in Model.Commentarys.OrderByDescending(x=>x.PublisherDate).ToList())
+            @foreach (var item in Model.Commentarys.OrderByDescending(x => x.PublisherDate).ToList())
             {
-            <div class="pl-list">
-                <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
-                <div class="pl-user">
-                    <a href="#">@item.Person.Name</a>：
-                    @Html.Raw(item.Context)
+                <div class="pl-list">
+                    <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
+                    <div class="pl-user">
+                        <a href="#">@item.Person.Name</a>：
+                        @Html.Raw(item.Context)
+                    </div>
+                    <p class="user-ment text-right">
+                        <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
+                        <a href="javascript:;" class="hf" data-id="@item.ID">回复</a>
+                        <span class="text-muted  address">@item.PublisherDate.ToString("MM月dd日 HH:mm")</span>
+                    </p>
                 </div>
-                <p class="user-ment text-right">
-                    <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
-                    <a href="#" class="hf">回复</a>
-                    <span class="text-muted  address">@item.PublisherDate</span>
-                </p>
-            </div>
             }
         </div>
     </div>
@@ -71,16 +72,16 @@
     //点赞
     var i = 0;
     function zan(id) {
-        if(i==0){
+        if (i == 0) {
             $.ajax({
                 type: 'post',
                 async: true,
                 url: '../../Store/Zan',
-                data: {id:id},
-                dataType:'json',
+                data: { id: id },
+                dataType: 'json',
                 success: function (data) {
                     if (data == "nologin") {
-                        location.href = "@Url.Action("Login","Account",new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                        location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
                     } else {
                         $("#" + id + "").html(data);
                         $("#" + id + "").addClass("text-danger");
@@ -88,10 +89,10 @@
                     }
                 }
             })
-        }else {
+        } else {
             alert("今日点赞已达上限！");
         }
-    }
+    };
 
     //添加至购物车
     $("#addcart").click(function () {
@@ -115,20 +116,18 @@
             }
         });
     });
-    //实例化编辑器
-    var ue = UE.getEditor('container');
-    $('#btn-pl').click(function(str,id){
-        str = ue.getContent();
-        if(!ue.hasContents()){
+
+    function CAR(id, str, reply) {
+        if (!ue.hasContents()) {
             alert('请输出内容！');
-        }else {
+        } else {
             $.ajax({
-                type:'post',
-                async:true,
-                url:'../../Store/Commit',
-                data:{str:str,id:"@Model.ID"},
-                dataType:'json',
-                success:function(data){
+                type: 'post',
+                async: true,
+                url: '../../Store/Commit',
+                data: { str: str, id: id, reply: reply },
+                dataType: 'json',
+                success: function (data) {
                     if (data == "nologin") {
                         location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
                     } else {
@@ -137,6 +136,32 @@
                     }
                 }
             })
+        }
+    }
+    //实例化编辑器
+    var ue = UE.getEditor('container');
+    $('#btn-pl').click(function () {
+        var str = ue.getContent();
+        CAR("@Model.ID", str, "");
+    });
+
+    $('#btn-reply').click(function () {
+        var str = $('#editor').val();
+        var reply_id = $('.hf').data('id');
+        CAR("@Model.ID", str, reply_id);
+    });
+
+    var show = true;
+    var reply_id = "";
+    $('.hf').click(function () {
+        if (show) {
+            $('.reply-div').remove();
+            reply_id = $(this).data("id");
+            $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary'>回复</a></div>");
+            show = false;
+        } else {
+            $('.reply-div').remove();
+            show = true;
         }
     });
 </script>

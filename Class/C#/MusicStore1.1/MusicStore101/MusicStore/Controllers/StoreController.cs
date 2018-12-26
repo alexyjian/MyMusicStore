@@ -41,20 +41,28 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Commit(string id, string str)
+        public ActionResult Commit(string id, string str,string reply)
         {
             if (Session["LoginUserSessionModel"] == null)
                 return Json("nologin");
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             var Album = _dbContext.Albums.Find(Guid.Parse(id));
-            var com = new Commentary()
+            if (reply == "")
             {
-                Context = str,
-                Album = Album,
-                Person = _dbContext.Persons.Find(person.ID)
-            };
-            Album.Commentarys.Add(com);
+                var com = new Commentary()
+                {
+                    Context = str,
+                    Album = Album,
+                    Person = _dbContext.Persons.Find(person.ID)
+                };
+                Album.Commentarys.Add(com);
+            }
+            else
+            {
+
+            }
+
             _dbContext.SaveChanges();
 
             var pls = _dbContext.Commentarys.Where(x => x.Album.ID == Album.ID).OrderByDescending(x => x.PublisherDate).ToList();
@@ -66,8 +74,8 @@ namespace MusicStore.Controllers
                 htmlString += "<div class='pl-user'>";
                 htmlString += "<a href='#'>" + @item.Person.Name + "</a>：" + @item.Context + "</div>";
                 htmlString += "<p class='user-ment text-right'>";
-                htmlString += "<a id=" + @item.ID + " href ='#' onclick=" + '"' + "zan('" + @item.ID + "')" + '"' + "><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( " + @item.ThumbsUp + " )</a>";
-                htmlString += "<span class='text-muted time'>" + @item.PublisherDate + "</span></p></div>";
+                htmlString += "<a id=" + @item.ID + " href ='#' onclick=" + '"' + "zan('" + @item.ID + "')" + '"' + "><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( " + @item.ThumbsUp + " )</a><a href='javascript:;' class='hf' data-id="+'"'+item.ID+'"'+">回复</a>";
+                htmlString += "<span class='text-muted time'>" + @item.PublisherDate.ToString("MM月dd日 HH:mm") + "</span></p></div>";
             }
             return Json(htmlString);
         }
