@@ -44,7 +44,14 @@ namespace MusicStore.Controllers
             if(string.IsNullOrEmpty(reply))
             {
                 //顶级回复
+                r.ParentReply = null;
             }
+            else
+            {
+                r.ParentReply=_context.Replies.Find(Guid.Parse(reply));
+            }
+            _context.Replies.Add(r);
+            _context.SaveChanges();
             return Json("OK");
         }
 
