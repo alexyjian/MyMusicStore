@@ -107,7 +107,7 @@ ul {
     font-family: Constantia, Georgia, serif;
 }
 
-/******************** Top Navigation ************************/
+
 ul#navlist {
     float: right;
 }
@@ -133,7 +133,6 @@ ul#navlist {
             color: #F6855E;
         }
 
-/********************* End top navigation ***************************/
 
 p {
     margin-bottom: 15px;
@@ -177,7 +176,7 @@ a:active {
     font-weight: bold;
 }
 
-/***************************** sidebar navigation ****************************/
+
 
 #categories {
     font-family: Constantia, Georgia, serif;
@@ -207,7 +206,7 @@ p em {
     color: #9b9993;
 }
 
-/* Form styles */
+
 legend {
     padding: 10px;
     font-weight: bold;
@@ -229,7 +228,7 @@ input[type=text], input[type=password], select {
     width: 300px;
 }
 
-/* Styles for validation helpers */
+
 .field-validation-error {
     color: #ff0000;
 }
@@ -290,4 +289,49 @@ tr:hover {
     border-radius:50%;
 }
 
+/*添加音乐*/
+.cd
+{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top:25%;
+    left: 10%;
+    border-radius: 50%;
+    border: 10px solid white;
+    background: url(/Content/Images/111.jpg)no-repeat;
+    z-index: 2;
+    box-shadow: 5px 5px 15px black;
+}
+.center
+{
+    width: 50px;
+    height: 50px;
+    background-image: black;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-left: -50px;
+    margin-top:-50px;
+    border: 5px solid white;
+    background-image: url(/Content/Images/yinfu.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 3;
+    background-color: black;
+}
+#box-video audio
+{
+    width:200px;
+    top:200px;
+    position: absolute;
+    left: 40px;
+    bottom: -70px;
+}
+#box-video{
+        top:-2px;
+         position: absolute;
+         left: 400px;
+}
 

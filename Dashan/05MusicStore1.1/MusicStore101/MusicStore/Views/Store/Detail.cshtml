@@ -57,30 +57,62 @@
     </p>
     <div id="msg"></div>
     <br />
-
-    @*添加编辑器*@
-    <!-- 配置文件 -->
-    <script id="container" name="Content" type="text/plain">
-
-    </script>
-    <script type="text/javascript" src="~/Content/Ueditor/ueditor.config.js"></script>
-    <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="~/Content/Ueditor/ueditor.all.js"></script>
-    <!-- 修复查询补丁 -->
-    <script type="text/javascript" charset="utf-8" src="~/Content/Ueditor/ueditor-patch-149.js"></script>
-
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('container');
-    </script>
-    <br />
-    <button type="submit" class="btn btn-info btn-sm" id="addmusic">
-        <span class="glyphicon glyphicon-fire"> 评论</span>
-    </button>
-    <br />
+   
+    
+   @*uedtor 百度呈现*@ 
+     <div class="row">
+         <div class="col-md-10">
+             <div class="form-group">
+                 <textarea id="editor" name="editor"></textarea>
+             </div>
+             <button  id="btnCmt" type="button" class="btn btn-success">评论</button>
+         </div>
+    </div>
 </div>
 
 <script>
+    //百度编辑器调用
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_URL: '/ueditor/',  //配置编辑器的路径
+        iframeCssUrl: '/ueditor/themes/iframe.css',   //自定义保存路径
+        initialContent:'写点东西吧。。。',  //初始编辑内容
+        autoHeightEnabled:true,  //宽度是否自适应
+        minFrameHeight:200  //编辑器最小的宽度
+    });
+    editor.render('editor');
+
+
+    //提交回复
+    $("#btnCmt").click(function () {
+        UE.getEditor('editor');
+        var content = UE.getEditor('editor').getContent();
+       // console(content); //测试内容是否提交
+
+
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url:'@Url.Action("AddCmt","Store")',
+            data: {
+                "id": "@Model.ID",
+                "cmt": content,
+                "reply":""
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //判断是否登录
+                  location.href  ="@Url.Action("login","Account",
+                 new {returnUrl = Url.Action("login", "Store", new { id = Model.ID})})"
+                } else if (data == "OK") {
+                    alert("成功发布啦！");
+                }
+            }
+        })
+    })
+
+
+
     $("#addcart").click(function () {
 //异步
         $("#msg").html("<img src = '../../Content/Images/Loading.gif'>添加到购物车，请稍后......");
