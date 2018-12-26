@@ -20,19 +20,28 @@ namespace Music.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
-            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).OrderByDescending(x=>x.CreateDateTime).ToList();
+            var reply = _context.Replys.Where(x => x.Album.ID == detail.ID).Where(x=>x.ID==x.ParentReply.ID).OrderByDescending(x=>x.CreateDateTime).ToList();
             var htmlString = "";
             foreach (var item in reply)
             {
                 htmlString += "<div id='pinl_main'>";
+                htmlString += "<div id='pinl_main_main'>";
                 htmlString += "<div>";
                 htmlString += "<img src=" + item.Person.Avarda + ">";
                 htmlString += "</div>";
                 htmlString += "<div>";
                 htmlString += "<p>" + item.Title + "</p>";
-                htmlString += "<p>" + item.CreateDateTime + "</p>";
                 htmlString += "<p>" + item.Content + "</p>";
                 htmlString += "</div>";
+                htmlString += "<div>";
+                htmlString += "<ul id='"+item.ID+"'>";
+                htmlString += "<li></li>";
+                htmlString += "<li>"+item.CreateDateTime+"</li>";
+                htmlString += "<li onmouseover='on(this)' onmouseout='out(this)' onclick='ADD(this)'>回复</li>";
+                htmlString += "</ul>";
+                htmlString += "</div>";
+                htmlString += "</div>";
+                htmlString += "<hr>";
                 htmlString += "</div>";
             }
             var cartVM = new DetailReply()
@@ -71,7 +80,7 @@ namespace Music.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Reply(Guid id, string content)
+        public ActionResult Reply(Guid id,Guid replyID, string content,string contentreply,string contentreplys)
          {
             //判断用户是否登陆
             if (Session["loginUserSessionModel"] == null)
@@ -84,25 +93,46 @@ namespace Music.Controllers
             var replys= new Reply()
             {
                 Title=person.Name,
-                Content = content,
+              
                 Person=_context.Persons.Find(person.ID),
                 Album=_context.Albums.Find(id)
             };
-             replys.ParentReply = replys;
+            if (contentreply != null)
+            {
+                replys.Content = contentreply;
+                replys.ParentReply = _context.Replys.Find(replyID);
+                replys.ParentReplySub = replys;
+            }
+            else if (contentreplys!=null)
+            {
+
+            }
+            else
+            {
+                replys.Content = content;
+                replys.ParentReply = replys;
+                replys.ParentReplySub = replys;
+            }            
             _context.Replys.Add(replys);
             _context.SaveChanges();
             var reps = _context.Replys.Where(x=>x.Album.ID==id).OrderByDescending(x => x.CreateDateTime);
             var htmlString = "";
             foreach (var item in reps)
             {
-                htmlString += "<div id='pinl_main'>";
+                htmlString += "<div id='pinl_main_main'>";
                 htmlString += "<div>";
                 htmlString += "<img src=" + item.Person.Avarda + ">";
                 htmlString += "</div>";
                 htmlString += "<div>";
                 htmlString += "<p>" + item.Title + "</p>";
-                htmlString += "<p>" + item.CreateDateTime + "</p>";
                 htmlString += "<p>" + item.Content + "</p>";
+                htmlString += "</div>";
+                htmlString += "<div>";
+                htmlString += "<ul>";
+                htmlString += "<li></li>";
+                htmlString += "<li>" + item.CreateDateTime + "</li>";
+                htmlString += "<li>回复</li>";
+                htmlString += "</ul>";
                 htmlString += "</div>";
                 htmlString += "</div>";
             }

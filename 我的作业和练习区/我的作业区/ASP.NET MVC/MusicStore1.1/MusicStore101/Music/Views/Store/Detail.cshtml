@@ -56,23 +56,25 @@
     <h2>评论</h2>
     <div class="pinl_pinl">
         <div id="pinl_textarea">
-            <script id="editor" type="text/plain" style="width:100%;height:75%;"></script>
+            <script id="editor" type="text/plain" style="width:100%;height:75%;">
+            </script>
         </div>
         <p id="pinl_bt" onclick="getContentTxt()">发表评论</p>
     </div>
     <h4 style="color:#5e5b54;margin-top: 30px"><em>全部评论</em></h4>
     <div class="pinl" id="album-details">
-       @Html.Raw(Model.Replys)
+        @Html.Raw(Model.Replys)
     </div>
 </div>
 
 
+
 <!-- 配置文件 -->
-<script src="~/UE/ueditor.config.js"  charset="utf-8" type="text/javascript"></script>
+<script src="~/UE/ueditor.config.js" charset="utf-8" type="text/javascript"></script>
 <!-- 编辑器源码文件 -->
-<script src="~/UE/ueditor.all.min.js"  charset="utf-8" type="text/javascript"></script>
+<script src="~/UE/ueditor.all.min.js" charset="utf-8" type="text/javascript"></script>
 <!-- 实例化编辑器 -->
-<script type="text/javascript"  charset="utf-8">
+<script type="text/javascript" charset="utf-8">
     var ue = UE.getEditor('editor', { scaleEnabled: true });
     function getContentTxt() {
         var arr = UE.getEditor('editor').getPlainTxt().toString();
@@ -80,7 +82,7 @@
             type: 'post',
             async: true,
              url: '../../Store/Reply',
-             data: { id: "@Model.ID", content: arr },
+             data: { id: "@Model.ID", content: arr, },
              dataType: 'json',
              success: function (data) {
                  $(".pinl").html(data);
@@ -88,6 +90,47 @@
         });
     }
     /*评论显示*/
+</script>
+<script>
+    function on(obj) {
+        obj.style.background = "#e0e0e0";
+        obj.style.cursor = "pointer";
+    }
+    function out(obj) {
+        obj.style.background = "";
+    }
+    var s = 0;//用于判断点击次数
+    var ID;
+    function ADD(obj) {
+        var iD = obj.parentNode.id;
+        ID = iD;
+        s++;
+        if (s == 1) {
+            var div = obj.parentNode;
+            div.innerHTML = div.innerHTML + "<div id='xintian'><div id='pinl_textarea'><script id='editor1' type='text/plain' style='width: 80 %; height: 100 %;'><" + "/" + "script></div><p id='pinl_bt' onclick='Reply()'>回复</p></div>";
+            editor= UE.getEditor('editor1', { scaleEnabled: true });
+        }
+        if(s>1){
+            var shan = document.getElementById('xintian');
+            UE.getEditor('editor1', { scaleEnabled: true }).destroy();
+            shan.remove();
+            s = 0;           
+        }
+    }
+    function Reply() {
+      
+        var arr = UE.getEditor('editor1').getPlainTxt().toString();
+         $.ajax({
+            type: 'post',
+            async: true,
+             url: '../../Store/Reply',
+             data: { id: "@Model.ID", replyID:ID, contentreply: arr },
+             dataType: 'json',
+             success: function (data) {
+                 $(".pinl").html(data);
+            }
+        });
+    }
 </script>
 <script>
     $("#addcart").click(function () {
@@ -149,4 +192,5 @@
 
    });
 </script>
+
 
