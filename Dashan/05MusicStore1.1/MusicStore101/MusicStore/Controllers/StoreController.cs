@@ -18,10 +18,42 @@ namespace MusicStore.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
+            var cmt = _context.Plaries.Where(x => x.Album.ID == id && x.ReplyPlaries == null).OrderByDescending(x => x.MusicPlayTime).ToList();
+            ViewBag.Cmt = _GetHtml(cmt);
             return View(detail);
+
+        
+
         }
+        /// <summary>
+        /// 封装重构 HTML
+        /// </summary>
+        /// <param name="cmt"></param>
+        /// <returns></returns>
+        public string _GetHtml(List<Reply>cmt)
+        {
+            var htmlString = "";
+            htmlString += "<ul class='media-list'>";
+            foreach (var item in cmt)
+            {
+                htmlString += "<li class='media'>";
+                htmlString += "<div class='media-left'>";
+                htmlString += "<a href = '#'><img class='media-object' src='" + item.Person.Avarda + "'alt='头像' style='width:40px;border-radius:50%;'></a>";
+                htmlString += "</div>";
+                htmlString += "<div class='media-body'>";
+                htmlString += "<h4 class='media-heading'>" + item.Person.Name + "发表于" + item.MusicPlayTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h4>";
+                htmlString += item.Content;
 
+                //查询当前回复的下一级
+                var sonCmt = _context.Plaries.Where(x => x.ReplyPlaries.ID == item.ID).ToList();
+                htmlString += "<h5><a href='#'>回复</a>("+ sonCmt.Count + ")条  &nbsp &nbsp" + "<a href ='#'><i class='glyphicon glyphicon-heart'></i></a>("+ item.Like + ")   &nbsp &nbsp</a><a href = '#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.hate+")</a></h5>";
+                htmlString += "</div>";
+                htmlString += "</li>";
+            }
+            htmlString += "</ul>";
+            return htmlString;
 
+        }
         /// <summary>
         /// 添加 回复、评论
         /// </summary>
@@ -31,15 +63,15 @@ namespace MusicStore.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateInput(false)]//关闭验证
-        public ActionResult AddCmt (string id,string cmt,string reply)
+        public ActionResult AddCmt (string id, string cmt, string reply)
         {
-
             //判断是否登录
             if (Session["loginUserSessionModel"] == null)
                 return Json("nologin");
 
             //获取用户
-            var person =_context.Persons.Find ((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            var person =_context.Persons.Find((Session["LoginUserSessionModel"] as
+                LoginUserSessionModel).Person.ID);
             var album = _context.Albums.Find(Guid.Parse(id));
 
             //创建回复对象
@@ -48,7 +80,7 @@ namespace MusicStore.Controllers
                 Album = album,
                 Person = person,
                 Content = cmt,
-                Title = " "
+                Title = ""
             };
 
             if (string.IsNullOrEmpty(reply))
@@ -61,7 +93,11 @@ namespace MusicStore.Controllers
                 r.ReplyPlaries = _context.Plaries.Find(Guid.Parse(reply));
             }
             _context.Plaries.Add(r);
+            //保存数据库
             _context.SaveChanges();
+
+            //局部刷新 最新时间
+            var replies = _context.Plaries.Where(x => x.Album.ID == album.ID && x.ReplyPlaries == null).OrderByDescending(x => x.MusicPlayTime).ToList();
             return Json("OK");
         }
 
@@ -86,6 +122,5 @@ namespace MusicStore.Controllers
             var genres = _context.Genres.OrderBy(x =>x.Name).ToList();
             return View(genres);//返回到视图
         }
-
     }
 }

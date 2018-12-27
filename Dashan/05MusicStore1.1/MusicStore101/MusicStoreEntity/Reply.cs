@@ -15,7 +15,6 @@ namespace MusicStoreEntity
 
         //标题
         [Display(Name = "标题")]
-        [Required]
         public virtual string Title { get; set; }
         //内容
         [Display(Name = "内容")]

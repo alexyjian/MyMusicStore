@@ -58,6 +58,14 @@
     <div id="msg"></div>
     <br />
    
+    <div class="row">
+        <div class="col-md-10">
+            <div id="divCmt">
+                @Html.Raw(ViewBag.Cmt)
+            </div>
+        </div>
+    </div>
+
     
    @*uedtor 百度呈现*@ 
      <div class="row">
@@ -102,10 +110,15 @@
             success: function (data) {
                 if (data == 'nologin') {
                     //判断是否登录
-                  location.href  ="@Url.Action("login","Account",
-                 new {returnUrl = Url.Action("login", "Store", new { id = Model.ID})})"
-                } else if (data == "OK") {
-                    alert("成功发布啦！");
+                    location.href = "@Url.Action("Login", "Account",
+                 new {returnUrl = Url.Action("Detail", "Store", new { id = Model.ID})})";  //登录后跳回明细
+                }
+                else {
+                    //HTML文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    UE.getEditor('editor').setContent('');
+                    location.reload();
                 }
             }
         })
