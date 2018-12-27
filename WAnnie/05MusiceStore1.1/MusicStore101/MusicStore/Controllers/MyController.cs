@@ -18,7 +18,8 @@ namespace MusicStore.Controllers
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
 
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            //查询用户本人
+            var person =_Context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID) ;
 
             var name = new MyViewsModel()
             {
@@ -44,7 +45,7 @@ namespace MusicStore.Controllers
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
+            var person_update = _Context.Persons.Find(person.ID);
             //用户原来的头像
             var oldAvarda = person.Avarda;
 
@@ -66,15 +67,15 @@ namespace MusicStore.Controllers
                 }
 
                 //保存个人信息
-                person.Name = model.Name;
-                person.MobileNumber = model.MobilNumber;
-                person.Address = model.Address;
-                person.Email = model.Email;
-                person.FirstName = person.Name.Substring(0, 1);
-                person.LastName = person.Name.Substring(1, person.Name.Length - 1);
-                person.Avarda = oldAvarda;
-                person.Sex = model.Sex;
-                person.Birthday=DateTime.Parse(model.Birthday);
+                person_update.Name = model.Name;
+                person_update.MobileNumber = model.MobilNumber;
+                person_update.Address = model.Address;
+                person_update.Email = model.Email;
+                person_update.FirstName = person.Name.Substring(0, 1);
+                person_update.LastName = person.Name.Substring(1, person.Name.Length - 1);
+                person_update.Avarda = oldAvarda;
+                person_update.Sex = model.Sex;
+                person_update.Birthday=DateTime.Parse(model.Birthday);
 
                 _Context.SaveChanges();
 
