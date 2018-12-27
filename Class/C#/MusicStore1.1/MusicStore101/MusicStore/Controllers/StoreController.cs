@@ -35,7 +35,7 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
-        /// 评论页
+        /// 评论
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>

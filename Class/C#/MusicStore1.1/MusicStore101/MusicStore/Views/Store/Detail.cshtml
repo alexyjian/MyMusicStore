@@ -55,7 +55,7 @@
                 {
                     foreach (var item in Model.Commentarys.OrderByDescending(x => x.PublisherDate).ToList())
                     {
-                        <div class="pl-list">
+                        <div id="@item.ID" class="pl-list">
                             <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
                             <div class="pl-user">
                                 <a href="#">@item.Person.Name</a>：
@@ -183,7 +183,7 @@
                         $("#pl-all-list").html(data);
                     }
                 }
-            })
+            });
         }
     };
 
@@ -193,14 +193,15 @@
         $('.reply-div').remove();
         if (reply_id == "") {
             reply_id = $(this).data("id");
-            $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
+            var name = $($("#pl-all-list").children("#" + reply_id + "").children("a").get(0)).val();
+            $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复"+name+"：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
         } else {
             if (reply_id == $(this).data("id")) {
                 $('.reply-div').remove();
                 reply_id = "";
             } else {
                 reply_id = $(this).data("id");
-                $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
+                $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
             }
         }
     });
