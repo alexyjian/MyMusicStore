@@ -33,12 +33,21 @@
         ￥@string.Format("{0:F}", Model.Price)
     </p>
     <div id="msg"></div>
-    <p>
+    <p class="button">
         <a class="btn" id="addcart">添加到购物车</a>
         <div id="msg">
         </div>
     </p>
     </div>
+@*显示评论*@
+<div class="row">
+    <div class="col-md-10">
+        <div id="divCmt">
+            @Html.Raw(ViewBag.Cmt)
+        </div>
+    </div>
+</div>
+
 
 @*百度ueditor的呈现*@
 <div class="row">
@@ -46,6 +55,7 @@
         <div class="form-group">
             <textarea id="editor"name="editor"></textarea>
             </div>
+        <button class="btn btn-primary" id="bthreply">评论</button>
         </div>
     </div>
 
@@ -56,7 +66,7 @@
         iframeCssUrl:'/ueditor/themes/iframe.css',//自定义样式路径
         initialContent:'五星好评',//初始内容
         autoHeightEnabled:true,//高度是否只适应
-        minFrameHeight:500//编辑器最小高度
+        minFrameHeight:500 //编辑器最小高度
     });
     editor.render('editor');
 
@@ -82,11 +92,19 @@
             if (data=='nologon'){
                 //如果没登录
                 location.href="@Url.Action("login", "Account",
-    new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID })});
+    new {returnUrl = Url.Action("Detail", "Store", new { id = Model.ID })})";
             }
-            else if (data=="ok"){
+            else {
+                //html文本注入div
+                $("#divCmt").html(data);
+                //清空ueditor编辑器
+                UE.getEditor('editor').setComtent('');
+                location.reload();
+                alert('发表成功！');
+            }
+                if (data == "ok") {
 
-                alert('发表成功')
+                alert('发表成功!');
                 //局部刷新
             }
         }
@@ -112,7 +130,7 @@
     </script>*@
 
 </body>
-<button class="btn btn-primary" id="bthreply">评论</button>
+@*<button class="btn btn-primary" id="bthreply">评论</button>*@
 <script>
 
 
