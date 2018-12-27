@@ -65,6 +65,15 @@
         <button class="btn btn-primary" id="btnreply">评论</button>
     </p>*@
 </div>
+@*显示评论*@
+<div class="row">
+    <div class="col-md-10">
+        <div id="divCmt">
+            @Html.Raw(ViewBag.Cmt)
+        </div>
+    </div>
+</div>
+@*百度ueditor的呈现*@
 <div class="row">
     <div class="col-md-10">
         <div class="form-group">
@@ -85,7 +94,7 @@
     editor.render('editor');
 
     //提交回复
-    $("#btnCmt").click(function () {
+    $("#btncCmt").click(function () {
         //获得编辑器中的内容
         UE.getEditor('editor');
         var content = UE.getEditor('editor').getContent();
@@ -95,14 +104,14 @@
             type: 'post',
             asyn: true,
             url:'@Url.Action("AddCmt", "Store")',
-            date:{
+            data:{
                 "id":"@Model.ID",
                 "cmt":content,
                 "reply":""
             },
             dataType:'json',
             success:function(data){
-                if(data=='nologon'){
+                if(data=='nologin'){
                     //如果没登录
                     location.href="@Url.Action("login","Account",
                                   new {returnUrl=Url.Action("Detail","Store",new { id=Model.ID})})";
