@@ -12,7 +12,6 @@ namespace MusicStoreEntity
     {
         public Guid ID { get; set; }
         [Display(Name="标题")]
-        [Required]
         public virtual string Title { get; set; }
         [Display(Name = "内容")]
         [Required]
