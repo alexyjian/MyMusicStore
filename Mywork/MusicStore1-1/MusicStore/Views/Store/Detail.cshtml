@@ -79,6 +79,16 @@
     </div>
 </div>
 
+@*显示评论*@
+<div class="row">
+    <div class="col-md-10">
+        <div id="divCmt">
+            @Html.Raw(ViewBag.Cmt)
+        </div>
+    </div>
+</div>
+
+
 <script>
     @*百度编辑调用*@
     var editor = new baidu.editor.ui.Editor({
@@ -94,17 +104,17 @@
     $("#btnCmt").click(function () {
         //获得编辑器中的内容
         UE.getEditor('editor');
-        var content = UE.getEditor('editor').getActionUrl();
+        var content = UE.getEditor('editor').getContent();
         //console.log(content);
         //ajax提交
         $.ajax({
             type: 'post',
             asyn: true,
-            url: '@Url.Action("AddCmt", "Store")',
+            url: '../../Store/AddCmt',
             data: {
-                "id":"@Model.ID",
+                "id": "@Model.ID",
                 "cmt": content,
-                "reply":""
+                "reply": ""
             },
             dataType: 'json',
             success: function (data) {
@@ -112,13 +122,13 @@
                     //如果没登录
                     location.href = "@Url.Action("login", "Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID })})";
                 }
-                else if(data=="OK"){
+                else if (data == "OK") {
                     alert("发表成功!");
                     //局部刷新
                 }
             }
-        })
-    })
+        });
+    });
 
     
         $("#addcart").click(function () {
