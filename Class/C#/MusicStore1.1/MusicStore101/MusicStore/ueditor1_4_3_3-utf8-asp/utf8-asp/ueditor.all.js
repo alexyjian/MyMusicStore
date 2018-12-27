@@ -16567,7 +16567,6 @@ UE.plugins['enterkey'] = function() {
             }
             if (tag == 'p') {
 
-
                 if (!browser.ie) {
 
                     start = domUtils.findParentByTagName(range.startContainer, ['ol','ul','p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6','blockquote','caption'], true);

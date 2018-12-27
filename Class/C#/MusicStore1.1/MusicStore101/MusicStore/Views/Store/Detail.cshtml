@@ -4,63 +4,79 @@
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<h4>单曲 - @Model.Title</h4>
-<hr />
-<p>
-    <img alt="图片加载失败" src="@Model.AlbumArtUrl" />
-</p>
+<div class="bk">
+    <h4>单曲 - @Model.Title</h4>
+    <hr />
+    <p>
+        <img alt="图片加载失败" src="@Model.AlbumArtUrl" />
+    </p>
 
-<div>
-    <p>
-        <em>歌手：</em>@Model.Artist.Name
-    </p>
-    <p>
-        <em>分类：</em>@Model.Genre.Name
-    </p>
-    <p>
-        <em>发布时间：</em>@Model.PublisherDate.ToString("yyyy年MM月dd日")
-    </p>
-    <p>
-        <em>价格：</em><b>￥@string.Format("{0:F}", Model.Price)</b>
-    </p>
-    <div id="mes"></div>
-    <br />
-    <p>
-        <a href="#" id="addcart" class="btn btn-primary">添加到购物车</a>
+    <div>
+        <p>
+            <em>歌手：</em>@Model.Artist.Name
+        </p>
+        <p>
+            <em>分类：</em>@Model.Genre.Name
+        </p>
+        <p>
+            <em>发布时间：</em>@Model.PublisherDate.ToString("yyyy年MM月dd日")
+        </p>
+        <p>
+            <em>价格：</em><b>￥@string.Format("{0:F}", Model.Price)</b>
+        </p>
         <div id="mes"></div>
-    </p>
-</div>
-<div>
-    <div class="pl-hd">
-        <span class="pl">评论</span><span class="text-muted">共 @Model.Commentarys.Count 条评论</span>
-    </div>
-    <div class="plText">
-        <img class="pl-Avarda MyAvarda" src="@ViewBag.AvardaUrl" />
-        <script id="container" name="content" type="text/plain">
-        </script>
-        <p class="text-right">
-            <a id="btn-pl" href="#" class="btn btn-success">评论</a>
+        <br />
+        <p>
+            <a href="#" id="addcart" class="btn btn-primary">添加到购物车</a>
+            <div id="mes"></div>
         </p>
     </div>
     <div>
-        <strong>最新评论</strong>
-        <hr class="jcpl-hr" />
-        <div id="pl-all-list">
-            @foreach (var item in Model.Commentarys.OrderByDescending(x => x.PublisherDate).ToList())
-            {
-                <div class="pl-list">
-                    <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
-                    <div class="pl-user">
-                        <a href="#">@item.Person.Name</a>：
-                        @Html.Raw(item.Context)
-                    </div>
-                    <p class="user-ment text-right">
-                        <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
-                        <a href="javascript:;" class="hf" data-id="@item.ID">回复</a>
-                        <span class="text-muted  address">@item.PublisherDate.ToString("MM月dd日 HH:mm")</span>
-                    </p>
-                </div>
-            }
+        <div class="pl-hd">
+            <span class="pl">评论</span><span class="text-muted">共 @Model.Commentarys.Count 条评论</span>
+        </div>
+        <div class="plText">
+            <img class="pl-Avarda MyAvarda" src="@ViewBag.AvardaUrl" />
+            <script id="container" name="content" type="text/plain">
+            </script>
+            <p class="text-right">
+                <a id="btn-pl" href="#" class="btn btn-success">评论</a>
+            </p>
+        </div>
+        <div>
+            <strong>最新评论</strong>
+            <hr class="jcpl-hr" />
+            <div id="pl-all-list">
+                @if (Model.Commentarys.ToList().Count == 0)
+                {
+                <div class="text-muted text-center user-ment">还没有评论呢，快来抢沙发~</div>
+                }
+                else
+                {
+                    foreach (var item in Model.Commentarys.OrderByDescending(x => x.PublisherDate).ToList())
+                    {
+                        <div class="pl-list">
+                            <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
+                            <div class="pl-user">
+                                <a href="#">@item.Person.Name</a>：
+                                @Html.Raw(item.Context)
+                                @if (item.commentary != null)
+                                {
+                                    <div class="fu-hf">
+                                        <a href="#">@item.commentary.Person.Name：</a>
+                                        @Html.Raw(item.commentary.Context)
+                                    </div>
+                                }
+                            </div>
+                            <p class="user-ment text-right">
+                                <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
+                                <a href="javascript:;" class="hf" data-id="@item.ID">回复</a>
+                                <span class="text-muted  address">@item.PublisherDate.ToString("MM月dd日 HH:mm")</span>
+                            </p>
+                        </div>
+                    }
+                }
+            </div>
         </div>
     </div>
 </div>
@@ -118,6 +134,12 @@
     });
 
     function CAR(id, str, reply) {
+
+    }
+    //实例化编辑器
+    var ue = UE.getEditor('container');
+    $('#btn-pl').click(function () {
+        var str = ue.getContent();
         if (!ue.hasContents()) {
             alert('请输出内容！');
         } else {
@@ -125,7 +147,7 @@
                 type: 'post',
                 async: true,
                 url: '../../Store/Commit',
-                data: { str: str, id: id, reply: reply },
+                data: { str: str, id: "@Model.ID", reply: "" },
                 dataType: 'json',
                 success: function (data) {
                     if (data == "nologin") {
@@ -137,31 +159,49 @@
                 }
             })
         }
-    }
-    //实例化编辑器
-    var ue = UE.getEditor('container');
-    $('#btn-pl').click(function () {
-        var str = ue.getContent();
-        CAR("@Model.ID", str, "");
     });
 
-    $('#btn-reply').click(function () {
+    function reply() {
         var str = $('#editor').val();
         var reply_id = $('.hf').data('id');
-        CAR("@Model.ID", str, reply_id);
-    });
-
-    var show = true;
-    var reply_id = "";
-    $('.hf').click(function () {
-        if (show) {
-            $('.reply-div').remove();
-            reply_id = $(this).data("id");
-            $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary'>回复</a></div>");
-            show = false;
+        if (str.length == 0) {
+            alert('请输出内容！');
         } else {
-            $('.reply-div').remove();
-            show = true;
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../Store/Commit',
+                data: { str: str, id: "@Model.ID", reply: reply_id },
+                dataType: 'json',
+                success: function (data) {
+                    if (data == "nologin") {
+                        location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                    } else {
+                        str = "";
+                        reply_id = "";
+                        show = 0;
+                        $("#pl-all-list").html(data);
+                    }
+                }
+            })
+        }
+    };
+
+    //显示回复框
+    var reply_id = "";
+    $(".hf").click(function () {
+        $('.reply-div').remove();
+        if (reply_id == "") {
+            reply_id = $(this).data("id");
+            $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
+        } else {
+            if (reply_id == $(this).data("id")) {
+                $('.reply-div').remove();
+                reply_id = "";
+            } else {
+                reply_id = $(this).data("id");
+                $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
+            }
         }
     });
 </script>

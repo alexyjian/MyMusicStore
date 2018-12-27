@@ -1,6 +1,7 @@
 body {
     font-family: "微软雅黑";
     padding-top: 0px;
+    background-color:rgb(245,245,245);
 }
 
 .navbar-header img {
@@ -111,4 +112,18 @@ body {
     font-size:12px;
     margin-bottom:5px;
     resize: none;
+}
+
+.fu-hf {
+    border:1px solid rgb(222,222,222);
+    background-color:rgb(244,244,244);
+    padding:8px;
+    margin-top:5px;
+}
+
+.col-xs-9 {
+    border:1px solid rgb(211,211,211);
+    padding:10px 14px;
+    background-color:#fff;
+    border-radius:3px;
 }
