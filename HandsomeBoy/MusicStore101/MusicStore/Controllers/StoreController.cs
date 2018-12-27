@@ -24,14 +24,66 @@ namespace MusicStore.Controllers
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
             var detail = _context.Albuns.Find(id);
             ViewBag.detail = detail;
-            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
-            try { ViewBag.Reply = _context.Replys.Where(x => x.Album.ID == id && x.Title == "评论").OrderBy(x => x.CreateDateTime).ToList(); }
-            catch { }
-            try { ViewBag.ParentReply = _context.Replys.Where(x => x.Album.ID == id && x.Title == "回复").OrderBy(x => x.CreateDateTime).ToList(); }
-            catch { }
-
+            //var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            var Cmt = _context.Replys.Where(x => x.Album.ID == id && x.ParentReply==null).OrderByDescending(x => x.CreateDateTime).ToList();
+            ViewBag.Cmt = _GetHtml(Cmt);
             return View();
         }
+        private string _GetHtml(List<Reply> Cmt)
+        {
+            var htmlString = "";
+            htmlString += "<ul class='media-list'>";
+            foreach (var item in Cmt)
+            {
+                htmlString += "<li class='media'>";
+                htmlString += "<div class='media-left'>";
+                htmlString += "<img class='media-object' src='" + item.Person.Avarda +
+                              "' alt='头像' style='width:40px;border-radius:50%;'>";
+                htmlString += "</div>";
+                htmlString += "<div class='media-body'>";
+                htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
+                              item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                htmlString += item.Content;
+                //查询当前回复的下一级回复
+                var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
+                htmlString += "<h6><a href='javascript:;' onclick='hide(\""+item.ID+"\")' class='reply'>回复</a>(" + sonCmt.Count + ")条" + "  <a href='javascript:;'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
+                              item.Like + ")  <a href='javascript:;'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</h6>";
+                htmlString += "</div>";
+                //乱来
+                htmlString += "<div class='row bb' id="+item.ID+" style='display: none;'>";
+                htmlString += "<div class='col-md-10'>";
+                htmlString += "<div class='form -group'>";
+                htmlString += "<textarea id = '" + item.ID + "editor' name='editor'></textarea>";
+                htmlString += "<button id='" + item.ID + "btnCmt' type='button' class='btn btn-success'>评论</button>";
+                htmlString += " </div>";
+
+                htmlString += "</div>";
+                htmlString += "</div>";
+            //乱来结束
+            htmlString += "<ol class='media-list'>";
+                htmlString += " editor.render(" + item.ID + "+'editor');<script>sessionStorage.setItem('ID','" + item.ID + "');</script>";
+                foreach (var sonitem in sonCmt)
+                {
+                    htmlString += "<li class='media'>";
+                    htmlString += "<div class='media-left'>";
+                    htmlString += "<img class='media-object' src='" + sonitem.Person.Avarda +
+                                  "' alt='头像' style='width:40px;border-radius:50%;'>";
+                    htmlString += "</div>";
+                    htmlString += "<div class='media-body'>";
+                    htmlString += "<h5 class='media-heading'>" + sonitem.Person.Name + "  发表于" +
+                                  sonitem.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                    htmlString += sonitem.Content;
+                    htmlString += "</div>";
+                }
+             
+                htmlString += "</ol>";
+
+                htmlString += "</li>";
+            }
+            htmlString += "</ul>";
+            return htmlString;
+        }
+
         //
         public ActionResult browser(Guid id)
         {
@@ -59,7 +111,7 @@ namespace MusicStore.Controllers
                 return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             var album = _context.Albuns.Find(Guid.Parse(id));
-            var htmlString = string.Empty;
+     
 
             var r = new Reply()
             {
@@ -78,8 +130,16 @@ namespace MusicStore.Controllers
                 r.ParentReply = _context.Replys.Find(Guid.Parse(reply));
             }
 
+            var Id = Guid.Parse(id);
+
+
             _context.Replys.Add(r);
             _context.SaveChanges();
+            var Cmt = _context.Replys.Where(x => x.Album.ID == Id && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
+            var htmlString = "";
+
+            htmlString += _GetHtml(Cmt);
+                       //ViewBag.Cmt = _GetHtml(Cmt);
             return Json(htmlString);
         }
 

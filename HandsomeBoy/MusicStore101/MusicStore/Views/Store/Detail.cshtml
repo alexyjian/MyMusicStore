@@ -6,7 +6,7 @@
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/New_ViewStart.cshtml";
-    var Reply = ViewBag.Reply;
+    var Cmt = ViewBag.Cmt;
     var detail = ViewBag.detail;
     var ParentReply = ViewBag.ParentReply;
 }
@@ -62,16 +62,38 @@
         </div>
     </div>
 </div>
+
+   @*显示评论*@
+<div class="row rowtop"  >
+    <div class="col-md-10">
+        <div id="divComment">
+            @Html.Raw(Cmt)
+        </div>
+    </div>
+ </div>
     @*百度ueditor的呈现*@
-   <div class="row" style="margin-top:150px">
+   <div class="row">
        <div class="col-md-10">
            <div class="form-group">
                <textarea id="editor" name="editor"></textarea>
+               <button id="btnCmt" type="button" class="btn btn-success">评论</button>
            </div>
-           <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+           
        </div>
    </div>
-        
+       <script>
+        function hide(a) {
+            if (document.getElementById(a).style.display !== 'none')
+            {
+                document.getElementById(a).style.display = 'none';
+            }
+            else
+            {
+                document.getElementById(a).style.display = '';
+               
+            }
+        }
+     </script>
 
 <script>
     var editor = new baidu.editor.ui.Editor({
@@ -86,7 +108,7 @@
         //获得编辑器中的内容
         UE.getEditor("editor");
         var content = UE.getEditor('editor').getContent();
-
+     var ID = sessionStorage.getItem("ID");
         $.ajax({
             type: 'post',
             asyn: true,
@@ -94,7 +116,7 @@
             data:{
                 "id" : "@detail.ID",
                 "cmt":content,
-                "reply":""
+                "reply": "ID",
             },
             dataType:"json",
             success:function(data){
@@ -102,19 +124,14 @@
                     //如果没登录
                     location.href = "@Url.Action("login","login",new {returnUrl=Url.Action("Detail","Store",new { id = @detail.ID})})"
                 }
-               else if(data=="OK"){
-                    alert("评论成功");
-                } 
-                    //局部刷新
-           
+                $("#divComment").html(data);   //divComment
+                //$("#msg").html(data);
             }
         })
     })
+
+
 </script>
-
-
-
-
 
 
 <script>
@@ -134,7 +151,7 @@
                     location.href = " @Url.Action("Login", "Login", new { returnUrl = Url.Action("Detail", "Store", new { id = detail.ID }) })";
                 }
                 else{
-                    $("#msg").html(data);
+                    $("#divCmt").html(data);
                     //2秒后，自动重新刷新此区域
                     setTimeout(function () {
                         location.reload();
@@ -146,7 +163,9 @@
 
             )
     });
-
+  
+          
+    
     </script>
    
 
@@ -356,7 +375,7 @@
             <div class="song">
                 @*<h2>云城烟雨</h2>*@
               
-            </div>
+            @*</div>
         </div>
     </div>
 </div>
@@ -367,8 +386,8 @@
 
 <script src="~/Ueditor/ueditor.parse.js"></script>
 
-<script>
-    //添加购物车
+<script>*@
+    @*//添加购物车
     $("#addcart").click(function () {
         $("#msg").html("<img src='../../content/Images/ProgressIcon.gif'>添加到购物车,请稍后...")
         $.ajax({
@@ -395,13 +414,13 @@
         }
 
             )
-    });
+    });*@
 
 
 
 
    //评论传值
-    function Contentpoth(){
+    @*function Contentpoth(){
 
         var arr = UE.getEditor('container').getPlainTxt().toString();
         if (!ue.hasContents()) {
@@ -433,4 +452,4 @@
     uParse('.content', {
         rootPath: '../'
     })
-</script>*@*@*@
+</script>*@*@*@*@
