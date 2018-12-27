@@ -65,7 +65,6 @@
     <Compile Include="fonts\Migrations\Configuration.cs" />
     <Compile Include="EntityDbContext.cs" />
     <Compile Include="fonts\Migrations\UserAndRoleSeed.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

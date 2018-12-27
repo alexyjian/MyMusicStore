@@ -54,30 +54,40 @@
             </div>
         </div>
     </div>
+
     <div class="row clearfix">
-        <div class="col-md-12 column">
+        <div class="col-md-12 column"> 
             <button type="button" class="btn btn-primary" data-toggle="collapse"
                     data-target="#demo">
-                查看评论
+                
+                收起评论
             </button>
-            <div id="demo" class="table-responsive collapse">
+            <div id="demo" class="table-responsive collapse in">
                 <table class="table table-hover ">
                     <thead>
                         <tr>
                             <th>用户</th>
                             <th>评论内容</th>
+                            <th>赞</th>
+                            <th>踩</th>
                             <th>评论时间</th>
+                            
                         </tr>
+                        
                     </thead>
                     <tbody>
-                        @*@foreach (var item in Model.Replys)
+                        
+                        @foreach (var item in Model.Replys)
                         {
                             <tr>
                                 <td><img src="@item.Person.Avarda" style="width:35px;height:35px;" />&nbsp;@item.Person.LastName</td>
                                 <td>@item.Content</td>
+                                <td><i class="glyphicon glyphicon-thumbs-up"></i>@item.Like</td>
+                                <td><i class="glyphicon glyphicon-thumbs-down"></i>@item.Hate</td>
                                 <td>@item.CreateDateTime</td>
+                                
                             </tr>
-                        }*@
+                        }
                     </tbody>
                 </table>
             </div>
@@ -86,6 +96,8 @@
 
         </div>
     </div>
+
+
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="form-group">
@@ -105,27 +117,26 @@
 
 <script>
 
-    @*百度编辑调用*@
+   //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
-        UEDITOR_HOME_URL: '/ueditor/',//配置编辑器路径
-        iframeCssUrl: '/ueditor/themes/iframe.css',//
-        initialContent: '五星好评',//初始内容
-        autoHeigheEnabled: true,//高度是否自适应
-        minFrameHeight: 500 //编辑器最小高度
+        UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
+        iframeCssUrl: '/ueditor/themes/iframe.css',  //自定义样式路径
+        initialContent: '五星好评',  //初始内容
+        autoHeightEnabled: true,  //高度是否自适应
+        minFrameHeight:500   //编辑器最小的高度
     });
     editor.render('editor');
-
     //提交回复
     $("#btnCmt").click(function () {
         //获得编辑器中的内容
         UE.getEditor('editor');
-        var content = UE.getEditor('editor').getActionUrl();
+        var content = UE.getEditor('editor').getContent();
         //console.log(content);
         //ajax提交
         $.ajax({
             type: 'post',
             asyn: true,
-            url: '@Url.Action("AddCmt", "Store")',
+            url: '@Url.Action("AddCmt","Store")',
             data: {
                 "id":"@Model.ID",
                 "cmt": content,
@@ -133,17 +144,17 @@
             },
             dataType: 'json',
             success: function (data) {
-                if (data == 'nologon') {
+                if (data == 'nologin') {
                     //如果没登录
-                    location.href = "@Url.Action("login", "Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID })})";
-                }
-                else if(data=="OK"){
-                    alert("发表成功!");
+                    location.href = "@Url.Action("login","Account",
+                                         new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else if (data == "OK") {
+                    alert('发表成功!');
                     //局部刷新
                 }
             }
-        })
-    })
+        });
+    });
 
 
     $("#addcart").click(function () {
@@ -174,6 +185,7 @@
     }
 
         );
+
 
 
 </script>

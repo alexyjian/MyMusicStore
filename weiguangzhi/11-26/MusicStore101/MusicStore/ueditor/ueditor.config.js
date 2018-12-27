@@ -349,7 +349,7 @@
 
         var configPath = document.getElementsByTagName('script');
 
-        return configPath[ configPath.length - 1 ].src;
+        return configPath[configPath.length - 1].src;
 
     }
 
@@ -376,7 +376,7 @@
 
     function optimizationPath(path) {
 
-        var protocol = /^[a-z]+:\/\//.exec(path)[ 0 ],
+        var protocol = /^[a-z]+:\/\//.exec(path)[0],
             tmp = null,
             res = [];
 
@@ -384,11 +384,11 @@
 
         path = path.replace(/\\/g, '/').split(/\//);
 
-        path[ path.length - 1 ] = "";
+        path[path.length - 1] = "";
 
         while (path.length) {
 
-            if (( tmp = path.shift() ) === "..") {
+            if ((tmp = path.shift()) === "..") {
                 res.pop();
             } else if (tmp !== ".") {
                 res.push(tmp);
@@ -399,53 +399,6 @@
         return protocol + res.join("/");
 
     }
-
-    var ue = UE.getContent();
-    //对编辑器的操作最好在编辑器ready之后再做
-    ue.ready(function () {
-        //设置编辑器的内容
-        ue.setContent('hello');
-        //获取html内容，返回: <p>hello</p>
-        var html = ue.getContent();
-        //获取纯文本内容，返回: hello
-        var txt = ue.getContentTxt();
-    });
-
-    UE.registerUI('button', function(editor, uiName) {
-    //注册按钮执行时的command命令，使用命令默认就会带有回退操作
-    editor.registerCommand(uiName, {
-        execCommand: function() {
-            alert('execCommand:' + uiName)
-        }
-    });
-    //创建一个button
-    var btn = new UE.ui.Button({
-        //按钮的名字
-        name: uiName,
-        //提示
-        title: uiName,
-        //添加额外样式，指定icon图标，这里默认使用一个重复的icon
-        cssRules: 'background-position: -500px 0;',
-        //点击时执行的命令
-        onclick: function() {
-            //这里可以不用执行命令,做你自己的操作也可
-            editor.execCommand(uiName);
-        }
-    });
-    //当点到编辑内容上时，按钮要做的状态反射
-    editor.addListener('selectionchange', function() {
-        var state = editor.queryCommandState(uiName);
-        if (state == -1) {
-            btn.setDisabled(true);
-            btn.setChecked(false);
-        } else {
-            btn.setDisabled(false);
-            btn.setChecked(state);
-        }
-    });
-    //因为你是添加button,所以需要返回这个button
-    return btn;
-});
 
     window.UE = {
         getUEBasePath: getUEBasePath

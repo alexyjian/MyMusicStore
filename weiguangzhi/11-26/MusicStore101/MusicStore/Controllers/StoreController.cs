@@ -63,8 +63,7 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]
-
-        public ActionResult RemoveDetail(Guid id,string content)
+        public ActionResult RemoveDetail(Guid id, string content)
         {
             //判断用户是否登陆
             if (Session["loginUserSessionModel"] == null)
@@ -76,12 +75,12 @@ namespace MusicStore.Controllers
 
             var replys = new Reply()
             {
-               
+
                 Content = content,
                 Person = _context.Persons.Find(person.ID),
                 Album = _context.Albums.Find(id)
             };
-            
+
             _context.Replys.Add(replys);
             _context.SaveChanges();
             var reps = _context.Replys.Where(x => x.Album.ID == id).OrderByDescending(x => x.CreateDateTime);
@@ -94,7 +93,7 @@ namespace MusicStore.Controllers
                 htmlString += "<tr>";
 
                 htmlString += "<td>" + "<img src = " + @item.Person.Avarda + "/>" + @item.Person.LastName + "</td>";
-                htmlString += "<td>" + @item.Content + "</td>";
+                htmlString += item.Content;
                 htmlString += "<td>" + @item.CreateDateTime + "</td>";
                 htmlString += "<a href=\"javascript:; \" >回复</a>";
                 htmlString += "</tr>";
@@ -108,13 +107,17 @@ namespace MusicStore.Controllers
 
         }
 
+
+
         [HttpPost]
         [ValidateInput(false)]//关闭验证
         public ActionResult AddCmt(string id, string cmt, string reply)
         {
             if (Session["LoginUserSessionModel"] == null)
                 return Json("nologin");
-            var person=_context.Persons.Find((Session["LoginUserSessionModel"]as LoginUserSessionModel).Person.ID);
+
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
+                LoginUserSessionModel).Person.ID);
             var album = _context.Albums.Find(Guid.Parse(id));
 
             //创建回复对象
@@ -128,18 +131,20 @@ namespace MusicStore.Controllers
             //父级回复
             if (string.IsNullOrEmpty(reply))
             {
-                //顶级回复
+                //顶级回复, ParentReply为空
                 r.ParentReply = null;
             }
             else
             {
                 r.ParentReply = _context.Replys.Find(Guid.Parse(reply));
             }
+
             _context.Replys.Add(r);
             _context.SaveChanges();
+            return Json("OK");
+        }
 
-                return Json("OK");
-        }
-       
-        }
+        
+
+    }
 }
