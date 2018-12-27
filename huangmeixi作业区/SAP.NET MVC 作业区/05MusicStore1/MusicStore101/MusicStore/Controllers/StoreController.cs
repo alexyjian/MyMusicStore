@@ -25,7 +25,18 @@ namespace MusicStore.Controllers
             var detail = _context.Albums.Find(id);
             //显示评论
             var cmt = _context.Replys.Where(x => x.Album.ID == id && x.ParentReply == null)
-                .OrderByDescending(x => x.CreateDateTime).ToList();
+               .OrderByDescending(x => x.CreateDateTime).ToList();
+           
+            ViewBag.Cmt = _GetHtml(cmt);
+            return View(detail);
+        }
+        /// <summary>
+        /// 生成回复显示html文本
+        /// </summary>
+        /// <param name="cmt"></param>
+        /// <returns></returns>
+        private string _GetHtml(List<Reply> cmt)
+        {
             var htmlString = "";
 
             htmlString += "<ul class='media-list'>";
@@ -34,13 +45,22 @@ namespace MusicStore.Controllers
                 htmlString += "<li class='media'>";
                 htmlString += "<div class='media-left'>";
                 htmlString += "<img class='media-object' src='" + item.Person.Avarda +
-                   "'alt='头像'style='width:40px;border-radius:50%;'>";
+                              "' alt='头像' style='width:40px;border-radius:50%;'>";
                 htmlString += "</div>";
-          
-
+                htmlString += "<div class='media-body'>";
+                htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
+                              item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                htmlString += item.Content;
+                //查询当前回复的下一级回复
+                var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
+                htmlString += "<h6>回复(<a href='#'>" + sonCmt.Count + "</a>)条" + "  <a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
+                              item.Like + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</h6>";
+                htmlString += "</div>";
+                htmlString += "</li>";
 
             }
-            return View(detail);
+            htmlString += "</ul>";
+            return htmlString;
         }
 
 
