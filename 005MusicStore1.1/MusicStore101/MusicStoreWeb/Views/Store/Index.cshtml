@@ -21,7 +21,7 @@
                 <em>:</em>
                 foreach (var ab in item.Albums.Take(5))
                 {
-                    <a href="@Url.Action("Detail",new { id=ab.ID})" style="color:black;font-size:12px;">
+                    <a href="@Url.Action("Detail",new { id=ab.ID})" class="album-list">
                         <i class="glyphicon glyphicon-cd"></i>
                         <span>@(ab.Title)&nbsp;&nbsp;</span>
                     </a>
