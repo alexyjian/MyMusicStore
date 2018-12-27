@@ -115,8 +115,13 @@
                     //如果没登录
                     location.href="@Url.Action("login","Account",
                                   new {returnUrl=Url.Action("Detail","Store",new { id=Model.ID})})";
-                }else if(data=="OK"){
-                    alert("发表成功！");
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空euditor编辑器
+                    UE.getEditor('editor').setContent('');
+                    location.reload();
+                    alert('发表成功！');
                     //局部刷新
                 }
             }
