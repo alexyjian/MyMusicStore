@@ -78,26 +78,28 @@
     var ue = UE.getEditor('editor', { scaleEnabled: true });
     function getContentTxt() {
         var arr = UE.getEditor('editor').getPlainTxt().toString();
-         $.ajax({
+        $.ajax({
             type: 'post',
             async: true,
-             url: '../../Store/Reply',
-             data: { id: "@Model.ID", replyID: "00000000-0000-0000-0000-000000000000", content: arr },
-             dataType: 'json',
-             success: function (data) {
-                 if (data == "OK") {
-                     location.href =
-                         "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
-                 } else {
-                     $(".pinl").html(data);
-                 }
-             
-
+            url: '../../Store/Reply',
+            data: { id: "@Model.ID", replyID: "00000000-0000-0000-0000-000000000000", content: arr },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else {
+                    $(".pinl").html(data);
+                    setTimeout(function () {
+                        location.reload();
+                    }, 10);
+                }
             }
         });
     }
     /*评论显示*/
 </script>
+<!-- 子回复 -->
 <script>
     function on(obj) {
         obj.style.background = "#e0e0e0";
@@ -133,24 +135,39 @@
 
         UE.getEditor('editor1', { scaleEnabled: true }).destroy();
         s = 0;
-         $.ajax({
+        $.ajax({
             type: 'post',
             async: true,
-             url: '../../Store/Reply',
-             data: { id: "@Model.ID", replyID:ID, contentreply: arr },
-             dataType: 'json',
-             success: function (data) {
-                 $(".pinl").html(data);
+            url: '../../Store/Reply',
+            data: { id: "@Model.ID", replyID:ID, contentreply: arr },
+            dataType: 'json',
+            success: function (data) {
+                $(".pinl").html(data);
+                setTimeout(function () {
+                    location.reload();
+                }, 10);
             }
         });
     }
     //查看所有回复
     function openmain(obj) {
-       
-        var d = document.getElementById('pinl_main_second');
-        d.style.display = "block";
+
+
+        var d = document.getElementsByClassName('pinl_reply');
+        var p = document.getElementsByClassName('pinl_p');
+        for (var i = 0; i < p.length; i++) {
+            p[i].index = i;
+            p[i].onClick = function () {
+                alert("66666");
+                for (var t = 0; t < d.length; i++) {
+                    d[t].style.display = "block";
+                }
+            }
+        }
+        //d.style.display = "block";
     }
 </script>
+<!-- 试听和添加购物车 -->
 <script>
     $("#addcart").click(function () {
         //异步
