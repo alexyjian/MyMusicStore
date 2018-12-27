@@ -23,6 +23,23 @@ namespace MusicStore.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
+            //显示评论
+            var cmt = _context.Replys.Where(x => x.Album.ID == id && x.ParentReply == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+            var htmlString = "";
+
+            htmlString += "<ul class='media-list'>";
+            foreach (var item in cmt)
+            {
+                htmlString += "<li class='media'>";
+                htmlString += "<div class='media-left'>";
+                htmlString += "<img class='media-object' src='" + item.Person.Avarda +
+                   "'alt='头像'style='width:40px;border-radius:50%;'>";
+                htmlString += "</div>";
+          
+
+
+            }
             return View(detail);
         }
 
@@ -30,7 +47,7 @@ namespace MusicStore.Controllers
 
        //评论
         [HttpPost]
-        [ValidateInput(false)]
+        [ValidateInput(false)]//关闭验证
         public ActionResult AddCmt(string id, string cmt, string reply)
         {
             //判断是否登录
