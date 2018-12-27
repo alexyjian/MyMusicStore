@@ -37,6 +37,7 @@ body {
 
 ul li a {
     font-size: 16px;
+
 }
 
 #main {
@@ -289,11 +290,12 @@ tr:hover {
     border-radius:50%;
 }
 
-/*添加音乐*/
+
+/*试听播放器*/
 .cd
 {
-    width: 300px;
-    height: 300px;
+    width:  350px;
+    height: 350px;
     position: absolute;
     top:25%;
     left: 10%;
@@ -303,16 +305,16 @@ tr:hover {
     z-index: 2;
     box-shadow: 5px 5px 15px black;
 }
-.center
+
+.cd-center
 {
-    width: 50px;
-    height: 50px;
-    background-image: black;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     position: absolute;
     left: 50%;
     top:50%;
-    margin-left: -50px;
+    margin-left: -40px;
     margin-top:-50px;
     border: 5px solid white;
     background-image: url(/Content/Images/yinfu.gif);
@@ -321,17 +323,20 @@ tr:hover {
     z-index: 3;
     background-color: black;
 }
+
 #box-video audio
 {
-    width:200px;
-    top:200px;
+    width: 210px;
+    height :10px;
     position: absolute;
-    left: 40px;
-    bottom: -70px;
+    left: -70px;
+    bottom: -80px;
 }
-#box-video{
-        top:-2px;
-         position: absolute;
-         left: 400px;
+
+#box-video
+{
+    top:30px;
+    left:500px;
+    position: absolute;
 }
 
