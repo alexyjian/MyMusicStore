@@ -8,36 +8,39 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-    /// <summary>
-    /// 评论
-    /// </summary>
-    public  class Reply
+  public  class Reply
     {
         public Guid ID { get; set; }
 
-        [Display(Name = "标题")]
-        [Required]
+        [Display(Name ="标题")]
         public virtual string Title { get; set; }
 
-        [Display(Name = "内容")]
+        [Display(Name ="内容")]
         [Required]
-        public virtual string Content { get; set; }
+        public  virtual string Content { get; set; }
 
-        [Required]
+       [Required]
         public virtual Person Person { get; set; }
 
-        [Required]
-        public virtual Album Album { get; set; }
 
         [Required]
-        public virtual Reply ParentReply { get; set; }   //上级回复
+        public  virtual Album Album { get; set; }
 
-        public DateTime CreateDateTime { get; set; }  //回复时间
+      // [Required]
+        public  virtual Reply ParentReply { get; set; }//上级回复
+
+
+        public DateTime CreateDateTime { get; set; }//回复时间
+
+
+        public int Like { get; set; } = 0; //赞
+        public int Hate { get; set; } = 0;//黑
 
         public Reply()
         {
             ID = Guid.NewGuid();
             CreateDateTime = DateTime.Now;
         }
+
     }
 }

@@ -20,7 +20,7 @@ namespace MusicStore.Controllers
             if (Session["LoginUserSessionModel"] == null)
                 return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "My") });
 
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var person =_context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
 
             var myVM = new MyViewModel()
             {

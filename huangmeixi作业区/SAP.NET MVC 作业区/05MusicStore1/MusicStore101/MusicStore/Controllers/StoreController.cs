@@ -1,9 +1,12 @@
-﻿using MusicStoreEntity;
+﻿using MusicStore.ViewModels;
+using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace MusicStore.Controllers
 {
@@ -20,8 +23,87 @@ namespace MusicStore.Controllers
         public ActionResult Detail(Guid id)
         {
             var detail = _context.Albums.Find(id);
+            //显示评论
+            var cmt = _context.Replys.Where(x => x.Album.ID == id && x.ParentReply == null)
+               .OrderByDescending(x => x.CreateDateTime).ToList();
+           
+            ViewBag.Cmt = _GetHtml(cmt);
             return View(detail);
         }
+        /// <summary>
+        /// 生成回复显示html文本
+        /// </summary>
+        /// <param name="cmt"></param>
+        /// <returns></returns>
+        private string _GetHtml(List<Reply> cmt)
+        {
+            var htmlString = "";
+
+            htmlString += "<ul class='media-list'>";
+            foreach (var item in cmt)
+            {
+                htmlString += "<li class='media'>";
+                htmlString += "<div class='media-left'>";
+                htmlString += "<img class='media-object' src='" + item.Person.Avarda +
+                              "' alt='头像' style='width:40px;border-radius:50%;'>";
+                htmlString += "</div>";
+                htmlString += "<div class='media-body'>";
+                htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
+                              item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                htmlString += item.Content;
+                //查询当前回复的下一级回复
+                var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
+                htmlString += "<h6>回复(<a href='#'>" + sonCmt.Count + "</a>)条" + "  <a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
+                              item.Like + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</h6>";
+                htmlString += "</div>";
+                htmlString += "</li>";
+
+            }
+            htmlString += "</ul>";
+            return htmlString;
+        }
+
+
+
+       //评论
+        [HttpPost]
+        [ValidateInput(false)]//关闭验证
+        public ActionResult AddCmt(string id, string cmt, string reply)
+        {
+            //判断是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
+              LoginUserSessionModel).Person.ID);
+            var album = _context.Albums.Find(Guid.Parse(id));
+
+            //创建回复对象
+
+            var r = new Reply()
+            {
+                Album = album,
+                Person = person,
+                Content = cmt,
+                Title = ""
+            };
+            //父级回复
+            if (string.IsNullOrEmpty(reply))
+            {
+                //顶级回复
+                r.ParentReply = null;
+
+            }
+            else
+            {
+                r.ParentReply = _context.Replys.Find(Guid.Parse(reply));
+            }
+            _context.Replys.Add(r);
+            _context.SaveChanges();
+            return Json("OK");
+        }
+
+  
         /// <summary>
         /// 按分类显示专辑页
         /// </summary>

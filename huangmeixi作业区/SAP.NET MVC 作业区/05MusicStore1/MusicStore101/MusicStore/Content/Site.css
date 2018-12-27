@@ -324,7 +324,7 @@ tr:hover {
 .cd-center {
     width: 100px;
     height: 100px;
-    background-image:black;
+    /*background-image:black;*/
     border-radius: 50%;
     position: absolute;
     left: 50%;
@@ -348,4 +348,37 @@ tr:hover {
     position:absolute;
     left:400px;
 
+}
+
+#submit {
+    position:absolute;
+    right:700px;
+    bottom:160px;
+    z-index:999;
+    background-color:greenyellow;
+    
+}
+
+#Comment{
+    width:400px;
+    height:180px;
+    position:relative;
+}
+#display em{
+    color:#77788e;
+    font-size:12px;
+}
+
+#Reply_content{
+    position:relative;
+    padding-left:50px;
+    padding-top:5px;
+    border:1px dashed #fffff0;
+    margin-bottom:5px;
+
+}
+
+#Reply_content i {
+    cursor:pointer;
+    color:#3170a7;
 }
