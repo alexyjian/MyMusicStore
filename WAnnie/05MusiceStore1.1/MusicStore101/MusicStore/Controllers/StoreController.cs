@@ -19,8 +19,12 @@ namespace MusicStore.Controllers
         {
            
             var detail = _Context.Ablums.Find(id);
+            var cmt = _Context.Replys.Where(x => x.Ablum.ID == id && x.ParentReply == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+
+            ViewBag.Cmt = _GetHtml(cmt);
             return View(detail);
-            //自己写的
+
             //if (Session["LoginUserSessionModel"] == null)
             //    return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Store") });
             //var person = _Context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
@@ -36,9 +40,41 @@ namespace MusicStore.Controllers
 
         }
 
+        /// <summary>
+        /// 生成回复的显示HTML文本
+        /// </summary>
+        /// <param name="cmt"></param>
+        /// <returns></returns>
+        private string _GetHtml(List<Reply> cmt)
+        {
+            var htmlString = "";
+            htmlString += "<ul class='media - list'>";
+            foreach (var item in cmt)
+            {
+                htmlString += "<li class='media'>";
+                htmlString += "<div class='media-left'>";
+                htmlString+= "<img class='media-object'src='"+item.Person.Avarda+"'alt='头像'style='width:40px;border-radius:50%;'>";
+                htmlString += "</div>";
+                htmlString+= "<div class='media-body'>";
+                htmlString += "<h5 class='media-heading'>"+item.Person.Name+"发表于"+item.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒")+ "</h5>";
+                htmlString += item.Content;
+                
+                //查询当前回复的下一级回复
+                var sonCmt = _Context.Replys.Where(x => x.Person.ID == item.ID).ToList();
+                htmlString += "<h6><a href='#'>回复</a>(<a href='#'>" + sonCmt.Count + "</a>)条" +
+                              "<a href='#'style='margin:0 20px 0 50px'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
+                              item.Like + ")<a href='#'style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" +
+                              item.Hate + ")</h6>";
+                htmlString += "</div>";
+                htmlString += "</li>";
+            }
+
+            htmlString += "</ul>";
+            return htmlString;
+        }
+
         [HttpPost]
-        [ValidateInput(false)]
-        //关闭验证
+        [ValidateInput(false)] //关闭验证       
         public ActionResult AddCmt(string cmt, string reply,string id)
         {
             if (Session["LoginUserSessionModel"] == null)
@@ -54,7 +90,7 @@ namespace MusicStore.Controllers
                 Ablum = ablum,
                 Person = person,
                 Content = cmt,
-                Title = "123123"
+                Title = ""
             };
             //父级回复
             if (string.IsNullOrEmpty(reply))
@@ -62,7 +98,6 @@ namespace MusicStore.Controllers
                 //顶级回复,ParentReply为空
                 r.ParentReply = null;
             }
-
             else
             {
                 r.ParentReply = _Context.Replys.Find(Guid.Parse(reply));
@@ -70,7 +105,11 @@ namespace MusicStore.Controllers
 
             _Context.Replys.Add(r);
             _Context.SaveChanges();
-            return View("OK");
+
+            //局部刷新显示成最新的评论
+            var replies = _Context.Replys.Where(x => x.Ablum.ID == ablum.ID && x.ParentReply == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+            return Json(_GetHtml(replies));
         }
 
 

@@ -10,7 +10,7 @@
 <h2>@Model.Title</h2>
  
 <div id="box-video">
-    <div class="cd" style="background: url(@(Model.AlbumArtUrl))no-repeat; background-size: 100%;" >
+    <div class="cd" style="background: url(/Upload/Avarda/06280f8e-0db0-488a-ad72-05fed794fcfe.jpg)no-repeat; background-size: 100%;" >
         <div class="cd-center">
             <audio src="@Model.MusucUrl" controls autoplay loop></audio>
         </div>
@@ -84,11 +84,24 @@
         <div id="pinglun">
             <input type="button" onclick="paryted()" class="btn btn-success " value="评论" />
         </div>*@
+    
 
+    @* 显示评论 *@
+    <div class="row">
+        <div class="col-md-10">
+            <div id="divCmt">
+                @Html.Raw(ViewBag.Cmt)
+            </div>
+        </div>
+    </div>
+    
+
+    @* 百度ueditor的呈现 *@
     <div class="row">
         <div class="col-md-10">
             <div class="form-group">
                 <textarea id="editor" name="editor"></textarea>
+                <input type="hidden" id="pReplyID"/>
             </div> 
             <button id="btnCmt" type="button" class="btn btn-success">评论</button>
 
@@ -112,7 +125,8 @@
         //获取编辑器中的内容
         UE.getEditor('editor');
         var content = UE.getEditor('editor').getContent();
-        console.log(content);
+        var pid = $("#pReplyID").val();
+        //console.log(content);
         //ajax提交
         $.ajax({
             type: 'post',
@@ -129,13 +143,14 @@
                     //如果没登录
                     location.href = "@Url.Action("login","Account",
                                         new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
-                } else if (data == "OK") {
+                } else {
+                    //HTML文本注入div
+                    $("#divCmt").html(data);
+                    //清空editor编辑器
+                    ue.getEditor('editor').setContent('');
+                    location.reload();
                     alert('发表成功!');
-                    //局部刷新
-                    setTimeout(function () {
-                            location.reload();
-                        },
-                        2000);
+
                 }
             }
         });
