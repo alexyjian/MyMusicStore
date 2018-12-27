@@ -176,8 +176,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\boy.jpg" />
-    <Content Include="Content\images\cd_img.jpg" />
-    <Content Include="Content\images\cd_imgl.jpg" />
     <Content Include="Content\images\DD.jpg" />
     <Content Include="Content\images\DZQ.jpg" />
     <Content Include="Content\images\EE.jpg" />
@@ -188,6 +186,7 @@
     <Content Include="Content\images\home-showcase.png" />
     <Content Include="Content\images\LJJ.jpg" />
     <Content Include="Content\images\LL.jpg" />
+    <Content Include="Content\images\LLL.jpeg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\LYG.jpg" />
     <Content Include="Content\images\LYH.jpg" />
@@ -206,6 +205,7 @@
     <Content Include="Content\images\XZQ.jpg" />
     <Content Include="Content\images\yinfu.gif" />
     <Content Include="Content\images\ZJL.jpg" />
+    <Content Include="Content\images\zz.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />

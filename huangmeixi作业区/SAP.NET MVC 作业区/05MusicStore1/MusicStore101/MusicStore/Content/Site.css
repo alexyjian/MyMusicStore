@@ -313,10 +313,11 @@ tr:hover {
     width: 422px;
     height: 422px;
     position: absolute;
-    top: 25%;
+    top: 100%;
     left: 10%;
     border-radius: 50%;
     border: 10px solid white;
+    background-image: url(/Content/images/LLL.jpeg);
     z-index: 2;
     box-shadow: 5px 5px 15px black;
 }

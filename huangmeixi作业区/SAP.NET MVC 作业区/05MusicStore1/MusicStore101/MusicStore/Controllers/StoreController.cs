@@ -53,7 +53,7 @@ namespace MusicStore.Controllers
                 htmlString += item.Content;
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6>回复(<a href='#'>" + sonCmt.Count + "</a>)条" + "  <a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
+                htmlString += "<h6>回复(<a href='#' class='reply'> 回复</a>" + sonCmt.Count + "</a>)条" + "  <a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
                               item.Like + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</h6>";
                 htmlString += "</div>";
                 htmlString += "</li>";
@@ -65,7 +65,7 @@ namespace MusicStore.Controllers
 
 
 
-       //评论
+        //评论
         [HttpPost]
         [ValidateInput(false)]//关闭验证
         public ActionResult AddCmt(string id, string cmt, string reply)
@@ -100,10 +100,13 @@ namespace MusicStore.Controllers
             }
             _context.Replys.Add(r);
             _context.SaveChanges();
-            return Json("OK");
+            //局部刷新显示
+            var replies = _context.Replys.Where(x => x.Album.ID == album.ID && x.ParentReply == null)
+              .OrderByDescending(x => x.CreateDateTime).ToList();
+            return Json(_GetHtml(replies));
         }
 
-  
+
         /// <summary>
         /// 按分类显示专辑页
         /// </summary>
