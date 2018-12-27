@@ -34,6 +34,12 @@ namespace MusicStoreEntity
         public virtual Reply ParentReply { get; set; }   //上级回复
 
         public DateTime CreateDateTime { get; set; }  //回复时间
+        
+        //赞
+        public int Like { get; set; } = 0;
+        
+        //黑
+        public int Hate { get; set; } = 0;
 
         public Reply()
         {
