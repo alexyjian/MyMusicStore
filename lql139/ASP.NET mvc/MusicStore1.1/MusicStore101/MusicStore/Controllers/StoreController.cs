@@ -2,6 +2,7 @@
 using MusicStoreEntity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,7 +20,40 @@ namespace MusicStore.Controllers
         public ActionResult Detai(Guid id)
         {
             var detail = _context.Albums.Find(id);
+            var cmt = _context.Reply.Where(x => x.Album.ID == id && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
+         //   ViewBag.cmt = _GetHtml(cmt);
             return View(detail);
+        }
+        /// <summary>
+        /// 生成回复的显示html文本
+        /// </summary>
+        /// <param name="cmt"></param>
+        /// <returns></returns>
+        private string _GetHtml(List<Reply> cmt)
+        {
+            var htmlString = "";
+            foreach (var item in cmt)
+            {
+                htmlString += " <hr />";
+                htmlString += "<div>";
+                htmlString += "<img class='comments-foreach-div' src='" + item.Person.Avarda + "' alt='头像'/>";
+                htmlString += "<div  class='comments -foreach-div'>";
+                htmlString += " <a style='margin - top:5px; margin - left:-10px; '>'"+item.Person.Name+"'</a><br />";
+
+                htmlString += " <label>'"+item.Content+ "'</label><br />";
+                htmlString+= "  <p style='float:right; '>'"+item.CreateDateTime+"'</p>";
+
+                var sonCmt = _context.Reply.Where(x => x.ParentReply.ID == item.ID).ToList();
+
+                htmlString += "<h6>回复(<a href='#'>" + sonCmt.Count + "</a>)条" + 
+                    "<a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +item.Like 
+                    + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</h6>";
+
+                htmlString += "</div>";
+              
+                htmlString += " <hr />";
+            }
+            return htmlString;
         }
         public ActionResult Browser(Guid id)
         {
@@ -31,13 +65,7 @@ namespace MusicStore.Controllers
             var context = new EntityDbContext();
             return View(context.Genres.OrderBy(x=>x.Name).ToList());
         }
-        public ActionResult Comments()
-        {
-            //获取当前用户ID
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var Commentss = _context.Commentss.Where(x => x.Person.ID == x.Person.ID && x.Album.ID == x.Album.ID).ToList();
-            return View(Commentss);
-        }
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Commentsadd(string id,string cmt, string reply)
@@ -51,23 +79,26 @@ namespace MusicStore.Controllers
 
             var r = new Reply()
             {
-                Album =album,
-                Person=person,
-                Content=cmt,
-                
+                Album = album,
+                Person = person,
+                Content = cmt,
+                Title = "",
             };
-            if(string.IsNullOrEmpty(reply))
+
+            if (string.IsNullOrEmpty(reply))
             {
                 r.ParentReply = null;
             }
             else
             {
-                //r.ParentReply=_context.
+                r.ParentReply = _context.Reply.Find(Guid.Parse(reply));
             }
-            _context.Commentss.Add(r);
+            var replies = _context.Reply.Where(x => x.Album.ID == album.ID && x.ParentReply == null)
+             .OrderByDescending(x => x.CreateDateTime).ToList();
+         
+            _context.Reply.Add(r);
             _context.SaveChanges();
-            
-            return Content("< script > alert('评论成功!') </ script >");
+            return Json(_GetHtml(replies));
         }
 
     }

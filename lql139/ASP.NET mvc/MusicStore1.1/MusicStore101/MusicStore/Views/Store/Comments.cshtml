@@ -1,4 +1,4 @@
-﻿@model IEnumerable < MusicStoreEntity.Comments>
+﻿@model IEnumerable < MusicStoreEntity.Reply>
 
 
 <div style="margin-bottom:40px;">
@@ -26,18 +26,22 @@
     <button id="comments" style="float:right;margin-top:5px;margin-bottom:30px;" type="button" class="btn btn-success">发表评论</button>
 </div>
 
-<div>
-    <small class="Goodcomments" style="">精彩评论</small>
+<small class="Goodcomments" style="">精彩评论</small>
+
+<div id="comm">
+    
+  
     @foreach (var item in Model)
-    { <hr />
+    { 
+        <hr />
         <div>
             <img class="comments" src="@item.Person.Avarda"/>
             
             <div class="comments-foreach-div">
                 <a style="margin-top:5px;margin-left:-10px;">@item.Person.Name</a><br />
-                <label>@item.content</label>
+                <label>@item.Content</label>
                 <br />
-                <p style="float:right;">@item.publisheddate</p>
+                <p style="float:right;">@item.CreateDateTime</p>
             </div>
         </div>
         <hr />
