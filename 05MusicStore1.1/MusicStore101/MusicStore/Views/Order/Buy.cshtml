@@ -19,32 +19,32 @@
                 <th>操作</th>
             </tr>
             <tbody id="tbCart">
-                @foreach (var item in Model.OrderDetails)
-                {
-                    <tr>
-                        <td>
-                            @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
-                        </td>
-                        <td>
-                            @item.Album.Price.ToString("C")
-                        </td>
-                        <td>
-                            @item.Count
-                        </td>
-                        <td>
-                            <a href="#" onclick="RemoveDetail('@item.ID');">
-                                <i class="glyphicon glyphicon-remove"></i>
-                                我不喜欢它了
-                            </a>
-                        </td>
-                    </tr>
-                }
+            @foreach (var item in Model.OrderDetails)
+            {
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td>总价</td>
-                    <td>@Model.TotalPrice.ToString("C")</td>
+                    <td>
+                        @Html.ActionLink(item.Album.Title, "detail", "Store", new {id = item.Album.ID}, null)
+                    </td>
+                    <td>
+                        @item.Album.Price.ToString("C")
+                    </td>
+                    <td>
+                        @item.Count
+                    </td>
+                    <td>
+                        <a href="#" onclick="RemoveDetail('@item.ID');">
+                            <i class="glyphicon glyphicon-remove"></i>
+                            我不喜欢它了
+                        </a>
+                    </td>
                 </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td>总价</td>
+                <td>@Model.TotalPrice.ToString("C")</td>
+            </tr>
             </tbody>
         </table>
         <p></p>
@@ -71,3 +71,4 @@
         });
     }
 </script>
+
