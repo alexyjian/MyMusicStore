@@ -41,9 +41,9 @@ namespace Music.Controllers
                 htmlString += "<li>#"+louc+"</li>";
                 htmlString += "<li>"+item.CreateDateTime+"</li>";
                 htmlString += "<li onclick='ADD(this)'>回复</li>";
-                htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
-                htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
-                htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>查看对话内容</li>";
+                htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>（" + item.Like + "）</li>";
+                htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>（" + item.Hate + "）</li>";
+                htmlString += "<li onclick='pinlMain(this)'>查看对话内容</li>";
                 htmlString += "</ul>";
                 htmlString += "</div>";//功能栏结束
                 htmlString += "</div>";//第一层结束
@@ -75,6 +75,7 @@ namespace Music.Controllers
                         htmlString += "<li onclick='ADD(this)'>回复</li>";
                         htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</li>";
                         htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</li>";
+                        htmlString += "<li>查看对话内容</li>";
                         htmlString += "</ul>";
                         htmlString += "</div>";//功能栏结束
                         htmlString += "</div>";//第一层结束
@@ -191,8 +192,9 @@ namespace Music.Controllers
                 htmlString += "<li>#" + louc + "</li>";
                 htmlString += "<li>" + item.CreateDateTime + "</li>";
                 htmlString += "<li onclick='ADD(this)'>回复</li>";
-                htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>" + item.Like + "</li>";
-                htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>" + item.Hate + "</li>";
+                htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>（" + item.Like + "）</li>";
+                htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>（" + item.Hate + "）</li>";
+                htmlString += "<li onclick='pinlMain(this)'>查看对话内容</li>";
                 htmlString += "</ul>";
                 htmlString += "</div>";//功能栏结束
                 htmlString += "</div>";//第一层结束
@@ -224,6 +226,7 @@ namespace Music.Controllers
                         htmlString += "<li onclick='ADD(this)'>回复</li>";
                         htmlString += "<li><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</li>";
                         htmlString += "<li><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</li>";
+                        htmlString += "<li>查看对话内容</li>";
                         htmlString += "</ul>";
                         htmlString += "</div>";//功能栏结束
                         htmlString += "</div>";//第一层结束
@@ -232,7 +235,7 @@ namespace Music.Controllers
                 }
                 htmlString += "</div>";//第二层回复结束
                 if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count > 1)
-                    htmlString += "<p class='pinl_p' id='a" + louc + "' onclick='openmain(this)'>查看所有回复("+ prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count + ")</p>";
+                    htmlString += "<p class='pinl_p' id='a" + louc + "' onclick='openmain(this)'>查看所有回复(" + prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count + ")</p>";
                 htmlString += "<hr>";
                 htmlString += "</div>";
             }

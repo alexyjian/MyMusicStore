@@ -255,7 +255,7 @@ body {
                 display: inline-block; 
                 border-radius:5px;
                 padding: 5px 10px;
-                margin-right: 5%;                
+                margin-right: 2%;                
             }
             #pinl_main_main > div:nth-child(3) > ul > li:nth-child(3):hover {
                 background: #e0e0e0;
@@ -278,4 +278,5 @@ hr {
     clear: both;
     text-align: left;
     text-indent:30%;
+    cursor: pointer;
 }
