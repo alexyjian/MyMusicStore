@@ -60,8 +60,9 @@
     @*百度富文本编辑器的呈现*@
     <div class="row">
         <div class="col-md-10">
-            <div class="form-group">
+            <div class="form-group" id="div-editor">
                 <textarea id="editor" name="editor"></textarea>
+                <input type="hidden" id="pReplyID" />
             </div>
             <button id="btnCmt" type="button" class="btn btn-success">评论</button>
         </div>
@@ -94,6 +95,22 @@
 </div>
 
 <script>
+
+    //点击评论中的回复按钮触发的方法
+    function GetQuote(id) {
+        //保存该评论的id
+        $("#pReplyID").val(id);
+        alert($("#pReplyID").val());
+        //取回复的内容
+        var divName = 'Content-' + id;
+        var content = "<p></p>" + $("#" + divName).html();
+
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function () {
+            ue.setContent(content);
+        });
+    }
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
         UEDITOR_HOME_URL: "/ueditor/",//配置编辑器的路径
@@ -117,7 +134,7 @@
             data:{
                 "id": "@Model.ID",
                 "cmt": content,
-                "reply": ""
+                "reply": pid
             },
             dataType: 'json',
             success: function (data) {
