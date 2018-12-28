@@ -47,35 +47,7 @@
             <strong>最新评论</strong>
             <hr class="jcpl-hr" />
             <div id="pl-all-list">
-                @if (Model.Commentarys.ToList().Count == 0)
-                {
-                <div class="text-muted text-center user-ment">还没有评论呢，快来抢沙发~</div>
-                }
-                else
-                {
-                    foreach (var item in Model.Commentarys.OrderByDescending(x => x.PublisherDate).ToList())
-                    {
-                        <div id="@item.ID" class="pl-list">
-                            <img class="pl-Avarda MyAvarda" src="@item.Person.Avarda" />
-                            <div class="pl-user">
-                                <a href="#">@item.Person.Name</a>：
-                                @Html.Raw(item.Context)
-                                @if (item.commentary != null)
-                                {
-                                    <div class="fu-hf">
-                                        <a href="#">@item.commentary.Person.Name：</a>
-                                        @Html.Raw(item.commentary.Context)
-                                    </div>
-                                }
-                            </div>
-                            <p class="user-ment text-right">
-                                <a id='@item.ID' onclick="zan('@item.ID')" href="#"><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;&nbsp;( @item.ThumbsUp )</a>
-                                <a href="javascript:;" class="hf" data-id="@item.ID">回复</a>
-                                <span class="text-muted  address">@item.PublisherDate.ToString("MM月dd日 HH:mm")</span>
-                            </p>
-                        </div>
-                    }
-                }
+                @Html.Raw(ViewBag.Cmt)
             </div>
         </div>
     </div>
@@ -85,6 +57,27 @@
 <!-- 编辑器源码文件 -->
 <script type="text/javascript" src="~/ueditor1_4_3_3-utf8-asp/utf8-asp/ueditor.all.js"></script>
 <script>
+    //显示回复框
+    var reply_id = "";
+    function div_reply() {
+        $('.reply-div').remove();
+        var name = $(this).parent().prev();
+        console.debug(name);
+        alert(name);
+        if (reply_id == "") {
+            reply_id = $(this).data("replyid");
+            $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
+        } else {
+            if (reply_id == $(this).data("replyid")) {
+                $('.reply-div').remove();
+                reply_id = "";
+            } else {
+                reply_id = $(this).data("replyid");
+                $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
+            }
+        }
+    };
+
     //点赞
     var i = 0;
     function zan(id) {
@@ -99,12 +92,11 @@
                     if (data == "nologin") {
                         location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
                     } else {
-                        $("#" + id + "").html(data);
-                        $("#" + id + "").addClass("text-danger");
+                        $("#pl-all-list").html(data);
                         i++;
                     }
                 }
-            })
+            });
         } else {
             alert("今日点赞已达上限！");
         }
@@ -133,9 +125,6 @@
         });
     });
 
-    function CAR(id, str, reply) {
-
-    }
     //实例化编辑器
     var ue = UE.getEditor('container');
     $('#btn-pl').click(function () {
@@ -161,9 +150,10 @@
         }
     });
 
+    //回复
     function reply() {
         var str = $('#editor').val();
-        var reply_id = $('.hf').data('id');
+        var reply_id = $('.hf').data('replyid');
         if (str.length == 0) {
             alert('请输出内容！');
         } else {
@@ -177,32 +167,13 @@
                     if (data == "nologin") {
                         location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
                     } else {
+                        $('.reply-div').remove();
                         str = "";
                         reply_id = "";
-                        show = 0;
                         $("#pl-all-list").html(data);
                     }
                 }
             });
         }
     };
-
-    //显示回复框
-    var reply_id = "";
-    $(".hf").click(function () {
-        $('.reply-div').remove();
-        if (reply_id == "") {
-            reply_id = $(this).data("id");
-            var name = $($("#pl-all-list").children("#" + reply_id + "").children("a").get(0)).val();
-            $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复"+name+"：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
-        } else {
-            if (reply_id == $(this).data("id")) {
-                $('.reply-div').remove();
-                reply_id = "";
-            } else {
-                reply_id = $(this).data("id");
-                $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
-            }
-        }
-    });
 </script>
