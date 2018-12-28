@@ -69,9 +69,10 @@ namespace MusicStore.Controllers
                 person.FirstName = person.Name.Substring(0, 1);
                 person.LastName = person.Name.Substring(1, person.Name.Length - 1);
                 person.Avarda = oldAvarda;
-
                 _context.SaveChanges();
 
+                return Content("<script> alert('您已修改个人信息成功：');location.href='" + Url.Action("index", "My") + "'</script>");
+                    
                 return RedirectToAction("Index");
             }
 

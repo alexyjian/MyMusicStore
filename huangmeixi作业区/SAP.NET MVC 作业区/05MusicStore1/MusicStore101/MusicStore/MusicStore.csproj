@@ -176,6 +176,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\bg.png" />
     <Content Include="Content\images\boy.jpg" />
+    <Content Include="Content\images\cd_img.jpg" />
     <Content Include="Content\images\DD.jpg" />
     <Content Include="Content\images\DZQ.jpg" />
     <Content Include="Content\images\EE.jpg" />
