@@ -31,7 +31,7 @@ namespace MusicStore.Controllers
         /// 生成回复的显示html文本
         /// </summary>
         /// <param name="cmt"></param>
-        private string _GetHtml(List<Reply>cmt)
+        private string _GetHtml(List<Reply> cmt)
         {
             var htmlString = "";
             htmlString += "<ul class='media-list'>";
@@ -39,24 +39,25 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<li class='media'>";
                 htmlString += "<div class='media-left>";
-                htmlString += "<img class='media-object'src='"+iteme.Person.Avarda+
+                htmlString += "<img class='media-object'src='" + iteme.Person.Avarda +
                     "'alt='头像'style='width:40px;border-radius:50%;'>";
-                htmlString += "</div>";
+                htmlString += "</div class='media-body'id='Content-" + iteme.ID + "'>";
                 htmlString += "<div class='media-body'>";
                 htmlString += "<h5 class='media-hesding'>" + iteme.Person.Name + "发表于" +
                     iteme.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += iteme.Content;
-                //查询当前回复的下一级回复
-                var sonCmt =_context.Reply.Where(x => x.ParentReoly.ID == iteme.ID).ToList();
-                htmlString +="<h6>回复(<a href='#'>"+ sonCmt.Count + "</a>)条" + "  <a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
-iteme.Like + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + iteme.Hate + ")</h6>";
                 htmlString += "</div>";
+                //查询当前回复的下一级回复
+                var sonCmt = _context.Reply.Where(x => x.ParentReoly.ID == iteme.ID).ToList();
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + iteme.ID + "');\">回复</a>(<a href='#' class='reply'>" + sonCmt.Count + "</a>)条" +
+                              "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
+                iteme.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + iteme.Hate + ")</a></h6>";
+
                 htmlString += "</li>";
             }
             htmlString += "</ul>";
-            return htmlString;
-        }
-
+                return htmlString;
+            }
 
         [HttpPost]
         [ValidateInput(false)] //关闭验证
@@ -68,14 +69,16 @@ iteme.Like + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>
 
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
           LoginUserSessionModel).Person.ID);
-            var alnum = _context.Albums.Find(Guid.Parse(id));
+            var album = _context.Albums.Find(Guid.Parse(id));
+
 
             //创建回复对象
             var r = new Reply()
             {
-                Album = alnum,
+                Album = album,
                 Person = person,
                 Content = cmt,
+                Title = ""
             };
             //父级回复
             if (string.IsNullOrEmpty(reply))
@@ -91,12 +94,33 @@ iteme.Like + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>
             _context.SaveChanges();
 
             //局部刷新显示成最新的评论
-            var reolies = _context.Reply.Where(x => x.Album.ID == alnum.ID&& x.ParentReoly == null)
+            var replies = _context.Reply.Where(x => x.Album.ID == album.ID && x.ParentReoly == null)
                .OrderByDescending(x => x.CreateDateTime).ToList();
+           return Json(_GetHtml(replies));
+        }
 
 
-            return Json("OK");
+        [HttpPost]
+        public ActionResult showCmts(string pid)
+        {
+            var htmlString = "";
+            //子回复
+            var id = Guid.Parse(pid);
+            var cmts = _context.Reply.Where(x => x.ParentReoly.ID == id).OrderByDescending(x => x.CreateDateTime).ToList();
 
+
+            //原回复
+            var pcmt = _context.Reply.Find(id);
+            htmlString += "<div class=\"modal-header\">";
+            htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>";
+            htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
+            htmlString += "<em>楼主</em>" + pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+            htmlString += " </h4> </div>";
+
+            htmlString += "<div class=\"modal-body\">";
+            //子回复
+            htmlString += "</div><div class=\"modal-footer\"></div>";
+            return Json(htmlString);
         }
 
         /// <summary>

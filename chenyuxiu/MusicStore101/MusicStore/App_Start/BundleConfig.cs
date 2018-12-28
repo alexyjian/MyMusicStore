@@ -28,7 +28,7 @@ namespace MusicStore
                       "~/Content/Site.css"));
 
             //绑定Ueditor的样式
-            bundles.Add(new StyleBundle("~/Ueditor/Css").Include("~/ueditor/themes/iframe.css"));
+            bundles.Add(new StyleBundle("~/UEditor/Css").Include("~/ueditor/themes/iframe.css"));
             //绑定Ueditor的脚本
             bundles.Add(new StyleBundle("~/bundles/UEditor").Include(
                   "~/ueditor/ueditor.config.js",

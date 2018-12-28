@@ -50,5 +50,6 @@ E:\陈俞秀1\MyMusicStore\chenyuxiu\MusicStore101\MusicStoreEntity\bin\Debug\En
 E:\陈俞秀1\MyMusicStore\chenyuxiu\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
 E:\陈俞秀1\MyMusicStore\chenyuxiu\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 E:\陈俞秀1\MyMusicStore\chenyuxiu\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\陈俞秀1\MyMusicStore\chenyuxiu\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache
 E:\陈俞秀1\MyMusicStore\chenyuxiu\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
 E:\陈俞秀1\MyMusicStore\chenyuxiu\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
