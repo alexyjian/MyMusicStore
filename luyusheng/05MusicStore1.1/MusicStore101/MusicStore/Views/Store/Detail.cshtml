@@ -66,6 +66,23 @@
             <button id="btnCmt"type="button"class="btn btn-success">评论</button>
         </div>
     </div>
+
+<script>
+    //点击评论中的回复按钮触发的方法
+    function GetQuote(id) {
+        //保存该评论的id
+        $("pReplyID").val(id)
+        //取回复的内容
+        var divName = 'Content-' + id;
+        var content = "<p></p>" + $("#" + divName).html();
+
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function () {
+            ue.setContent(content);
+        });
+    }
+</script>
    
     <script>
         //百度编辑器调用
@@ -110,8 +127,8 @@
                         //html文本注入div
                         $("#divCmt").html(data);
                         //清空ueditor编辑器
-                        UE.getEditor("editor").setContent('');
-                        location.reload();
+                        //UE.getEditor("editor").setContent('');
+                        //location.reload();
                     alert('发表成功!');
                     //局部刷新
                     }
