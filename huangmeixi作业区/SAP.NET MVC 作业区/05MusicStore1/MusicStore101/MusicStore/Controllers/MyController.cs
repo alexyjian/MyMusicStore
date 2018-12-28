@@ -73,7 +73,7 @@ namespace MusicStore.Controllers
 
                 return Content("<script> alert('您已修改个人信息成功：');location.href='" + Url.Action("index", "My") + "'</script>");
                     
-                return RedirectToAction("Index");
+               // return RedirectToAction("Index");
             }
 
             ViewBag.AvardaUrl = oldAvarda;
