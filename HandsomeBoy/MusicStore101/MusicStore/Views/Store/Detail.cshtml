@@ -63,6 +63,18 @@
     </div>
 </div>
 
+<script>
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/Ueditor/',//配置编辑器路径
+        iframeCssUrl: '/Ueditor/themes/iframe.css',//自定义样式路径
+        initialContent: '五星好评',//初始内容
+        autoHeightEnabled: true,//高度是否自适应
+        minFrameHeight: 500//编辑器最小的高度
+    });
+    editor.render('editor');
+    //editor.render('editor_abe52a9f-d4bd-4646-b0b5-53f7952098cc');
+    //editor.render('editor_da24e52f-62b5-4c21-8f9f-e5f141c43fac');
+</script>
    @*显示评论*@
 <div class="row rowtop"  >
     <div class="col-md-10">
@@ -72,7 +84,7 @@
     </div>
  </div>
     @*百度ueditor的呈现*@
-   <div class="row">
+   <div class="row" id="hiderow" >
        <div class="col-md-10">
            <div class="form-group">
                <textarea id="editor" name="editor"></textarea>
@@ -81,29 +93,30 @@
            
        </div>
    </div>
-       <script>
+
+    <script>
         function hide(a) {
             if (document.getElementById(a).style.display !== 'none')
             {
                 document.getElementById(a).style.display = 'none';
+                document.getElementById("hiderow").style.display = 'block';
             }
             else
             {
                 document.getElementById(a).style.display = '';
-               
+                document.getElementById("hiderow").style.display = 'none';
             }
+            sessionStorage.setItem("ID",a);
         }
-     </script>
+        
+</script>
 
 <script>
-    var editor = new baidu.editor.ui.Editor({
-            UEDITOR_HOME_URL: '/Ueditor/',//配置编辑器路径
-            iframeCssUrl: '/Ueditor/themes/iframe.css',//自定义样式路径
-            initialContent: '五星好评',//初始内容
-            autoHeightEnabled: true,//高度是否自适应
-            minFrameHeight: 500//编辑器最小的高度
-        });
-    editor.render('editor');
+     
+
+
+
+   
     $("#btnCmt").click(function () {
         //获得编辑器中的内容
         UE.getEditor("editor");
@@ -116,7 +129,7 @@
             data:{
                 "id" : "@detail.ID",
                 "cmt":content,
-                "reply": "ID",
+                "reply": ID,
             },
             dataType:"json",
             success:function(data){
