@@ -55,15 +55,30 @@
         </div>
     </div>
 
-    <div class="row clearfix">
-        <div class="col-md-12 column"> 
+    <div class="row">
+        <div class="col-md-12">
+            <div id="divCmt">
+                @Html.Raw(ViewBag.Cmt)
+            </div>
+        </div>
+    </div>
+
+
+    @*<div class="row clearfix">
+        <div class="col-md-12 column">
+            <div id="divCmt">
+                @Html.Raw(ViewBag.Cmt)
+            </div>
             <button type="button" class="btn btn-primary" data-toggle="collapse"
                     data-target="#demo">
                 
                 收起评论
             </button>
             <div id="demo" class="table-responsive collapse in">
-                <table class="table table-hover ">
+                <table class="table table-hover " id="divCmt">
+                   
+                        @Html.Raw(ViewBag.Cmt)
+                    
                     <thead>
                         <tr>
                             <th>用户</th>
@@ -95,13 +110,14 @@
 
 
         </div>
-    </div>
+    </div>*@
 
 
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="form-group">
                 <textarea id="editor" name="editor"></textarea>
+                <input type="hidden" id="pReplyID" />
             </div>
            
                
@@ -117,7 +133,35 @@
 
 <script>
 
-   //百度编辑器调用
+     //点击评论中的回复按钮触发的方法
+    function GetQuote(id) {
+        //保存该评论的id
+        $("#pReplyID").val(id);
+        //alert($("#pReplyID").val());
+        //取回复的内容
+        var divName ='Content-'+id;
+        var content ="<p></p>"+ $("#"+divName).html();
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function() {
+            ue.setContent(content);
+        });
+    }
+    function ShowCmt(id) {
+        //ajax 查询出子回复
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("showCmts","Store")',
+            data: {"pid":id},
+            dataType: 'json',
+            success: function (data) {
+                $("#Div-SonCmts").html(data);
+                $('#myModal').modal('toggle');
+            }
+        });
+    }
+    //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
         UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
         iframeCssUrl: '/ueditor/themes/iframe.css',  //自定义样式路径
@@ -131,6 +175,7 @@
         //获得编辑器中的内容
         UE.getEditor('editor');
         var content = UE.getEditor('editor').getContent();
+        var pid = $("#pReplyID").val();
         //console.log(content);
         //ajax提交
         $.ajax({
@@ -140,7 +185,7 @@
             data: {
                 "id":"@Model.ID",
                 "cmt": content,
-                "reply":""
+                "reply": pid
             },
             dataType: 'json',
             success: function (data) {
@@ -148,15 +193,17 @@
                     //如果没登录
                     location.href = "@Url.Action("login","Account",
                                          new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
-                } else if (data == "OK") {
-                    alert('发表成功!');
-                    //局部刷新
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    UE.getEditor('editor').setContent('');
                 }
             }
         });
     });
 
-
+    //添加购物车
     $("#addcart").click(function () {
         //异步
         $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍后...")

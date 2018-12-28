@@ -20,10 +20,15 @@ namespace MusicStore.Controllers
         // GET: Store
         public ActionResult Detail(Guid id)
         {
-            var detail = _context.Albums.Find(id);
-         
 
+
+            var detail = _context.Albums.Find(id);
+            var cmt = _context.Replys.Where(x => x.Album.ID == id && x.ParentReply == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+            ViewBag.Cmt = _GetHtml(cmt);
             return View(detail);
+
+
         }
 
         [HttpPost]
@@ -39,16 +44,16 @@ namespace MusicStore.Controllers
             {
                 var rep = new Reply()
                 {
-                    Content=model.Content,
-                    Person=model.Person,
-                    Album=model.Album,
-                    CreateDateTime= DateTime.Now,
+                    Content = model.Content,
+                    Person = model.Person,
+                    Album = model.Album,
+                    CreateDateTime = DateTime.Now,
                 };
                 _context.SaveChanges();
             }
 
 
-                return View();
+            return View();
         }
 
         public ActionResult Browser(Guid id)
@@ -62,50 +67,50 @@ namespace MusicStore.Controllers
             return View(genres);
         }
 
-        [HttpPost]
-        public ActionResult RemoveDetail(Guid id, string content)
-        {
-            //判断用户是否登陆
-            if (Session["loginUserSessionModel"] == null)
-            {
-                return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
-            }
-            //查询出当前登陆用户
-            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+        //[HttpPost]
+        //public ActionResult RemoveDetail(Guid id, string content)
+        //{
+        //    //判断用户是否登陆
+        //    if (Session["loginUserSessionModel"] == null)
+        //    {
+        //        return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
+        //    }
+        //    //查询出当前登陆用户
+        //    var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
 
-            var replys = new Reply()
-            {
+        //    var replys = new Reply()
+        //    {
 
-                Content = content,
-                Person = _context.Persons.Find(person.ID),
-                Album = _context.Albums.Find(id)
-            };
+        //        Content = content,
+        //        Person = _context.Persons.Find(person.ID),
+        //        Album = _context.Albums.Find(id)
+        //    };
 
-            _context.Replys.Add(replys);
-            _context.SaveChanges();
-            var reps = _context.Replys.Where(x => x.Album.ID == id).OrderByDescending(x => x.CreateDateTime);
-            var htmlString = "";
-            foreach (var item in reps)
-            {
-                htmlString += "<div id='demo' class='table - responsive collapse'>";
-                htmlString += "<table class='table table-hover '>";
-                htmlString += "<tbody>";
-                htmlString += "<tr>";
+        //    _context.Replys.Add(replys);
+        //    _context.SaveChanges();
+        //    var reps = _context.Replys.Where(x => x.Album.ID == id).OrderByDescending(x => x.CreateDateTime);
+        //    var htmlString = "";
+        //    foreach (var item in reps)
+        //    {
+        //        htmlString += "<div id='demo' class='table - responsive collapse'>";
+        //        htmlString += "<table class='table table-hover '>";
+        //        htmlString += "<tbody>";
+        //        htmlString += "<tr>";
 
-                htmlString += "<td>" + "<img src = " + @item.Person.Avarda + "/>" + @item.Person.LastName + "</td>";
-                htmlString += item.Content;
-                htmlString += "<td>" + @item.CreateDateTime + "</td>";
-                htmlString += "<a href=\"javascript:; \" >回复</a>";
-                htmlString += "</tr>";
-                htmlString += "</tbody>";
-                htmlString += "</table>";
-                htmlString += "</div>";
-            }
+        //        htmlString += "<td>" + "<img src = " + @item.Person.Avarda + "/>" + @item.Person.LastName + "</td>";
+        //        htmlString += item.Content;
+        //        htmlString += "<td>" + @item.CreateDateTime + "</td>";
+        //        htmlString += "<a href=\"javascript:; \" >回复</a>";
+        //        htmlString += "</tr>";
+        //        htmlString += "</tbody>";
+        //        htmlString += "</table>";
+        //        htmlString += "</div>";
+        //    }
 
-            return Json(htmlString);
+        //    return Json(htmlString);
 
 
-        }
+        //}
 
 
 
@@ -141,10 +146,64 @@ namespace MusicStore.Controllers
 
             _context.Replys.Add(r);
             _context.SaveChanges();
-            return Json("OK");
+
+            //局部刷新显示成最新的评论
+            var replies = _context.Replys.Where(x => x.Album.ID == album.ID && x.ParentReply == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+            return Json(_GetHtml(replies));
+
         }
 
-        
+        public ActionResult showCmts(string pid)
+        {
+           var htmlString = "";
+
+            return Json(htmlString);
+        }
+   
+                       
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cmt"></param>
+        /// <returns></returns>
+        private string _GetHtml(List<Reply> cmt)
+        {
+            var htmlString = "";
+            htmlString += "<button type = 'button' class='btn btn-primary' data-toggle='collapse'data-target='#demo'>收起评论</button>";
+            htmlString += "<div id = 'demo' class='table - responsive collapse in'>";
+            htmlString += "<table class='table table-hover '>";
+        htmlString += "<thead>";
+        htmlString += "<tr>";
+        htmlString += "<th>用户</th>";
+        htmlString += "<th>评论内容</th>";
+        htmlString += "<th>赞</th>";
+        htmlString += "<th>踩</th>";
+        htmlString += "<th>评论时间</th>";
+        htmlString += "<th>回复</th>";
+        htmlString += "</tr>";
+        htmlString += "</thead>";
+        htmlString += "<tbody>";
+            foreach (var item in cmt)
+            {
+            htmlString += "<tr>";
+            htmlString += "<td><img src ='"+@item.Person.Avarda+"'style = 'width: 35px; height: 35px;'/> &nbsp;"+ @item.Person.LastName+"</td>";
+            htmlString += "<td>"+@item.Content+"</td>";
+            htmlString += "<td><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-up'>("+ item.Like +")</i></a></td>";
+            htmlString += "<td><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></td>";
+            htmlString += "<td>"+@item.CreateDateTime+"</td>";
+            var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
+            htmlString += "<td><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID + "');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID + "');\">" + sonCmt.Count + "</a>)条</td>";
+            htmlString += "</tr>";
+
+
+            }
+            htmlString += "</tbody>";
+            htmlString += "</table>";
+            htmlString += "</div>";
+            htmlString += "</div>";
+            return htmlString;
+        }
 
     }
 }
