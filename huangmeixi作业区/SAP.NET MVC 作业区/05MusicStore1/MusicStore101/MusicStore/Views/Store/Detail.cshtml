@@ -61,53 +61,42 @@
 
 
     @*评论*@
-   <div class="row">
-       <div class="col=md-10">
-           <div class="form-group" id="div-editor">
-               <textarea id="editor" name="editor"></textarea>
-               <input type="hidden" id="pReplyID">
-           </div>
-           <button id="btnCmt" type="button" class="btn btn-success">评论</button>
-       </div>
-       </div>
-
+  <div class="row">
+    <div class="col-md-10">
+        <div class="form-group" id="div-editor">
+            <textarea id="editor" name="editor"></textarea>
+            <input type="hidden" id="pReplyID" />
+        </div>
+        <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+    </div>
+</div>
 
 <script>
-    //点击评论中的回复按钮触发的发方法
-    function GetQuote(id)
-    {
+    //点击评论中的回复按钮触发的方法
+    function GetQuote(id) {
         //保存该评论的id
         $("#pReplyID").val(id);
+        alert($("#pReplyID").val());
         //取回复的内容
-        var divName='Content-'+id;
-        var content='<p></p>+$("#"+)'
+        var divName = 'Content-' + id;
+        var content ="<p></p>"+ $("#" + divName).html();
 
         //把内容赋值给ueditor
-        var ue =UE.getEditor('editor');
-        ue.ready(function(){
+        var ue = UE.getEditor('editor');
+        ue.ready(function() {
             ue.setContent(content);
-        })
-    }
-
-
-    @*<input id="submit" type="button" value="评论">*@
-        <!-- 加载编辑器的容器 -->
-        @*<script id="container" name="content" type="text/plain">
-            点评内容：
-        </script>
-    </div>
-    <div id="albumComment">
-
-    </div>*@
-<script>
-    var editor = new baidu.editor.ui.Editor({
-            UEDITOR_HOME_URL:'/ueditor/',
-            iframeCssUrl: '/ueditor/themes/iframe.css',
-            initialContent: '评论内容',
-            autoHeightEnabled: true,
-            minFrameHeight:500
         });
-    editor.render('editor');
+    }
+   
+    //百度编辑器调用
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
+        iframeCssUrl: '/ueditor/themes/iframe.css',  //自定义样式路径
+        initialContent: '评论内容',  //初始内容
+        autoHeightEnabled: true,  //高度是否自适应
+        minFrameHeight:500   //编辑器最小的高度
+    });
+        editor.render('editor');
 
     //提交回复
     $("#btnCmt").click(function () {
@@ -138,7 +127,6 @@
                     location.reload();
                     alert('发表成功!');
                 }
-                //局部刷新
             }
         });
     });
