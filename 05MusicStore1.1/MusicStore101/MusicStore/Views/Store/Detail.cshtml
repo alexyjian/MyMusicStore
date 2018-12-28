@@ -63,6 +63,7 @@
     <div class="col-md-10">
         <div class="form-group">
             <textarea id="editor" name="editor"></textarea>
+            <input type="hidden" id="pReplyID"/>
         </div>
         <button id="btnCmt" type="button" class="btn btn-success">评论</button>
     </div>
@@ -84,6 +85,7 @@
         //获得编辑器中的内容
         UE.getEditor('editor');
         var content = UE.getEditor('editor').getContent();
+        var pid = $("#pReplyID").val();
         //console.log(content);
         //ajax提交
         $.ajax({
@@ -93,7 +95,7 @@
             data: {
                 "id":"@Model.ID",
                 "cmt": content,
-                "reply":""
+                "reply": pid
             },
             dataType: 'json',
             success: function (data) {
@@ -101,9 +103,13 @@
                     //如果没登录
                     location.href = "@Url.Action("login","Account",
                                          new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
-                } else if (data == "OK") {
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    UE.getEditor('editor').setContent('');
+                    location.reload();
                     alert('发表成功!');
-                    //局部刷新
                 }
             }
         });
