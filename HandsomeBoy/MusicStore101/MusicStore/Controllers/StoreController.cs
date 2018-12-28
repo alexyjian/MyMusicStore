@@ -33,6 +33,7 @@ namespace MusicStore.Controllers
         }
         private string _GetHtml(List<Reply> Cmt)
         {
+
             var htmlString = "";
             htmlString += "<ul class='media-list'>";
             foreach (var item in Cmt)
@@ -42,67 +43,68 @@ namespace MusicStore.Controllers
                 htmlString += "<img class='media-object' src='" + item.Person.Avarda +
                               "' alt='头像' style='width:40px;border-radius:50%;'>";
                 htmlString += "</div>";
-                htmlString += "<div class='media-body' id='cen_"+item.ID+"'>";
+                htmlString += "<div class='media-body' id='Content-" + item.ID + "'>";
                 htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
                               item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += item.Content;
                 htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6><a href='javascript:;' onclick='hide(\"" + item.ID+"\")' class='reply'>回复</a>(" + sonCmt.Count + ")条" + "  <a href='javascript:;'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +
-                              item.Like + ")  <a href='javascript:;'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</h6>";
-                
-                //乱来
-                htmlString += "<div class='row bb' id='"+ item.ID+"' style='display: none;'>";
-                htmlString += "<div class='col-md-10'>";
-                htmlString += "<div class='form -group'>";
-                htmlString += "<textarea id ='editor' name='editor'></textarea>";
-                htmlString += "<button id='btnCmt' type='button' class='btn btn-success'>评论</button>";
-                htmlString += " </div>";
-               
-                htmlString += "</div>";
-                htmlString += "</div>";
-            //乱来结束
-            htmlString += "<ol class='media-list'>";
-              
-                foreach (var sonitem in sonCmt)
-                {
-                    htmlString += "<li class='media'>";
-                    htmlString += "<div class='media-left'>";
-                    htmlString += "<img class='media-object' src='" + sonitem.Person.Avarda +
-                                  "' alt='头像' style='width:40px;border-radius:50%;'>";
-                    htmlString += "</div>";
-                    htmlString += "<div class='media-body'>";
-                    htmlString += "<h5 class='media-heading'>" + sonitem.Person.Name + "回复 "+ sonitem .ParentReply.Person.Name+ "" +
-                                  sonitem.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
-                    htmlString += sonitem.Content;
-                    htmlString += "</div>";
-                    htmlString += "<a href='javascript:;' onclick='hide(\"" + sonitem.ID + "\")' class='reply'>回复</a>";
-
-                    //乱来
-                    htmlString += "<div class='row bb' id='"+ sonitem.ID + "' style='display: none;'>";
-                    htmlString += "<div class='col-md-10'>";
-                    htmlString += "<div class='form -group'>";
-                    htmlString += "<textarea id ='editor' name='editor'></textarea>";
-                    htmlString += "<button id='btnCmt' type='button' class='btn btn-success'>评论</button>";
-                    htmlString += " </div>";
-                   
-                    htmlString += "</div>";
-                    htmlString += "</div>";
-                    //乱来结束
-                }
-
-                htmlString += "</ol>";
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID +
+                              "');\">回复</a>(<a href='#' data-toggle='modal' data-target='#myModal'   onclick=\"ShowCmt('" + item.ID + "')\">" + sonCmt.Count + "</a>)条" +
+                              "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
+                              item.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
 
                 htmlString += "</li>";
+           
             }
             htmlString += "</ul>";
-          
             return htmlString;
         }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult WShowCmts(string pid)
+        {
+            var id =Guid.Parse(pid);
 
-        //
-        public ActionResult browser(Guid id)
+            var htmlString = "";
+            htmlString +="<div class='modal-header'>";
+            htmlString += "<h4 class='modal-title' id='myModalLabel'>";
+            var fatherCmt = _context.Replys.Find(id);
+            //原回复
+            htmlString += "<div class='media-left'>";
+            htmlString += "<img class='media-object' src='" + fatherCmt.Person.Avarda +
+                          "' alt='头像' style='width:40px;border-radius:50%;'>";
+            htmlString += "</div>";
+            htmlString += "<h5 class='media-heading'>" + fatherCmt.Person.Name + "  发表于" +
+                              fatherCmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+            htmlString += fatherCmt.Content;
+
+            htmlString += " </h4>";
+            htmlString += "</div>";
+            htmlString += "<div class='modal-body'>";
+            //子回复
+
+            var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == id).ToList();
+            foreach(var item in sonCmt)
+            {
+                htmlString += "<div class='media-left'>";
+                htmlString += "<img class='media-object' src='" + item.Person.Avarda +
+                              "' alt='头像' style='width:40px;border-radius:50%;'>";
+                htmlString += "</div>";
+                htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
+                                  item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                htmlString += item.Content;
+
+            }
+            htmlString += "</div>";
+            htmlString += "<div class='modal-footer'>";
+            htmlString += "</div>";
+            return Json(htmlString);
+        }
+
+            //
+            public ActionResult browser(Guid id)
         {
             var list = _context.Albuns.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublsherDate).ToList();
             return View(list);
