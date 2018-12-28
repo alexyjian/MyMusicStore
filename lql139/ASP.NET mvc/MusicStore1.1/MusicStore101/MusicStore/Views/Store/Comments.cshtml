@@ -4,7 +4,8 @@
 <div style="margin-bottom:40px;">
     <img class="comments" src="~/Content/images/comments.jpg" />
     <!-- 加载编辑器的容器 -->
-    <textarea id="container" name="content" type="text/plain" placeholder="说点什么吧...."></textarea>
+    <textarea id="container" name="container" type="text/plain" placeholder="说点什么吧...."></textarea>
+    <input type="hidden" id="pReplyID"/>
     <!-- 配置文件 -->
     <script type="text/javascript" src="~/utf8-asp/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->
@@ -30,8 +31,8 @@
 
 <div id="comm">
     
-  
-    @foreach (var item in Model)
+    @Html.Raw(ViewBag.Cmt)
+    @*@foreach (var item in Model)
     { 
         <hr />
         <div>
@@ -45,5 +46,6 @@
             </div>
         </div>
         <hr />
-    }
+    }*@
+  
 </div>

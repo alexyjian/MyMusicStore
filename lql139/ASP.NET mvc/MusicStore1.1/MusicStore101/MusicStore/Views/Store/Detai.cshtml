@@ -1,13 +1,13 @@
 ﻿@model MusicStoreEntity.Album
-@{ 
+@{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
     ViewBag.Title = "专辑明细";
 }
 
- <h2>歌曲名称:@Model.Title</h2>
+<h2>歌曲名称:@Model.Title</h2>
 
 
- <div class="row">
+<div class="row">
     <div class="col-md-6">
         <span class="cd"></span></br>
         <audio style="background: #fbf9ef;margin-top:20PX;" src="@Model.MusicUrl" controls="controls"></audio>
@@ -45,12 +45,13 @@
 
     </div>
 </div>
-    
+
 
 
 @Html.Partial("Comments", new MusicStoreEntity.EntityDbContext().Reply.ToList())
 
 <script>
+
     $("#addcart").click(function () {//添加购物车
         //异步
         $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车,请稍后...");
@@ -58,19 +59,17 @@
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
-            data: {id:"@Model.ID"},
-            dataType:'json',
-            success:function(data){
-                if (data == "nologin")
-                {
-                    location.href="@Url.Action("Login", "Account",new {returnUrl = Url.Action("Detai", "Store", new {id = Model.ID})})";
+            data: { id: "@Model.ID" },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "nologin") {
+                    location.href = "@Url.Action("Login", "Account",new {returnUrl = Url.Action("Detai", "Store", new {id = Model.ID})})";
                 }
-                else
-                {
+                else {
                     $("#msg").html(data);//添加成功 动画取消
-                    setTimeout(function(){
+                    setTimeout(function () {
                         location.reload();//刷新区域
-                    },1000);
+                    }, 1000);
                 }
             }
         });
@@ -79,28 +78,52 @@
     $("#comments").click(function () {//提交评论
         UE.getEditor('container');
         var content = UE.getEditor('container').getContent();
+        var pid = $("#pReplyID").val();
         //提交
         $.ajax({
             type: 'post',
             async: true,
             url: '../../Store/Commentsadd',
-            data: {id:"@Model.ID","cmt":content,"reply":""},
-            dataType:'json',
+            data: { id: "@Model.ID", "cmt": content, "reply": pid },
+            dataType: 'json',
             success: function (data) {
-                if (data == "nologin")
-                {
-                    location.href="@Url.Action("Login", "Account",new {returnUrl = Url.Action("Detai", "Store", new {id = Model.ID})})";
+                if (data == "nologin") {
+                    location.href = "@Url.Action("Login", "Account",new {returnUrl = Url.Action("Detai", "Store", new {id = Model.ID})})";
                 }
-                else if (data=="OK")
-                {
+                else if (data == "OK") {
                     $("#comm").html(data);
                     //清空ueditor编辑器
                     UE.getEditor('container').setContent('');
                     location.reload();
                     alert('发表成功!');
-                 
+
                 }
             }
         });
     });
+
+    function GetQuote(id) {//回复评论
+        $("#pReplyID").val(id);
+        var divName = "Content-" + id;
+        var content = "<p></p>" + $("#" + divName).html();
+
+        var ue = UE.getEditor('container');
+        ue.ready(function () {
+            ue.setContent(content);
+        });
+    }
+
+    function ShowCmt(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("","")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                $("#Div-SonCmts").html(data);
+                $("#Div-SonCmts").modal('toggle');
+            }
+        })
+    }
 </script>

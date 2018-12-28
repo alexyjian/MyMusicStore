@@ -21,7 +21,7 @@ namespace MusicStore.Controllers
         {
             var detail = _context.Albums.Find(id);
             var cmt = _context.Reply.Where(x => x.Album.ID == id && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
-         //   ViewBag.cmt = _GetHtml(cmt);
+            ViewBag.cmt = _GetHtml(cmt);
             return View(detail);
         }
         /// <summary>
@@ -34,24 +34,21 @@ namespace MusicStore.Controllers
             var htmlString = "";
             foreach (var item in cmt)
             {
-                htmlString += " <hr />";
-                htmlString += "<div>";
-                htmlString += "<img class='comments-foreach-div' src='" + item.Person.Avarda + "' alt='头像'/>";
-                htmlString += "<div  class='comments -foreach-div'>";
-                htmlString += " <a style='margin - top:5px; margin - left:-10px; '>'"+item.Person.Name+"'</a><br />";
-
-                htmlString += " <label>'"+item.Content+ "'</label><br />";
-                htmlString+= "  <p style='float:right; '>'"+item.CreateDateTime+"'</p>";
-
                 var sonCmt = _context.Reply.Where(x => x.ParentReply.ID == item.ID).ToList();
 
-                htmlString += "<h6>回复(<a href='#'>" + sonCmt.Count + "</a>)条" + 
-                    "<a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" +item.Like 
-                    + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</h6>";
-
-                htmlString += "</div>";
-              
                 htmlString += " <hr />";
+                htmlString += "<div>";
+                htmlString += "<img class='comments' src='" +item.Person.Avarda + "'  alt='头像'/>";
+                htmlString += "<div  class='comments-foreach-div' id='Content-" + item.ID + "'>";
+                htmlString += " <a style='margin-top:5px; margin-left:-10px;'>"+item.Person.Name+"</a><br />";
+                htmlString += " <label>"+item.Content+ "</label><br />";
+
+                htmlString+= "  <p style='float:right; '>"+item.CreateDateTime+ "&nbsp;&nbsp;&nbsp;" + "<a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" + item.Like
+                     + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</p>";
+
+                htmlString += "<h6><a href='#div-editor' class='btn btn-default btn-xs' role='button' onclick=\"javascript:GetQuote('" + item.ID + "');\">回复( " + sonCmt.Count + " )条 </a></h6>";
+                htmlString += "</div>";
+                htmlString += " <hr/>";
             }
             return htmlString;
         }
@@ -74,7 +71,7 @@ namespace MusicStore.Controllers
             if (Session["LoginUserSessionModel"] == null)
                 return Json("nologin");
             //获取当前用户ID
-            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             var album = _context.Albums.Find(Guid.Parse(id));
 
             var r = new Reply()

@@ -11,3 +11,4 @@ E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicSto
 E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.dll
 E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.pdb
+E:\lql\ccoe\MyMusicStore\lql139\ASP.NET mvc\MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache

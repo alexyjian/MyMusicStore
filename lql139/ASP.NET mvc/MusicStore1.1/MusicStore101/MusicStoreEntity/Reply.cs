@@ -15,11 +15,11 @@ namespace MusicStoreEntity
         [Display(Name = "标题")]
         public virtual string Title { get; set; }
 
-        [Display(Name = "内容")]
+       [Display(Name = "内容")]
         [Required]
         public virtual string Content { get; set; }
 
-        [Required]
+       [Required]
         public virtual Person Person { get; set; }
 
         [Required]
