@@ -153,7 +153,17 @@
     }
     function ShowCmt(id) {
         //ajax 查询出子回复
-        $('#myModel').modal('toggle');
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("showCmts","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                $("#Div-SonCmts").html(data);
+                $('#myModal').modal('toggle');
+            }
+        });
     }
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
