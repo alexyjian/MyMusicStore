@@ -61,14 +61,31 @@
 @*百度ueditor的呈现*@
 <div class="row">
     <div class="col-md-10">
-        <div class="form-group">
+        <div class="form-group" id="div-editor">
             <textarea id="editor" name="editor"></textarea>
+            <input type="hidden" id="pReplyID"/>
         </div>
         <button id="btnCmt" type="button" class="btn btn-success">评论</button>
     </div>
 </div>
 
 <script>
+    //点击评论中的回复按钮触发的方法
+    function GetQuote(id) {
+        //保存该评论的id
+        $("#pReplyID").val(id);
+        alert($("#pReplyID").val());
+        //取回复的内容
+        var divName = 'Content-' + id;
+        var content ="<p></p>"+ $("#" + divName).html();
+
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function() {
+            ue.setContent(content);
+        });
+    }
+
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
         UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
@@ -84,6 +101,7 @@
         //获得编辑器中的内容
         UE.getEditor('editor');
         var content = UE.getEditor('editor').getContent();
+        var pid = $("#pReplyID").val();
         //console.log(content);
         //ajax提交
         $.ajax({
@@ -93,7 +111,7 @@
             data: {
                 "id":"@Model.ID",
                 "cmt": content,
-                "reply":""
+                "reply": pid
             },
             dataType: 'json',
             success: function (data) {
@@ -101,9 +119,11 @@
                     //如果没登录
                     location.href = "@Url.Action("login","Account",
                                          new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
-                } else if (data == "OK") {
-                    alert('发表成功!');
-                    //局部刷新
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    UE.getEditor('editor').setContent('');
                 }
             }
         });
