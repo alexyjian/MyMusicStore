@@ -1,9 +1,9 @@
 ﻿@using MusicStore.ViewModels
 @using MusicStoreEntity
 @using MusicStoreEntity.UserAndRole
-
 @{
     //判断用户是否登录，如果ApplicationUser user不为空表示用户登录成功
+
     var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
     ApplicationUser user = null;
     //查询购物车  收藏车
@@ -28,6 +28,7 @@
     <title>@ViewBag.Title - 音乐商店</title>
     @*绑定样式库*@
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/UEditor/Css")
     @Styles.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/JqueryUI")
 
@@ -36,6 +37,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/JqueryUI")
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/UEditor")
 
 </head>
 <body>
@@ -53,15 +55,14 @@
             {
                 //登录成功显示用户姓名，点姓名展开向下菜单
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">
-
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         <img src="@user.Person.Avarda" alt="头像" id="userAvarda" />
 
                         @*百度地图定位*@
                         <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
 
-                        @user.Person.Name<span class="caret"></span>
+                        @user.Person.Name
+                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="@Url.Action("index", "ShoppingCart")">购物车(@carts.Count)</a></li>
