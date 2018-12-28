@@ -38,7 +38,7 @@ namespace MusicStore.Controllers
             {
                 htmlString += "<li class='media'>";
                 htmlString += "<div class='media-left'>";
-                htmlString += "<a href = '#'><img class='media-object' src='" + item.Person.Avarda + "'alt='头像' style='width:40px;border-radius:50%;'></a>";
+                htmlString += "<a href = '#'><img class=\"media-object\" src='" + item.Person.Avarda + "'alt='头像' style='width:40px;border-radius:50%;'></a>";
                 htmlString += "</div>";
                 htmlString += "<div class='media-body' id='Content-" + item.ID + "'>"; //取出ID
                 htmlString += "<div class='media-body'>";
@@ -117,11 +117,11 @@ namespace MusicStore.Controllers
             htmlString += "<div class=\"modal-header\">";
             htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"moda\" aria-hidden=\"true\">×</button>";
             htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
-            htmlString += "<em>楼主： </em>" + pidcmt.Person.Name + "发表于" + pidcmt.MusicPlayTime.ToString("yyyy年MM月dd日 hh点mm分ss秒")+":<br/>" + pidcmt.Content;
+            htmlString += "<em>楼主:</em>" + pidcmt.Person.Name + "  发表于" + pidcmt.MusicPlayTime.ToString("yyyy年MM月dd日 hh点mm分ss秒")+":<br/>" + pidcmt.Content;
             htmlString += "</h4></div>";
             htmlString += "<div class=\"modal-body\">";
             //子回复
-            htmlString += "<div class=\" modal fade\"></div>";
+            htmlString += "</div><div class=\"modal - footer\"></div>";
             return Json(htmlString);
         }
 

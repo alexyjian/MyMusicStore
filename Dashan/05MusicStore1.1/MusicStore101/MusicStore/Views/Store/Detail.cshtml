@@ -57,7 +57,7 @@
     </p>
     <div id="msg"></div>
     <br />
-   
+
     <div class="row">
         <div class="col-md-10">
             <div id="divCmt">
@@ -66,39 +66,43 @@
         </div>
     </div>
 
-    
-   @*uedtor 百度呈现*@ 
-     <div class="row">
-         <div class="col-md-10">
-             <div class="form-group">
-                 <textarea id="editor" name="editor"></textarea>
-                  <input  type="hidden" id="pReplyID"/>
-             </div>
-             <button  id="btnCmt" type="button" class="btn btn-success">评论</button>
-         </div>
+
+    @*uedtor 百度呈现*@
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                <textarea id="editor" name="editor"></textarea>
+                <input type="hidden" id="pReplyID" />
+            </div>
+            <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+        </div>
     </div>
-</div>
 
 
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" id="Div-sonCmt">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" 
-                        aria-hidden="true">×
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                  原回复
-                </h4>
-            </div>
-            <div class="modal-body">
-              子回复：哈里欧<a href='#'><i class='glyphicon glyphicon-heart'></i>(0)  &nbsp &nbsp</a><a href='#' class='reply'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="Div-sonCmt">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        原回复
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    子回复：哈里欧<<a href='#' class='reply'>><i class='glyphicon glyphicon-heart'></i>(0)  &nbsp &nbsp</a><a href='#' class='reply'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a>
+                </div>
+
+                <div class="modal-footer">
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
 
 
 <script>
@@ -119,6 +123,7 @@
     }
 
     function Showcmt(id) {
+
         $.ajax({
             type: 'post',
             asyn: true,
@@ -127,7 +132,7 @@
             dataType: 'json',
             success: function (data) {
                 $("#Div-sonCmt").html(data);
-                $('#myModal').on('toggle');
+                $('#myModal').modal('toggle');
             }
         });
     }
