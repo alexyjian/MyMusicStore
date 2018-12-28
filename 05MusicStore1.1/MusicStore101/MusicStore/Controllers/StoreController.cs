@@ -42,16 +42,17 @@ namespace MusicStore.Controllers
                 htmlString += "<img class='media-object' src='" + item.Person.Avarda +
                               "' alt='头像' style='width:40px;border-radius:50%;'>";
                 htmlString += "</div>";
-                htmlString += "<div class='media-body'>";
+                htmlString += "<div class='media-body' id='Content-"+item.ID+"'>";
                 htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
                               item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += item.Content;
+                htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6><a href='#' class='reply'>回复</a>(<a href='#' class='reply'>" + sonCmt.Count + "</a>)条" +
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID+"');\">回复</a>(<a href='#' class='reply'>" + sonCmt.Count + "</a>)条" +
                               "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
                               item.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
-                htmlString += "</div>";
+               
                 htmlString += "</li>";
             }
             htmlString += "</ul>";
