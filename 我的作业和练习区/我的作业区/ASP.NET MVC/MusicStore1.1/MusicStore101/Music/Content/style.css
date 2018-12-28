@@ -257,15 +257,25 @@ body {
                 padding: 5px 10px;
                 margin-right: 5%;                
             }
+            #pinl_main_main > div:nth-child(3) > ul > li:nth-child(3):hover {
+                background: #e0e0e0;
+                cursor: pointer;
 
+            }
 #pinl_main_second {
     width: 80%;
     float: right;
     display: none;
 }
+
 hr {
     clear: both;
     height: 2px;
     background-color: #ccc;
     border: none;
+}
+.pinl_p{
+    clear: both;
+    text-align: left;
+    text-indent:30%;
 }

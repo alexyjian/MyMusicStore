@@ -90,9 +90,6 @@
                         "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
                 } else {
                     $(".pinl").html(data);
-                    setTimeout(function () {
-                        location.reload();
-                    }, 10);
                 }
             }
         });
@@ -101,38 +98,26 @@
 </script>
 <!-- 子回复 -->
 <script>
-    function on(obj) {
-        obj.style.background = "#e0e0e0";
-        obj.style.cursor = "pointer";
-    }
-    function out(obj) {
-        obj.style.background = "";
-    }
-    var s = 0;//用于判断点击次数
-    var ID;
 
+    var ID;
     //添加输入框
     function ADD(obj) {
         var iD = obj.parentNode.id;
         ID = iD;
-        s++;
-        if (s == 1) {
-            var div = obj.parentNode;
-            div.innerHTML = div.innerHTML + "<div id='xintian'><div id='pinl_textarea'><script id='editor1' type='text/plain' style='width: 80 %; height: 100 %;'><" + "/" + "script></div><p id='pinl_bt' onclick='Reply()'>回复</p></div>";
-            editor= UE.getEditor('editor1', { scaleEnabled: true });
-        }
-        if(s>1){
-            var shan = document.getElementById('xintian');
+        var shan = document.getElementById('xintian');
+        if (shan != null) {
             UE.getEditor('editor1', { scaleEnabled: true }).destroy();
             shan.remove();
-            s = 0;           
+        } else {
+            var div = obj.parentNode;
+            div.innerHTML = div.innerHTML + "<div id='xintian'><div id='pinl_textarea'><script id='editor1' type='text/plain' style='width: 80 %; height: 100 %;'><" + "/" + "script></div><p id='pinl_bt' onclick='Reply()'>回复</p></div>";
+            editor = UE.getEditor('editor1', { scaleEnabled: true });
         }
+
     }
     //子回复传值
     function Reply() {
-      
         var arr = UE.getEditor('editor1').getPlainTxt().toString();
-
         UE.getEditor('editor1', { scaleEnabled: true }).destroy();
         s = 0;
         $.ajax({
@@ -142,29 +127,21 @@
             data: { id: "@Model.ID", replyID:ID, contentreply: arr },
             dataType: 'json',
             success: function (data) {
-                $(".pinl").html(data);
-                setTimeout(function () {
-                    location.reload();
-                }, 10);
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else {
+                    $(".pinl").html(data);
+                }
             }
         });
     }
     //查看所有回复
     function openmain(obj) {
-
-
-        var d = document.getElementsByClassName('pinl_reply');
-        var p = document.getElementsByClassName('pinl_p');
-        for (var i = 0; i < p.length; i++) {
-            p[i].index = i;
-            p[i].onClick = function () {
-                alert("66666");
-                for (var t = 0; t < d.length; i++) {
-                    d[t].style.display = "block";
-                }
-            }
-        }
-        //d.style.display = "block";
+        var  cs = obj.id;
+        var pin = document.getElementsByClassName(cs)[0];
+        pin.style.display = "block";
+        obj.style.display = "none";
     }
 </script>
 <!-- 试听和添加购物车 -->
@@ -188,7 +165,7 @@
                    //重新刷新此区域
                    setTimeout(function () {
                        location.reload();
-                   }, 1000);
+                   }, 100);
                }
            }
        });
@@ -200,9 +177,7 @@
    var myVideo = document.getElementById("audeo1");
    var a = document.getElementById("a");
    function CDip() {
-
        var cd = document.getElementById("cd");
-
        if (jj < 216) {
            jj++;
            a.style.transform = 'rotate(' + jj / 4 + 'deg' + ')';
@@ -216,7 +191,6 @@
        jis++;
        if (jis == 1) {
            time = setInterval(CDip, 1);
-
        }
        else {
            clearInterval(time);
@@ -225,7 +199,6 @@
            a.style.transform = 'rotate(0deg)';
            jis = 0;
        }
-
    });
 </script>
 
