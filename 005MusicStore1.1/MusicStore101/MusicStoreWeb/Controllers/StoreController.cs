@@ -53,8 +53,8 @@ namespace MusicStoreWeb.Controllers
                 var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == item.ID).ToList();
                 htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID +
                               "');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID + "');\">" + sonCmt.Count + "</a>)条" +
-                              "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
-                              item.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                              "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
+                              "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
 
                 htmlString += "</li>";
             }
@@ -63,14 +63,14 @@ namespace MusicStoreWeb.Controllers
         }
 
         [HttpPost]
-        [ValidateInput(false)] //关闭验证
+        [ValidateInput(false)]   //关闭验证
         public ActionResult AddCmt(string id, string cmt, string reply)
         {
             if (Session["LoginUserSessionModel"] == null)
                 return Json("nologin");
 
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
-                           LoginUserSessionModel).Person.ID);
+                LoginUserSessionModel).Person.ID);
             var album = _context.Albums.Find(Guid.Parse(id));
 
             //创建回复对象
@@ -81,7 +81,6 @@ namespace MusicStoreWeb.Controllers
                 Content = cmt,
                 Title = ""
             };
-
             //父级回复
             if (string.IsNullOrEmpty(reply))
             {
@@ -100,6 +99,27 @@ namespace MusicStoreWeb.Controllers
             var replies = _context.Replies.Where(x => x.Album.ID == album.ID && x.ParentReply == null)
                 .OrderByDescending(x => x.CreateDateTime).ToList();
             return Json(_GetHtml(replies));
+        }
+
+        [HttpPost]
+        public ActionResult showCmts(string pid)
+        {
+            var htmlString = "";
+            //子回复
+            Guid id = Guid.Parse(pid);
+            var cmts = _context.Replies.Where(x => x.ParentReply.ID == id).OrderByDescending(x => x.CreateDateTime).ToList();
+            //原回复
+            var pcmt = _context.Replies.Find(id);
+            htmlString += "<div class=\"modal-header\">";
+            htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>";
+            htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
+            htmlString += "<em>楼主&nbsp;&nbsp;</em>" + pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+            htmlString += " </h4> </div>";
+
+            htmlString += "<div class=\"modal-body\">";
+            //子回复
+            htmlString += "</div><div class=\"modal-footer\"></div>";
+            return Json(htmlString);
         }
 
         /// <summary>
