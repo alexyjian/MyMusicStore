@@ -1,8 +1,11 @@
-﻿@model MusicStoreEntity.Album
+﻿@@model MusicStoreEntity.Album
+
 @{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
     ViewBag.Title = "专辑明细";
 }
+
+
 <h2>@Model.Title</h2>
 
 <div id="box-video">
@@ -13,32 +16,40 @@
         </div>
     </div>
 </div>
+
 <div id="album-details">
     <p>
         <em>
-            发布时间
+            发布时间：
         </em>
         @Model.PublisherDate.ToString("yyyy年MM月dd日");
     </p>
     <p>
-        <em>分类</em>
+        <em>
+            分类：
+        </em>
         @Model.Genre.Name
     </p>
     <p>
-        <em>歌手</em>
+        <em>
+            歌手：
+        </em>
         @Model.Artist.Name
     </p>
     <p>
-        <em>价格</em>
-        ￥@string.Format("{0:F}", Model.Price)
+        <em>
+            价格：
+        </em>
+        ￥@String.Format("{0:F}", Model.Price)
     </p>
+
     <div id="msg"></div>
     <p class="button">
         <a class="btn" id="addcart">添加到购物车</a>
-        <div id="msg">
-        </div>
+        <div id="msg"></div>
     </p>
-    </div>
+</div>
+
 @*显示评论*@
 <div class="row">
     <div class="col-md-10">
@@ -48,25 +59,22 @@
     </div>
 </div>
 
-
 @*百度ueditor的呈现*@
 <div class="row">
     <div class="col-md-10">
-        <div class="form-group" id="div-editoe">
+        <div class="form-group" id="div-editor">
             <textarea id="editor" name="editor"></textarea>
-            <input type="hidden"id="pReplyID"/>
-            </div>
-        <button class="btn btn-primary" id="btnCmt">评论</button>
+            <input type="hidden" id="pReplyID" />
         </div>
+        <button id="btnCmt" type="button" class="btn btn-success">评论</button>
     </div>
-
+</div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" id="Div-SonCmts">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-hidden="true">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
@@ -96,7 +104,8 @@
                 子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
                 子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
                 子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
-              
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
 
             </div>
             <div class="modal-footer">
@@ -106,50 +115,75 @@
 </div><!-- /.modal -->
 
 <script>
-    //  点击评论中的回复按钮触发的方法
-    function GetQuote(id) {
-        //保存评论的id
+    //点击评论中的回复按钮触发的方法
+    function GetQuote(id) { 
+        //保存该评论的id
         $("#pReplyID").val(id);
         //alert($("#pReplyID").val());
-        //取回复内容
+        //取回复的内容
         var divName = 'Content-' + id;
-        var content = "<p></p>" + $("#" + divName).html();
-
+        var content ="<p></p>"+ $("#" + divName).html();
         //把内容赋值给ueditor
         var ue = UE.getEditor('editor');
         ue.ready(function() {
-            ue.setComtent(content);
+            ue.setContent(content);
         });
-
     }
-
     function ShowCmt(id) {
-        //ajax查询出子回复
+        //ajax 查询出子回复
         $.ajax({
             type: 'post',
             asyn: true,
             url: '@Url.Action("showCmts","Store")',
-            data: { "pid":id},
+            data: {"pid":id},
             dataType: 'json',
             success: function (data) {
                 $("#Div-SonCmts").html(data);
                 $('#myModal').modal('toggle');
             }
         });
+    }
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Like","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //detail
+                //modal
 
+            }
+        });
+    }
+    //踩
+    function hate(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //detail
+
+                //modal
+            }
+        });
     }
     //百度编辑器调用
-    var editor=new baidu.editor.ui.Editor({
-        UEDITOR_HOME_URL:'/ueditor/',//配置编辑器的路径
-        iframeCssUrl:'/ueditor/themes/iframe.css',//自定义样式路径
-        initialContent:'五星好评',//初始内容
-        autoHeightEnabled:true,//高度是否只适应
-        minFrameHeight:500 //编辑器最小高度
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
+        iframeCssUrl: '/ueditor/themes/iframe.css',  //自定义样式路径
+        initialContent: '五星好评',  //初始内容
+        autoHeightEnabled: true,  //高度是否自适应
+        minFrameHeight:500   //编辑器最小的高度
     });
     editor.render('editor');
-
     //提交回复
-     $("#btnCmt").click(function () {
+    $("#btnCmt").click(function () {
         //获得编辑器中的内容
         UE.getEditor('editor');
         var content = UE.getEditor('editor').getContent();
@@ -180,52 +214,28 @@
             }
         });
     });
-
-    </script>
-<body>
-
-    @*<form action="server.php" method="post">
-        <!-- 加载编辑器的容器 -->
-        <script id="container" name="content" type="text/plain">
-            这里写你的初始化内容
-        </script>
-    </form>
-    <!-- 配置文件 -->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
-    <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var editor = UE.getEditor('container');
-    </script>*@
-
-</body>
-@*<button class="btn btn-primary" id="bthreply">评论</button>*@
-<script>
-
-
-    $("#addcart").click(function () {
+    //添加购物车
+    $("#addcart").click(function() {
         //异步
-        $("#msg").html("<img src='../../Content/Images/loading.gif'>添加到购物车,请稍后...");
+        $("#msg").html("<img src='../../content/images/loading.gif'>添加到购物车，请稍候...");
         $.ajax({
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
             data: { id: "@Model.ID" },
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
                     location.href = "@Url.Action("login", "Account",
-                                             new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
-                }
-                else {
+                                         new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
+                } else {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
                     //2秒后，自动重新刷新此区域
-                    setTimeout(function () {
-                        location.reload();
-                    },
+                    setTimeout(function() {
+                            location.reload();
+                        },
                         2000);
                 }
             }
