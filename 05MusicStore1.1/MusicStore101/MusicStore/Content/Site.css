@@ -358,3 +358,44 @@ tr:hover {
     position: absolute;
     left: 400px;
 }
+
+
+a.reply:link, a:visited {
+    color:#666666;
+    text-decoration: none;
+    font-size: small;
+    font-weight: normal;
+}
+
+a.reply:hover {
+    color: #333333;
+    text-decoration: none;
+    font-size: small;
+    font-weight:bold;
+}
+
+a.reply:active {
+    color: #333333;
+    text-decoration: none;
+    font-size: small;
+    font-weight: normal;
+}
+
+a.album-list:link, a:visited {
+    color:#666666;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+a.album-list:hover {
+    color: #333333;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+a.album-list:active {
+    color: #333333;
+    text-decoration: none;
+    font-weight: normal;
+}
+
