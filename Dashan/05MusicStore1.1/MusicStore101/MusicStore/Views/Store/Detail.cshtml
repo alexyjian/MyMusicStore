@@ -52,10 +52,10 @@
     </p>
 
     <div id="msg"></div>
+
     <p class="btn btn-info btn-group-sm" id="addcart">
         添加购物车
     </p>
-    <div id="msg"></div>
     <br />
 
     <div class="row">
@@ -84,10 +84,7 @@
         <div class="modal-dialog">
             <div class="modal-content" id="Div-sonCmt">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-hidden="true">
-                        ×
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal"aria-hidden="true">×</button>
                     <h4 class="modal-title" id="myModalLabel">
                         原回复
                     </h4>
@@ -95,7 +92,6 @@
                 <div class="modal-body">
                     子回复：哈里欧<<a href='#' class='reply'>><i class='glyphicon glyphicon-heart'></i>(0)  &nbsp &nbsp</a><a href='#' class='reply'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a>
                 </div>
-
                 <div class="modal-footer">
                 </div>
             </div><!-- /.modal-content -->
@@ -111,7 +107,7 @@
     function GetQuote(id) {
         //保存该评论id
         $("#pReplyID").val(id);
-        // 从 Content 取出回复的内容 
+        // 从 Content 取出回复的内容
         var divName = 'Content-' + id;
         var content = "<p></p>" + $("#" + divName).html();
 
@@ -123,7 +119,7 @@
     }
 
     function Showcmt(id) {
-
+        //异步 子回复
         $.ajax({
             type: 'post',
             asyn: true,
@@ -133,10 +129,63 @@
             success: function (data) {
                 $("#Div-sonCmt").html(data);
                 $('#myModal').modal('toggle');
+                if (data == 'nologin') {
+                    //判断是否登录
+                    calotion.href = "@Url.Action("Login", "Account",
+                    new {returnUrl = Url.Action("Detail", "Store", new { id = Model.ID})})";  //登录后跳回明细
+                }
             }
         });
     }
-   
+
+
+
+    function Like(id) {
+        //点赞
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Like","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data){
+                if (data == 'nologin') {
+                    //判断是否登录
+                    calotion.href = "@Url.Action("Login", "Account",
+                    new {returnUrl = Url.Action("Detail", "Store", new { id = Model.ID})})";  //登录后跳回明细
+                }
+                else {
+                    //HTML文本注入div
+                    $("#").html(data);
+                    //局部刷新
+                }
+            }
+        });
+    }
+
+
+    function Hate(id) {
+        //踩
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate", "Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //判断是否登录
+                    calotion.href = "@Url.Action("Login", "Account",
+                    new {returnUrl = Url.Action("Detail", "Store", new { id = Model.ID})})";  //登录后跳回明细
+                }
+                else {
+                    //HTML文本注入div
+                    $("#").html(data);
+                }
+            }
+        });
+    }
+
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
         UEDITOR_URL: '/ueditor/',  //配置编辑器的路径
