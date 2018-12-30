@@ -149,8 +149,37 @@
                 $('#myModal').modal('toggle');
             }
         })
-     
     }
+    //点赞
+    function Like(id) {
+        $, ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Like","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                $("#Div-SonCmts").html(data);
+                $('#myModal').modal('toggle');
+            }
+        })
+    }
+
+    //踩
+    function hate(id) {
+        $, ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //deatail
+                //modal
+            }
+        })
+    }
+
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
         UEDITOR_HOME_URL:'/Ueditor/',//配置编辑器的路径
