@@ -13,7 +13,7 @@ body {
 .header {
     margin: 0 auto;
     height: 100px;
-    border-bottom: 1px dotted black;
+    border-bottom: 1px solid #ddd;
 }
 
     .header h3 {
@@ -127,8 +127,8 @@ body {
     }
 
 .stern {
-    border-bottom: 1px dotted black;
-    border-top: 1px dotted black;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
 }
 
 .stern_logo {

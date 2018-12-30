@@ -96,7 +96,6 @@
                     UE.getEditor('container').setContent('');
                     location.reload();
                     alert('发表成功!');
-
                 }
             }
         });
@@ -113,17 +112,31 @@
         });
     }
 
-    function ShowCmt(id) {
+    function ShowCmt(id) {//查询子回复
         $.ajax({
             type: 'post',
             asyn: true,
-            url: '@Url.Action("","")',
+            url: '@Url.Action("showCmts","Store")',
             data: { "pid": id },
             dataType: 'json',
             success: function (data) {
                 $("#Div-SonCmts").html(data);
                 $("#Div-SonCmts").modal('toggle');
             }
-        })
+        });
+    }
+
+    function Like(id) {//点赞
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '../../Store/Like',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //detail
+                //modal
+            }
+        });
     }
 </script>

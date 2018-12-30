@@ -32,6 +32,7 @@ namespace MusicStore.Controllers
         private string _GetHtml(List<Reply> cmt)
         {
             var htmlString = "";
+
             foreach (var item in cmt)
             {
                 var sonCmt = _context.Reply.Where(x => x.ParentReply.ID == item.ID).ToList();
@@ -43,15 +44,78 @@ namespace MusicStore.Controllers
                 htmlString += " <a style='margin-top:5px; margin-left:-10px;'>"+item.Person.Name+"</a><br />";
                 htmlString += " <label>"+item.Content+ "</label><br />";
 
-                htmlString+= "  <p style='float:right; '>"+item.CreateDateTime+ "&nbsp;&nbsp;&nbsp;" + "<a href='#'><i class='glyphicon glyphicon-thumbs-up'></i></a>(" + item.Like
-                     + ")  <a href='#'><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</p>";
+                htmlString+= "  <p style='float:right; '>"+item.CreateDateTime+ "&nbsp;&nbsp;&nbsp;" +
+                    "<a href='#'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i></a>(" + item.Like
+                     + ")  <a href='#' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</p>";
 
-                htmlString += "<h6><a href='#div-editor' class='btn btn-default btn-xs' role='button' onclick=\"javascript:GetQuote('" + item.ID + "');\">回复( " + sonCmt.Count + " )条 </a></h6>";
+                htmlString += "<h6><a href='#div-editor' class='btn btn-default btn-xs' role='button' onclick=\"javascript:GetQuote('"
+                 + item.ID + "');\">回复</a><a class='btn btn-default btn-xs' role='button'  onclick=\"javascript:ShowCmt('" + item.ID + "');\"> ( " 
+                 + sonCmt.Count + " )条 <span class='caret'></span></a></h6>";
+
                 htmlString += "</div>";
                 htmlString += " <hr/>";
             }
             return htmlString;
         }
+
+        [HttpPost]
+        public ActionResult Like(Guid id)
+            {
+            //1.判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "Home") });
+            //2.判断用户是否对这条回复点过赞或踩
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+            var comm = _context.Reply.Where(x => x.Person.ID == person.ID && x.ID == id).ToList();
+            //3.保存  reply实体中like+1或hate+1  LikeReply添加一条记录
+            if (comm==null)
+                {
+                var relike = new LikeReply()
+                    {
+                      IsNotLike = true,
+                    };
+                var reply = new Reply()
+                    {
+                    Like = +1,
+                    };
+                _context.LikeReply.Add(relike);
+                _context.Reply.Add(reply);
+                _context.SaveChanges();
+                //生成html 注入视图
+                var detail = _context.Albums.Find(id);
+                var cmt = _context.Reply.Where(x => x.Album.ID == id && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
+                ViewBag.cmt = _GetHtml(cmt);
+                return View(detail);
+                }
+            else
+                {
+                     return Content("<script>alert('你已给过此评论评价!!!');</script>");
+                }
+          
+
+          
+
+            }
+
+        [HttpPost]
+        public ActionResult showCmts(string pid)
+            {
+            var htmlString = "";
+            //子回复
+            Guid id = Guid.Parse(pid);
+            var cmts = _context.Reply.Where(x => x.ParentReply.ID == id).OrderByDescending(x => x.CreateDateTime).ToList();
+            //原回复
+            var pcmt = _context.Reply.Find(id);
+            htmlString += "<div>";
+            htmlString += "<h4 id=\"myModalLabel\">";
+            htmlString += "<em>楼主&nbsp;&nbsp;</em>" + pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+            htmlString += " </h4> </div>";
+
+            htmlString += "<div class=\"modal-body\">";
+            //子回复
+            htmlString += "</div><div class=\"modal-footer\"></div>";
+            return Json(htmlString);
+            }
         public ActionResult Browser(Guid id)
         {
             var list = _context.Albums.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublisherDate).ToList();
