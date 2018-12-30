@@ -1,23 +1,23 @@
 ﻿@model IEnumerable<MusicStoreEntity.Album>
 
-@{
-    ViewBag.Title = "首页";
-    Layout = "~/Views/Shared/_NewLayout.cshtml";
-}
+    @{
+        ViewBag.Title = "首页";
+        Layout = "~/Views/Shared/_NewLayout.cshtml";
+    }
 
-<div id="promotion"></div>
+    <div id="promotion"></div>
 
-<h3><em>新歌</em>上架</h3>
-<div>
-    <ul id="album-list">
-        @foreach (var item in Model)
-        {
-            <li>
-                <a href="@Url.Action("detail","store",new {id=item.ID})">
-                    <img alt="@item.Title" src="@item.AlbumArtUrl" id="album-banner" />
-                    <span>@item.Artist.Name</span><br /><span>@item.Title</span>
-                </a>
-            </li>
-        }
-    </ul>
-</div>
+    <h3><em>新歌</em>上架</h3>
+    <div>
+        <ul id="album-list">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="@Url.Action("detail","store",new {id=item.ID})">
+                        <img alt="@item.Title" src="@item.AlbumArtUrl" id="album-banner" />
+                        <span>@item.Artist.Name</span><br /><span>@item.Title</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
