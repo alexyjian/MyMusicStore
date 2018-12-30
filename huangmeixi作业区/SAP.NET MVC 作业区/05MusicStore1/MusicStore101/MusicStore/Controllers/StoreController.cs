@@ -30,6 +30,48 @@ namespace MusicStore.Controllers
             ViewBag.Cmt = _GetHtml(cmt);
             return View(detail);
         }
+
+        /// <summary>
+        /// 点赞
+        /// </summary>
+        /// <param name="id">回复</param>
+        /// <returns></returns>
+        public ActionResult Like(Guid id)
+        {
+
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            //判断用户是否对这条回复点赞或踩
+
+            //保存reply实体中like+1或hate+1  LikeReply添加一条记录
+
+            return Json("OK");
+        }
+
+
+        /// <summary>
+        /// 踩
+        /// </summary>
+        /// <param name="id">回复</param>
+        /// <returns></returns>
+        public ActionResult Hate(Guid id)
+        {
+
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            //判断用户是否对这条回复点赞或踩
+
+            //保存reply实体中like+1或hate+1  LikeReply添加一条记录
+
+            return Json("OK");
+        }
+
+
+
         /// <summary>
         /// 生成回复显示html文本
         /// </summary>

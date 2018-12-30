@@ -383,3 +383,9 @@ tr:hover {
     cursor:pointer;
     color:#3170a7;
 }
+/*宣传语*/
+.xcy{
+   color:red;
+   font-size:15px;
+   font-family:"仿宋";
+}
