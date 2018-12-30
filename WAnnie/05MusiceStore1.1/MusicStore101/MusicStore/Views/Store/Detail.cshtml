@@ -4,8 +4,8 @@
 @{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
     ViewBag.Title = "专辑明细";
-    var Reply = ViewBag.Reply;
 }
+
 
 <h2>@Model.Title</h2>
  
@@ -51,42 +51,11 @@
     <p class="button">
         <a class="btn" id="addcrt">添加到购物车</a>
         <div id="msg"></div>
-    </p>
-    @*<div id="paryed">
-        @try
-        {
-            foreach (var item in Reply)
-            {
-                <div class="paryed">
-                    <img style="width: 80px;border-radius: 50%;" src="@item.Person.Avarda"/>
-                    <span>@item.Person.Name:</span>
-                    <span>@item.Content</span>
-                    <p>@item.CreateDateTime</p>
-                    
-                </div>
-            }
-        }
-        catch
-        {
-        }
+    </p>  
+</div>  
 
-    </div>*@
-    @*<!-- 加载编辑器的容器 -->
-                <script id="container" name="content" type="text/plain"></script>
-                <!-- 配置文件 -->
-                <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
-                <!-- 编辑器源码文件 -->
-                <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
-                <!-- 实例化编辑器 -->
-                <script type="text/javascript">
-                    var ue = UE.getEditor('container');
-                </script>
-        <div id="pinglun">
-            <input type="button" onclick="paryted()" class="btn btn-success " value="评论" />
-        </div>*@
-    
 
-    @* 显示评论 *@
+@* 显示评论 *@
     <div class="row">
         <div class="col-md-10">
             <div id="divCmt">
@@ -116,7 +85,7 @@
                         x
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                       原标题
+                        原标题
                     </h4>
                 </div>
                 <div class="modal-body">
@@ -130,7 +99,9 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
-</div>
+
+
+
 
 <script>
 
@@ -150,8 +121,8 @@
         });
     }
 
+    //子回复
     function ShowCmt(id) {
-
         //ajax查询出子回复
         $.ajax({
             type: 'post',
@@ -164,8 +135,34 @@
                 $("#myModal").modal('toggle');
             }
         });
-
     }
+
+        //点赞 
+        function Like(id) {
+            $.ajax({
+                type: 'post',
+                asyn: true,
+                url: '@Url.Action("Like", "Store")',
+                data: { id,@Model.ID},
+                dataType: 'json',
+                success: function (data) {
+                    if (data == 'nologin') {
+                        //如果没登录
+                        location.href = "@Url.Action("login","Account",
+                        new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                    }
+                    else {
+                        
+                    }
+                }
+            });
+        }
+
+        //踩
+        function Hate(id) {
+            
+        }
+
 
 
     //百度编辑器调用
@@ -193,7 +190,7 @@
             data: {
                 "id": "@Model.ID",
                 "cmt": content,
-                "reply": ""
+                "reply": pid
             },
             dataType: 'json',
             success: function(data) {
@@ -201,11 +198,12 @@
                     //如果没登录
                     location.href = "@Url.Action("login","Account",
                                         new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
-                } else {
+                }
+                else {
                     //HTML文本注入div
                     $("#divCmt").html(data);
                     //清空editor编辑器
-                    ue.getEditor('editor').setContent('');
+                    UE.getEditor('editor').setContent('');
                     //location.reload();
                     //alert('发表成功!');
 
@@ -213,6 +211,7 @@
             }
         });
     });
+
 
     //添加购物车
     $("#addcrt").click(function() {
@@ -243,19 +242,4 @@
         });
     });
 
-    @*function paryted() {
-        //var pary = $(".pary")[0].value;
-        var pary = ue.getContentTxt();
-        $.ajax({
-            type: 'post',
-            asyne: true,
-            url: '../../Store/Reply',
-            data: { id: "@Model.ID", pary },
-            dataType: 'json',
-            success: function(data) {
-                $("#paryed").html(data);
-                $(".btn btn-success")[0].value = "";
-            }
-        });*@
-    //}
 </script>

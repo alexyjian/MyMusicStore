@@ -35,7 +35,7 @@ namespace MusicStore.Controllers
         private string _GetHtml(List<Reply> cmt)
         {
             var htmlString = "";
-            htmlString += "<ul class='media - list'>";
+            htmlString += "<ul class='media-list'>";
             foreach (var item in cmt)
             {
                 htmlString += "<li class='media'>";
@@ -48,11 +48,11 @@ namespace MusicStore.Controllers
                 htmlString += "</div>";
 
                 //查询当前回复的下一级回复
-                var sonCmt = _Context.Replys.Where(x => x.Person.ID == item.ID).ToList();              
-                htmlString += "<h6><a></a href='#div-editor'class='reply' onclick=\"javascript:GetQuote('"+item.ID+
+                var sonCmt = _Context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();              
+                htmlString += "<h6><a href='#div-editor'class='reply' onclick=\"javascript:GetQuote('"+item.ID+
                               "');\">回复</a>(<a href='#'class='reply'onclick=\"javascript:ShowCmt('"+item.ID+"');\">"+sonCmt.Count+"</a>)条"+
-                              "<a href='#'class='reply'style='margin:0 20px 0 50px'><i class='glyphicon glyphicon-thumbs-up'></i>("+
-                              item.Like+ ")</a><a href='#'class='reply'style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>("+item.Hate+")</a></h6>";
+                              "<a href='#'class='reply'style='margin:0 20px 0 50px' onclick=\"Like('" + item.ID + "')\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like+ ")</a>" +
+                              "<a href='#'class='reply'style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate+")</a></h6>";
 
                 htmlString += "</li>";
             }
@@ -101,26 +101,97 @@ namespace MusicStore.Controllers
         }
 
 
+        /// <summary>
+        /// 点赞或踩
+        /// </summary>
+        /// <param name="pid">回复的id</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Like(string id,string Ablumid)
+        {
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            var ID = Guid.Parse(id); //把传过来的ID转换成GUID
+            var AblumID = Guid.Parse(Ablumid);
+
+            //判断用户是否对这条回复点过赞或踩
+            var person = _Context.Persons.Find((Session["LoginUserSessionModel"]
+                as LoginUserSessionModel).Person.ID);
+
+            var sonCmt = _Context.LikeReplies.Where(x => x.Person.ID == person.ID&&x.Reply.ID==ID).ToList();
+            var reply = _Context.Replys.Find(ID);
+            //保存 reply实体中like+1或hate+1 LikeReply添加一条记录
+            if (sonCmt.Count==0)
+            {
+                reply.Like+=1;
+
+                var like = new LikeReply()
+                {   
+                    IsNoLike = true,
+                    Reply = reply,
+                    Person = person,
+                };
+
+                _Context.LikeReplies.Add(like);
+                _Context.SaveChanges();
+
+                //局部刷新显示成最新的评论
+                var cmt = _Context.Replys.Where(x => x.Ablum.ID == AblumID && x.ParentReply == null)
+                    .OrderByDescending(x => x.CreateDateTime).ToList();
+
+            }
+            var ablum = _Context.Ablums.Find((id));
+
+
+            //生成HTML注入
+
+            return Json("ok");
+        }
+
+
+        /// <summary>
+        /// 回复
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult showCmts(string pid)
         {
             var htmlString = "";
             //子回复
             Guid id = Guid.Parse(pid);
-            var cmts = _Context.Replys.Where(x => x.ParentReply.ID == id).OrderByDescending(x => x.CreateDateTime) .ToList();
+            var cmts = _Context.Replys.Where(x => x.ParentReply.ID == id).OrderByDescending(x => x.CreateDateTime).ToList();
 
             //原回复
             var pcmt = _Context.Replys.Find(id);
-            htmlString += "<div class=\"modal - header\">";
+            htmlString += "<div class=\"modal-header\">";
             htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">x</button> ";
             htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
-            htmlString += "<em>楼主</em>" + pcmt.Person.Name + "发表于" +
+            htmlString += "<em>楼主：</em>" + pcmt.Person.Name + "发表于" +
                           pcmt.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
             htmlString += "</h4> </div>";
 
-            htmlString += " <div class=\"modal-body\">";
-            //子回复
-            htmlString += " <div class=\"modal-footer\"></ div >";
+            htmlString += " <div class=\"modal-body\">";           
+
+            //找出子回复
+            var sonCmt = _Context.Replys.Where(x => x.ParentReply.ID == id).ToList();
+            //循环子回复
+            foreach (var item in sonCmt)
+            {
+                htmlString += "<div class='media-left'>";
+                htmlString += "<img class='media-object' src='" + item.Person.Avarda +
+                              "' alt='头像' style='width:40px;border-radius:50%;'>";
+                htmlString += "</div>";
+                htmlString += "<em>楼主：</em>" + pcmt.Person.Name + "发表于" +
+                              pcmt.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+                htmlString += item.Content;
+
+            }
+            htmlString += "</div>";
+            htmlString += "<div class='modal-footer'>";
+            htmlString += "</div>";
             return Json(htmlString);
         }
 
@@ -142,73 +213,6 @@ namespace MusicStore.Controllers
         {
             var genres = _Context.Genres.OrderBy(x => x.Name).ToList();
             return View(genres);
-        }
-
-
-
-        //public ActionResult Detail(Guid id)
-        //{
-
-        //    var detail = _Context.Ablums.Find(id);
-        //    var cmt = _Context.Replys.Where(x => x.Ablum.ID == id && x.ParentReply == null)
-        //        .OrderByDescending(x => x.CreateDateTime).ToList();
-
-        //    ViewBag.Cmt = _GetHtml(cmt);
-        //    return View(detail);
-
-        //    if (Session["LoginUserSessionModel"] == null)
-        //        return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "Store") });
-        //    var person = _Context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
-        //    try
-        //    {
-        //        ViewBag.Reply = _Context.Replys.Where(x => x.Ablum.ID == id && x.Person.ID == person.ID).ToList();
-        //    }
-        //    catch
-        //    {
-
-        //    }
-        //    return View(detail);
-
-        //}
-        //[HttpPost]
-        //public ActionResult Reply(Guid id, string pary)
-        //{
-        //    if (Session["LoginUserSessionModel"] == null)
-        //        return RedirectToAction("login", "Account", new { returnUrl = Url.Action("Index", "ShoppingCart") });
-        //    var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
-        //    var rely = new Reply()
-        //    {
-        //        Content = pary,
-        //        Ablum = _Context.Ablums.Find(id),
-        //        Person = _Context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID),
-
-        //    };
-        //    _Context.Replys.Add(rely);
-        //    _Context.SaveChanges();
-        //    var list=new List<Reply>();
-        //    var p = _Context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
-        //    try
-        //    {
-        //        list = _Context.Replys.Where(x => x.Ablum.ID == id && x.Person.ID == person.ID).ToList();
-        //    }
-        //    catch 
-        //    {
-
-        //    }
-        //    var htmlString = "";
-        //    foreach (var item in list)
-        //    {
-        //        htmlString += "<div class=\"pary\">";
-        //        htmlString += "<img style=\"width: 80px; border-radius: 50%;\" src="+item.Person.Avarda+">";
-        //        htmlString += "<p>"+item.Person.Name+"</p>";
-        //        htmlString += "<p>"+item.CreateDateTime+"</p>";
-        //        htmlString += "<p>"+item.Content+"</p>";
-        //        htmlString += "</div>";
-
-        //    }
-
-        //    return Json(htmlString);
-        //}
+        }       
     }
 }
