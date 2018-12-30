@@ -42,6 +42,9 @@ namespace MusicStoreEntity
 
         public IDbSet<discuss> discuss { get; set; }
         public IDbSet<Reply> Replies { get; set; }
+
+        //赞或踩得实体
+        public IDbSet<LikeReply> LikeReplies { get; set; }
         #endregion
     }
 }

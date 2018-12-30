@@ -95,7 +95,33 @@
 </div>
 
 <script>
-
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Like","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //detail
+                //modal
+            }
+        })
+    }
+    function hate(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //detail
+                //modal
+            }
+        })
+    }
     //点击评论中的回复按钮触发的方法
     function GetQuote(id) {
         //保存该评论的id
