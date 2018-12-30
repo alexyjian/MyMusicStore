@@ -1,5 +1,6 @@
 ﻿using MusicStore.ViewModels;
 using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace MusicStore.Controllers
         {
             var detail = _dbContext.Albums.Find(id);
             ViewBag.AvardaUrl = Session["LoginUserSessionModel"] == null ? "/Content/Images/Body.jpg" : (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.Avarda;
-            string str = NewMethod(_dbContext.Albums.Find(id));
+            string str = _Gethtml(_dbContext.Albums.Find(id));
             ViewBag.Cmt = str == "" ? "<div class='text-center text-muted user-ment'>还没有评论呢，快来抢沙发~</div>" : str;
             return View(detail);
         }
@@ -59,7 +60,7 @@ namespace MusicStore.Controllers
             com.commentary = reply == "" ? null : _dbContext.Commentarys.Find(Guid.Parse(reply));
             Album.Commentarys.Add(com);
             _dbContext.SaveChanges();
-            string htmlString = NewMethod(Album);
+            string htmlString = _Gethtml(Album);
             return Json(htmlString);
         }
 
@@ -68,7 +69,7 @@ namespace MusicStore.Controllers
         /// </summary>
         /// <param name="Album"></param>
         /// <returns></returns>
-        private static string NewMethod(Album Album)
+        private string _Gethtml(Album Album)
         {
             var pls = _dbContext.Commentarys.Where(x => x.Album.ID == Album.ID).OrderByDescending(x => x.PublisherDate).ToList();
             string htmlString = "";
@@ -84,12 +85,33 @@ namespace MusicStore.Controllers
                     htmlString += "<a href='#'>" + @item.commentary.Person.Name + "：</a>" + @item.commentary.Context + "</div>";
                 }
                 htmlString += "</div><p class='user-ment text-right'>";
-                htmlString += "<a data-likeid=" + item.ID + " href ='#' onclick=\"zan('" + @item.ID
-                    + "')\"><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( " + @item.ThumbsUp
-                    + " )</a><a href='javascript:;' class='hf' data-replyid=\"'" + item.ID + "'\" onclick=\"div_reply();\">回复</a>";
+
+                //如果没有登录就都显示可以点赞
+                if (Session["LoginUserSessionModel"] == null)
+                {
+                    htmlString += "<a href ='javascript:void(0);' onclick=\"javascript:Like('" + @item.ID
+                        + "');\"><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( "+@item.ThumbsUp+" )</a>";
+                }
+                else
+                {
+                    var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+                    var list = _dbContext.LikeReplys.SingleOrDefault(x => x.Person.ID == person.ID && x.Commentary.ID == item.ID);
+                    if (list != null)
+                    {
+                        htmlString += "<a href ='javascript:void(0);' class='text-danger' onclick=\"javascript:Like('" + @item.ID
+                        + "');\"><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( " + @item.ThumbsUp
+                        + " )</a>";
+                    }
+                    else
+                    {
+                        htmlString += "<a href ='javascript:void(0);' onclick=\"javascript:Like('" + @item.ID
+                        + "');\"><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( " + @item.ThumbsUp
+                        + " )</a>";
+                    }
+                }
+                htmlString += "<a href='javascript:void(0);' class='hf' data-replyid=\"'" + item.ID + "'\" onclick=\"javascript:ReplyDiv();\">回复</a>";
                 htmlString += "<span class='text-muted time'>" + @item.PublisherDate.ToString("MM月dd日 HH:mm") + "</span></p></div>";
             }
-
             return htmlString;
         }
 
@@ -105,13 +127,27 @@ namespace MusicStore.Controllers
                 return Json("nologin");
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-
             var commentary = _dbContext.Commentarys.Find(id);
-            commentary.ThumbsUp++;
+            var list = _dbContext.LikeReplys.SingleOrDefault(x => x.Person.ID == person.ID && x.Commentary.ID == id);
+
+            if (list == null)
+            {
+                commentary.ThumbsUp++;
+                var like = new LikeReply()
+                {
+                    Commentary = commentary,
+                    IsNotLike = true,
+                    Person = _dbContext.Persons.Find(person.ID)
+                };
+                _dbContext.LikeReplys.Add(like);
+            }
+            else
+            {
+                commentary.ThumbsUp--;
+                _dbContext.LikeReplys.Remove(list);
+            }
             _dbContext.SaveChanges();
-            var a = _dbContext.Commentarys.Find(id).Album;
-            var htmlString = NewMethod(a);
-            return Json(htmlString);
+            return Json(_Gethtml(commentary.Album));
         }
     }
 }

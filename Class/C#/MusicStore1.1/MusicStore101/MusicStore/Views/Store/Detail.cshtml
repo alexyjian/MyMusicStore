@@ -59,11 +59,10 @@
 <script>
     //显示回复框
     var reply_id = "";
-    function div_reply() {
+    function ReplyDiv() {
         $('.reply-div').remove();
-        var name = $(this).parent().prev();
-        console.debug(name);
-        alert(name);
+        var reply_id = $(this).data('replyid');
+        alert(reply_id);
         if (reply_id == "") {
             reply_id = $(this).data("replyid");
             $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='reply()'>回复</a></div>");
@@ -78,28 +77,49 @@
         }
     };
 
-    //点赞
-    var i = 0;
-    function zan(id) {
-        if (i == 0) {
+    //回复
+    function Reply() {
+        var str = $('#editor').val();
+        var reply_id = $('.hf').data('replyid');
+        if (str.length == 0) {
+            alert('请输出内容！');
+        } else {
             $.ajax({
                 type: 'post',
                 async: true,
-                url: '../../Store/Zan',
-                data: { id: id },
+                url: '../../Store/Commit',
+                data: { str: str, id: "@Model.ID", reply: reply_id },
                 dataType: 'json',
                 success: function (data) {
                     if (data == "nologin") {
                         location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
                     } else {
+                        $('.reply-div').remove();
+                        str = "";
+                        reply_id = "";
                         $("#pl-all-list").html(data);
-                        i++;
                     }
                 }
             });
-        } else {
-            alert("今日点赞已达上限！");
         }
+    };
+
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Store/Zan',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "nologin") {
+                    location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                } else {
+                    $("#pl-all-list").html(data);
+                }
+            }
+        });
     };
 
     //添加至购物车
@@ -149,31 +169,4 @@
             })
         }
     });
-
-    //回复
-    function reply() {
-        var str = $('#editor').val();
-        var reply_id = $('.hf').data('replyid');
-        if (str.length == 0) {
-            alert('请输出内容！');
-        } else {
-            $.ajax({
-                type: 'post',
-                async: true,
-                url: '../../Store/Commit',
-                data: { str: str, id: "@Model.ID", reply: reply_id },
-                dataType: 'json',
-                success: function (data) {
-                    if (data == "nologin") {
-                        location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
-                    } else {
-                        $('.reply-div').remove();
-                        str = "";
-                        reply_id = "";
-                        $("#pl-all-list").html(data);
-                    }
-                }
-            });
-        }
-    };
 </script>
