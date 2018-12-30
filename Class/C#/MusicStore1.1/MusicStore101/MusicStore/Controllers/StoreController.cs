@@ -109,7 +109,7 @@ namespace MusicStore.Controllers
                         + " )</a>";
                     }
                 }
-                htmlString += "<a href='javascript:void(0);' class='hf' data-replyid=\"'" + item.ID + "'\" onclick=\"javascript:ReplyDiv();\">回复</a>";
+                htmlString += "<a href='javascript:void(0);' class='hf' data-replyid= \""+ item.ID + "\">回复</a>";
                 htmlString += "<span class='text-muted time'>" + @item.PublisherDate.ToString("MM月dd日 HH:mm") + "</span></p></div>";
             }
             return htmlString;
