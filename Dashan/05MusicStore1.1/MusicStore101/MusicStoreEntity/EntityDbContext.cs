@@ -38,6 +38,7 @@ namespace MusicStoreEntity
         public IDbSet<Order> Orders { get; set; }
         public IDbSet<OrderDetail> OrderDetails { get; set; }
         public IDbSet<Reply> Plaries { get; set; }
+        public IDbSet<Like> Likes { get; set; }
         #endregion
     }
 }
