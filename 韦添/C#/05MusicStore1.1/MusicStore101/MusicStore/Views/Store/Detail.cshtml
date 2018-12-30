@@ -11,7 +11,7 @@
 <div id="box-video">
     <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
         <div class="cd-center">
-            <audio src="@Model.MusucUrl" controls autoplay loop></audio>
+            <audio src="@Model.MusicUrl" controls autoplay loop></audio>
         </div>
     </div>
 </div>
@@ -147,6 +147,34 @@
             success: function (data) {
                 $("#Div-SonCmts").html(data);
                 $('#myModal').modal('toggle');
+            }
+        });
+    }
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Like","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //detail
+                //modal
+            }
+        });
+    }
+    //踩
+    function hate(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //detail
+                //modal
             }
         });
     }
