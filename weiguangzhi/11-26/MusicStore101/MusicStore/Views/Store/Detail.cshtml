@@ -64,55 +64,6 @@
     </div>
 
 
-    @*<div class="row clearfix">
-        <div class="col-md-12 column">
-            <div id="divCmt">
-                @Html.Raw(ViewBag.Cmt)
-            </div>
-            <button type="button" class="btn btn-primary" data-toggle="collapse"
-                    data-target="#demo">
-                
-                收起评论
-            </button>
-            <div id="demo" class="table-responsive collapse in">
-                <table class="table table-hover " id="divCmt">
-                   
-                        @Html.Raw(ViewBag.Cmt)
-                    
-                    <thead>
-                        <tr>
-                            <th>用户</th>
-                            <th>评论内容</th>
-                            <th>赞</th>
-                            <th>踩</th>
-                            <th>评论时间</th>
-                            
-                        </tr>
-                        
-                    </thead>
-                    <tbody>
-                        
-                        @foreach (var item in Model.Replys)
-                        {
-                            <tr>
-                                <td><img src="@item.Person.Avarda" style="width:35px;height:35px;" />&nbsp;@item.Person.LastName</td>
-                                <td>@item.Content</td>
-                                <td><i class="glyphicon glyphicon-thumbs-up"></i>@item.Like</td>
-                                <td><i class="glyphicon glyphicon-thumbs-down"></i>@item.Hate</td>
-                                <td>@item.CreateDateTime</td>
-                                
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-
-
-
-        </div>
-    </div>*@
-
-
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="form-group">
@@ -202,6 +153,46 @@
             }
         });
     });
+
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Like", "Store")',
+            data: { id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                    new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    //UE.getEditor('editor').setContent('');
+                }
+                //datail
+                //modal
+            }
+        });
+    }
+
+    //踩
+    function hate(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                //datail
+                //modal
+            }
+        });
+    }
 
     //添加购物车
     $("#addcart").click(function () {

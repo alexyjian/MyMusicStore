@@ -156,8 +156,21 @@ namespace MusicStore.Controllers
 
         public ActionResult showCmts(string pid)
         {
-           var htmlString = "";
+            var htmlString = "";
+            //子回复
+            Guid id = Guid.Parse(pid);
+            var cmts = _context.Replys.Where(x => x.ParentReply.ID == id).OrderByDescending(x => x.CreateDateTime).ToList();
+            //原回复
+            var pcmt = _context.Replys.Find(id);
+            htmlString += "<div class=\"modal-header\">";
+            htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>";
+            htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
+            htmlString += "<em>楼主&nbsp;&nbsp;</em>" + pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+            htmlString += " </h4> </div>";
 
+            htmlString += "<div class=\"modal-body\">";
+            //子回复
+            htmlString += "</div><div class=\"modal-footer\"></div>";
             return Json(htmlString);
         }
    
@@ -187,9 +200,9 @@ namespace MusicStore.Controllers
             foreach (var item in cmt)
             {
             htmlString += "<tr>";
-            htmlString += "<td><img src ='"+@item.Person.Avarda+"'style = 'width: 35px; height: 35px;'/> &nbsp;"+ @item.Person.LastName+"</td>";
+            htmlString += "<td><a><img src ='"+@item.Person.Avarda+"'style = 'width: 35px; height: 35px;'/> &nbsp;"+ @item.Person.LastName+"</a></td>";
             htmlString += "<td>"+@item.Content+"</td>";
-            htmlString += "<td><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-up'>("+ item.Like +")</i></a></td>";
+            htmlString += "<td><a href='#' class='reply' style='margin:0 20px'onclick=\"Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up' ></i>(" + item.Like + ")</a></td>";
             htmlString += "<td><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></td>";
             htmlString += "<td>"+@item.CreateDateTime+"</td>";
             var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
@@ -205,5 +218,55 @@ namespace MusicStore.Controllers
             return htmlString;
         }
 
+        [HttpPost]
+        public ActionResult Like(string id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
+                LoginUserSessionModel).Person.ID);
+            
+            var like = _context.Replys.Find(Guid.Parse(id));
+
+            
+                if (like.Like >= 0)
+                {
+                    like.Like++;
+                    var l = new LikeReply()
+                    {
+                        Reply = like,
+                        Person = person,
+                        CreateDateTime = DateTime.Now,
+                        IsNotLike = true,
+                    };
+                    _context.Replys.Add(like);
+                    _context.LikeReply.Add(l);
+                    _context.SaveChanges();
+                }
+            
+            
+
+            
+
+           var likes =_context.Replys.Where(x => x.Person.ID == person.ID).ToList();
+            var htmlString = "";
+            foreach (Reply item in likes)
+            {
+                htmlString += "<tr>";
+                htmlString += "<td><a><img src ='" + @item.Person.Avarda + "'style = 'width: 35px; height: 35px;'/> &nbsp;" + @item.Person.LastName + "</a></td>";
+                htmlString += "<td>" + @item.Content + "</td>";
+                htmlString += "<td><a href='#' class='reply' style='margin:0 20px'onclick=\"Like('ss');\"><i class='glyphicon glyphicon-thumbs-up' ></i>(" + item.Like + ")</a></td>";
+                htmlString += "<td><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></td>";
+                htmlString += "<td>" + @item.CreateDateTime + "</td>";
+                var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
+                htmlString += "<td><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID + "');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID + "');\">" + sonCmt.Count + "</a>)条</td>";
+                htmlString += "</tr>";
+            }
+            return Json(htmlString);
+
+
+
+        }
     }
 }
