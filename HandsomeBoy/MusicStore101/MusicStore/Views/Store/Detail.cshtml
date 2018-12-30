@@ -128,7 +128,6 @@
     }
     function ShowCmt(id) {
         //ajax 查询出子回复
-      
       $.ajax({
             type: 'post',
             asyn: true,
@@ -141,6 +140,26 @@
             }
         });
     }
+
+    function LikeReply(id, Title) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("LikeReply", "Store")',
+            data: {  id,Title,"Albumid":"@detail.ID" },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                    new {returnUrl=Url.Action("Detail","Store",new {id= detail.ID })})";
+                }
+                $("#divComment").html(data);
+                //$('#myModal').modal('toggle');
+            }
+        });
+    }
+
    //提交回复
     $("#btnCmt").click(function () {
         //获得编辑器中的内容

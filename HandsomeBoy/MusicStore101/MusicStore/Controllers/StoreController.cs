@@ -31,6 +31,49 @@ namespace MusicStore.Controllers
             ViewBag.Cmt = _GetHtml(Cmt);
             return View();
         }
+
+        [HttpPost]
+        public ActionResult LikeReply(string id, bool Title,string Albumid)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            
+            var ID = Guid.Parse(id);
+            var AlbumiID = Guid.Parse(Albumid);
+            var reply = _context.Replys.Find(ID);
+            if (_context.LikeReplys.Where(x => x.Person.ID == person.ID && x.Reply.ID == ID).Count()==0)
+            {
+             
+                if (Title)
+                {
+                    reply.Like += 1;
+                }
+                else
+                {
+                    reply.Hate += 1;
+                }
+                var likeReply = new LikeReply()
+                {
+                    IsNotLike = Title,
+                    Person = person,
+                    Reply = _context.Replys.Find(ID),
+                };
+                _context.LikeReplys.Add(likeReply);
+                _context.SaveChanges();
+                var Cmt = _context.Replys.Where(x => x.Album.ID == AlbumiID && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
+                var htmlString = "";
+
+                htmlString += _GetHtml(Cmt);
+                return Json(htmlString);
+            }
+            else
+            {
+                return Json("");
+            }
+          
+            return Json("");
+        }
         private string _GetHtml(List<Reply> Cmt)
         {
 
@@ -50,10 +93,10 @@ namespace MusicStore.Controllers
                 htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID +
+                htmlString += "<h6 class = 'LikeHateReply'><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID +
                               "');\">回复</a>(<a href='#' data-toggle='modal' data-target='#myModal'   onclick=\"ShowCmt('" + item.ID + "')\">" + sonCmt.Count + "</a>)条" +
-                              "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
-                              item.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                              "<a href='#' class='Like' onclick = LikeReply('" + item.ID + "','true') style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
+                              item.Like + ")</a><a href='#' class='LikeReply' onclick = LikeReply('" + item.ID + "','false') style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
 
                 htmlString += "</li>";
            

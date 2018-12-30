@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 namespace MusicStoreEntity
 {
  
@@ -42,6 +42,7 @@ namespace MusicStoreEntity
         public IDbSet<My> Mys { get; set; }
         public IDbSet<Reply> Replys { get; set; }
         
+        public IDbSet<LikeReply> LikeReplys { get; set; }
     }
 
 }
