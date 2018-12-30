@@ -81,7 +81,7 @@
         $.ajax({
             type: 'post',
             async: true,
-            url: '../../Store/Reply',
+            url: '@Url.Action("Reply", "Store")',
             data: { id: "@Model.ID", replyID: "00000000-0000-0000-0000-000000000000", content: arr },
             dataType: 'json',
             success: function (data) {
@@ -123,7 +123,7 @@
         $.ajax({
             type: 'post',
             async: true,
-            url: '../../Store/Reply',
+            url: '@Url.Action("Reply","Store")',
             data: { id: "@Model.ID", replyID:ID, contentreply: arr },
             dataType: 'json',
             success: function (data) {
@@ -143,6 +143,57 @@
         pin.style.display = "block";
         obj.style.display = "none";
     }
+
+    //点赞
+    function Like(obj) {
+        var id = obj.parentNode.id;
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("LikeOrHate","Store")',
+            data: { id: id, LikeOrHate: true },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                }
+                else if (data == "OKT") {
+                    alert("你已赞过或踩过");
+                }
+                else {
+                    $(".pinl").html(data);
+                }
+            }
+        });
+    }
+
+    //踩
+    function hate(obj) {
+        var id = obj.parentNode.id;
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("LikeOrHate","Store")',
+            data: { id: id, LikeOrHate: false },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else if(data=="OKT") {
+                    alert("你已赞过或踩过");
+                }
+                else {
+                    $(".pinl").html(data);
+                }
+            }
+        });
+    }
+
+    //查看所有对话
+
+
 </script>
 <!-- 试听和添加购物车 -->
 <script>
@@ -152,7 +203,7 @@
         $.ajax({
            type: 'post',
             async: true,
-            url: '../../ShoppingCart/AddCart',
+            url: '@Url.Action("AddCart","ShoppingCart")',
             data: { id: "@Model.ID" },
             dataType: 'json',
             success: function (data) {
