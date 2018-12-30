@@ -61,6 +61,7 @@
     <Compile Include="Artist.cs" />
     <Compile Include="Cart.cs" />
     <Compile Include="EnumOrderStatus.cs" />
+    <Compile Include="LikeReply.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="EntityDbContext.cs" />
     <Compile Include="Order.cs" />
