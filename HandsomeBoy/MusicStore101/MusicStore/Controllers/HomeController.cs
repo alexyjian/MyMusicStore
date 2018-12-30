@@ -15,24 +15,12 @@ namespace MusicStore.Controllers
         public ActionResult Index()
         {
             var context = new EntityDbContext();
+            //传入24条专辑到视图
             var list = context.Albuns.OrderByDescending(x => x.PublsherDate).Take(24).ToList();
            
             return View(list);
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
       
     }
 }

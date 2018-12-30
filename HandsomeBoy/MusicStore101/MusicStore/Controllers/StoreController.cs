@@ -16,22 +16,30 @@ namespace MusicStore.Controllers
         /// <summary>
         /// 显示专辑的明细
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">专辑ID</param>
         /// <returns></returns>
         public ActionResult Detail(string id)
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Home") });
             var ID = Guid.Parse(id);
             var detail = _context.Albuns.Find(ID);
-          
+          //查询出本专辑，传到视图
             ViewBag.detail = detail;
             //var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
             var Cmt = _context.Replys.Where(x => x.Album.ID == ID && x.ParentReply==null).OrderByDescending(x => x.CreateDateTime).ToList();
+            //在显示评论那里注入html
             ViewBag.Cmt = _GetHtml(Cmt);
             return View();
         }
 
+       /// <summary>
+       ///   赞 和 踩
+       /// </summary>
+       /// <param name="id">评论与回复的ID</param>
+       /// <param name="Title">是赞还是踩</param>
+       /// <param name="Albumid">专辑ID</param>
+       /// <returns></returns>
         [HttpPost]
         public ActionResult LikeReply(string id, bool Title,string Albumid)
         {
@@ -42,9 +50,10 @@ namespace MusicStore.Controllers
             var ID = Guid.Parse(id);
             var AlbumiID = Guid.Parse(Albumid);
             var reply = _context.Replys.Find(ID);
+            //判断该用户是否对此条评论点赞或者踩
             if (_context.LikeReplys.Where(x => x.Person.ID == person.ID && x.Reply.ID == ID).Count()==0)
             {
-             
+                //Title传的是bool
                 if (Title)
                 {
                     reply.Like += 1;
@@ -53,6 +62,7 @@ namespace MusicStore.Controllers
                 {
                     reply.Hate += 1;
                 }
+                //吧赞还是踩添加到数据库
                 var likeReply = new LikeReply()
                 {
                     IsNotLike = Title,
@@ -61,6 +71,7 @@ namespace MusicStore.Controllers
                 };
                 _context.LikeReplys.Add(likeReply);
                 _context.SaveChanges();
+                //刷新局部页面
                 var Cmt = _context.Replys.Where(x => x.Album.ID == AlbumiID && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
                 var htmlString = "";
 
@@ -72,8 +83,13 @@ namespace MusicStore.Controllers
                 return Json("");
             }
           
-            return Json("");
+          
         }
+        /// <summary>
+        /// HTML注入
+        /// </summary>
+        /// <param name="Cmt"></param>
+        /// <returns></returns>
         private string _GetHtml(List<Reply> Cmt)
         {
 
@@ -104,15 +120,20 @@ namespace MusicStore.Controllers
             htmlString += "</ul>";
             return htmlString;
         }
+        /// <summary>
+        /// 回复添加与显示
+        /// </summary>
+        /// <param name="pid">需要回复的评论ID</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult WShowCmts(string pid)
         {
             var id =Guid.Parse(pid);
-
             var htmlString = "";
             htmlString +="<div class='modal-header'>";
             htmlString += "<h4 class='modal-title' id='myModalLabel'>";
+            //查询出原回复
             var fatherCmt = _context.Replys.Find(id);
             //原回复
             htmlString += "<div class='media-left'>";
@@ -127,7 +148,7 @@ namespace MusicStore.Controllers
             htmlString += "</div>";
             htmlString += "<div class='modal-body'>";
             //子回复
-
+            //查询出子回复
             var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == id).ToList();
             foreach(var item in sonCmt)
             {
@@ -147,33 +168,43 @@ namespace MusicStore.Controllers
         }
 
             //
-            public ActionResult browser(Guid id)
+          public ActionResult browser(Guid id)
         {
             var list = _context.Albuns.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublsherDate).ToList();
             return View(list);
         }
-
+        /// <summary>
+        /// 主页显示
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Home") });
             var list = _context.Genres.OrderByDescending(x => x.Name).ToList();
-            var list1 = _context.Albuns.OrderByDescending(x => x.PublsherDate).ToList();
+            //var list1 = _context.Albuns.OrderByDescending(x => x.PublsherDate).ToList();
 
             return View(list);
 
         }
-
+        /// <summary>
+        /// 评论
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cmt"></param>
+        /// <param name="reply"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult AddCmt(string id, string cmt, string reply)
         {
-
+            //判断是否登录
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Home") });
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
-            var album = _context.Albuns.Find(Guid.Parse(id));
+            var album = _context.Albuns.Find(Guid.Parse(id));//查询出当前评论的专辑
 
+            //添加到数据库
             var r = new Reply()
             {
                 Album = album,
@@ -189,6 +220,7 @@ namespace MusicStore.Controllers
             
             else
             {
+                //子回复
               var   replyID = Guid.Parse(reply);
                 r.ParentReply = _context.Replys.Find(replyID);
             }
@@ -198,6 +230,7 @@ namespace MusicStore.Controllers
 
             _context.Replys.Add(r);
             _context.SaveChanges();
+            //局部刷新界面注入html
             var Cmt = _context.Replys.Where(x => x.Album.ID == Id && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
             var htmlString = "";
 

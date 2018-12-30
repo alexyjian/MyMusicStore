@@ -117,8 +117,8 @@ namespace MusicStore.Controllers
                 f.SaveAs(@"D:\" + f.FileName);
             }
 
-          
-       
+
+            string  ID = Session["ID"].ToString();
 
             var details = (Session["Order"] as Order).OrderDetails;
             foreach (var item in details)
@@ -128,6 +128,7 @@ namespace MusicStore.Controllers
             }
             Guid guid =Guid.Parse(Session["ID"].ToString());
             order.TotalPrice = (from item in order.OrderDetails select item.Count * item.Album.Price).Sum();
+             order.Mys =_context.Mys.Find(Guid.Parse(ID));
             //order.Mys = _context.Mys.Find(guid);
             //4.如果表单验证通过，则保存 order到数据库（锁定进程），跳转到Pay/Alipay
             if (ModelState.IsValid)

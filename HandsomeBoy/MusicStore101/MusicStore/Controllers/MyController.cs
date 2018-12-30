@@ -13,10 +13,14 @@ namespace MusicStore.Controllers
     public class MyController : Controller
     {
         private static MusicStoreEntity.EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
+        /// <summary>
+        /// 个人信息显示
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Home") });
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
                var myVM = new MyViewModel()
                 {
@@ -32,12 +36,17 @@ namespace MusicStore.Controllers
            
             return View(myVM);
         }
+        /// <summary>
+        /// 修改个人信息
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(MyViewModel model)
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Home") });
             var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
 
             //用户原来的头像
@@ -81,7 +90,7 @@ namespace MusicStore.Controllers
         public ActionResult Address()
         {
             if (Session["LoginUserSessionModel"] == null)
-                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Login") });
+                return RedirectToAction("login", "login", new { returnUrl = Url.Action("index", "Home") });
             var mya = new List<My>();
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
             try
