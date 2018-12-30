@@ -78,6 +78,7 @@
     <div class="col-md-10">
         <div class="form-group" id="div-editor">
             <textarea id="editor" name="editor"></textarea>
+            <input type="hidden" id="pReplyID" />
         </div>
         <button id="btncCmt" type="button" class="btn btn-success">评论</button>
     </div>
@@ -213,6 +214,7 @@
         UE.getEditor('editor');
         var content = UE.getEditor('editor').getContent();
         var pid = $("#pReplyID").val();
+        //alert(pid);
         //console.log(content);
         //ajax提交
         $.ajax({
@@ -236,7 +238,7 @@
                     //清空euditor编辑器
                     UE.getEditor('editor').setContent('');
                     location.reload();
-                    alert('发表成功！');
+                    //alert('发表成功！');
                     //局部刷新
                 }
             }
