@@ -27,6 +27,25 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
+        /// 点赞
+        /// </summary>
+        /// <param name="id">回复id</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Like(Guid id)
+        {
+            //1.判断用户是否登录
+
+            //2.判断用户是否对这条回复点过赞或踩
+
+            //3.保存  reply实体中like+1或hate+1  LikeReply添加一条记录
+
+            //生成html 注入视图
+
+            return Json("OK");
+        }
+
+        /// <summary>
         /// 生成回复的显示html文本
         /// </summary>
         /// <param name="cmt"></param>
@@ -49,9 +68,10 @@ namespace MusicStore.Controllers
                 htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID+"');\">回复</a>(<a href='#' class='reply'>" + sonCmt.Count + "</a>)条" +
-                              "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
-                              item.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID+
+                              "');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID +"');\">" + sonCmt.Count + "</a>)条" +
+                              "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>"+
+                              "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
                
                 htmlString += "</li>";
             }
@@ -96,6 +116,27 @@ namespace MusicStore.Controllers
             var replies = _context.Replies.Where(x => x.Album.ID == album.ID && x.ParentReply == null)
                 .OrderByDescending(x => x.CreateDateTime).ToList();
             return Json(_GetHtml(replies));
+        }
+
+        [HttpPost]
+        public ActionResult showCmts(string pid)
+        {
+            var htmlString = "";
+            //子回复
+            Guid id = Guid.Parse(pid);
+            var cmts = _context.Replies.Where(x => x.ParentReply.ID == id).OrderByDescending(x=>x.CreateDateTime).ToList();
+            //原回复
+            var pcmt = _context.Replies.Find(id);
+            htmlString += "<div class=\"modal-header\">";
+            htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>";
+            htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
+            htmlString += "<em>楼主&nbsp;&nbsp;</em>" + pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒")+":<br/>"+ pcmt.Content;
+            htmlString += " </h4> </div>";
+
+            htmlString += "<div class=\"modal-body\">";
+            //子回复
+            htmlString += "</div><div class=\"modal-footer\"></div>";
+            return Json(htmlString);
         }
 
         /// <summary>
