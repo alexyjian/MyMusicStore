@@ -70,8 +70,7 @@ namespace MusicStore.Controllers
                 htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID+
-                              "');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID +"');\">" + sonCmt.Count + "</a>)条" +
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID+"','"+item.ID+"');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID +"');\">" + sonCmt.Count + "</a>)条" +
                               "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>"+
                               "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
                
@@ -150,7 +149,8 @@ namespace MusicStore.Controllers
                               item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += item.Content;
                 htmlString += "</div>";
-                htmlString += "<h6><a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ParentReply.ID + "','"+item.ID+"');\">回复</a>"+
+                              "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
                               "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
                 htmlString += "</li>";
             }
