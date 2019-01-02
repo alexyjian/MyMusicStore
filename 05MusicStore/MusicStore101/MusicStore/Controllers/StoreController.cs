@@ -39,16 +39,15 @@ namespace MusicStore.Controllers
                               "' alt='头像' style='width:40px;border-radius:50%;'>";
                 htmlString += "</div>";
                 htmlString += "<div class='media-body' id='Content-" + item.ID + "'>";
-                htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
+                htmlString += "<h5 class='media-heading'><em>" + item.Person.Name + "</em>&nbsp;&nbsp;发表于" +
                               item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += item.Content;
                 htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID +
-                              "');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID + "');\">" + sonCmt.Count + "</a>)条" +
-                              "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
-                              item.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID + "','" + item.ID + "');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID + "');\">" + sonCmt.Count + "</a>)条" +
+                              "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
+                              "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
 
                 htmlString += "</li>";
             }
@@ -127,13 +126,14 @@ namespace MusicStore.Controllers
         public ActionResult Like()
         {
             //1.判断用户是否登录
-
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
             //2.判断
 
             //3.保存 reply 实体中like+1或hate+1 LikeReply添加一条记录
 
             //生成html注入视图
-            return View();
+            return View("OK");
         }
         
     }
