@@ -31,7 +31,7 @@ namespace MusicStore.Controllers
             var messge = "";
                 if(cartItem == null)
             {
-                //
+                //该用户的购物车中没有此专辑
                 cartItem = new Cart()
                 {
                     AlbumID = id.ToString(),
