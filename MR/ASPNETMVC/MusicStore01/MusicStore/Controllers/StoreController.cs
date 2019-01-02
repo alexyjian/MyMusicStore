@@ -36,7 +36,8 @@ namespace MusicStore.Controllers
         public ActionResult Like(Guid id)
         {
             //1.判断用户是否登录
-
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
             //2.判断用户是否对这条回复点过赞或踩
 
             //3.保存 reply是体重Like+1或Hate+1 LikeReply添加一条记录
@@ -45,6 +46,7 @@ namespace MusicStore.Controllers
             return Json("OK");
         }
 
+        #region HTML注入
         private static string _GetHtml(List<Reply> cmt)
         {
             var htmlString = "";
@@ -73,6 +75,7 @@ namespace MusicStore.Controllers
             htmlString += "</ul>";
             return htmlString;
         }
+        #endregion
 
         [HttpPost]
         [ValidateInput(false)]
@@ -125,7 +128,8 @@ namespace MusicStore.Controllers
             htmlString += "<div class=\"modal-header\">";
             htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>";
             htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
-            htmlString += "<em>楼主</em>" + pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+            htmlString += "<em>楼主</em>" + pcmt.Person.Name + "  发表于" + 
+                pcmt.CreateDateTime.ToString("yyyy年MM月dd日hh点mm分ss秒") + ":<br/>" + pcmt.Content;
             htmlString += " </h4> </div>";
 
             htmlString += "<div class=\"modal-body\">";
