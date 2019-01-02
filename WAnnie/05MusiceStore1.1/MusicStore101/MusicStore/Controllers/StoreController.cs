@@ -28,6 +28,103 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
+        /// 点赞
+        /// </summary>
+        /// <param name="id">回复的id</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Like(string id, string Albumid)
+        {
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            var ID = Guid.Parse(id); //把传过来的ID转换成GUID
+            var AblumID = Guid.Parse(Albumid);
+
+            //判断用户是否对这条回复点过赞或踩
+            var person = _Context.Persons.Find((Session["LoginUserSessionModel"]
+                as LoginUserSessionModel).Person.ID);
+
+            var sonCmt = _Context.LikeReplies.Where(x => x.Person.ID == person.ID && x.Reply.ID == ID).ToList();
+            var reply = _Context.Replys.Find(ID);
+            //保存 reply实体中like+1或hate+1 LikeReply添加一条记录
+            if (sonCmt.Count == 0)
+            {
+                reply.Like += 1;
+
+                var like = new LikeReply()
+                {
+                    IsNoLike = true,
+                    Reply = reply,
+                    Person = person,
+                };
+
+                _Context.LikeReplies.Add(like);
+                _Context.SaveChanges();
+
+                //局部刷新显示成最新的评论
+                var cmt = _Context.Replys.Where(x => x.Ablum.ID == AblumID && x.ParentReply == null)
+                    .OrderByDescending(x => x.CreateDateTime).ToList();
+                return Json(_GetHtml(cmt));
+            }
+
+            //生成HTML注入
+            var cmt1 = _Context.Replys.Where(x => x.Ablum.ID == AblumID && x.ParentReply == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+            return Json(_GetHtml(cmt1));
+
+        }
+
+        /// <summary>
+        /// 踩
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Hate(string id, string AblumID)
+        {
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+            var ID = Guid.Parse(id); //把传过来的ID转换成GUID
+            var Albumid = Guid.Parse(AblumID);
+
+            var person = _Context.Persons.Find((Session["LoginUserSessionModel"]
+                as LoginUserSessionModel).Person.ID);
+
+            var hate = _Context.Replys.Find(ID);
+            var sonCmt = _Context.LikeReplies.Where(x => x.Person.ID == person.ID && x.Reply.ID == ID).ToList();
+            if (sonCmt.Count == 0)
+            {
+                hate.Hate += 1;
+
+                var hate1 = new LikeReply()
+                {
+                    IsNoLike = false,
+                    Reply = hate,
+                    Person = person,
+
+                };
+                _Context.LikeReplies.Add(hate1);
+                _Context.SaveChanges();
+
+
+                //局部刷新显示成最新的评论
+                var cmt = _Context.Replys.Where(x => x.Ablum.ID == Albumid && x.ParentReply == null)
+                    .OrderByDescending(x => x.CreateDateTime).ToList();
+                return Json(_GetHtml(cmt));
+            }
+
+            //生成HTML注入
+            var cmt1 = _Context.Replys.Where(x => x.Ablum.ID == ID && x.ParentReply == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+            return Json(_GetHtml(cmt1));
+
+        }
+
+
+        /// <summary>
         /// 生成回复的显示HTML文本
         /// </summary>
         /// <param name="cmt"></param>
@@ -43,16 +140,15 @@ namespace MusicStore.Controllers
                 htmlString+= "<img class='media-object'src='"+item.Person.Avarda+"'alt='头像'style='width:40px;border-radius:50%;'>";
                 htmlString += "</div>";
                 htmlString+= "<div class='media-body' id='Content-"+item.ID+"'>";
-                htmlString += "<h5 class='media-heading'>"+item.Person.Name+"发表于"+item.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒")+ "</h5>";
+                htmlString += "<h5 class='media-heading'><em>"+item.Person.Name+ "</em>&nbsp;&nbsp;发表于" + item.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒")+ "</h5>";
                 htmlString += item.Content;
                 htmlString += "</div>";
 
                 //查询当前回复的下一级回复
                 var sonCmt = _Context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();              
-                htmlString += "<h6><a href='#div-editor'class='reply' onclick=\"javascript:GetQuote('"+item.ID+
-                              "');\">回复</a>(<a href='#'class='reply'onclick=\"javascript:ShowCmt('"+item.ID+"');\">"+sonCmt.Count+"</a>)条"+
-                              "<a href='#'class='reply'style='margin:0 20px 0 50px' onclick=\"Like('" + item.ID + "')\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like+ ")</a>" +
-                              "<a href='#'class='reply'style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate+")</a></h6>";
+                htmlString += "<h6><a href='#div-editor'class='reply' onclick=\"javascript:GetQuote('"+item.ID+ "','"+item.ID+"');\">回复</a>(<a href='javascript:;'class='reply'onclick=\"javascript:ShowCmt('"+item.ID+"');\">"+sonCmt.Count+"</a>)条"+
+                              "<a href='javascript:;'class='reply'style='margin:0 20px 0 50px' onclick=\"javascript:Like('" + item.ID + "')\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like+ ")</a>" +
+                              "<a href='javascript:;'class='reply'style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate+")</a></h6>";
 
                 htmlString += "</li>";
             }
@@ -100,57 +196,7 @@ namespace MusicStore.Controllers
             return Json(_GetHtml(replies));
         }
 
-
-        /// <summary>
-        /// 点赞或踩
-        /// </summary>
-        /// <param name="pid">回复的id</param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult Like(string id,string Ablumid)
-        {
-            //判断用户是否登录
-            if (Session["LoginUserSessionModel"] == null)
-                return Json("nologin");
-
-            var ID = Guid.Parse(id); //把传过来的ID转换成GUID
-            var AblumID = Guid.Parse(Ablumid);
-
-            //判断用户是否对这条回复点过赞或踩
-            var person = _Context.Persons.Find((Session["LoginUserSessionModel"]
-                as LoginUserSessionModel).Person.ID);
-
-            var sonCmt = _Context.LikeReplies.Where(x => x.Person.ID == person.ID&&x.Reply.ID==ID).ToList();
-            var reply = _Context.Replys.Find(ID);
-            //保存 reply实体中like+1或hate+1 LikeReply添加一条记录
-            if (sonCmt.Count==0)
-            {
-                reply.Like+=1;
-
-                var like = new LikeReply()
-                {   
-                    IsNoLike = true,
-                    Reply = reply,
-                    Person = person,
-                };
-
-                _Context.LikeReplies.Add(like);
-                _Context.SaveChanges();
-
-                //局部刷新显示成最新的评论
-                var cmt = _Context.Replys.Where(x => x.Ablum.ID == AblumID && x.ParentReply == null)
-                    .OrderByDescending(x => x.CreateDateTime).ToList();
-
-            }
-            var ablum = _Context.Ablums.Find((id));
-
-
-            //生成HTML注入
-
-            return Json("ok");
-        }
-
-
+     
         /// <summary>
         /// 回复
         /// </summary>
@@ -169,27 +215,37 @@ namespace MusicStore.Controllers
             htmlString += "<div class=\"modal-header\">";
             htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">x</button> ";
             htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
-            htmlString += "<em>楼主：</em>" + pcmt.Person.Name + "发表于" +
+            htmlString += "<em>楼主：&nbsp;&nbsp;</em>" + pcmt.Person.Name + "&nbsp;&nbsp;发表于" +
                           pcmt.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
             htmlString += "</h4> </div>";
 
-            htmlString += " <div class=\"modal-body\">";           
+            htmlString += " <div class=\"modal-body\">";
 
             //找出子回复
-            var sonCmt = _Context.Replys.Where(x => x.ParentReply.ID == id).ToList();
+            //var sonCmt = _Context.Replys.Where(x => x.ParentReply.ID == id).ToList();
+
+            //子回复
+            htmlString += "<ul class='media-list' style='margin-left:20px'>";
             //循环子回复
-            foreach (var item in sonCmt)
+            foreach (var item in cmts)
             {
+                htmlString += "<li class='media'>";
                 htmlString += "<div class='media-left'>";
                 htmlString += "<img class='media-object' src='" + item.Person.Avarda +
                               "' alt='头像' style='width:40px;border-radius:50%;'>";
                 htmlString += "</div>";
-                htmlString += "<em>楼主：</em>" + pcmt.Person.Name + "发表于" +
-                              pcmt.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+                htmlString += "<div class='media-body' id='Content-" + item.ID + "'>";
+                htmlString += "<h5 class='media-heading'><em>" + pcmt.Person.Name + "</em>&nbsp;&nbsp;发表于" +
+                              pcmt.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += item.Content;
+                htmlString += "</div>";
+                htmlString += "<h6><a href='#div-editor'class='reply' onclick=\"javascript:GetQuote('" +item.ParentReply.ID+"','"+item.ID + "');\">回复</a> "+
+                              "<a href='javascript:;'class='reply'style='margin:0 20px 0 50px' onclick=\"javascript:Like('" + item.ID + "')\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
+                              "<a href='javascript:;'class='reply'style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
 
+                htmlString += "</li>";
             }
-            htmlString += "</div>";
+            htmlString += "</ul>";
             htmlString += "<div class='modal-footer'>";
             htmlString += "</div>";
             return Json(htmlString);

@@ -113,6 +113,8 @@
         //取回复的时间
         var divName = 'Content-' + id;
         var content = "<p></p>" + $("#" + divName).html();
+        var content = "<br/><br/><div style='margin:20px; border:1px solid black'>引用：<br/>" + $("#" + divName).html() + "</div>";
+
 
         //把内容赋值给ueditor
         var ue = UE.getEditor('editor');
@@ -137,13 +139,13 @@
         });
     }
 
-        //点赞 
+        //点赞
         function Like(id) {
             $.ajax({
                 type: 'post',
                 asyn: true,
                 url: '@Url.Action("Like", "Store")',
-                data: { id,@Model.ID},
+                data: { id,"Albumid":"@Model.ID"},
                 dataType: 'json',
                 success: function (data) {
                     if (data == 'nologin') {
@@ -152,7 +154,7 @@
                         new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
                     }
                     else {
-                        
+                        $("#divCmt").html(data);
                     }
                 }
             });
@@ -160,7 +162,23 @@
 
         //踩
         function Hate(id) {
-            
+            $.ajax({
+                type: 'post',
+                asyn: false,
+                url: '@Url.Action("Hate", "Store")',
+                data: { id, "AblumID": "@Model.ID"},
+                dataType: 'json',
+                success: function(data) {
+                    if (data == 'nologin') {
+                        //如果没登录
+                        location.href = "@Url.Action("login","Account",
+                        new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                    }
+                    else {
+                        //$("#divCmt").html(data);
+                    }
+                }
+            });
         }
 
 
