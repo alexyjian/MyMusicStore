@@ -426,3 +426,7 @@ tr:hover {
     border-bottom:2px solid red;
     margin:50px 0px 20px;
 }
+
+.tab-body-ul li {
+    list-style-type:none;
+}

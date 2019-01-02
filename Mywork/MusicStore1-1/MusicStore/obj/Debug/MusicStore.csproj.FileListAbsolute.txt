@@ -1,4 +1,3 @@
-F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\roslyn\csc.exe
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -54,5 +53,6 @@ F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\zh-Hans\Syste
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\zh-Hans\System.Web.WebPages.resources.dll
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.csprojResolveAssemblyReference.cache
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.dll
 F:\VS作业提交\MyMusicStore\Mywork\MusicStore1-1\MusicStore\obj\Debug\MusicStore.pdb

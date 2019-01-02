@@ -27,17 +27,17 @@ namespace MusicStore.Controllers
             ViewBag.Cmt = _GetHtml(cmt);
             return View(detail);
         }
-        ///// <summary>
-        ///// 按分类显示专辑
-        ///// </summary>
-        ///// <param name="id"></param>
-        ///// <returns></returns>
-        //public ActionResult Browser(Guid id)
-        //{
-        //    var list = _context.Albums.Where(x => x.Genre.ID == id)
-        //        .OrderByDescending(x => x.PublisherDate).ToList();
-        //    return View(list);
-        //}
+        /// <summary>
+        /// 按分类显示专辑
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Browser(Guid id)
+        {
+            var list = _context.Albums.Where(x => x.Genre.ID == id)
+                .OrderByDescending(x => x.PublisherDate).ToList();
+            return View(list);
+        }
 
         /// <summary>
         /// 点赞
@@ -48,11 +48,21 @@ namespace MusicStore.Controllers
         public ActionResult Like(Guid id)
         {
             //1 判断用户是否登录
-            //2 判断用户是否对这条回复点过赞或者踩
-            //3 保存 reply实体中like+1 hate+1 LikeReply添加一条记录
-            //生成html 注入视图
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
 
-            return Json("好!");
+            //2 判断用户是否对这条回复点过赞或者踩
+            
+
+                //3 保存 reply实体中like+1 hate+1 LikeReply添加一条记录
+
+
+                //生成html 注入视图
+
+
+
+                return Json("好!");
         }
 
 
@@ -155,16 +165,34 @@ namespace MusicStore.Controllers
 
             htmlString += "<div class=\"modal-body\">";
             //子回复
+            htmlString += "<ul class='media-list' style='margin-left:20px;'>";
+            foreach (var item in cmts)
+            {
+                htmlString += "<li class='media'>";
+                htmlString += "<div class='media-left'>";
+                htmlString += "<img class='media-object' src='" + item.Person.Avarda +
+                              "' alt='头像' style='width:40px;border-radius:50%;'>";
+                htmlString += "</div>";
+                htmlString += "<div class='media-body' id='Content-" + item.ID + "'>";
+                htmlString += "<h5 class='media-heading'><em>" + item.Person.Name + "</em>&nbsp;&nbsp;发表于" +
+                              item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                htmlString += item.Content;
+                htmlString += "</div>";
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ParentReply.ID + "','" + item.ID + "');\">回复</a>" +
+                              "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.like + ")</a>" +
+                              "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                htmlString += "</li>";
+            }
+            htmlString += "</ul>";
             htmlString += "</div><div class=\"modal-footer\"></div>";
             return Json(htmlString);
         }
-
 
         /// <summary>
         /// 显示所有分类
         /// </summary>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index2()
         {
             var genres = _context.Genres.OrderBy(x => x.Name).ToList();
             return View(genres);
