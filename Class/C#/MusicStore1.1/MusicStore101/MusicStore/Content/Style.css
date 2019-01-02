@@ -89,6 +89,7 @@ body {
 
 .user-ment {
     margin-top:10px;
+    font-size:13px;
 }
 
 .pl-list {
@@ -126,4 +127,10 @@ body {
     padding:10px 14px;
     background-color:#fff;
     border-radius:3px;
+}
+
+.time {
+    position:absolute;
+    left:85px;
+    font-size:12px;
 }

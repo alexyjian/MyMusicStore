@@ -518,6 +518,7 @@
     <Content Include="ueditor1_4_3_3-utf8-asp\utf8-asp\ueditor.config.js" />
     <Content Include="ueditor1_4_3_3-utf8-asp\utf8-asp\ueditor.parse.js" />
     <Content Include="ueditor1_4_3_3-utf8-asp\utf8-asp\ueditor.parse.min.js" />
+    <Content Include="Upload\Avarda\72f9798c-4e08-4cba-9402-860ba5a0fc92.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -555,9 +556,7 @@
     <Content Include="ueditor1_4_3_3-utf8-asp\utf8-asp\third-party\video-js\font\vjs.ttf" />
     <Content Include="ueditor1_4_3_3-utf8-asp\utf8-asp\third-party\video-js\font\vjs.woff" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Upload\Avarda\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

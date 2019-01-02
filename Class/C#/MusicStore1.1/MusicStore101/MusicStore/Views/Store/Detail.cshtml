@@ -59,21 +59,28 @@
 <script>
     //显示回复框
     var reply_id = "";
-    $(".hf").click(function (){
+    var name = "";
+    var t = "";
+    $('.hf').on('click',function () {
         $('.reply-div').remove();
-        reply_id = $(this).data("replyid");
         if (reply_id == "") {
             reply_id = $(this).data("replyid");
-            var name = $("#" + reply_id + " .pl-user a").text();
+            name = $("#" + reply_id + " .pl-user a:first").text();
             $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='Reply()'>回复</a></div>");
+            t = $("#editor").val();
+            $("#editor").val("").focus().val(t);
         } else {
             if (reply_id == $(this).data("replyid")) {
                 $('.reply-div').remove();
                 reply_id = "";
+                name = "";
+                t = "";
             } else {
                 reply_id = $(this).data("replyid");
-                var name = $("#" + reply_id + " .pl-user a").text();
+                name = $("#" + reply_id + " .pl-user a:first").text();
                 $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='Reply()'>回复</a></div>");
+                t = $("#editor").val();
+                $("#editor").val("").focus().val(t);
             }
         }
     });
@@ -98,7 +105,10 @@
                         $('.reply-div').remove();
                         str = "";
                         reply_id = "";
+                        name = "";
+                        t = "";
                         $("#pl-all-list").html(data);
+                        //location.reload();
                     }
                 }
             });
@@ -165,6 +175,7 @@
                     } else {
                         $("#pl-all-list").html(data);
                         ue.setContent('');
+                        //location.reload();
                     }
                 }
             })

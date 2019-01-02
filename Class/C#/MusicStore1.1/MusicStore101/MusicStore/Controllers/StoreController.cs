@@ -57,7 +57,14 @@ namespace MusicStore.Controllers
                 Album = Album,
                 Person = _dbContext.Persons.Find(person.ID)
             };
-            com.commentary = reply == "" ? null : _dbContext.Commentarys.Find(Guid.Parse(reply));
+            if (reply == "") com.commentary = null;
+            else
+            {
+                var i = str.IndexOf('：');
+                string sub = str.Substring(i + 1,str.Length - 1 - i);
+                com.Context = sub;
+                com.commentary = _dbContext.Commentarys.Find(Guid.Parse(reply));
+            }
             Album.Commentarys.Add(com);
             _dbContext.SaveChanges();
             string htmlString = _Gethtml(Album);
@@ -90,7 +97,8 @@ namespace MusicStore.Controllers
                 if (Session["LoginUserSessionModel"] == null)
                 {
                     htmlString += "<a href ='javascript:void(0);' onclick=\"javascript:Like('" + @item.ID
-                        + "');\"><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( "+@item.ThumbsUp+" )</a>";
+                        + "');\"><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;&nbsp;( "+@item.ThumbsUp
+                        + " )</a>";
                 }
                 else
                 {
@@ -109,8 +117,26 @@ namespace MusicStore.Controllers
                         + " )</a>";
                     }
                 }
-                htmlString += "<a href='javascript:void(0);' class='hf' data-replyid= \""+ item.ID + "\">回复</a>";
-                htmlString += "<span class='text-muted time'>" + @item.PublisherDate.ToString("MM月dd日 HH:mm") + "</span></p></div>";
+                htmlString += "<a href='javascript:void(0);' class='hf text-muted' data-replyid= \"" + item.ID + "\">回复</a>";
+                if (DateTime.Now.Day - item.PublisherDate.Day == 0)
+                {
+                    htmlString += "<span class='text-muted time'>" + @item.PublisherDate.ToString("HH:mm") + "</span></p></div>";
+                }
+                else if (DateTime.Now.Day - item.PublisherDate.Day == 1)
+                {
+                    htmlString += "<span class='text-muted time'>昨天" + @item.PublisherDate.ToString("HH:mm") + "</span></p></div>";
+                }
+                else
+                {
+                    if (item.PublisherDate.Year == DateTime.Now.Year)
+                    {
+                        htmlString += "<span class='text-muted time'>" + @item.PublisherDate.ToString("MM月dd日 HH:mm") + "</span></p></div>";
+                    }
+                    else
+                    {
+                        htmlString += "<span class='text-muted time'>" + @item.PublisherDate.ToString("yyyy年MM月dd日 HH:mm") + "</span></p></div>";
+                    }
+                }
             }
             return htmlString;
         }
