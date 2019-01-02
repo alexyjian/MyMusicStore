@@ -135,7 +135,7 @@ namespace Music.Controllers
                 htmlString += "<li onclick='ADD(this)'>回复</li>";
                 htmlString += "<li onclick='Like(this)'><i class='glyphicon glyphicon-thumbs-up'></i>（" + item.Like + "）</li>";
                 htmlString += "<li  onclick='hate(this)'><i class='glyphicon glyphicon-thumbs-down'></i>（" + item.Hate + "）</li>";
-                htmlString += "<li onclick='pinlMain(this)'>对话内容</li>";
+                htmlString += "<li></li>";
                 htmlString += "</ul>";
                 htmlString += "</div>";//功能栏结束
                 htmlString += "</div>";//第一层结束
@@ -166,9 +166,9 @@ namespace Music.Controllers
                         htmlString += "<li></li>";
                         htmlString += "<li>" + ry.CreateDateTime.ToString("yyyy年MM月hh日") + "</li>";
                         htmlString += "<li onclick='ADD(this)'>回复</li>";
-                        htmlString += "<li  onclick='Like(this)'><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</li>";
-                        htmlString += "<li  onclick='hate(this)'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</li>";
-                        htmlString += "<li>对话内容</li>";
+                        htmlString += "<li onclick='Like(this)'><i class='glyphicon glyphicon-thumbs-up'></i>(" + ry.Like + ")</li>";
+                        htmlString += "<li onclick='hate(this)'><i class='glyphicon glyphicon-thumbs-down'></i>(" + ry.Hate + ")</li>";
+                        htmlString += "<li onclick='pinlMain(this)'  data-toggle='modal' data-target='#myModal'>对话内容</li>";
                         htmlString += "</ul>";
                         htmlString += "</div>";//功能栏结束
                         htmlString += "</div>";//第一层结束
@@ -237,5 +237,58 @@ namespace Music.Controllers
             string htmlString = NewMethod(reps, prenreply);
             return Json(htmlString);
         }
+
+        /// <summary>
+        /// 查看所有对话
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult ReplyMain(Guid id)
+        {
+            //判断用户是否登陆
+            if (Session["loginUserSessionModel"] == null)
+            {
+                return Json("OK");
+            }
+
+            var replypren = _context.Replys.Find(id);
+            var replys = _context.Replys.Where(x => x.ParentReply.ID == replypren.ParentReply.ID).Where(x => x.ParentReplyNameID == replypren.ID || x.Person.ID == replypren.Person.ID).OrderBy(x=>x.CreateDateTime)
+                .ToList();
+            var htmlString = "";
+            foreach (var ry in replys)
+            {
+
+                htmlString += "<div id='pinl_main_main'>";//第一层
+                htmlString += "<div style='margin-bottom:50px'>";//第一层中的图片
+                htmlString += "<img style='width:70%; height:auto' src=" + ry.Person.Avarda + ">";
+                htmlString += "</div>";//图片结束
+                htmlString += "<div>";//评论内容
+                if (_context.Replys.Find(ry.ParentReplyNameID) != null)
+                {
+                    htmlString += "<p>" + ry.Title + " 回复  " + _context.Replys.Find(ry.ParentReplyNameID).Title + " : " + ry.Content + "</p>";
+                }
+                else
+                {
+                    htmlString += "<p>" + ry.Title + " 回复  " +replypren.ParentReply.Title + " : " + ry.Content + "</p>";
+                }
+
+                htmlString += "</div>";//内容结束
+                htmlString += "<div>";//第一层中的功能栏
+                htmlString += "<ul id='" + ry.ID + "'>";
+                htmlString += "<li></li>";
+                htmlString += "<li>" + ry.CreateDateTime.ToString("yyyy年MM月hh日") + "</li>";
+                htmlString += "<li></li>";
+                htmlString += "<li></li>";
+                htmlString += "<li></li>";
+                htmlString += "<li></li>";
+                htmlString += "</ul>";
+                htmlString += "</div>";//功能栏结束
+                htmlString += "</div>";//第一层结束
+            }
+            return Json(htmlString);
+        }
+
+
     }
 }

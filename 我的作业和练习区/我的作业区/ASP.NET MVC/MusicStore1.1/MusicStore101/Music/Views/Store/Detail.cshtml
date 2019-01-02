@@ -65,6 +65,24 @@
     <div class="pinl" id="album-details">
         @Html.Raw(Model.Replys)
     </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+			
+                </div>
+                <div class="modal-body">
+                 
+                </div>
+                <div class="modal-footer">
+			
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
 </div>
 
 
@@ -192,7 +210,26 @@
     }
 
     //查看所有对话
-
+    function pinlMain(obj) {
+        var id = obj.parentNode.id;
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("ReplyMain","Store")',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } 
+                else {
+                    $(".modal-body").html(data);
+                }
+            }
+        });
+      
+    }
 
 </script>
 <!-- 试听和添加购物车 -->
