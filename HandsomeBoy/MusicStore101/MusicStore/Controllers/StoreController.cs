@@ -80,7 +80,10 @@ namespace MusicStore.Controllers
             }
             else
             {
-                return Json("");
+                var Cmt = _context.Replys.Where(x => x.Album.ID == AlbumiID && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
+                var htmlString = "";
+                htmlString += _GetHtml(Cmt);
+                return Json(htmlString);
             }
           
           
@@ -109,10 +112,10 @@ namespace MusicStore.Controllers
                 htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6 class = 'LikeHateReply'><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID +
-                              "');\">回复</a>(<a href='#' data-toggle='modal' data-target='#myModal'   onclick=\"ShowCmt('" + item.ID + "')\">" + sonCmt.Count + "</a>)条" +
-                              "<a href='#' class='Like' onclick = LikeReply('" + item.ID + "','true') style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
-                              item.Like + ")</a><a href='#' class='LikeReply' onclick = LikeReply('" + item.ID + "','false') style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                htmlString += "<h6 class = 'LikeHateReply'><a href=javascript:;' class='reply' onclick=\"javascript:GetQuote('" + item.ID +
+                              "');\">回复</a>(<a href='javascript:;' data-toggle='modal' data-target='#myModal'   onclick=\"ShowCmt('" + item.ID + "')\">" + sonCmt.Count + "</a>)条" +
+                              "<a href='javascript:;' class='Like' onclick = LikeReply('" + item.ID + "','true') style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
+                              item.Like + ")</a><a href='javascript:;' class='LikeReply' onclick = LikeReply('" + item.ID + "','false') style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
 
                 htmlString += "</li>";
            
