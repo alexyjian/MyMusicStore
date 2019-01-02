@@ -59,8 +59,7 @@
                       aria-haspopup="true" aria-expanded="false">
                      <img src="@user.Person.Avarda" alt="头像" id="Avarda"/>
                       
-                       @*定位**@
-                       <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
+                    
                      
                          @user.Person.Name
                        <span class="caret"></span>
@@ -78,7 +77,7 @@
         </ul>
     </div>
     <div class="xcy">
-    <marquee>欢迎来到我们的音乐商店，在这里您可以感受到温馨的服务，优美旋律，动人心弦。此时你应该感受到快乐与你并肩，幸福与你同在。愿您在这里舒心、开心！</marquee>
+   <b> <marquee>欢迎来到我们的音乐商店，在这里您可以感受到温馨的服务，优美旋律，动人心弦。此时你应该感受到快乐与你并肩，幸福与你同在。愿您在这里舒心、开心！</marquee></b>
         </div>
     <div class="container">
         <div class="row">
@@ -86,22 +85,28 @@
                 @*左侧导航*@
                 @Html.Partial("_GetGenreMenu",
                     new MusicStoreEntity.EntityDbContext().Genres.ToList())
+                @*定位**@
+                <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
             </div>
+            
             <div class="col-md-9">
                 @*操作区*@
                 @RenderBody()
+
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 @*底部*@
                 @Html.Partial("_FooterLayout")
+
             </div>
         </div>
     </div>
         @*继承此布局页的页面执行脚本的位置*@
         @RenderSection("scripts", required: false)
 
+   
 </body>
 </html>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT"></script>

@@ -132,78 +132,103 @@
     //点赞
     function Like(id)
     {
+        console.log("1");
         $.ajax({
             type: 'post',
             asyn: true,
             url: '@Url.Action("Like","Store")',
             data: {
-                "pid": id
+                "id": id
             },
             dataType: 'json',
             success: function (data) {
 
+                //登录
+                if (data == "nologin")
+                {
+                    location.href="@Url.Action("login", "Account",
+                 new { returnUrl = Url.Action("Detail", "Store",new{id=Model.ID})})";
+                }
+
+                else if (data != "false")
+                {
+                    $('#divCmt').html(data);
+                    $('#div-SonCmts').html(data);
+                }
             }
         });
     }
 
     //踩
-    function hate(id)
-    {
+    function Hate(id)
+                    {
         $.ajax({
             type: 'post',
             asyn: true,
             url: '@Url.Action("Hate","Store")',
             data: {
-                "pid": id
+                    "id": id
             },
             dataType: 'json',
             success: function (data) {
+                //登录
+                if (data == "nologin")
+                {
+                    location.href="@Url.Action("login", "Account",
+                    new { returnUrl = Url.Action("Detail", "Store",new{id=Model.ID})})";
+                }
+
+                else if (data != "false")
+                {
+                    $('#divCmt').html(data);
+                    $('#div-SonCmts').html(data);
+                }
             }
         });
-
     }
-    //百度编辑器调用
-    var editor = new baidu.editor.ui.Editor({
-        UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
-        iframeCssUrl: '/ueditor/themes/iframe.css',  //自定义样式路径
-        initialContent: '评论内容',  //初始内容
-        autoHeightEnabled: true,  //高度是否自适应
-        minFrameHeight:500   //编辑器最小的高度
+
+                    //百度编辑器调用
+                    var editor = new baidu.editor.ui.Editor({
+                         UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
+                        iframeCssUrl: '/ueditor/themes/iframe.css',  //自定义样式路径
+                        initialContent: '评论内容',  //初始内容
+                        autoHeightEnabled: true,  //高度是否自适应
+                        minFrameHeight:500   //编辑器最小的高度
     });
         editor.render('editor');
 
     //提交回复
     $("#btnCmt").click(function () {
-        //
-        UE.getEditor('editor');
-        var content = UE.getEditor('editor').getContent();
-        var pid = $("#pReplyID").val();
+                        //
+                        UE.getEditor('editor');
+                        var content = UE.getEditor('editor').getContent();
+                        var pid = $("#pReplyID").val();
         $.ajax({
-            type: 'post',
+                            type: 'post',
             asyn: true,
             url: '@Url.Action("AddCmt","Store")',
             data: {
-                "id": "@Model.ID",
+                                "id": "@Model.ID",
                 "cmt": content,
                 "reply": pid
             },
             dataType: 'json',
             success: function (data) {
-                if (data == 'nologin') {
-                    //
-                    location.href = "@Url.Action("login","Account",
-                                  new { returnUrl=Url.Action("Detail","Store",new { id=Model.ID})})";
-                } else {
+                                if (data == 'nologin') {
+                                    //
+                                    location.href = "@Url.Action("login","Account",
+                                                  new { returnUrl=Url.Action("Detail","Store",new { id=Model.ID})})";
+                                } else {
                     //html文本注入div
                     $("#divCmt").html(data);
-                    //清空ueditor编辑器
-                    UE.getEditor('editor').setContent('');
-                    location.reload();
-                    alert('发表成功!');
-                }
-            }
-        });
-    });
+                                    //清空ueditor编辑器
+                                    UE.getEditor('editor').setContent('');
+                                    location.reload();
+                                    alert('发表成功!');
+                                }
+                            }
+                        });
+                    });
 
     $("#addcart").click(function () {
 
