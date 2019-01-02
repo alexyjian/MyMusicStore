@@ -90,7 +90,7 @@
                 if (data == "nologin") {
                     location.href = "@Url.Action("Login", "Account",new {returnUrl = Url.Action("Detai", "Store", new {id = Model.ID})})";
                 }
-                else if (data == "OK") {
+                else  {
                     $("#comm").html(data);
                     //清空ueditor编辑器
                     UE.getEditor('container').setContent('');
@@ -101,41 +101,57 @@
         });
     });
 
-    function GetQuote(id) {//回复评论
+    function GetQuote(id, divid) {
+        //保存该评论的id
         $("#pReplyID").val(id);
-        var divName = "Content-" + id;
-        var content = "<p></p>" + $("#" + divName).html();
-
+        //取回复的内容
+        var divName = 'Content-' + id;
+        var content = "<br/><br/><div style='margin:20px; border:1px solid black'>引用：<br/>" + $("#" + divName).html() + "</div>";
+        //把内容赋值给ueditor
         var ue = UE.getEditor('container');
         ue.ready(function () {
             ue.setContent(content);
         });
+        //如果model打开则关了
+        $('#myModal').modal('hide');
     }
 
-    function ShowCmt(id) {//查询子回复
+     function ShowCmt(id) {
+        //ajax 查询出子回复
         $.ajax({
             type: 'post',
             asyn: true,
             url: '@Url.Action("showCmts","Store")',
-            data: { "pid": id },
+            data: {"pid":id},
             dataType: 'json',
             success: function (data) {
-                $("#Div-SonCmts").html(data);
-                $("#Div-SonCmts").modal('toggle');
+                $("#comm").html(data);
             }
         });
     }
+
 
     function Like(id) {//点赞
         $.ajax({
             type: 'post',
             asyn: true,
             url: '../../Store/Like',
-            data: { "pid": id },
+            data: {id: id },
             dataType: 'json',
             success: function (data) {
-                //detail
-                //modal
+                $("#comm").html(data);
+            }
+        });
+    }
+    function Hate(id) {//点赞
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '../../Store/Hate',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#comm").html(data);
             }
         });
     }
