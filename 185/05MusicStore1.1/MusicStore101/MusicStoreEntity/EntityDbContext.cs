@@ -34,11 +34,13 @@ namespace MusicStoreEntity
         public IDbSet<Artist> Artist { get; set; }
         public IDbSet<Album> Album { get; set; }
         public IDbSet<Reply> Replies { get; set; }
-        public IDbSet<LikeReply> LikeReplies { get; set; }
+        public IDbSet<LikeReply> LikeReply { get; set; }
 
         public IDbSet<Cart> Cart { get; set; }
         public IDbSet <Order> Orders { get; set; }
         public IDbSet<OrderDetail> OrderDetails { get; set; }
+
+        
         #endregion
     }
 }

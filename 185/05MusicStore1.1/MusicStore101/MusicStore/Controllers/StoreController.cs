@@ -28,13 +28,47 @@ namespace MusicStore.Controllers
 
             }
 
-        public ActionResult Like(Guid id)
+        public ActionResult LikeReply(string id, bool Title, string Albumid)
         {
-            //1.判断用户是否登录
-            //2.判断用户是否对这条回复点过赞或踩
-            //3.保存 reply实体中like+1或hate+1 LikePeply添加一条记录
-            //生成html 注入视图
-            return Json("OK");
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+
+            var ID = Guid.Parse(id);
+            var AlbumiID = Guid.Parse(Albumid);
+            var reply = _context.Replies .Find(ID);
+            //判断该用户是否对此条评论点赞或者踩
+            if (_context.LikeReply.Where(x => x.Person.ID == person.ID && x.Reply.ID == ID).Count() == 0)
+            {
+                //Title传的是bool
+                if (Title)
+                {
+                    reply.Like += 1;
+                }
+                else
+                {
+                    reply.Hate += 1;
+                }
+                //吧赞还是踩添加到数据库
+                var likeReply = new LikeReply()
+                {
+                    IsNotLike = Title,
+                    Person = person,
+                    Reply = _context.Replies.Find(ID),
+                };
+                _context.LikeReply.Add(likeReply);
+                _context.SaveChanges();
+                //刷新局部页面
+                var Cmt = _context.Replies.Where(x => x.Album.ID == AlbumiID && x.ParentReply == null).OrderByDescending(x => x.CreateDateTime).ToList();
+                var htmlString = "";
+
+                htmlString += _GetHtml(Cmt);
+                return Json(htmlString);
+            }
+            else
+            {
+                return Json("");
+            }
         }
 
         /// <summary>
@@ -60,11 +94,10 @@ namespace MusicStore.Controllers
                htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == item.ID).ToList();
-                htmlString += "<h6><a href='#div-editor' class='reply'onclick=\"javascript:GetQuote('" + item.ID+ "');\">回复</a>(<a href='#' class='reply'onclick=\"javascript:ShowCmt('"+item.ID+"');\">"+ sonCmt.Count + "</a>)条" +
-                              "<a href='#' class='reply' style='margin:0 20px 0 40px' onclick=\"javascript:Like('" + item.ID + "')><i class='glyphicon glyphicon-thumbs-up'></i>(" +
-                              item.Like + ")</a>"
-                              + "<a href='#' class='reply' style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "')><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
-              
+                htmlString += "<h6><a href='#div-editor' class='reply'onclick=\"javascript:GetQuote('" + item.ID+ "');\">回复</a>(<a href='#' data-toggle='modal' data-target='#myModal' onclick=\"ShowCmt('" + item.ID+"')\">"+ sonCmt.Count + "</a>)条" +
+                             "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
+                              item.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+
                 htmlString += "</li>";
             }
             htmlString += "</ul>";
@@ -112,18 +145,41 @@ namespace MusicStore.Controllers
         public ActionResult showCmts(string pid)
         {
 
+            var id = Guid.Parse(pid);
             var htmlString = "";
-            var cmts = _context.Replies.Where(x => x.ParentReply.ID == Guid.Parse(pid)).ToList();
-            var pcmt = _context.Replies.Find(Guid.Parse(pid));
-            htmlString += "<div class=\"modal-header\">";
-            htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\"> ×</button>";
-            htmlString += "<h4 class=\"modal-title\" id=\"myModalLabe\">";
-            htmlString += "<em>楼主</em>" + pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
-            htmlString += " </h4> </div>";
+            htmlString += "<div class='modal-header'>";
+            htmlString += "<h4 class='modal-title' id='myModalLabel'>";
+            //查询出原回复
+            var fatherCmt = _context.Replies .Find(id);
+            //原回复
+            htmlString += "<div class='media-left'>";
+            htmlString += "<img class='media-object' src='" + fatherCmt.Person.Avarda +
+                          "' alt='头像' style='width:40px;border-radius:50%;'>";
+            htmlString += "</div>";
+            htmlString += "<h5 class='media-heading'>" + fatherCmt.Person.Name + "  发表于" +
+                              fatherCmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+            htmlString += fatherCmt.Content;
 
-            htmlString += "<div class=\"modal-body\">";
+            htmlString += " </h4>";
+            htmlString += "</div>";
+            htmlString += "<div class='modal-body'>";
             //子回复
-            htmlString += "</div><div class=\"modal-footer\"></div>";
+            //查询出子回复
+            var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == id).ToList();
+            foreach (var item in sonCmt)
+            {
+                htmlString += "<div class='media-left'>";
+                htmlString += "<img class='media-object' src='" + item.Person.Avarda +
+                              "' alt='头像' style='width:40px;border-radius:50%;'>";
+                htmlString += "</div>";
+                htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
+                                  item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                htmlString += item.Content;
+
+            }
+            htmlString += "</div>";
+            htmlString += "<div class='modal-footer'>";
+            htmlString += "</div>";
             return Json(htmlString);
 
 
