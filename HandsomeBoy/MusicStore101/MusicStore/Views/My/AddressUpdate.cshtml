@@ -1,0 +1,43 @@
+﻿@model MusicStoreEntity.My
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+}
+
+<h2>修改地址</h2>
+
+
+@using (Html.BeginForm("AddressUpdate", "My", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    <fieldset>
+        <legend>
+            用户信息
+        </legend>
+        <div class="editor-label">
+            @Html.LabelFor(x => x.AddressPerson) :@Html.TextBoxFor(x => x.AddressPerson, new { placeholder = "请输入收件人姓名" })
+            @Html.ValidationMessageFor(x => x.AddressPerson)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Area) :@Html.TextBoxFor(x => x.Area, new { placeholder = "请输入所在地区" })
+            @Html.ValidationMessageFor(x => x.Area)
+        </div>
+
+
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.MobiNumber) :@Html.TextBoxFor(x => x.MobiNumber, new { placeholder = "请输入手机号" })
+            @Html.ValidationMessageFor(x => x.MobiNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Email) :@Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮政编号" })
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+
+        <div class="My_save">
+            <input type="submit" value="保存" class="btn btn-success" />
+        </div>
+        </fieldset>
+   }

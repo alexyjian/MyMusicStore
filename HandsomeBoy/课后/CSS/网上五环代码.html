@@ -1,0 +1,104 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="UTF-8" /> 
+        <title>css3 border-radius实现的奥运五环</title>  
+        <style type="text/css" media="screen"> 
+        body {
+            margin:20px;
+            background-color:#efefef;
+        }
+        ul.flag {
+            list-style-type:none;
+            position: relative;
+            margin: 20px auto;
+        } 
+      
+        .flag li, .flag li:before, .flag li:after {
+            -webkit-border-radius: 6em;
+            -moz-border-radius: 6em;
+            border-radius: 6em;
+            position: absolute;
+        }
+        
+        .flag li {
+            width: 12em;
+            height: 12em;
+            left: 0;
+            top: 0;
+            font-size: 1em;
+        }  
+      
+        .flag li:after {
+            display: block;
+            content: "";
+            top: -0.1em;
+            left: -0.1em;
+            right: -0.1em;
+            bottom: -0.1em;
+            border: solid 1.4em black;
+        }
+        
+        .flag .blue   { z-index: 10; left: 0; top: 0; }
+        .flag .yellow { z-index: 20; left: 6.8em;  top: 5.7em; }
+        .flag .black  { z-index: 21; left: 13.6em; top: 0; }
+        .flag .green  { z-index: 20; left: 20.4em; top: 5.7em; }
+        .flag .red    { z-index: 10; left: 27.2em; top: 0px; }   
+        
+        .flag .blue:after   { border-color: blue; }   
+        .flag .yellow:after { border-color: yellow; } 
+        .flag .black:after  { border-color: black; }
+        .flag .green:after  { border-color: green; } 
+        .flag .red:after    { border-color: red; }
+        /* 蓝色压住黄色 */  
+        .flag .blue.alt { z-index: 24; }
+        .flag .blue.alt, 
+        .flag .blue.alt:before, 
+        .flag .blue.alt:after {
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+        }
+        /* 黄色压住黑色 */
+        .flag .yellow.alt { z-index: 23; }
+        .flag .yellow.alt, 
+        .flag .yellow.alt:before, 
+        .flag .yellow.alt:after {
+            border-right-color: transparent;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+        }    
+        /* 绿色压住黑色  */
+        .flag .green.alt { z-index: 23; }
+        .flag .green.alt,
+        .flag .green.alt:before,
+        .flag .green.alt:after {
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+        /* 红色压住绿色  */
+        .flag .red.alt { z-index: 23; }
+        .flag .red.alt, 
+        .flag .red.alt:before,
+        .flag .red.alt:after {
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }       
+        </style>   
+    </head> 
+    <body> 
+        <ul class="flag"> 
+            <li class="blue"></li> 
+            <li class="blue alt"></li> 
+            <li class="yellow"></li> 
+            <li class="yellow alt"></li> 
+            <li class="black"></li> 
+            <li class="green"></li> 
+            <li class="green alt"></li> 
+            <li class="red"></li> 
+            <li class="red alt"></li> 
+        </ul>  
+    </body> 
+</html>

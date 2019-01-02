@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MusicStoreEntity.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+  
+}
+
+<h2>Index</h2>
+
+<fieldset>
+    <legend>我的订单</legend>
+    <table class="Order_box">
+        <tbody class="th_order">
+            <tr>
+                <th>订单摘要</th>
+                <th>明细</th>
+                <th>总价</th>
+                <th>状态</th>
+            </tr>
+        </tbody>
+        @foreach (var item in Model)
+        {
+            <tbody class="td_order">
+                <tr>
+                    <td>
+                        <p>编号：@item.TradeNo</p>
+                        <p>收件人：@item.Mys.AddressPerson</p>
+                        <p>收件地址：@item.Mys.Area</p>
+                        <p>手机：@item.Mys.MobiNumber</p>
+                    </td>
+                    <td>
+                        @foreach (var Detail in item.OrderDetails)
+                        {
+                           @Html.ActionLink(Detail.Album.Title +"×"+ Detail.Count+"，","Detail","Store",new { id = Detail.Album.ID },null)
+                        }
+                    </td>
+                    <td>@item.TotalPrice</td>
+                    
+                      @if (item.PaySuccess)
+                      {
+                        <td>
+                            已付款
+                        </td>
+                      }
+                          else
+                          {
+                               <td>
+                          <span>未付款</span> 
+                          
+                          <span class="ui-button">
+                                       @Html.ActionLink("立即支付", "AliPay", "Pay", new { id = item.ID },null)
+                          </span>
+                            </td>
+                          }
+
+                </tr>
+          </tbody>
+        }
+        
+</table>
+</fieldset>
+

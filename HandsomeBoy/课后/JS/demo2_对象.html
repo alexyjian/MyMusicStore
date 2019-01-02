@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // var mrDeng = {
+    //     name:"MrDeng",
+    //     age :40,
+    //     sex : "男",
+    //     health :100,
+    //     smoke : function(){
+    //         console.log('I am smoking ! cool!!!');
+    //         mrDeng.health --;
+    //         delete this.health; //删除对象
+    //     },
+    //     deink : function (){
+    //         console.log(' I am drink');
+    //         mrDeng.health ++;
+    //     }
+
+    // }
+
+    var o = (function () {
+        var person = {
+            name: 'Vincent',
+            age: 24,
+        };
+        return {
+            run: function (k) {
+                return person[k];
+            },
+        }
+    }());
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        // 递归
+        // 找规律
+        // 找出口
+
+       function mul(n)
+       {
+           if(n == 1)
+           return  1;
+           return n * mul(n-1);
+       }
+
+      alert(mul(5));
+
+       // mul(5) ==> 5 * mul(4); 
+       // mul(4) ==> 5 * mul(3); 
+       // mul(3) ==> 5 * mul(2); 
+       // mul(2) ==> 5 * mul(1); 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

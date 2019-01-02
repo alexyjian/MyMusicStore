@@ -1,5 +1,0 @@
-E:\yjian\JXCManageSystem\DataAccessLayer\bin\Debug\DataAccessLayer.dll
-E:\yjian\JXCManageSystem\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
-E:\yjian\JXCManageSystem\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
-E:\yjian\JXCManageSystem\DataAccessLayer\obj\Debug\DataAccessLayer.dll
-E:\yjian\JXCManageSystem\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

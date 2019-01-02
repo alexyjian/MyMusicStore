@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: 100px auto;
+              width: 300px;
+              height: 300px;
+              position: relative;
+              border: 3px dotted red;
+              transform-style: preserve-3d;
+              -webkit-transform-style: preserve-3d;
+              animation: move 5s linear infinite;
+             -webkit-animation: move 5s linear infinite;
+            border-radius: 50%;
+        }
+       div>div{
+           width: 300px;
+           height: 300px;
+           line-height: 300px;
+           position: absolute;
+           top: 0;
+           left: 0;
+           font-size: 3em;
+           text-align: center;
+           opacity: 0.6; 
+           border-radius: 50px;
+       }
+        
+      
+       .box>div:nth-child(1)
+       {
+            background:pink;
+            transform:rotateY(-90deg) translateZ(150px);
+        
+       }
+       .box>div:nth-child(2)
+       {
+            background:green;
+         transform:rotateY(90deg) translateZ(150px);
+        
+       }
+       .box>div:nth-child(3)
+       {
+            background:mediumpurple;
+         transform:rotateY(180deg) translateZ(150px);
+       }
+       .box>div:nth-child(4)
+       {
+           background:yellow;
+        transform:rotateY(360deg) translateZ(150px);
+       }
+       .box>div:nth-child(5)
+       {
+         
+         background:turquoise;
+         transform:rotateX(90deg) translateZ(150px);
+       }
+       .box>div:nth-child(6)
+       {  
+           background:wheat;
+         transform:rotateX(-90deg) translateZ(150px);
+       }
+       @keyframes move
+       {
+           0%{
+               transform: rotateX(0deg) rotateY(0deg);
+           }
+           
+          100%{
+               transform: rotateX(360deg) rotateY(360deg)
+           }
+       }
+       @-webkit-keyframes move
+       {
+           0%{
+               transform: rotateX(0deg) rotateY(0deg);
+           }
+           
+          100%{
+               transform: rotateX(360deg) rotateY(360deg);
+           }
+       }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="No1">鸡</div>
+        <div class="No2">羊</div>
+        <div class="No3">牛</div>
+        <div class="No4">猪</div>
+        <div class="No5">狗</div>
+        <div class="No6">猫</div>
+    </div>
+</body>
+</html>

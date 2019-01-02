@@ -1,0 +1,277 @@
+*{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #424242;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ /* 最上边 */
+.cover{
+  background-color: #F5F5F5;
+    height: 30px;
+
+}
+.coverA{
+    margin-left: 100px;
+    width: 500px;
+}
+.coverA li,.coverB li{
+    float: left;
+    text-indent: 2em;
+    line-height: 30px;
+}
+.coverA li a,.coverB li a{
+   font-size: 13px;
+}
+.coverB 
+{
+   margin-left: 700px;
+    width: 100%;
+}
+
+/* 淘宝网 */
+
+.cup_left{
+    width: 180px;
+    height: 59px;
+    background-image: url(imges/TB1_uT8a5ERMeJjSspiXXbZLFXa-143-59.png);
+    background-size: 100% 100%;
+    margin: 10px 80px 30px 220px;
+    text-indent: -9999em;
+    overflow: hidden;
+    float: left;
+}
+
+/* 中间的上边文字 */
+.cup_zhongA ul
+{
+   overflow: hidden;
+  width: 200px;
+
+}
+.cup_zhongA ul li{
+    float: left;
+   margin-left: 10px;
+   padding: 5px;
+    color: #f42;
+   font-size: 13px;
+   font-family: "微软雅黑";
+}
+
+.cup_zhongA ul li:hover
+{
+    background-color: transparent;
+    background: #ffe6d9;
+    opacity: 0.9;
+}
+/* 中间搜索框 */
+.cup_zhong{
+   margin-top: 30px;
+}
+.cuo_input_text{
+    padding-left: 10px;
+    width: 600px;
+    height: 40px;
+    border: 2px solid #f42;
+    border-radius: 40px;
+    color: #999;
+    position: relative;
+}
+
+.cuo_input_button
+{
+    padding: 10px;
+    width: 60px;
+    height: 40px;
+    position: absolute;
+   margin-left: -60px;
+   margin-top: 2px;
+   border-radius: 0 20px 20px 0;
+   background-image: linear-gradient(45deg, #FF8E00 , #FF5500);
+   box-sizing: border-box;
+}
+.cup_zhongC ul li{
+    float: left;
+    margin-left:5px;
+}
+.cup_zhongC ul li a 
+{
+    font-size: 12px;
+}
+.cup_zhongC ul li a:hover
+{
+    color: #f42;
+}
+.cup_zhong::after
+{
+    content: "";
+    display: block;
+    clear: both;
+}
+.nav{
+    height: 35px;
+    background-image: linear-gradient(45deg, #FF8E00 , #FF5500);
+ 
+}
+.nav ul
+{
+  width:900px;
+  margin: 0 auto;
+}
+.nav ul li{
+      display: inline-block;
+        text-indent: 1em;
+       line-height: 30px;
+}
+.nav ul li a,.nav h2{
+    font-weight: bold;
+    color: #fff;
+     font-size: 14px;
+}
+.nav h2 {
+    float: left;
+    width: 190px;
+    text-align: center;
+    font-size: 16px;
+    background: #ff5000;
+    display: inline-block;
+    width:200px;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 180px;
+}
+.contet_left
+{
+float: left;
+
+}
+
+.contet_left ul{
+    margin-left: 180px;
+    width: 190px;
+    height:490px;
+    border: 1px solid #FF5000;
+    text-align: center;
+}
+.contet_left ul li
+{
+    height: 30px;
+    line-height: 30px;
+ 
+}
+.contet_left ul li a
+{
+    color: #666;
+    font-size: 14px;
+    padding-right: 5px;
+}
+.contet
+{
+    position: relative;
+   
+}
+.slideshow1 .tup1 img
+{
+   position: absolute;
+   top: 10px;
+   left: 385px;
+}
+
+.slideshow1 .tup2 img
+{
+ margin:10px 0 0 550px;
+}
+
+.slideshow1 .slideshow1_a a
+{
+    float: left;
+    width: 30px;
+    height: 30px;
+    background: #424242;
+    opacity: 0.6;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+   line-height: 30px;
+    display: none; 
+    z-index: 8;
+}
+ .slideshow1:hover a
+{
+    display: block; 
+
+} 
+.slideshow1
+{
+    position: relative;
+}
+.contet_zhong_left{
+    position: absolute;
+   top: 140px;
+ left: 365px;
+}
+.contet_zhong_right{
+    position: absolute;
+    top: 140px;
+    top: 140px;
+    right: 615px;
+}
+
+.slideshow1 ul
+{
+    width: 90px;
+    height: 15px;
+    background-color: #888;
+    opacity: 0.9;
+    border-radius: 10px;
+    position: absolute;
+    left: 600px;
+    top: 260px;
+    padding: 3px 0 0 10px;
+    box-sizing: border-box;
+}
+.slideshow1 ul li{
+      float: left;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #fff;
+     
+      z-index: 9;
+      cursor: pointer;
+      margin-left: 5px;
+      
+}
+.slideshow2 span
+{
+    font-size: 12px;
+    color: #424242;
+   margin-right: 190px;
+}
+.xiahuaxian
+{
+    width: 500px;
+    height: 3px;
+    background: #FF1648;
+
+} 
+.slideshow2
+{
+    width: 700px;
+    height: 230px;
+   
+    margin:10px 0 0 385px;
+}
+.slideshow2 .button 
+{
+    padding: 5px;
+}
+.slideshow2 .tup2 img
+{
+    position: absolute;
+    margin:-16px 0 0 43px;
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>boxshadow</title>
+<style>
+/* box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式]; */
+
+    /*外阴影 X Y 正数的话分别是右下，负数的话反之 */
+.boxshadow-outset{
+    width:100px;
+	height:100px;
+    box-shadow:4px 4px 6px #666; 
+}
+  /*内阴影 X Y 正数的话分别是左上，负数的话反之 */
+.boxshadow-inset{
+    width:100px;
+    height:100px;
+    box-shadow:4px 4px 6px #666 inset; 
+}
+  /* 单纯这个div 第一个是外阴影，第二个也是外阴影， */
+.boxshadow-multi{
+    width:100px;
+    height:100px;
+    box-shadow:4px 2px 6px #f00, -4px -2px 6px #000, 
+    0px 0px 12px 5px #33CC00 inset;
+}
+
+</style>
+</head>
+
+<body>
+<h2>外阴影</h2>
+<div class="boxshadow-outset">
+</div>
+<br />
+<h2>内阴影</h2>
+<div class="boxshadow-inset">
+</div>
+<br />
+<h2>多阴影</h2>
+<div class="boxshadow-multi">
+</div>
+</body>CSS3边框  
+</html>

@@ -48,6 +48,7 @@
         <div id="msg"></div>
     </p>
 </div>
+<<<<<<< HEAD
 
 @*显示评论*@
 <div class="row">
@@ -69,6 +70,29 @@
     </div>
 </div>
 
+=======
+
+@*显示评论*@
+<div class="row">
+    <div class="col-md-10">
+        <div id="divCmt">
+            @Html.Raw(ViewBag.Cmt)
+        </div>
+    </div>
+</div>
+
+@*百度ueditor的呈现*@
+<div class="row">
+    <div class="col-md-10">
+        <div class="form-group" id="div-editor">
+            <textarea id="editor" name="editor"></textarea>
+            <input type="hidden" id="pReplyID"/>
+        </div>
+        <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+    </div>
+</div>
+
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content"  id="Div-SonCmts">
@@ -81,6 +105,42 @@
                 </h4>
             </div>
             <div class="modal-body">
+<<<<<<< HEAD
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+
+=======
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
             </div>
             <div class="modal-footer">
             </div>
@@ -90,22 +150,34 @@
 
 <script>
     //点击评论中的回复按钮触发的方法
+<<<<<<< HEAD
+    function GetQuote(id) {
+=======
     function GetQuote(id, divid) {
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
         //保存该评论的id
         $("#pReplyID").val(id);
         //alert($("#pReplyID").val());
         //取回复的内容
+<<<<<<< HEAD
+        var divName = 'Content-' + id;
+        var content ="<p></p>"+ $("#" + divName).html();
+=======
         var divName = 'Content-' + divid;
         var content = "<br/><br/><div style='margin:20px; border:1px solid black'>引用：<br/>" + $("#" + divName).html() + "</div>";
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
 
         //把内容赋值给ueditor
         var ue = UE.getEditor('editor');
         ue.ready(function() {
             ue.setContent(content);
         });
+<<<<<<< HEAD
+=======
 
         //如果model打开则关了
         $('#myModal').modal('hide');
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
     }
 
     function ShowCmt(id) {
@@ -121,6 +193,9 @@
                 $('#myModal').modal('toggle');
             }
         });
+<<<<<<< HEAD
+
+=======
     }
 
     //点赞
@@ -151,6 +226,7 @@
                 //modal
             }
         });
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
     }
 
     //百度编辑器调用

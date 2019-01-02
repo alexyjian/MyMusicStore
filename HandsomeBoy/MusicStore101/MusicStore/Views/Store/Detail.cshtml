@@ -1,0 +1,517 @@
+﻿
+
+
+@model MusicStoreEntity.Reply
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+    var Cmt = ViewBag.Cmt;
+    var detail = ViewBag.detail;
+    var ParentReply = ViewBag.ParentReply;
+}
+
+<h2>@detail.Title</h2>
+
+<div class="Detail_box">
+    <p>
+        <img alt="@detail.Title" src="@detail.AlbumArtUrl" />
+    <p>
+        <em>
+            分类：
+        </em>
+        @detail.Genre.Name
+    </p>
+    <p>
+        <em>
+            发布时间：
+        </em>
+        @detail.PublsherDate.ToString("yyyy年MM月dd日");
+    </p>
+    <p>
+        <em>
+            歌手：
+        </em>
+        @detail.Artist.Name
+    </p>
+
+
+    <p>
+        <em>
+            价格：
+        </em>
+        @string.Format("{0:F}", detail.Price)
+    </p>
+
+    <div id="msg"></div>
+    <p>
+        <a class="btn" id="addcart">添加到购物车</a>
+        <div id="msg"></div>
+    </p>
+
+
+</div>
+<div id="box_video">
+    <div class="cd">
+        <div class="center">
+            <audio src="../Music/ycyy.mp3" controls autoplay loop></audio>
+        </div>
+        <div class="song">
+            @*<h2>云城烟雨</h2>*@
+
+        </div>
+    </div>
+</div>
+
+<script>
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/Ueditor/',//配置编辑器路径
+        iframeCssUrl: '/Ueditor/themes/iframe.css',//自定义样式路径
+        initialContent: '五星好评',//初始内容
+        autoHeightEnabled: true,//高度是否自适应
+        minFrameHeight: 500//编辑器最小的高度
+    });
+    editor.render('editor');
+</script>
+
+
+@*显示评论*@
+<div class="row rowtop">
+    <div class="col-md-10">
+        <div id="divComment">
+            @Html.Raw(Cmt)
+        </div>
+    </div>
+</div>
+
+
+@*百度ueditor的呈现*@
+<div class="row" id="hiderow">
+    <div class="col-md-10">
+        <div class="form-group">
+            <textarea id="editor" name="editor"></textarea>
+            <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+            <input type="hidden" id="pReplyID" />
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="Div-SonCmts">
+            
+   
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+<script>
+        //点击评论中的回复按钮触发的方法
+    function GetQuote(id) {
+        //保存该评论的id
+        $("#pReplyID").val(id);
+        //alert($("#pReplyID").val());
+        //取回复的内容
+        var divName = 'Content-' + id;
+        var content ="<p></p>"+ $("#" + divName).html();
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function() {
+            ue.setContent(content);
+        });
+    }
+    function ShowCmt(id) {
+        //ajax 查询出子回复
+      $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("WShowCmts", "Store")',
+            data: {"pid":id},
+            dataType: 'json',
+          success: function (data) {
+                $("#Div-SonCmts").html(data);
+                //$('#myModal').modal('toggle');
+            }
+        });
+    }
+
+    function LikeReply(id, Title) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("LikeReply", "Store")',
+            data: {  id,Title,"Albumid":"@detail.ID" },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                    new {returnUrl=Url.Action("Detail","Store",new {id= detail.ID })})";
+                }
+                $("#divComment").html(data);
+                //$('#myModal').modal('toggle');
+            }
+        });
+    }
+
+   //提交回复
+    $("#btnCmt").click(function () {
+        //获得编辑器中的内容
+        UE.getEditor('editor');
+        var content = UE.getEditor('editor').getContent();
+        var pid = $("#pReplyID").val();
+        //console.log(content);
+        //ajax提交
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("AddCmt","Store")',
+            data: {
+                "id":"@detail.ID",
+                "cmt": content,
+                "reply": pid
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                                         new {returnUrl=Url.Action("Detail","Store",new {id= detail.ID })})";
+                } else {
+                    //html文本注入div
+                    $("#divComment").html(data);
+                    //清空ueditor编辑器
+                    UE.getEditor('editor').setContent('');
+                }
+            }
+        });
+    });
+
+</script>
+
+
+<script>
+    //添加购物车
+    $("#addcart").click(function () {
+        $("#msg").html("<img src='../../content/Images/ProgressIcon.gif'>添加到购物车,请稍后...")
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShoppingCart/AddCart',
+            data: {id:"@detail.ID"},
+            dataType:'json',
+            success:function(data){
+                //如果没有登录，跳转到登录页
+                if(data == "nologin")
+                {
+                    location.href = " @Url.Action("Login", "Login", new { returnUrl = Url.Action("Detail", "Store", new { id = detail.ID }) })";
+                }
+                else{
+                    $("#divCmt").html(data);
+                    //2秒后，自动重新刷新此区域
+                    setTimeout(function () {
+                        location.reload();
+                    },
+                        1000);
+                }
+            }
+        }
+
+            )
+    });
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@*我的*@
+@*@model MusicStoreEntity.Reply
+
+    @{
+        ViewBag.Title = "Detail";
+        Layout = "~/Views/Shared/New_ViewStart.cshtml";
+        var Reply = ViewBag.Reply;
+        var detail = ViewBag.detail;
+        var ParentReply = ViewBag.ParentReply;
+    }
+
+    <h2>@detail.Title</h2>
+
+    <div class="Detail_box">
+        <p>
+            <img alt="@detail.Title" src="@detail.AlbumArtUrl" />
+        <p>
+            <em>
+                分类：
+            </em>
+            @detail.Genre.Name
+        </p>
+        <p>
+            <em>
+                发布时间：
+            </em>
+            @detail.PublsherDate.ToString("yyyy年MM月dd日");
+        </p>
+        <p>
+            <em>
+                歌手：
+            </em>
+            @detail.Artist.Name
+        </p>
+
+
+        <p>
+            <em>
+                价格：
+            </em>
+            @string.Format("{0:F}", detail.Price)
+        </p>
+
+        <div id="msg"></div>
+        <p>
+            <a class="btn" id="addcart">添加到购物车</a>
+            <div id="msg"></div>
+        </p>
+
+        <div id="comment_box">
+            <div id="Refresh">
+                <ul class="comment">
+                    @try
+                    {
+                        foreach (var item in Reply)
+                        {
+
+                    <li class="comments_item">
+
+
+                        <div class="comments_item_bd">
+                            <img class="replyImg" src="@item.Person.Avarda" />
+                            <span> @item.Person.Name  @item.Title</span>
+                            <span>  @Html.Raw(item.Content)</span>
+                            <p> @item.CreateDateTime </p>
+                            <a href="javascript:;" id="@item.ID">回复</a>
+                        </div>
+                        <div class="mod_comments_sub">
+                            <ol>
+                                @foreach (var rtem in ParentReply)
+                                {
+
+                                    if (item.ID == rtem.ParentReply.ID)
+                                    {
+
+
+                                        <li class="comments_item_ol_li">
+
+                                            <img class="replyImg" src="@rtem.Person.Avarda" />
+                                            <span> @rtem.Person.Name @rtem.Title @rtem.ParentReply.Person.Name</span>
+                                            <span>  @Html.Raw(rtem.Content)</span>
+                                            <p> @rtem.CreateDateTime </p>
+                                            <a href="javascript:;" id="@item.ID">回复</a>
+
+                                        </li>
+
+
+                                    }
+
+
+                                }
+                            </ol>
+                        </div>
+
+
+
+                        </li>
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                </ul>
+            </div>
+
+            <script src="~/Ueditor/ueditor.parse.js"></script>
+            <!-- 加载编辑器的容器 -->
+            <div class="ReplyInputBox">
+                <div id="ReplyInput" class="ReplyInput">
+                    <script id="container" name="content" type="text/plain">
+                        @*<span class="conbtn">
+
+                    </span>*@
+@*</script>
+                <input type="button" onclick="Contentpoth()" class="content_btn" value="发表" />
+            </div>
+        </div>
+            <!-- 配置文件 -->
+            <script type="text/javascript" src="~/Ueditor/ueditor.config.js"></script>
+            <!-- 编辑器源码文件 -->
+            <script type="text/javascript" src="~/Ueditor/ueditor.all.js"></script>
+            <!-- 实例化编辑器 -->
+            <script type="text/javascript">
+                var ue = UE.getEditor('container', { scaleEnabled: true });
+                sessionStorage.setItem("title", "评论");
+
+                for (var i = 0; i < $(".comments_item_bd").length; i++) {
+                    //点击回复的时候，文本框随之出现
+                    (function (n) {
+                        $(".comments_item_bd a")[n].onclick = function () {
+                            var clonedNode = $(".ReplyInput")[0].cloneNode(true); // 克隆节点
+                            //var input1 = document.createElement('input');
+                            for (var j = 0; j < $(".comments_item_bd").length; j++) {
+                                //$("#container").remove();
+                                $(".ReplyInput").remove();
+                            }
+                            sessionStorage.setItem("Replyid", $(".comments_item_bd a")[n].id);
+                            sessionStorage.setItem("title","回复")
+                            //$(".content_btn").defaultValue=("回复");
+                            $(".comments_item_bd")[n].appendChild(clonedNode);
+
+
+
+
+                            console.log("a");
+                        }
+                    }(i));
+
+                }
+
+
+                for (var i = 0; i < $(".comments_item_ol_li").length; i++) {
+                    //点击回复的时候，文本框随之出现
+                    (function (n) {
+                        $(".comments_item_ol_li a")[n].onclick = function () {
+                            var clonedNode = $(".ReplyInput")[0].cloneNode(true); // 克隆节点
+                            //var input1 = document.createElement('input');
+                            for (var j = 0; j < $(".comments_item_ol_li").length; j++) {
+                                //$("#container").remove();
+                                $(".ReplyInput").remove();
+                            }
+                            sessionStorage.setItem("Replyid", $(".comments_item_ol_li a")[n].id);
+                            sessionStorage.setItem("title", "回复")
+                            //$(".content_btn").defaultValue=("回复");
+                            $(".comments_item_ol_li")[n].appendChild(clonedNode);
+
+
+
+
+                            console.log("a");
+                        }
+                    }(i));
+
+                }
+
+
+            </script>
+
+    </div>
+
+
+    <div id="box_video">
+        <div class="cd">
+            <div class="center">
+                <audio src="../Music/ycyy.mp3" controls autoplay loop></audio>
+            </div>
+            <div class="song">
+                @*<h2>云城烟雨</h2>*@
+
+@*</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="~/Ueditor/ueditor.parse.js"></script>
+
+    <script>*@
+@*//添加购物车
+    $("#addcart").click(function () {
+        $("#msg").html("<img src='../../content/Images/ProgressIcon.gif'>添加到购物车,请稍后...")
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShoppingCart/AddCart',
+            data: {id:"@detail.ID"},
+            dataType:'json',
+            success:function(data){
+                //如果没有登录，跳转到登录页
+                if(data == "nologin")
+                {
+                    location.href = " @Url.Action("Login", "Login", new { returnUrl = Url.Action("Detail", "Store", new { id = detail.ID }) })";
+                }
+                else{
+                    $("#msg").html(data);
+                    //2秒后，自动重新刷新此区域
+                    setTimeout(function () {
+                        location.reload();
+                    },
+                        1000);
+                }
+            }
+        }
+
+            )
+    });*@
+
+
+
+
+   //评论传值
+@*function Contentpoth(){
+
+            var arr = UE.getEditor('container').getPlainTxt().toString();
+            if (!ue.hasContents()) {
+                alert("不能为空");
+                return;
+            }
+            var Replyid = sessionStorage.getItem("Replyid");
+            var Title = sessionStorage.getItem("title");
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../Store/Reply',
+                data: { id: "@detail.ID", content: arr,Title,Replyid},
+                dataType: 'json',
+                success: function (data) {
+                    $("#Refresh").html(data);
+                    $("#container").value = "";
+                }
+            }
+                )
+        }
+
+
+
+        window.onload = function () {
+
+        };
+
+        uParse('.content', {
+            rootPath: '../'
+        })
+    </script>*@*@*@*@

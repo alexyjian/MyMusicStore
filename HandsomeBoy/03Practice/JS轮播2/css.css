@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#box{
+    margin: 20px auto;
+    width:610px;
+    height: 200px;
+    position: relative;
+    border: 1px solid #000;
+    overflow: hidden;
+    white-space:nowrap;
+    
+}
+#pic{
+    position: absolute;
+    width: 610px;
+    height: 200px;
+    
+}
+#pic li{
+    display:inline-block
+}

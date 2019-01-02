@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- onfocus 聚焦的时候触发  onblur不聚焦的时候触发 -->
+    <form>
+        <p>用户名：  <input type="text" name="username" value="请输入用户名"  style="color:#999"
+            onfocus="if(this.value=='请输入用户名'){this.value='';this.style.color='#424242'} "
+             onblur="if(this.value==''){this.value='请输入用户名'; this.style.color='#ccc'}"></p>
+      <p>  密码：<input type="password"></p>
+    
+      <input type="submit">
+    </form>
+
+    
+</body>
+</html>

@@ -1,0 +1,104 @@
+/* 全局 */
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* a标签 */
+
+a:link,a:visited
+ {
+    text-decoration: none;
+    color:#ecdbdb;
+}
+
+/* 导航 */
+.nav{
+    width:1280;
+    background-color: #EEEEEE;
+    margin: 0 auto;
+}
+.nav ul{
+    width:1280;
+    height: 40px; 
+    margin-left: 30px;
+    background: url(images/logo.png)no-repeat left center; 
+    background-size: 25px;
+    box-sizing: border-box;
+}
+
+.nav ul li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+   padding: 0 25px;
+}
+
+.nav ul  a li{
+    font-size: 14px;
+    color: #858585;
+}
+
+
+
+.nav ul a:hover li {
+    background: #ccc;
+}
+/* 播放器设置 */
+.player{
+    text-align: center;
+    width:1280;
+}
+.video_1 {
+    background: black;
+    width:1280;
+    height: 620px;
+}
+
+
+/* 视频列表 */
+.video_list
+{
+    width: 1280px;
+}
+.video_list ul
+{
+    width: 1280px;
+
+   margin-left: 10px;
+}
+.video_list ul li{
+    float: left;
+    width: 282px;
+    height: 150px; 
+    background: url(images/pg2.jpg) no-repeat center center;
+    margin-right: 37px;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+
+
+.pg1 {
+    border: 2px solid #6D6D6E;
+    opacity: 1;
+    width: 212px;
+}
+
+
+/* 视频和视频列表的文字对齐 */
+h2, .a {
+    text-align: left;
+    line-height: 60px;
+}
+
+/*播放器和视频列表 自动居中对齐 */
+.player,.video_list{
+    margin: 0 auto;
+}
+.video_list
+{
+    text-align: center;
+}

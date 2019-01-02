@@ -1,0 +1,113 @@
+﻿@using MusicStoreEntity;
+@using MusicStore.ViewModels
+@model MusicStoreEntity.My
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+    var mya = ViewBag.mya;
+
+
+}
+
+<h2>收货地址</h2>
+
+@using (Html.BeginForm("Address", "My", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    <fieldset>
+        <legend>
+            用户信息
+        </legend>
+        <div class="editor-label">
+            @Html.LabelFor(x => x.AddressPerson) :@Html.TextBoxFor(x => x.AddressPerson, new { placeholder = "请输入收件人姓名" })
+            @Html.ValidationMessageFor(x => x.AddressPerson)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Area) :@Html.TextBoxFor(x => x.Area, new { placeholder = "请输入所在地区" })
+            @Html.ValidationMessageFor(x => x.Area)
+        </div>
+
+      
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.MobiNumber) :@Html.TextBoxFor(x => x.MobiNumber, new { placeholder = "请输入手机号" })
+            @Html.ValidationMessageFor(x => x.MobiNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Email) :@Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮政编号" })
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+
+        <div class="My_save">
+            <input type="submit" value="保存" class="btn btn-success" />
+        </div>
+
+        <h4>已保存的有效地址</h4>
+            <table class="ShoppingCartView">
+                <tbody>
+                    <tr>
+                        <th>收货人</th>
+                        <th>所在地区</th>
+                        <th>邮编</th>
+                        <th>手机</th>
+                        <th>操作</th>
+                    </tr>
+                </tbody>
+                <tbody id="tbCart">
+                    @try
+                    {
+                        foreach (var item in mya)
+                        {
+                            <tr>
+                                <td>收货人：@item.AddressPerson</td>
+                                <td>所在地区：@item.Area</td>
+                                <td>邮编：@item.Email</td>
+                                <td>手机：@item.MobiNumber</td>
+                                <td><span><a href='../my/AddressUpdate/@item.ID'>修改</a>|<a href='javascript:;' class="delete" onclick="Remove('@item.ID')">删除</a></span></td>
+
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    }
+                    catch
+                    {
+
+                    }
+
+</table>
+    </fieldset>
+
+}
+<script>
+    function Remove(ID) {
+        if (confirm("您确定要删除该地址么？")) {      //ajax 提交到服务器端进行购物车项的删除
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../My/AddressRemove',
+                data: { id: ID },
+                dataType: 'json',
+                success: function (data) {
+                    if (data == "无法删除有冲突") {
+                        alert("无法删除。因为该订单地址正在使用");
+                    }
+                    else {
+                        //视图中进行局部页面的刷新 <tbody>
+                        $("#tbCart").html(data);
+                    }
+                   
+                }
+            })
+        }
+
+    }
+</script>

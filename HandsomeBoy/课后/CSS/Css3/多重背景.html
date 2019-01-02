@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+<title>多重背景</title>
+<style type="text/css">
+.demo{
+    width: 300px;
+    height: 140px;
+    border: 1px solid #999;
+    /* 多重背景，也就是CSS2里background的属性外加origin、clip和size组成的新background的多次叠加，
+    缩写时为用逗号隔开的每组值；用分解写法时，如果有多个背景图片，而其他属性只有一个
+    （例如background-repeat只有一个），表明所有背景图片应用该属性值。 */
+
+/* 语法缩写如下：
+
+background ： [background-color] | [background-image] | [background-position][/background-size] | [background-repeat] | [background-attachment] | [background-clip] | [background-origin],...*/
+    background-image: url(http://img.mukewang.com/54cf2365000140e600740095.jpg),
+                      url(http://img.mukewang.com/54cf238a0001728d00740095.jpg),
+                      url(http://img.mukewang.com/54cf23b60001fd9700740096.jpg); 
+    background-position: left top, 100px 0, 200px 0;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    
+    margin:0 0 20px 0;
+}
+.task {
+    width: 300px;
+    height: 140px;
+    border: 1px solid #999;
+    
+    background:url(http://static.mukewang.com/static/img/logo_index.png) no-repeat 0 0/75% 55% , 
+               url(http://static.mukewang.com/static/img/logo_index.png) no-repeat right bottom /50% 40%;
+               
+}
+/* 注意：
+
+用逗号隔开每组 background 的缩写值；
+如果有 size 值，需要紧跟 position 并且用 "/" 隔开；
+如果有多个背景图片，而其他属性只有一个（例如 background-repeat 只有一个），表明所有背景图片应用该属性值。
+background-color 只能设置一个。 */
+
+</style>  
+</head> 
+<body>
+<div class="demo"></div>
+<div class="task"></div>
+</body>
+</html>

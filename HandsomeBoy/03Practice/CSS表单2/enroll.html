@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+           font-family: "微软雅黑";
+        
+       }
+       .bg{
+           background: url(images/sy.png) no-repeat;
+           width:949px;
+           height: 687px;
+           margin: 30px auto;
+       }
+       form
+       {
+        position: absolute;;
+           width: 400px;
+           height: 500px;
+           margin: 150px auto;
+           left: 350px;
+       }
+       p {
+          margin-top: 13px;
+          
+       }
+       h2{
+           margin:15px 0 0 250px;
+        
+       }
+       p span
+       {
+             font-weight: bold;
+             width: 85px;
+             text-align: right;
+             display: inline-block;
+             margin-right: 8px;
+      }
+      .feedback input{
+          height: 60px;
+          width: 250px;
+          text-align: left;
+          border: 1px solid black;
+         
+      }
+      p input
+      {
+          width: 130px;
+          height: 20px;
+          border-radius: 5px;
+      }
+      .pwd input
+      {
+          width:250px;
+      }
+      .xingzhi input{
+          width: 30px;
+      }
+      .butto input{
+          width:150px;
+          height: 30px;
+          border-radius: 5px;
+          font-weight: bold;
+            background: #D9E2EB;
+      }
+      .butto{
+          text-align: right;
+          margin-right: 80px;
+      
+      }
+      textarea{
+        vertical-align: middle;
+          resize: none;
+      }
+    </style>
+</head>
+<body>  
+     <div class="bg">
+       <form action="#">
+           <h2>会员注册</h2>
+         <p class="xingzhi">
+             <span>性质：</span>
+             <input type="radio" name="radio" id="" value="个人">个人
+             <input type="radio" name="radio" id="" value="公司">公司
+            </p>
+         <p>
+             <span>昵称：</span>
+             <input type="text" name="username" id="" placeholder="小明">
+            </p>
+         <p class="pwd">
+             <span>密码：</span>
+             <input type="password" name="userpaw" id="">
+            </p>
+         <p>
+             <span>电子邮件：</span>
+             <input type="email" name="useremail" id="">
+            </p>
+         <p>
+             <span>所在地：</span>
+             <select>
+                    <optgroup label="直辖市"  ></optgroup>
+                    <option value="bj" title="北京市" >北京</option>
+                    <option value="sh">上海</option>
+                    <optgroup label="省市" ></optgroup>
+                    <option value="zj">浙江</option>
+                    <option value="fj">福建</option>
+          </select>
+            </p>
+         <p>
+             <span>身份证号：</span>
+             <input type="text" class="input" name="card" id="" required="required" pattern="^((\d{18})|([0-9x]{18})|([0-9X]{18}))$">
+            </p>
+           
+         <p>
+             <span>手机号码：</span>
+             <input type="text" name="phone" id="" required="required" class="input" pattern="^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\d{8}$">
+            </p>
+          
+         <p class="feedback" >
+             <span>意见反馈：</span>
+                <textarea rows="4" cols="30" name="feedback" id="" placeholder="如果你有什么意见或者问题可以告诉我！"></textarea>
+            </p>
+         
+         <p class="butto">
+             <input type="submit" value="提交">
+             <input type="reset" value="重置">
+            </p>
+        </form>
+     </div>
+</body>
+</html>

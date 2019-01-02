@@ -1,0 +1,254 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+   
+}
+a{
+    text-decoration: none;
+}
+
+
+.slider{
+     width:1000px;
+    
+     position: absolute;
+     top: 70%;
+     left: 50%;
+     z-index: 999;
+    margin-left: -400px;
+    
+}
+.slider li
+{
+    float: left;
+    margin-right: 10px;
+}
+.slider li a{
+    display:inline-block;
+    width: 150px;
+    border:2px solid #fff;
+    line-height: 150px;
+     color: #F9FFFD;
+     margin-top: 80px;
+   font-size: 20px;
+   box-sizing: border-box;
+   position: relative;
+}
+
+
+.slider li:nth-child(1) a
+{
+   
+   background-color: #9D907F;
+   
+} 
+.slider li:nth-child(2) a
+{
+  background-color: #19425E;
+}
+.slider li:nth-child(3) a
+{
+   background-color: #57A180;
+}
+.slider li:nth-child(4) a
+{
+  background-color: #A2C64A;
+}
+.slider li:nth-child(5) a
+{
+   background-color: #FEC104;
+}
+
+.slider a::after
+{
+    content: "";
+    display: block;
+    width: 128px;
+    height: 128px;
+    border: 5px solid wheat;
+     border-radius: 50%;
+     position: absolute;
+     left: 50%;
+     top: -80px;
+     z-index: 9999;
+     margin-left: -70px;
+     opacity: 0.8;
+}
+
+img{
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   z-index: 1;
+}
+
+/* 动画切换一 */
+#bg1:target
+{
+    animation: moveimg1 1s; 
+    z-index: 2;
+    
+}
+
+@keyframes moveimg1
+{
+    0%{
+         transform: translateY(-100%);
+    }
+  100%
+  {
+    transform: translateY(0);
+  }
+}
+@keyframes moveimg1
+{
+    0%{
+        transform: translateY(-100%);
+   }
+ 100%
+ {
+   transform: translateY(0);
+ }
+}
+#bg2:target
+{
+    animation: moveimg2 1s; 
+    z-index: 99;
+    
+}
+
+@keyframes moveimg2
+{
+    0%{
+         transform: translateX(-100%);
+    }
+  100%
+  {
+    transform: translateX(0);
+  }
+}  
+@keyframes moveimg2
+{
+    0%{
+        transform: translateX(-100%);
+   }
+ 100%
+ {
+   transform: translateX(0);
+ }
+}
+
+/* 动画切换3 */
+#bg3:target
+{
+    animation: moveimg3 1s ; 
+    z-index: 99;
+    
+}
+
+@keyframes moveimg3
+{
+    0%{
+         transform:scale(0.5)
+    }
+  100%
+  {
+    transform: scale(1);
+  }
+} 
+@keyframes moveimg3
+{
+    0%{
+        transform:scale(0.5)
+    }
+    100%
+    {
+    transform: scale(1);
+    }
+}
+
+/* 动画切换4 */
+#bg4:target
+{
+    animation: moveimg4 1s 1; 
+    z-index: 99;
+    
+}
+@keyframes moveimg4
+{
+    0%{
+        transform:scale(1.5)
+   }
+ 100%
+ {
+   transform: scale(1);
+ }
+}  
+
+@-webkit-keyframes moveimg4
+{
+    0%{
+        transform:scale(1.5)
+   }
+ 100%
+ {
+   transform: scale(1);
+ }
+}  
+
+
+/* 动画切换4 */
+#bg5:target
+{
+    animation: moveimg5 1s 1; 
+    z-index: 99;
+    
+}
+@-webkit-keyframes moveimg5
+{
+    0%{
+        transform:rotate(0deg) scale(0.1);
+   }
+ 100%
+ {
+   transform: rotate(360deg) scale(1);
+ }
+} 
+@keyframes moveimg5
+{
+    0%{
+         transform:rotate(0deg) scale(0.1);
+    }
+  100%
+  {
+    transform: rotate(360deg) scale(1);
+  }
+}
+  
+.slider li:hover a::after
+{
+    opacity:1;
+}
+
+.slider li:nth-of-type(1) a::after
+{
+    background: url(images/sbg1.jpg) no-repeat center center;
+}
+.slider li:nth-of-type(2) a::after
+{
+    background: url(images/sbg2.jpg) no-repeat center center;
+}
+.slider li:nth-of-type(3) a::after
+{
+    background: url(images/sbg3.jpg) no-repeat center center;
+}
+.slider li:nth-of-type(4) a::after
+{
+    background: url(images/sbg4.jpg) no-repeat center center;
+}
+.slider li:nth-of-type(5) a::after
+{
+    background: url(images/sbg5.jpg) no-repeat center center;
+}
+

@@ -1,0 +1,136 @@
+﻿@using MusicStore.ViewModels;
+@using MusicStoreEntity
+@using MusicStoreEntity.UserAndRole
+@{
+    //判断用户是否登录，如果ApplicationUser user不为空表示用户登录成功
+
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车  收藏车
+    var carts = new List<Cart>();
+
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        //查询购物车  收藏车
+        carts = new EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
+    }
+
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - 音乐商店</title>
+
+    @*绑定样式库*@
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Ueditor/Css")
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JqueryUI")
+   
+    @*绑定脚本库*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/javascript")
+    @Scripts.Render("~/bundles/UEditor")
+</head>
+<body>
+    <div class="container" id="header">
+        <div class="row">
+            <h1>
+                <a href="#"></a>
+            </h1>
+            <div class="col-md-6">
+                <h1 class="logo">
+                    <a href="#">ASP.NET MVC 音乐商店</a>
+                </h1>
+            </div>
+            <div class="col-md-6">
+                @*百度地图定位*@
+                <span id="city" class=""></span>
+                <ul class="nav">
+
+
+                    <li><a href="@Url.Action("index","home")">主页</a></li>
+                    <li><a href="@Url.Action("index","Store")">商店</a></li>
+
+                    @if (user == null)
+                    {
+                        <li><a href="@Url.Action("Login", "Login")">登录</a></li>
+
+                    }
+                    else
+                    {
+
+                        <li class="dropdown">
+
+                            <a data-toggle="dropdown" href="#">
+                                <img width="50" src="@user.Person.Avarda" />  <span class="userAvarda"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a href="../my/index" style="margin:20px 0 0 auto; color:#f42; text-decoration:none; font-size:20px;font-weight:bold;">@user.Person.Name</a>
+                                </li>
+                                <  />
+                                <li><a href="@Url.Action("index","ShoppingCart")">购物车(@carts.Count)</a></li>
+                                <li><a href="@Url.Action("index","Order")">我的订单</a></li>
+                                <li><a href="@Url.Action("ChangePassWord","Login")">修改密码</a></li>
+                                <li><a href="@Url.Action("LoginOut","Login")">注销</a></li>
+                                <li><a href="@Url.Action("Address","My")">我的地址</a></li>
+                            </ul>
+                        </li>
+
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12">
+                @Html.Partial("_GetGenreMonu", new MusicStoreEntity.EntityDbContext().Genres);
+
+            </div>
+            <div class="col-md-9">
+                @*操作区*@
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <footer>
+                    <img class="foorlogo" src="http://crp.lzzy.net/oa/login_images/login_logo.png" /> <span>
+                        2016-2018,
+                        CopyRight<strong class="SClass">软件技术1班</strong>
+                    </span>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+    @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=W8uXfhFkBXmSiuEyPfnYj0lAgdNDRbUm"></script>
+@*<script type="text/javascript">
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(116.331398, 39.897445);
+        map.centerAndZoom(point, 12);
+        function myFun(result) {
+            var cityName = result.name;
+            map.setCenter(cityName);
+            alert("当前定位城市:" + cityName);
+        }
+        var myCity = new BMap.LocalCity();
+        myCity.get(myFun);
+    </script>*@

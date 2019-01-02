@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.wrapper{
+    margin: 0 auto;
+   position: relative;
+    min-width: 1000px;
+    min-height: 1000px;
+}
+a,a:hover{
+     text-decoration: none;
+}
+.col-md-6 h1
+{
+    float: left;
+   font-size: 18px;
+   padding: 48px 0 5px 0 ;
+    background: url(Images/logo.png) no-repeat;
+    font-weight: bold;
+}
+#header{
+    width: 100%;
+    background-color: aqua;
+}
+.row{
+    width: 80%;
+  margin: 0 auto;
+}
+h1 a,h3{
+    color: #5e5b54;
+}
+.nav{
+    width: 280px;
+    height: 45px;
+    float: right;
+}
+.nav li {
+     float: left;
+}
+.nav li a {
+    font-size: 20px;
+    color: #F6855E;
+    font-weight: bold;
+}
+.nav li a:hover
+{
+    color: black;
+}
+
+#header{
+    border-bottom: 1px dashed #5D5A53;
+}
+
+.categories
+{
+    
+    margin-top: 10px;
+    width: 200px;
+    height: 274px;
+    border-right: 1px dashed #5D5A53;
+}
+.categories li{
+   height: 25px;
+   line-height: 25px;
+   
+}
+.categories li:hover{
+    background-color: rgba(10, 10, 10, 0.2);
+    color: #F6855E;
+}
+.categories li a 
+{
+    margin-left: 15px;  
+   color:#9B9993;
+   font-size: 18px;
+   font-weight: bold;
+   font-family: Constantia,Georgia,serif;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+.album-list li{
+    height: 130px;
+    width: 100px;
+    float: left;
+    margin: 20px;
+    text-align: center;
+    
+}
+.album-list img{
+   width: 100px;
+}
+
+
+.album-list span {
+    width: 80px;
+    color: #9B9993;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.foorlogo
+{
+    width: 150px;
+}
+.SClass
+{
+    color: #F6855E;
+    font-size: 18px;
+    font-family: Constantia,Georgia,serif;
+}
+
+footer{
+    border-bottom: 1px dashed #5D5A53;
+    border-top: 1px dashed #5D5A53;
+    line-height: 80px;
+    height: 80px;
+    text-align: center;
+}

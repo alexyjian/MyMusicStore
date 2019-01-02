@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       #username{
+        background: url(images/1.jpg) no-repeat 5px center #fff;
+       }
+       #userpwd{
+        background: url(images/2.jpg) no-repeat 5px center #fff;
+       }
+       #username,#userpwd
+        {
+            width: 150px;
+            height: 20px;
+           
+            border: 1px solid #5f92c5;
+            padding: 2px 2px 2px 22px;
+        }
+
+       form{
+           width: 420px;
+           height: 170px;
+           background: #F5F8FD;
+           border: 3px solid #4FACCB;
+           border-radius: 20px;
+           text-align: center;
+           padding-top: 20px;
+           box-sizing: border-box;
+           margin:50px auto;
+       }
+       .submit{
+          background: #3BB7EA;
+        
+       }
+       .reset
+       {
+        background: #FB8C17;
+         
+       }
+       .submit,.reset{
+        border: 1px solid #6B5D50;
+          width: 70px;
+          height: 25px;
+          border-radius: 5px;
+       }
+       p{
+           margin-top: 15px;
+        
+       }
+       p span
+       {
+           width: 50px;
+           display: inline-block;
+           text-align: right;
+       }
+    </style>
+</head>
+<body>
+    <form action="#"> 
+        
+            <p>
+         <span> 账号：</span><input type="text" name="username" id="username"  placeholder="admin">
+        </p>
+        <p>
+                <span>密码：</span><input type="password" name="userpwd" id="userpwd">
+        </p>
+        <p>
+            <input type="submit" value="登录" class="submit">
+            <input type="reset" value="重置" class="reset">
+        </div>
+    
+    </form>
+    
+</body>
+</html>

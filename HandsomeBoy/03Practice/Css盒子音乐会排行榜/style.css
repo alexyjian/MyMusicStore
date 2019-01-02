@@ -1,0 +1,59 @@
+.bg {
+    height: 520px;
+    width: 520px;
+    background-color: black;
+    position: relative;
+    text-align: center;
+    border: 8px solid #CCCCCC;
+    background-image: repeating-radial-gradient(circle at 50% 50%, #333, #000 1%);
+    border-radius: 50%;
+    margin: 70px auto;
+}
+
+.bg ul li:not(:first-child) {
+    background-color: #504D59;
+    margin-top: 1px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.bg ul li {
+    margin-left: -40px;
+    list-style: none;
+    color: #D3CDC4;
+    font-size: 15px;
+}
+
+.bg ul {
+    width: 290px;
+    height: 410px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 40px auto;
+    border-radius: 20px;
+}
+
+.top {
+    width: 230px;
+    height: 230px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 10px 50px;
+    border-top-left-radius: 20px;
+}
+
+.buttom {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.bg ul li:not(:first-child)::before {
+    content: url(images/yinfu.png);
+    position: absolute;
+    left: 40px;
+}

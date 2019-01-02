@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>   
+      .wrapper{
+
+        /* magin塌陷就是magin-top元素不动。需要 触发bfc
+        position:absolute;
+        display: inline-block;
+        float: left;
+        overflow: hidden;
+        改变
+
+
+        这个BUG无法完美解决，要看当时的需要而用
+        */
+        
+           width: 100px;
+           height: 100px;
+           background: #000;
+           position:absolute;
+        }
+      .contet{
+          margin-left: 50px;
+          margin-top: 50px;
+          width: 50px;
+          height: 50px;
+          background: green;
+      }
+    </style>
+</head>
+<body>
+   <div class="wrapper">
+       <div class="contet"></div>
+   </div>
+</body>
+</html>

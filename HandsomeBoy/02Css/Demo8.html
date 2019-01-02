@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*除了这个，其他都是*/
+        
+        body *:not(h2) {
+            color: hotpink;
+        }
+        /*单个子元素的时候实现*/
+        
+        li:only-child {
+            color: dodgerblue;
+        }
+        /*子元素最后个元素实现*/
+        
+        li:last-child {
+            color: darksalmon;
+        }
+        /*子元素第一个元素实现*/
+        
+        li:first-child {
+            color: darkseagreen;
+        }
+        /*正数第3*/
+        
+        li:nth-child(3) {
+            color: darkred;
+        }
+        /*倒数数第3*/
+        
+        li:nth-last-child(3) {
+            color: darkolivegreen;
+        }
+        /*基数变化*/
+        
+        li:nth-of-type(odd) {
+            color: darkred;
+        }
+        /*偶数变化*/
+        
+        li:nth-of-type(even) {
+            color: darkmagenta;
+        }
+        /*空选择器*/
+        
+         :empty {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>今天好想写代码！！！</h2>
+    <p id="one"> 宁夏固原市泾源县大湾乡杨岭村。来源：新华社“风吹石头跑，遍地不长草。”多年前，交通基础设施的相对落后，让宁夏一度给人们留下了不尽美好的印象。</p>
+
+
+    <p class="two">如今，山河入画、城乡锦绣，宁夏的经济建设和社会事业成就显著：2017年，全区地区生产总值达3453.9亿元，分别是1978年和1958年的266倍和1053倍；</p>
+
+
+    <p class="1a1">a全区所有县市通高速、所有乡镇通油路、所有行政村通公路，宁夏人民期盼多年的“高铁梦”也即将变为现实；2017年，全区城镇化率达58%，城镇人均住房面积达31.4平方米；沙化、荒漠化土地连续20年“双缩减”，森林覆盖率达14%。</p>
+    电影列表
+    <ul>
+        <li>一代宗师</li>
+        <li>叶问</li>
+        <li>一出好戏</li>
+    </ul>
+    卡通电影列表
+    <ul>
+        <li>猫和老鼠</li>
+
+    </ul>
+    情感电影表
+    <ul>
+        <li>爱保卫战</li>
+        <li>狮子赛跑</li>
+        <li>可爱小兔</li>
+    </ul>
+
+    <ul>
+        <li>爱保卫战</li>
+        <li>狮子赛跑</li>
+        <li>可爱小兔</li>
+        <li>一代宗师</li>
+        <li></li>
+        <li>叶问</li>
+        <li>一出好戏</li>
+        <li>猫和老鼠</li>
+    </ul>
+</body>
+
+</html>

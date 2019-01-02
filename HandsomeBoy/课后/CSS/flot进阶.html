@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            /* .box1 {
+                width: 100px;
+                height: 100px;
+                background: green;
+                float: left;
+                opacity: 0.5;
+            }
+
+            .box2 {
+                float: left;
+                width: 100px;
+                height: 100px;
+                background: black;
+            }
+            .box3 {
+            
+            width: 100px;
+            height: 100px;
+            background: #f3f;
+        } */
+
+        .wrapper{
+            border:2px solid black;
+        }
+        .content{
+            color: #fff;
+            float: left;
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+            background: black;
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1.浮动元素产生了浮动流
+
+    所有产生了浮动流的元素，快级元素看不到他们，
+    产生了bfc的元素和文本类属性(inline)的元素以及文本都能看到浮动元素 -->
+
+
+    <!-- <div class="box1">1123123</div>
+    <div class="box2">2123123</div>
+    <div class="box3">2123123</div> -->
+
+
+<!-- 让父级元素包住浮动元素----取消浮动-->
+  <!-- 没有加P元素取消浮动的话，边框会被撑开，因为浮动流快级元素是看不见的 -->
+    <div class="wrapper">
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <p class="clear"></p>
+    </div>
+</body>
+
+</html>

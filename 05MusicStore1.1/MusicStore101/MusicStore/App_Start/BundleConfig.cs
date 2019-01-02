@@ -35,7 +35,12 @@ namespace MusicStore
             //绑定Ueditor的脚本
             bundles.Add(new ScriptBundle("~/bundles/UEditor").Include(
                 "~/ueditor/ueditor.config.js",
+<<<<<<< HEAD
+                "~/ueditor/ueditor.all.js",
+                "~/ueditor/ueditor.all.min.js"));
+=======
                 "~/ueditor/ueditor.all.js"));
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
 
             //绑定JqueryUI的样式库
             bundles.Add(new StyleBundle("~/Content/JqueryUI").Include(

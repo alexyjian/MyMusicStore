@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+         
+        }
+       
+        .div1{
+            background-color: brown;
+            width: 50%;
+            height: 50%;
+            float: left;
+            padding: 20px;
+            
+            /* border-box 就是说不管内边距怎么撑，他都会按照你写的宽高来绘制。 把已设定的宽高减去内边距等于现在的*/
+            box-sizing: border-box;
+        }
+        .div2{
+            background-color: aquamarine;
+            width: 50%;
+            float: right;
+            height: 50%;
+        }
+       
+    </style>
+</head>
+<body>
+        <!-- border-box -->
+    <div class="box">
+          <div class="div1">wo shi shabi</div>
+          <div class="div2">wo shi daye</div>
+    </div>
+
+    <div class="box2">
+            <div class="div3">wo shi shabi</div>
+            <div class="div4">wo shi daye</div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* div{
+            height: 30px;
+            background: blue;
+            line-height: 30px;
+        }
+        /* 属性设置元素的垂直对齐方式
+          vertical-align */
+
+        /* div::before{
+             content: "";
+             display: inline-block;
+             width: 15px;
+             height: 15px;
+             background: url(1.jpg) no-repeat;
+             background-size: 100%;
+             margin-left: 5px;
+             vertical-align: -4px;
+             padding: 0 10px;
+        } */ 
+        /* 另一种写法 */
+
+/* 用padding吧上线扯开，这样也能达到居中效果
+    */
+         div{
+           height: 12px;
+            background: blue;
+            font-size: 12px;
+            line-height: 12px;
+           width: 200px;
+            padding:10px;
+        }
+        /* 属性设置元素的垂直对齐方式
+          vertical-align */
+     
+          /* 使用伪元素让图片显示在在左右两边 */
+        div::before{
+             content: "";
+             display: inline-block;
+             width: 15px;
+             height: 15px;
+             background: url(1.jpg) no-repeat;
+             background-size: 100%;
+             margin-left: 5px;
+             vertical-align: -4px;
+             padding: 0 10px;
+        }
+        div::after{
+            content: "";
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background: url(1.jpg) no-repeat;
+            background-size: 100% 100%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div>
+      新闻网
+    </div>
+</body>
+</html>

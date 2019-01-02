@@ -1,0 +1,71 @@
+﻿@model MusicStore.ViewModels.RegisterViewModel
+
+@{
+    ViewBag.Title = "注册";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+}
+
+<h2>新用户注册</h2>
+@using (Html.BeginForm("Register", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+
+
+        <fieldset>
+            <legend>
+               用户信息
+            </legend>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.UserName, new { placeholder = "请输入用户名" })
+                @Html.ValidationMessageFor(x => x.UserName)
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.FullName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.FullName, new { placeholder = "请输入姓名" })
+                @Html.ValidationMessageFor(x => x.FullName)
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Email)
+            </div>
+
+  
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入用户邮箱" })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(x => x.PassWord)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = "请输入用户登录密码" })
+                @Html.ValidationMessageFor(x => x.PassWord)
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.ConfirmPassWord)
+            </div>
+
+            <div class="editor-field">
+                @Html.PasswordFor(x => x.ConfirmPassWord, new { placeholder = "请输入用户登录密码" })
+                @Html.ValidationMessageFor(x => x.ConfirmPassWord)
+            </div>
+            <p class="text-danger">
+             
+            </p>
+            <p>
+                <input type="submit" value="注册" class="btn btn-success" />
+            </p>
+
+        </fieldset>
+
+        }

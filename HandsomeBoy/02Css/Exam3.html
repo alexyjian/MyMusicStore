@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      div{
+          width: 100px;
+          height: 50px;
+          background-color: yellow;
+          border: 1px solid black;
+      }
+      #div2{
+          transform: translate(100px,30px);
+         
+          -webkit-transform: translate(100px,30px);/*chrome safari*/
+          -ms-transform: translate(100px,30px); /*IE9*/
+          -moz-transform: translate(100px,30px); /*Forefpx*/
+          -o-transform: translate(100px,30px); /*Opera*/
+      }
+      #div3{
+          margin-top: 100px;
+          transform: scale(2,3);
+          -webkit-transform:  scale(2,3);/*chrome safari*/
+          -ms-transform:  scale(2,3); /*IE9*/
+          -moz-transform: scale(2,3);/*Forefpx*/
+          -o-transform:  scale(2,3);/*Opera*/
+      }
+      #div4{
+          transform: skew(30deg,-10deg);
+          -webkit-transform:  skew(30deg,-10deg);/*chrome safari*/
+          -ms-transform: skew(30deg,-10deg); /*IE9*/
+          -moz-transform:skew(30deg,-10deg);/*Forefpx*/
+          -o-transform:  skew(30deg,-10deg);/*Opera*/
+      }
+      #div5{
+          transform: rotate(30deg);
+          -webkit-transform: rotate(30deg);/*chrome safari*/
+          -ms-transform: rotate(30deg);/*IE9*/
+          -moz-transform:rotate(30deg);/*Forefpx*/
+          -o-transform:  rotate(30deg);/*Opera*/
+      }
+    </style>
+</head>
+<body>
+    <div>我是原来的设置</div>
+    <div id="div2">我是移动的位置</div>
+    <div id="div3">我是放大后的DIV</div>
+    <div id="div4">我是倾斜的DIV</div>
+    <div id ="div5">我在旋转丫丫</div>
+</body>
+</html>

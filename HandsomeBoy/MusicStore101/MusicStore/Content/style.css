@@ -1,0 +1,357 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+a,a:hover{
+     text-decoration: none;
+}
+body {
+   min-width:1000px;
+    min-height:1000px;
+}
+.col-md-6 h1
+{
+    float: left;
+   font-size: 18px;
+   padding: 48px 0 5px 0 ;
+    background: url(Images/logo.png) no-repeat;
+    font-weight: bold;
+}
+h1 a,h3{
+    color: #5e5b54;
+}
+.nav{
+    
+    width: 280px;
+    height: 45px;
+    float: right;
+}
+.nav > li {
+     float: left;
+}
+.nav > li > a {
+    font-size: 20px;
+    color: #F6855E;
+    font-weight: bold;
+}
+fieldset {
+       border: #9b9993 1px solid;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    clear: left;
+}
+.nav li a:hover
+{
+    color: black;
+}
+
+#header{
+    border-bottom: 1px dashed #5D5A53;
+}
+
+.categories
+{
+    
+    margin-top: 10px;
+    width: 200px;
+    height: 274px;
+    border-right: 1px dashed #5D5A53;
+}
+.categories li{
+   height: 25px;
+   line-height: 25px;
+}
+.categories li:hover{
+    background-color: rgba(10, 10, 10, 0.2);
+   
+}
+.categories li a 
+{
+    margin-left: 15px;  
+   color:#9B9993;
+   font-size: 18px;
+   font-weight: bold;
+   font-family: Constantia,Georgia,serif;
+}
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+.album-list li{
+    height: 130px;
+    width: 100px;
+    float: left;
+    margin: 20px;
+    text-align: center;
+    
+}
+
+
+.album-list span {
+    width: 80px;
+    color: #9B9993;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.foorlogo
+{
+    width: 150px;
+}
+.SClass
+{
+    color: #F6855E;
+    font-size: 18px;
+    font-family: Constantia,Georgia,serif;
+}
+.categories li a:hover{
+   color: #F6855E;
+}
+footer{
+    border-bottom: 1px dashed #5D5A53;
+    border-top: 1px dashed #5D5A53;
+    line-height: 80px;
+    height: 80px;
+    text-align: center;
+}
+
+
+ .album-list li a  img,album-list img{
+    width: 130px;
+ height: 110px;
+}
+.btn {
+    display:block;
+    width :108px;
+     height: 40px;
+     background-color:#5E5B54;
+     color:#fff;
+     line-height:30px;
+}
+
+.ShoppingCartView {
+    height: auto;
+    border: 1px solid #000;
+   
+ 
+}
+
+    .ShoppingCartView tr {
+        border-bottom:1px solid #000;
+    }
+
+.ShoppingCartView th {
+    background-color: gray;
+   
+}
+    .ShoppingCartView th:first-of-type, .ShoppingCartView th:last-of-type {
+        width: 230px;
+    }
+    .ShoppingCartView th:nth-child(2), .ShoppingCartView th:nth-child(3) {
+        width:100px;
+    }
+td a {
+    color:#f42;
+}
+th, td {
+    padding: 6px;
+}
+.count li {
+   float:left;
+}
+.count span {
+    text-align:center;
+    display:block;
+    width :25px;
+    height:25px;
+    background-color:#F0EFF0;
+    line-height :25px;
+    font-size:21px;
+    font-weight:bold;
+}
+.input-num {
+    text-align:center;
+width:30px;
+}
+.ui-button{
+    width:100px;
+    height:30px;
+    background-color:cadetblue;
+    text-align:center;
+    line-height:30px;
+    border-radius:5px;
+}
+    .ui-button {
+        display:block;
+    }
+    .ui-button a {
+     color :#fff;
+    }
+.th_order {
+   background-color:gray;
+
+}
+.Order_box {
+
+ border:1px solid #000;
+}
+.td_order {
+   border-bottom:1px solid #000;
+}
+.Buy_my {
+    width: 630px;
+    height: 200px;
+}
+
+    .Buy_my li {
+        margin: 0 auto;
+        height: 100px;
+       float:left;
+        text-align: center;
+        font-size: 16px;
+        width: 300px;
+        border: 15px solid #ccc;
+        border-image: url(http://img.mukewang.com/52e22a1c0001406e03040221.jpg) 15 repeat;
+        opacity: 0.5;
+    }
+.btn {
+   
+    width: 100px;
+    height: 30px;
+    background-color: cadetblue;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 5px;
+}
+.btn-danger {
+    margin-left: 400px;
+}
+.btn-primary {
+  margin-top:-30px;
+  margin-right:20px;
+}
+
+#userAvarda {
+    height: 25px;
+    border-radius: 50%;
+}
+
+#imgAvarda {
+    height: 100px;
+    border-radius: 50%;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*≤•∑≈“Ù¿÷*/
+
+#box_video
+{
+    width:500px;
+    height:500px;
+    position: absolute;
+    top:-40px;
+    right:120px;
+    overflow: hidden;
+}
+#box_video video
+{
+    min-width: 100%;
+    min-width: 100%;
+    max-width: 400%;
+    max-height: 400%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.cd{
+    width: 422px;
+    height: 422px;
+    position: absolute;
+    top:10%;
+    left: 10%;
+    border-radius: 50%;
+    border: 10px solid #FFC0CB;
+    background: url(../Music/cd_img.jpg) no-repeat;
+}
+.center
+{
+    width: 100px;
+    height: 100px;
+   
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+   border: 5px solid #FFC0CB;
+    background: url(../Music/yinfu.gif) no-repeat;
+   background-position: center center;
+   background-color: black;
+}
+#box_video audio
+{
+    position: absolute;
+    left: -100px;
+    bottom:-100px;
+}
+
+@font-face
+{
+    font-family: MD;
+    src: url(../Music/MD.ttf)
+}
+.song{
+    position: absolute;
+    
+    margin-left: 500px;
+
+}
+/*h2{
+    font-family: MD;
+    font-size: 110px;
+    color: #913805;
+    margin-left: 50px;
+}*/
+.Detail_box {
+       height:auto;
+}
+#comment_box {
+    margin-top:200px;
+}
+.replyImg {
+  width:50px;
+}
+.conbtn {
+    display:block;
+ width:auto;
+ height:auto;
+}
+.ReplyInput {
+ width:500px;
+}
+.rowtop {
+  margin-top:150px;
+}
+ol.media-list{
+margin-left:50px;
+}

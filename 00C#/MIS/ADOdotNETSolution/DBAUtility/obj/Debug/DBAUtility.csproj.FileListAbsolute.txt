@@ -1,9 +1,0 @@
-D:\Yjian\ADOdotNETSolution\DBAUtility\bin\Debug\DBAUtility.dll
-D:\Yjian\ADOdotNETSolution\DBAUtility\bin\Debug\DBAUtility.pdb
-D:\Yjian\ADOdotNETSolution\DBAUtility\obj\Debug\DBAUtility.dll
-D:\Yjian\ADOdotNETSolution\DBAUtility\obj\Debug\DBAUtility.pdb
-E:\yjian\ADOdotNETSolution\DBAUtility\bin\Debug\DBAUtility.dll
-E:\yjian\ADOdotNETSolution\DBAUtility\bin\Debug\DBAUtility.pdb
-E:\yjian\ADOdotNETSolution\DBAUtility\obj\Debug\DBAUtility.csprojResolveAssemblyReference.cache
-E:\yjian\ADOdotNETSolution\DBAUtility\obj\Debug\DBAUtility.dll
-E:\yjian\ADOdotNETSolution\DBAUtility\obj\Debug\DBAUtility.pdb

@@ -27,6 +27,8 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
+<<<<<<< HEAD
+=======
         /// 点赞
         /// </summary>
         /// <param name="id">回复id</param>
@@ -48,6 +50,7 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
         /// 生成回复的显示html文本
         /// </summary>
         /// <param name="cmt"></param>
@@ -64,15 +67,26 @@ namespace MusicStore.Controllers
                               "' alt='头像' style='width:40px;border-radius:50%;'>";
                 htmlString += "</div>";
                 htmlString += "<div class='media-body' id='Content-"+item.ID+"'>";
+<<<<<<< HEAD
+                htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
+=======
                 htmlString += "<h5 class='media-heading'><em>" + item.Person.Name + "</em>&nbsp;&nbsp;发表于" +
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
                               item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += item.Content;
                 htmlString += "</div>";
                 //查询当前回复的下一级回复
                 var sonCmt = _context.Replies.Where(x => x.ParentReply.ID == item.ID).ToList();
+<<<<<<< HEAD
+                htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID+
+                              "');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID +"');\">" + sonCmt.Count + "</a>)条" +
+                              "<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
+                              item.Like + ")</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+=======
                 htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ID+"','"+item.ID+"');\">回复</a>(<a href='#' class='reply'  onclick=\"javascript:ShowCmt('" + item.ID +"');\">" + sonCmt.Count + "</a>)条" +
                               "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>"+
                               "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
                
                 htmlString += "</li>";
             }
@@ -131,11 +145,17 @@ namespace MusicStore.Controllers
             htmlString += "<div class=\"modal-header\">";
             htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>";
             htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
+<<<<<<< HEAD
+            htmlString += "<em>楼主</em>"+pcmt.Person.Name + "  发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒")+":<br/>"+ pcmt.Content;
+=======
             htmlString += "<em>楼主&nbsp;&nbsp;</em>" + pcmt.Person.Name + "&nbsp;&nbsp;发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒")+":<br/>"+ pcmt.Content;
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
             htmlString += " </h4> </div>";
 
             htmlString += "<div class=\"modal-body\">";
             //子回复
+<<<<<<< HEAD
+=======
             htmlString += "<ul class='media-list' style='margin-left:20px;'>";
             foreach (var item in cmts)
             {
@@ -155,6 +175,7 @@ namespace MusicStore.Controllers
                 htmlString += "</li>";
             }
             htmlString += "</ul>";
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
             htmlString += "</div><div class=\"modal-footer\"></div>";
             return Json(htmlString);
         }

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>CSS制作立体导航</title>
+	<link rel="stylesheet" href="http://www.w3cplus.com/demo/css3/base.css">
+	<style>
+		body{
+		  background: #ebebeb;
+		}
+		.nav{
+		  width:560px;
+		  height: 50px;
+		  font:bold 0/50px Arial;
+		  text-align:center;
+		  margin:40px auto 0;
+	      background: #f65f57;
+		  border-radius:10px;
+		
+         box-shadow:0px 5px 0px #B0483F;
+          
+		}
+		.nav a{
+		  display: inline-block;
+		  -webkit-transition: all 0.2s ease-in;
+		  -moz-transition: all 0.2s ease-in;
+		  -o-transition: all 0.2s ease-in;
+		  -ms-transition: all 0.2s ease-in;
+		  transition: all 0.2s ease-in;
+		}
+		.nav a:hover{
+		  -webkit-transform:rotate(10deg);
+		  -moz-transform:rotate(10deg);
+		  -o-transform:rotate(10deg);
+		  -ms-transform:rotate(10deg);
+		  transform:rotate(10deg);
+		}
+
+		.nav li{
+		  position:relative;
+		  display:inline-block;
+		  padding:0 16px;
+		  font-size: 13px;
+		  text-shadow:1px 2px 4px rgba(0,0,0,.5);
+		  list-style: none outside none;
+		}
+		/*使用伪元素制作导航列表项分隔线*/
+		.nav li:after{
+            content:"";
+             position:absolute;
+             right:0px;
+             top:20px;
+             height:15px;
+             width:1px;
+             background:linear-gradient(to bottom,#f82f87,#B0363F,#f82f87);
+		}
+        /*删除第一项和最后一项导航分隔线*/
+        /* last-child 父元素的最后一个子元素 */
+		.nav li:last-child:after{
+    	    width:0px;
+            height:0px;
+            background: 
+		}
+        
+		.nav a,
+		.nav a:hover{
+		  color:#fff;
+		  text-decoration: none;
+		}
+
+	</style>
+</head>
+<body>
+	<ul class="nav">
+    	<li><a href="">Home</a></li>
+    	<li><a href="">About Me</a></li>
+    	<li><a href="">Portfolio</a></li>
+    	<li><a href="">Blog</a></li>
+    	<li><a href="">Resources</a></li>
+    	<li><a href="">Contact Me</a></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       .dad{
+           border: 1px solid #000;
+           margin: 0 auto;
+           box-sizing: content-box;
+           width: 1000px;
+           height: 300px;
+           perspective: 800px;/*3D视角的距离*/
+           transition: all 5s;
+       }
+       .dad:hover
+       {
+           perspective: 5px;
+           transform: rotateX(150deg);
+       }
+       .chiid1,
+       .chiid2,
+       .chiid3
+       {
+           box-sizing: content-box;
+           width: 300px;
+           height: 300px;
+           float: left;
+           margin-left: 10px;
+           background-color: green;
+           transform:rotateY(90deg) translateX(150px);
+       }
+    </style>
+</head>
+<body>
+    <div class="dad">
+        <div class="chiid1"></div>
+        <div class="chiid2"></div>
+        <div class="chiid3"></div>
+    </div>
+</body>
+</html>

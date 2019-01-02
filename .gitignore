@@ -154,7 +154,11 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+<<<<<<< HEAD
+/HandsomeBoy/MusicStore101/.vs/MusicStore101/v15/Server/sqlite3
+=======
 /04ASP.NET MVC/ASPNETProductDemo
 /05MusicStore1.1/MusicStore101/packages
 /05MusicStore1.1/MusicStore101/.vs/MusicStore101/v15/Server/sqlite3
 /05MusicStore1.1/MusicStore101/MusicStore
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de

@@ -1,0 +1,141 @@
+﻿@using MusicStoreEntity;
+@using MusicStore.ViewModels;
+@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/New_ViewStart.cshtml";
+    EntityDbContext _context = new MusicStoreEntity.EntityDbContext();
+    var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+    var mya = new List<My>();
+    try
+    {
+         mya = _context.Mys.Where(x => x.Person.ID == person.ID).ToList();
+    }
+    catch
+    {
+        mya = null;
+    }
+
+
+
+    }
+
+
+<h2>购买专辑</h2>
+@using (Html.BeginForm())
+{
+<fieldset>
+    <legend>
+        收件信息
+    </legend>
+    @*@Html.EditorForModel()*@
+
+
+    <p>如果没有收货地址 请点 @Html.ActionLink("这里", "Address", "my")</p>
+
+
+    <ul class="Buy_my">
+        @foreach (var item in mya)
+        {
+
+            <li class="ccz" id="@item.ID">
+                <p>收件人：@item.AddressPerson <span>手机号：@item.MobiNumber</span></p>
+                <p><span>地址：</span>@item.Area</p>
+            </li>
+        }
+    </ul>
+ 
+     
+    <table class="ShoppingCartView">
+        <tbody>
+            <tr>
+                <th>专辑名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+        </tbody>
+        <tbody id="tbCart">
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)</td>
+                    <td>@item.Album.Price.ToString("C")</td>
+                    <td>
+                        <ul class="count">
+                            <li><span id="num-jian" class="num-jian" onclick="jiajianCount('@item.CartID','jian')">-</span></li>
+                            <li><input type="text" class="input-num" id="input-num" value=@item.Count /></li>
+                            <li><span id="num-jia" class="num-jia" onclick="jiajianCount('@item.CartID','jia')">+</span></li>
+                        </ul>
+                    </td>
+                    <td><a href="javascript:;" id="@item.ID" onclick="RemoveDetail('@item.ID','@item.Album.Title')"><i class="glyphicon glyphicon-remove"></i>我不想要他了</a></td>
+                </tr>
+
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td>总价</td>
+                <td>@Model.TotalPrice.ToString("C")</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        <input type="submit" value="注册" class="btn btn-success" />
+        <i class="glyphicon glyphicon-shopping-cart">确认购买</i>
+    </p>
+
+</fieldset>
+    
+}
+
+<script>
+    function RemoveDetail(id,Title) {
+        if (confirm("您确定要删除《" + Title + "》专辑么？"))
+        {
+            //移除订单明细
+            $.ajax({
+                type: "post",
+                async: true,
+                url: "../../Order/RemoveDetail",
+                data: { id: id },
+                dataType: "json",
+                success: function (data) {
+                    $("#tbCart").html(data);
+                }
+            });
+       }
+      
+    }
+    window.onload = function () {
+        var buy = $(".Buy_my")[0].childNodes;
+
+        for (var i = 0; i < buy.length; i++) {
+            (function (j) {
+
+                buy[j].onclick = function () {
+                    for (var m = 0; m < buy.length; m++) {
+                        if (m % 2 === 1) {
+                            buy[m].setAttribute('style', 'opacity: 0.5;');
+                        }
+
+                    }
+                    buy[j].setAttribute('style', 'opacity: 1;');
+                    $.ajax({
+                        type: "post",
+                        async: true,
+                        url: "../../Order/Buy",
+                        data: { id: buy[j].id },
+                    });
+
+                }
+            }(i))
+        }
+    }
+
+
+   
+       
+      
+
+</script>

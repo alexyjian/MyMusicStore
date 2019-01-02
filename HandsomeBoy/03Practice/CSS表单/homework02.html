@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       body,form,input,p {
+         
+           font-size: 12px;
+           font-family: "微软雅黑";
+           margin: 0;
+           padding: 0;
+           
+       }
+       .contain{
+        background: url(images/form_bg.jpg) no-repeat;
+          width: 1431px;
+          height: 717px;
+       }
+       p{
+           margin-top: 20px;
+       }
+     
+     p span
+     {
+         width: 75px;
+         display: inline-block;
+         text-align: right;
+         white-space:nowrap;
+     }
+       form{
+        width: 400px;
+           height: 500px;
+        position: absolute;
+            left: 50%;
+          
+         margin: 150px auto;
+          text-align: center;
+       }
+       .input
+       {
+           width: 200px;
+           height: 20px;
+           border: 1px solid #d4cdba;
+       }
+       .submit,.reset
+       {
+           width: 70px;
+           height: 30px;
+           border: 1px solid #B0BF65;
+           background: #93B519;
+           border-radius: 5px;
+           color: #fff;
+           font-weight: bold;
+       }
+.lake input{
+    width: 100px;
+    height: 25px;
+}
+.lake
+{
+    margin-right: 100px;
+}
+    </style>
+</head>
+<body>
+    <div class="contain">
+    <form action="#"  method="POST">
+            <h2>学生信息登记表</h2>
+        <p>
+                 <span>用户登录名：</span>
+                <input type="text" name="userid" value="1935197914@qq.com" class="input" readonly="true">
+                <span>（不能修改，只能查看）</span>
+           </p>
+             <p>
+                 <span>真实姓名：</span>
+                <input type="text" name="username" placeholder="例如:王明" class="input" pattern="^[\u4e00-\u9fa5]{0,}$">
+                <span>（必须填写）</span>
+             </p>
+             <p>
+                 <span>真实年龄：</span>
+                 <input type="text" name="userage" id="" required="required" class="input" pattern="^[0-120]*$">
+                 <span>（必须填写）</span>
+             </p>
+             <p>
+                 <span>出生日期:</span>
+                <input type="date" name="birthday" id="" required="required" class="input">
+                <span>（必须填写）</span>
+             </p>
+             <p>
+                 <span>电子邮箱：</span>
+                 <input type="email" name="email" id="" required="required" class="input">
+                 <span>（必须填写）</span>
+             </p>
+             <p>
+                 <span>身份证号：</span>
+                 <input type="text" class="input" name="card" id="" required="required" pattern="^((\d{18})|([0-9x]{18})|([0-9X]{18}))$">
+                 <span>（必须填写，能够以数字、字母X结尾的短身份证号）</span>
+             </p>
+             <p>
+                 <span>手机号码：</span>
+                <input type="text" name="phone" id="" required="required" class="input" pattern="^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\d{8}$">
+                <span>（必须填写）</span>
+             </p>
+             <p>
+                 <span>个人主页：</span>
+                 <input type="url" list="url_list" name="url" id="" placeholder="http://www.itcast.cn" class="input"/>
+                 <datalist id="url_list">
+                     <option label="黄学明的主页" value="http://www.baidu.com"></option>
+                        <option label="肖文斌的主页" value="http://www.taobao.com"></option>
+                            <option label="你好的主页" value="http://www.sougou.com"></option>
+                     </datalist>
+                 <span>（请选择网址）</span>
+             </p>
+             <p class="lake">
+                 <span>幸运颜色：</span>
+                 <input type="color" name="color" id="" value="#FED000">
+                 <span>（请选择你喜欢的颜色）</span>
+             </p>
+             
+             <p>
+                 <span><input type="submit" value="提交" class="submit"></span>
+                 <input type="reset" value="重置" class="reset">
+             </p>
+             
+        </form>
+    </div>
+</body>
+</html>

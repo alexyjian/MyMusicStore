@@ -1,0 +1,55 @@
+    /* 选择器，伪类 */
+    
+    body {
+        text-align: center;
+    }
+    
+    hr {
+        width: 800px;
+        background-color: #5e2d00;
+        height: 3px;
+    }
+    
+    div {
+        display: none;
+    }
+    
+     :target {
+        display: block;
+    }
+    
+    .one a {
+        color: #5E2D00;
+        text-decoration: none;
+        font-size: 20px;
+        display: inline-block;
+        text-indent: 1em;
+    }
+    
+    div p {
+        font-family: "黑体";
+        font-size: 21px;
+        line-height: 20px;
+        color: #333333;
+    }
+    /*偶数变化*/
+    
+    div p:nth-of-type(odd) {
+        color: #5E2D00;
+    }
+    
+    .one a:hover {
+        color: #FF0033;
+    }
+    
+    .a strong {
+        color: #FF0033;
+    }
+    
+    .b strong {
+        color: #5E2D00;
+    }
+    
+    div p:before {
+        content: url(Images/11.png);
+    }

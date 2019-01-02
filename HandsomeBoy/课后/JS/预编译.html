@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 预编译
+
+        // 函数声明整体提升
+        // 变量 声明提生
+
+
+        // 1. 如果变量没有声明就赋值，那么就默认是全局变量（归window所有）
+        // 2 .一切全局变量归window所有
+        //  window 就是全局的域
+
+        // function fn(a) {
+        //     console.log(a);
+        //     var a = 123;
+        //     console.log(a);
+
+        //     function a() {}
+        //     console.log(a);
+        //     var b = function () {}
+        //     console.log(b);
+
+        //     function d() {}
+        // }
+        // fn(1);
+
+        function test() {
+            console.log(b);
+            if (a) {
+                var b = 100;
+            }
+            console.log(b);
+            c = 234;
+            console.log(c);
+        }
+        var a;
+        test();
+        a = 10;
+        console.log(c);
+    </script>
+</body>
+
+</html>
