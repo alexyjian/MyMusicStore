@@ -27,25 +27,6 @@ namespace MusicStore.Controllers
         }
 
         /// <summary>
-        /// 点赞
-        /// </summary>
-        /// <param name="id">回复id</param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult Like(Guid id)
-        {
-            //1.判断用户是否登录
-
-            //2.判断用户是否对这条回复点过赞或踩
-
-            //3.保存  reply实体中like+1或hate+1  LikeReply添加一条记录
-
-            //生成html 注入视图
-
-            return Json("OK");
-        }
-
-        /// <summary>
         /// 生成回复的显示html文本
         /// </summary>
         /// <param name="cmt"></param>
