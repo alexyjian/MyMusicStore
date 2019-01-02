@@ -9947,7 +9947,11 @@ var LocalStorage = UE.LocalStorage = (function () {
 UE.plugins['defaultfilter'] = function () {
     var me = this;
     me.setOpt({
+<<<<<<< HEAD
         'allowDivTransToP':true,
+=======
+        'allowDivTransToP':false,
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
         'disabledTableInTable':true
     });
     //默认的过滤处理
@@ -9975,7 +9979,11 @@ UE.plugins['defaultfilter'] = function () {
                     return;
                 }
                 switch (node.tagName) {
+<<<<<<< HEAD
                     case 'style':
+=======
+                    //case 'style':
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
                     case 'script':
                         node.setAttr({
                             cdata_tag: node.tagName,

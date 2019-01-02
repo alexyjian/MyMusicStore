@@ -1,9 +1,14 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "",
     "\\HandsomeBoy",
     "\\HandsomeBoy\\MusicStore101"
   ],
   "SelectedNode": "\\HandsomeBoy\\MusicStore101\\MusicStore101.sln",
+=======
+    ""
+  ],
+>>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
   "PreviewInSolutionExplorer": false
 }
