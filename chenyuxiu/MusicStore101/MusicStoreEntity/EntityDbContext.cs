@@ -12,6 +12,8 @@ namespace MusicStoreEntity
     //使用带用户认证权限机制的实体框架
     public class EntityDbContext : IdentityDbContext<ApplicationUser>
     {
+        public readonly object Replies;
+
         //调用基类的构造函数
         public EntityDbContext() : base("EntityDbContext") { }
         public static EntityDbContext Create()
@@ -42,6 +44,7 @@ namespace MusicStoreEntity
         public IDbSet <Order>Orders { get; set; }
         public IDbSet<OrderDetail> OrderDetails { get; set; }
         public IDbSet<Reply> Reply { get; set; }
+
 
         #endregion
     }

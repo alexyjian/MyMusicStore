@@ -19,7 +19,7 @@ namespace MusicStoreEntity
 
         public bool IsNotLike { get; set; } //LIKE保存true hatw促false
 
-        public virtual Person erson { get; set; }
+        public virtual Person person { get; set; }
 
         public DateTime CreateDateTime { get; set; }
 

@@ -4,6 +4,7 @@ using MusicStoreEntity.UserAndRole;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,46 +12,138 @@ namespace MusicStore.Controllers
 {
     public class StoreController : Controller
     {
-            private static readonly EntityDbContext _context = new EntityDbContext();
-            /// <summary>
-            /// 显示专辑的明细
-            /// </summary>
-            /// <param name="id"></param>
-            /// <returns></returns>
-            public ActionResult Detail(Guid id)
+        private static readonly EntityDbContext _context = new EntityDbContext();
+        /// <summary>
+        /// 显示专辑的明细
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Detail(Guid id)
+        {
+            var detail = _context.Albums.Find(id);
+            var cmt = _context.Reply.Where(x => x.Album.ID == id && x.ParentReoly == null)
+                .OrderByDescending(x => x.CreateDateTime).ToList();
+            ViewBag.Cmt = _GetHtml(cmt);
+            return View(detail);
+        }
+
+        /// <summary>
+        /// 点赞
+        /// </summary>
+        /// <param name="id">回复</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Like(Guid id)
+        {
+
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            //判断用户是否对这条回复点赞或踩
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            var reply = _context.Reply.Find(id);
+            var IsLike = _context.LikeReply.SingleOrDefault(x => x.person.ID == reply.ID && person.ID == person.ID);
+
+            //保存reply实体中like+1或hate+1  LikeReply添加一条记录
+
+            if (IsLike == null || IsLike.person.ID != person.ID)
             {
-                var detail = _context.Albums.Find(id);
-                var cmt = _context.Reply.Where(x => x.Album.ID == id && x.ParentReoly == null)
-                    .OrderByDescending(x => x.CreateDateTime).ToList();
-                ViewBag.Cmt = _GetHtml(cmt);
-                return View(detail);
+                reply.Like += 1;
+                var ok = new LikeReply()
+                {
+                    Reply = reply,
+                    IsNotLike = true,
+                    person = person
+
+                };
+                _context.LikeReply.Add(ok);
+                _context.SaveChanges();
+
+                //显示评论、排序
+                var albumSay = _context.Reply.Where(x => x.Album.ID == reply.Album.ID && x.ParentReoly == null).OrderByDescending(x => x.CreateDateTime).ToList();
+
+                //刷新当前评论
+                var htmlString = _GetHtml(albumSay);
+
+                return Json(htmlString);
             }
 
-            /// <summary>
-            /// 点赞
-            /// </summary>
-            /// <param name="id">回复id</param>
-            /// <returns></returns>
-            [HttpPost]
-            public ActionResult Like(Guid id)
+            else
             {
-                //1.判断用户是否登录
+                reply.Like -= 1;
+                _context.LikeReply.Remove(IsLike);
+                _context.SaveChanges();
 
-                //2.判断用户是否对这条回复点过赞或踩
+                //显示评论、排序
+                var albumSay = _context.Reply.Where(x => x.Album.ID == reply.Album.ID && x.ParentReoly == null).OrderByDescending(x => x.CreateDateTime).ToList();
 
-                //3.保存  reply实体中like+1或hate+1  LikeReply添加一条记录
-
-                //生成html 注入视图
-
-                return Json("OK");
+                //刷新当前评论
+                var htmlString = _GetHtml(albumSay);
+                return Json(htmlString);
             }
 
-            /// <summary>
-            /// 生成回复的显示html文本
-            /// </summary>
-            /// <param name="cmt"></param>
-            /// <returns></returns>
-            private string _GetHtml(List<Reply> cmt)
+        }
+
+
+        /// 踩
+        /// </summary>
+        /// <param name="id">回复</param>
+        /// <returns></returns>
+        public ActionResult Hate(Guid id)
+        {
+
+            //判断用户是否登录
+            if (Session["LoginUserSessionModel"] == null)
+                return Json("nologin");
+
+            //判断用户是否对这条回复点赞或踩
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as LoginUserSessionModel).Person.ID);
+            var reply = _context.Reply.Find(id);
+            var IsLike = _context.LikeReply.SingleOrDefault(x => x.person.ID == reply.ID && person.ID == person.ID);
+            //保存reply实体中like+1或hate+1  LikeReply添加一条记录
+            if (IsLike == null || IsLike.person.ID != person.ID)
+            {
+                reply.Hate += 1;
+                var ok = new LikeReply()
+                {
+                    Reply = reply,
+                    IsNotLike = true,
+                    person = person
+                };
+                _context.LikeReply.Add(ok);
+                _context.SaveChanges();
+
+                var albumSay = _context.Reply.Where(x => x.Album.ID == reply.Album.ID && x.ParentReoly == null).OrderByDescending(x => x.CreateDateTime).ToList();
+
+                var htmlString = _GetHtml(albumSay);
+
+                return Json(htmlString);
+            }
+            //踩失败或是已经踩过了
+            else
+            {
+                reply.Hate -= 1;
+                _context.SaveChanges();
+                //显示评论
+                var albumSay = _context.Reply.Where(x => x.Album.ID == reply.Album.ID && x.ParentReoly == null).OrderByDescending(x => x.CreateDateTime).ToList();
+
+                //刷新
+                var htmlString = _GetHtml(albumSay);
+
+                return Json(htmlString);
+            }
+
+        }
+
+
+
+        /// <summary>
+        /// 生成回复的显示html文本
+        /// </summary>
+        /// <param name="cmt"></param>
+        /// <returns></returns>
+        private string _GetHtml(List<Reply> cmt)
             {
                 var htmlString = "";
                 htmlString += "<ul class='media-list'>";
@@ -73,7 +166,7 @@ namespace MusicStore.Controllers
                                   "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
                                   "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
 
-                    htmlString += "</li>";
+                htmlString += "</li>";
                 }
                 htmlString += "</ul>";
                 return htmlString;
