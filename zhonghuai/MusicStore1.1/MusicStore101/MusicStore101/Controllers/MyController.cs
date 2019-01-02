@@ -48,7 +48,7 @@ namespace MusicStore101.Controllers
             {   
                 //保存头像
                 if (model.Avarda != null)
-                {
+                {         
                     var uploadDir = "~/Upload/Avarda/";
                     //取后缀名
                     var fileLastName = model.Avarda.FileName.Substring(model.Avarda.FileName.LastIndexOf(".") + 1,
