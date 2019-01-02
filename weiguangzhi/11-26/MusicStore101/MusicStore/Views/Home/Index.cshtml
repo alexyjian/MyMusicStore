@@ -83,7 +83,7 @@
                                                 @item.Title
                                             </p>
                                             <p>
-                                                <a class="btn btn-primary" href="@Url.Action("detail","store",new {id=item.ID})">查看详细</a> <a class="btn" href="#"><i class="glyphicon glyphicon-play"></i></a>
+                                                <a class="btn btn-primary" href="@Url.Action("detail","store",new {id=item.ID})">查看详细</a>
                                             </p>
                                         </div>
                                     </div>
@@ -202,7 +202,7 @@
             cursor: pointer;
             position: relative;
             top: 345px;
-            left: 600px;
+            left: 450px;
             margin-left: 10px;
             border: 5px;
             border-radius: 50%;
@@ -223,6 +223,8 @@
         }
 
             .tab-body-ul li {
+                list-style-type:none; 
+
             }
 
         .tab-body .current {
