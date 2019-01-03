@@ -32,7 +32,9 @@ namespace MusicStore.Controllers
                     LastName = model.FullName.Substring(1, model.FullName.Length - 1),
                     Name = model.FullName,
                     Email = model.Email,
-                    Birthday = DateTime.Now
+                    Birthday = DateTime.Now,
+                    Avarda = "/Content/Images/Body.jpg",
+                    Description = "用户注册"
                 };
 
                 var registerUser = new ApplicationUser()
