@@ -202,8 +202,8 @@
         $.ajax({
             type: 'post',
             asyn: true,
-            url: '@Url.Action("Hate","Store")',
-            data: { "pid": id },
+            url: '@Url.Action("Hate", "Store")',
+            data: { id },
             dataType: 'json',
             success: function (data) {
                 //datail
