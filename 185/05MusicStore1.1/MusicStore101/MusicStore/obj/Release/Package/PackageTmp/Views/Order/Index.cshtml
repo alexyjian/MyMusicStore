@@ -1,0 +1,46 @@
+﻿             @model IEnumerable<MusicStoreEntity.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<fieldset>
+    <legend>我的订单</legend>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+       <thead>
+           <tr style="background-color:gray; color:white;">
+               <th>订单摘要</th><th>明细</th><th>总价</th><th>状态</th>
+           </tr>
+       </thead>
+            <tbody id="tbCart">
+                @foreach(var l in Model)
+                {
+                    <tr>
+                        <td>
+                            订单号： @l.TradeNo<br/>
+                            收件人: @l.AddressPerson<br />
+                            收货地址:@l.Address<br/>
+                            收件人电话:@l.MobilNumber<br/>
+                        </td>
+                        <td>
+                            @foreach (var i in l.OrderDetails)
+                            {
+                                <p>专辑名：@i.Album.Title &nbsp; 共 @i.Count 张</p>
+                            }
+                        </td>
+                        <td style="line-height:100px;color:red;">@l.TotalPrice.ToString("C")</td>
+                        <td style="line-height:100px">
+                            @l.EnumOrderStatus
+                            @*@l.EnumOrderlStatus*@
+                            <button type="submit" class="btn btn-success" style="width:100px">
+                                <i class="glyphicon  glyphicon-shopping-cart ">立即支付</i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+         </table>
+    </div>
+</fieldset>
+

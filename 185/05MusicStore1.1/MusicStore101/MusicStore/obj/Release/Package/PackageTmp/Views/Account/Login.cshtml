@@ -1,0 +1,34 @@
+﻿@model MusicStore.ViewModels.LoginViewModel 
+@{
+    ViewBag.Title = "登陆";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>用户登陆</h2>
+<p>如果没有用户名请点下我 @Html.ActionLink("这里", "Register")</p>
+@using (Html.BeginForm("login","Account",new { returnUrl=ViewBag.ReturnUrl},FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div>
+    <fieldset>
+        <legend>账户信息</legend>
+        <div class="editor-label">
+            @Html.LabelFor(x => x.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.UserName, new { placeholder = "请输入用户登陆名" })
+            @Html.ValidationMessageFor(x => x.UserName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(x=>x.PassWord)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(x=>x.PassWord,new { placeholder="请输入用户登陆密码"})
+            @Html.ValidationMessageFor(x=>x.PassWord)
+        </div>
+        <p>
+            <input type="submit" value="登陆" class="btn btn-success" style="width:70px"/>
+        </p>
+    </fieldset>
+</div>
+}

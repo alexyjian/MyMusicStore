@@ -1,0 +1,122 @@
+﻿@using MusicStore.ViewModels
+@using MusicStoreEntity
+@using MusicStoreEntity.UserAndRole
+
+@{ 
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+
+    //查询购物车 收藏车
+    var Carts = new List<Cart>();
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        //查询购物车 收藏车
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title -音乐商店</title>
+    @*绑定样式库*@
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Ueditor/Css")
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JqueryUI")
+  
+
+    @*绑定脚本库*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/Ueditor")
+</head >
+<body >
+        <div id = "header" >
+            @*Logo和菜单*@
+            <h1><a href="/">陈氏集团音乐商店</a></h1>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="@Url.Action("index","home")">主页</a></li>
+                <li><a href="@Url.Action("Index","Store")">专辑</a></li>
+                @if (user == null)
+                {
+                <li><a href="@Url.Action("login", "account")">登陆</a></li>
+                }
+                else
+                {
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <img src="@user.Person.Avarda" alt="头像" id="userAvarda"/>
+
+                            @*百度地图定位*@
+                            <span id="city" class="glyphicon glyphicon-map-marker">定位中</span><span id="district"></span>
+                            @user.Person.Name
+                            <span class="caret"></span>
+                            
+                            
+                            </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index","ShoppingCart")">购物车</a></li>
+                            <li><a href="@Url.Action("Index","Order")">我的订单</a></li>
+                            <li><a href="@Url.Action("Index", "My")">设置收件人</a></li>
+                            <li><a href="@Url.Action("ChangePassWord","Account")">设置密码</a></li>
+                            <li><a href="@Url.Action("loginout","account")">注销</a></li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    @*左侧导航*@
+                    @Html.Partial("_GetGenreMenu",new MusicStoreEntity.EntityDbContext().Genres.ToList())
+                </div>
+                <div class="col-md-9">
+                    @*操作区*@
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"></div>
+                @*尾栏*@
+                @Html.Partial("_FooterLayout")
+            </div>
+        </div>
+     @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false);
+</body>
+</html>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=BDj8mSf3QBddIMFgNBTqg8VKCKLUSGNG"></script>
+<script>
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getSelection() == BMAP_STATUS_SUCCESS) {
+            lng = r.point.lng;
+            lat = r.point.lat;
+            console.log(r);
+            //显示百度地图查询结果 地区
+            if (r.address.district != "") {
+                document.getElementById("district").innerHTML = r.address.district;
+            }
+            //显示百度地图查询结果 城市
+            if (r.address.city != "") {
+                document.getElementById("city").innerHTML = r.address.city
+            }
+        } else {
+            document.getElementById("city").innerHTML = "无法定位";
+        }
+    },
+     {enableHighAccuracy: true });
+       
+</script>

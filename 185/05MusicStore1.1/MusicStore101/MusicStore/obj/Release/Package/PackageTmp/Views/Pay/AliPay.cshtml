@@ -1,0 +1,97 @@
+﻿@model MusicStoreEntity.Order
+
+@{
+    ViewBag.Title = "立即支付";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+    Dictionary<string, string> values = new Dictionary<string, string>();
+
+    values.Add("partner", "2088021994748781"); //支付宝唯一编号，必填
+    values.Add("seller_id", "2088021994748781"); //支付宝商户号，必填
+    values.Add("_input_charset", "utf-8");
+    values.Add("service", "create_direct_pay_by_user"); //服务器地址
+    values.Add("payment_type", "1"); //支付方式，1为直接到账
+    values.Add("notify_url", Request.Url.Scheme + "://" + Request.Url.Authority + Url.Action("NotifyAsync", "Pay", new { returnUrl = ViewBag.ReturnUrl })); //返回URL。交易付款完成以后，当前页面自动跳转返回商户的网址。该商户的网址即是该参数指定的URL。
+    values.Add("return_url", Request.Url.Scheme + "://" + Request.Url.Authority + Url.Action("ReturnAsync", "Pay", new { returnUrl = ViewBag.ReturnUrl }));
+    values.Add("seller_email", "cheshibang2015@qq.com"); //支付宝商户邮件
+    values.Add("out_trade_no", Model.ID.ToString()); //外部交易号
+    values.Add("subject", "音乐专辑" + Model.TotalPrice.ToString("C")); //商品名称
+    values.Add("total_fee", Model.TotalPrice.ToString("0.00"));
+    values.Add("body", "向Alex支付￥" + Model.TotalPrice.ToString("C")); //商品描述
+    values.Add("show_url", ViewBag.ReturnUrl);
+    string sign = AlipayHelper.SignParameter("q12vmic8884u68lgvgczye89ga4bizli", values);
+}
+
+<h2>立即支付</h2>
+<div id="album-details">
+    <p>
+        <em>订单:</em>
+        @Model.TradeNo
+    </p>
+    <p>
+        <em>支付金额:</em>
+        @Model.TotalPrice
+    </p>
+</div>
+
+<div>
+    <form class="hidden" id="alipay" name="alipaysubmit" method="get" action="https://mapi.alipay.com/gateway.do" target="_blank">
+        @foreach (var item in values)
+        {
+            <input type="hidden" name="@item.Key" value="@item.Value" />
+        }
+        <input type="hidden" name="sign" value="@sign" />
+        <input type="hidden" name="sign_type" value="MD5" />
+
+        <p>
+            <button type="submit" class="btn btn-success">马上付款</button>
+        </p>
+    </form>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">支付宝支付</h4>
+            </div>
+            <div class="modal-body">
+                <p>请在新开窗口完成支付！</p>
+                <p>
+                    (如果您的浏览器不支持，请切换浏览器后选择重新支付！)
+                </p>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-danger" onclick="payfail()">付款有问题</button>
+                <button type="button" class="btn btn-primary" onclick="paysuccess()">已完成付款</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#alipay').submit();
+    $('#myModal').modal({ backdrop: 'static', keyboard: false });
+    $('#myModal').modal('show');
+
+    function payfail() {
+        $('#myModal').modal('hide');
+        window.location.href = '@Url.Action("Index","order")';
+    }
+
+    function paysuccess() {
+        $.ajax({
+            type: 'post',
+            data: {id: '@Model.ID'},
+            url: '@Url.Action("Confirm")',
+            success: function (result) {
+                window.location.href = '@Url.Action("Index","order")';
+            },
+            error: function (msg) {
+                $('#myModal').modal('hide');
+                alert("付款失败请重试！");
+                window.location.href = '@Url.Action("Index","order")';
+            }
+        });
+    }
+</script>

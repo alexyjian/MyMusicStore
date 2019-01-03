@@ -529,6 +529,7 @@
     <Content Include="Ueditor\third-party\video-js\font\vjs.svg" />
     <Content Include="Ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="Ueditor\third-party\video-js\font\vjs.woff" />
+    <None Include="Properties\PublishProfiles\Cdd.pubxml" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
     <Content Include="Music\1.mp3" />
     <Content Include="Music\Marian Hill - One Time.mp3" />
