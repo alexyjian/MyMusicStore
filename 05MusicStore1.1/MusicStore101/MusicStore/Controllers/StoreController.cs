@@ -34,17 +34,88 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Like(Guid id)
         {
+            var status = new LikeStatus()
+            {
+                Status = "",
+                Html = "",
+            };
             //1.判断用户是否登录
             if (Session["LoginUserSessionModel"] == null)
-                return Json("nologin");
-
+            {
+                status = new LikeStatus()
+                {
+                    Status = "noLogin",
+                    Html = "",
+                };
+                return Json(status);
+            }
             //2.判断用户是否对这条回复点过赞或踩
+            var person = _context.Persons.Find((Session["LoginUserSessionModel"] as
+                LoginUserSessionModel).Person.ID);
+            var reply = _context.Replies.Find(id);
+            var like = _context.LikeReplies.SingleOrDefault(x => x.Person.ID == person.ID && x.Reply.ID == reply.ID);
 
             //3.保存  reply实体中like+1或hate+1  LikeReply添加一条记录
+            if (like == null)
+            {
+                reply.Like++;
+                var l = new LikeReply()
+                {
+                    Reply = reply,
+                    Person = person,
+                     IsNotLike = true,
+                };
+                _context.LikeReplies.Add(l);
+                _context.SaveChanges();
 
-            //生成html 注入视图
+                if(reply.ParentReply==null)
+                {
+                    status.Status = "Parent";
+                    var cmts = _context.Replies.Where(x => x.Album.ID == reply.Album.ID).OrderByDescending(x => x.CreateDateTime).ToList();
+                    status.Html = _GetHtml(cmts);
+                    return Json(status);
+                }
+                else
+                {
+                    var cmts = _context.Replies.Where(x => x.ParentReply.ID == reply.ParentReply.ID).OrderByDescending(x => x.CreateDateTime).ToList();
+                    //原回复
+                    var pcmt = _context.Replies.Find(reply.ParentReply.ID);
+                    var htmlString = "";
+                    htmlString += "<div class=\"modal-header\">";
+                    htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>";
+                    htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
+                    htmlString += "<em>楼主&nbsp;&nbsp;</em>" + pcmt.Person.Name + "&nbsp;&nbsp;发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+                    htmlString += " </h4> </div>";
 
-            return Json("OK");
+                    htmlString += "<div class=\"modal-body\">";
+                    //子回复
+                    htmlString += "<ul class='media-list' style='margin-left:20px;'>";
+                    foreach (var item in cmts)
+                    {
+                        htmlString += "<li class='media'>";
+                        htmlString += "<div class='media-left'>";
+                        htmlString += "<img class='media-object' src='" + item.Person.Avarda +
+                                      "' alt='头像' style='width:40px;border-radius:50%;'>";
+                        htmlString += "</div>";
+                        htmlString += "<div class='media-body' id='Content-" + item.ID + "'>";
+                        htmlString += "<h5 class='media-heading'><em>" + item.Person.Name + "</em>&nbsp;&nbsp;发表于" +
+                                      item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                        htmlString += item.Content;
+                        htmlString += "</div>";
+                        htmlString += "<h6><a href='#div-editor' class='reply' onclick=\"javascript:GetQuote('" + item.ParentReply.ID + "','" + item.ID + "');\">回复</a>" +
+                                      "<a href='#' class='reply' style='margin:0 20px 0 40px'   onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
+                                      "<a href='#' class='reply' style='margin:0 20px'   onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                        htmlString += "</li>";
+                    }
+                    htmlString += "</ul>";
+                    htmlString += "</div><div class=\"modal-footer\"></div>";
+                    status.Status = "Son";
+                    status.Html = htmlString;
+                    return Json(status);
+                }
+            }
+
+            return Json(null);
         }
 
         /// <summary>
@@ -109,7 +180,6 @@ namespace MusicStore.Controllers
             {
                 r.ParentReply = _context.Replies.Find(Guid.Parse(reply));
             }
-
             _context.Replies.Add(r);
             _context.SaveChanges();
 
@@ -179,6 +249,12 @@ namespace MusicStore.Controllers
         {
             var genres = _context.Genres.OrderBy(x => x.Name).ToList();
             return View(genres);
-        }
+        }        
+    }
+
+    public class LikeStatus
+    {
+        public string Status { get; set; }
+        public string Html { get; set; }
     }
 }
