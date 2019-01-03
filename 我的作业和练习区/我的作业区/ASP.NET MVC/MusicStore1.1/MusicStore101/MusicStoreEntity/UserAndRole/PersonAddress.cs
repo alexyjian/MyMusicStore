@@ -20,6 +20,7 @@ namespace MusicStoreEntity.UserAndRole
         [Display(Name = "收件人手机")]
         [Required(ErrorMessage = "收件人手机不能为空。")]
         public string MobileNumber { get; set; } // 手机号码
+        public virtual Person persons { get; set; }
 
         public PersonAddress()
         {

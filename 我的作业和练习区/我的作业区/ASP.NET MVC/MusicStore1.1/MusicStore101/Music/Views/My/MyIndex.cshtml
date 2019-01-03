@@ -15,7 +15,7 @@
                 @Html.LabelFor(x => x.Name)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入姓名" })
+                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入姓名", @type = "text", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Name)
             </div>
             <div class="editor-label">
@@ -30,7 +30,7 @@
                 @Html.LabelFor(x => x.Address)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入地址" })
+                @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入地址", @type = "text", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Address)
             </div>
 
@@ -38,7 +38,7 @@
                 @Html.LabelFor(x => x.MobiNumber)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.MobiNumber, new { placeholder = "请输入手机号" })
+                @Html.TextBoxFor(x => x.MobiNumber, new { placeholder = "请输入手机号", @type = "text", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.MobiNumber)
             </div>
             
@@ -46,7 +46,7 @@
                 @Html.LabelFor(x => x.Birthday)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Birthday, new { placeholder = "请输入生日" ,@id="datepicker"})
+                @Html.TextBoxFor(x => x.Birthday, new { placeholder = "请输入生日" ,@id="datepicker", @type = "text", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Birthday)
             </div>
             <div class="editor-label">

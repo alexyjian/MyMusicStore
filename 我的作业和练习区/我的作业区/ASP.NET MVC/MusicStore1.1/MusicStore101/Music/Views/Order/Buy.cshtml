@@ -29,7 +29,7 @@
 <fieldset>
     
     <legend>收件信息</legend>
-    @Html.DropDownList("database-dropdownlist", new SelectList(ViewBag.Person, "Value", "Text"), new { @class = "btn btn-success dropdown-toggle form-control", @id = "Person" })
+    @Html.DropDownList("database-dropdownlist", new SelectList(ViewBag.Person, "Value", "Text"), new { @class = "btn btn-success dropdown-toggle form-control", @id = "Person" ,@style="margin:20px 0;" })
     <legend>您想购买的专辑列表</legend>
     @using (Html.BeginForm())
     {
@@ -65,7 +65,7 @@
                 </tr>
             </tbody>
         </table>
-        <p>
+        <p style="margin: 20px 0">
             <button type="submit" class="btn btn-success" onclick="changeValue()"><i class="glyphicon glyphicon-shopping-cart"></i>确定购买</button>
         </p>
 

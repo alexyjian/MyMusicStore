@@ -12,21 +12,21 @@
     <fieldset>
         <legend>账户信息</legend>
         <div class="editor-label">
-            @Html.LabelFor(x=>x.Username)
+            @Html.LabelFor(x=>x.Username):
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(x=>x.Username,new {placeholder="请输入用户的登录名"})
+            @Html.TextBoxFor(x=>x.Username,new {placeholder= "请输入用户的登录名" , @type = "text", @class="form-control"})
             @Html.ValidationMessageFor(x=>x.Username)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(x => x.PassWord)
+            @Html.LabelFor(x => x.PassWord):
         </div>
         <div class="editor-field">
-            @Html.PasswordFor(x => x.PassWord, new { placeholder = "请输入用户的密码" })
+            @Html.PasswordFor(x => x.PassWord, new { placeholder = "请输入用户的密码", @type = "password", @class = "form-control" })
             @Html.ValidationMessageFor(x => x.PassWord)
         </div>
         <p>
-            <input type="submit" value="登录" class="btn btn-success"/>
+            <input type="submit" value="登录" class="btn btn-success"  style="width:100px"/>
         </p>
     </fieldset>
 </div>

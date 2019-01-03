@@ -176,7 +176,7 @@ namespace Music.Controllers
 
                 }
                 htmlString += "</div>";//第二层回复结束
-                if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count > 1)
+                if (prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count > 0)
                     htmlString += "<p class='pinl_p' id='a" + louc + "' onclick='openmain(this)'>共" + prenreply.Where(x => x.ParentReply.ID == item.ID).ToList().Count + "条回复，点击查看</p>";
                 htmlString += "<hr>";
                 htmlString += "</div>";
@@ -276,8 +276,8 @@ namespace Music.Controllers
                 htmlString += "</div>";//内容结束
                 htmlString += "<div>";//第一层中的功能栏
                 htmlString += "<ul id='" + ry.ID + "'>";
-                htmlString += "<li></li>";
                 htmlString += "<li>" + ry.CreateDateTime.ToString("yyyy年MM月hh日") + "</li>";
+                htmlString += "<li></li>";
                 htmlString += "<li></li>";
                 htmlString += "<li></li>";
                 htmlString += "<li></li>";

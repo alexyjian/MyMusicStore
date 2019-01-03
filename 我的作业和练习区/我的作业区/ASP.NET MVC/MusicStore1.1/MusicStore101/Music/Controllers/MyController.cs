@@ -31,10 +31,10 @@ namespace Music.Controllers
 
             //2.查询出当前用户Person 查询该用户的购物项
             var persons = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
-
             var person = _context.Persons.SingleOrDefault(x => x.ID == persons.ID);
             if (personAddress.AddresPerson != null)
             {
+                personAddress.persons = person;
                 person.PersonAddresss.Add(personAddress);
                 _context.SaveChanges();
                 return Content("<script>alert('添加成功!');location.href='" + Url.Action("index", "My") + "'</script>");
@@ -158,7 +158,7 @@ namespace Music.Controllers
 
                 _context.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("MyIndex");
             }
 
             ViewBag.AvardaUrl = oldAvarda;

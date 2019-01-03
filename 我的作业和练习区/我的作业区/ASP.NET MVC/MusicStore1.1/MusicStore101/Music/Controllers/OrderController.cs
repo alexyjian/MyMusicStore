@@ -26,17 +26,23 @@ namespace Music.Controllers
             }
 
             //2.查询出当前用户Person 查询该用户的购物项
-            var person = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
-            var addre = _context.Persons.Find(person.ID).PersonAddresss.ToList();
-            var carts = _context.Carts.Where(x => x.Person.ID == person.ID).ToList();
+            var persons = (Session["loginUserSessionModel"] as LoginUserSessionModel).Person;
+            var selectItemList = new List<SelectListItem>();
+            foreach (var it in _context.PersonAddresss.Where(x=>x.persons.ID==persons.ID))
+            {
+                selectItemList.Add(new SelectListItem() { Value = it.ID.ToString(), Text = "收件人：" + it.AddresPerson + "，收货地址：" + it.Address + "，手机号：" + it.MobileNumber, Selected = true });
+            }
+            ViewBag.Person = selectItemList;
+
+            var carts = _context.Carts.Where(x => x.Person.ID == persons.ID).ToList();
             //计算购物车的总价
             decimal? totalPrice = (from item in carts select item.Count * item.Album.Price).Sum(); //Linq表达式
             //3.创建新Order对象
             var  order=new Order()
             {
-                AddresPerson = person.Name,
-                Mobilnumber = person.MobileNumber,
-                Person = _context.Persons.Find(person.ID),
+                AddresPerson = persons.Name,
+                Mobilnumber = persons.MobileNumber,
+                Person = _context.Persons.Find(persons.ID),
                 TotalPrice = totalPrice??0.00M
             };
             //4.把购物项导入订单明
@@ -55,12 +61,6 @@ namespace Music.Controllers
             //将订单和明细在视图呈现，验证用户收件人、地址、电话，供用户选择确认要购买专辑
             //当前订单未持久化，用户会话保存方便用户进行编辑
             Session["Order"] = order;
-            var selectItemList = new List<SelectListItem>();
-            foreach (var it in addre)
-            {
-                selectItemList.Add(new SelectListItem() { Value = it.ID.ToString(), Text = "收件人：" + it.AddresPerson + "，收货地址：" + it.Address + "，手机号：" + it.MobileNumber, Selected = true });
-            }
-            ViewBag.Person =selectItemList;
             return View(order);
         }
         [HttpPost]
@@ -174,9 +174,9 @@ namespace Music.Controllers
                 //5.如果验证不通过，返回视图
                 return Content("<script>alert('购买失败!');location.href='" + Url.Action("index", "home") + "'</script>");
             }
-            var addre = _context.Persons.Find(person.ID).PersonAddresss.ToList();
+           
             var selectItemList = new List<SelectListItem>();
-            foreach (var it in addre)
+            foreach (var it in _context.PersonAddresss.Where(x => x.persons.ID == person.ID))
             {
                 selectItemList.Add(new SelectListItem() { Value = it.ID.ToString(), Text = "收件人：" + it.AddresPerson + "，收货地址：" + it.Address + "，手机号：" + it.MobileNumber, Selected = true });
             }

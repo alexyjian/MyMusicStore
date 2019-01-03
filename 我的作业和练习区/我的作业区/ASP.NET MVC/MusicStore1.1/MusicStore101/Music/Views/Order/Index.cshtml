@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<MusicStoreEntity.Order>
+@using MusicStoreEntity
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
@@ -38,7 +39,10 @@
                @item.EnumOrderStatus
                 </td>
                 <td  style="width: 100px">
-                    <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i>确定购买</button>
+                    @if (item.EnumOrderStatus == EnumOrderStatus.未付款)
+                    {
+                        <a style="color: white" class="btn btn-success" href="@Url.Action("alipay","Pay",new {id= item.ID})"><i class="glyphicon glyphicon-usd"></i>马上付款</a>
+                    }
                 </td>
     </tr>
         }

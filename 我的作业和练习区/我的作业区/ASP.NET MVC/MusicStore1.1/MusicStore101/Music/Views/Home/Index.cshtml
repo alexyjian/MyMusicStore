@@ -7,13 +7,14 @@
 <img src="~/Content/home-showcase.png"class="col-xs-12 thumbnail"/>
 <h3><em>新歌</em>上架</h3>
 <div class="col-xs-12">
-    <ul id="album-list" class="col-xs-12">
+    <ul id="album-list" class="col-md-12">
         @foreach (var item in Model)
         {
-            <li class="col-xs-6">
+            <li class="col-xs-6 col-md-4">
                 <a href="@Url.Action("detail","store",new {id=item.ID})">
                     <img alt="@item.Title" src="@item.AlbumArtUrl" />
-                    <span>@item.Artist.Name</span>.<span>@item.Title</span>
+                    <span>@item.Title</span><br>
+                    <span>@item.Artist.Name</span>
                 </a>
             </li>
         }

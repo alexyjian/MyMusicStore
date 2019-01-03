@@ -14,39 +14,39 @@
                 @Html.LabelFor(x => x.UserName)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.UserName, new { placeholder = "请输入登录名" })
+                @Html.TextBoxFor(x => x.UserName, new { placeholder = "请输入登录名", @type = "text", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.UserName)
             </div>
             <div class="editor-label">
                 @Html.LabelFor(x => x.FullName)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.FullName, new { placeholder = "请输入姓名" })
+                @Html.TextBoxFor(x => x.FullName, new { placeholder = "请输入姓名", @type = "text", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.FullName)
             </div>
             <div class="editor-label">
                 @Html.LabelFor(x => x.Email)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮箱" })
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮箱", @type = "text", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Email)
             </div>
             <div class="editor-label">
                 @Html.LabelFor(x => x.PassWord)
             </div>
             <div class="editor-field">
-                @Html.PasswordFor(x => x.PassWord, new { placeholder = "请输入密码" })
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = "请输入密码", @type = "password", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.PassWord)
             </div>
             <div class="editor-label">
                 @Html.LabelFor(x => x.ConFirmPassWord)
             </div>
             <div class="editor-field">
-                @Html.PasswordFor(x => x.ConFirmPassWord, new { placeholder = "再次输入密码" })
+                @Html.PasswordFor(x => x.ConFirmPassWord, new { placeholder = "再次输入密码", @type = "password", @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.ConFirmPassWord)
             </div>
             <p>
-                <input type="submit" value="注册" class="btn btn-success"/>
+                <input type="submit" value="注册" class="btn btn-success"  style="width:100px"/>
             </p>
         </fieldset>
     </div>
