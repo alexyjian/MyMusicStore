@@ -1,0 +1,55 @@
+﻿@using MusicStore.ViewModels
+@model MusicStore.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+    var msg = "";
+    if (ViewBag.LoginUserStatus != null)
+    {
+        msg = (ViewBag.LoginUserStatus as LoginUserStatus).Message;
+    }
+}
+
+@using (Html.BeginForm("login", "Account", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="zhuche">
+                如果你还尚未拥有用户名<br /><br />
+                请点击这里进行<a href="~/Account/Register"><button type="button" class="btn btn-success">注册</button></a>
+            </h3>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default login login-pane">
+                <div class="panel-body">
+                    用户登录
+                </div>
+                <div class="panel-footer login-pane">
+
+                    @Html.TextBoxFor(x => x.UserName, new { placeholder = "用户名", @class = "form-control  icon user" })<a href="#" class="glyphicon glyphicon-user anniu"></a>
+                    <br />
+                    @Html.ValidationMessageFor(x => x.UserName)
+                    <br />
+
+                    @Html.PasswordFor(x => x.PassWord, new { placeholder = "密码", @class = "form-control" })<a href="#" class="glyphicon glyphicon-lock anniu"></a>
+                    <br />
+                    @Html.ValidationMessageFor(x => x.PassWord)
+                    <br />
+                      @msg
+                    
+                    <button type="submit" class="btn btn-primary">登录</button>
+
+                    <a href="@Url.Action("Index", "Home")">  <button type="button" class="btn btn-danger">返回</button></a>
+
+                </div>
+            </div>
+            </div>
+
+    </div>
+  
+
+}
+

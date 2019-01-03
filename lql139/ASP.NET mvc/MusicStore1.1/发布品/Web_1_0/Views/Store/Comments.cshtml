@@ -1,0 +1,52 @@
+﻿@model IEnumerable < MusicStoreEntity.Reply>
+
+
+<div style="margin-bottom:40px;">
+    <img class="comments" src="~/Content/images/comments.jpg" />
+    <!-- 加载编辑器的容器 -->
+    <textarea id="container" name="container" type="text/plain" placeholder="说点什么吧...."></textarea>
+    <input type="hidden" id="pReplyID"/>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="~/utf8-asp/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="~/utf8-asp/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container', {
+            toolbars: [
+            ['emotion', 'spechars', ]
+            ],
+            elementPathEnabled: false　　//是否启用元素路径，默认是true显示
+            , wordCount: true                      //是否开启字数统计
+            , autoHeightEnabled: false　　// 编辑器内容，是否自动长高,默认true
+            , fullscreen: false                   //是否开启初始化时即全屏，默认关闭
+            ,initialFrameWidth : 700
+           , initialFrameHeight: 90
+        });
+    </script>
+    <button id="comments" style="float:right;margin-top:5px;margin-bottom:30px;" type="button" class="btn btn-success">发表评论</button>
+</div>
+
+<small class="Goodcomments" style="">精彩评论</small>
+
+<div id="comm">
+    @Html.Raw(ViewBag.Cmt)
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <div class="modal-content" id="Div-SonCmts">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    原回复
+                </h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

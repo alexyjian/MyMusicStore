@@ -1,0 +1,59 @@
+﻿
+@model MusicStore.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="zhuche">
+            欢迎来到Number One in the Universe 音乐商店<br /><br />
+            我们虽然不是音乐的生产者，<br /><br />
+            但我们是音乐最好的搬运工。
+        </h3>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default login login-pane" style="height:460px;">
+            <div class="panel-body">
+                用户注册
+            </div>
+            <div class="panel-footer login-pane" >
+                @using (Html.BeginForm("register", "account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                @Html.TextBoxFor(x => x.UserName, new { placeholder = "用户名", @class = "form-control  icon user" })<a href="#" class="glyphicon glyphicon-user anniu"></a>
+                <br />
+                @Html.ValidationMessageFor(x => x.UserName)
+                <br />
+
+                @Html.TextBoxFor(x => x.FullName, new { placeholder = "姓名", @class = "form-control  icon user" })<a href="#" class="glyphicon glyphicon-user anniu"></a>
+                <br />
+                @Html.ValidationMessageFor(x => x.FullName)
+                <br />
+
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "邮箱", @class = "form-control  icon user" })<a href="#" class="glyphicon glyphicon-envelope anniu"></a>
+                <br />
+                @Html.ValidationMessageFor(x => x.Email)
+                <br />
+
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = "密码", @class = "form-control  icon user" })<a href="#" class="glyphicon glyphicon-lock anniu"></a>
+                <br />
+                @Html.ValidationMessageFor(x => x.PassWord)
+                <br />
+
+                @Html.PasswordFor(x => x.ConfirmPassWord, new { placeholder = "确认密码", @class = "form-control" })<a href="#" class="glyphicon glyphicon-lock anniu"></a>
+                <br />
+                @Html.ValidationMessageFor(x => x.ConfirmPassWord)
+
+                <br/>
+                <button type="submit" class="btn btn-primary">确认</button>
+
+                <a href="@Url.Action("Login", "Account")"> <button type="button" class="btn btn-danger">返回</button></a>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+

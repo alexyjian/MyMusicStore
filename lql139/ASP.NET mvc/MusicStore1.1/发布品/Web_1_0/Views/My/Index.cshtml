@@ -1,0 +1,79 @@
+﻿@model MusicStore.ViewModels.UpdatePersonalViewModel
+@{
+    ViewBag.Title = "个人信息";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<form enctype="multipart/form-data" action="" method="post">
+     @Html.AntiForgeryToken()
+
+        <div class="panel panel-primary row" id="tbCart" style="height:400px;">
+            <div class="panel-heading">
+                <h3 class="panel-title">个人信息</h3>
+            </div>
+
+            <div class="col-md-6">
+                <div class="input-group CompilePersonal-text" style="margin-top:20px;">
+                    <span class="input-group-addon">名称:</span>
+                    @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入名称", @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name)
+                </div>
+
+                <div class="input-group CompilePersonal-text" style="margin-top:20px;">
+                    <span class="input-group-addon">电话号码:</span>
+                    @Html.TextBoxFor(x => x.MobileNumber, new { placeholder = "请输入电话号码", @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.MobileNumber)
+                </div>
+
+                <div class="input-group CompilePersonal-text" style="margin-top:20px;">
+                    <span class="input-group-addon">收件人地址:</span>
+                    @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入收件人地址", @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Address)
+                </div>
+
+                <div class="input-group CompilePersonal-text" style="margin-top:20px;">
+                    <span class="input-group-addon">邮箱:</span>
+                    @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮箱", @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Email)
+                </div>
+                <div class="input-group CompilePersonal-text" style="margin-top:20px;">
+                    <span class="input-group-addon">出生日期:</span>
+                    @Html.TextBoxFor(x => x.Birthday, new { placeholder = "选择出生日期", @class = "form-control" ,@id= "date_yy-mm-dd" })
+                </div>
+                <div class="input-group CompilePersonal-text" style="margin-top:20px;">
+                    男:&nbsp;@Html.RadioButtonFor(x => x.Sex, true, new { @name = "sex", @checked = "checked" })  &nbsp;
+                    女:&nbsp;@Html.RadioButtonFor(x => x.Sex, false, new { @name = "sex" })
+                  </div>
+            </div>
+            <div class="col-md-6">
+                头像:<img style="margin:20px 0 10px 0;" src="@ViewBag.AvardaUrl" class="Avarda-My"  id="Avarda-My" />
+                @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
+            </div>
+
+                <button type="submit" class="btn btn-default" style="float:right; margin-right:10px; margin-top:10px;">确定</button>
+            </div>
+  </form>
+<script>
+    $(function () {
+        $("#Avarda").on("change",
+            function () {
+                var file = this.files[0];
+                if (!/image\/\w+/.test(file.type)) {
+                    alert('文件必须为图片！');
+                    return false;
+                }
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function (e) {
+                    $("#Avarda-My").attr('src', this.result);
+                }
+            });
+    });
+
+    $("#date_yy-mm-dd").prop("readonly", true).datepicker({
+        changeMonth: true,
+        dateFormat: "yy-mm-dd",
+        onClose: function (selectedDate) {
+        }
+    });
+</script>

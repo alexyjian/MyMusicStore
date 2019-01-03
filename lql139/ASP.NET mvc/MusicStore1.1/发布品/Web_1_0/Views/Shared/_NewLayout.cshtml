@@ -1,0 +1,113 @@
+﻿@using MusicStore.ViewModels
+@using MusicStoreEntity.UserAndRole
+@using MusicStoreEntity
+@{ 
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车
+    var carts = new List<Cart>();
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        carts = new EntityDbContext().Cart.Where(x => x.Person.ID == user.Person.ID).ToList();
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - 音乐商店</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JqueryUI")
+
+    
+    @*<script src="~/Scripts/jquery-ui-1.12.1.js"></script>*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    <div class="collapse navbar-collapse header " id="myNavbar">
+        <h3>
+            <br />
+            <a href="@Url.Action("Index", "Home")">Number One in the Universe 音乐商店  <samp> -  <span id="city" class="glyphicon glyphicon-map-marker ">努力定位中...</span></samp></a>
+        </h3>
+        <ul class="nav navbar-nav header-ul " >
+            <li>
+               <a href="@Url.Action("Index", "Home")">主页</a> 
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Store")">专辑</a>
+            </li>
+            @if (user == null)
+            {
+                <li>
+                    <a href="@Url.Action("Login", "Account")">登录</a>
+                </li>
+            }
+            else
+            {
+                <li class="dropdown">
+                    <a href="#"  class="dropdown-toggle"  data-toggle="dropdown"  role="button"
+                       aria-haspopup="true"  aria-expanded="false" >
+                        <img src="@user.Person.Avarda" class="Avarda"/>
+                        @user.Person.Name<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu login-ul">
+                        <li><a  href="@Url.Action("index","ShoppingCart")">&nbsp;&nbsp;<i class="glyphicon glyphicon-shopping-cart"></i>购物车(@carts.Count)</a></li>
+                        <li><a  href="@Url.Action("Index","Pay")">&nbsp;&nbsp;<i  class="glyphicon glyphicon-list-alt"></i>我的订单</a></li>
+                        <li><a  href="@Url.Action("Index","My")">&nbsp;&nbsp;<i class="glyphicon glyphicon-user"></i>个人信息</a></li>
+                        <li><a  href="@Url.Action("ChangePassword","Account")">&nbsp;&nbsp;<i class="glyphicon glyphicon-cog"></i>修改密码</a></li>
+                        <li><a  href="@Url.Action("Loginout","Account")">&nbsp;&nbsp;<i class="glyphicon glyphicon-off"></i>注销</a></li>
+                    </ul>
+              </li>
+            }
+
+        </ul>
+
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.Partial("_GetgenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
+        </div>
+        <div class="col-md-10 content">
+        @*操作区*@
+        @RenderBody()
+    </div>
+        </div>
+    <div class="row stern">
+        @*尾栏*@
+        @Html.Partial("_FooterLayout")
+        @*<div class="stern_logo">
+            <h4> 2017-@DateTime.Now.Year CopyRight By <a>2017软件技术1班</a></h4>
+        </div>*@
+    </div>
+    @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false);
+ 
+</body>
+</html>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kfGVGU4CP7RUXboBQljxIMab8y0ZthNz"></script>
+<script>
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            if (r.address.district != "city") {
+                document.getElementById("city").innerHTML = r.address.district;
+            }
+            if (r.address.city != "") {
+                document.getElementById('city').innerHTML = r.address.city;
+            }
+        }
+        else {
+            document.getElementById('city').innerHTML = "";
+        }
+    }, { enableHighAccuracy: true })
+</script>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MusicStoreEntity.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2><i class="glyphicon glyphicon-list-alt"></i>我的订单</h2>
+
+
+<div class="panel-footer login-pane">
+    @foreach (var item in Model)
+    {
+        <table class="table table-bordered panel panel-primary">
+            <thead>
+                <tr>
+                    <th>收件人名称</th>
+                    <th>收件人电话</th>
+                    <th>收件人地址</th>
+                    <th>订单明细</th>
+                    <th>订单总价</th>
+                    <th>支付状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@item.AdderssPerson</td>
+                    <td>@item.MobiNumber</td>
+                    <td>@item.Address</td>
+                    <td>
+                        @foreach (var d in item.OrderDetails)
+                        {
+                            <span>@d.Album.Title , @d.Count 张</span><br />
+                        }
+                    </td>
+                    <td>@item.TotaPrice.ToString("C")</td>
+                    <td><button type="submit" class="btn btn-success">立即支付</button></td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>
+

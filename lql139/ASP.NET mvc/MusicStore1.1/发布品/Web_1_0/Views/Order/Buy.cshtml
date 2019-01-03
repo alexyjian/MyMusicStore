@@ -1,0 +1,102 @@
+﻿@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>结算订单</h2>
+@using (Html.BeginForm())
+{
+    
+        <legend>收件信息</legend>
+        @Html.EditorForModel()
+
+        <table class="table table-hover">
+
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                    <th>编辑</th>
+                </tr>
+            </thead>
+
+            <tbody id="tbCart">
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <tr>
+                        <th class="Cart-tbody-th">@Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)</th>
+                        <th>@item.Album.Price.ToString("C")</th>
+                        <th>@*<button class="btn btn-default" onclick="removeCartAdd('@item.ID')">+</button>*@&nbsp;@item.Count&nbsp;@*<button class="btn btn-default" onclick="removeCartSubtract('@item.ID')">-</button>*@</th>
+                        <th class="Cart-tbody-th">
+                            <a class="glyphicon glyphicon-remove Cartdelete" onclick="RemoveDetail('@item.ID')">
+                                <span>删除此项</span>
+                            </a>
+                        </th>
+                    </tr>
+                }
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="totalprice-th" colspan="4">
+                        总价:@Model.TotaPrice.ToString("C")
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-default" style="float:right;">确认购买</button>
+}
+      
+    
+    
+<script>
+    function RemoveDetail(id) {     
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Order/RemoveDetail",
+            data: { id: id },
+            dataType: "json",
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+
+    //function removeCartAdd(id) {
+    //    $.ajax({
+    //        type: 'post',
+    //        async: true,
+    //        url: "../../shoppingcart/removeCartAdd",
+    //        data: { id: id },
+    //        dataType: 'json',
+    //        success: function (data) {
+    //            $("#tbCart").html(data);
+
+    //            setTimeout(function () {
+    //                location.reload();//刷新区域
+    //            }, 100);
+    //        }
+    //    });
+    //}
+
+    //function removeCartSubtract(id) {
+    //    $.ajax({
+    //        type: 'post',
+    //        async: true,
+    //        url: "../../shoppingcart/removeCartSubtract",
+    //        data: { id: id },
+    //        dataType: 'json',
+    //        success: function (data) {
+    //            $("#tbCart").html(data);
+
+    //            setTimeout(function () {
+    //                location.reload();//刷新区域
+    //            }, 100);
+    //        }
+    //    });
+    //}
+
+</script>
