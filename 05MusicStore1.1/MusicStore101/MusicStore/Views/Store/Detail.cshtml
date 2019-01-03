@@ -61,14 +61,112 @@
 @*百度ueditor的呈现*@
 <div class="row">
     <div class="col-md-10">
-        <div class="form-group">
+        <div class="form-group" id="div-editor">
             <textarea id="editor" name="editor"></textarea>
+            <input type="hidden" id="pReplyID"/>
         </div>
         <button id="btnCmt" type="button" class="btn btn-success">评论</button>
     </div>
 </div>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content"  id="Div-SonCmts">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    原回复
+                </h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <script>
+    //点击评论中的回复按钮触发的方法
+    function GetQuote(id, divid) {
+        //保存该评论的id
+        $("#pReplyID").val(id);
+        //alert($("#pReplyID").val());
+        //取回复的内容
+        var divName = 'Content-' + divid;
+        var content = "<br/><br/><div style='margin:20px; border:1px solid black'>引用：<br/>" + $("#" + divName).html() + "</div>";
+
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function() {
+            ue.setContent(content);
+        });
+
+        //如果model打开则关了
+        $('#myModal').modal('hide');
+    }
+
+    function ShowCmt(id) {
+        //ajax 查询出子回复
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("showCmts","Store")',
+            data: {"pid":id},
+            dataType: 'json',
+            success: function (data) {
+                $("#Div-SonCmts").html(data);
+                $('#myModal').modal('toggle');
+            }
+        });
+    }
+
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Like","Store")',
+            data: { "id": id },
+            dataType: 'json',
+            success: function (data) {
+                if (data.Status == 'noLogin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account", new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else if (data.Status == 'Parent') {
+                    //html文本注入div
+                    $("#divCmt").html(data.html);
+                }
+                else if (data.Status == 'Son') {
+                    $("#Div-SonCmts").html(data.html);
+                    //$('#myModal').modal('toggle');
+                }
+            }
+        });
+    }
+
+    //踩
+    function hate(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate","Store")',
+            data: { "id": id },
+            dataType: 'json',
+            success: function (data) {
+                if (data.Status == 'noLogin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account", new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                }
+            }
+        });
+    }
+
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
         UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
@@ -84,6 +182,7 @@
         //获得编辑器中的内容
         UE.getEditor('editor');
         var content = UE.getEditor('editor').getContent();
+        var pid = $("#pReplyID").val();
         //console.log(content);
         //ajax提交
         $.ajax({
@@ -93,7 +192,7 @@
             data: {
                 "id":"@Model.ID",
                 "cmt": content,
-                "reply":""
+                "reply": pid
             },
             dataType: 'json',
             success: function (data) {
@@ -101,9 +200,11 @@
                     //如果没登录
                     location.href = "@Url.Action("login","Account",
                                          new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
-                } else if (data == "OK") {
-                    alert('发表成功!');
-                    //局部刷新
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    UE.getEditor('editor').setContent('');
                 }
             }
         });
