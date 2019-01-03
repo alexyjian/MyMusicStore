@@ -14,6 +14,8 @@ namespace MusicStoreEntity
 
         public virtual Album Album { get; set; }
 
+        public virtual Order Order { get; set; }
+
         public decimal Price { get; set; }
 
         public int Count { get; set; }

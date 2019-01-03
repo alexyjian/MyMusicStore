@@ -128,6 +128,49 @@ namespace MusicStore.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult DelBuy(Guid id)
+        {
+            if (Session["LoginUserSessionModel"] == null)
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Buy", "Order") });
+            var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
+
+            var delodds = _Context.OrderDetails.Where(x => x.Order.ID == id).ToList();
+            var delod = _Context.Orders.Find(id);
+            foreach (var item in delodds)
+            {
+                _Context.OrderDetails.Remove(item);
+            }
+            _Context.Orders.Remove(delod);
+            _Context.SaveChanges();
+
+            var ods = _Context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+            string htmlString = "";
+            foreach (var item in ods)
+            {
+                htmlString += "<tr><td><span class='text-info'>" + item.TradeNo + "</span><br />收件人：" + item.AddressPerson + "<br />收件地址：@item.Address<br />电话：" + item.mobilNumber + "</td><td>";
+                foreach (var odd in item.OrderDetails)
+                {
+                    htmlString += "<p class='text-info'>" + odd.Album.Title + "， " + odd.Count + "张</p> ";
+                }
+                htmlString += "</td><td>" + item.TotalPrice.ToString("C") + "</td><td>";
+                switch (item.EnumOrderStatus)
+                {
+                    case EnumOrderStatus.未付款:
+                        htmlString += "<span class='text-danger'>" + item.EnumOrderStatus + "</span></td>";
+                        break;
+                    case EnumOrderStatus.已付款:
+                        htmlString += "<span class='text-success'>" + item.EnumOrderStatus + "</span></td>";
+                        break;
+                    default:
+                        htmlString += "<span class='text-warning'>" + item.EnumOrderStatus + "</span></td>";
+                        break;
+                }
+                htmlString += "<td><a href=\'/Pay/Alipay/"+item.ID+ "\' class='btn btn-success'>立即支付</a>&nbsp;&nbsp;<a href=\'/Pay/Alipay/" + item.ID + "\' class='btn btn-danger'>取消订单</a></ td ></tr> ";
+            }
+            return Json(htmlString);
+        }
+
         /// <summary>
         /// 移除商品
         /// </summary>

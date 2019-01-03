@@ -22,7 +22,7 @@
                         <th>操作</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="odList">
                     @foreach (var item in Model)
                     {
                         <tr>
@@ -57,6 +57,7 @@
                         </td>
                         <td>
                             @Html.ActionLink("立即支付","Alipay","Pay",new { id = item.ID},new { @class = "btn btn-success"})
+                            <a href="javascript:void(0);" onclick="Delod('@item.ID')" class="btn btn-danger">取消订单</a>
                         </td>
                     </tr>
                     }
@@ -65,3 +66,17 @@
         </div>
     </div>
 </div>
+<script>
+    function Delod(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Order/DelBuy',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $('#odList').html(data);
+            }
+        });
+    }
+</script>
