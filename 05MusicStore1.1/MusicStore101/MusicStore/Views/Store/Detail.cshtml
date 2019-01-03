@@ -129,11 +129,20 @@
             type: 'post',
             asyn: true,
             url: '@Url.Action("Like","Store")',
-            data: { "pid": id },
+            data: { "id": id },
             dataType: 'json',
             success: function (data) {
-                //detail
-                //modal
+                if (data.Status == 'noLogin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account", new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else if (data.Status == 'Parent') {
+                    //html文本注入div
+                    $("#divCmt").html(data.html);
+                }
+                else if (data.Status == 'Son') {
+                    $("#Div-SonCmts").html(data.html);
+                    //$('#myModal').modal('toggle');
+                }
             }
         });
     }
@@ -144,11 +153,16 @@
             type: 'post',
             asyn: true,
             url: '@Url.Action("Hate","Store")',
-            data: { "pid": id },
+            data: { "id": id },
             dataType: 'json',
             success: function (data) {
-                //detail
-                //modal
+                if (data.Status == 'noLogin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account", new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                }
             }
         });
     }
