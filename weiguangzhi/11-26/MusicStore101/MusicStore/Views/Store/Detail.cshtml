@@ -208,6 +208,16 @@
             success: function (data) {
                 //datail
                 //modal
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                    new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    //UE.getEditor('editor').setContent('');
+                }
             }
         });
     }
