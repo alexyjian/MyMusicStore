@@ -138,7 +138,6 @@ namespace MusicStore.Controllers
             if (order.Count > 0)
             {
                 return Json("无法删除有冲突");
-
             }
             var mays = _context.Mys.Find(id);
                 _context.Mys.Remove(mays);
@@ -161,11 +160,11 @@ namespace MusicStore.Controllers
                 htmlString += "<td> 手机：" + item.MobiNumber + " </td>";
 
                 htmlString += "  <td><span><a href = '../my/AddressUpdate/" + item.ID + "'> 修改 </a>";
+
                 htmlString += " |<a href = 'javascript:;' class=\"delete\"onclick=\"Remove('" + item.ID + "')\">删除</a></span></td>";
 
                 htmlString += " </tr>";
 
-              
             }
             htmlString += " <tr><td></td ><td></td ><td></td><td></td><td></td></tr> ";
 

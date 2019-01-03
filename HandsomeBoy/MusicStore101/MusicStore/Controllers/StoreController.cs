@@ -130,46 +130,49 @@ namespace MusicStore.Controllers
         [ValidateInput(false)]
         public ActionResult WShowCmts(string pid)
         {
-            var id =Guid.Parse(pid);
+            var id = Guid.Parse(pid);
             var htmlString = "";
-            htmlString +="<div class='modal-header'>";
-            htmlString += "<h4 class='modal-title' id='myModalLabel'>";
-            //查询出原回复
-            var fatherCmt = _context.Replys.Find(id);
             //原回复
-            htmlString += "<div class='media-left'>";
-            htmlString += "<img class='media-object' src='" + fatherCmt.Person.Avarda +
-                          "' alt='头像' style='width:40px;border-radius:50%;'>";
-            htmlString += "</div>";
-            htmlString += "<h5 class='media-heading'>" + fatherCmt.Person.Name + "  发表于" +
-                              fatherCmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
-            htmlString += fatherCmt.Content;
-
-            htmlString += " </h4>";
-            htmlString += "</div>";
-            htmlString += "<div class='modal-body'>";
             //子回复
-            //查询出子回复
-            var sonCmt = _context.Replys.Where(x => x.ParentReply.ID == id).ToList();
-            foreach(var item in sonCmt)
+            var cmts = _context.Replys.Where(x => x.ParentReply.ID == id).OrderByDescending(x => x.CreateDateTime).ToList();
+            //原回复
+            var pcmt = _context.Replys.Find(id);
+            htmlString += "<div class=\"modal-header\">";
+            htmlString += "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>";
+            htmlString += "<h4 class=\"modal-title\" id=\"myModalLabel\">";
+            htmlString += "<em>楼主&nbsp;&nbsp;</em>" + pcmt.Person.Name + "&nbsp;&nbsp;发表于" + pcmt.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + ":<br/>" + pcmt.Content;
+            htmlString += " </h4> </div>";
+
+            htmlString += "<div class=\"modal-body\">";
+            //子回复
+            htmlString += "<ul class='media-list' style='margin-left:20px;'>";
+            foreach (var item in cmts)
             {
+                htmlString += "<li class='media'>";
                 htmlString += "<div class='media-left'>";
                 htmlString += "<img class='media-object' src='" + item.Person.Avarda +
                               "' alt='头像' style='width:40px;border-radius:50%;'>";
                 htmlString += "</div>";
-                htmlString += "<h5 class='media-heading'>" + item.Person.Name + "  发表于" +
-                                  item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
+                htmlString += "<div class='media-body' id='Content-" + item.ID + "'>";
+                htmlString += "<h5 class='media-heading'><em>" + item.Person.Name + "</em>&nbsp;&nbsp;发表于" +
+                              item.CreateDateTime.ToString("yyyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += item.Content;
-
+                htmlString += "</div>";
+                htmlString += "<h6 class = 'LikeHateReply'><a href=javascript:;' class='reply' onclick=\"javascript:GetQuote('" + item.ID +
+                            "');\">回复</a>"+
+                            "<a href='javascript:;' class='Like' onclick = LikeReply('" + item.ID + "','true') style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(" +
+                            item.Like + ")</a><a href='javascript:;' class='LikeReply' onclick = LikeReply('" + item.ID + "','false') style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                htmlString += "</li>";
             }
-            htmlString += "</div>";
-            htmlString += "<div class='modal-footer'>";
-            htmlString += "</div>";
+            htmlString += "</ul>";
+            htmlString += "</div><div class=\"modal-footer\"></div>";
             return Json(htmlString);
+          
+
         }
 
-            //
-          public ActionResult browser(Guid id)
+        //
+        public ActionResult browser(Guid id)
         {
             var list = _context.Albuns.Where(x => x.Genre.ID == id).OrderByDescending(x => x.PublsherDate).ToList();
             return View(list);

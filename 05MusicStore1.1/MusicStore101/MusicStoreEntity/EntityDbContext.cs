@@ -34,10 +34,9 @@ namespace MusicStoreEntity
         public IDbSet<Artist> Artists { get; set; }
         public IDbSet<Album> Albums { get; set; }
         public IDbSet<Reply> Replies { get; set; }
-<<<<<<< HEAD
-=======
+
         public IDbSet<LikeReply> LikeReplies { get; set; }
->>>>>>> c9c5ffd0bd67ddbdfa40f70c5a8eb35de64c79de
+
 
         public IDbSet<Cart> Carts { get; set; }
         public IDbSet<Order> Orders { get; set; }
