@@ -79,7 +79,7 @@
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content" id="Div-SonCmts">
+            <div class="modal-content" id="Div-SonCmts" >
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         x
@@ -88,7 +88,7 @@
                         原标题
                     </h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" >
                     子回复...<a href='#' class='reply' style='margin:0 20px 0 50px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
                     子回复...<a href='#' class='reply' style='margin:0 20px 0 50px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
                     子回复...<a href='#' class='reply' style='margin:0 20px 0 50px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
@@ -106,14 +106,14 @@
 <script>
 
     //点击评论中的回复按钮触发的方法
-    function GetQuote(id) {
+    function GetQuote(id,divid) {
         //保存该评论的ID
         $("#pReplyID").val(id);
         alert($("#pReplyID").val());
         //取回复的时间
-        var divName = 'Content-' + id;
+        var divName = 'Content-' + divid;
         var content = "<p></p>" + $("#" + divName).html();
-        var content = "<br/><br/><div style='margin:20px; border:1px solid black'>引用：<br/>" + $("#" + divName).html() + "</div>";
+        var content = "<br/><br/><div style='margin:20px; border:1px solid black;'>引用：<br/>" + $("#" + divName).html() + "</div>";
 
 
         //把内容赋值给ueditor
@@ -121,6 +121,9 @@
         ue.ready(function() {
             ue.setContent(content);
         });
+
+        //如果model打开则关
+        $('#myModal').modal('hide');
     }
 
     //子回复
@@ -175,7 +178,7 @@
                         new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
                     }
                     else {
-                        //$("#divCmt").html(data);
+                        $("#divCmt").html(data);
                     }
                 }
             });

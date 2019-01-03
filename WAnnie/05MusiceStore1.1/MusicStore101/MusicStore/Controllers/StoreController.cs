@@ -51,7 +51,7 @@ namespace MusicStore.Controllers
             //保存 reply实体中like+1或hate+1 LikeReply添加一条记录
             if (sonCmt.Count == 0)
             {
-                reply.Like += 1;
+                reply.Like +=1;
 
                 var like = new LikeReply()
                 {
@@ -67,10 +67,10 @@ namespace MusicStore.Controllers
                 var cmt = _Context.Replys.Where(x => x.Ablum.ID == AblumID && x.ParentReply == null)
                     .OrderByDescending(x => x.CreateDateTime).ToList();
                 return Json(_GetHtml(cmt));
-            }
+        }
 
-            //生成HTML注入
-            var cmt1 = _Context.Replys.Where(x => x.Ablum.ID == AblumID && x.ParentReply == null)
+        //生成HTML注入
+        var cmt1 = _Context.Replys.Where(x => x.Ablum.ID == AblumID && x.ParentReply == null)
                 .OrderByDescending(x => x.CreateDateTime).ToList();
             return Json(_GetHtml(cmt1));
 
@@ -123,7 +123,6 @@ namespace MusicStore.Controllers
 
         }
 
-
         /// <summary>
         /// 生成回复的显示HTML文本
         /// </summary>
@@ -146,9 +145,9 @@ namespace MusicStore.Controllers
 
                 //查询当前回复的下一级回复
                 var sonCmt = _Context.Replys.Where(x => x.ParentReply.ID == item.ID).ToList();              
-                htmlString += "<h6><a href='#div-editor'class='reply' onclick=\"javascript:GetQuote('"+item.ID+ "','"+item.ID+"');\">回复</a>(<a href='javascript:;'class='reply'onclick=\"javascript:ShowCmt('"+item.ID+"');\">"+sonCmt.Count+"</a>)条"+
-                              "<a href='javascript:;'class='reply'style='margin:0 20px 0 50px' onclick=\"javascript:Like('" + item.ID + "')\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like+ ")</a>" +
-                              "<a href='javascript:;'class='reply'style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate+")</a></h6>";
+                htmlString += "<h6><a href='#div-editor' onclick=\"javascript:GetQuote('"+item.ID+ "','"+item.ID+"');\">回复</a>(<a href='javascript:;'class='reply'onclick=\"javascript:ShowCmt('"+item.ID+"');\">"+sonCmt.Count+"</a>)条"+
+                              "<a href='javascript:;'style='margin:0 20px 0 50px' onclick=\"javascript:Like('" + item.ID + "')\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like+ ")</a>" +
+                              "<a href='javascript:;'style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate+")</a></h6>";
 
                 htmlString += "</li>";
             }
@@ -225,11 +224,11 @@ namespace MusicStore.Controllers
             //var sonCmt = _Context.Replys.Where(x => x.ParentReply.ID == id).ToList();
 
             //子回复
-            htmlString += "<ul class='media-list' style='margin-left:20px'>";
+            htmlString += "<ul class='media-list' style='margin-left:20px;' style = 'border: 1px solid #f08080'>";
             //循环子回复
-            foreach (var item in cmts)
+            foreach (var item in cmts) 
             {
-                htmlString += "<li class='media'>";
+                htmlString += "<li class='media'style = 'border: 1px solid #f08080' >";
                 htmlString += "<div class='media-left'>";
                 htmlString += "<img class='media-object' src='" + item.Person.Avarda +
                               "' alt='头像' style='width:40px;border-radius:50%;'>";
@@ -239,9 +238,9 @@ namespace MusicStore.Controllers
                               pcmt.CreateDateTime.ToString("yyy年MM月dd日 hh点mm分ss秒") + "</h5>";
                 htmlString += item.Content;
                 htmlString += "</div>";
-                htmlString += "<h6><a href='#div-editor'class='reply' onclick=\"javascript:GetQuote('" +item.ParentReply.ID+"','"+item.ID + "');\">回复</a> "+
-                              "<a href='javascript:;'class='reply'style='margin:0 20px 0 50px' onclick=\"javascript:Like('" + item.ID + "')\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
-                              "<a href='javascript:;'class='reply'style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
+                htmlString += "<h6><a href='#div-editor' onclick=\"javascript:GetQuote('" +item.ParentReply.ID+"','"+item.ID + "');\">回复</a> "+
+                              "<a href='javascript:;'style='margin:0 20px 0 50px' onclick=\"javascript:Like('" + item.ID + "')\"><i class='glyphicon glyphicon-thumbs-up'></i>(" + item.Like + ")</a>" +
+                              "<a href='javascript:;'style='margin:0 20px' onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i>(" + item.Hate + ")</a></h6>";
 
                 htmlString += "</li>";
             }
