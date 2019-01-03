@@ -109,31 +109,48 @@
    
 </body>
 </html>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT"></script>
+
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mKNsv8BifpOEERjGwj80FS9agwndhdw2"></script>
 <script>
+
+    // 定位
     var geolocation = new BMap.Geolocation();
-    geolocation.getCurrentPosition(function(r)
-    {
-        if (this.getStatus()== BMap_STATUS_SUCCESS) {
-            Ing = r.point.Ing;
-            lat = r.point.lat;
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            Lng = r.point.lng;
+            Lat = r.point.lat;
             console.log(r);
-            //显示
-            if (r.address.district != "") {
-                document.getElementById('district').innerHTML = r.address.district;
-
+            if (r.address.district !== "") {
+                document.getElementById('district').innerText = r.address.district;
             }
-            //显示
-            if (r.address.district != "") {
-                document.getElementById('city').innerHTML = r.address.city;
+            if (r.address.city !== "") {
+                document.getElementById('city').innerText = r.address.city;
+                $.ajax({
+                    url: "../home/GetWeather",
+                    data: { city: r.address.city },
+                    datatype: "json",
+                    type: "post",
+                    success: function (data) {
+                        $("#divWeather").html(data);
+                    }
+                });
+            }
+            else {
+                document.getElementById('city').innerText = "柳州市";
+                $.ajax({
+                    url: "../home/GetWeather",
+                    data: { city: "柳州市" },
+                    datatype: "json",
+                    type: "post",
+                    success: function (data) {
+                        $("#divWeather").html(data);
+                    }
+                });
             }
         }
-        else
-        {
-            document.getElementById('city').innerHTML = "无法定位";
-
+        else {
+            document.getElementById('city').innerText = "定位失败";
         }
-    },
-    {enableHighAccuracy:true});
+    }, { enableHighAccuracy: true });
 </script>
-
