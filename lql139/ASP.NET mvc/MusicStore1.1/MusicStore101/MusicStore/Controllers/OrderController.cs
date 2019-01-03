@@ -136,7 +136,7 @@ namespace MusicStore.Controllers
                 htmlString += "<tr><th class=\"Cart-tbody-th\"><a href='../store/detail/" + item.ID + "'>" + item.Album.Title + "</a></th>";
                 htmlString += "<th>" + item.Album.Price.ToString("C") + "</th>";
                 htmlString += "<th>&nbsp;" + item.Count + "&nbsp;</th>";
-                htmlString += "<th class=\"Cart-tbody-th\"><a href=\"#\" onclick=\"removeCart('" + item.ID + "');\"><i class=\"glyphicon glyphicon-remove\"></i>删除此项</a></th><tr>";
+                htmlString += "<th class=\"Cart-tbody-th\">   <a class='glyphicon glyphicon-remove Cartdelete' onclick=\"RemoveDetail('"+item.ID+"')\"><span>删除此项</span></a></th><tr>";
             }
             htmlString += "<tr><th ></th><th></th><th></th><th  class=\"totalprice - th\" colspan=\"4\">总价" + order.TotaPrice.ToString("C") + "</th ></tr>";
             return Json(htmlString);

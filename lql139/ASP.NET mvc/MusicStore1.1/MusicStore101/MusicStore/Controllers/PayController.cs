@@ -23,7 +23,7 @@ namespace MusicStore.Controllers
                 return RedirectToAction("login", "Account", new { retunUrl = Url.Action("index", "ShoppingCart") });
 
             var person = (Session["LoginUserSessionModel"] as LoginUserSessionModel).Person;
-            var carts = _context.Orders.Where(x => x.Person.ID == person.ID).ToList();
+            var carts = _context.Orders.Where(x => x.Person.ID == person.ID).OrderByDescending(x=>x.OrderDateTime).ToList();
 
             return View(carts);
         }

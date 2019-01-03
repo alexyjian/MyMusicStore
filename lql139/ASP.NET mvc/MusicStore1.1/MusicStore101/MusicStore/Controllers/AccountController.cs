@@ -41,8 +41,8 @@ namespace MusicStore.Controllers
                 var loginUser = new ApplicationUser()
                 {
                     UserName = mode.UserName,
-                    FirstName = mode.FullName.Substring(1, 0),
-                    LastName = mode.FullName[mode.FullName.Length - 1].ToString(),
+                    FirstName = mode.FullName.Substring(0, 1),
+                    LastName = mode.FullName.Substring(1, mode.FullName.Length - 1),
                     ChineseFullName = mode.FullName,
                     Email = mode.Email,
                     Person = person1

@@ -48,8 +48,8 @@ namespace MusicStore.Controllers
                     "<a  onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i></a>(" + item.Like
                      + ")  <a  onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</p>";
 
-                htmlString += "<h6><a href='#div-editor' class='btn btn-default btn-xs' role='button' onclick=\"javascript:GetQuote('" + item.ID + "','" + item.ID 
-                    + "');\">回复</a><a class='btn btn-default btn-xs' role='button'  onclick=\"javascript:ShowCmt('" + item.ID + "');\"> ( " 
+                htmlString += "<h6><a href='#div-editor' class='btn btn-default btn-xs' role='button' onclick=\"javascript:GetQuote('" + item.ID + "','" + item.ID + 
+                    "');\">回复</a><a class='btn btn-default btn-xs' role='button'  onclick=\"javascript:ShowCmt('" + item.ID + "');\"> ( " 
                  + sonCmt.Count + " )条 <span class='caret'></span></a></h6>";
 
                 htmlString += "</div>";
@@ -153,14 +153,14 @@ namespace MusicStore.Controllers
                     "<a  onclick=\"javascript:Like('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-up'></i></a>(" + item.Like
                      + ")  <a  onclick=\"javascript:Hate('" + item.ID + "');\"><i class='glyphicon glyphicon-thumbs-down'></i></a>(" + item.Hate + ")</p>";
 
-                htmlString += "<h6><a href='#div-editor' class='btn btn-default btn-xs' role='button' onclick=\"javascript:GetQuote('" + item.ID + "','" + item.ID
-                    + "');\">回复</a><a class='btn btn-default btn-xs' role='button'  onclick=\"javascript:ShowCmt('" + item.ID + "');\"></a></h6>";
+                htmlString += "<h6><a href='#div-editor' class='btn btn-default btn-xs' role='button' onclick=\"javascript:GetQuote('" + item.ParentReply.ID + "','" + item.ID
+                    + "');\">回复</a></h6>";
 
                 htmlString += "</div>";
                 htmlString += "</li>";
                 }
             htmlString += "</ul>";
-            htmlString += "</div><div class=\"modal-footer\"></div>";
+            htmlString += "</div><div class=\"modal-footer\"></div></hr>";
             return Json(htmlString);
             }
         public ActionResult Browser(Guid id)

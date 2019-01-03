@@ -105,8 +105,8 @@
         //保存该评论的id
         $("#pReplyID").val(id);
         //取回复的内容
-        var divName = 'Content-' + id;
-        var content = "<br/><br/><div style='margin:20px; border:1px solid black'>引用：<br/>" + $("#" + divName).html() + "</div>";
+        var divName = 'Content-' + divid;
+        var content = "<br/><br/><div style=\"margin-left:20px;width:100%;\">回复：<br/>" + $("#" + divName).html() + "</div>";
         //把内容赋值给ueditor
         var ue = UE.getEditor('container');
         ue.ready(function () {
@@ -125,7 +125,8 @@
             data: {"pid":id},
             dataType: 'json',
             success: function (data) {
-                $("#comm").html(data);
+                $("#Div-SonCmts").html(data);
+                $('#myModal').modal('toggle');
             }
         });
     }
@@ -139,7 +140,17 @@
             data: {id: id },
             dataType: 'json',
             success: function (data) {
-                $("#comm").html(data);
+                if (data.Status == 'noLogin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account", new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else if (data.Status == 'Parent') {
+                    //html文本注入div
+                    $("#divCmt").html(data.html);
+                }
+                else if (data.Status == 'Son') {
+                    $("#Div-SonCmts").html(data.html);
+                    //$('#myModal').modal('toggle');
+                }
             }
         });
     }
@@ -151,7 +162,13 @@
             data: { id: id },
             dataType: 'json',
             success: function (data) {
-                $("#comm").html(data);
+            if (data.Status == 'noLogin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account", new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                }
             }
         });
     }
