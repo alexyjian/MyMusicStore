@@ -67,7 +67,7 @@ namespace MusicStore.Controllers
         /// <summary>
         /// 踩
         /// </summary>
-        /// <param name="id">回复</param>,
+        /// <param name="id">回复</param>
         /// <returns></returns>
         public ActionResult Hate(Guid id)
         {
