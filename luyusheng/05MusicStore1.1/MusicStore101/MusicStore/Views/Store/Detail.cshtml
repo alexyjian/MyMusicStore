@@ -81,6 +81,10 @@
                 子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
                 子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
                 子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+                子回复。。。<a href='#' class='reply' style='margin:0 20px 0 40px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' class='reply' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
             </div>
             <div class="modal-footer">
             </div>
@@ -90,21 +94,19 @@
 
 <script>
     //点击评论中的回复按钮触发的方法
-    function GetQuote(id,divid){
+    function GetQuote(id){
         //保存该评论的id
         $("#pReplyID").val(id)
         //alert($("#pReplyID").val());
         //取回复的内容
-        var divName = 'Content-' + divid;
-        var content = "<br/><br/><div style ='margin:20px;border:1px solid black'>引用:<br/>" + $("#" + divName).html() + "</div>";
+        var divName = 'Content-' +id;
+        var content = "<p></p>"+ $("#" + divName).html();
 
         //把内容赋值给ueditor
         var ue = UE.getEditor('editor');
         ue.ready(function (){
             ue.setContent(content);
-        });
-        //如果model打开则关了
-        $('#myModal').modal('hide');
+        });   
     }
 
     function ShowCmt(id){
@@ -113,7 +115,7 @@
             type: 'post',
             asyn: true,
             url: '@Url.Action("showCmt","Store")',
-            data: { "pli": id },
+            data: { "pid": id },
             dataType: 'json',
             success: function (data){
                 $("#Div-SonCmts").html(data);
@@ -123,16 +125,26 @@
     }
 
     //点赞
-    function Like(id){
+    function Like(id) {
+        console.log("1");
         $.ajax({
             type: 'post',
             asyn: true,
             url: '@Url.Action("Like","Store")',
-            data: {"pli": id},
+            data: {"id": id},
             dataType: 'json',
             success: function(data){
-                //detail
-                //modal
+                //登录
+                if (data == "nologin")
+                {
+                    location.href = "@Url.Action("login","Account",
+                   new {returnUrl =Url.Action("Detail","Store",new {id =Model.ID})})";
+                }
+                else if(data !="false")
+                {
+                    $('#divCmt').htm(data);
+                    $('#div-SonCmts').html(data);
+                }
             }
         });
     }
@@ -143,11 +155,20 @@
             type: 'post',
             asyn: true,
             url: '@Url.Action("hate","Store")',
-            data: {"pli": id},
+            data: {"id": id},
             dataType: 'json',
             success: function (data){
-                //detail
-                //modal
+                //登录
+                if (data == "nologin")
+                {
+                    location.href = "@Url.Action("login","Account",
+                    new {returnUrl =Url.Action("Detail","Store",new {id =Model.ID})})";
+                }
+                else if(data !="false")
+                {
+                    $('#divCmt').htm(data);
+                    $('#div-SonCmts').html(data);
+                }
             }
         });
     }
@@ -189,15 +210,14 @@
                     if (data == 'nologin') {
                      //如果没登录
                      location.href = "@Url.Action("login", "Account",
-                             new {returnUrl =Url.Action("Detail","Store",new {id=Model.ID})})";
+                   new {returnUrl =Url.Action("Detail","Store",new {id=Model.ID})})";
                     }
                     else{
                         //html文本注入div
                         $("#divCmt").html(data);
                         //清空ueditor编辑器
                         UE.getEditor("editor").setContent('');
-                        //location.reload();
-                        alert('发表成功!');
+                        //alert('发表成功!');
                     //局部刷新
                     }
                 }
@@ -217,14 +237,15 @@
             success: function(data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
-                    location.href = "@Url.Action("login","Account",
-                      new {returnUrl = Url.Action("Detail","Store", new{id = Model.ID})})";
+                    location.href ="@Url.Action("login","Account",
+                      new {returnUrl =Url.Action("Detail","Store", new{id =Model.ID})})";
                 }
-                else {
+                else
+                {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
                     //2秒后，自动重新刷新此区域
-                    setTimeout(function() {
+                    setTimeout(function(){
                             location.reload();
                         },
                         2000);
