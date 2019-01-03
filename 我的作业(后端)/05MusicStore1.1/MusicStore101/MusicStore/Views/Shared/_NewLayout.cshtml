@@ -41,7 +41,8 @@
 <body>
     <div id="header">
         @*Logo和菜单*@
-        <h1><a href="/">吔屎云音乐商店</a></h1>
+        <h1><a href="/">0吔屎云音乐商店
+            </a></h1>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="@Url.Action("index","home")">首页</a></li>
             <li><a href="@Url.Action("Index","Store")">专辑</a></li>
@@ -55,6 +56,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                         aria-haspopup="true" aria-expanded="false">
+                        <img src="@user.Person.Avarda" alt="Girl.jpg" id="userAvarda" />
                         @user.Person.Name<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                <li><a href="@Url.Action("Index", "ShoppingCart")">购物车(@carts.Count)</a></li>

@@ -68,7 +68,58 @@
     </div>
 </div>
 
+@*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="Div-SonCmts">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    原回复
+                </h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->*@
+
 <script>
+
+    //点击评论中的回复按钮触发的方法
+    function GetQuote(id,divid) {
+        //保存该评论的id
+        $("#pReplyID").val(id);
+        alert($("#pReplyID").val());
+        //取回复的内容
+        var divName = 'Content-' + id;
+        var content = "<br/><br/><div style='margin:20px; border:1px solid black'>引用：<br/>" + $("#" + divName).html() + "</div>";
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function () {
+            ue.setContent(content);
+        });
+        //如果model打开则关了
+        $('#myModal').modal('hide');
+    }
+
+    function ShowCmt(id) {
+        //ajax 查询出子回复
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("showCmts","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function (data) {
+                $("#Div-SonCmts").html(data);
+                $('#myModal').modal('toggle');
+            }
+        });
+    }
 
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
@@ -81,26 +132,60 @@
     editor.render('editor');
 
 
-    $("#addcart").click(function() {
+
+    //提交回复
+    $("#btnCmt").click(function () {
+        //获得编辑器中的内容
+        UE.getEditor('editor');
+        var content = UE.getEditor('editor').getContent();
+        var pid = $("#pReplyID").val();
+        //console.log(content);
+        //ajax提交
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("AddCmt","Store")',
+            data: {
+                "id":"@Model.ID",
+                "cmt": content,
+                "reply": pid
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                    new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    UE.getEditor('editor').setContent('');
+                }
+            }
+        });
+    });
+
+      //添加到购物车成功，把动画取消
+                   $("#addcart").click(function() {
         //异步
         $("#msg").html("<img src='../../content/images/loading.gif'>添加到购物车，请稍候...");
         $.ajax({
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
-            data:{id:"@Model.ID" },
+            data: { id: "@Model.ID" },
             dataType: 'json',
             success: function(data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
                     location.href = "@Url.Action("login", "Account",
                                          new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
-                }
-                else {
+                } else {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
                     //2秒后，自动重新刷新此区域
-                    setTimeout(function () {
+                    setTimeout(function() {
                             location.reload();
                         },
                         2000);
