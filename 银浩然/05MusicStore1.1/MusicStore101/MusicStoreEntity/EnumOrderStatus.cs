@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace MusicStoreEntity
 {
     /// <summary>
-    /// 订单的状态
+    /// 订单的状态  枚举类型
     /// </summary>
-   public enum EnumOrderStatus
+      public enum EnumOrderStatus
     {
         未付款,
         已付款,
-        交易关闭,
+        交易关闭
     }
 }

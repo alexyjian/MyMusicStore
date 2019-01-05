@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-   public class Artist
+    /// <summary>
+    /// 添加歌手实体
+    /// </summary>
+   public   class Artist
     {
         public Guid ID { get; set; }
         public string Name { get; set; }
         public bool Sex { get; set; }
         public string Description { get; set; }
+
         public Artist()
         {
             ID = Guid.NewGuid();

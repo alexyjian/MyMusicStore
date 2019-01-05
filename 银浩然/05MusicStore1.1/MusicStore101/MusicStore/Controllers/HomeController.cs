@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using MusicStoreEntity.UserAndRole;
-using MusicStoreEntity;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MusicStoreEntity;
+using MusicStoreEntity.UserAndRole;
 
 namespace MusicStore.Controllers
 {
@@ -16,22 +18,26 @@ namespace MusicStore.Controllers
     {
         public ActionResult Index()
         {
-            var context = new EntityDbContext();
-            var list= context.Albums.OrderByDescending(x => x.PublisherDate).Take(20).ToList();
+            var context = new MusicContext();
+            var list= context.Ablums.OrderByDescending(x => x.PublisherDate).Take(20).ToList();
             return View(list);
         }
-
-        public string TestLogin(string username = "tf", string pwd = "123456")
+        /// <summary>
+        /// 登录测试
+        /// </summary>
+        /// <returns></returns>
+        public string TestLogin(string username = "xn", string pwd = "123.abc")
         {
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.EntityDbContext()));
+            var userManager =
+                new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new MusicStoreEntity.MusicContext()));
             var user = userManager.Find(username, pwd);
             if (user != null)
             {
                 var roleName = "";
-                var context = new MusicStoreEntity.EntityDbContext();
+                var context = new MusicStoreEntity.MusicContext();
                 foreach (var role in user.Roles)
-                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + " ";
-                return "登录成功，用户属于:" + roleName;
+                    roleName += (context.Roles.Find(role.RoleId) as ApplicationRole).DisplayName + "";
+                return "登录成功，用户属于：" + roleName;
             }
             else
                 return "登录失败";
@@ -54,11 +60,12 @@ namespace MusicStore.Controllers
         {
             var client = new HttpClient();
             //初始化提交的参数
-            var values =new List<KeyValuePair<string,string>>();
+            var values=new List<KeyValuePair<string,string>>();
             values.Add(new KeyValuePair<string, string>("UserName","admin"));
-            values.Add(new KeyValuePair<string, string>("PassWord", "123.abc"));
+            values.Add(new KeyValuePair<string, string>("PassWorld","123.abc"));
             var content=new FormUrlEncodedContent(values);
-            var respnse = await client.PostAsync("http://10.88.91.101:9000", content);
+            var respnse = await client.PostAsync("http://10.88.91.101:9000/account/login", content);
+            //读出所有的结果
             var html = await respnse.Content.ReadAsStringAsync();
             return Json("");
         }

@@ -1,33 +1,32 @@
-﻿using System;
+﻿using MusicStoreEntity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using MusicStoreEntity;
 using System.Threading;
+using System.Web;
 
 namespace MusicStore.Migrations
 {
     public class GenreSeed
     {
-        private static readonly MusicStoreEntity.EntityDbContext _dbContext = new MusicStoreEntity.EntityDbContext();
+        public static readonly MusicStoreEntity.MusicContext _dbContext = new MusicStoreEntity.MusicContext();
 
         public static void Seed()
         {
-            _dbContext.Database.ExecuteSqlCommand("delete albums");
+            _dbContext.Database.ExecuteSqlCommand("delete ablums");
             _dbContext.Database.ExecuteSqlCommand("delete artists");
             _dbContext.Database.ExecuteSqlCommand("delete genres");
             var genres = new List<Genre>()
             {
-                new Genre() {Name = "摇滚",Description = "Rock"},
-                new Genre() {Name =  "爵士",Description = "Jazz"},
-                new Genre() {Name =  "重金属",Description = "Metal"},
-                new Genre() {Name =  "慢摇",Description = "DownTempo"},
-                new Genre() {Name =  "蓝调",Description = "Blue"},
-                new Genre() {Name =  "拉丁",Description = "Latin"},
-                new Genre() {Name =  "流行",Description = "Pop"},
-                new Genre() {Name =  "古典",Description = "Classical"},
-                new Genre() {Name =  "DJ",Description = "DJ"},
-                new Genre() {Name =  "嘻哈",Description = "HiHop"},
+                new Genre() {Name="古典",Description="Classical" },
+                new Genre() {Name="摇滚",Description="Rock" },
+                new Genre() {Name="蓝调",Description="Blues" },
+                new Genre() {Name="流行",Description="Popular" },
+                new Genre() {Name="慢摇",Description="Slow wave" },
+                new Genre() {Name="爵士",Description="Sir" },
+                new Genre() {Name="拉丁",Description="Latin" },
+                new Genre() {Name="DJ",Description="DJ" },
+                new Genre() {Name="嘻哈",Description="HipHop" },
             };
 
             foreach (var g in genres)
@@ -35,289 +34,185 @@ namespace MusicStore.Migrations
 
             var artists = new List<Artist>()
             {
-                new Artist(){Name = "孙耀威",Sex = true,Description="1973年1月3日生于香港，香港著名歌手、演员、主持的全能型活跃艺人。"},
-                new Artist(){Name = "周杰伦",Sex = true,Description="著名歌手，音乐人，词曲创作人，编曲及制作人，MV及电影导演。新世纪华语歌坛领军人物，中国风歌曲始祖，被时代周刊誉为“亚洲猫王”。"},
-                new Artist(){Name = "林俊杰",Sex = true,Description="著名男歌手，作曲人、作词人、音乐制作人，偶像与实力兼具。"},
-                new Artist(){Name = "张芸京",Sex = false,Description="被称为“摇滚小天后”台湾女歌手。"},
-                new Artist(){Name = "金莎",Sex = false,Description="金莎（kym），中国流行女歌手、演员。"},
-                new Artist(){Name = "张杰",Sex = true,Description="华语歌坛新生代领军人物，偶像与实力兼具的超人气天王。"},
-                new Artist(){Name = "赵雷",Sex = true,Description="民谣音乐人赵雷，中国内地新生代民谣歌手。"},
-                new Artist(){Name = "梁静茹",Sex = false,Description="华语著名女歌手，马来西亚人。被称为“情歌天后”。"},
-                new Artist(){Name = "毛不易",Sex = true,Description="毛不易，原名王维家，1994年10月1日出生于黑龙江省齐齐哈尔市泰来县，中国内地流行乐男歌手，毕业于杭州师范大学护理专业。"},
-                new Artist(){Name = "徐佳莹",Sex = false,Description="华语流行音乐创作女歌手、金曲奖得主。1984年12月20日生于台湾台中市，籍贯四川省简阳县。"},
+                new Artist() {Name = "张学友", Sex = true, Description = ""},
+                new Artist() {Name = "周杰伦", Sex = true, Description = ""},
+                new Artist() {Name = "张杰", Sex = true, Description = ""},
+                new Artist() {Name = "那英", Sex = false, Description = ""},
+                new Artist() {Name = "李宇春", Sex = false, Description = ""},
+                new Artist() {Name = "Taylor Swift", Sex = false, Description = ""}
             };
             foreach (var a in artists)
                 _dbContext.Artists.Add(a);
+            _dbContext.SaveChanges();
 
-            var albums = new List<Album>()
+            //使用lamda代替foreach
+            new List<Ablum>
             {
-                new Album
+                new Ablum
                 {
-                    Title="爱的故事上集",Genre=genres.Single(g =>g.Name=="摇滚"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="孙耀威"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "吻别", Genre = genres.Single(g => g.Name == "流行"), Price = 10M,
+                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/Images/35.jpg"
                 },
-                 new Album
+                new Ablum
                 {
-                    Title="爱的故事下集",Genre=genres.Single(g =>g.Name=="摇滚"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="孙耀威"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "好久不见", Genre = genres.Single(g => g.Name == "流行"), Price = 10M,
+                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/Images/35.jpg"
                 },
-                  new Album
+                new Ablum
                 {
-                    Title="相爱很难",Genre=genres.Single(g =>g.Name=="摇滚"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="孙耀威"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "如果这不算爱", Genre = genres.Single(g => g.Name == "古典"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "张学友"), AlbumArtUrl = "/Content/Images/35.jpg"
                 },
-                   new Album
+                new Ablum
                 {
-                    Title="仍然喜欢你",Genre=genres.Single(g =>g.Name=="摇滚"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="孙耀威"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "不爱我就拉倒", Genre = genres.Single(g => g.Name == "摇滚"), Price = 30M,
+                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/36.jpg"
                 },
-                    new Album
+                new Ablum
                 {
-                    Title="明知故犯",Genre=genres.Single(g =>g.Name=="摇滚"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="孙耀威"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "等你下课", Genre = genres.Single(g => g.Name == "摇滚"), Price = 26M,
+                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/36.jpg"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="夜曲",Genre=genres.Single(g =>g.Name=="爵士"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "给我一首歌的时间", Genre = genres.Single(g => g.Name == "流行"), Price = 15M,
+                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/36.jpg"
                 },
-                 new Album
+                new Ablum
                 {
-                    Title="稻香",Genre=genres.Single(g =>g.Name=="爵士"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "不能说的秘密", Genre = genres.Single(g => g.Name == "流行"), Price = 35M,
+                    Artist = artists.Single(a => a.Name == "周杰伦"), AlbumArtUrl = "/Content/Images/36.jpg"
                 },
-                  new Album
+                new Ablum
                 {
-                    Title="布拉格广场",Genre=genres.Single(g =>g.Name=="爵士"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "这就是爱", Genre = genres.Single(g => g.Name == "蓝调"), Price = 18M,
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                   new Album
+                new Ablum
                 {
-                    Title="告白气球",Genre=genres.Single(g =>g.Name=="爵士"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "爱不解释", Genre = genres.Single(g => g.Name == "蓝调"), Price = 20M,
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                    new Album
+                new Ablum
                 {
-                    Title="青花瓷",Genre=genres.Single(g =>g.Name=="爵士"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="周杰伦"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "一路之下", Genre = genres.Single(g => g.Name == "古典"), Price = 30M,
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="江南",Genre=genres.Single(g =>g.Name=="蓝调"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="林俊杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "只要平凡", Genre = genres.Single(g => g.Name == "流行"), Price = 26M,
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="背对背拥抱",Genre=genres.Single(g =>g.Name=="蓝调"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="林俊杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "不想想你", Genre = genres.Single(g => g.Name == "古典"), Price = 16M,
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="可惜没如果",Genre=genres.Single(g =>g.Name=="蓝调"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="林俊杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "Precious", Genre = genres.Single(g => g.Name == "流行"), Price = 10M,
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="修炼爱情",Genre=genres.Single(g =>g.Name=="蓝调"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="林俊杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "Precious", Genre = genres.Single(g => g.Name == "慢摇"), Price = 30M,
+                    Artist = artists.Single(a => a.Name == "张杰"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="小酒窝",Genre=genres.Single(g =>g.Name=="蓝调"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="林俊杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "默", Genre = genres.Single(g => g.Name == "慢摇"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="偏爱",Genre=genres.Single(g =>g.Name=="嘻哈"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张芸京"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "相爱恨早", Genre = genres.Single(g => g.Name == "拉丁"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                 new Album
+                new Ablum
                 {
-                    Title="春泥",Genre=genres.Single(g =>g.Name=="嘻哈"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张芸京"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "一笑而过", Genre = genres.Single(g => g.Name == "慢摇"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                  new Album
+                new Ablum
                 {
-                    Title="情人结",Genre=genres.Single(g =>g.Name=="嘻哈"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张芸京"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "那又怎样", Genre = genres.Single(g => g.Name == "慢摇"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                   new Album
+                new Ablum
                 {
-                    Title="黑裙子",Genre=genres.Single(g =>g.Name=="嘻哈"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张芸京"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "相见不如怀念", Genre = genres.Single(g => g.Name == "慢摇"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "那英"), AlbumArtUrl = "/Content/Images/placeholder.gif"
                 },
-                    new Album
+                new Ablum
                 {
-                    Title="相反的我",Genre=genres.Single(g =>g.Name=="嘻哈"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张芸京"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "和你一样", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/33.jpg"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="星月神话",Genre=genres.Single(g =>g.Name=="古典"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="金莎"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "动物世界", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/33.jpg"
                 },
-                 new Album
+                new Ablum
                 {
-                    Title="画中仙",Genre=genres.Single(g =>g.Name=="古典"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="金莎"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "野蛮生长", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/33.jpg"
                 },
-                  new Album
+                new Ablum
                 {
-                    Title="梦千年之恋",Genre=genres.Single(g =>g.Name=="古典"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="金莎"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "无花果", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/33.jpg"
                 },
-                   new Album
+                new Ablum
                 {
-                    Title="最后一个夏天",Genre=genres.Single(g =>g.Name=="古典"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="金莎"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "1987我不知会遇见你", Genre = genres.Single(g => g.Name == "DJ"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "李宇春"), AlbumArtUrl = "/Content/Images/33.jpg"
                 },
-                    new Album
+                new Ablum
                 {
-                    Title="爱的魔法",Genre=genres.Single(g =>g.Name=="古典"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="金莎"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "Shake It Off", Genre = genres.Single(g => g.Name == "蓝调"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/Images/66.jpg"
                 },
-                new Album
+                new Ablum
                 {
-                    Title="我们都一样",Genre=genres.Single(g =>g.Name=="流行"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "Red", Genre = genres.Single(g => g.Name == "蓝调"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/Images/66.jpg"
                 },
-                 new Album
+                new Ablum
                 {
-                    Title="这，就是爱",Genre=genres.Single(g =>g.Name=="流行"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "Delicate", Genre = genres.Single(g => g.Name == "蓝调"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/Images/66.jpg"
                 },
-                  new Album
+                new Ablum
                 {
-                    Title="第一夫人",Genre=genres.Single(g =>g.Name=="流行"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "Del", Genre = genres.Single(g => g.Name == "蓝调"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/Images/66.jpg"
                 },
-                   new Album
+                new Ablum
                 {
-                    Title="天下",Genre=genres.Single(g =>g.Name=="流行"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
+                    Title = "licate", Genre = genres.Single(g => g.Name == "蓝调"), Price = 25M,
+                    Artist = artists.Single(a => a.Name == "Taylor Swift"), AlbumArtUrl = "/Content/Images/66.jpg"
                 },
-                    new Album
-                {
-                    Title="着魔",Genre=genres.Single(g =>g.Name=="流行"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="张杰"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="成都",Genre=genres.Single(g =>g.Name=="重金属"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="赵雷"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                 new Album
-                {
-                    Title="南方姑娘",Genre=genres.Single(g =>g.Name=="重金属"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="赵雷"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                  new Album
-                {
-                    Title="理想",Genre=genres.Single(g =>g.Name=="重金属"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="赵雷"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                   new Album
-                {
-                    Title="画",Genre=genres.Single(g =>g.Name=="重金属"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="赵雷"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                    new Album
-                {
-                    Title="少年锦时",Genre=genres.Single(g =>g.Name=="重金属"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="赵雷"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="勇气",Genre=genres.Single(g =>g.Name=="慢摇"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="梁静茹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                  new Album
-                {
-                    Title="宁夏",Genre=genres.Single(g =>g.Name=="慢摇"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="梁静茹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                    new Album
-                {
-                    Title="分手快乐",Genre=genres.Single(g =>g.Name=="慢摇"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="梁静茹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                      new Album
-                {
-                    Title="暖暖",Genre=genres.Single(g =>g.Name=="慢摇"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="梁静茹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                        new Album
-                {
-                    Title="会过去的",Genre=genres.Single(g =>g.Name=="慢摇"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="梁静茹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="平凡的一天",Genre=genres.Single(g =>g.Name=="DJ"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="毛不易"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="无问",Genre=genres.Single(g =>g.Name=="DJ"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="毛不易"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="不染",Genre=genres.Single(g =>g.Name=="DJ"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="毛不易"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="消愁",Genre=genres.Single(g =>g.Name=="DJ"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="毛不易"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="像我这样的人",Genre=genres.Single(g =>g.Name=="DJ"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="毛不易"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="身骑白马",Genre=genres.Single(g =>g.Name=="拉丁"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="徐佳莹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="最初的记忆",Genre=genres.Single(g =>g.Name=="拉丁"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="徐佳莹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="一江水",Genre=genres.Single(g =>g.Name=="拉丁"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="徐佳莹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="失落沙洲",Genre=genres.Single(g =>g.Name=="拉丁"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="徐佳莹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-                new Album
-                {
-                    Title="最美的遇见",Genre=genres.Single(g =>g.Name=="拉丁"),Price=8.99M,
-                    Artist=artists.Single(a=>a.Name=="徐佳莹"),AlbumArtUrl="/Content/Images/placeholder.gif"
-                },
-            };
-            foreach (var n in albums)
-                _dbContext.Albums.Add(n);
+
+            }.ForEach(n => _dbContext.Ablums.Add(n));
+               
             _dbContext.SaveChanges();
         }
 
+        //给GenreId和Ablums赋值
         public static void Extend()
         {
-            var albums = _dbContext.Albums.ToList();
-            foreach(var album in albums)
+            //把所有专辑查出来
+            var albums = _dbContext.Ablums.ToList();
+            foreach (var album in albums)
             {
-                var item = _dbContext.Albums.Find(album.ID);
+                var item = _dbContext.Ablums.Find(album.ID);
                 item.GenreId = item.Genre.ID.ToString();
                 item.ArtistId = item.Artist.ID.ToString();
                 _dbContext.SaveChanges();
                 Thread.Sleep(3);
             }
         }
+
     }
 }

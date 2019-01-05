@@ -3,17 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+
 namespace MusicStore.Migrations
 {
     public class UserAndRoleSeed
     {
-        private static readonly MusicStoreEntity.EntityDbContext _dbContext = new MusicStoreEntity.EntityDbContext();
+        public static readonly MusicStoreEntity.MusicContext _dbContext = new MusicStoreEntity.MusicContext();
 
-        /// <summary>
-        /// 添加角色
-        /// </summary>
+        //添加角色
         public static void AddRoles()
         {
+          
             var idManger = new IdentityManager();
             var role1 = new ApplicationRole()
             {
@@ -50,63 +50,62 @@ namespace MusicStore.Migrations
             #region 管理员
             var person1 = new Person()
             {
-                FirstName = "梅",
-                LastName = "西",
-                Name = "梅西",
-                CredentialsCode = "4500002015010112345",
-                Birthday = DateTime.Parse("2015-01-01"),
+                FirstName = "张",
+                LastName = "杰",
+                Name = "张杰",
+                CredentialsCode = "450000198212205923",
+                Birthday = DateTime.Parse("1982-12-20"),
                 Sex = true,
-                MobileNumber = "13833883388",
-                Email = "messi@163.com",
+                MobileNumber = "13471892486",
+                Email = "jason@1220.com",
                 CreateDateTime = DateTime.Now,
-                TelephoneNumber = "3158899",
+                TelephoneNumber = "321838579",
                 Description = "超级管理员",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
             var loginUser = new ApplicationUser()
             {
-                UserName = "messi",
-                FirstName = "梅",
-                LastName = "西",
-                ChineseFullName = "梅西",
-                MobileNumber = "13833883388",
-                Email = "messi@163.com",
+                UserName = "Jason",
+                FirstName = "张",
+                LastName = "杰",
+                ChineseFullName = "张杰",
+                MobileNumber = "13471892456",
+                Email = "Jason@1220.com",
                 Person = person1,
             };
             //缺省配置，密码大于6位，字母数字特殊符号，否则不能创建用户
             idManager.CreateUser(loginUser, "123.abc");
             //添加到Admin角色
             idManager.AddUserToRole(loginUser.Id, "Admin");
-
-            #endregion 
+            #endregion
 
             #region 注册用户
 
             var person2 = new Person()
             {
-                FirstName = "黄",
-                LastName = "生",
-                Name = "黄生",
-                CredentialsCode = "452222198210090011",
+                FirstName = "谢",
+                LastName = "娜",
+                Name = "谢娜",
+                CredentialsCode = "45200019810506889",
                 Birthday = DateTime.Now,
                 Sex = false,
-                MobileNumber = "13899998888",
-                Email = "978798821@qq.com",
+                MobileNumber = "1895324988",
+                Email = "xiena@56.com",
                 CreateDateTime = DateTime.Now,
-                TelephoneNumber = "80861688",
+                TelephoneNumber = "89799879",
                 Description = "",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
-            var newUser2 = new ApplicationUser() 
+            var newUser2 = new ApplicationUser()
             {
-                UserName = "hs",
-                FirstName = "黄",
-                LastName = "生",
-                ChineseFullName = "黄生",
-                MobileNumber = "13899998888",
-                Email = "978798821@qq.com",
+                UserName = "xn",
+                FirstName = "谢",
+                LastName = "娜",
+                ChineseFullName = "谢娜",
+                MobileNumber = "1895324988",
+                Email = "xiena@56.com",
                 Person = person2
             };
             idManager.CreateUser(newUser2, "123.abc");
@@ -118,28 +117,28 @@ namespace MusicStore.Migrations
 
             var person3 = new Person()
             {
-                FirstName = "许",
-                LastName = "生",
-                Name = "许生",
-                CredentialsCode = "452222198210090011",
-                Birthday = DateTime.Parse("1980-01-01"),
+                FirstName = "何",
+                LastName = "炅",
+                Name = "何炅",
+                CredentialsCode = "45201331972112600",
+                Birthday = DateTime.Parse("1972-11-26"),
                 Sex = true,
-                MobileNumber = "13899998888",
-                Email = "646495830@qq.com",
+                MobileNumber = "18975697598",
+                Email = "1234567@qq.com",
                 CreateDateTime = DateTime.Now,
-                TelephoneNumber = "2621688",
+                TelephoneNumber = "23586896",
                 Description = "",
                 UpdateTime = DateTime.Now,
                 InquiryPassword = "123456",
             };
             var newUser3 = new ApplicationUser()
             {
-                UserName = "xs",
-                FirstName = "许",
-                LastName = "生",
-                ChineseFullName = "许生",
-                MobileNumber = "13899998888",
-                Email = "646495830@qq.com",
+                UserName = "hj",
+                FirstName = "何",
+                LastName = "炅",
+                ChineseFullName = "何炅",
+                MobileNumber = "18975697598",
+                Email = "1234567@qq.com",
                 Person = person3
             };
             idManager.CreateUser(newUser3, "123.abc");

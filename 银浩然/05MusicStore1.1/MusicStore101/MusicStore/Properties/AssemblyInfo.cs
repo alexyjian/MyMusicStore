@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MusicStore")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MusicStore")]
-[assembly: AssemblyCopyright("版权所有(C) Microsoft 2018")]
+[assembly: AssemblyCopyright("版权所有(C)  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于 typelib 的 ID
-[assembly: Guid("5fee6e89-5919-4462-ab9a-4c11a0f03216")]
+[assembly: Guid("c797aa9d-d3fb-4989-86d6-41f38b84fa73")]
 
 // 程序集的版本信息由下列四个值组成:
 //

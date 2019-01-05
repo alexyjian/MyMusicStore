@@ -1,4 +1,5 @@
-﻿@model MusicStoreEntity.Album
+﻿@using MusicStoreEntity
+@model MusicStoreEntity.Ablum
 
 @{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
@@ -7,21 +8,24 @@
 
 
 <h2>@Model.Title</h2>
-
+ 
 <div id="box-video">
-    <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
+    <div class="cd" style="background: url(/Upload/Avarda/06280f8e-0db0-488a-ad72-05fed794fcfe.jpg)no-repeat; background-size: 100%;" >
         <div class="cd-center">
-            <audio src="@Model.MusicUrl" controls autoplay loop></audio>
+            <audio src="@Model.MusucUrl" controls autoplay loop></audio>
         </div>
     </div>
 </div>
 
 <div id="album-details">
     <p>
+        <img src="@Model.AlbumArtUrl"/>
+    </p>
+    <p>
         <em>
             发布时间：
         </em>
-        @Model.PublisherDate.ToString("yyyy年MM月dd日");
+        @Model.PublisherDate.ToString("yyy年MM月dd日");
     </p>
     <p>
         <em>
@@ -42,72 +46,221 @@
         ￥@String.Format("{0:F}", Model.Price)
     </p>
 
+
     <div id="msg"></div>
     <p class="button">
-        <a class="btn" id="addcart">添加到购物车</a>
+        <a class="btn" id="addcrt">添加到购物车</a>
         <div id="msg"></div>
-    </p>
-    <div style="height:40px"></div>
-    <p>
-        <em>小呆：</em>兜里有钱
-    </p>
+    </p>  
+</div>  
 
-    <p>
-        <em>小青：</em>肚里有墨
-    </p>
 
-    <p>
-        <em>小莫：</em>嘴里有糖
-    </p>
+@* 显示评论 *@
+    <div class="row">
+        <div class="col-md-10">
+            <div id="divCmt">
+                @Html.Raw(ViewBag.Cmt)
+            </div>
+        </div>
+    </div>
+    
 
-    <p>
-        <em>小沐：</em>怀里有你
-    </p>
+    @* 百度ueditor的呈现 *@
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group" id="div-editor">
+                <textarea id="editor" name="editor"></textarea>
+                <input type="hidden" id="pReplyID"/>
+            </div> 
+            <button id="btnCmt" type="button" class="btn btn-success">评论</button>
 
-    <p>
-        <em>小雨：</em>足矣
-    </p>
+        </div>
+    </div>
 
- <div style="height:120px"></div>
-    <script id="container" name="content" type="text/plain">
-    这里写你的初始化内容
-</script>
-    <!-- 配置文件 -->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
-    <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="~/Content/ueditor1_4_3-utf8-net/ueditor.all.js"></script>
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('container');
-    </script>
-</div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="Div-SonCmts" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        x
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        原标题
+                    </h4>
+                </div>
+                <div class="modal-body" >
+                    子回复...<a href='#' class='reply' style='margin:0 20px 0 50px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                    子回复...<a href='#' class='reply' style='margin:0 20px 0 50px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br/>
+                    子回复...<a href='#' class='reply' style='margin:0 20px 0 50px'><i class='glyphicon glyphicon-thumbs-up'></i>(0)</a><a href='#' style='margin:0 20px'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a><br />
+
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+
 
 <script>
-    $("#addcart").click(function () {
+
+    //点击评论中的回复按钮触发的方法
+    function GetQuote(id,divid) {
+        //保存该评论的ID
+        $("#pReplyID").val(id);
+        alert($("#pReplyID").val());
+        //取回复的时间
+        var divName = 'Content-' + divid;
+        var content = "<p></p>" + $("#" + divName).html();
+        var content = "<br/><br/><div style='margin:20px; border:1px solid black;'>引用：<br/>" + $("#" + divName).html() + "</div>";
+
+
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function() {
+            ue.setContent(content);
+        });
+
+        //如果model打开则关
+        $('#myModal').modal('hide');
+    }
+
+    //子回复
+    function ShowCmt(id) {
+        //ajax查询出子回复
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("showCmts","Store")',
+            data: { "pid": id },
+            dataType: 'json',
+            success: function(data) {
+                $("#Div-SonCmts").html(data);
+                $("#myModal").modal('toggle');
+            }
+        });
+    }
+
+        //点赞
+        function Like(id) {
+            $.ajax({
+                type: 'post',
+                asyn: true,
+                url: '@Url.Action("Like", "Store")',
+                data: { id,"Albumid":"@Model.ID"},
+                dataType: 'json',
+                success: function (data) {
+                    if (data == 'nologin') {
+                        //如果没登录
+                        location.href = "@Url.Action("login","Account",
+                        new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                    }
+                    else {
+                        $("#divCmt").html(data);
+                    }
+                }
+            });
+        }
+
+        //踩
+        function Hate(id) {
+            $.ajax({
+                type: 'post',
+                asyn: false,
+                url: '@Url.Action("Hate", "Store")',
+                data: { id, "AblumID": "@Model.ID"},
+                dataType: 'json',
+                success: function(data) {
+                    if (data == 'nologin') {
+                        //如果没登录
+                        location.href = "@Url.Action("login","Account",
+                        new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                    }
+                    else {
+                        $("#divCmt").html(data);
+                    }
+                }
+            });
+        }
+
+
+
+    //百度编辑器调用
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/ueditor/', //配置编辑器的路径
+        iframeCssUrl: '/ueditor/themes/iframe.css', //自定义样式路径
+        initialContent: '五星好评', //初始化内容
+        autoHeightEnabled: true, //高度是否自适应
+        minFrameHeight: 500 //编辑器最小的高度
+    });
+    editor.render('editor');
+
+    //提交回复
+    $("#btnCmt").click(function() {
+        //获取编辑器中的内容
+        UE.getEditor('editor');
+        var content = UE.getEditor('editor').getContent();
+        var pid = $("#pReplyID").val();
+        //console.log(content);
+        //ajax提交
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("AddCmt","Store")',
+            data: {
+                "id": "@Model.ID",
+                "cmt": content,
+                "reply": pid
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                                        new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                }
+                else {
+                    //HTML文本注入div
+                    $("#divCmt").html(data);
+                    //清空editor编辑器
+                    UE.getEditor('editor').setContent('');
+                    //location.reload();
+                    //alert('发表成功!');
+
+                }
+            }
+        });
+    });
+
+
+    //添加购物车
+    $("#addcrt").click(function() {
         //异步
-        $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍候...");
+        $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍后......");
         $.ajax({
             type: 'post',
             async: true,
             url: '../../ShoppingCart/AddCart',
             data: { id: "@Model.ID" },
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 //如果没有登录，跳转到登录页
                 if (data == "nologin") {
-                    location.href = "@Url.Action("login", "Account",
-                                         new {returnUrl = Url.Action("Detail", "Store", new {id = Model.ID})})";
-                }
-                else {
+                    location.href = "@Url.Action("Login", "Account",
+                             new {returnUrl=Url.Action
+                                 ("Detail","Store",new {id=Model.ID})})";
+                } else {
                     //添加到购物车成功，把动画取消
                     $("#msg").html(data);
-                    //2秒后，自动重新刷新此区域
-                    //setTimeout(function () {
-                    //    location.reload();
-                    //},
-                    //    2000);
+                    //重新刷新此区域
+                    setTimeout(function() {
+                            location.reload();
+                        },
+                        2000);
                 }
             }
         });
     });
+
 </script>

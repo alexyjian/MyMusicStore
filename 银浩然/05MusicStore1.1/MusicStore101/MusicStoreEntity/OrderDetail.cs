@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace MusicStoreEntity
 {
-   public class OrderDetail
+    /// <summary>
+    /// 订单明细
+    /// </summary>
+  public  class OrderDetail
     {
         public Guid ID { get; set; }
+        //专辑的主键
         public string AlbumID { get; set; }
-        public virtual  Album Album { get; set; }
+        //专辑
+        public virtual Ablum Ablum { get; set; }
+
         public decimal Price { get; set; }
         public int Count { get; set; }
 
         public OrderDetail()
         {
-            ID = Guid.NewGuid();
+            ID=Guid.NewGuid();
         }
 
     }

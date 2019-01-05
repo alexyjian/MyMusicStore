@@ -73,10 +73,12 @@
     $('#alipay').submit();
     $('#myModal').modal({ backdrop: 'static', keyboard: false });
     $('#myModal').modal('show');
+
     function payfail() {
         $('#myModal').modal('hide');
         window.location.href = '@Url.Action("Index","order")';
     }
+
     function paysuccess() {
         $.ajax({
             type: 'post',

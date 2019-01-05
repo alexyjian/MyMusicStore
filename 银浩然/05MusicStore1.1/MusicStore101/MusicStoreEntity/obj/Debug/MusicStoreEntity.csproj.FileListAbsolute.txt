@@ -1,0 +1,14 @@
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MucicStoreEntity.dll.config
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MucicStoreEntity.dll
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\MucicStoreEntity.pdb
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.dll
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.dll
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.xml
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\EntityFramework.SqlServer.xml
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MusicStoreEntity.csprojResolveAssemblyReference.cache
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MucicStoreEntity.dll
+C:\新建文件夹\银浩然\05MusicStore1.1\MusicStore101\MusicStoreEntity\obj\Debug\MucicStoreEntity.pdb

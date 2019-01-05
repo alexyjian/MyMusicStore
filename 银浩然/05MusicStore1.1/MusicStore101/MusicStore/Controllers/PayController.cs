@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
-using MusicStore.ViewModels;
+using MusicStore.ViewsModel;
 using MusicStoreEntity;
 
 namespace MusicStore.Controllers
 {
     public class PayController : Controller
     {
-        private readonly EntityDbContext _context = new EntityDbContext();
+        private readonly MusicContext _context = new MusicContext();
 
         #region 阿里支付
 

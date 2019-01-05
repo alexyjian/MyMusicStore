@@ -1,55 +1,73 @@
-﻿@model MusicStore.ViewModels.MyViewModel
+﻿@model MusicStore.ViewsModel.MyViewsModel
 @{
-    ViewBag.Title = "我的";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
+
 }
 
 <h2>个人信息</h2>
+
 <form enctype="multipart/form-data" action="" method="post">
     @Html.AntiForgeryToken()
 
+
     <div>
         <fieldset>
+        
             <div class="editor-label">
                 @Html.LabelFor(x => x.Name)
             </div>
-
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入收件人姓名" })
+                @Html.TextBoxFor(x => x.Name, new { placeholder = "请输入收件人" })
                 @Html.ValidationMessageFor(x => x.Name)
             </div>
-
+                     
             <div class="editor-label">
                 @Html.LabelFor(x => x.Address)
-            </div>
+            </div> 
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入收货地址" })
+                @Html.TextBoxFor(x => x.Address, new { placeholder = "请输入收件人地址" })
                 @Html.ValidationMessageFor(x => x.Address)
-            </div>
-
+            </div> 
 
             <div class="editor-label">
                 @Html.LabelFor(x => x.MobilNumber)
             </div>
-
-
             <div class="editor-field">
-                @Html.TextBoxFor(x => x.MobilNumber, new { placeholder = "请输入收件人手机" })
+                @Html.TextBoxFor(x => x.MobilNumber, new { placeholder = "请输入收件人手机号" })
                 @Html.ValidationMessageFor(x => x.MobilNumber)
             </div>
-
-
+            
+            
             <div class="editor-label">
-                @Html.LabelFor(x => x.Avarda)
+                @Html.RadioButtonFor(Model=>Model.Sex,true,new {@id="Status0"})<label id="tr">男</label>
+                @Html.RadioButtonFor(Model => Model.Sex, true, new { @id = "Status1" })<label id="tr">女</label>
+                @Html.ValidationMessageFor(x=>x.Sex)
             </div>
 
+            <div class="editor-field">
+                <span>生日日期：</span>@Html.TextBoxFor(x=>x.Birthday,new {type="date"})
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(x => x.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "请输入邮政编码" })
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+
+            <div class="editor-labal">
+                @Html.LabelFor(x => x.Avarda)
+            </div>
             <div class="editor-field">
                 <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
                 @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
             </div>
 
             <p>
-                <input type="submit" value="保存" class="btn btn-success" style="width: 100px" />
+
+                <input type="submit" value="保存" class="btn btn-warning" style="width: 80px" />
             </p>
         </fieldset>
     </div>
@@ -63,13 +81,13 @@
                 var file = this.files[0];
                 //判断是不是图片
                 if (!/image\/\w+/.test(file.type)) {
-                    alert('文件必须为图片！');
+                    alert('文件必须为图片');
                     return false;
                 }
                 //读文件内容，读物理地址，把img标签的src属性重新赋值
                 var reader = new FileReader();
                 reader.readAsDataURL(file);
-                reader.onload=function(e) {
+                reader.onload = function(e) {
                     $("#imgAvarda").attr('src', this.result);
                 }
             });

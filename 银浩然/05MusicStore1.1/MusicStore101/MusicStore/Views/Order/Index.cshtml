@@ -1,49 +1,62 @@
-﻿@using MusicStoreEntity
-@model IEnumerable<MusicStoreEntity.Order>
+﻿@model IEnumerable<MusicStoreEntity.Order>
+
 @{
-    ViewBag.Title = "我的订单";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
+<h2>我的订单</h2>
 <fieldset>
     <legend>我的订单</legend>
     <table>
+        <tbody>
         <tr>
             <th>订单摘要</th>
-            <th>订单明细</th>
+            <th>明细</th>
             <th>总价</th>
             <th>状态</th>
         </tr>
+        </tbody>
+     
         <tbody>
-        @foreach (var item in Model)
+       
+        @foreach(var item in Model)
         {
             <tr>
                 <td>
-                    <span class="text-warning">@item.TradeNo</span><br/>
-                    收件人：@item.AddressPerson<br/>
-                    收货地址：@item.Address<br/>
-                    电话：@item.MobilNumber<br/>
+                    <p class="text-warning">@item.TradeNo</p>
+                    <p>收件人：@item.AddressPerson</p>
+                    <p>收件人地址：@item.Address</p>
+                    <p>电话：@item.MobilNumber</p>
                 </td>
-                <td>
-                    @foreach (var d in item.OrderDetails)
+                <td class="text-primary">
+                  @foreach (var de in item.OrderDetails)
                     {
-                        <span class="text-primary">@d.Album.Title,@d.Count</span>
-                    }
-                </td>
-                <td>
-                    ￥@item.TotalPrice.ToString("C")
-                </td>
-                <td>
-                    @item.EnumOrderStatus
-                    @if (item.EnumOrderStatus == EnumOrderStatus.未付款)
-                    {
-                        <a style="color: white" class="btn-success" href="@Url.Action("alipay","Pay",new {id=item.ID})"><i class="glyphicon glyphicon-usd"></i>马上付款</a>
-                    }
-                </td>
+
+                        <p>@de.Ablum.Title×@de.Count</p>
+
+                  }
+                </td>     
+                <td>@item.TotalPrice</td>
+                @if (item.PaySuccess)
+                {
+                    <td>
+                        已付款
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <span>未付款</span>
+                        <p class="btn btn-success glyphicon glyphicon-send">
+                            @Html.ActionLink("立即支付", "Alipay", "Pay", new { id = item.ID }, null)
+                        </p>  
+                    </td>
+                }
             </tr>
-        }
+        } 
         </tbody>
     </table>
-    <p></p>
+    
+    
 </fieldset>
-
