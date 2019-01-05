@@ -60,9 +60,11 @@
     <Compile Include="EntityDbContext.cs" />
     <Compile Include="EnumOrderStatus.cs" />
     <Compile Include="Genre.cs" />
+    <Compile Include="Like.cs" />
     <Compile Include="MyAddressUrl.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
+    <Compile Include="plary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply.cs" />
     <Compile Include="UserAndRole\ApplicaitionUserInApplication.cs" />
