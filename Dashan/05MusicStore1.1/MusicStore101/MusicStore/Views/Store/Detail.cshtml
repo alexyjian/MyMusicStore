@@ -11,8 +11,6 @@
     <img alt="@Model.Title" src="@Model.AlbumaArtUrl" />
 </p>
 
-
-<div id="album-details">
     <div id="box-video">
         <div class="cd" style="background: url@(Model.AlbumaArtUrl)no-repeat; ">
             <div class="cd-center">
@@ -21,171 +19,117 @@
         </div>
     </div>
 
-    <p>
-        <em>
-            分类：
-        </em>
-        @Model.Genre.Name
-    </p>
+    <div id="album-details">
+        <p>
+            <em>
+                分类：
+            </em>
+            @Model.Genre.Name
+        </p>
 
+        <p>
+            <em>
+                歌手：
+            </em>
+            @Model.Artist.Name
+        </p>
 
-    <p>
-        <em>
-            歌手：
-        </em>
-        @Model.Artist.Name
-    </p>
+        <p>
+            <em>
+                发布时间：
+            </em>
+            @Model.PublisherDate.ToString("yyyy年MM月dd日");
+        </p>
 
+        <p>
+            <em>
+                价格：
+            </em>
+            @String.Format("{0:F}", Model.Price)
+        </p>
 
-    <p>
-        <em>
-            发布时间：
-        </em>
-        @Model.PublisherDate.ToString("yyyy年MM月dd日");
-    </p>
+        <div id="msg"></div>
 
-    <p>
-        <em>
-            价格：
-        </em>
-        @String.Format("{0:F}", Model.Price)
-    </p>
+        <p class="btn btn-info btn-group-sm" id="addcart">
+            添加购物车
+        </p>
+        <br />
+    </div>
+        
 
-    <div id="msg"></div>
-
-    <p class="btn btn-info btn-group-sm" id="addcart">
-        添加购物车
-    </p>
-    <br />
-
-    <div class="row">
-        <div class="col-md-10">
-            <div id="divCmt">
-                @Html.Raw(ViewBag.Cmt)
+        @*显示评论*@
+        <div class="row">
+            <div class="col-md-10">
+                <div id="divCmt">
+                    @Html.Raw(ViewBag.Cmt)
+                </div>
             </div>
         </div>
-    </div>
 
-
-    @*uedtor 百度呈现*@
-    <div class="row">
-        <div class="col-md-10">
-            <div class="form-group">
-                <textarea id="editor" name="editor"></textarea>
-                <input type="hidden" id="pReplyID" />
+        @*uedtor 百度呈现*@
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <textarea id="editor" name="editor"></textarea>
+                    <input type="hidden" id="pReplyID" />
+                </div>
+                <button id="btnCmt" type="button" class="btn btn-success">评论</button>
             </div>
-            <button id="btnCmt" type="button" class="btn btn-success">评论</button>
         </div>
-    </div>
 
-
-    <!-- 模态框（Modal） -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content" id="Div-sonCmt">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">
-                        原回复
-                    </h4>
+        <!-- 模态框（Modal）编辑器 -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="Div-sonCmt">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            原回复
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                    </div>
                 </div>
-                <div class="modal-body">
-                    子回复：哈里欧<<a href='#' class='reply'>><i class='glyphicon glyphicon-heart'></i>(0)  &nbsp &nbsp</a><a href='#' class='reply'><i class='glyphicon glyphicon-thumbs-down'></i>(0)</a>
-                </div>
-                <div class="modal-footer">
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
-
-
+            </div>
+        </div>
+   
 
 <script>
-
     //点击回复触发方法
-    function GetQuote(id) {
+    function GetQuote(id,divid){
         //保存该评论id
         $("#pReplyID").val(id);
         // 从 Content 取出回复的内容
-        var divName = 'Content-' + id;
-        var content = "<p></p>" + $("#" + divName).html();
+        var divName = 'Content-'+divid;
+        var content = "<br/><br/><div style='margin:20px; border:1px solid violet'>引用：<br/>"+$("#"+divName).html()+"</div>";
 
         //在把内容赋值给UEditor编辑器
         var ue = UE.getEditor('editor');
         ue.ready(function () {
             ue.setContent(content);
         });
+
+        //如果model打开则关了
+        $('#myModal').modal('hide');
     }
 
-    function Showcmt(id) {
+    function ShowCmt(id) {
         //异步 子回复
         $.ajax({
             type: 'post',
             asyn: true,
-            url: '@Url.Action("showCmts","Store")',
-            data: { "pid": id },
+            url: '@Url.Action("ShowCmts", "Store")',
+            data: {"pid":id},
             dataType: 'json',
             success: function (data) {
                 $("#Div-sonCmt").html(data);
                 $('#myModal').modal('toggle');
-                if (data == 'nologin') {
-                    //判断是否登录
-                    calotion.href = "@Url.Action("Login", "Account",
-                    new {returnUrl = Url.Action("Detail", "Store", new { id = Model.ID})})";  //登录后跳回明细
-                }
             }
         });
     }
-
-
-
-    function Like(id) {
-        //点赞
-        $.ajax({
-            type: 'post',
-            asyn: true,
-            url: '@Url.Action("Like","Store")',
-            data: { "pid": id },
-            dataType: 'json',
-            success: function (data){
-                if (data == 'nologin') {
-                    //判断是否登录
-                    calotion.href = "@Url.Action("Login", "Account",
-                    new {returnUrl = Url.Action("Detail", "Store", new { id = Model.ID})})";  //登录后跳回明细
-                }
-                else {
-                    //HTML文本注入div
-                    $("#").html(data);
-                    //局部刷新
-                }
-            }
-        });
-    }
-
-
-    function Hate(id) {
-        //踩
-        $.ajax({
-            type: 'post',
-            asyn: true,
-            url: '@Url.Action("Hate", "Store")',
-            data: { "pid": id },
-            dataType: 'json',
-            success: function (data) {
-                if (data == 'nologin') {
-                    //判断是否登录
-                    calotion.href = "@Url.Action("Login", "Account",
-                    new {returnUrl = Url.Action("Detail", "Store", new { id = Model.ID})})";  //登录后跳回明细
-                }
-                else {
-                    //HTML文本注入div
-                    $("#").html(data);
-                }
-            }
-        });
-    }
-
+    
     //百度编辑器调用
     var editor = new baidu.editor.ui.Editor({
         UEDITOR_URL: '/ueditor/',  //配置编辑器的路径
@@ -256,4 +200,4 @@
             }
         });
     });
-</script>
+        </script>
