@@ -21,7 +21,7 @@ c.height = window.innerHeight
 //ctx.fillStyle = "ecb69c";
 //ctx.fillText("雨滴",10,90);
 
-var chinese = "明天会更好";
+var chinese = "知否";
 chinese = chinese.split("");
 
 var fsize = 20;
