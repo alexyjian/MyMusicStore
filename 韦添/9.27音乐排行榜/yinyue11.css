@@ -35,7 +35,7 @@ li{
     text-align:center; 
     font-family:"微软雅黑";
     }
-/*需要1单独控制的列表项*/		
+/*需要单独控制的列表项*/		
 ul .tp{
     width:372px; 
     height:247px;
