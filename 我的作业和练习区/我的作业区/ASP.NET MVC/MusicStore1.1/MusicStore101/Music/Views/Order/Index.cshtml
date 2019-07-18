@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MusicStoreEntity.Order>
+@using MusicStoreEntity
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>我的订单</h2>
+<table id="tbCart1">
+    <tr>
+        <td style="width: 400px">订单摘要</td>
+        <td style="width: 100px">明细</td>
+        <td style="width: 100px">总价</td>
+        <td style="width: 100px">状态</td>
+        <td style="width:200px"></td>
+    </tr>
+
+    <tbody id="tbCart">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td  style="width: 400px">
+                 流水号： @item.TradeNo <br>
+                 收件人： @item.AddresPerson,<br>
+                 收件地址： @item.Addders,<br>
+                 手机号： @item.Mobilnumber
+            </td>
+            <td  style="width: 200px">
+                @foreach (var i in item.OrderDetails)
+                {
+                <p>
+                    @i.Album.Title,
+                    @i.Count 张
+                </p>
+            }
+        </td>
+        <td  style="width: 100px">@item.TotalPrice.ToString("C")</td>
+                <td  style="width: 100px">
+               @item.EnumOrderStatus
+                </td>
+                <td  style="width: 100px">
+                    @if (item.EnumOrderStatus == EnumOrderStatus.未付款)
+                    {
+                        <a style="color: white" class="btn btn-success" href="@Url.Action("alipay","Pay",new {id= item.ID})"><i class="glyphicon glyphicon-usd"></i>马上付款</a>
+                    }
+                </td>
+    </tr>
+        }
+    </tbody>
+</table>

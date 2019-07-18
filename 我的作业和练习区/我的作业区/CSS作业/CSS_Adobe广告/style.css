@@ -1,0 +1,44 @@
+hr{    
+    background-color: rgb(94,45,0);
+    height: 2px;
+    width: 800px;
+}
+body{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+    color:  rgb(94,45,0);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+p{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+a:link,a:visited{
+    color:rgb(94,45,0);
+}
+a:hover{
+    color: red;  
+    text-decoration: underline;  
+}
+strong{
+    color: red;
+}
+#str{
+    color:rgb(94,45,0); 
+}
+div{
+    height: 500px;
+    overflow: hidden;
+}
+dd{
+    line-height: 30px;
+}
+dd:nth-of-type(even){
+    color: rgb(158, 143, 129)
+}

@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+    
+}
+section{  
+    width: 1280px;
+    height: 900px;
+    overflow: hidden;  
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    position: fixed;  
+}
+a:hover,li:hover{
+    opacity: 0.9;
+}
+/*超链接*/
+a{
+    display: block;
+    height: 120px; 
+    width: 120px;
+    text-indent:-35px; 
+    text-shadow: 0px 2px black;
+    font-weight:100px; 
+    text-decoration: none;
+    font-size: 22px; 
+    line-height: 300px; 
+    color: white;
+    border-radius: 50%;   
+    border: 5px solid white;  
+    position: relative;
+    top: -80px;
+    left: 40px;
+}
+.slider li:nth-child(1) a{
+    background: url(../Img/sbg1.jpg) no-repeat center center;
+}
+.slider li:nth-child(2) a{
+    background: url(../Img/sbg2.jpg) no-repeat center center;
+}
+.slider li:nth-child(3) a{
+    background: url(../Img/sbg3.jpg) no-repeat center center;
+}
+.slider li:nth-child(4) a{
+    background: url(../Img/sbg4.jpg) no-repeat center center;
+}
+.slider li:nth-child(5) a{
+    background: url(../Img/sbg5.jpg) no-repeat center center;
+}
+/*超链接结束*/
+
+/*ul设置*/
+ul{
+    
+    position: absolute;
+    left: 10%;
+    top: 70%;   
+}
+ul li{
+    display: inline-block;    
+    margin-left: 20px;
+    border: 2px solid white;    
+    width: 180px;
+    height: 130px;   
+    border-radius: 5px;
+    position: relative;
+    z-index: 999; 
+}
+.slider li:nth-child(1){
+    background-color: gray;
+}
+.slider li:nth-child(2){
+    background-color:rgb(31, 31, 197);
+}
+.slider li:nth-child(3){
+    background-color: aqua;
+}
+.slider li:nth-child(4){
+    background-color: greenyellow;
+}
+.slider li:nth-child(5){
+    background-color: orange;
+}
+/*ul设置结束*/
+
+/* 动画*/
+#bg1:target{
+    animation: move1 2s;
+    z-index: 99;
+}
+#bg2:target{
+    animation: move2 2s;
+    z-index: 99;
+}
+#bg3:target{
+    animation: move3 2s;
+    z-index: 99;
+}
+#bg4:target{
+    animation: move4 2s;
+    z-index: 99;
+}
+#bg5:target{
+    animation: move5 2s;
+    z-index: 99;
+}
+@keyframes move1{
+    0%{
+      transform: translate(-1280px,0);
+    }
+    50%{
+        transform: translate(0,0);
+    }   
+}
+@keyframes move2{
+    0%{
+        transform: translate(0,900px);
+      }
+      50%{
+        transform: translate(0,0);
+    }
+}
+@keyframes move3{
+    0%{
+      transform: scale(0.1,0.1);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+@keyframes move4{
+    0%{
+        transform: scale(3,3);
+      }
+      100%{
+          transform: scale(1,1);
+      }
+}
+@keyframes move5{
+    0%{
+      transform: rotate(-360deg) scale(0.1,0.1);
+    }
+    100%{
+        transform: rotate(0deg) scale(1,1);
+    }
+}

@@ -1,0 +1,81 @@
+@font-face {
+    font-family: BOOMBOX;
+    src: url(font/BOOMBOX.TTF)
+}
+
+@font-face {
+    font-family: FZJZJW;
+    src: url(font/FZJZJW.TTF)
+}
+
+@font-face {
+    font-family: LTCH;
+    src: url(font/LTCH.TTF)
+}
+
+@font-face {
+    font-family: ONYX;
+    src: url(font/ONYX.TTF)
+}
+
+@font-face {
+    font-family: ROCK;
+    src: url(font/ROCK.TTF)
+}
+
+@font-face {
+    font-family: TCCM____;
+    src: url(font/TCCM____.TTF)
+}
+
+p {
+    margin-top: -12px;
+}
+
+.p1 {
+    font-family: ONYX;
+}
+
+.p2 {
+    font-family: TCCM____;
+    font-weight: 200px;
+    color: #4c9372;
+    font-size: 43px;
+}
+
+.pp3 {
+    font-family: ROCK;
+    font-size: 20px;
+}
+
+.p3 {
+    font-size: 25px;
+    font-family: ROCK;
+}
+
+.p4 {
+    font-family: BOOMBOX;
+    font-size: 50px;
+}
+
+.p5 {
+    font-family: ROCK;
+    font-size: 45px;
+}
+
+.p1,
+.p7,
+.p8 {
+    font-size: 36px;
+}
+
+.p5,
+.p8 {
+    color: rgb(225, 0, 90);
+    font-family: ROCK;
+}
+
+.p9 {
+    font-size: 13px;
+    color: rgb(127,132,132);
+}

@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding:0; 
+    line-height: 18px;
+}
+div{
+    background: url(img/sy.png) no-repeat;
+    width: 949px;
+    height: 687px;
+    margin: 0 auto;
+    position: relative;
+}
+p span{
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+}
+p input{
+    width: 130px;
+    height: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+form{
+    width: 400px;
+    height: 400px;    
+    position: absolute;
+    top: 30%;
+    left: 30%;    
+}
+h2{
+    text-align: center;   
+}
+.rad{
+    width: 15px;
+    height:15px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 3px;
+}
+.btn{
+    width: 100px;
+    height: 25px;
+    border: 0;
+    border-radius: 5px;
+    line-height: 25px;    
+    margin-left: 25px;
+    margin-top: 10px;
+}
+.pws{
+    width: 180px;
+}
+.yj{
+    width: 250px;
+    height: 80px;
+}
+textarea{
+    width: 200px;
+    height: 80px;
+    border-radius: 10px;
+    margin-top: 10px;
+}

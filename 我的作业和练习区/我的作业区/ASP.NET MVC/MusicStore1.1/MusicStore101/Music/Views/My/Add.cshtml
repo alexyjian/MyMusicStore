@@ -1,0 +1,14 @@
+﻿@model MusicStoreEntity.UserAndRole.PersonAddress
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h2>添加收货地址</h2>
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel(new { @type = "text", @class = "form-control" })
+    <p>
+        <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-shopping-cart"></i>确定</button>
+    </p>
+}

@@ -1,0 +1,10 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    transition:width 3s,height 3s,transform 3s;
+}
+div:hover{
+    border-radius:50%;
+    transition: border-radius;
+}

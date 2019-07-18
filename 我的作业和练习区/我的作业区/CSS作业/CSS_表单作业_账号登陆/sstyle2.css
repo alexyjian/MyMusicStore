@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.div1{
+    background: url(img/form_bg.jpg) no-repeat;
+    width: 1431px;
+    height: 717px;
+
+}
+.tex{
+    height: 25px;
+    width: 175px; 
+       
+}
+p{
+    margin-left: 16px;
+}
+#pp{
+    margin-left: 0px;
+}
+.bg{
+    margin-top: 50px;
+    margin-right: 50px;
+    float: right;
+}
+h2{
+    margin-bottom: 30px;
+}
+.btn{
+ background-color: rgb(120, 180, 52);
+ color: white;
+ width: 70px;
+ height: 40px;
+ size: 20px;
+ line-height: 40px;
+ margin-left: 40PX;
+ border: 1px solid #ccc;
+ border-radius:5px;
+}
+p:nth-last-child(1).input{
+    width: 80px;
+}
+#tex1{
+    width: 50px;
+}

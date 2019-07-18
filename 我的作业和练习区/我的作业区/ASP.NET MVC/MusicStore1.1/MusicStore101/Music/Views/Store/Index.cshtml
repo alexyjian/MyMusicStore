@@ -1,0 +1,32 @@
+﻿@using MusicStoreEntity
+@model IEnumerable<MusicStoreEntity.Genre>
+@{
+    ViewBag.Title = "所有的音乐分类";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+    int s = 0;
+}
+<div>
+    <h3>一共有 @Model.Count()个音乐种类</h3>
+    <ul id="list-unstyled" style="list-style: none">
+        @foreach (var item in Model)
+        {
+            <li>
+                <i class="glyphicon glyphicon-music"></i>
+                @Html.ActionLink(item.Name, "Browser", "Store", new { id = item.ID }, null)
+                (@item.Albums.Count())
+                @if (item.Albums.Count() > 0)
+                {
+                    <em>:</em>
+                    foreach (var ab in item.Albums.Take(5))
+                    {
+                       <a href="@Url.Action("Detail",new {id=ab.ID})">
+                            <i class="glyphicon glyphicon-cd"></i>
+                            <span>@(@ab.Title) &nbsp;&nbsp;</span>
+                        </a>
+                    }
+                }
+
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,293 @@
+﻿@model Music.ViewModels.DetailReply
+@{
+    ViewBag.Title = "专辑明细";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<div id="album-details">
+    <div id="detail">
+        <h2>@Model.Title</h2>
+        <p>
+            <img alt="@Model.Title" src="@Model.AlbumArtUrl" />
+        </p>
+
+
+        <p>
+            <em>
+                发布时间：
+            </em>
+            @Model.PublisherDate.ToString("yyyy年MM月dd日");
+        </p>
+        <p>
+            <em>
+                分类:
+            </em>
+            @Model.Genre.Name
+        </p>
+        <p>
+            <em>
+                歌手：
+            </em>
+            @Model.Artist.Name
+        </p>
+        <p>
+            <em>
+                价格：
+            </em>
+            ￥ @string.Format("{0:F}", (@Model.Price))
+        </p>
+        <div id="Music_div"><audio src="@Model.MusicUrl" controls="controls" id="audeo1"></audio></div>
+        <div id="msg"></div>
+        <p class="button">
+            <a class="btn" id="addcart">添加到购物车</a>
+            <div id="msg"></div>
+        </p>
+
+    </div>
+    <div id="bg1">
+        <span id="a"></span>
+        <span id="b"></span>
+        <div id="cd">
+            <span id="cd_1"></span>
+            <img src="@Model.AlbumArtUrl" id="cd_2" />
+        </div>
+        <span id="cd_bg"></span>
+    </div>
+    <h2>评论</h2>
+    <div class="pinl_pinl">
+        <div id="pinl_textarea">
+            <script id="editor" type="text/plain" style="width:100%;height:75%;">
+            </script>
+        </div>
+        <p id="pinl_bt" onclick="getContentTxt()">发表评论</p>
+    </div>
+    <h4 style="color:#5e5b54;margin-top: 30px"><em>全部评论</em></h4>
+    <div class="pinl" id="album-details">
+        @Html.Raw(Model.Replys)
+    </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+			
+                </div>
+                <div class="modal-body">
+                 
+                </div>
+                <div class="modal-footer">
+			
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
+
+
+<!-- 配置文件 -->
+<script src="~/UE/ueditor.config.js" charset="utf-8" type="text/javascript"></script>
+<!-- 编辑器源码文件 -->
+<script src="~/UE/ueditor.all.min.js" charset="utf-8" type="text/javascript"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript" charset="utf-8">
+    var ue = UE.getEditor('editor', { scaleEnabled: true });
+    function getContentTxt() {
+        var arr = UE.getEditor('editor').getPlainTxt().toString();
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("Reply", "Store")',
+            data: { id: "@Model.ID", replyID: "00000000-0000-0000-0000-000000000000", content: arr },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else {
+                    $(".pinl").html(data);
+                }
+            }
+        });
+    }
+    /*评论显示*/
+</script>
+<!-- 子回复 -->
+<script>
+
+    var ID;
+    //添加输入框
+    function ADD(obj) {
+        var iD = obj.parentNode.id;
+        ID = iD;
+        var shan = document.getElementById('xintian');
+        if (shan != null) {
+            UE.getEditor('editor1', { scaleEnabled: true }).destroy();
+            shan.remove();
+        } else {
+            var div = obj.parentNode;
+            div.innerHTML = div.innerHTML + "<div id='xintian'><div id='pinl_textarea'><script id='editor1' type='text/plain' style='width: 80 %; height: 100 %;'><" + "/" + "script></div><p id='pinl_bt' onclick='Reply()'>回复</p></div>";
+            editor = UE.getEditor('editor1', { scaleEnabled: true });
+        }
+
+    }
+    //子回复传值
+    function Reply() {
+        var arr = UE.getEditor('editor1').getPlainTxt().toString();
+        UE.getEditor('editor1', { scaleEnabled: true }).destroy();
+        s = 0;
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("Reply","Store")',
+            data: { id: "@Model.ID", replyID:ID, contentreply: arr },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else {
+                    $(".pinl").html(data);
+                }
+            }
+        });
+    }
+    //查看所有回复
+    function openmain(obj) {
+        var  cs = obj.id;
+        var pin = document.getElementsByClassName(cs)[0];
+        pin.style.display = "block";
+        obj.style.display = "none";
+    }
+
+    //点赞
+    function Like(obj) {
+        var id = obj.parentNode.id;
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("LikeOrHate","Store")',
+            data: { id: id, LikeOrHate: true },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                }
+                else if (data == "OKT") {
+                    alert("你已赞过或踩过");
+                }
+                else {
+                    $(".pinl").html(data);
+                }
+            }
+        });
+    }
+
+    //踩
+    function hate(obj) {
+        var id = obj.parentNode.id;
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("LikeOrHate","Store")',
+            data: { id: id, LikeOrHate: false },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } else if(data=="OKT") {
+                    alert("你已赞过或踩过");
+                }
+                else {
+                    $(".pinl").html(data);
+                }
+            }
+        });
+    }
+
+    //查看所有对话
+    function pinlMain(obj) {
+        var id = obj.parentNode.id;
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '@Url.Action("ReplyMain","Store")',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "OK") {
+                    location.href =
+                        "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                } 
+                else {
+                    $(".modal-body").html(data);
+                }
+            }
+        });
+      
+    }
+
+</script>
+<!-- 试听和添加购物车 -->
+<script>
+    $("#addcart").click(function () {
+        //异步
+        $("#msg").html("<img src='../../content/images/loading.gif'/>添加到购物车，请稍候...");
+        $.ajax({
+           type: 'post',
+            async: true,
+            url: '@Url.Action("AddCart","ShoppingCart")',
+            data: { id: "@Model.ID" },
+            dataType: 'json',
+            success: function (data) {
+               //如果没有登录，跳转到登录页
+               if (data == "nologin")
+                   location.href = "@Url.Action("login","Account",new {returnUrl=Url.Action("Detail","Store",new {id=Model.ID})})";
+                else {
+                    //添加到购物车成功，把动画取消
+                    $("#msg").html(data);
+                   //重新刷新此区域
+                   setTimeout(function () {
+                       location.reload();
+                   }, 100);
+               }
+           }
+       });
+   });
+   var time;
+   var jis = 0;
+   var ji = 0;
+   var jj = 0;
+   var myVideo = document.getElementById("audeo1");
+   var a = document.getElementById("a");
+   function CDip() {
+       var cd = document.getElementById("cd");
+       if (jj < 216) {
+           jj++;
+           a.style.transform = 'rotate(' + jj / 4 + 'deg' + ')';
+       } else {
+           ji++;
+           cd.style.transform = 'rotate(' + ji / 4 + 'deg' + ')';
+           myVideo.play();
+       }
+   }
+    $("#bg1").click(function () {
+       jis++;
+       if (jis == 1) {
+           time = setInterval(CDip, 1);
+       }
+       else {
+           clearInterval(time);
+           myVideo.pause();
+           jj = 0;
+           a.style.transform = 'rotate(0deg)';
+           jis = 0;
+       }
+   });
+</script>
+
+

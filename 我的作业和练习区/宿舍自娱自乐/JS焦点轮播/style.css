@@ -1,0 +1,41 @@
+div{
+    width: 576px;
+    height: 324px;
+    border: 3px solid #ccc;
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+div img{
+    width: 576px;
+    height: 324px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    transition: left 5s;
+}
+div img:nth-child(1){
+    display: block;
+}
+div ul{
+    width: 130px;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    bottom: -10px; 
+    z-index: 999;
+}
+div ul li{
+    display: block;
+    float: left;
+    width: 15px;
+    height:15px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background: #ccc;  
+    cursor: pointer;  
+}
+div ul li:nth-child(1){
+    background: rgb(70, 64, 64);
+}

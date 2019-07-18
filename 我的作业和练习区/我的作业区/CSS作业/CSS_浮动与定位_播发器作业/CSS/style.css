@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+/*背景*/
+.bg{
+    width: 580px;
+    height: 600px;
+    background: linear-gradient(185deg, rgb(112, 61, 51), rgb(65, 32, 23));
+    margin: 100px auto;
+    padding: 10px;
+    color: rgb(182, 120, 103);
+    position: relative;
+}
+.bg h2,p{
+ text-align: center;
+ text-shadow: 2px 5px 5px black ;
+ position: relative;
+ top: 50px;
+}
+.bg h2{
+    font-size: 55px;
+}
+.bg1{
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    margin: 0 auto;
+    box-shadow: 0px 20px 60px black;
+    position: relative;
+    top: 100px;
+}
+/*唱机*/
+.cd_bg{
+    width: 240px;
+    height: 240px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    border-radius: 50%;
+    box-shadow: 20px 20px 60px black;
+}
+.cd{
+    width: 248px;
+    height: 248px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    background: url(../images/cd.png) no-repeat center center;
+    z-index: 999;
+    border-radius: 50%; 
+    animation: move 15s linear infinite;  
+}
+.a{
+   width: 100px;
+   height: 300px;
+   position: absolute;
+   right: 0;
+   top: 0;
+   background: url(../images/fc.png) no-repeat center;
+   z-index: 999;
+}
+.b{
+    width: 100px;
+    height: 300px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgb(169, 134, 89);
+}
+.button{
+    background-color: #008CBA; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;    
+   position: absolute;
+   left: 20%;
+   bottom: 20px;
+}
+.button2{
+    background-color: #008CBA; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: absolute;
+    left: 40%;
+    bottom: 20px;
+}
+a{
+    color: white;
+}
+/* 动画*/
+@keyframes move {
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}

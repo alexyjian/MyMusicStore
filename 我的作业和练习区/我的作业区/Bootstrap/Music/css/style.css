@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background: rgb(251, 249, 239);
+}
+/* 头部 */
+#logo{
+    background: url(../img/logo.PNG) no-repeat left top;   
+}
+#logo>a{
+    position: relative;
+    top: 25px;
+    left: -10px;
+}
+#example-navbar-collapse{
+    position: absolute;
+    right: 10px;
+}
+#nav-div{
+    margin: 0 auto;
+    padding-bottom: 20px;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px dotted black;
+    width: 90%;
+    background: rgb(251, 249, 239);
+}
+#header_ul>li{
+    width: 50px;
+    margin-right: 20px;
+    line-height: 50px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    color: orangered;
+    z-index: 2;
+}
+#header_ul>li:hover{
+    background-color: #eee;
+    cursor: pointer;
+    color: black;
+}
+
+/* 中间 */
+
+#min{
+    margin: 0 auto;
+    width: 90%;    
+}
+#min>div:nth-child(1){
+    padding-top: 10px;
+    float: right;
+}
+#min>div:nth-child(2){
+    float: right;
+}
+#min>div:nth-child(2)>ul{
+    float: right;
+    margin-top: 10px;
+    border-right: 1px dotted black;
+}
+#min>div:nth-child(2)>ul>li{
+    text-align: center;
+}
+#min>div:nth-child(2)>ul>li:nth-last-child(1){
+    margin-top: 20px;
+   
+ }
+ #min>div:nth-child(1)>div{
+     background-size: 90% 66px;
+     display: inline;
+     text-align: center;
+}
+#min>div:nth-child(1)>div>img{
+    width: 90%;    
+}
+#min_1{   
+    margin: 0 auto;
+    width: 90%;
+}
+#min_1>div{
+    float: right;
+}
+#min_1_ul>li{
+    position: relative;
+    height: 105px;
+}
+#min_1_ul>li>div>p{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 102px;
+}
+#min_1_ul>li>div{
+    margin: 0 auto;
+    width: 87px;
+}
+#min_1>div>h4{
+    margin-left: 15px;
+}
+/* 底部 */
+#footer{
+    width: 90%;
+    margin: 0 auto;  
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;  
+    border-bottom: 1px dotted black;
+    border-top: 1px dotted black;
+}
+#footer>p>img{
+    height: 30px;
+    width: 120px;
+}
+#footer>p{
+   text-align: center;
+}

@@ -1,0 +1,144 @@
+﻿@using Music.ViewModels
+@using MusicStoreEntity
+@using MusicStoreEntity.UserAndRole
+@{
+    Layout = null;
+    //判断用户是否登录，如果ApplicationUser user不为空表示用户登录成功
+    var loginUserModel = Session["loginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车 收藏车
+    var carts = new List<Cart>();
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        //查询购物车
+        carts = new EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>@ViewBag.Tile-音乐商店</title>
+    <link rel="stylesheet" href="/Content/Site.css">
+    @*绑定样式库*@
+    @Styles.Render("~/Content/JqueryUI")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/modernizr")
+
+
+    @*绑定脚本库*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
+    <style media="(min-width:750px)">
+        #ul_ul {
+            list-style: none;
+            border-right: 1px dotted black;
+        }
+    </style>
+    <style media="(max-width:750px)">
+        #ul_ul {
+            border: none;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="header" class="col-xs-12">
+                @*logo和菜单*@
+                <h1><a href="/">黑心的音乐商店</a></h1>
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse" style="border: 2px solid black;padding: 5px; margin-top: 30px;">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar" style="background: black"></span>
+                    <span class="icon-bar" style="background: black"></span>
+                    <span class="icon-bar" style="background: black"></span>
+                </button>
+                <ul class="nav navbar-nav navbar-right collapse navbar-collapse col-xs-12" id="example-navbar-collapse">
+                    <li class="active"><a href="@Url.Action("index", "home")">首页</a></li>
+                    <li><a href="@Url.Action("index", "Store")">专辑</a></li>
+                    @if (user == null)
+                    {
+                        <li><a href="@Url.Action("login", "account")">登陆</a></li>
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="False">
+                                <img src="@user.Person.Avarda" alt="头像" style="border-radius: 50%; width: 25px; height: 25px;">
+                                @user.Person.Name <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("index", "ShoppingCart")">购物车( @carts.Count() )</a></li>
+                                <li><a href="@Url.Action("MyIndex", "My")">个人信息</a></li>
+                                <li><a href="@Url.Action("index", "Order")">我的订单</a></li>
+                                <li><a href="@Url.Action("index", "My")">设置收件地址</a></li>
+                                <li><a href="@Url.Action("ChangePassWord", "Account")">修改密码</a></li>
+                                <li><a href="@Url.Action("loginout", "Account")">注销</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 col-xs-12" style="border-right: 1px dotted black">
+                @*左侧导航*@
+                @Html.Partial("_GetGenreMenu", new MusicStoreEntity.EntityDbContext().Genres.ToList())
+                @*百度定位*@
+                <span id="city" class="glyphicon glyphicon-map-marker" style="float: right; transform: translateX(-80px) translateY(20px)">定位中...</span>
+                <span id="district"></span>
+            </div>
+            <div class="col-md-9 col-xs-12" style="padding-left: 20px">
+                @*操作区*@
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                @*底部*@
+                @Html.Partial("_FooterLayout")
+            </div>
+        </div>
+    </div>
+    @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7wqKQ8gZ9dZXNWh3371HmkG4gNBx29ea"></script>
+
+<script type="text/javascript">
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            //显示百度地图查询结果 地区
+            if (r.address.district != "") {
+                document.getElementById('district').innerText =r.address.district;
+            }
+            //显示百度地图查询结果 城市
+            if (r.address.city != "") {
+                document.getElementById("city").innerHTML = "当前位置：" + r.address.city;
+            }
+        }
+        else {
+            document.getElementById("city").innerHTML = "无法定位！";
+        }
+    }, { enableHighAccuracy: true })
+
+</script>

@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.slider{
+    width: 490px;
+    height: 170px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    position: relative;
+}
+/* 轮播图片的样式 */
+.slider .ad{
+    width: 490px;
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+}
+.slider .ad ul{
+    width: 500%;
+    position: relative;
+    left: 0;
+}
+.slider .ad ul li{
+    float: left;   
+}
+.slider .ad ul li img{
+    width: 490px;
+    height: 170px;
+    vertical-align: top;
+  
+}
+
+/* 编号的样式 */
+.slider ol{   
+    width:200px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 28%;   
+    z-index: 99;
+}
+.slider ol li{
+    float: left;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #333;
+    margin-left: 10px;
+    line-height: 20px;
+    text-align: center;
+    background: #ccc;
+    cursor: pointer;
+}
+.slider ol .current{
+    background: orange;
+}
