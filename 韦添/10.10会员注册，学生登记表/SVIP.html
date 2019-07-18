@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <link rel="stylesheet" type="text/css"href="SVIP.css">
+    </head>
+    <body>
+    <form action="#" method="post" >
+        <h2>会员注册</h2>
+        <p>
+            <span>性质：</span>
+            <input type="radio" name="Nature" checked="checked"/>&nbsp;个人
+            <input type="radio" name="Nature"/>&nbsp;&nbsp;公司
+        </p>
+        <p>
+           <span>昵称：</span>
+           <input type="text" placeholder="小明" maxlength="6"/>
+        </p>
+        <p>
+           <span>密码：</span>
+           <input type="password" size="40"/>
+        </p>
+        <p>
+           <span>电子邮箱：</span>
+           <input type="email" name="myemail" placeholder="123456@qq.com" required multiple/>
+       </p>
+       <p>
+           <span>所在地：</span>
+           <select>
+               <option>-请选择-</option>
+               <option>北京</option>
+               <option>上海</option>
+               <option selected="selected">-广州-</option>
+               <option>武汉</option>
+               <option>成都</option>
+           </select>
+        </p>
+        <p>
+           <span>身份证号：</span>
+           <input type="text" name="card" required pattern="^\d{8,18}|{0-9x}{8,18}?$" title="(必须填写，能够以数字、字母X结尾的短身份证号)"/>
+        </p>
+        <p>
+           <span>手机号码：</span>
+           <input type="tel"name="telphone" pattern="^\d{11}$" required/>
+        </p>
+        <p class="advice">
+           <span>意见反馈：</span>
+           <textarea cols="50" rows="5" class="message">如果您有什么意见或者问题可以告诉我！</textarea>
+        </p>
+        <p class="mgn">
+           <span></span>
+           <input type="submit" value="提交" class="btn"/>
+           <input type="reset" value="重置"  class="btn"/>
+        </p>
+    </form>
+    
+</body>
+</html>

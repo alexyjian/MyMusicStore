@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+   浏览器的宽：<input type="text" id="width"><br/>
+    浏览器的高：<input type="text" id="height">
+
+</body>
+</html>
+
+<script>
+
+    var winwidth=0;
+    var height=0;
+        function GetSize(){
+//获取稳定显示区域宽度
+   winwidth=window.innerWidth;
+
+//调用alert输出（省略window）
+    winwidth=window.innerWidth;
+    winHeight=innerHeight;
+     var w=document.getElementById("width");
+     w.value=winwidth;
+    var h= document.getElementById("height");
+    h.value=winHeight;
+    }
+
+    //动态调整显示的结果
+
+    GetSize();
+    window.onresize=GetSize;
+    </script>

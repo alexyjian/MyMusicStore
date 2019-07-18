@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*子代选择器*/
+    h1>strong{
+        color: blue;
+    }
+    /*临近兄弟选择器*/
+    h1+h2{
+        color: aqua;
+    }
+    /*普通兄弟选择器*/
+    h2~h1{
+        color: darkgreen;
+    }
+    </style>
+</head>
+<body>
+    <h1>这个<strong>知识点</strong>很<strong>重要</strong></h1>
+    <h1>真的很<i><strong>重要</strong></i>吗</h1>
+
+    <H2>你太天真！</H2>
+    <h2>你说真的吗</h2>
+    <h1>没有，随便的说</h1>
+    <h1>没有，随便的说</h1>
+    <h1>没有，随便的说</h1>
+    <h1>没有，随便的说</h1>
+</body>
+</html>

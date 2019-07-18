@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+.dad{
+width: 200px;
+height: 200px;
+margin: 50px auto;
+border: 5px solid black;
+position: relative;
+
+perspective: 50000px;
+-ms-perspective: 50000px;
+-webkit-perspective: 50000px;
+-moz-perspective: 50000px;
+-o-perspective: 50000px;
+
+transform-style: preserve-3d;
+-ms-transform-style: preserve-3d;
+-webkit-transform-style: preserve-3d;
+-moz-transform-style: preserve-3d;
+-o-transform-style: preserve-3d;
+
+transition: all 1s ease 0s;
+-ms-transition: all 1s ease 0s;
+-webkit-transition: all 1s ease 0s;
+-moz-transition: all 1s ease 0s;
+-o-transition: all 1s ease 0s;
+
+
+}
+
+
+.dad:hover{
+    transform: rotateX(-90deg);
+    -ms-transform: rotateX(-90deg);
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    -o-transform: rotateX(-90deg);
+}
+.dad img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.dad img.No1{
+    transform: translateZ(100px);
+    -ms-transform: rotateZ(100px);
+    -webkit-transform: rotateZ(100px);
+    -moz-transform: rotateZ(100px);
+    -o-transform: rotateZ(100px);
+}
+.dad img.No2{
+    transform: rotateX(90deg) translateZ(100px);
+    -ms-transform: rotateX(90deg) translateZ(100px);
+    -webkit-transform: rotateX(90deg) translateZ(100px);
+    -moz-transform: rotateX(90deg) translateZ(100px);
+    -o-transform: rotateX(90deg) translateZ(100px);
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="dad">
+        <img src="images/1.png" class="No1">
+        <img src="images/2.png" class="No2">
+    </div>
+</body>
+</html>
