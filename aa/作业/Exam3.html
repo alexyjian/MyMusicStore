@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 50px;
+        background-color: yellow;
+        border: 1px solid black;
+    }
+    #div2{
+        transform: translate(100px,30px);
+        -webkit-transform: translate(100px,30px);
+        -ms-transform: translate(100px,30px);
+        -moz-transform: translate(100px,30px);
+        -o-transform: translate(100px,30px);
+    }
+    #div3{
+        margin: 100px;
+        transform: scale(2,3);
+        -webkit-transform: scale(2,3);
+        -ms-transform: scale(2,3);
+        -moz-transform: scale(2,3);
+        -o-transform: scale(2,3);
+    }
+    #div4{
+        transform: skew(30deg,-10deg);
+        -webkit-transform: skew(30deg,-10deg);
+        -ms-transform:skew(30deg,-10deg);
+        -moz-transform: skew(30deg,-10deg);
+        -o-transform: skew(30deg,-10deg);
+    }
+    #div5{
+        transform: rotate(30deg);
+        -webkit-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+        -o-transform:  rotate(30deg);
+    }
+    </style>
+</head>
+<body>
+    <div>我不动</div>
+    <div id="div2">我动了</div>
+    <div id="div3">我最大</div>
+    <div id="div4">我倒</div>
+    <div id="div5">我转</div>
+</body>
+</html>

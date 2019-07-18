@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0 ;
+        padding: 0;
+        list-style: none;
+    }
+.div{
+    margin: 100px auto;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        animation: move 10s linear infinite;
+        transform-style: preserve-3d;
+        border: 3px dashed black;
+        border-radius: 50%;
+}
+.a1{
+    background-color: rgb(25, 218, 170);
+}
+.a2{
+    background-color: rgb(24, 163, 77);
+}
+.a3{
+    background-color: rgb(209, 28, 140);
+}
+.a4{
+    background-color: rgb(167, 49, 167);
+}
+.a5{
+    background-color: rgb(71, 67, 6);
+}
+.a6{
+    background-color: sienna;
+}
+.a1,.a2,.a3,.a4,.a5,.a6{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "微软雅黑";
+    font-size: 50px;
+    text-align: center;
+    line-height: 200px;
+    opacity: 0.6;
+}
+ul li:nth-child(1){
+    transform: rotateY(-90deg) translateZ(100px);
+}
+ul li:nth-child(2){
+    transform: rotateY(90deg) translateZ(100px);
+}
+ul li:nth-child(3){
+    transform: rotateY(180deg) translateZ(100px);
+}
+ul li:nth-child(4){
+    transform: rotateY(360deg) translateZ(100px);
+}
+ul li:nth-child(5){
+    transform: rotateX(90deg) translateZ(100px);
+}
+ul li:nth-child(6){
+    transform: rotateX(-90deg) translateZ(100px);
+}
+@keyframes move{
+       0%{transform:rotateX(0deg) rotateY(0deg);}
+       100%{
+           transform:rotateX(360deg) rotateY(360deg);
+       }
+    }
+    @-webkit-keyframes move{
+        0%{transform:rotateX(0deg) rotateY(0deg);}
+        100%{
+            transform:rotateX(360deg) rotateY(360deg);
+       }
+    }
+   
+</style>
+<body>
+    <ul class="div">
+            <li class="a1">上</li>
+            <li class="a2">下</li>
+            <li class="a3">前</li>
+            <li class="a4">前</li>
+            <li class="a5">后</li>
+            <li class="a6">后</li>
+    </ul>
+</body>
+</html>

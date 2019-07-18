@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>照片展示</title>
+    <style>
+    .dad{
+        width: 1280px;
+        height: 800px;
+        border: 1px solid red;
+        perspective: 1400px;
+        perspective-origin: 0 0;
+        position: relative;
+    }
+    .child{
+        width: 200px;
+        height: 150px;
+        -webkit-transform-style: preserve-3d;
+        position: absolute;
+        top: 250px;
+        left: 400PX;
+    }
+    .child img{
+        width: 150px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .child img:nth-child(1){
+        transform: rotateY(0deg) translateZ(400px)
+    }
+    .child img:nth-child(2){
+        transform: rotateY(40deg) translateZ(400px)
+    }
+    .child img:nth-child(3){
+        transform: rotateY(80deg) translateZ(400px)
+    }
+    .child img:nth-child(4){
+        transform: rotateY(120deg) translateZ(400px)
+    }
+    .child img:nth-child(5){
+        transform: rotateY(160deg) translateZ(400px)
+    }
+    .child img:nth-child(6){
+        transform: rotateY(200deg) translateZ(400px)
+    }
+    .child img:nth-child(7){
+        transform: rotateY(240deg) translateZ(400px)
+    }
+    .child img:nth-child(8){
+        transform: rotateY(280deg) translateZ(400px)
+    }
+    .child img:nth-child(9){
+        transform: rotateY(320deg) translateZ(400px)
+    }
+    </style>
+</head>
+<body>
+    <div class="dad">
+        <div class="child">
+            <img src="Images/cd_img.jpg">
+            <img src="Images/cd_img.jpg">
+            <img src="Images/cd_img.jpg">
+            <img src="Images/cd_img.jpg">
+            <img src="Images/cd_img.jpg">
+            <img src="Images/cd_img.jpg">
+            <img src="Images/cd_img.jpg">
+            <img src="Images/cd_img.jpg">
+            <img src="Images/cd_img.jpg">
+        </div>
+    </div>
+</body>
+</html>

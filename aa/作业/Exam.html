@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+    }
+    html,body{
+        height: 100%;
+        transform-style: preserve-3d;
+    }
+    body{
+        background: black;
+        perspective: 1000px;
+    }
+    #box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -175px;
+        margin-top: -150;
+        width: 350px;
+        height: 300px;
+        transform-style: preserve-3d;
+        transform-origin: center;
+    }
+    #box:hover{
+        transform: rotateX(360deg);
+    }
+    #box section{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5%;
+    }
+    .left{
+        position: absolute;
+        top: 50%;
+        margin-top: -177px;
+        left: -2px;
+        width: 354px;
+        height: 354px;
+        border: 1px solid #2fb0ff;
+        border-radius: 5%;
+    }
+    .right{
+        position: absolute;
+        left: 50px;
+        top: 25px;
+        width: 250px;
+        height: 250px;
+        border: 1px solid #ff4a5f;
+        transform: rotate(45deg);
+    }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    setTimeout(function(){
+        let oBox=document.getElementById('box');
+        let angle=360;
+        let deg=4.5;
+        let count=Math.floor((angle/deg)/2);
+        let X=0,Y=0,Z=45;
+
+        let str='';
+        for(let i=0;i<count;i++){
+            str +='<section style="transform:rotateY('+deg*1+'deg)">'+
+            '<div class="left"></div>'+
+            '<div class="right"></div>'+
+            '</section>';
+        }
+        oBox.innerHTML=str;
+
+        function move(){
+            setInterval(function(){
+                X +=0.5;
+                Y +=0.5;
+                Z +=0.5;
+                oBox.style.transform="rotateZ("+ Z + "deg) rotateX("+ X + "deg) rotateY("+ Y + "deg)";
+            },10);
+        }
+        move();
+    },1000);
+    </script>
+</body>
+</html>
