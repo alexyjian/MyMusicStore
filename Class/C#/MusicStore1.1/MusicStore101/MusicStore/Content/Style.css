@@ -1,0 +1,136 @@
+body {
+    font-family: "微软雅黑";
+    padding-top: 0px;
+    background-color:rgb(245,245,245);
+}
+
+.navbar-header img {
+    position: relative;
+    top: -8px;
+}
+
+.img-width {
+    width: 100%;
+}
+
+.footer {
+    width: 100%;
+    background-color: #F2F2F2;
+    padding: 12px 0px;
+    border-top: 1px solid #D3D3D3;
+    margin-top: 50px;
+    position: relative;
+    top: 20px;
+}
+
+    .footer img {
+        width: 200px;
+        height: 35px;
+    }
+
+.badge {
+    color: yellow;
+    background-color: red;
+}
+
+.mobilenumber {
+    font-size: 10px;
+    color: #9b9b9b;
+}
+
+.address {
+    font-size: 12px;
+}
+
+.imgAvarda {
+    height:100px;
+}
+
+.headAvarda {
+    height:25px;
+    width:25px;
+    border-radius:50%;
+}
+
+.pl {
+    font-size:18px;
+    margin-right:20px;
+}
+
+.pl-hd {
+    border-bottom:2px solid red;
+    margin:50px 0px 20px;
+}
+
+.pl-Avarda {
+    height:60px;
+    width:60px;
+}
+
+.plText {
+    position:relative;
+}
+
+.MyAvarda {
+    position:absolute;
+}
+
+.jcpl-hr {
+    border:0.5px solid #cdcdcd;
+    margin:0px 0px;
+}
+
+.pl-user {
+     margin-left:70px;
+     margin-bottom:5px;
+     width:92%;
+     font-size:12px;
+}
+
+.user-ment {
+    margin-top:10px;
+    font-size:13px;
+}
+
+.pl-list {
+    border-bottom:1px dashed #cdcdcd;
+    margin: 10px 0px;
+}
+
+.hf {
+    margin:0px 20px;
+}
+
+.reply-div {
+    background-color:rgb(248,248,248);
+    border:1px solid rgb(217,217,217);
+    width:92%;
+    margin:5px 0px 0px 70px;
+    padding:10px;
+}
+
+.reply-div textarea {
+    font-size:12px;
+    margin-bottom:5px;
+    resize: none;
+}
+
+.fu-hf {
+    border:1px solid rgb(222,222,222);
+    background-color:rgb(244,244,244);
+    padding:8px;
+    margin-top:5px;
+}
+
+.col-xs-9 {
+    border:1px solid rgb(211,211,211);
+    padding:10px 14px;
+    background-color:#fff;
+    border-radius:3px;
+}
+
+.time {
+    position:absolute;
+    left:85px;
+    font-size:12px;
+}

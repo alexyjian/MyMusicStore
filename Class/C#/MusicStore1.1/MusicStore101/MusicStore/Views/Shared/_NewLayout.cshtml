@@ -1,0 +1,133 @@
+﻿@using MusicStore.ViewModels
+@using MusicStoreEntity.UserAndRole
+
+@{ 
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车 收藏车
+    var carts = new List<MusicStoreEntity.Cart>();
+
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        //查询购物车 收藏车
+        carts = new MusicStoreEntity.EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - 音乐商店</title>
+    @*绑定样式库*@
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/JqueryUI")
+    @Styles.Render("~/Content/css")
+    @*绑定脚本库*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                    <img src="~/Content/Images/logo.png" alt="Logo" />
+                </a>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                    ChaoPiPi音乐商店
+                </a>
+                @*百度定位*@
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Index","Home")">首页</a></li>
+                    <li><a href="@Url.Action("Store","Home")">商店</a></li>
+                    <li>
+                        @{
+                            if (user == null)
+                            {
+                                <a href="@Url.Action("Login","Account")">登录</a>
+                            }
+                            else
+                            {
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img class="headAvarda" src="@user.Person.Avarda" alt="头像" id="userAvarda" />
+                                    @user.UserName
+                                <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a id="cart" href="@Url.Action("Index","ShoppingCart",new { id=loginUserModel.Person.ID})"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;&nbsp;购物车(@carts.Count)</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Order")"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;我的订单</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="@Url.Action("Info","My")"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;个人信息</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("AddressInfo","My")"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;&nbsp;收件地址</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","My")"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;&nbsp;修改密码</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="@Url.Action("LoginOut","Account")"><span class="glyphicon glyphicon-off">&nbsp;</span>注销</a>
+                                    </li>
+                                </ul>
+                            }
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                @Html.Partial("_GetGenreMenu",new MusicStoreEntity.EntityDbContext().Genres.ToList())
+                <div class="text-danger text-center user-ment">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        当前位置：<span id="city"></span>
+                </div>
+            </div>
+            <div class="col-xs-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div class="footer text-center">
+        <img src="~/Content/Images/login_logo.png" />2017 - @DateTime.Now.Year CopyRight By 2017软件技术1班
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=3.0&ak=emKzTIR8orgFMUjXFLjgU1IT&services=&t=20181212102423"></script>
+<script>
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (r.address.city != "") {
+            document.getElementById('city').innerHTML = r.address.city;
+        } else if (r.address.district != "") {
+            document.getElementById('city').innerHTML = r.address.district;
+        } else {
+            docu.getElementById('city').innerHTML = "定位中...";
+        }
+    }, { enableHighAccuracy: true })
+</script>

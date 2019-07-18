@@ -1,0 +1,12 @@
+body {
+    font-family: "微软雅黑";
+}
+
+.navbar-header img {
+    position: relative;
+    top: -8px;    
+}
+
+.img-width {
+    width: 100%;
+}

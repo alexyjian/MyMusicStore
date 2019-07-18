@@ -1,0 +1,184 @@
+﻿@model MusicStoreEntity.Album
+@{
+    ViewBag.Title = "专辑明细";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<div class="bk">
+    <h4>单曲 - @Model.Title</h4>
+    <hr />
+    <p>
+        <img alt="图片加载失败" src="@Model.AlbumArtUrl" />
+    </p>
+
+    <div>
+        <p>
+            <em>歌手：</em>@Model.Artist.Name
+        </p>
+        <p>
+            <em>分类：</em>@Model.Genre.Name
+        </p>
+        <p>
+            <em>发布时间：</em>@Model.PublisherDate.ToString("yyyy年MM月dd日")
+        </p>
+        <p>
+            <em>价格：</em><b>￥@string.Format("{0:F}", Model.Price)</b>
+        </p>
+        <div id="mes"></div>
+        <br />
+        <p>
+            <a href="#" id="addcart" class="btn btn-primary">添加到购物车</a>
+            <div id="mes"></div>
+        </p>
+    </div>
+    <div>
+        <div class="pl-hd">
+            <span class="pl">评论</span><span class="text-muted">共 @Model.Commentarys.Count 条评论</span>
+        </div>
+        <div class="plText">
+            <img class="pl-Avarda MyAvarda" src="@ViewBag.AvardaUrl" />
+            <script id="container" name="content" type="text/plain">
+            </script>
+            <p class="text-right">
+                <a id="btn-pl" href="#" class="btn btn-success">评论</a>
+            </p>
+        </div>
+        <div>
+            <strong>最新评论</strong>
+            <hr class="jcpl-hr" />
+            <div id="pl-all-list">
+                @Html.Raw(ViewBag.Cmt)
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 配置文件 -->
+<script type="text/javascript" src="~/ueditor1_4_3_3-utf8-asp/utf8-asp/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="~/ueditor1_4_3_3-utf8-asp/utf8-asp/ueditor.all.js"></script>
+<script>
+    //显示回复框
+    var reply_id = "";
+    var name = "";
+    var t = "";
+    $('.hf').on('click',function () {
+        $('.reply-div').remove();
+        if (reply_id == "") {
+            reply_id = $(this).data("replyid");
+            name = $("#" + reply_id + " .pl-user a:first").text();
+            $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='Reply()'>回复</a></div>");
+            t = $("#editor").val();
+            $("#editor").val("").focus().val(t);
+        } else {
+            if (reply_id == $(this).data("replyid")) {
+                $('.reply-div').remove();
+                reply_id = "";
+                name = "";
+                t = "";
+            } else {
+                reply_id = $(this).data("replyid");
+                name = $("#" + reply_id + " .pl-user a:first").text();
+                $(this).parent().append("<div class='reply-div'><textarea id='editor' name='editor' cols='122' rows='2'>回复" + name + "：</textarea><br /><a id='btn-reply' href='javascript:;' class='btn btn-primary' onclick='Reply()'>回复</a></div>");
+                t = $("#editor").val();
+                $("#editor").val("").focus().val(t);
+            }
+        }
+    });
+
+    //回复
+    function Reply() {
+        var str = $('#editor').val();
+        var reply_id = $('.hf').data('replyid');
+        if (str.length == 0) {
+            alert('请输出内容！');
+        } else {
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../Store/Commit',
+                data: { str: str, id: "@Model.ID", reply: reply_id },
+                dataType: 'json',
+                success: function (data) {
+                    if (data == "nologin") {
+                        location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                    } else {
+                        $('.reply-div').remove();
+                        str = "";
+                        reply_id = "";
+                        name = "";
+                        t = "";
+                        $("#pl-all-list").html(data);
+                        location.reload();
+                    }
+                }
+            });
+        }
+    };
+
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Store/Zan',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "nologin") {
+                    location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                } else {
+                    $("#pl-all-list").html(data);
+                }
+            }
+        });
+    };
+
+    //添加至购物车
+    $("#addcart").click(function () {
+        //异步
+        $("#mes").html("<img src='../../Content/Images/ProgressIcon.gif' />添加到购物车，请稍后...");
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShoppingCart/AddCart',
+            data: { id: "@Model.ID" },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "nologin") {
+                    location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                } else {
+                    $("#mes").html(data);
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1000);
+                }
+            }
+        });
+    });
+
+    //实例化编辑器
+    var ue = UE.getEditor('container');
+    $('#btn-pl').click(function () {
+        var str = ue.getContent();
+        if (!ue.hasContents()) {
+            alert('请输出内容！');
+        } else {
+            $.ajax({
+                type: 'post',
+                async: true,
+                url: '../../Store/Commit',
+                data: { str: str, id: "@Model.ID", reply: "" },
+                dataType: 'json',
+                success: function (data) {
+                    if (data == "nologin") {
+                        location.href = "@Url.Action("Login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                    } else {
+                        $("#pl-all-list").html(data);
+                        ue.setContent('');
+                        location.reload();
+                    }
+                }
+            })
+        }
+    });
+</script>

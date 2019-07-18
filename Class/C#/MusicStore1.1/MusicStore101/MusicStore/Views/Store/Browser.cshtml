@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MusicStoreEntity.Album>
+@{
+    ViewBag.Title = "浏览专辑";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+    var album = Model.FirstOrDefault();
+    var genreName = album != null ? album.Genre.Name : "找不到";
+}
+
+<h4>@genreName - 专辑</h4>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-sm-6">
+            <div class="thumbnail text-center">
+                <a href="@Url.Action("Detail","Store",new { id=item.ID})">
+                    <img src="@item.AlbumArtUrl"
+                         alt="通用的占位符缩略图">
+                    <div class="caption">
+                        <h4>@item.Title</h4>
+                        <p>@item.Artist.Name</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+</div>

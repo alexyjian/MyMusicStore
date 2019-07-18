@@ -1,0 +1,96 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    list-style: none;
+    font-family: "微软雅黑";
+}
+
+a {
+    text-decoration: none;  
+    color: #666;
+}
+
+.tuan {
+    border: 1px solid #666;
+    margin: 20px auto;
+    width: 296px;
+    padding: 5px 20px;
+}
+
+.name {
+    margin-bottom: 5px;
+}
+
+.box01 {
+    position: relative; 
+}
+
+.pic {
+    position: absolute;
+    left: 80px;
+}
+
+ul {
+    position: absolute;
+    right: 6px;
+    bottom: 10px;
+}
+
+ul li {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    border: 2px solid red;
+    text-align: center;
+    background-color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+ul li:first-of-type {
+    background-color: yellow;
+}
+
+.box02 {
+    position: relative;
+    margin: 15px 0px;
+}
+
+.tit {
+    font-size: 14px;
+    margin: 10px 0px;
+}
+
+.tit a {
+    color: black;
+}
+
+.tit a span {
+    font-weight: bold;
+}
+
+.price span {
+    font-size: 24px;
+    color:#fd7f23;
+}
+
+.price em {
+    font-size: 13px;
+    font-style: inherit;
+}
+
+.btn {
+    width: 90px;
+    height: 35px;
+    text-align: center;
+    color: #fff;
+    line-height: 35px;
+    border-radius: 5px;
+    background-color: #fcaa68;
+    border: 1px solid #fd8b41;
+    position: absolute;
+    bottom: -5px;
+    right: 0px;
+}

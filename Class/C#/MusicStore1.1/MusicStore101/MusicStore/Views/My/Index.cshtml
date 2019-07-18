@@ -1,0 +1,39 @@
+﻿@model MusicStore.ViewModels.PwdViewModel
+@{
+    ViewBag.Title = "修改密码";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3>用户信息</h3>
+<hr />
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">修改密码</h3>
+    </div>
+    @using (Html.BeginForm("Index", "My", FormMethod.Post, new { @class = "bs-example bs-example-form", role = "form" }))
+    {
+    @Html.AntiForgeryToken()
+    <div class="panel-body">
+        <div class="input-group">
+            <span class="input-group-addon"><b>旧密码</b></span>
+            @Html.PasswordFor(x => x.oldPassword, new { placeholder = "Old Password", @class = "form-control" })
+        </div>
+        <span class="text-danger">@Html.ValidationMessageFor(x => x.oldPassword)</span>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon"><b>新密码</b></span>
+            @Html.PasswordFor(x => x.newPassword, new { placeholder = "New Password", @class = "form-control" })
+        </div>
+        <span class="text-danger">@Html.ValidationMessageFor(x => x.newPassword)</span>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon"><b>确认密码</b></span>
+            @Html.PasswordFor(x => x.ConfirmPassword, new { placeholder = "Confirm Password", @class = "form-control" })
+        </div>
+        <span class="text-danger">@Html.ValidationMessageFor(x => x.ConfirmPassword)</span>
+        <br>
+        <input type="submit" class="btn btn-primary" value="保存" />
+        <input type="reset" class="btn btn-default" value="返回" />
+    </div>
+    }
+</div>

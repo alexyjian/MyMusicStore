@@ -1,0 +1,32 @@
+﻿@model MusicStoreEntity.PeopleAddress
+@{
+    ViewBag.Title = "添加地址";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3>地址信息</h3>
+<hr />
+@using (Html.BeginForm("AddressInfo", "My", new { peopleaddress = Model},FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="input-group">
+        <span class="input-group-addon">收件人</span>
+        @Html.TextBoxFor(x=>x.Name,new { @class="form-control", placeholder="PeopleAddress"})
+    </div>
+    <span class="text-danger">@Html.ValidationMessageFor(x => x.Name)</span>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon">电话</span>
+        @Html.TextBoxFor(x => x.MobileNumber, new { @class = "form-control", placeholder = "MobileNumber" })
+    </div>
+    <span class="text-danger">@Html.ValidationMessageFor(x => x.MobileNumber)</span>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon">收件地址</span>
+        @Html.TextBoxFor(x => x.Address, new { @class = "form-control", placeholder = "Address" })
+    </div>
+    <span class="text-danger">@Html.ValidationMessageFor(x => x.Address)</span>
+    <br />
+    <button type="submit" class="btn btn-success">保存</button>
+    @Html.ActionLink("返回", "AddressInfo", "My", new { @class = "btn btn-default" })
+}

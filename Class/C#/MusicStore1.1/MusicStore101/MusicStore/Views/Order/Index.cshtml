@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MusicStoreEntity.Order>
+@{
+    ViewBag.Title = "我的订单";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3>浏览订单</h3>
+<hr />
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">我的订单</h3>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>订单摘要</th>
+                        <th>明细</th>
+                        <th>总价</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="odList">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span class="text-info">@item.TradeNo</span><br />
+                                收件人：@item.AddressPerson<br />
+                                收件地址：@item.Address<br />
+                                电话：@item.mobilNumber
+                            </td>
+                            <td>
+                                @foreach (var dtItem in item.OrderDetails)
+                                {
+                                    <p class="text-info">
+                                        @dtItem.Album.Title， @dtItem.Count 张
+                                    </p>
+                                }
+                            </td>
+                            <td>@item.TotalPrice.ToString("C")</td>
+                            <td>
+                                @switch (item.EnumOrderStatus)
+                            {
+                                case MusicStoreEntity.EnumOrderStatus.未付款:
+                                    <span class="text-danger">@item.EnumOrderStatus</span>
+                                    break;
+                                case MusicStoreEntity.EnumOrderStatus.已付款:
+                                    <span class="text-success">@item.EnumOrderStatus</span>
+                                    break;
+                                default:
+                                    <span class="text-warning">@item.EnumOrderStatus</span>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("立即支付","Alipay","Pay",new { id = item.ID},new { @class = "btn btn-success"})
+                            <a href="javascript:void(0);" onclick="Delod('@item.ID')" class="btn btn-danger">取消订单</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function Delod(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Order/DelBuy',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $('#odList').html(data);
+            }
+        });
+    }
+</script>

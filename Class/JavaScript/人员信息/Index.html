@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .list {
+            width: 300px;
+            margin: 10px auto;
+            border: 1px solid black;
+            background-color: #eee;
+        }
+
+        ul {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .head {
+            font-weight: bold;
+        }
+
+        li {
+            float: left;
+            width: 75px;
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: #eeee6a;
+        }
+
+        ul li:nth-of-type(1) {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list">
+        <ul class="head">
+            <li>姓名</li>
+            <li>年龄</li>
+            <li>性別</li>
+            <li>国籍</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li onclick="detail(this)">Mary</li>
+            <li>21</li>
+            <li>女</li>
+            <li>英国</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li onclick="detail(this)">Jerry</li>
+            <li>18</li>
+            <li>男</li>
+            <li>美国</li>
+        </ul>
+        <ul onmouseover="hl(this)" onmouseout="clearhl(this)">
+            <li onclick="detail(this)">Mack</li>
+            <li>50</li>
+            <li>男</li>
+            <li>德国</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    function hl(tag) {
+        tag.setAttribute("class","highlight")
+    }
+
+    function clearhl(tag) {
+        tag.removeAttribute("class");
+    }
+
+    function detail(tag){
+        alert(tag.innerHTML);
+    }
+</script>

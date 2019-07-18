@@ -1,0 +1,81 @@
+﻿@model MusicStore.ViewModels.ShoppingCartViewModel
+@{
+    ViewBag.Title = "我的购物车";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3><span class="glyphicon glyphicon-shopping-cart"></span>浏览您的购物车</h3>
+<hr />
+<p>
+    <a href="@Url.Action("Buy","Order")" class="btn btn-success">提交订单>></a>
+</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>专辑名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tbCart">
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@Html.ActionLink(item.Album.Title,"Detail","Store",new { id=item.Album.ID},null)</td>
+                    <td>@item.Album.Price.ToString("C")</td>
+                    <td><a href="#" class="glyphicon glyphicon-minus" onclick="minusCount('@item.ID')"></a>&nbsp;@item.Count&nbsp;<a href="#" class="glyphicon glyphicon-plus" onclick="addCount('@item.ID')"></a></td>
+                    <td><a href="#" class="text-danger" onclick="Remove('@item.ID')"><span class="glyphicon glyphicon-remove"></span>我不喜欢这个了</a></td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td>总价</td>
+                <td>@Model.CartTotalPrice.ToString("C")</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function Remove(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShoppingCart/RemoveCart',
+            data: { id: id},
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+
+    function addCount(id){
+        $.ajax({
+            type:'post',
+            async:true,
+            url:'../../ShoppingCart/AddCount',
+            data:{id: id},
+            dataType:'json',
+            success:function (data){
+                $("#tbCart").html(data);
+            }
+        });
+    }
+
+    function minusCount(id){
+        $.ajax({
+            type:'post',
+            async:true,
+            url:'../../ShoppingCart/MinusCount',
+            data:{id: id},
+            dataType:'json',
+            success:function (data){
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频播放器</title>
+    <style>
+    #one,#two,#three,#four,#five {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    #one {
+        width: 500px;
+        height: 500px;
+        background: linear-gradient(rgb(98,66,108), rgb(209,176,208),rgb(98,66,108));
+    }
+
+    #two {
+        width: 400px;
+        height: 350px;
+        background-color: rgb(148,82,120);
+        border-radius: 20px;
+        box-shadow: 10px 10px 30px #2f0f2c;
+    }
+
+    #three {
+        width: 280px;
+        height: 220px;
+        border-radius: 20px;
+        border: 25px solid rgb(36,24,38);
+        background: linear-gradient(to bottom right, rgb(250,176,151) , rgb(148,82,120));
+    }
+
+    #four {
+        width: 150px;
+        height: 150px;
+        background-color: rgb(255,255,255);
+        border-radius: 100%;
+    }
+
+    #five {
+        width: 0;
+        height: 0;
+        border-width: 40px;
+        border-style: solid;
+        border-color: transparent transparent transparent black;
+        margin-left: 60px;
+    }
+    </style>
+</head>
+<body>
+    <div id="one">
+        <div id="two">
+            <div id="three">
+                <div id="four">
+                    <div id="five"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

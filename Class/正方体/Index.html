@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画作业1</title>
+    <style>
+    .Dad {
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+        margin: 100px auto;
+        position: relative;
+        perspective: 5000px;
+        text-align: center;
+        font-size: 36px;
+        color: #333;
+        line-height: 203px;
+        border-radius: 50%;
+        border: 3px dashed rgb(255, 165, 0);
+        transform: rotateZ(0deg);
+        box-sizing: border-box;
+        animation: myrota 8s linear infinite;
+    }
+
+    .Dad>div {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .Dad div.No1 {
+        background-color: rgba(255, 0, 0, 0.337);
+        transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .Dad div.No2 {
+        background-color: rgba(255, 255, 0, 0.337);
+        transform: rotateX(90deg) translateZ(-100px);
+    }
+
+    .Dad div.No3 {
+        background-color: rgba(0, 128, 0, 0.337);
+        transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    .Dad div.No4 {
+        background-color: rgba(255, 192, 203, 0.337);
+        transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .Dad div.No5 {
+        background-color: rgba(128, 0, 128, 0.337);
+        transform: translateZ(100px);
+    }
+
+    .Dad div.No6 {
+        background-color: rgba(0, 0, 255, 0.337);
+        transform:rotateY(180deg) translateZ(100px);
+    }
+    
+    @keyframes myrota{
+        0%{
+            transform: rotateY(0deg) rotateX(0deg) ;
+        }
+        100%{
+            transform: rotateY(360deg) rotateX(360deg);
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="Dad">
+        <div class="No1">上</div>
+        <div class="No2">下</div>
+        <div class="No3">左</div>
+        <div class="No4">右</div>
+        <div class="No5">前</div>
+        <div class="No6">后</div>
+    </div>
+</body>
+</html>

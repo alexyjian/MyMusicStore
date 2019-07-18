@@ -1,0 +1,53 @@
+﻿@using MusicStore.ViewModels
+@model RegisterViewModel
+@{
+    ViewBag.Title = "用户注册";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3>用户注册</h3>
+<p>如果已有用户名，请点击一下<a href="@Url.Action("Login","Account")">这里</a></p>
+<hr />
+@*注册*@
+<div class="panel  panel-success">
+    <div class="panel-heading">
+        <h4 class="panel-title">注册</h4>
+    </div>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "bs-example bs-example-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                @Html.TextBoxFor(x => x.UserName, new { placeholder = "UserName", @class = "form-control" })
+            </div>
+            <span class="text-danger">@Html.ValidationMessageFor(x => x.UserName)</span>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                @Html.TextBoxFor(x => x.FullName, new { placeholder = "FullName", @class = "form-control" })
+            </div>
+            <span class="text-danger">@Html.ValidationMessageFor(x => x.FullName)</span>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                @Html.TextBoxFor(x => x.Email, new { placeholder = "Email", @class = "form-control" })
+            </div>
+            <span class="text-danger">@Html.ValidationMessageFor(x => x.Email)</span>
+            <br>    
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                @Html.PasswordFor(x => x.PassWord, new { placeholder = "PassWord", @class = "form-control" })
+            </div>
+            <span class="text-danger">@Html.ValidationMessageFor(x => x.PassWord)</span>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                @Html.PasswordFor(x => x.ConfirmPassword, new { placeholder = "Confirm Password", @class = "form-control" })
+            </div>
+            <span class="text-danger">@Html.ValidationMessageFor(x => x.ConfirmPassword)</span>
+            <br>
+            <input type="submit" class="btn btn-success" value="注册" />
+        </div>
+    }
+</div>

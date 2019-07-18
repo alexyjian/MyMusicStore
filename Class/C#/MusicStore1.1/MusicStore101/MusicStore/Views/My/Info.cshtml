@@ -1,0 +1,70 @@
+﻿@model MusicStore.ViewModels.InfoViewModel
+@{
+    ViewBag.Title = "我的";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3>个人信息</h3>
+<hr />
+<form enctype="multipart/form-data" action="" method="post" role="form">
+    @Html.AntiForgeryToken()
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="name">姓氏：</label>
+            @Html.TextBoxFor(x=>x.FirstName,new { @class="form-control", placeholder = "First Name" })
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="form-group">
+            <label for="name">名字：</label>
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Last Name"})
+        </div>
+    </div>
+    <br />
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="name">生日：</label>
+            @Html.TextBoxFor(x => x.BrithDay, new { type="date" , @class="form-control"})
+        </div>
+    </div>
+    <br />
+    <div class="form-inline">
+        <label for="name">性别：</label>
+        @Html.RadioButtonFor(x=>x.Sex,true ,new { })男&nbsp;&nbsp;&nbsp;&nbsp;
+        @Html.RadioButtonFor(x => x.Sex, false, new { })女
+    </div>
+    <br />
+    <div class="form-inline">
+        <div class="form-group">
+            <label for="name">联系电话：</label>
+            @Html.TextBoxFor(x => x.MobileNumber, new { @class="form-control" ,placeholder="MobileNumber"})
+        </div>
+    </div>
+    <br />
+    <div class="form-inline">
+        <label for="name">头像：</label>
+        <div class="form-group">
+            <img id="imgAvarda" class="imgAvarda" src="@ViewBag.AvardaUrl" />
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x=>x.Avarda,new { type="file", accept = "image/*" })
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-default">保存</button>
+</form>
+<script>
+    $(function () {
+        $("#Avarda").on("change", function () {
+            var file = this.files[0];
+            if (!/image\/\w+/.test(file.type)) {
+                alert("文件必须为图片！");
+                return false;
+            }
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                $("#imgAvarda").attr('src', this.result);
+            }
+        })
+    })
+</script>

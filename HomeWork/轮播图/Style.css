@@ -1,0 +1,58 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+img {
+    display: block;
+    height: 300px;
+    width: 550px;
+    margin-right: 5px;
+}
+
+.box {
+    width: 550px;
+    height: 300px;
+    margin: 100px auto;
+    position: relative;
+    border: 1px solid #eee;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.ad {
+    width: 550px;
+    height: 300px;
+    position: relative;
+}
+
+.list_img {
+    width: 3330px;
+    position: absolute;
+    left: 0;
+}
+
+.list_img li {
+    float: left;
+}
+
+.list_num {
+    width: 160px;
+    position: absolute;
+    bottom:35px;
+    right: 50px;
+}
+
+.list_num li {
+    float: left;
+    padding: 0px 5px;
+    margin: 0px 5px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.list_num .current {
+    background-color: orange;
+}

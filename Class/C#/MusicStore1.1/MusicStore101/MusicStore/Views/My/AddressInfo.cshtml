@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MusicStoreEntity.PeopleAddress>
+@{
+    ViewBag.Title = "地址信息";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<h3>收件信息</h3>
+<hr />
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">我的收获地址</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-condensed">
+            <a href="@Url.Action("Addaddress","My")" class="text-success"><span class="glyphicon glyphicon-plus"></span>新增收获地址</a>
+            <tbody id="tbCart">
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @item.Name &nbsp;&nbsp;<span class="mobilenumber">@item.MobileNumber</span><br />
+                        <span class="address">@item.Address</span>
+                    </td>
+                    <td class="mobilenumber">
+                        <a href="#" onclick="remove('@item.ID')">删除</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function remove(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../My/Remove',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+            }
+        });
+    }
+</script>

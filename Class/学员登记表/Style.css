@@ -1,0 +1,62 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "黑体";
+    font-size: 13px;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bg {
+    background: url(images/form_bg.jpg) no-repeat;
+    background-size: 1280px;
+    height: 717px;
+    position: relative;
+}
+
+form {
+    height: 500px;
+    position: absolute;
+    right: 280px;
+    top: 80px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+p span {
+    display: inline-block;
+}
+
+.sj{
+    text-indent: 12px;
+}
+
+.cr {
+    width: 90px;
+}
+
+.txt {
+    width: 180px;
+    padding: 3px 0px;
+    border: 1px solid rgb(212,205,187);
+}
+
+.btn1 {
+    margin-left: 30px;
+}
+
+.btn1 input {
+    padding: 5px 25px;
+    color: white;
+    font-size: 14px;
+    background-color: #94b32c;
+    margin: 0px 20px;
+    border: 0px;
+    border-radius: 2px;
+}

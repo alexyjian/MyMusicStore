@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .child {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            top: 200px;
+            left: 500px;
+            transition: all 1.5s;
+            border: 3px solid #000;
+            perspective: 50000px;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg);
+            transition: all 1.5s;
+        }
+
+        .child img {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .child img:nth-child(1) {
+            transform: rotateX(90deg) translateZ(100px) ;
+        }
+
+        .child img:nth-child(2) {
+            transform: rotateX(0deg) translateZ(100px) ;
+        }
+
+        .child:hover {
+            transform: rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="child">
+        <img src="1.png" />
+        <img src="2.png" />
+    </div>
+</body>
+
+</html>

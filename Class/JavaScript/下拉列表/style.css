@@ -1,0 +1,151 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+body {
+    min-width: 800px;
+    color:#656871;
+    font-size: 12px;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*******************header*********************/
+
+.ul_right {
+    float: right;
+}
+
+#top {
+    width: 100%;
+    height: 30px;
+    background-color: #f5f5f5;
+    line-height: 30px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+#top .top_Nav {
+    max-width: 1280px;
+    margin: 0px auto;
+    cursor: pointer;
+}
+
+#top ul {
+    margin: 0px 20px;
+}
+
+#top li {
+    float: left;
+    padding-right:5px;
+}
+
+#top .line {
+    color: #ccc;
+    cursor: default;
+}
+
+.ul_right li span {
+    padding: 8px 10px;
+}
+
+.ul_right .ul_drop {
+    position: relative;
+}
+
+.ul_right #div_drop {
+    width: 100px;
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 31px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+.ul_right #div_drop a{
+    display: block;
+    padding: 0px 10px;
+    line-height: 28px;
+}
+
+.top_Nav ul li:hover span {
+    color: red;
+}
+
+.ul_drop:hover span{
+    background-color: #fff;
+}
+
+.ul_right #div_drop a:hover{
+    background-color: #eee;
+}
+
+/*****************main****************/
+
+#header {
+    width: 1280px;
+    margin: 0px auto;
+    padding-top: 20px;
+}
+
+#header .logo {
+    float: left;
+}
+
+#header a {
+    width: 240px;
+    display: block;
+}
+
+#header #search {
+    float: left;
+    width: 500px;
+    margin-top: 15px;
+}
+
+#header #search input {
+    width: 400px;
+    height: 30px;
+    border: 3px solid #e4393c;
+}
+
+#header #search .txt_search {
+    float: left;
+    padding-left: 5px;
+    color: #5f5f5f;
+}
+
+#header #search .btn_search {
+    width: 80px;
+    height: 36px;
+    color: white;
+    font-weight: bold;
+    background-color: #e4393c;
+    cursor: pointer;
+}
+
+#header #search p {
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#header #info {
+    float: left;
+    margin: 17px 0px 0px 20px;
+}
+
+#header #info input {
+    height: 32px;
+    border: 1px solid #e1e1e1;
+    background-color: #f7f7f7;
+    color: #666;
+    padding: 0px 10px;
+    cursor: pointer;
+    margin-right: 8px;
+}

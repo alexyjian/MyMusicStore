@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学员登记表</title>
+    <link rel="stylesheet" type="text/css" href="Style.css" />
+</head>
+
+<body>
+    <div class="bg">
+        <form action="#" method="POST">
+            <h2>学员登记表</h2>
+            <p>
+                <span>用户登录名：</span>
+                <input class="txt" type="text" name="user_name" value="myemail@163.com" readonly="readonly" />
+            </p>
+            <p>
+                <span class="sj">真实姓名：</span>
+                <input class="txt" type="text" name="real_name" required="required" placeholder="例如：王明" pattern="^[\u4e00-\u9fa5]{0,}$" />
+            </p>
+            <p>
+                <span class="sj">真实年龄：</span>
+                <input class="txt" type="number" name="real_age" required="required" value="24" min="1" max="120" />
+            </p>
+            <p>
+                <span class="sj">出生日期：</span>
+                <input class="txt" type="date" name="birthday" required="required" value="24" />
+            </p>
+            <p>
+                <span class="sj">电子邮箱：</span>
+                <input class="txt" type="email" name="myemail" required="required" placeholder="123456@126.com" />
+            </p>
+            <p>
+                <span class="sj">身份证号：</span>
+                <input class="txt" type="text" name="card" required="required" pattern="^([0-9]){7,18}(x|X)?$ 或 ^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$" />
+            </p>
+            <p>
+                <span class="sj">手机号码：</span>
+                <input class="txt" type="tel" name="telphone" required="required" />
+            </p>
+            <p>
+                <span class="sj">个人主页：</span>
+                <input class="txt" type="url" name="myurl" placeholder="http://www.itcast.com" list="url_list" />
+                <datalist id="url_list">
+                    <option value=" http://www.baidu.com"> </option>
+                    <option value="http://www.qq.com"></option>
+                    <option value="http://www.sohu.com"></option>
+                </datalist>
+            </p>
+            <p>
+                <span class="sj">幸运颜色：</span>
+                <input type="color" value=#ffff00 name="luck_color" class="cr" />
+            </p>
+            <p class="btn1">
+                <input type="submit" value="提交" />
+                <input type="reset" value="重置" />
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>

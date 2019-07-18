@@ -1,0 +1,57 @@
+* {
+    list-style: none;
+    outline: none;
+}
+
+body {
+    text-align: center;
+    font-family: "微软雅黑";
+}
+
+hr {
+    width: 60%;
+    height: 2px;
+    background-color:rgb(94,45,0);
+}
+
+a {
+    color: rgb(94,45,0);
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0px 30px;
+}
+
+a:hover {
+    color: rgb(255,0,51);
+    text-decoration: underline;
+}
+
+dl {
+    display: none;
+}
+
+:target {
+    display: block;
+}
+
+dd {
+    line-height: 40px;
+    text-align: left;
+    text-indent: 20%;
+}
+
+dd::before {
+    content: url(img/11.png);
+}
+
+#one>strong {
+    color: rgb(255,0,51);
+}
+
+#two>strong {
+    color: #5e2d00; 
+}
+
+dd:nth-of-type(even) {
+    color: #bda793;
+}

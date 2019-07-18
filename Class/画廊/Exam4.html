@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .dad {
+            width: 1280px;
+            height: 768px;
+            border: 1px solid #000;
+            perspective: 4000px;
+            perspective-origin: 0% -150%;
+            position: relative;
+        }
+
+        .child {
+            width: 200px;
+            height: 150px;
+            position: absolute;
+            top: 250px;
+            left: 500px;
+        }
+
+        .child img {
+            width: 200px;
+            height: 150px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .child img:nth-child(1) {
+            transform: rotateY(0deg) translateZ(200px);
+        }
+        .child img:nth-child(2) {
+            transform: rotateY(40deg) translateZ(400px);
+        }
+        .child img:nth-child(3) {
+            transform: rotateY(80deg) translateZ(400px);
+        }
+        .child img:nth-child(4) {
+            transform: rotateY(120deg) translateZ(400px);
+        }
+        .child img:nth-child(5) {
+            transform: rotateY(160deg) translateZ(400px);
+        }
+        .child img:nth-child(6) {
+            transform: rotateY(200deg) translateZ(400px);
+        }
+        .child img:nth-child(7) {
+            transform: rotateY(240deg) translateZ(400px);
+        }
+        .child img:nth-child(8) {
+            transform: rotateY(280deg) translateZ(400px);
+        }
+        .child img:nth-child(9) {
+            transform: rotateY(320deg) translateZ(400px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dad" class="dad">
+        <div id="list_img" class="child">
+            <img src="bg.jpg" />
+            <img src="bg.jpg" />
+            <img src="bg.jpg" />
+            <img src="bg.jpg" />
+            <img src="bg.jpg" />
+            <img src="bg.jpg" />
+            <img src="bg.jpg" />
+            <img src="bg.jpg" />
+            <img src="bg.jpg" />
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+    var imgs = document.getElementById("list_img").children;
+    var ul = document.getElementById("list_img");
+    var target = 0;
+    var lender = 0;
+
+    setInterval(function () {
+        target++;
+        lender = lender + (target - lender) / 10;
+        imgs[0].style.transform = "rotateY(" + lender + "deg) translateZ(400px)";
+        imgs[1].style.transform = "rotateY(" + (lender + 28) + "deg) translateZ(400px)";
+        imgs[2].style.transform = "rotateY(" + (lender + 56) + "deg) translateZ(400px)";
+        imgs[3].style.transform = "rotateY(" + (lender + 84) + "deg) translateZ(400px)";
+        imgs[4].style.transform = "rotateY(" + (lender + 112) + "deg) translateZ(400px)";
+        imgs[5].style.transform = "rotateY(" + (lender + 140) + "deg) translateZ(400px)";
+        imgs[6].style.transform = "rotateY(" + (lender + 168) + "deg) translateZ(400px)";
+        imgs[7].style.transform = "rotateY(" + (lender + 196) + "deg) translateZ(400px)";
+        imgs[8].style.transform = "rotateY(" + (lender + 224) + "deg) translateZ(400px)";
+    }, 25)
+</script>
