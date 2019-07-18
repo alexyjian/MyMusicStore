@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: '宋体';
+    font-size: 20px;
+    color: white;
+}
+
+img {
+    list-style: none;
+    outline: none;
+}
+
+.img_box{
+    background: url(images/flash_sale.png);
+    width: 702px;
+    height: 370px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.img_box span{
+    position: relative;
+    width: 32px;
+    height: 27px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 16px;
+}
+
+
+.img_box #hour{
+    left: 51.5%;
+    top: 257px;
+}
+
+.img_box #second{
+    left: 60.7%;
+    top: 257px;
+}
+
+
+.img_box #minute{
+    left: 56%;
+    top: 257px;
+}
+
+#end_box{
+    position: absolute;
+    z-index: 1;
+    top:250px;
+    width: 702px;
+    height: 50px;
+    line-height: 48px;
+    text-align: center;
+    color: #666;
+    font-size: 28px;
+    display: none;
+    
+}
+

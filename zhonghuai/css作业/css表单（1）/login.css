@@ -1,0 +1,40 @@
+*{
+    margin: 300px auto;
+    padding-top: 20px;
+    background: #dcebf1;
+    border-radius: 20px;
+    border: 2px;
+
+}
+p {
+    margin-top: 15px;
+    text-align: center;
+
+}
+p span {
+    width: 40px;
+    display: inline-block;
+    text-align: right;
+
+}
+.uname {
+    background: url()no-repeat 5px center#fff;
+
+}
+.pword {
+    background: url()no-repeat 5px center#fff;
+}
+
+.uname, .pword {
+    width: 150px;
+    height: 20px;
+    border: 1px;
+    padding: 2px 2px 2px 2px
+
+}
+
+.btnlogin, .btnreg {
+  width: 70px;
+  height: 25px;
+  
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+.Dad{
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    border: 5px solid black;
+    position: relative;
+/* 透视图视角效果 */
+    perspective: 500000px;
+
+ -moz-perspective: 500000px;
+    /* 3d空间中的显示 */
+    transform-style: preserve-3d;
+    -moz-transform-style:preserve-3d;
+    /* 过度动画 */
+    transition: all ls ease 0s;
+    -moz-transition: all ls ease 0s;
+
+
+}
+
+.Dad:hover{
+    /* 设置翻转轴 */
+    transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+
+}
+
+.Dad img{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.Dad img.No1{
+    transform: translateZ(100px);
+    -ms-transform: rotateZ(100px);
+    -moz-transform: rotateZ(100px);
+    -webkit-transform: rotateZ(100px);
+    -o-transform: rotateZ(100px);
+    z-index: 2;
+
+}
+
+.Dad img.No2{
+    transform: rotateX(90deg) translateZ(100px);
+    -ms-transform: rotateX(90deg) translateZ(100px);
+    -moz-transform: rotateX(90deg) translateZ(100px);
+    -webkit-transform: rotateX(90deg) translateZ(100px);
+    -o-transform: rotateX(90deg) translateZ(100px);
+}
+    </style>
+</head>
+<body>
+    <div class="Dad">
+    
+        <img src="images/1.png" class="No1">
+
+        <img src="images/2.png" class="No2">
+
+    </div>
+</body>
+</html>

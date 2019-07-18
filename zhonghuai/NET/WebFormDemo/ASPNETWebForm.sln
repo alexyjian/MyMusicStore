@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspWeb", "aspWeb\aspWeb.csproj", "{C8B2962B-E3DD-472B-9F78-09B35DA8D869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{6D48FAA2-B186-40EB-92F0-3F1426C962A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContext", "DataContext\DataContext.csproj", "{2024D733-39E0-422F-BF01-C6033EF8052E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8B2962B-E3DD-472B-9F78-09B35DA8D869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B2962B-E3DD-472B-9F78-09B35DA8D869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B2962B-E3DD-472B-9F78-09B35DA8D869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B2962B-E3DD-472B-9F78-09B35DA8D869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D48FAA2-B186-40EB-92F0-3F1426C962A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D48FAA2-B186-40EB-92F0-3F1426C962A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D48FAA2-B186-40EB-92F0-3F1426C962A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D48FAA2-B186-40EB-92F0-3F1426C962A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2024D733-39E0-422F-BF01-C6033EF8052E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2024D733-39E0-422F-BF01-C6033EF8052E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2024D733-39E0-422F-BF01-C6033EF8052E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2024D733-39E0-422F-BF01-C6033EF8052E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
