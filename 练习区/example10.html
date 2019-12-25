@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>css3 翻转效果</title>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .container {
+            -webkit-perspective: 1000;
+            transform-style: preserve-3d;
+        }
+
+        .container,
+        .front,
+        .back {
+            width: 380px;
+            height: 270px;
+        }
+
+        .flip {
+            position: relative;
+            transition: 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .front,
+        .back {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            backface-visibility: hidden;
+        }
+
+        .front {
+            background-color: rgb(255, 192, 203);
+            z-index: 2;
+        }
+
+        .back {
+            background-color: yellow;
+            transform: rotateY(-180deg);
+        }
+
+        .container:hover .flip {
+            transform: rotateY(180deg);
+        }
+
+
+        .box {
+            -webkit-perspective: 1000;
+            transform-style: preserve-3d;
+        }
+
+        .t,
+        .t1,
+        .t2 {
+            width: 300px;
+            height: 300px;
+        }
+            
+        .t {
+            position: relative;
+            transition: all 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .t:hover {
+            transform: rotateX(180deg);
+        }
+
+        .t1,
+        .t2 {
+            position: absolute;
+            backface-visibility: hidden;
+        }
+
+        .t1 {
+            background-color: red;
+            z-index: 2;
+        }
+
+        .t2 {
+            background-color: #0000cc;
+            transform: rotateX(-180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="flip">
+            <div class="front">front</div>
+            <div class="back">end</div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="t">
+            <div class="t1">t1</div>
+            <div class="t2">t2</div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+---------------------
+作者：转角遇到我得爱
+来源：CSDN
+原文：https://blog.csdn.net/u014737974/article/details/50876441
+版权声明：本文为博主原创文章，转载请附上博文链接！

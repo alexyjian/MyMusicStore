@@ -1,0 +1,84 @@
+*{
+  margin:0;
+  padding: 0;
+}
+@font-face {
+  font-family: BOOM;
+  src: url(font/BOOMBOX.TTF)
+}
+
+@font-face {
+  font-family: ONYX;
+  src: url(font/ONYX.TTF)
+}
+
+@font-face {
+  font-family: TCM;
+  src: url(font/TCCM____.TTF)
+}
+
+@font-face {
+  font-family: ROCK;
+  src: url(font/ROCK.TTF);
+}
+
+@font-face {
+  font-family: LTCH;
+  src: url(font/LTCH.TTF);
+}
+
+@font-face {
+  font-family: jianzhi;
+  src: url(font/FZJZJW.TTF);
+}
+h2 .a {
+  font-family: BooM;
+  font-size: 60px;
+}
+
+h2 .b {
+  font-family: BooM;
+  font-size: 50px;
+  color: #e1005a;
+}
+
+.title1 .a {
+  font-family: ONYX;
+  color: black;
+  font-size: 50px;
+}
+
+.title1 .b {
+  font-family: ONYX;
+  color: #4C9390;
+  font-size: 58px;
+}
+.title2 .a {
+  font-family: ROCK;
+  font-size: 24px;
+    font-weight: bold;
+    font-style: oblique;
+    color: #333;
+}
+.title2 .b{
+  font-family: ROCK;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+.title3{
+  font-family: "微软雅黑";
+  font-size: 36px;
+}
+.title3 .a{
+  color: #e1005a;
+}
+.title4{
+  width: 500px;
+  font-family: "微软雅黑";
+  font-size: 14px;
+  color: #747474;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
