@@ -1,0 +1,30 @@
+*{
+ margin: 0;
+ padding: 0;
+    list-style: none;
+}
+
+.box{
+    width: 620px;
+    height: 200px;
+    position: relative;
+    border: 1px solid black;
+    margin: 100px auto;
+    overflow: hidden;
+}
+
+.box ul li{
+    float: left;
+}
+
+.box ul{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width :1215px;
+    list-style: none;
+}
+
+img{
+    vertical-align: top;
+}

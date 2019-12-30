@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>重叠翻转</title>
+    <style>
+    .dad{
+        width: 200px;
+        height: 200px;
+        margin: 50px auto;
+        border: 5px solid black;
+        position: relative;
+
+        /* 透视图视角效果 */
+        perspective: 50000px;
+        -ms-perspective: 50000px;
+        -webkit-perspective: 50000px;
+        -moz-perspective: 50000px;
+        -o-transform:  50000px;
+
+        /* 3d空间中显示 */
+        transform:preserve-3d;
+        -ms-perspective: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        -moz-perspective: preserve-3d;
+        -o-transform: preserve-3d;
+
+        /* 过渡动画 */
+        transition: all 2s ease 0s;
+        -ms-perspective: all 2s ease 0s;
+        -webkit-transition:all 2s ease 0s;
+        -moz-perspective: all 2s ease 0s;
+        -o-transition: all 2s ease 0s;
+
+    }
+
+    .dad:hover{
+        transform:rotateX(-90deg);
+        -ms-perspective: rotateX(-90deg);
+        -webkit-transform: rotateX(-90deg);
+        -moz-transform: rotateX(-90deg);
+        -o-transform: rotateX(-90deg);
+    }
+
+    .dad img{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .dad img.N1{
+        transform: translateZ(100px);
+        -ms-transform: rotateZ(100px);
+        -webkit-transform: rotateZ(100px);
+        -moz-transform: rotateZ(100px);
+        -o-transform: rotateZ(100px);
+        z-index: 2;
+    }
+    
+
+    .dad img.N2{
+        transform: rotateX(90deg) translateZ(100px);
+        -ms-transform: rotateX(90deg) translateZ(100px);
+        -webkit-transform: rotateX(90deg) translateZ(100px);
+        -moz-transform:rotateX(90deg) translateZ(100px);
+        -o-transform: rotateX(90deg) translateZ(100px);
+    }
+    </style>
+</head>
+<body>
+        <div class="dad">
+            
+            <img src="images/1.png" class="N1">
+            <img src="images/2.png" class="N2">
+        </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+@font-face{font-family: BOOM; src:url(font/BOOMBOX.TTF)}
+@font-face{font-family: FZJZJW; src:url(font/FZJZJW.TTF)}
+@font-face{font-family: LTCH; src:url(font/LTCH.TTF)}
+@font-face{font-family: ONYX; src:url(font/ONYX.TTF)}
+@font-face{font-family: ROCK; src:url(font/ROCK.TTF)}
+@font-face{font-family: TCCM; src:url(font/TCCM____.TTF)}
+
+
+
+h2 .a{
+    font-family: BOOM;
+    font-size: 60px;
+}
+
+h2 .b{
+    font-family: BOOM;
+    color:#e1005a;
+    font-size: 48px;
+}
+
+.titleone .a{
+    font-family: ONYX;
+    color:black;
+    font-size: 45px;
+}
+
+.titleone .b{
+    font-family: TCCM;
+    color:#4c9390;
+    font-size: 45px;
+}
+
+.titletwo .a{
+    font-family: ROCK;
+    color:black;
+    font-size: 28px;
+}
+
+.titletwo .b{
+    font-family: ROCK;
+    color:black;
+    font-size: 40px;
+}
+
+.titlefoue{
+    color:black;
+    font-size: 45px;
+}
+.titlefoue .a{
+    
+    color:#e1005a;
+    font-size: 48px;
+}
+
+.titlefive{
+    
+    color:#747474;
+    font-size: 15px;
+}

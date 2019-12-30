@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用after清除浮动</title>
+    <style>
+            .father{
+                background:pink;
+                border: 1px dashed #999;
+                /* 清除浮动，div.father外的元素不在浮动*/
+                overflow: hidden;
+            }
+
+            .father:after{
+                display: block;
+                clear: both;
+                content:"";
+            }
+
+            .Divone,
+            .Divtwe,
+            .Divthree,
+            .Divfour,
+            .Divfive,
+            .Divsix {
+                height: 5opx;
+                line-height: 50px;
+                border: 1px solid slateblue;
+                background:yellow;
+                margin: 15px;
+                padding: 0px 10px;
+                /* 定义divone divtwe左浮动 */
+                float: left;
+            }
+        </style>
+</head>
+<body>
+        <div class="father">
+                <div class="Divone">
+                        Divone
+                </div>
+                <div class="Divtwe">
+                        Divtwe
+                </div>
+                <div class="Divthree">
+                        Divthree
+                </div>
+                <div class="Divfour">
+                        Divfour
+                </div>
+                <div class="Divfive">
+                        Divfive
+                </div>
+                <div class="Divsix">
+                        Divsix
+                </div>
+                <div>
+                    <p>里偷偷的文字儿呀呀呀</p>
+                </div>
+                
+            </div>
+            <p>目标管理虽然不是一个项目成功的全部条件。但有效的目标管理能够极大帮助项目落地事半功倍，
+                    有序推进；而无效的目标管理往往造成大量额外成本，扰乱执行，制造冲突。经历过大量项目的
+                    活动运营应该都深有同感，目标管理的有效性确实会对一个项目的影响大到这样的地步。</p>
+</body>
+</html>

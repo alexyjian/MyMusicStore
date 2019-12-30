@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>信息登录表</title>
+    <link href ="form2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+        <div class="bg">
+                
+        <form action="#" method="get" autocomplete="off">
+                <h2>学员信息登记表</h2>
+                <span>用户登录名:</span>
+                <input type="text" name="loginName" placeholder="myemail@163.com" required="required" pattern="^[a-zA-Z][a-zA-Z0-9_]{4,11}$" />（不能修改，只能查看）<br/><br/>
+                <span>真实姓名:</span>
+                <input type="text" name="name" placeholder="例如：王明" >（必须填写，只能输入汉字）<br/><br/>
+                <span>年龄：</span>
+                <input type="number" value="24" min="1" max="110" step="1"/>（必须填写）<br/><br/>
+                <span>出生日期：</span>
+                <input type="date">（必须填写）<br/><br/>
+                <span>电子邮箱：</span>
+                <input type="email" placeholder="123456@126.com">（必须填写）<br/><br/>
+                <span>身份证号：</span>
+                <input type="text" name="id"  pattern=""/>（必须填写，能够以数字、字母x结尾的短身份证号）<br/><br/>
+                <span>手机号码：</span>
+                <input type="tel">（必须填写）<br/><br/>
+                <span>个人主页：</span>
+                <input type="url" placeholder="http://www.itcast.cn" list="url_list">（请选择网址)
+                <datalist id="url_list">
+                 <option label="新浪" value="http://www.sina.com.cn"></option>
+                 <option label="网易" value="http://www.163.com"></option>
+                 <option label="腾讯" value="http://www.qq.com"></option>
+                 <option label="淘宝" value="http://www.taobao.com"></option>
+                 <option label="搜狐" value="http://www.souhu.com.cn"></option>
+                 </datalist>  
+                <p class="lucky"><span>幸运颜色：</span>
+                <input type="color" value="#fdfd12"/>（请选择你喜欢的颜色）</p>
+                <p class="btn">
+                <input type="submit" value="提交">
+                <input type="reset" value="重置"></p>
+        </form>
+</div>
+</body>
+</html>

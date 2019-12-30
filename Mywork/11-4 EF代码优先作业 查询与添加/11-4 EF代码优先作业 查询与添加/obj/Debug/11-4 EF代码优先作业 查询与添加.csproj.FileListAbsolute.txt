@@ -1,0 +1,11 @@
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\bin\Debug\11-4 EF代码优先作业 查询与添加.exe.config
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\bin\Debug\11-4 EF代码优先作业 查询与添加.exe
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\bin\Debug\11-4 EF代码优先作业 查询与添加.pdb
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\bin\Debug\EntityFramework.dll
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\bin\Debug\EntityFramework.SqlServer.dll
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\bin\Debug\EntityFramework.xml
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\bin\Debug\EntityFramework.SqlServer.xml
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\obj\Debug\11-4 EF代码优先作业 查询与添加.csprojResolveAssemblyReference.cache
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\obj\Debug\11-4 EF代码优先作业 查询与添加.exe
+F:\11-4\MyMusicStore\Mywork\11-4 EF代码优先作业 查询与添加\11-4 EF代码优先作业 查询与添加\obj\Debug\11-4 EF代码优先作业 查询与添加.pdb

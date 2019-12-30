@@ -1,0 +1,51 @@
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\csc.exe
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\System.Collections.Immutable.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\System.Reflection.Metadata.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\vbc.exe
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\VBCSCompiler.exe
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\roslyn\VBCSCompiler.exe.config
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\11-19 MvcDemo.dll.config
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\11-19 MvcDemo.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\11-19 MvcDemo.pdb
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\Antlr3.Runtime.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\Microsoft.Web.Infrastructure.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\Newtonsoft.Json.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.Helpers.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.Mvc.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.Optimization.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.Razor.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.WebPages.Deployment.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.WebPages.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.WebPages.Razor.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\WebGrease.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.Helpers.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.Mvc.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.Optimization.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.Razor.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.WebPages.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.WebPages.Deployment.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\System.Web.WebPages.Razor.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\Antlr3.Runtime.pdb
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\Newtonsoft.Json.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\zh-Hans\System.Web.Helpers.resources.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\zh-Hans\System.Web.Mvc.resources.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\zh-Hans\System.Web.Optimization.resources.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\zh-Hans\System.Web.Razor.resources.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\zh-Hans\System.Web.WebPages.resources.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\obj\Debug\11-19 MvcDemo.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\obj\Debug\11-19 MvcDemo.pdb
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\EntityFramework.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\EntityFramework.SqlServer.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\EntityFramework.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\bin\EntityFramework.SqlServer.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-19 MvcDemo\11-19 MvcDemo\obj\Debug\11-19 MvcDemo.csprojResolveAssemblyReference.cache

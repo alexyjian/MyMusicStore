@@ -1,0 +1,34 @@
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\DataContext.dll.config
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\DataContext.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\DataContext.pdb
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\Entities.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.Extensions.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.SqlServer.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\MoreLinq.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\System.ValueTuple.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\Entities.pdb
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.xml
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.SqlServer.xml
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\MoreLinq.xml
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\bin\Debug\System.ValueTuple.xml
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\obj\Debug\DataContext.csprojResolveAssemblyReference.cache
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\obj\Debug\DataContext.dll
+F:\VS作业提交\MyMusicStore\04ASP.NET MVC\ASPNETProductDemo\DataContext\obj\Debug\DataContext.pdb
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\DataContext.dll.config
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\DataContext.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\DataContext.pdb
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\Entities.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.Extensions.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.SqlServer.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\MoreLinq.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\System.ValueTuple.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\Entities.pdb
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\EntityFramework.SqlServer.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\MoreLinq.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\bin\Debug\System.ValueTuple.xml
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\obj\Debug\DataContext.csprojResolveAssemblyReference.cache
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\obj\Debug\DataContext.dll
+F:\VS作业提交\MyMusicStore\Mywork\11-12ASPNETProductDemo\DataContext\obj\Debug\DataContext.pdb
