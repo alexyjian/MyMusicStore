@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .divv{
+        width:100px;
+        height: 100px;
+        background: salmon;
+        position:relative;
+        
+        animation-name: move;
+        animation-duration: 2s;
+
+
+    }
+    @keyframes move{
+
+        from{
+            left: 0px;
+        }
+        to{
+            left: 400px;
+        }
+    }
+
+    .div1{
+        width:100px;
+        height: 100px;
+        background: rgb(133, 56, 47);
+        position:relative;
+        
+        animation-name: move1;
+        animation-duration: 2s;
+        float: right;
+
+
+    }
+    @keyframes move1{
+
+        from{
+            right: 0px;
+        }
+        to{
+            right: 400px;
+        }
+    }
+    .div2{
+        width:100px;
+        height: 100px;
+        background: salmon;
+        position:relative;
+        margin-top: 10px;
+        animation-name: move;
+        animation-duration: 4s;
+
+
+    }
+    @keyframes move{
+
+        from{
+            left: 0px;
+        }
+        to{
+            left: 400px;
+        }
+    }
+
+    .div3{
+        width:100px;
+        height: 100px;
+        background: rgb(133, 56, 47);
+        position:relative;
+        
+        animation-name: move1;
+        animation-duration: 4s;
+        float: right;
+
+
+    }
+    @keyframes move1{
+
+        from{
+            right: 0px;
+        }
+        to{
+            right: 400px;
+        }
+    }
+    .div4{
+        width: 100px;
+        height: 100px;
+        background:lightgreen;
+        position:relative;
+        animation-name: movei;
+
+        animation: movei 3s linear infinite;
+
+    }
+    @keyframes movei{
+
+        0%{
+            transform: rotateX(300deg) rotateY(300deg);
+        }
+        100%{
+            transform: rotateX(360deg) rotateY(360deg)
+        }
+    }
+    .div5{
+        width: 100px;
+        height: 100px;
+        background:rgb(189, 112, 25);
+        position:relative;
+        animation-name: movei;
+
+        animation: moveii 3s linear infinite;
+
+    }
+    @keyframes moveii{
+
+        0%{
+            transform: rotateX(240deg) rotateY(240deg);
+        }
+        100%{
+            transform: rotateX(360deg) rotateY(360deg)
+        }
+    }
+    .box{
+
+        float: left;
+        width: 300px;
+        height: 300px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="divv"></div>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="box">
+    <div class="div4"></div>
+    <div class="div5"></div>
+    <div class="div6"></div>
+    <div class="div7"></div>
+
+</div>
+</body>
+</html>

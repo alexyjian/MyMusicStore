@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        width: 8000px;
+            height: 800px;
+            margin: 50PX auto;
+            border: 3PX solid saddlebrown;
+            position: relative;
+
+            /*透视图视角效果*/
+            perspective: 50000px;
+            -ms-perspective: 5000px;
+            -webkit-perspective: 50000px;
+            -moz-perspective: 50000px;
+            -o-perspective: 50000px;
+             /*3d空间中显示*/
+            transform-style: preserve-3d;
+            -ms-perspective:  preserve-3d;
+            -webkit-perspective:  preserve-3d;
+            -moz-perspective: preserve-3d;
+            -o-perspective:  preserve-3d;
+            /*过渡动画*/
+            transition: all 1s ease 0s;
+            -ms-perspective:  all 1s ease 0s;
+            -webkit-perspective: all 1s ease 0s;
+            -moz-perspective: all 1s ease 0s;
+            -o-perspective:  all 1s ease 0s;
+
+            perspective-origin: 0 0;
+            transition: all 5s;
+    }
+    .p1{
+        background-color: aquamarine;
+    }
+    .p2{
+        background-color: burlywood;
+    }
+    .p3{
+        background-color: darkgray;
+    }
+    .p4{
+        background-color: darkkhaki;
+        
+    }
+    .p5{
+        background-color: darkslategrey;
+        
+    }
+    .p6{
+        background-color: goldenrod;
+        
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="box">
+            <div class="p1"></div>
+            <div class="p2"></div>
+            <div class="p3"></div>
+            <div class="p4"></div>
+            <div class="p5"></div>
+            <div class="p6"></div>
+
+        </div>
+    </div>
+</body>
+</html>

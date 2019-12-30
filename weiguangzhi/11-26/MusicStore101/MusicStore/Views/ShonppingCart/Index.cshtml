@@ -1,0 +1,107 @@
+﻿@model MusicStore.ViewModels.ShonppingCartViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+}
+
+<h2>
+    <i class="glyphicon glyphicon-shopping-cart"></i>
+    <em>浏览</em>您的购物车
+</h2>
+
+<p class="button">
+    @Html.ActionLink("马上购买", "buy", "Order")
+</p>
+
+<table>
+    <tr>
+        <th>专辑</th>
+        <th>单价</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;数量</th>
+        <th>&nbsp;&nbsp;操作</th>
+    </tr>
+    <tbody id="tbCart">
+        @foreach (var item in Model.CartItems)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
+                </td>
+                <td>
+                    @item.Album.Price.ToString("C")
+                </td>
+                <td>
+                    &nbsp;&nbsp;<a href="#" onclick="jian('@item.ID');" ><i class="glyphicon glyphicon-minus"></i></a>&nbsp; @item.Count&nbsp;&nbsp;&nbsp;<a href="#" onclick="jia('@item.ID');" ><i class="glyphicon glyphicon-plus"></i></a>&nbsp;&nbsp;
+                </td>
+                <td>
+                <a href="#" onclick="removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移出购物车</a>
+            </td>
+                
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td>总价</td>
+            <td>@Model.CartTotalPrice.ToString("C")</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function removeCart(id)
+    {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShonppingCart/RemoveCart',
+            data: {id:id},
+            dataType:'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+
+                //局部视图进行刷新
+                setTimeout(function () {
+                    location.reload();
+                },
+                       2000);
+            }
+            });
+    }
+    function jia(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShonppingCart/Jia',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+
+                //局部视图进行刷新
+                setTimeout(function () {
+                    location.reload();
+                },
+                       100);
+            }
+        });
+    }
+    function jian(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShonppingCart/RemoveCart',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                $("#tbCart").html(data);
+
+                //局部视图进行刷新
+                setTimeout(function () {
+                    location.reload();
+                },
+                      100);
+            }
+        });
+    }
+</script>

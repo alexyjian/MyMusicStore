@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration:none;
+   
+    
+}
+.container{
+    margin-top: 10px;
+}
+body{
+    position: relative;
+}
+#row clearfix{
+    position: absolute;
+    margin-top: 1000px;
+
+
+}

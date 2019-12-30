@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MusicStoreEntity.Genre>
+
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <ul class="nav nav-tabs">
+                @foreach (var item in Model)
+                {
+                    <li class="daohangli">
+                        @Html.ActionLink(item.Name, "browser", "store", new { id = item.ID }, null)
+                    </li>
+                }            
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@model MusicStore.ViewModels.MyViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+}
+
+<h2>个人信息</h2>
+
+@using (Html.BeginForm("Index", "my", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend>收件信息</legend>
+        @Html.EditorForModel() 
+
+        
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Avarda)
+        </div>
+        <div class="editor-field">
+            <img id="imgAvarda" src="@ViewBag.AvardaUrl" />
+            @Html.TextBoxFor(x => x.Avarda, new { type = "file" })
+        </div>
+        <p>
+            <button type="submit" class="btn btn-success">
+                <i class="glyphicon glyphicon-fire"></i>
+            </button>
+        </p>
+    </fieldset>
+}
+<script>
+    $(function() {
+        $("#Avarda").on("change",
+            function() {
+                var file = this.files[0];
+                //判断是不是图片
+                if (!/image\/\w+/.test(file.type)) {
+                    alert('文件必须为图片！');
+                    return false;
+                }
+                //读文件内容，读物理地址，把img标签的src属性重新赋值
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function (e) {
+                    $("#imgAvarda").attr('src', this.result);
+                }
+            });
+    });
+</script>

@@ -1,0 +1,146 @@
+/* Begin 全局样式设置 */
+body,ul,input,p,dl,dt,dd,h1{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    min-width: 800px;
+    color: #6c6c79;
+    font-size: 12px;
+    font-family: "微软雅黑";
+}
+.top_Nav{
+    width: 100%;
+    height: 35px;;
+    background-color: #cccc;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.ul_right{
+    float: right;
+}
+/* end 全局样式设置 */
+
+
+/* begin 用户信息栏 */
+
+#top{
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background: #F7F7F7;
+    border-bottom: 1px solid #eeeeee;
+}
+#top .top_Nav{
+    max-width: 1280px;
+    margin:  0 auto;
+
+}
+#top ul{
+    margin: 0 20px;
+}
+#top li{
+    float: left;
+    padding: 0px 10px 0px 0px;
+}
+#top .line{
+    color: rgba(19, 16, 16, 0.8);
+}
+.ul_right li{
+    cursor: pointer;
+}
+.ul_right li span{
+    padding: 0px 10px;
+}
+
+/* begin 下拉菜单 */
+.ul_right .ul_drop{
+    position: relative;
+}
+.ul_right #div_drop{
+    width: 100px;
+    /* 默认为隐藏 */
+    display: none;
+    width: 95px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    background-color: #fff;
+    border:thin;
+    border-color: #eee;
+}
+.ul_right #div_drop a{
+    display: block;
+    padding: 0 10px;
+    line-height: 28px;
+    color:#6c6c6c;
+}
+.ul_right #div_drop a:hover{
+    background: #f5f5f5;
+}
+
+/* end 下拉菜单 */
+/* end 用户信息栏 */
+
+/* begin 页面的首部 */
+#header{
+    width: 1280px;
+    margin: 0 auto;
+    padding-top: 25px;   
+}
+#header .logo{
+    float: left;
+}
+#header a{
+    width: 240px;
+    display: block;
+
+}
+#header #search{
+    float: left;
+    width: 500px;
+    margin-top: 25px;
+}
+
+#header #search input{
+    width: 400px;
+    height: 32px;
+    border: 2px solid #e4393c;
+}
+#header #search .txt_search{
+    float: left;
+}
+#header #search .txt_button{
+    width: 80px;
+    height: 36px;
+    background: #e4393c;
+    font-size: 14px;
+    font-weight: bolder;
+    color: wheat;
+    cursor: pointer;
+    margin-left: -5px;
+    padding-top: -50px;
+}
+#header #search p{
+    color: #666;
+    font-size: 12px;
+    margin-top: 5px;
+}
+#header #info{
+    float: left;
+    margin: 20px 0px 0px 20px;
+}
+#header #info input{
+    height: 32px;
+    border: 1px solid #e3e3e3;
+    background-color: #f7f7f7;
+    color: #999;
+    padding: 0px 10px;
+    margin-right: 12px;
+}
+/* end 页面的首部 */

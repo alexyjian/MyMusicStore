@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .one{
+        background:sienna;
+        width: 400px;
+        height: 400px;
+        border-radius: 10px;
+        position: relative;
+    }
+    .two{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: black;
+        left: 50px;top: 50px;
+        
+        
+    }
+
+    </style>
+    <script>
+            // 为页面加载键盘事件
+        window.onload=function(){
+            document.body.onkeyup=function(evt){
+                //定义小球的步长
+                var step=10;
+                // 获取球台和小球的元素
+                var one =document.getElementById('one');
+                var two =document.getElementById('two');
+                //获取小球相对于球台div左侧和顶部的距离
+                // var left=parseInt(ball.style.left);
+                // var top=parseInt(ball.style.top);
+                var left=two.offsetLeft;
+                var top=two.offsetTop;
+                console.log(left+','+top);
+    
+                // 获取球桌的高和宽
+                var one_width=one.offsetWidth;
+                var one_height=one.offsetHeight;
+                //小球的高和宽
+                var two_width=two.width;
+                var two_height=two.height;
+    
+                //小球距球桌左侧和顶部的最大值
+                var x_max=one_width-two_width-step;
+                var y_max=one_height-two_height-step;
+    
+                //创建键盘事件的对象
+                var e = evt ? evt : window.event;
+                //左键37
+                if(e.keyCode == 37 && (left-10)>step){
+                    two.style.left=left-step+'px';
+                }
+    
+                //右键39
+                if(e.keyCode==39){
+                    two.style.left=left+step+'px';
+                }
+    
+                //上38
+                if(e.keyCode==38 && (top-10)>step){
+                    two.style.top=top-step+'px';
+                }
+    
+                //下40
+                if(e.keyCode==40){
+                    two.style.top=top+step+'px';
+                }
+    
+    
+            }
+        }
+        </script>
+
+</head>
+<body>
+    <div class="one" id="one">
+        <div class="two" id="two">
+
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

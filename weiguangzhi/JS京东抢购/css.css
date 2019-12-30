@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.img{
+    width: 702px;
+    height: 378px;
+    background: url(images/flash_sale.png);
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+}
+.img span{
+    position: relative;
+    width: 32px;
+    height: 27px;
+    text-align: center;
+    line-height: 27px;
+    font-size: 16px;
+}
+.img #hour{
+    left:51%;
+    top:68%;
+}
+.img #minute{
+    left:56%;
+    top:68%;
+}
+.img #second{
+    left:61%;
+    top:68%;
+}
+#end{
+    position: absolute;
+    display: none;
+    top: 250px;
+    height: 51px;
+    width: 702px;
+    background: url(images/flash_end.png);
+    text-align: center;
+    line-height: 38px;
+}

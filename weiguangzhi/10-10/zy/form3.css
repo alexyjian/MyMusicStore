@@ -1,0 +1,59 @@
+*{
+   
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 15px;
+    font-family: "微软雅黑";
+}
+.bg{
+    width: 949px;
+   height: 687px;
+   background: url(../images/sy.png) no-repeat;
+   position: relative;
+   margin: 20px auto;
+}
+form{
+    width: 700px;
+    height: 400px;
+    margin: 50px auto;
+    padding-left: -10px;
+    position: absolute;
+    
+    top:15%;
+    margin-left: 20%;
+}
+h3{
+    font-size: 22px;
+    margin-left: 10%;
+}
+.xz input{
+    height: 20px;
+    width: 20px;
+}
+p{
+    margin: 10px;
+}
+p span{
+    width: 75px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 5px;
+    
+}
+p input{
+    box-sizing: border-box;
+    height: 30px;
+    width: 130px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #361c34;
+
+}
+
+p textarea{
+
+    width: 260px;
+    height: 80px;
+    border: 1px solid black;
+    resize: none;
+}

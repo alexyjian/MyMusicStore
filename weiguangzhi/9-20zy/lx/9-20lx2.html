@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 子代选择器 */
+    h1>strong
+    {
+        color: aqua;
+    }
+    /* 临近兄弟的选择器 */
+    h1+h2
+    {
+        color: blue;
+    }
+    /* 普通兄弟的选择器 */
+    h2~h1
+    {
+        color: rgba(0, 255, 21, 0.616);
+    }  
+    </style>
+</head>
+<body>
+    <h1>中秋节<strong>放</strong><strong>假</strong></h1>
+    <h1>国庆节<i><strong>放</strong></i>假</h1>
+
+    <h2>放假三天</h2>
+    <h2>放假七天</h2>
+    <h1>asdasdadasd</h1>
+</body>
+</html>

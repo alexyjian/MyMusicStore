@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;   
+}
+/* 大div的样式 */
+.tab-box{
+    width: 500px;
+    height: 200px;
+    position: relative;
+    margin-left: 20%;
+    
+
+}
+
+/* 选项标签的样式 */
+.tab-head{
+    height: 30px;
+}
+.tab-head-div{
+    width: 25px;
+    height: 25px;
+    float: left;
+    border-bottom: 2px solid rgb(240, 178, 10);
+    border-right:2px solid #ccc;
+    border-top:2px solid rgb(206, 18, 18);
+    border-left:2px solid rgb(20, 125, 211);
+    background: #666;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    position: relative;
+    top: 200px;
+    left: 175px;
+    margin-left: 10px;
+    border: 5px;
+
+}
+
+.tab-head-right{
+    border-right:0;
+}
+
+.tab-head .current{
+    background:wheat;
+    border-bottom: 0
+}
+
+/* 选项内容的样式 */
+.tab-body-ul{
+    display: none;
+    
+}
+
+.tab-body-ul li{
+}
+
+.tab-body .current{
+    display: block;
+}
+

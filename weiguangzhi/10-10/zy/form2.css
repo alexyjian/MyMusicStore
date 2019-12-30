@@ -1,0 +1,65 @@
+*{
+   
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 15px;
+    font-family: "微软雅黑";
+}
+h3{
+    font-size: 30px;
+    padding-left: 50px;
+}
+.div1{
+   width: 1300px;
+   height: 717px;
+   background: url(../images/10-10.jpg) no-repeat;
+   position: relative;
+
+}
+form{
+    width: 700px;
+    height: 400px;
+    margin: 50px auto;
+    padding-left: -10px;
+    position: absolute;
+    left: 40%;
+    top:10%;
+}
+p{
+    margin: 15px;
+}
+p span{
+    width: 75px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 5px;
+}
+p input{
+    width: 200px;
+    height: 20px;
+    border: 1px solid #d4cdba;
+    padding-right: 2px;
+}
+.lucky input{
+    width: 100px;
+    height: 25px;
+   
+
+}
+.btn input{
+width: 100px;
+height: 30px;
+background: darkolivegreen;
+font-size: 18px;
+color: white;
+border-radius: 3px;
+border:1px solid #d4cdba;
+margin-top:20px;
+margin-left: 70px; 
+}
+#boc-video audio{
+    position: absolute;
+    left: -100px;
+    bottom: -70px;
+}

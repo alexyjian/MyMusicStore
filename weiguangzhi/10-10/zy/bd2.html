@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="form2.css">
+    <title>Document</title>
+</head>
+<body>
+     <div class="div1">
+         
+         <form action="#" method="get" autocomplete="off">
+                <h3>学员信息登记表</h3>
+         <p><span>用户登录：</span><input type="text" name="user_name"  placeholder="myemail@163.com" required="required" disabled>(不能修改，只能查看)</p>
+         <p><span>真实姓名：</span><input type="text" placeholder="例如：王明"  pattern="^[\u4e00-\u9fa5]{0,}$">(必须填写，只能输入汉字)</p>
+         <p><span>真实年龄：</span><input type="number" value="16" min="1" max="120" step="1">(必须填写)</p>
+         <p><span>出生日期：</span><input type="date">(必须填写)</p>
+         <p><span>电子邮箱：</span><input type="email" value="281437@12.com">(必须填写)</p>
+         <p><span>身份证号：</span><input type="text" pattern="^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$">(必须填写，能够以数字/字母x结尾的短身份证号)</p>
+         <p><span>手机号码：</span><input type="tel">(必须填写)</p>
+         <p><span>个人主页：</span><input type="url" list="url_list">(请选择网址)
+        <datalist id="url_list">
+            <option label="新浪" value="http://www.sina.com.cn"></option>
+            <option label="网易" value="http://www.163.com.cn"></option>
+            <option label="腾讯" value="http://www.qq.com.cn"></option>
+            <option label="搜狐" value="http://www.sohu.com.cn"></option>
+            <option label="淘宝" value="http://www.taobao.com.cn"></option>
+            <option label="斗鱼" value="http://www.douyu.com.cn"></option>
+            <option label="" value="http://www.sina.com.cn"></option>
+
+        </datalist>
+        </p>
+         <p class="lucky"><span>幸运颜色：</span><input type="color" value="#fdfd15">(请选择你喜欢的颜色)</p>
+         <p class="btn">
+             <input type="submit" value="提交"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <input type="reset" value="重置"/>
+         </p>
+        </form>
+     </div>
+
+</body>
+</html>

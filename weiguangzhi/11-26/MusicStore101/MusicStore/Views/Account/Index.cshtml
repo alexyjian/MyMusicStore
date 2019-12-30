@@ -1,0 +1,21 @@
+﻿@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+}
+
+<h2>收件人地址</h2>
+@using (Html.BeginForm("Index", "Account", FormMethod.Post))
+{
+  @Html.HiddenFor(model => model.id)
+<fieldset>
+    <legend>收件信息</legend>
+    @Html.EditorForModel()
+
+    <p>
+        <button type="submit" class="btn btn-success">
+            <i class="glyphicon glyphicon-fire"></i>
+        </button>
+    </p>
+</fieldset>
+}

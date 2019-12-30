@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .da{
+            width: 200px;
+            height: 200px;
+            margin: 50PX auto;
+            border: 3PX solid saddlebrown;
+            position: relative;
+
+            /*透视图视角效果*/
+            perspective: 50000px;
+            -ms-perspective: 5000px;
+            -webkit-perspective: 50000px;
+            -moz-perspective: 50000px;
+            -o-perspective: 50000px;
+             /*3d空间中显示*/
+            transform-style: preserve-3d;
+            -ms-perspective:  preserve-3d;
+            -webkit-perspective:  preserve-3d;
+            -moz-perspective: preserve-3d;
+            -o-perspective:  preserve-3d;
+            /*过渡动画*/
+            transition: all 1s ease 0s;
+            -ms-perspective:  all 1s ease 0s;
+            -webkit-perspective: all 1s ease 0s;
+            -moz-perspective: all 1s ease 0s;
+            -o-perspective:  all 1s ease 0s;
+
+            perspective-origin: 0 0;
+            transition: all 5s;
+        }
+        .da img{
+            position: absolute;
+            top:0;
+            left: 0;
+
+        }
+        .da:hover{
+            /*设置旋转轴*/
+        transform: rotateX(-90deg);   
+    }
+    
+        .da .two{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .da .one{
+            transform: translateZ(100px);
+            z-index: 2;
+        }
+
+        
+    </style>
+</head>
+<body> 
+    <div class="da">
+            <img src="../10-18//images//1.png" class="one">
+            <img src="../10-18//images//2.png" class="two">
+    </div>
+    
+</body>
+</html>

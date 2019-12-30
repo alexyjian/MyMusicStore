@@ -1,0 +1,75 @@
+﻿@model MusicStoreEntity.Order
+@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+}
+
+<h2>确认购买</h2>
+@using (Html.BeginForm("buy", "Order", FormMethod.Post))
+{
+    <fieldset>
+        <legend>收件信息</legend>
+        @Html.EditorForModel()
+        <legend>你想购买的专辑列表</legend>
+        <table>
+            <tr>
+                <th>专辑</th>
+                <th>单价</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;数量</th>
+                <th>&nbsp;&nbsp;操作</th>
+
+            </tr>
+            <tbody id="tbCart">
+                @foreach (var item in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.Album.Title, "detail", "Store", new { id = item.Album.ID }, null)
+                        </td>
+                        <td>
+                            @item.Album.Price.ToString("C")
+                        </td>
+                        <td>
+                            &nbsp;&nbsp;<a href="#" onclick="jian('@item.ID');"><i class="glyphicon glyphicon-minus"></i></a>&nbsp; @item.Count&nbsp;&nbsp;&nbsp;<a href="#" onclick="jia('@item.ID');"><i class="glyphicon glyphicon-plus"></i></a>&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            <a href="#" onclick="removeCart('@item.ID');"><i class="glyphicon glyphicon-remove"></i>移出购物车</a>
+                        </td>
+
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>总价</td>
+                    <td>@Model.TotalPrice.ToString("C")</td>
+                </tr>
+            </tbody>
+        </table>
+        <p></p>
+        <p>
+            <button type="submit" class="btn btn-success">
+                <i class="glyphicon glyphicon-shopping-cart">提交订单</i>
+            </button>
+        </p>
+        <p></p>
+
+    </fieldset>
+}
+<script>
+    function removeCart(id)
+    {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../Order/RemoveDetail',
+            data: {id:id},
+            dataType:"json",
+            success: function (data) {
+                $("#tbCart").html(data);
+
+                
+            }
+            });
+    }
+</script>

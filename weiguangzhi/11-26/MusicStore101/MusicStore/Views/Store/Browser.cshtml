@@ -1,0 +1,30 @@
+﻿@using System.Runtime.InteropServices
+@model IEnumerable<MusicStoreEntity.Album>
+@{
+    ViewBag.Title = "浏览专辑";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+
+    var ablum = Model.FirstOrDefault();
+    var genreName = ablum != null ? ablum.Genre.Name : "找不到";
+}
+
+<div class="album-browser">
+    <h3><em>
+        @{
+
+        }
+         </em>专辑</h3>
+    <ul id="album-list">
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="@Url.Action("Detail", "Store",new { id=item.ID})">
+                <img alt="@item.Title" src="@item.AlbumArtUrl" id="browser"/>
+                    <span>@item.Artist.Name</span><br />
+                    <span>@item.Title</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+

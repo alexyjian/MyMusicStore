@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width:200px;
+            height:200px;
+            box-sizing: content-box;
+            position: relative;
+            margin: 100px auto;
+            border: 3px dashed red;
+            border-radius: 50%;
+
+            perspective: 50000px;
+
+            transform-style: preserve-3d;
+
+            animation-name: movei;
+
+animation: moveii 5s linear infinite;
+
+        }
+        @keyframes moveii{
+
+0%{
+    transform: rotateX(0deg) rotateY(0deg);
+}
+100%{
+    transform: rotateX(360deg) rotateY(360deg)
+}
+}
+        .box div{
+
+            position: absolute;
+            
+        }
+    .p1{
+        height: 200px;
+        width: 200px;
+        background: rgba(120, 130, 140,0.5);
+
+        transform: rotateX(-90deg) translateZ(100px);
+    }
+    .p2{
+        height: 200px;
+        width: 200px;
+        background-color: rgba(220, 130, 140,0.5);
+
+        transform: rotateX(90deg) translateZ(100px);
+    }
+    .p3{
+        height: 200px;
+        width: 200px;
+        background-color: rgba(120, 230, 140,0.5);
+
+        transform: rotateX(0deg) translateZ(100px);
+    }
+    .p4{
+        height: 200px;
+        width: 200px;
+        background-color: rgba(120, 130, 240,0.5);
+        transform: rotateX(180deg) translateZ(100px);
+        
+    }
+    .p5{
+        height: 200px;
+        width: 200px;
+        background-color: rgba(10, 240, 140,0.5);
+
+        transform: rotateY(90deg) translateZ(100px);
+        
+    }
+    .p6{
+        height: 200px;
+        width: 200px;
+        background-color: rgba(44, 144, 44,0.5);
+
+        transform: rotateY(-90deg) translateZ(100px);
+
+        
+        
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="p1">上</div>
+        <div class="p2">下</div>
+        <div class="p3">左<div></div></div>
+        <div class="p4">右</div>
+        <div class="p5">后</div>
+        <div class="p6">前</div>
+
+    </div>
+</body>
+</html>

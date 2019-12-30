@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration:none;
+    color: #000;
+    width: 100%;
+    height: 100%;
+    
+}
+body{
+    font-size: 12px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.one{
+    background: #242424;
+    width: 100%;
+    height: 80px;
+}
+.m-subnav .wrap {
+    width: 1100px;
+    height: 34px;
+    margin: 0 auto;
+}
+.f-pr {
+    position: relative;
+    zoom: 1;
+}
+.m-subnav {
+    z-index: 90;
+    height: 35px;
+    box-sizing: border-box;
+    background-color: #C20C0C;
+    border-bottom: 1px solid #a40011;
+}
+.m-subnav .nav {
+    float: left;
+    padding-left: 180px;
+}

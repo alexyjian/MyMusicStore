@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>调整浏览器大小，页面动态显示浏览器</title>
+    
+</head>
+<body>
+    当前宽度：<input type="text" id="width"><br/>
+    当前高度：<input type="text" id="height"><br/>
+
+</body>
+</html>
+<script>
+    //     //获取文档显示区域宽度
+    // var width = window.innerWidth;
+    // //获取文档显示区域高度（省略window）
+    // var height = innerHeight;
+    // //调用alert输出
+    // window.alert(width+"*"+height);
+    // //调用alert输出（省略window）
+    // alert(width+"*"+height);
+          var winWidth=0;
+          var winHeight=0;
+        //   方法：获取大小
+          function GetSize(){
+            //   获取文档显示区域宽度
+              winWidth=window.innerWidth;
+            //   获取文档显示区域高度
+              winHeight=window.innerHeight;
+              var w =document.getElementById('width');
+              w.value=winWidth;
+              var h =document.getElementById('height');
+              h.value=winHeight;
+          }
+        // 动态调整显示的结果
+          GetSize();
+          window.onresize=GetSize;
+    
+        </script>

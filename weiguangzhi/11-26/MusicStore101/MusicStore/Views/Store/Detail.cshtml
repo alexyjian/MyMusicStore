@@ -1,0 +1,260 @@
+﻿@model MusicStoreEntity.Album
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_NewLayzout.cshtml";
+    <script type="text/javascript" charset="utf-8" src="~/Content/ueditor1_4_3-utf8-net/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/Content/ueditor.all.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js"></script>
+}
+
+<h2>@Model.Title</h2>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+
+            <div class="row clearfix">
+                <div class="col-md-6 column">
+
+                    <div id="album-details">
+                        <p>
+                            <img src="@Model.AlbumArtUrl" />
+                        </p>
+                        <p>
+                            <em>发布时间：</em>
+                            @Model.PublisherDate.ToString("yyyy年MM月dd日");
+                        </p>
+                        <p>
+                            <em>分类：</em>
+                            @Model.Genre.Name
+                        </p>
+                        <p>
+                            <em>价格：</em>
+                            ￥@string.Format("{0:F}", Model.Price)
+                        </p>
+
+                        <div id="msg"></div>
+                        <p>
+                            <a class="btn" id="addcart" style="background:#808080">添加到购物车</a>
+
+                        </p>
+                        <div id="msg"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 column">
+                    <div id="box-video">
+                        <div class="cd" style="background: url(@(Model.AlbumArtUrl)) no-repeat;">
+                            <div class="cd-center">
+                                <audio src="@Model.musicArtUrl" controls autoplay loop></audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="divCmt">
+                @Html.Raw(ViewBag.Cmt)
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="form-group">
+                <textarea id="editor" name="editor"></textarea>
+                <input type="hidden" id="pReplyID" />
+            </div>
+           
+               
+                <button id="btnCmt" type="button" class="btn btn-success">评论</button>
+
+                
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="Div-SonCmts">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        原回复
+                    </h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+
+<script>
+
+     //点击评论中的回复按钮触发的方法
+    function GetQuote(id) {
+        //保存该评论的id
+        $("#pReplyID").val(id);
+        //alert($("#pReplyID").val());
+        //取回复的内容
+        var divName ='Content-'+id;
+        var content ="<p></p>"+ $("#"+divName).html();
+        //把内容赋值给ueditor
+        var ue = UE.getEditor('editor');
+        ue.ready(function() {
+            ue.setContent(content);
+        });
+    }
+    function ShowCmt(id) {
+        //ajax 查询出子回复
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("showCmts","Store")',
+            data: {"pid":id},
+            dataType: 'json',
+            success: function (data) {
+                $("#Div-SonCmts").html(data);
+                $('#myModal').modal('toggle');
+            }
+        });
+    }
+    //百度编辑器调用
+    var editor = new baidu.editor.ui.Editor({
+        UEDITOR_HOME_URL: '/ueditor/',   //配置编辑器的路径
+        iframeCssUrl: '/ueditor/themes/iframe.css',  //自定义样式路径
+        initialContent: '五星好评',  //初始内容
+        autoHeightEnabled: true,  //高度是否自适应
+        minFrameHeight:500   //编辑器最小的高度
+    });
+    editor.render('editor');
+    //提交回复
+    $("#btnCmt").click(function () {
+        //获得编辑器中的内容
+        UE.getEditor('editor');
+        var content = UE.getEditor('editor').getContent();
+        var pid = $("#pReplyID").val();
+        //console.log(content);
+        //ajax提交
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("AddCmt","Store")',
+            data: {
+                "id":"@Model.ID",
+                "cmt": content,
+                "reply": pid
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                                         new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    UE.getEditor('editor').setContent('');
+                }
+            }
+        });
+    });
+
+    //点赞
+    function Like(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Like", "Store")',
+            data: { id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                    new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    //UE.getEditor('editor').setContent('');
+                }
+                //datail
+                //modal
+            }
+        });
+    }
+
+    //踩
+    function Hate(id) {
+        $.ajax({
+            type: 'post',
+            asyn: true,
+            url: '@Url.Action("Hate", "Store")',
+            data: { id },
+            dataType: 'json',
+            success: function (data) {
+                //datail
+                //modal
+                if (data == 'nologin') {
+                    //如果没登录
+                    location.href = "@Url.Action("login","Account",
+                    new {returnUrl=Url.Action("Detail","Store",new {id= Model.ID})})";
+                } else {
+                    //html文本注入div
+                    $("#divCmt").html(data);
+                    //清空ueditor编辑器
+                    //UE.getEditor('editor').setContent('');
+                }
+            }
+        });
+    }
+
+    //添加购物车
+    $("#addcart").click(function () {
+        //异步
+        $("#msg").html("<img src='../../content/images/ProgressIcon.gif'>添加到购物车，请稍后...")
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: '../../ShonppingCart/AddCart',
+            data: { id: "@Model.ID" },
+            dataType: 'json',
+            success: function (data) {
+                //如果没有登录，跳转到登录页
+                if (data == 'nologin')
+                    location.href = "@Url.Action("login", "Account", new { returnUrl = Url.Action("Detail", "Store", new { id = Model.ID }) })";
+                else {
+                    //添加到购物车成功，把动画取消
+                    $("#msg").html(data);
+                    //重新刷新此区域
+                    setTimeout(function () {
+                        location.reload();
+                    },
+                       2000);
+                }
+
+            }
+        });
+    }
+
+        );
+
+
+
+</script>
+
+
+

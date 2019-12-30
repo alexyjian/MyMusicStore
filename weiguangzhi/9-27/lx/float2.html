@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0px;
+        padding: 0px;
+        font-size: 18px;
+    }
+    .father{
+        margin: 10px auto;
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        background: #ccc;
+        border: 1px solid #000;
+    }
+    .child1,.child2,.child3,.child4,.child5{
+        height: 50px;
+        width: 100px;
+        line-height: 50px;
+        background: darkslateblue;
+        border: 1px solid yellowgreen;
+        margin: 10px 0px;
+        text-align: center;
+    }
+    .child2{
+        position: relative;
+        left: 150px;
+        top: 100px;
+    }
+    .child3{
+        position: absolute;
+        left: 150px;
+        top: 100px;
+    }
+    .child4{
+        position:static;
+        left: 150px;
+        top: 100px;
+
+    }
+    .child5{
+        position:fixed;
+        left: 150px;
+        top: 100px;
+
+    }
+    </style>
+</head>
+<body>
+    <div class="father">
+
+        <div class="child1">div</div>
+        <div class="child2">div</div>
+        <div class="child3">div</div>
+        <div class="child4">div</div>
+        <div class="child5">div</div>
+
+    </div>
+</body>
+</html>

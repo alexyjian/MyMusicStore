@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CourseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cou">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dscn" Type="nvarchar" MaxLength="250" />
+          <Property Name="SortCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Departents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Credit" Type="int" Nullable="false" />
+          <Property Name="Departent_ID" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_Departents_Cou1">
+          <End Role="Cou" Type="Self.Cou" Multiplicity="0..1" />
+          <End Role="Departents" Type="Self.Departents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cou">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Departents">
+              <PropertyRef Name="Departent_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CourseDBModelStoreContainer">
+          <EntitySet Name="Cou" EntityType="Self.Cou" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departents" EntityType="Self.Departents" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Departents_Cou1" Association="Self.FK_Departents_Cou1">
+            <End Role="Cou" EntitySet="Cou" />
+            <End Role="Departents" EntitySet="Departents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CourseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cou">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Dscn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SortCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Departents" Relationship="Self.FK_Departents_Cou1" FromRole="Cou" ToRole="Departents" />
+        </EntityType>
+        <EntityType Name="Departents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Credit" Type="Int32" Nullable="false" />
+          <Property Name="Departent_ID" Type="Guid" />
+          <NavigationProperty Name="Cou" Relationship="Self.FK_Departents_Cou1" FromRole="Departents" ToRole="Cou" />
+        </EntityType>
+        <Association Name="FK_Departents_Cou1">
+          <End Role="Cou" Type="Self.Cou" Multiplicity="0..1" />
+          <End Role="Departents" Type="Self.Departents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cou">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Departents">
+              <PropertyRef Name="Departent_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CourseDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cou" EntityType="Self.Cou" />
+          <EntitySet Name="Departents" EntityType="Self.Departents" />
+          <AssociationSet Name="FK_Departents_Cou1" Association="Self.FK_Departents_Cou1">
+            <End Role="Cou" EntitySet="Cou" />
+            <End Role="Departents" EntitySet="Departents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CourseDBModelStoreContainer" CdmEntityContainer="CourseDBEntities">
+          <EntitySetMapping Name="Cou">
+            <EntityTypeMapping TypeName="CourseDBModel.Cou">
+              <MappingFragment StoreEntitySet="Cou">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Dscn" ColumnName="Dscn" />
+                <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departents">
+            <EntityTypeMapping TypeName="CourseDBModel.Departents">
+              <MappingFragment StoreEntitySet="Departents">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Departent_ID" ColumnName="Departent_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

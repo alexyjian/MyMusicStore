@@ -1,0 +1,75 @@
+.bg{
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: black;
+    border: 10px solid #ccc;
+    background-image: repeating-radial-gradient(circle at 50% 50%,#333,#000 1%);
+    
+    
+}
+.div2{
+    box-shadow: 10px 10px 8px #000;
+    margin: 0 auto;
+    width: 250px;
+    height: 430px;
+    border-radius: 10%;
+    background-color: aliceblue;
+    position: absolute;
+    top:50px;
+    left: 0px; bottom: 0; right: 0;
+}
+.ul{
+    
+    list-style: none;
+    background-color: #504D58;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    
+    
+}
+.ul li{
+    line-height: 34px;
+   
+}
+
+hr{
+    width: 248px;
+    margin: 0 auto;
+   
+    position: absolute;
+    right: 0px;
+}
+.p1{
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-image: url(images/yinyue.jpg);
+    background-position: 2px;
+}
+.p2{
+    height: 45px;
+    width: 180px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-image: url(images/wenzi.jpg);
+    background-position: 2px 2px 20px 50px;
+    
+}
+li:before
+{
+    content: url(images/yinfu.png);
+}
+a{
+    text-decoration:none;
+    color: #000;
+}
+a:hover
+{
+    text-decoration: underline;
+    color: blueviolet;
+}
+
+

@@ -1,0 +1,42 @@
+/* 选择器，伪类 */
+h2{
+    text-align: center;
+}
+hr{
+    height:3px;border:none;border-top:3px double rgb(219, 172, 102);  
+   width: 750px; 
+}
+a{
+
+    font-size: 18px;
+    text-align: center;
+    margin-left:8px;
+
+}
+a:link,a:visited
+{
+    color: pink;
+    text-decoration: none;
+}
+a:hover
+{
+    color: red;
+    font-weight: bolder;
+}
+a:active
+{
+    color: aqua;
+    font-weight: bolder;
+}
+.p{
+    text-align: center;
+}
+.one
+{
+    text-align: center;
+    
+    
+}
+.one p{
+    text-align: left;
+}

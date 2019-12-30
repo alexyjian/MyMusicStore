@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration:none;
+    color:white;
+   
+    
+}
+/* /* body{width: 100%;} */
+#header{
+    float: left;
+    width: 100%;
+    height: 100px;
+    color:white;
+    margin-bottom: 10px;
+    background: #242424;
+    width: 100%;
+    height: 60px;
+
+}
+
+.one{
+    float:right;
+
+}
+.categories{
+    list-style: none;
+}
+#header h1 {
+    font-size: 10px;
+    background: url(../音乐商品/Images/logo.png) no-repeat;
+    padding: 45px 0 5px 0;
+    
+}
+#header ul li{
+    float: left;
+    margin-left: 20px;
+}
+#header ul{
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.navbar-nav {
+    margin: 7.5px -15px;
+    color: whitesmoke;
+}
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    float: right;
+    color: whitesmoke;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+div {
+    display: block;
+}
+body {
+    padding: 0 6%;
+    font-size: 14px;
+    line-height: 1.428571429;
+    background-color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+#categories {
+    width: 100%;
+    font-family: Constantia,Georgia,serif;
+    list-style-type: none;
+    padding-right: 0px;
+    margin: -10px -50px 0 0;
+    float: left;
+    border-radius:0 0 5px 5px;
+    z-index: 90;
+    height: 30px;
+    box-sizing: border-box;
+    background-color: #C20C0C;
+    border-bottom: 1px solid #a40011;
+}
+#categories li{
+    float: left;
+    padding-left: 50px;
+    padding-top: 5px;
+}
+#footer {
+    clear: both;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px dotted #8a8575;
+    border-bottom: 1px dotted #8a8575;
+    font-family: Constantia,Georgia,serif;
+}
+.col-md-9 {
+    width: 75%;
+    margin-left: 20%;
+    
+    top: 7%;
+
+}
+#promotion {
+    height: 300px;
+    width: 100%;
+    background: url(../音乐商品/Images/home-showcase.png) no-repeat;
+}
+h3 {
+    color: #9b9993;
+}
+ul#album-list {
+    list-style: none;
+    margin-left: 0;
+}
+ul#album-list li {
+    height: 130px;
+    width: 100px;
+    float: left;
+    margin: 10px;
+    text-align: center;
+}
+.navbar-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 25px;
+    
+}
+
+
+
+.container{width: 100%;} */

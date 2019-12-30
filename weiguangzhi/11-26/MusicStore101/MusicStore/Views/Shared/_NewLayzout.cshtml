@@ -1,0 +1,171 @@
+﻿@using MusicStore.ViewModels
+@using MusicStoreEntity
+@using MusicStoreEntity.UserAndRole
+@{
+    var loginUserModel = Session["LoginUserSessionModel"] as LoginUserSessionModel;
+    ApplicationUser user = null;
+    //查询购物车  收藏车
+    var carts = new List<Cart>();
+    if (loginUserModel != null)
+    {
+        if (loginUserModel.User != null)
+        {
+            user = loginUserModel.User;
+        }
+        //查询购物车  收藏车
+        carts = new EntityDbContext().Carts.Where(x => x.Person.ID == user.Person.ID).ToList();
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>_NewLayzout</title>
+
+    @*绑定样式库*@
+    @Styles.Render("~/Content/css")
+
+    @Styles.Render("~/ueditor/css")
+
+    @Styles.Render("~/bundles/modernizr")
+    @Styles.Render("~/ Content / JqueryUI")
+
+    @*绑定脚本库*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/JqueryUI")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/UEditor")
+    
+
+
+
+</head>
+<body>
+    <div class="container" id="containers">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="row clearfix">
+                    <div class="col-md-6 column" id="imusic">
+                        <h1 class="text-left">
+                            <i class="glyphicon glyphicon-headphones"></i> I Music
+                        </h1>
+                    </div>
+                    <div id="one" class="col-md-6 column">
+                        <ul class="nav nav-pills">
+                            <li class="active">
+                                <a href="@Url.Action("Index", "Home")">主页</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "store")">商店</a>
+                            </li>
+                            @if (user == null)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Login", "Account")"> 登录 </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <img src="@user.Person.Avarda" alt="头像" id="userAvarda" />@user.Person.Name<span class="caret"></span>
+                                        <span id="city" class="glyphicon glyphicon-map-marker">定位中...</span><span id="district"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+                                        <li>
+                                            <a href="@Url.Action("Index", "ShonppingCart")">购物车(@carts.Count)</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("index","Order")">我的订单</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("index","my")">收件人信息</a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("map","my")">地图</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("EditPw","Account")">设置</a>
+                                        </li>
+                                        <li><a href="@Url.Action("loginout","account")">注销</a></li>
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                @*@Html.Partial("LoginLayout")*@
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" id="footer">
+        @*底部*@
+        @Html.Partial("_FooterLayout")
+    </div>
+
+
+    @*继承此布局页的页面执行脚本的位置*@
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4YArF5qC8tUXpmOLOI0OqSScaUbwQMwR"></script>
+<script>
+    // 定位
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            Lng = r.point.lng;
+            Lat = r.point.lat;
+            console.log(r);
+            if (r.address.district !== "") {
+                document.getElementById('district').innerText = r.address.district;
+            }
+            if (r.address.city !== "") {
+                document.getElementById('city').innerText = r.address.city;
+                $.ajax({
+                    url: "../home/GetWeather",
+                    data: { city: r.address.city },
+                    datatype: "json",
+                    type: "post",
+                    success: function (data) {
+                        $("#divWeather").html(data);
+                    }
+                });
+            }
+            else {
+                document.getElementById('city').innerText = "柳州市";
+                $.ajax({
+                    url: "../home/GetWeather",
+                    data: { city: "柳州市" },
+                    datatype: "json",
+                    type: "post",
+                    success: function (data) {
+                        $("#divWeather").html(data);
+                    }
+                });
+            }
+        }
+        else {
+            document.getElementById('city').innerText = "定位失败";
+        }
+    }, { enableHighAccuracy: true });
+</script>
