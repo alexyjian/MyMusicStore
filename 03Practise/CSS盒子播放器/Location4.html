@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>播放器</title>
+    <style>
+
+        .play {
+            margin: 0 auto;
+            width: 0px;
+            height: 0px;
+            border: 30px solid transparent;
+            border-left: 30px solid black;
+            border-right: none;
+            box-sizing: border-box;
+        }
+
+        .in_box {
+            width:100px;
+            height: 100px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: white;
+            padding: 20px 0 0 10px;
+            box-sizing: border-box;
+        }
+
+        .out_box {
+            width:240px;
+            height: 195px;
+            margin: 0 auto;
+            background-image: linear-gradient(160deg,#fab097 20%,#a85a67 50%);
+            border: 25px solid #241826;
+            border-radius: 20px;
+            padding-top:22px;
+            box-sizing: border-box;
+        }
+
+        .in_bg {
+            width:300px;
+            height: 300px;
+            margin: 0 auto;
+            background-image: linear-gradient(160deg,#945278 20%,#492646 50%);
+            border-radius: 20px;
+            padding-top:52px;
+            box-sizing: border-box;
+            box-shadow: 10px 10px 30px #2f0f2c
+        }
+
+        .out_bg {
+            width:500px;
+            height: 500px;
+            margin: 0 auto;
+            padding-top:100px;
+            box-sizing: border-box;
+            background-image: linear-gradient(180deg,#62426c 20%,#d4b5d5 50%, #91576f 85%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out_bg">
+        <div class="in_bg">
+            <div class="out_box">
+                <div class="in_box">
+                    <div class="play"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

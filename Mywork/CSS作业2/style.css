@@ -1,0 +1,79 @@
+/* 选择器，伪类 */
+*{
+    list-style: none;
+    outline: none;
+}
+
+boby{
+    font-family:"微软雅黑";
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+hr{ 
+    background-color: #5e2d00;
+    height: 3px;
+}
+
+a{
+    color:#5e2d00;
+    font-size: 22px;
+    text-indent: 1em;
+    display: inline-block;
+}
+
+a:link,a:visited{
+    
+    text-decoration: none;
+}
+
+a:hover{
+    color:pink ;
+    text-decoration: underline;
+}
+
+a:nth-child(1){
+    text-indent: 0;
+}
+
+dl{
+    width: 688px;
+    display: none;
+    margin: 0 auto;
+}
+:target{
+    display: block;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+dd:before{
+    content:url(images/11.png)
+}
+
+dd:nth-child(odd){
+    color: #bda793;
+}
+
+dd{
+    line-height: 40px;
+    font-size: 18px;
+    color: #333333;
+}
+
+dd:nth-child(2) strong{
+    color: deeppink;
+    font-weight: bold;
+    font-style: normal;
+}
+
+dd:nth-child(3) strong{
+    color: #5e2d00;
+    font-weight: bold;
+    font-style: normal; 
+}
