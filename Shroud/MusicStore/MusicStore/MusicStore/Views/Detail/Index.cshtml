@@ -1,0 +1,12 @@
+﻿@model MusicStoreEntity.Album
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+<h3>专辑名称：@Model.Title</h3>
+<p>作者：@Model.Artist.Name</p>
+<p>分类：@Model.Genre.Name</p>
+<p>价格：￥@Model.Price</p>
+<p>出版时间：@Model.PublisherDate.ToString("yyyy年MM月dd日")</p>

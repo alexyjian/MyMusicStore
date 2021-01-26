@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style2.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="studyinfo">
+            <form action="#" method="post">
+                <h3>学员信息登记表</h3>
+                <p>用户登录名：<input type="text" name="username" id="" readonly value="myemail@163.com"></p>
+                <p>真实姓名：<input type="text" name="name" id="" required placeholder="例如：王明" pattern="[\u4e00-\u9fa5]"></p>
+                <p>真实年龄：<input type="number" name="age" size="1" id="" required value="24"></p>
+                <p>出生日期：<input type="date" name="date" id="" required></p>
+                <p>电子邮箱：<input type="email" name="email" id="" placeholder="123456@126.com" required></p>
+                <p>身份证号：<input type="text" name="id" id="" required pattern="^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$"></p>
+                <p>手机号码：<input type="tel" name="tel" id="" required></p>
+                <p>个人主页：<input type="url" name="myindex" id="" list="index-list" value="http://www.icast.cn"></p>
+                <datalist id="index-list">
+                    <option value="http://www.icast.cn"></option>
+                    <option value="http://www.icast.cn2"></option>
+                    <option value="http://www.icast.cn3"></option>
+                </datalist>
+                <p>幸运颜色：<input type="color" value="#ffff00" /></p>
+                <p><input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

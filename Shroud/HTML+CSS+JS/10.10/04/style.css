@@ -1,0 +1,52 @@
+html,body{
+    padding:0;
+    margin:0;
+}
+.box{
+    position: relative;
+    background:url(imgs/sy.png) no-repeat ;
+    width: 950px;
+    height: 688px;
+}
+input{
+    border: 2px solid #666;
+    border-radius: 5px;
+    box-shadow: -1px -1px 1px #666;
+    padding: 4px;
+}
+h3{
+    text-align: center;
+}
+.info{
+    position: absolute;
+    
+    bottom: 40px;
+    right: 300px;
+}
+span{
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+}
+p:nth-last-child(2) input{
+    border:2px solid #000!important;
+    width:300px;
+    padding-bottom: 80px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 10px;
+    
+}
+p:nth-last-child(2) input,p:nth-child(1) input{
+    box-shadow: none;
+}
+p:nth-last-child(1) input{
+    width: 180px;
+    height: 30px;
+    margin: 0 10px;
+    background-color: #eee;
+}
+input[type="radio"]:checked{
+    color: #369;
+    
+}

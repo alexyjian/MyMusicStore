@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        .bglight {
+            background-color: lightyellow;
+        }
+
+        .handType {
+            cursor: pointer;
+        }
+        table,tr,td{
+            border:0
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>国籍</td>
+            </tr>
+            <tr v-for="(item, index) in datalist" v-on:mouseover="bglight" v-on:mouseout="rebgliht" v-bind:class="{bglight:isBgliht}">
+                <td v-on:click="alertName(item)" v-on:mouseover="handType" v-bind:class="{handType:isHandtype}">
+                    {{item.name}}
+                </td>
+                <td>
+                    {{item.age}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            datalist: [
+                { name: '张三', age: '12', country: 'England' },
+                { name: '李四', age: '13', country: 'USA' },
+                { name: '王五', age: '14', country: 'China' }
+            ],
+            isActive: false,
+            isBgliht: false,
+            isHandtype: false
+        },
+        methods: {
+            alertName: function (obj) {
+                alert(obj.name);
+            },
+            bglight: function () {
+                this.isBgliht = true;
+            },
+            rebgliht: function () {
+                this.isBgliht = false;
+            },
+            handType: function () {
+                this.isHandtype = true;
+            }
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+/* 选择器，伪类 */
+.box{
+    width: 800px;
+    margin:0 auto;
+}
+.box h1{
+    text-align: center;
+}
+.head  p a {
+    width: 180px;
+    margin:10px 5px;
+    display: block;
+    text-align: center;
+    
+}
+a{
+    text-decoration: none;
+    color:rgb(94,45,0);
+}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover{
+    color:rgb(255,0,51);
+    text-decoration: underline;
+    font-weight: bolder;
+}
+a:active {text-decoration:underline;}
+.head p{
+    border-top:3px solid rgb(94,45,0);
+    border-bottom:3px solid rgb(94,45,0);
+    padding:10px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.body{
+    width: 688px;
+    margin: 0 auto;
+    font-size: 19px;
+}
+.main{
+    height: 568px;
+    overflow: hidden;
+}
+.main .body p::before{
+    content: url(Images/11.png)
+}
+.main .body p:nth-child(even){
+    color:#bfa893;
+}
+.main .body p:nth-child(2) strong{
+    color: rgb(255,0,51);
+}
+.main .body p:nth-child(3) strong{
+    color: rgb(94,45,59);
+}

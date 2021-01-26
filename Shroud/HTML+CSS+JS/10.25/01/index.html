@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 720px;
+            height: 378px;
+            background-image: url(images/flash_sale.png);
+            margin: 50px auto;
+            color: #fff;
+            font-weight: bold;
+
+        }
+
+        span {
+            position: absolute;
+        }
+
+        span:nth-child(1) {
+            left: 360px;
+            bottom: 96px;
+        }
+
+        span:nth-child(2) {
+            left: 419px;
+            bottom: 96px;
+        }
+
+        span:nth-child(3) {
+            right: 224px;
+            bottom: 96px;
+        }
+
+        .mark {
+            width: 702px;
+            height: 50px;
+            background-image: url(images/flash_end.png);
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: absolute;
+            bottom: 28px;
+            text-align: center;
+            line-height: 50px;
+            color: #f00;
+            font-size: 24px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span id="Hh"></span>
+        <span id="Mm"></span>
+        <span id="Ss"></span>
+        <div id="over" class="mark">
+            秒杀已结束
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    hh = document.getElementById('Hh');
+    mm = document.getElementById('Mm');
+    ss = document.getElementById('Ss');
+
+    function time() {
+        Targettime = new Date('2018/10/25 11:47:00');
+        d = new Date();
+
+        if (d >= Targettime) {
+            document.getElementById('over').style.display = "block";
+            clearInterval(timechange);
+        }
+        else {
+            nhour = parseInt((Targettime - d) / (1000 * 60 * 60));
+            nminute = parseInt((Targettime - d) % (1000 * 60 * 60) / (1000 * 60));
+            nsecond = parseInt(((Targettime - d) % (1000 * 60 * 60) % (1000 * 60) / 1000));
+            hh.innerHTML = nhour > 9 ? nhour : '0' + nhour;
+            mm.innerHTML = nminute > 9 ? nminute : '0' + nminute;
+            ss.innerHTML = nsecond > 9 ? nsecond : '0' + nsecond;
+        }
+
+    }
+
+    time();
+    var timechange = setInterval(time, 1000);
+</script>

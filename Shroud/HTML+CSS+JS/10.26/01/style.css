@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background-color:#369;
+    border:5px solid #000;
+    margin:50px auto;
+    box-sizing: border-box;
+}
+.bal{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    border-radius: 50%;
+    box-sizing: border-box;
+    top:6px;
+    left:6px;
+}

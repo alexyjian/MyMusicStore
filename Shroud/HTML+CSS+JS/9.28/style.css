@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.box01{
+    position: relative;
+    height:220px;
+    margin-bottom: 6px;
+}
+
+.box01 a {
+    color: #666;
+}
+
+.tuan {
+
+    padding: 10px;
+    border: 1px solid #000;
+    width: 296px;
+    height: 310px;
+    margin: 50px auto;
+}
+
+.tuan .box01 .name {
+    margin-bottom: 6px;
+}
+
+.tuan .box01 .pic {
+    position: absolute;
+    left: 82px;
+}
+
+.box01 ul {
+    position: absolute;
+    width: 136px;
+    bottom: 10px;
+    right: -16px;
+}
+
+.box01 ul li {
+    display: inline-block;
+    border: 2px solid #ff0000;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    margin-right: 6px;
+    background-color: #fff;
+}
+
+.box01 ul li:first-child {
+    background-color: #fefc00;
+}
+
+.box02{
+    position: relative;
+    font-size: 14px;
+}
+
+.box02 a{
+    color: #000;
+}
+
+.box02 .btn{
+    position: absolute;
+    width: 90px;
+    height: 36px;
+    background-color: #feaa62;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 2px solid #fe8e3e;
+    right: 0px;
+    bottom: -8px;
+}
+
+.box02 .tit{
+    margin-bottom: 6px;
+}
+
+.box02 .tit span{
+    font-weight: bold;
+}
+
+.box02 .price span{
+    font-size: 20px;
+    color: #fe8e3e;
+}
+
+.tuan .box02 .price em{
+    font-weight: bold;
+    font-size: 10px;
+    font-style:normal;
+}

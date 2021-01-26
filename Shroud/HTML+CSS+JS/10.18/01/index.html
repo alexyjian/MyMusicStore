@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content {
+            position: relative;
+            margin: 50px auto;
+            perspective: 800px;
+            width: 200px;
+            height: 300px;
+        }
+
+        .mark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotateY(-180deg);
+            color: aqua;
+            
+        }
+
+        .box,
+        .mark {
+            width: 200px;
+            height: 300px;
+            padding: 10px;
+            transition: all 1s;
+            backface-visibility: hidden;
+            border: 1px solid #000;
+        }
+
+        .content:hover .box{
+            transform: rotateY(180deg);
+        }
+
+        .content:hover .mark {
+            transform: rotateY(0deg);
+        }
+    </style>
+</head>
+
+<body>
+   
+
+
+    <div class="content">
+        <div class="box">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quae nobis magni veniam, id
+                praesentium,
+                dolores mollitia, illo optio doloremque officia error ullam quam tempore recusandae! Nobis suscipit
+                optio
+                aspernatur!
+            </p>
+        </div>
+        <div class="mark">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quae nobis magni veniam, id
+                praesentium, dolores mollitia, illo optio doloremque officia error ullam quam tempore recusandae! Nobis
+                suscipit optio aspernatur!
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

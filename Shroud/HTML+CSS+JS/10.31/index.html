@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html,
+        body,
+        ul,
+        li,
+        ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 420px;
+            height: 315px;
+            padding: 10px;
+            border: 1px solid #999;
+        }
+
+        .mark {
+            position: relative;
+            overflow: hidden;
+            width: 420px;
+            height: 315px;
+            border: 1px solid #000;
+        }
+
+        ul {
+            position: absolute;
+            width: 3360px;
+        }
+
+        ul li {
+
+            float: left;
+        }
+
+        ol {
+            position: absolute;
+            width: 254px;
+            z-index: 99;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+        }
+
+        ol li {
+            float: left;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #000;
+            background-color: #fff;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        ol li:last-child {
+            margin-right: 0;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="mark">
+            <ul id="uls">
+                <li><img src="imgs/bg1.webp" alt=""></li>
+                <li><img src="imgs/bg2.webp" alt=""></li>
+                <li><img src="imgs/bg3.webp" alt=""></li>
+                <li><img src="imgs/bg4.webp" alt=""></li>
+                <li><img src="imgs/bg5.webp" alt=""></li>
+                <li><img src="imgs/bg6.webp" alt=""></li>
+                <li><img src="imgs/bg1.webp" alt=""></li>
+                <li><img src="imgs/bg2.webp" alt=""></li>
+            </ul>
+            <ol id="ols">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var uls = document.getElementById('uls'),
+        ollis = document.getElementById('ols').children,
+        step = 0,index=0, time1 = null, time2 = null;
+
+    for (let i = 0; i < ollis.length; i++) {
+        ollis[i].onmouseover=function(){
+            
+        }
+    }
+
+
+
+    
+   
+
+    
+        time1 = setInterval(function () {
+        if (step <= -2940) step = -420;
+        else {
+            step -= 10;
+            uls.style.left = step + 'px';
+        }
+    }, 20)
+
+    
+</script>

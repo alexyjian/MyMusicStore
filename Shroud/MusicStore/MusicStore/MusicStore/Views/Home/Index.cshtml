@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MusicStoreEntity.Album>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-sm-6">
+        <a href="@Url.Action("Index","Detail",new {id=item.ID})">
+            <img src="" />
+            <h3>
+                @item.Title
+            </h3>
+            <small>@item.Artist.Name</small>
+        </a>
+    </div>
+}
